@@ -1,0 +1,159 @@
+---
+title: "Download"
+lead: "Get the latest Stratum Gateway installer and deploy it on your own hardware or virtual infrastructure."
+full_width: true
+---
+
+<div class="download-layout">
+
+<section class="download-hero">
+  <div class="download-hero-left">
+    <span class="eyebrow">Current release</span>
+    <h2>Stratum Gateway v1.3.0</h2>
+    <p>The installer ISO includes everything needed to bring up a complete Stratum Gateway deployment on bare metal or in a virtual machine. Based on Debian 13 (trixie) with the Linux 6.12 LTS kernel.</p>
+
+    <div class="download-meta">
+      <div class="download-meta-item">
+        <span class="download-meta-label">Version</span>
+        <span class="download-meta-value">1.3.0</span>
+      </div>
+      <div class="download-meta-item">
+        <span class="download-meta-label">File size</span>
+        <span class="download-meta-value">942 MB</span>
+      </div>
+      <div class="download-meta-item">
+        <span class="download-meta-label">Released</span>
+        <span class="download-meta-value">2026-09-12</span>
+      </div>
+      <div class="download-meta-item">
+        <span class="download-meta-label">Format</span>
+        <span class="download-meta-value">ISO image</span>
+      </div>
+    </div>
+
+    <div class="download-actions">
+      <a href="https://update.stratumfw.com/packages/stratum-gateway-installer.iso" class="btn btn-primary download-btn">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
+        Download ISO
+      </a>
+      <a href="/resources/changelog/" class="btn btn-secondary">View changelog</a>
+    </div>
+
+    <p class="download-alt">
+      Direct link: <a href="https://update.stratumfw.com/packages/stratum-gateway-installer.iso">https://update.stratumfw.com/packages/stratum-gateway-installer.iso</a>
+    </p>
+  </div>
+
+  <div class="download-hero-right">
+    <div class="download-verify">
+      <h4>Verify your download</h4>
+      <p>After downloading, verify the integrity of the ISO by comparing its SHA-256 hash to the value below.</p>
+      <div class="download-hash">
+        <code>abe449c1f26a72ad73bd3e2214307728740c2404cd93a75b1f16f198f7eca98a</code>
+      </div>
+      <p class="download-verify-hint">On Linux or macOS:</p>
+      <pre><code>sha256sum stratum-gateway-installer.iso</code></pre>
+      <p class="download-verify-hint">On Windows (PowerShell):</p>
+      <pre><code>Get-FileHash .\stratum-gateway-installer.iso -Algorithm SHA256</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="download-section">
+  <div class="download-section-head">
+    <h2>Before you install</h2>
+    <p>A few things worth knowing so your deployment starts on the right foot.</p>
+  </div>
+
+  <div class="card-grid grid-2">
+    <div class="card">
+      <h3>Minimum requirements</h3>
+      <ul class="download-req-list">
+        <li>64-bit x86-64 CPU (2 cores minimum, 4 recommended)</li>
+        <li>2 GB RAM minimum, 4 GB recommended</li>
+        <li>8 GB storage minimum, 20 GB recommended</li>
+        <li>Two network interfaces (WAN + LAN minimum)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Deployment targets</h3>
+      <ul class="download-req-list">
+        <li>Bare-metal appliance (recommended for production)</li>
+        <li>KVM, VMware, Proxmox, VirtualBox, Hyper-V</li>
+        <li>Cloud instances supporting custom ISO boot</li>
+        <li>USB-bootable installation media</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>What's included</h3>
+      <ul class="download-req-list">
+        <li>Debian 13 (trixie) base system</li>
+        <li>All 26 Stratum Gateway modules</li>
+        <li>Web management panel and API</li>
+        <li>Built-in certificate authority</li>
+        <li>Update mechanism (connects to <code>update.stratumfw.com</code>)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>What you'll need</h3>
+      <ul class="download-req-list">
+        <li>An empty USB stick (2 GB+) or VM to boot from</li>
+        <li>Basic network information: gateway IP, DNS, DHCP ranges</li>
+        <li>Admin credentials you want to use for the panel</li>
+        <li>About 20–30 minutes for a fresh installation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="download-section">
+  <div class="download-section-head">
+    <h2>After installation</h2>
+    <p>Once the gateway boots, you'll be guided through initial configuration. From there, the documentation covers everything else.</p>
+  </div>
+
+  <div class="card-grid grid-3">
+    <div class="card">
+      <h3>Initial setup</h3>
+      <p>Set hostname, timezone, admin password, and first network interfaces.</p>
+      <a href="/resources/documentation/#getting-started" class="card-link">Getting started →</a>
+    </div>
+    <div class="card">
+      <h3>Configuration</h3>
+      <p>Firewall rules, VPN, IDS, web filtering, QoS — all covered in the docs.</p>
+      <a href="/resources/documentation/#configuration" class="card-link">Configuration →</a>
+    </div>
+    <div class="card">
+      <h3>Live demo</h3>
+      <p>See the panel running before you install it. Every module is live.</p>
+      <a href="/try-me/" class="card-link">Open demo →</a>
+    </div>
+  </div>
+</section>
+
+<section class="download-section">
+  <div class="download-section-head">
+    <h2>Previous releases</h2>
+    <p>Older installer images are archived for reference. We recommend using the current release.</p>
+  </div>
+
+  <div class="download-archive">
+    <p class="download-archive-empty">
+      No previous installer images are available at this time. This is the first public ISO release.
+    </p>
+  </div>
+</section>
+
+<section class="download-section download-support">
+  <h3>Need help with your deployment?</h3>
+  <p>Whether it's hardware selection, network planning, or a specific configuration question — we're happy to help.</p>
+  <div>
+    <a href="/company/contact/" class="btn btn-primary">Contact us</a>
+    <a href="/resources/faq/" class="btn btn-secondary">Read FAQ</a>
+  </div>
+</section>
+
+</div>

@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="wrap">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/" class="brand">
+        <img src="/images/logo.svg" alt="Stratum Gateway">
+        <span>Stratum Gateway</span>
+      </a>
+
+      <ul class="nav-menu">
+        {{ range site.Menus.main }}
+          {{ if .HasChildren }}
+            <li class="has-children">
+              <a href="{{ .URL }}">{{ .Name }}</a>
+              <ul class="submenu">
+                {{ range .Children }}
+                  <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ end }}
+              </ul>
+            </li>
+          {{ else }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+
+      <div class="nav-actions">
+        <a href="{{ site.Params.docsURL }}" class="nav-link">Docs</a>
+        <a href="{{ site.Params.dashboardURL }}" class="btn btn-primary btn-sm">Try It Live</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>

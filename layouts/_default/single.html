@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<section class="page-header">
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      {{ range .Ancestors.Reverse }}
+        {{ if not .IsHome }}
+          <span class="sep">/</span>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
+      {{ end }}
+      <span class="sep">/</span>
+      <span>{{ .Title }}</span>
+    </nav>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    {{ if .Params.full_width }}
+      {{ .Content }}
+    {{ else }}
+      <div class="prose">
+        {{ .Content }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}
