@@ -1,0 +1,48 @@
+{{ define "main" }}
+
+<section class="page-header">
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <span>Blog</span>
+    </nav>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    {{ if .Pages }}
+      <div class="blog-grid">
+        {{ range .Pages.ByDate.Reverse }}
+          <a href="{{ .Permalink }}" class="blog-card">
+            <div class="blog-card-meta">
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+              {{ with .Params.author }}<span class="blog-card-author">{{ . }}</span>{{ end }}
+            </div>
+            <h2 class="blog-card-title">{{ .Title }}</h2>
+            {{ with .Description }}<p class="blog-card-desc">{{ . }}</p>{{ end }}
+            <div class="blog-card-foot">
+              <span class="blog-card-link">Read article →</span>
+              {{ with .Params.tags }}
+                <div class="blog-card-tags">
+                  {{ range first 3 . }}
+                    <span class="blog-tag">{{ . }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p style="text-align:center; color:var(--ash); font-size:15px;">No articles published yet. Check back soon.</p>
+    {{ end }}
+
+  </div>
+</section>
+
+{{ end }}
