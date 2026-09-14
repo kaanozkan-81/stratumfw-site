@@ -36,7 +36,7 @@ full_width: true
     <div class="card">
       <h3>Panel Tour</h3>
       <p>Navigate the interface, understand the layout, and find what you need.</p>
-      <span class="card-link" style="color:var(--ash-dark);">Coming soon</span>
+      <a href="/resources/documentation/panel-tour/" class="card-link">Read guide →</a>
     </div>
   </div>
 </section>
