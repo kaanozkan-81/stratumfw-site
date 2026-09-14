@@ -52,7 +52,7 @@ full_width: true
     <div class="card">
       <h3>Firewall Rules</h3>
       <p>Create, order, and apply rules. Understand objects and time windows.</p>
-      <span class="card-link" style="color:var(--ash-dark);">Coming soon</span>
+      <a href="/resources/documentation/firewall-rules/" class="card-link">Read guide →</a>
     </div>
     <div class="card">
       <h3>Multi-WAN</h3>
