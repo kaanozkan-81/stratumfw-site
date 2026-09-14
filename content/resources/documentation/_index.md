@@ -62,7 +62,7 @@ full_width: true
     <div class="card">
       <h3>VPN (WireGuard)</h3>
       <p>Set up peers, generate configs, and provision mobile clients.</p>
-      <span class="card-link" style="color:var(--ash-dark);">Coming soon</span>
+      <a href="/resources/documentation/vpn/" class="card-link">Read guide →</a>
     </div>
     <div class="card">
       <h3>IDS (Suricata)</h3>
