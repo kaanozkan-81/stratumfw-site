@@ -57,7 +57,7 @@ full_width: true
     <div class="card">
       <h3>Multi-WAN</h3>
       <p>Configure failover and load balancing across multiple internet links.</p>
-      <span class="card-link" style="color:var(--ash-dark);">Coming soon</span>
+      <a href="/resources/documentation/multi-wan/" class="card-link">Read guide →</a>
     </div>
     <div class="card">
       <h3>VPN (WireGuard)</h3>
