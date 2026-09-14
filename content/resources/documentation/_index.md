@@ -21,17 +21,17 @@ full_width: true
     <div class="card">
       <h3>Installation</h3>
       <p>Prepare hardware, boot the installer, and complete the initial setup.</p>
-      <span class="card-link" style="color:var(--ash-dark);">Coming soon</span>
+      <a href="/resources/documentation/installation/" class="card-link">Read guide →</a>
     </div>
     <div class="card">
       <h3>Initial Configuration</h3>
       <p>Set hostname, timezone, admin account, and first network interfaces.</p>
-      <span class="card-link" style="color:var(--ash-dark);">Coming soon</span>
+      <a href="/resources/documentation/initial-configuration/" class="card-link">Read guide →</a>
     </div>
     <div class="card">
       <h3>Network Basics</h3>
       <p>WAN, LAN, VLANs, and how Stratum models your network topology.</p>
-      <span class="card-link" style="color:var(--ash-dark);">Coming soon</span>
+      <a href="/resources/documentation/network-basics/" class="card-link">Read guide →</a>
     </div>
     <div class="card">
       <h3>Panel Tour</h3>
