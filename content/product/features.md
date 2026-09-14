@@ -362,6 +362,42 @@ full_width: true
     </ul>
   </article>
 
+  <article id="boot" class="feature-item">
+    <h3>BIOS &amp; UEFI Boot</h3>
+    <p class="feature-problem"><strong>The problem:</strong> Modern servers often ship with UEFI-only firmware, while older hardware requires legacy BIOS. An installer tied to one mode locks out half the deployment targets.</p>
+    <p class="feature-solution"><strong>How Stratum solves it:</strong> The installer supports both legacy BIOS and UEFI boot out of the box. No firmware reconfiguration, no manual CSM adjustments — insert the media, boot, and the installation proceeds.</p>
+    <ul class="feature-tech">
+      <li>Legacy BIOS and UEFI boot both supported</li>
+      <li>Automatic detection of firmware mode during installation</li>
+      <li>Compatible with bare metal, virtual machines, and cloud instances</li>
+      <li>No Secure Boot configuration changes required</li>
+    </ul>
+  </article>
+
+  <article id="console" class="feature-item">
+    <h3>VGA &amp; Serial Console Variants</h3>
+    <p class="feature-problem"><strong>The problem:</strong> Headless servers in data centers are reached through serial-over-LAN (IPMI, iDRAC, iLO), while workstations and small offices use standard displays. One installer can't serve both cleanly.</p>
+    <p class="feature-solution"><strong>How Stratum solves it:</strong> Two separate installer images ship with every release — one that outputs to a VGA console, one that outputs to a serial console. Both install the identical gateway. You pick the one that matches how you'll reach the machine.</p>
+    <ul class="feature-tech">
+      <li>VGA installer for physical displays and desktops</li>
+      <li>Serial installer for IPMI, iDRAC, iLO, and other SOL environments</li>
+      <li>Identical gateway after installation — only the console output differs</li>
+      <li>Both images published with matching SHA-256 hashes</li>
+    </ul>
+  </article>
+
+  <article id="first-login" class="feature-item">
+    <h3>Mandatory Password Change on First Login</h3>
+    <p class="feature-problem"><strong>The problem:</strong> Default credentials that ship with an installer are a known attack vector. Most products warn users to change them — very few enforce it.</p>
+    <p class="feature-solution"><strong>How Stratum solves it:</strong> The initial admin credentials follow a documented, predictable convention. On first login, the panel enforces a password change before any other function becomes available — no configuration, no dashboard, no routing changes until the new password is set.</p>
+    <ul class="feature-tech">
+      <li>Predictable first-login credentials, documented per release</li>
+      <li>Panel locked until password change is completed</li>
+      <li>Enforced client-side and server-side</li>
+      <li>Same policy applied to the SSH account</li>
+    </ul>
+  </article>
+
   <article id="settings" class="feature-item">
     <h3>System Settings</h3>
     <p class="feature-problem"><strong>The problem:</strong> Basic system administration shouldn't require a separate SSH session.</p>

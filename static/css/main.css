@@ -1978,3 +1978,131 @@ img{max-width:100%; display:block;}
     align-items:flex-start;
   }
 }
+
+/* ============================================
+   DOWNLOAD — Variant cards (VGA / Serial)
+   ============================================ */
+
+.download-variants{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.download-variant{
+  display:flex;
+  flex-direction:column;
+  padding:32px;
+  background:var(--paper);
+  border:1.5px solid var(--line-strong);
+  border-radius:var(--radius);
+  transition:border-color .2s, box-shadow .2s, transform .2s;
+}
+
+.download-variant:hover{
+  border-color:var(--accent);
+  box-shadow:var(--shadow-md);
+  transform:translateY(-2px);
+}
+
+.download-variant-head{
+  margin-bottom:12px;
+}
+
+.download-variant-badge{
+  display:inline-block;
+  padding:3px 10px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:20px;
+  font-size:10.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:12px;
+}
+
+.download-variant-badge-alt{
+  background:var(--blue-900);
+}
+
+.download-variant h3{
+  font-family:var(--font-display);
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:-.01em;
+  color:var(--blue-900);
+  margin:0;
+}
+
+.download-variant-desc{
+  font-size:14.5px;
+  color:var(--ash);
+  line-height:1.65;
+  margin-bottom:20px;
+}
+
+.download-variant-meta{
+  display:grid;
+  gap:8px;
+  padding:16px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  margin-bottom:16px;
+}
+
+.download-variant-meta span{
+  font-size:13px;
+  color:var(--ash);
+  line-height:1.5;
+}
+
+.download-variant-meta strong{
+  color:var(--blue-900);
+  font-weight:600;
+  margin-right:4px;
+}
+
+.download-variant-hash{
+  margin-bottom:24px;
+}
+
+.download-variant-hash-label{
+  display:block;
+  font-family:var(--font-display);
+  font-size:10.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--ash-dark);
+  margin-bottom:6px;
+}
+
+.download-variant-hash code{
+  display:block;
+  background:var(--canvas);
+  padding:8px 12px;
+  border-radius:6px;
+  font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:11px;
+  color:var(--blue-800);
+  word-break:break-all;
+  line-height:1.5;
+}
+
+.download-variant .download-btn{
+  margin-top:auto;
+  justify-content:center;
+}
+
+@media (max-width:860px){
+  .download-variants{
+    grid-template-columns:1fr;
+  }
+  .download-variant{
+    padding:26px;
+  }
+  .download-variant h3{
+    font-size:19px;
+  }
+}

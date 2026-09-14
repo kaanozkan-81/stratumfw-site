@@ -10,7 +10,7 @@ full_width: true
   <div class="download-hero-left">
     <span class="eyebrow">Current release</span>
     <h2>Stratum Gateway v1.3.0</h2>
-    <p>The installer ISO includes everything needed to bring up a complete Stratum Gateway deployment on bare metal or in a virtual machine. Based on Debian 13 (trixie) with the Linux 6.12 LTS kernel.</p>
+    <p>Two installer images are available — one for standard VGA consoles and one for serial console environments. Both install the same complete gateway; only the console output method differs.</p>
 
     <div class="download-meta">
       <div class="download-meta-item">
@@ -19,43 +19,122 @@ full_width: true
       </div>
       <div class="download-meta-item">
         <span class="download-meta-label">File size</span>
-        <span class="download-meta-value">942 MB</span>
+        <span class="download-meta-value">942 MB each</span>
       </div>
       <div class="download-meta-item">
         <span class="download-meta-label">Released</span>
-        <span class="download-meta-value">2026-09-12</span>
+        <span class="download-meta-value">2026-09-14</span>
       </div>
       <div class="download-meta-item">
-        <span class="download-meta-label">Format</span>
-        <span class="download-meta-value">ISO image</span>
+        <span class="download-meta-label">Boot</span>
+        <span class="download-meta-value">BIOS &amp; UEFI</span>
       </div>
     </div>
-
-    <div class="download-actions">
-      <a href="https://update.stratumfw.com/packages/stratum-gateway-installer.iso" class="btn btn-primary download-btn">
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
-        Download ISO
-      </a>
-      <a href="/resources/changelog/" class="btn btn-secondary">View changelog</a>
-    </div>
-
-    <p class="download-alt">
-      Direct link: <a href="https://update.stratumfw.com/packages/stratum-gateway-installer.iso">https://update.stratumfw.com/packages/stratum-gateway-installer.iso</a>
-    </p>
   </div>
 
   <div class="download-hero-right">
     <div class="download-verify">
-      <h4>Verify your download</h4>
-      <p>After downloading, verify the integrity of the ISO by comparing its SHA-256 hash to the value below.</p>
-      <div class="download-hash">
-        <code>abe449c1f26a72ad73bd3e2214307728740c2404cd93a75b1f16f198f7eca98a</code>
-      </div>
+      <h4>Before you download</h4>
+      <p>Verify the integrity of the ISO after downloading by comparing its SHA-256 hash to the value shown in each variant below.</p>
       <p class="download-verify-hint">On Linux or macOS:</p>
-      <pre><code>sha256sum stratum-gateway-installer.iso</code></pre>
+      <pre><code>sha256sum stratum-gateway-installer-*.iso</code></pre>
       <p class="download-verify-hint">On Windows (PowerShell):</p>
-      <pre><code>Get-FileHash .\stratum-gateway-installer.iso -Algorithm SHA256</code></pre>
+      <pre><code>Get-FileHash .\stratum-gateway-installer-*.iso -Algorithm SHA256</code></pre>
     </div>
+  </div>
+</section>
+
+<section class="download-section">
+  <div class="download-section-head">
+    <h2>Choose your installer</h2>
+    <p>Both images install the identical gateway. Pick the one that matches how you'll access the installation console.</p>
+  </div>
+
+  <div class="download-variants">
+
+    <article class="download-variant">
+      <div class="download-variant-head">
+        <div>
+          <span class="download-variant-badge">Recommended</span>
+          <h3>VGA Installer</h3>
+        </div>
+      </div>
+      <p class="download-variant-desc">For standard installations with a monitor and keyboard attached — physical servers, desktops, and most virtual machines.</p>
+
+      <div class="download-variant-meta">
+        <span><strong>Console:</strong> VGA / physical display</span>
+        <span><strong>Size:</strong> 942 MB</span>
+        <span><strong>Released:</strong> 2026-09-14</span>
+      </div>
+
+      <div class="download-variant-hash">
+        <span class="download-variant-hash-label">SHA-256</span>
+        <code>3dccdbaf8c97acaaeae51aeb1437d2187d21b53e4e91c6a817855b4d79296924</code>
+      </div>
+
+      <a href="https://update.stratumfw.com/packages/stratum-gateway-installer-vga.iso" class="btn btn-primary download-btn">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
+        Download VGA ISO
+      </a>
+    </article>
+
+    <article class="download-variant">
+      <div class="download-variant-head">
+        <div>
+          <span class="download-variant-badge download-variant-badge-alt">Headless</span>
+          <h3>Serial Installer</h3>
+        </div>
+      </div>
+      <p class="download-variant-desc">For headless servers and remote console access — IPMI, iDRAC, iLO, and other serial-over-LAN environments.</p>
+
+      <div class="download-variant-meta">
+        <span><strong>Console:</strong> Serial / SOL</span>
+        <span><strong>Size:</strong> 942 MB</span>
+        <span><strong>Released:</strong> 2026-09-14</span>
+      </div>
+
+      <div class="download-variant-hash">
+        <span class="download-variant-hash-label">SHA-256</span>
+        <code>213095d1dc8b74064714a602456b0945d57ccdec9b3c85dfcdcece7438bf61ff</code>
+      </div>
+
+      <a href="https://update.stratumfw.com/packages/stratum-gateway-installer-serial.iso" class="btn btn-primary download-btn">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
+        Download Serial ISO
+      </a>
+    </article>
+
+  </div>
+</section>
+
+<section class="download-section">
+  <div class="download-section-head">
+    <h2>What's new in this release</h2>
+    <p>Highlights from the current installer.</p>
+  </div>
+
+  <div class="card-grid grid-2">
+
+    <div class="card">
+      <h3>BIOS and UEFI boot</h3>
+      <p>The installer now boots on both legacy BIOS and modern UEFI firmware. No BIOS configuration change required for UEFI-only systems.</p>
+    </div>
+
+    <div class="card">
+      <h3>VGA and Serial console variants</h3>
+      <p>Two separate images — one for physical displays, one for serial-over-LAN consoles used in headless data centers.</p>
+    </div>
+
+    <div class="card">
+      <h3>Predictable first-login credentials</h3>
+      <p>The initial username and password follow a documented, pfSense-style convention. Read them from the installation summary on first login.</p>
+    </div>
+
+    <div class="card">
+      <h3>Mandatory password change</h3>
+      <p>Until you change the initial password, the rest of the panel remains locked. No configuration change is possible before this step.</p>
+    </div>
+
   </div>
 </section>
 
@@ -82,7 +161,7 @@ full_width: true
         <li>Bare-metal appliance (recommended for production)</li>
         <li>KVM, VMware, Proxmox, VirtualBox, Hyper-V</li>
         <li>Cloud instances supporting custom ISO boot</li>
-        <li>USB-bootable installation media</li>
+        <li>USB-bootable installation media (Rufus recommended)</li>
       </ul>
     </div>
 
@@ -102,8 +181,8 @@ full_width: true
       <ul class="download-req-list">
         <li>An empty USB stick (2 GB+) or VM to boot from</li>
         <li>Basic network information: gateway IP, DNS, DHCP ranges</li>
-        <li>Admin credentials you want to use for the panel</li>
-        <li>About 20–30 minutes for a fresh installation</li>
+        <li>About 15–20 minutes for a fresh installation</li>
+        <li>Physical or serial console access on first boot</li>
       </ul>
     </div>
   </div>
@@ -117,14 +196,14 @@ full_width: true
 
   <div class="card-grid grid-3">
     <div class="card">
-      <h3>Initial setup</h3>
-      <p>Set hostname, timezone, admin password, and first network interfaces.</p>
-      <a href="/resources/documentation/#getting-started" class="card-link">Getting started →</a>
+      <h3>Installation guide</h3>
+      <p>Step-by-step instructions for writing the ISO to USB and running the installer.</p>
+      <a href="/resources/documentation/installation/" class="card-link">Read guide →</a>
     </div>
     <div class="card">
-      <h3>Configuration</h3>
-      <p>Firewall rules, VPN, IDS, web filtering, QoS — all covered in the docs.</p>
-      <a href="/resources/documentation/#configuration" class="card-link">Configuration →</a>
+      <h3>Initial configuration</h3>
+      <p>Hostname, timezone, WAN, security modules, and backups.</p>
+      <a href="/resources/documentation/initial-configuration/" class="card-link">Getting started →</a>
     </div>
     <div class="card">
       <h3>Live demo</h3>
