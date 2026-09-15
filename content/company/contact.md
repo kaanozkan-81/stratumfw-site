@@ -9,7 +9,7 @@ For anything related to evaluation, deployment questions, pricing (there is none
 
 <div class="contact-card">
   <div class="contact-card-label">Email</div>
-  <a href="mailto:k.ozkan@ethnohotels.com" class="contact-card-value">k.ozkan@ethnohotels.com</a>
+  <a href="mailto:info@stratumfw.com" class="contact-card-value">info@stratumfw.com</a>
   <p class="contact-card-note">We aim to respond within one business day.</p>
 </div>
 
@@ -20,25 +20,25 @@ For anything related to evaluation, deployment questions, pricing (there is none
   <div class="card">
     <h3>Evaluation &amp; pilot</h3>
     <p>Considering Stratum Gateway for your organization? Tell us about your environment — number of sites, users, and current setup — and we'll help you plan a pilot.</p>
-    <a href="mailto:k.ozkan@ethnohotels.com?subject=Stratum%20Evaluation" class="card-link">Start an evaluation →</a>
+    <a href="mailto:info@stratumfw.com?subject=Stratum%20Evaluation" class="card-link">Start an evaluation →</a>
   </div>
 
   <div class="card">
     <h3>Technical support</h3>
     <p>Already running Stratum Gateway? Send us your version (visible in the panel under <em>System → About</em>) and a description of what you're seeing.</p>
-    <a href="mailto:k.ozkan@ethnohotels.com?subject=Stratum%20Support" class="card-link">Request support →</a>
+    <a href="mailto:support@stratumfw.com?subject=Stratum%20Support" class="card-link">Request support →</a>
   </div>
 
   <div class="card">
     <h3>Partnership</h3>
     <p>MSPs, resellers, integrators, and anyone who wants to build a service around Stratum Gateway — we're interested in hearing how you'd use it.</p>
-    <a href="mailto:k.ozkan@ethnohotels.com?subject=Stratum%20Partnership" class="card-link">Discuss partnership →</a>
+    <a href="mailto:info@stratumfw.com?subject=Stratum%20Partnership" class="card-link">Discuss partnership →</a>
   </div>
 
   <div class="card">
     <h3>Security disclosures</h3>
     <p>If you've found a vulnerability in Stratum Gateway, please disclose responsibly. Include reproduction steps and affected version. We take these seriously.</p>
-    <a href="mailto:k.ozkan@ethnohotels.com?subject=Security%20Disclosure" class="card-link">Report a vulnerability →</a>
+    <a href="mailto:support@stratumfw.com?subject=Security%20Disclosure" class="card-link">Report a vulnerability →</a>
   </div>
 
 </div>

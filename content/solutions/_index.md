@@ -34,5 +34,5 @@ If your environment doesn't map cleanly onto one of these categories — a hospi
 Reach out and we'll help you map Stratum to your specific environment.
 
 <div style="margin-top:32px;">
-  <a href="mailto:k.ozkan@ethnohotels.com" class="btn btn-primary">Talk to us</a>
+  <a href="mailto:info@stratumfw.com" class="btn btn-primary">Talk to us</a>
 </div>

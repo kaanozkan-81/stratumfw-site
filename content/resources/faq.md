@@ -20,7 +20,7 @@ full_width: true
     <details>
       <summary>Who builds it?</summary>
       <div class="faq-body">
-        Stratum Gateway is developed by Stratum Security. You can reach the team at <a href="mailto:k.ozkan@ethnohotels.com">k.ozkan@ethnohotels.com</a>.
+        Stratum Gateway is developed by Stratum Security. You can reach the team at <a href="mailto:info@stratumfw.com">info@stratumfw.com</a>.
       </div>
     </details>
 
@@ -181,7 +181,7 @@ full_width: true
     <details>
       <summary>How do I get help?</summary>
       <div class="faq-body">
-        Email <a href="mailto:k.ozkan@ethnohotels.com">k.ozkan@ethnohotels.com</a>. Include the platform version (visible under <em>System → About</em>) and as much detail as you can about the situation.
+        Email <a href="mailto:support@stratumfw.com">support@stratumfw.com</a>. Include the platform version (visible under <em>System → About</em>) and as much detail as you can about the situation.
       </div>
     </details>
 
@@ -202,7 +202,7 @@ full_width: true
     <details>
       <summary>How do I report a security vulnerability?</summary>
       <div class="faq-body">
-        Please email <a href="mailto:k.ozkan@ethnohotels.com?subject=Security%20Disclosure">k.ozkan@ethnohotels.com</a> with reproduction details and the affected version. Disclosures are taken seriously and handled responsibly.
+        Please email <a href="mailto:support@stratumfw.com?subject=Security%20Disclosure">support@stratumfw.com</a> with reproduction details and the affected version. Disclosures are taken seriously and handled responsibly.
       </div>
     </details>
   </div>

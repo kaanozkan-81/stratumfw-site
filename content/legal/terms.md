@@ -109,7 +109,7 @@ If any provision of these Terms is found to be unenforceable or invalid, that pr
 
 For questions about these Terms:
 
-**Email:** [k.ozkan@ethnohotels.com](mailto:k.ozkan@ethnohotels.com)
+**Email:** [info@stratumfw.com](mailto:info@stratumfw.com)
 
 ---
 

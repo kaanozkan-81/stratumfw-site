@@ -86,7 +86,7 @@ We may update this policy from time to time. When we do, we will update the "Las
 
 For questions about this policy or about how we handle information:
 
-**Email:** [k.ozkan@ethnohotels.com](mailto:k.ozkan@ethnohotels.com)
+**Email:** [info@stratumfw.com](mailto:info@stratumfw.com)
 
 ---
 

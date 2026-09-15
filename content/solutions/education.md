@@ -151,5 +151,5 @@ If your institution later wants managed support or professional services, those 
 
 <div style="margin-top:32px;">
   <a href="/try-me/" class="btn btn-primary">Try the live dashboard</a>
-  <a href="mailto:k.ozkan@ethnohotels.com" class="btn btn-secondary">Talk to us</a>
+  <a href="mailto:info@stratumfw.com" class="btn btn-secondary">Talk to us</a>
 </div>
