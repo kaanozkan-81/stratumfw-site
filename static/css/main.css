@@ -2345,3 +2345,34 @@ img{max-width:100%; display:block;}
 @media (max-width: 860px) {
     .gallery-grid { grid-template-columns: 1fr; }
 }
+
+/* Mobil Menü Düzeltmesi */
+@media (max-width: 960px) {
+    .nav-menu.active {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--paper);
+        padding: 20px;
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+    .nav-menu.active > li {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .nav-menu.active .submenu {
+        position: static;
+        display: block;
+        box-shadow: none;
+        border: none;
+        padding-left: 15px;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
