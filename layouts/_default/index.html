@@ -153,4 +153,58 @@
   </div>
 </section>
 
+
+<section class="section section-canvas" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Interface Preview</span>
+      <h2>Built for operators, by engineers</h2>
+      <p>A clean, modern, and fast interface. Click on any screenshot to view it in full size.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('/images/docs/dashboard.png')">
+        <img src="/images/docs/dashboard.png" alt="Stratum Dashboard">
+        <div class="gallery-overlay"><span>Dashboard</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('/images/docs/pf-rules.png')">
+        <img src="/images/docs/pf-rules.png" alt="pf Firewall Rules">
+        <div class="gallery-overlay"><span>Firewall Rules</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('/images/docs/wireguard.png')">
+        <img src="/images/docs/wireguard.png" alt="WireGuard VPN">
+        <div class="gallery-overlay"><span>WireGuard VPN</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('/images/docs/blocklists.png')">
+        <img src="/images/docs/blocklists.png" alt="IP & DNS Blocklists">
+        <div class="gallery-overlay"><span>Threat Blocklists</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src) {
+    var lightbox = document.getElementById("lightbox");
+    var img = document.getElementById("lightbox-img");
+    img.src = src;
+    lightbox.classList.add("active");
+    document.body.style.overflow = 'hidden'; // Scroll'u engelle
+}
+function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("active");
+    document.body.style.overflow = 'auto'; // Scroll'u geri aç
+}
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+});
+</script>
+
 {{ end }}

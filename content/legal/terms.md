@@ -33,15 +33,6 @@ You agree to use the website only for lawful purposes and in a manner that does 
 - Attempting to reverse-engineer or circumvent security measures
 - Using the website or services to violate any applicable law or regulation
 
-## Use of the live demo
-
-
-- Store, process, or transmit any real, sensitive, or production data
-- Attempt to gain unauthorized access to the underlying system
-- Use the demo as a substitute for a properly deployed installation
-
-We may reset, modify, or discontinue the demo at any time without notice. Any data entered into the demo may be cleared periodically.
-
 ## Use of the update server
 
 The update server at `update.stratumfw.com` distributes software packages and a signed manifest. You may access it programmatically as part of a legitimate Stratum Gateway installation. You may not:

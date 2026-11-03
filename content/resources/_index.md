@@ -34,10 +34,7 @@ For teams that know what they're looking for:
 
 <div class="card-grid grid-2" style="margin-top:24px;">
 
-  <div class="card">
-    <h3>Try the live dashboard</h3>
-    <p>See every module running on a live instance — no signup required.</p>
-  </div>
+  
 
   <div class="card">
     <h3>See the feature list</h3>
