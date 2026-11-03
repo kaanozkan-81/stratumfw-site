@@ -3,10 +3,10 @@
    ============================================ */
 
 :root{
-  --blue-900:#16325C; --blue-800:#1C3E6E; --blue-line:#2E5D91;
-  --accent:#3E8EED; --accent-dim:rgba(62,142,237,.10); --accent-2:#0EA5A0;
-  --canvas:#EEF2F6; --paper:#FFFFFF; --line:#D7DEE8; --line-strong:#C4CEDC;
-  --ash:#5B6472; --ash-dark:#97A0AF; --text:#101521;
+  --blue-900:#111827; --blue-800:#374151; --blue-line:#D1D5DB;
+  --accent:#F59E0B; --accent-dim:rgba(245,158,11,.10); --accent-2:#F59E0B;
+  --canvas:#F9FAFB; --paper:#FFFFFF; --line:#E5E7EB; --line-strong:#D1D5DB;
+  --ash:#4B5563; --ash-dark:#97A0AF; --text:#111827;
   --success:#0F9D58; --warn:#E8A33D;
   --shadow-sm:0 2px 10px rgba(16,21,33,.05);
   --shadow-md:0 10px 28px rgba(16,21,33,.10);
@@ -55,7 +55,7 @@ img{max-width:100%; display:block;}
 /* ---------- HERO (home) ---------- */
 .hero{position:relative; padding:120px 0 100px; text-align:center; overflow:hidden;}
 .hero::before{content:""; position:absolute; inset:0; background-image:url("/images/hero-bg.jpg"); background-size:cover; background-position:center; z-index:-2;}
-.hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,30,61,.55) 0%, rgba(15,30,61,.78) 60%, #fff 100%); z-index:-1;}
+.hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(249,250,251,.85) 0%, #F9FAFB 100%); z-index:-1;}
 .hero .wrap{position:relative; z-index:1;}
 .hero-badge{display:inline-block; padding:7px 16px; background:rgba(62,142,237,.18); color:#9FC4FA; border-radius:20px; font-size:13.5px; font-weight:600; margin-bottom:24px; letter-spacing:.01em;}
 .hero h1{font-family:var(--font-display); font-size:52px; font-weight:700; line-height:1.1; letter-spacing:-.015em; margin-bottom:22px; color:#fff;}
@@ -2126,4 +2126,125 @@ img{max-width:100%; display:block;}
 
 .footer-cookie-note a:hover {
   color: rgba(255, 255, 255, 0.9);
+}
+
+/* ============================================
+   HERO OVERRIDES — Panel Industrial Theme
+   ============================================ */
+
+/* Arka plandaki eski mavi kalkan görselini ve gradyanı kaldır */
+.hero::before {
+    background-image: none !important;
+    background: #F9FAFB !important; /* Panelin arka plan rengi */
+    border-bottom: 1px solid #E5E7EB;
+}
+.hero::after {
+    background: none !important;
+}
+
+/* Yazı Renkleri (Okunabilirlik için koyu renkler) */
+.hero h1 {
+    color: #111827 !important; /* Koyu Antrasit */
+}
+.hero h1 span {
+    color: #F59E0B !important; /* Turuncu Vurgu */
+}
+.hero p {
+    color: #4B5563 !important; /* Orta Gri */
+}
+
+/* Badge (Etiket) */
+.hero-badge {
+    background: rgba(245, 158, 11, 0.1) !important;
+    color: #D97706 !important; /* Koyu Turuncu */
+    border: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Butonlar */
+.hero .btn-primary {
+    background: #F59E0B !important; /* Turuncu */
+    color: #111827 !important; /* Siyah yazı */
+    box-shadow: none !important;
+    border: 1px solid #D97706;
+}
+.hero .btn-primary:hover {
+    background: #D97706 !important; /* Koyu Turuncu */
+    color: #FFFFFF !important;
+}
+
+.hero .btn-secondary {
+    background: #FFFFFF !important;
+    color: #111827 !important; /* Siyah yazı */
+    border: 1px solid #D1D5DB !important;
+}
+.hero .btn-secondary:hover {
+    background: #F3F4F6 !important;
+    border-color: #9CA3AF !important;
+}
+
+/* ============================================
+   HERO WATERMARK BACKGROUND
+   ============================================ */
+
+.hero::before {
+    background-color: #F9FAFB !important;
+    background-image: url('/images/watermark-logo.svg') !important;
+    background-size: 65% !important; /* Logoyu devasa yap */
+    background-position: right -5% center !important; /* Sağ tarafa yerleştir */
+    background-repeat: no-repeat !important;
+    opacity: 0.08 !important; /* Belli belirsiz soluk yap */
+    border-bottom: 1px solid #E5E7EB;
+}
+
+/* ============================================
+   DASHBOARD & BUTTON THEME UPDATES (Orange Industrial)
+   ============================================ */
+
+/* 1. Kartın en üstündeki koyu mavi başlığı turuncu yap */
+.home-download-card-head {
+    background: #F59E0B !important;
+    color: #111827 !important;
+    border-bottom: 2px solid #D97706 !important;
+}
+.home-download-card-title {
+    color: #111827 !important;
+    font-weight: 700 !important;
+}
+
+/* 2. Kartın dışına kalın ve belirgin turuncu çerçeve çiz */
+.home-download-card {
+    border: 3px solid #F59E0B !important;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15) !important;
+}
+.home-download-card-foot {
+    background: #FEF3C7 !important; /* Çok açık turuncu/sarımsı arka plan */
+    border-top: 2px solid #F59E0B !important;
+}
+
+/* 3. Sol taraftaki "Read the Docs" butonunu turuncu yap */
+.btn-primary {
+    background: #F59E0B !important;
+    color: #111827 !important;
+    border: 2px solid #D97706 !important;
+    font-weight: 700 !important;
+}
+.btn-primary:hover {
+    background: #D97706 !important;
+    color: #FFFFFF !important;
+}
+
+/* 4. "View on GitHub" (Secondary) butonunun kenarlığını belirginleştir */
+.btn-secondary {
+    border: 2px solid #D1D5DB !important;
+    font-weight: 600 !important;
+}
+.btn-secondary:hover {
+    border-color: #F59E0B !important;
+    background: #FFFBEB !important;
+    color: #111827 !important;
+}
+
+/* 5. Header (üst menü) çizgisini kalınlaştır */
+.site-header {
+    border-bottom: 2px solid #E5E7EB !important;
 }

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <!-- 3 Katmanlı Piramit/Stratum Logosu -->
+  <!-- Üst Katman (Dolu alan + koyu kenarlık) -->
+  <path d="M100 20 L20 60 L100 100 L180 60 Z" fill="url(#orangeGrad)" stroke="#B45309" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Orta Katman (Koyu ve kalın çizgi) -->
+  <path d="M20 90 L100 130 L180 90" fill="none" stroke="#B45309" stroke-width="10" stroke-linejoin="round"/>
+  <!-- Alt Katman (Koyu ve kalın çizgi) -->
+  <path d="M20 120 L100 160 L180 120" fill="none" stroke="#B45309" stroke-width="10" stroke-linejoin="round" opacity="0.85"/>
+</svg>

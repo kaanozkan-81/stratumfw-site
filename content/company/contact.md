@@ -58,7 +58,6 @@ For technical documentation, installation guides, and API reference, see the doc
 You don't have to talk to us to see what Stratum Gateway does. The live dashboard runs a fully functional instance — every module, every feature, no signup required.
 
 <div style="margin-top:32px;">
-  <a href="/try-me/" class="btn btn-primary">Open the live dashboard</a>
 </div>
 
 ---

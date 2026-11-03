@@ -37,7 +37,6 @@ For teams that know what they're looking for:
   <div class="card">
     <h3>Try the live dashboard</h3>
     <p>See every module running on a live instance — no signup required.</p>
-    <a href="/try-me/" class="card-link">Open demo →</a>
   </div>
 
   <div class="card">

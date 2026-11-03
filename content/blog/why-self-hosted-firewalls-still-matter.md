@@ -107,4 +107,3 @@ If you've been assuming that self-hosted means hard, we'd encourage you to take 
 
 ---
 
-*If you want to see what a modern self-hosted firewall looks like, the live dashboard demo runs a full Stratum Gateway instance with every module active. No signup, no gate. [Take a look →](/try-me/)*

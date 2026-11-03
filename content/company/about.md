@@ -83,5 +83,4 @@ If you're evaluating Stratum Gateway for your organization, or if you're buildin
 
 <div style="margin-top:32px;">
   <a href="/company/contact/" class="btn btn-primary">Contact us</a>
-  <a href="/try-me/" class="btn btn-secondary">Explore the API</a>
 </div>

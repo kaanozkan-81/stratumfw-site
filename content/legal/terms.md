@@ -14,7 +14,6 @@ If you do not agree with these Terms, please do not use the Services.
 Stratum Gateway is open-source software distributed by Stratum Security ("we", "us", or "our"). The Services include:
 
 - The **stratumfw.com** website, including documentation and informational content
-- The **live dashboard demo** at `/try-me/`
 - The **software update server** at `update.stratumfw.com`
 - The **Stratum Gateway software** itself, distributed as an installable image and update packages
 
@@ -36,7 +35,6 @@ You agree to use the website only for lawful purposes and in a manner that does 
 
 ## Use of the live demo
 
-The live dashboard demo at `/try-me/` is provided for **evaluation and demonstration purposes only**. You agree not to use the demo to:
 
 - Store, process, or transmit any real, sensitive, or production data
 - Attempt to gain unauthorized access to the underlying system

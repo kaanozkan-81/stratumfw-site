@@ -26,7 +26,6 @@ Server access logs are maintained by our hosting infrastructure for security and
 
 Logs are retained for a limited period and are used only for security monitoring, abuse prevention, and service reliability. They are not used for analytics or marketing.
 
-### The live dashboard demo (`/try-me/`)
 
 The live dashboard demo runs against a demo instance. It does not require registration and does not collect personal information. Any data you enter into the demo is transient and used only to demonstrate functionality.
 

@@ -12,7 +12,6 @@ enableRobotsTXT = true
   changelogURL = '/resources/changelog/'
   downloadURL = '/download/'
   manifestURL = 'https://update.stratumfw.com/manifest.json'
-  dashboardURL = '/try-me/'
   year = 2026
 
 [markup]

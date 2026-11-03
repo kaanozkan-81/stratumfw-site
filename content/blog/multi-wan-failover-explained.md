@@ -157,6 +157,5 @@ Because Stratum is self-hosted, the entire failover configuration lives on your 
 
 ---
 
-*If you want to see what multi-WAN management looks like in practice, the live dashboard demo runs a full Stratum Gateway instance with all modules active. [Take a look →](/try-me/)*
 
 *Or learn more about Stratum's broader network capabilities on the [features page](/product/features/#multi-wan).*
