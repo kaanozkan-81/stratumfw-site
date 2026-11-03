@@ -1,105 +1,202 @@
 baseURL = 'https://stratumfw.com/'
-languageCode = 'en-us'
-title = 'Stratum Gateway'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
 disableKinds = ["taxonomy", "term"]
 
-[params]
-  tagline = 'Next-Generation Firewall OS'
-  description = 'Stratum Gateway is a FreeBSD-based enterprise firewall OS. It combines the raw power of pf packet filtering with a modern FastAPI management panel, role-based access control, and zero-dependency WireGuard support.'
-  companyName = 'Stratum Security'
-  contactEmail = 'info@stratumfw.com'
-  docsURL = '/resources/documentation/'
-  changelogURL = '/resources/changelog/'
-  downloadURL = '/download/'
-  manifestURL = 'https://update.stratumfw.com/manifest.json'
-  year = 2026
+[languages]
+  [languages.en]
+    languageCode = 'en-us'
+    languageName = 'English'
+    weight = 1
+    title = 'Stratum Gateway'
+    [languages.en.params]
+      tagline = 'Next-Generation Firewall OS'
+      description = 'Stratum Gateway is a FreeBSD-based enterprise firewall OS. It combines the raw power of pf packet filtering with a modern FastAPI management panel, role-based access control, and zero-dependency WireGuard support.'
+      companyName = 'Stratum Security'
+      contactEmail = 'info@stratumfw.com'
+      docsURL = '/resources/documentation/'
+      changelogURL = '/resources/changelog/'
+      downloadURL = '/download/'
+      manifestURL = 'https://update.stratumfw.com/manifest.json'
+      year = 2026
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = 'Product'
+        url = '/product/'
+        weight = 10
+        identifier = 'product'
+      [[languages.en.menu.main]]
+        name = 'Features'
+        url = '/product/features/'
+        parent = 'product'
+        weight = 11
+      [[languages.en.menu.main]]
+        name = 'Architecture'
+        url = '/product/architecture/'
+        parent = 'product'
+        weight = 12
+      [[languages.en.menu.main]]
+        name = 'Solutions'
+        url = '/solutions/'
+        weight = 20
+        identifier = 'solutions'
+      [[languages.en.menu.main]]
+        name = 'Small Business'
+        url = '/solutions/smb/'
+        parent = 'solutions'
+        weight = 21
+      [[languages.en.menu.main]]
+        name = 'Enterprise'
+        url = '/solutions/enterprise/'
+        parent = 'solutions'
+        weight = 22
+      [[languages.en.menu.main]]
+        name = 'Education'
+        url = '/solutions/education/'
+        parent = 'solutions'
+        weight = 23
+      [[languages.en.menu.main]]
+        name = 'Resources'
+        url = '/resources/'
+        weight = 30
+        identifier = 'resources'
+      [[languages.en.menu.main]]
+        name = 'Documentation'
+        url = '/resources/documentation/'
+        parent = 'resources'
+        weight = 31
+      [[languages.en.menu.main]]
+        name = 'Changelog'
+        url = '/resources/changelog/'
+        parent = 'resources'
+        weight = 32
+      [[languages.en.menu.main]]
+        name = 'FAQ'
+        url = '/resources/faq/'
+        parent = 'resources'
+        weight = 33
+      [[languages.en.menu.main]]
+        name = 'Blog'
+        url = '/blog/'
+        parent = 'resources'
+        weight = 34
+      [[languages.en.menu.main]]
+        name = 'Download'
+        url = '/download/'
+        weight = 35
+      [[languages.en.menu.main]]
+        name = 'Company'
+        url = '/company/'
+        weight = 40
+        identifier = 'company'
+      [[languages.en.menu.main]]
+        name = 'About'
+        url = '/company/about/'
+        parent = 'company'
+        weight = 41
+      [[languages.en.menu.main]]
+        name = 'Contact'
+        url = '/company/contact/'
+        parent = 'company'
+        weight = 42
+
+  [languages.tr]
+    languageCode = 'tr-tr'
+    languageName = 'Türkçe'
+    weight = 2
+    title = 'Stratum Gateway'
+    [languages.tr.params]
+      tagline = 'Yeni Nesil Güvenlik Duvarı İşletim Sistemi'
+      description = 'Stratum Gateway, FreeBSD tabanlı kurumsal bir güvenlik duvarı işletim sistemidir. pf paket filtrelemenin ham gücünü, modern FastAPI yönetim paneli, rol tabanlı erişim kontrolü ve sıfır bağımlılıklı WireGuard desteği ile birleştirir.'
+      companyName = 'Stratum Security'
+      contactEmail = 'info@stratumfw.com'
+      docsURL = '/tr/resources/documentation/'
+      changelogURL = '/tr/resources/changelog/'
+      downloadURL = '/tr/download/'
+      manifestURL = 'https://update.stratumfw.com/manifest.json'
+      year = 2026
+    [languages.tr.menu]
+      [[languages.tr.menu.main]]
+        name = 'Ürün'
+        url = '/tr/product/'
+        weight = 10
+        identifier = 'product'
+      [[languages.tr.menu.main]]
+        name = 'Özellikler'
+        url = '/tr/product/features/'
+        parent = 'product'
+        weight = 11
+      [[languages.tr.menu.main]]
+        name = 'Mimari'
+        url = '/tr/product/architecture/'
+        parent = 'product'
+        weight = 12
+      [[languages.tr.menu.main]]
+        name = 'Çözümler'
+        url = '/tr/solutions/'
+        weight = 20
+        identifier = 'solutions'
+      [[languages.tr.menu.main]]
+        name = 'Küçük İşletme'
+        url = '/tr/solutions/smb/'
+        parent = 'solutions'
+        weight = 21
+      [[languages.tr.menu.main]]
+        name = 'Kurumsal'
+        url = '/tr/solutions/enterprise/'
+        parent = 'solutions'
+        weight = 22
+      [[languages.tr.menu.main]]
+        name = 'Eğitim'
+        url = '/tr/solutions/education/'
+        parent = 'solutions'
+        weight = 23
+      [[languages.tr.menu.main]]
+        name = 'Kaynaklar'
+        url = '/tr/resources/'
+        weight = 30
+        identifier = 'resources'
+      [[languages.tr.menu.main]]
+        name = 'Dokümantasyon'
+        url = '/tr/resources/documentation/'
+        parent = 'resources'
+        weight = 31
+      [[languages.tr.menu.main]]
+        name = 'Sürüm Notları'
+        url = '/tr/resources/changelog/'
+        parent = 'resources'
+        weight = 32
+      [[languages.tr.menu.main]]
+        name = 'SSS'
+        url = '/tr/resources/faq/'
+        parent = 'resources'
+        weight = 33
+      [[languages.tr.menu.main]]
+        name = 'Blog'
+        url = '/tr/blog/'
+        parent = 'resources'
+        weight = 34
+      [[languages.tr.menu.main]]
+        name = 'İndir'
+        url = '/tr/download/'
+        weight = 35
+      [[languages.tr.menu.main]]
+        name = 'Şirket'
+        url = '/tr/company/'
+        weight = 40
+        identifier = 'company'
+      [[languages.tr.menu.main]]
+        name = 'Hakkımızda'
+        url = '/tr/company/about/'
+        parent = 'company'
+        weight = 41
+      [[languages.tr.menu.main]]
+        name = 'İletişim'
+        url = '/tr/company/contact/'
+        parent = 'company'
+        weight = 42
 
 [markup]
   [markup.goldmark.renderer]
     unsafe = true
-
-[menu]
-  [[menu.main]]
-    name = 'Product'
-    url = '/product/'
-    weight = 10
-    identifier = 'product'
-  [[menu.main]]
-    name = 'Features'
-    url = '/product/features/'
-    parent = 'product'
-    weight = 11
-  [[menu.main]]
-    name = 'Architecture'
-    url = '/product/architecture/'
-    parent = 'product'
-    weight = 12
-
-  [[menu.main]]
-    name = 'Solutions'
-    url = '/solutions/'
-    weight = 20
-    identifier = 'solutions'
-  [[menu.main]]
-    name = 'Small Business'
-    url = '/solutions/smb/'
-    parent = 'solutions'
-    weight = 21
-  [[menu.main]]
-    name = 'Enterprise'
-    url = '/solutions/enterprise/'
-    parent = 'solutions'
-    weight = 22
-  [[menu.main]]
-    name = 'Education'
-    url = '/solutions/education/'
-    parent = 'solutions'
-    weight = 23
-
-  [[menu.main]]
-    name = 'Resources'
-    url = '/resources/'
-    weight = 30
-    identifier = 'resources'
-  [[menu.main]]
-    name = 'Documentation'
-    url = '/resources/documentation/'
-    parent = 'resources'
-    weight = 31
-  [[menu.main]]
-    name = 'Changelog'
-    url = '/resources/changelog/'
-    parent = 'resources'
-    weight = 32
-  [[menu.main]]
-    name = 'FAQ'
-    url = '/resources/faq/'
-    parent = 'resources'
-    weight = 33
-  [[menu.main]]
-    name = 'Blog'
-    url = '/blog/'
-    parent = 'resources'
-    weight = 34
-
-  [[menu.main]]
-    name = 'Download'
-    url = '/download/'
-    weight = 35
-
-  [[menu.main]]
-    name = 'Company'
-    url = '/company/'
-    weight = 40
-    identifier = 'company'
-  [[menu.main]]
-    name = 'About'
-    url = '/company/about/'
-    parent = 'company'
-    weight = 41
-  [[menu.main]]
-    name = 'Contact'
-    url = '/company/contact/'
-    parent = 'company'
-    weight = 42

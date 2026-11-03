@@ -1,64 +1,62 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-cols">
-
       <div>
-        <a href="/" class="footer-brand">
+        <a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ else }}/{{ end }}" class="footer-brand">
           <img src="/images/logo.svg" alt="Stratum Gateway">
           <span>Stratum Gateway</span>
         </a>
-        <p class="footer-blurb">The next-generation firewall OS. Built on FreeBSD and pf, managed via a modern FastAPI interface. Open-source, API-driven, and enterprise-ready.</p>
+        <p class="footer-blurb">
+          {{ if eq .Site.Language.Lang "tr" }}
+          Yeni nesil güvenlik duvarı işletim sistemi. FreeBSD ve pf üzerine inşa edilmiş, modern FastAPI arayüzü ile yönetilir. Açık kaynak, API odaklı ve kurumsal kullanıma hazır.
+          {{ else }}
+          The next-generation firewall OS. Built on FreeBSD and pf, managed via a modern FastAPI interface. Open-source, API-driven, and enterprise-ready.
+          {{ end }}
+        </p>
       </div>
-
       <div class="footer-col">
-        <h4>Product</h4>
+        <h4>{{ if eq .Site.Language.Lang "tr" }}Ürün{{ else }}Product{{ end }}</h4>
         <ul>
-          <li><a href="/product/">Overview</a></li>
-          <li><a href="/product/features/">Features</a></li>
-          <li><a href="/product/architecture/">Architecture</a></li>
-
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}product/">{{ if eq .Site.Language.Lang "tr" }}Genel Bakış{{ else }}Overview{{ end }}</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}product/features/">{{ if eq .Site.Language.Lang "tr" }}Özellikler{{ else }}Features{{ end }}</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}product/architecture/">{{ if eq .Site.Language.Lang "tr" }}Mimari{{ else }}Architecture{{ end }}</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}download/">{{ if eq .Site.Language.Lang "tr" }}İndir{{ else }}Download{{ end }}</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
-        <h4>Solutions</h4>
+        <h4>{{ if eq .Site.Language.Lang "tr" }}Çözümler{{ else }}Solutions{{ end }}</h4>
         <ul>
-          <li><a href="/solutions/smb/">Small Business</a></li>
-          <li><a href="/solutions/enterprise/">Enterprise</a></li>
-          <li><a href="/solutions/education/">Education</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}solutions/smb/">{{ if eq .Site.Language.Lang "tr" }}Küçük İşletme{{ else }}Small Business{{ end }}</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}solutions/enterprise/">{{ if eq .Site.Language.Lang "tr" }}Kurumsal{{ else }}Enterprise{{ end }}</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}solutions/education/">{{ if eq .Site.Language.Lang "tr" }}Eğitim{{ else }}Education{{ end }}</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
-        <h4>Resources</h4>
+        <h4>{{ if eq .Site.Language.Lang "tr" }}Kaynaklar{{ else }}Resources{{ end }}</h4>
         <ul>
-          <li><a href="{{ site.Params.docsURL }}">Documentation</a></li>
-          <li><a href="/resources/changelog/">Changelog</a></li>
-          <li><a href="/resources/faq/">FAQ</a></li>
-          <li><a href="/blog/">Blog</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}resources/documentation/">{{ if eq .Site.Language.Lang "tr" }}Dokümantasyon{{ else }}Documentation{{ end }}</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}resources/changelog/">{{ if eq .Site.Language.Lang "tr" }}Sürüm Notları{{ else }}Changelog{{ end }}</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}resources/faq/">{{ if eq .Site.Language.Lang "tr" }}SSS{{ else }}FAQ{{ end }}</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}blog/">{{ if eq .Site.Language.Lang "tr" }}Blog{{ else }}Blog{{ end }}</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
-        <h4>Company</h4>
+        <h4>{{ if eq .Site.Language.Lang "tr" }}Şirket{{ else }}Company{{ end }}</h4>
         <ul>
-          <li><a href="/company/about/">About</a></li>
-          <li><a href="/company/contact/">Contact</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}company/about/">{{ if eq .Site.Language.Lang "tr" }}Hakkımızda{{ else }}About{{ end }}</a></li>
+          <li><a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}company/contact/">{{ if eq .Site.Language.Lang "tr" }}İletişim{{ else }}Contact{{ end }}</a></li>
         </ul>
       </div>
-
     </div>
-
     <div class="footer-bottom">
-      <span>&copy; {{ site.Params.year }} {{ site.Params.companyName }}. All rights reserved.</span>
+      <span>&copy; {{ site.Params.year }} {{ site.Params.companyName }}. {{ if eq .Site.Language.Lang "tr" }}Tüm hakları saklıdır.{{ else }}All rights reserved.{{ end }}</span>
       <div class="legal-links">
-        <a href="/legal/privacy/">Privacy</a>
-        <a href="/legal/terms/">Terms</a>
+        <a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}legal/privacy/">{{ if eq .Site.Language.Lang "tr" }}Gizlilik Politikası{{ else }}Privacy{{ end }}</a>
+        <a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}legal/terms/">{{ if eq .Site.Language.Lang "tr" }}Kullanım Şartları{{ else }}Terms{{ end }}</a>
       </div>
     </div>
-
     <p class="footer-cookie-note">
-      This site does not use cookies. See our <a href="/legal/privacy/">Privacy Policy</a> for details.
+      {{ if eq .Site.Language.Lang "tr" }}Bu site çerez kullanmaz. Detaylar için <a href="/tr/legal/privacy/">Gizlilik Politikamıza</a> göz atın.{{ else }}This site does not use cookies. See our <a href="/legal/privacy/">Privacy Policy</a> for details.{{ end }}
     </p>
   </div>
 </footer>

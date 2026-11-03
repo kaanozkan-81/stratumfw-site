@@ -1,0 +1,212 @@
+{{ define "main" }}
+
+<section class="hero">
+  <div class="wrap">
+    <span class="hero-badge">Yeni Nesil Güvenlik Duvarı İşletim Sistemi</span>
+    <h1>Ham FreeBSD gücü.<br><span>Modern API kontrolü.</span></h1>
+    <p>Stratum Gateway, kendini kanıtlamış <strong>pf paket filtresini</strong> şimşek hızındaki bir FastAPI yönetim paneliyle birleştirir. Tescilli bağımlılıklar yok, mutlak kontrol var. Modern altyapılar için güvenlik odaklı bir mimariyle inşa edildi.</p>
+    
+    <div class="hero-release-notice">
+      <a href="/tr/resources/changelog/">Stratum FW v0.12.2 yayınlandı. Sürüm notlarını okuyun &rarr;</a>
+    </div>
+    
+    <div class="hero-ctas">
+      <a href="/tr/download/" class="btn btn-primary">Stratum FW'yi İndir</a>
+      <a href="/tr/product/architecture/" class="btn btn-secondary">Mimariyi İncele</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><b>FreeBSD</b><span>Çekirdek Düzeyinde Güvenlik</span></div>
+    <div class="stat"><b>pf</b><span>Durum Bilgili Paket Filtresi</span></div>
+    <div class="stat"><b>%100</b><span>API Odaklı Panel</span></div>
+    <div class="stat"><b>RBAC</b><span>Rol Tabanlı Erişim</span></div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Temel Yetenekler</span>
+      <h2>Mutlak kontrol için tasarlandı</h2>
+      <p>Gereksiz yükler yok, gizli satıcı kilitlenmeleri yok. Sadece FreeBSD'nin ham gücü, modern ve duyarlı bir arayüzle sarılmış durumda.</p>
+    </div>
+    <div class="card-grid grid-3">
+
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10c2-3.3 5-5 8-5s6 1.7 8 5c-2 3.3-5 5-8 5s-6-1.7-8-5Z"/><circle cx="10" cy="10" r="2"/></svg></div>
+        <h3>pf Paket Filtresi</h3>
+        <p>FreeBSD'nin yerel güvenlik duvarı ile güçlendirilmiştir. Çekirdek düzeyinde maksimum verim için durum bilgili denetim, NAT ve trafik şekillendirme.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="9" rx="1.5"/><path d="M6 8V6a4 4 0 0 1 8 0v2"/></svg></div>
+        <h3>Sıfır Bağımlılıklı VPN</h3>
+        <p>Yerel WireGuard desteği. Tünellerinizi güvene almak için harici bir bağımlılığa ihtiyaç duymamanız adına X25519 kriptografisini (RFC 7748) sıfırdan yazdık.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H4v4M12 16h4v-4M4 16l5-5M16 4l-5 5"/></svg></div>
+        <h3>Bildirimsel Yapılandırma</h3>
+        <p>Tek bir <code>config.json</code> dosyası tüm sistemi yönetir. Python motorumuz, <code>pf.conf</code>, DHCP ve DNS dosyalarınızı mutlak bir hassasiyetle dinamik olarak oluşturur.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l-8 8 8 8 8-8-8-8z"/><path d="M8 12l4-4"/></svg></div>
+        <h3>FastAPI Arka Ucu</h3>
+        <p>Tamamen eşzamansız (asynchronous) bir Python arka ucu. Panel, hafif ve yüksek performanslı bir REST API ile kullanıcı arayüzü olarak hizmet vererek bellek kullanımını minimumda tutar.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"/><path d="M10 6v4l3 3"/></svg></div>
+        <h3>Rol Tabanlı Erişim</h3>
+        <p>Kurumsal düzeyde RBAC standart olarak gelir. Her API ve arayüzde Yöneticiler, Operatörler ve Salt Okunur kullanıcılar arasında ayrım yapın.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17.5S4 12.8 4 8a6 6 0 0 1 12 0c0 4.8-6 9.5-6 9.5Z"/></svg></div>
+        <h3>IP ve DNS Karalisteleri</h3>
+        <p>Ağınızı her iki katmanda koruyun. Kötü amaçlı IP'leri paket düzeyinde engellemek için genel tehdit akışlarını kullanın, aynı zamanda DNSBL aracılığıyla kötü amaçlı alan adlarını düşürün.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Neden Stratum?</span>
+      <h2>Mühendisler tarafından, mühendisler için</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="num">01</div>
+        <h3>Güvenli Uygulama (Safe-Apply)</h3>
+        <p>Kendinizi bir daha asla sistemden kilitlemeyin. Her güvenlik duvarı kuralı ve arayüz değişikliği, uygulanmadan önce pf sözdizimine göre doğrulanır ve test edilir.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">02</div>
+        <h3>Sıfır Satıcı Bağımlılığı</h3>
+        <p>%100 açık kaynak, FreeBSD tabanlı ve tamamen kendi donanımınızda çalışır. Bulut bağımlılığı, abonelikler veya telemetri yok.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">03</div>
+        <h3>Temiz ve Denetlenebilir</h3>
+        <p>Oluşturulan yapılandırma dosyaları insan tarafından okunabilir. <code>pf.conf</code> ve <code>wg0.conf</code> dosyalarınızı dilediğiniz zaman inceleyin. Gördüğünüz şey, çekirdeğin çalıştırdığı şeyin tam olarak aynısıdır.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-canvas">
+  <div class="wrap">
+    <div class="home-download">
+
+      <div class="home-download-content">
+        <span class="eyebrow">Geliştirici Önizlemesi</span>
+        <h2>Yeni nesli kullanıma alın</h2>
+        <p>Stratum Gateway şu anda aktif geliştirme aşamasındadır. Kurulum medyasını ve temel modülleri tamamlıyoruz. Geliştiriciler ve erken benimseyenler API'yi ve paneli şimdi test edebilir.</p>
+
+        <ul class="home-download-list">
+          <li>FreeBSD 14 üzerine inşa edildi (Çekirdek düzeyinde güvenlik)</li>
+          <li>Python 3.12 ve FastAPI Arka Ucu</li>
+          <li>Yerel pf, WireGuard ve DHCP desteği</li>
+          <li>Tamamen REST API ile yönetilir</li>
+        </ul>
+
+        <div class="home-download-actions">
+          <a href="/tr/resources/documentation/" class="btn btn-primary">Dökümantasyonu Oku</a>
+          <a href="https://github.com/kaanozkan-81/stratumfw-site" class="btn btn-secondary" target="_blank" rel="noopener">GitHub'da İncele</a>
+        </div>
+      </div>
+
+      <div class="home-download-visual">
+        <div class="home-download-card">
+          <div class="home-download-card-head">
+            <span class="home-download-card-dot"></span>
+            <span class="home-download-card-title">stratum-gateway-core</span>
+          </div>
+          <div class="home-download-card-body">
+            <div class="home-download-card-row">
+              <span>Durum</span>
+              <strong>Aktif Geliştirme</strong>
+            </div>
+            <div class="home-download-card-row">
+              <span>Sürüm</span>
+              <strong>v0.12.2 (Beta)</strong>
+            </div>
+            <div class="home-download-card-row">
+              <span>Motor</span>
+              <strong>FreeBSD · pf</strong>
+            </div>
+            <div class="home-download-card-row">
+              <span>Arka Uç</span>
+              <strong>Python 3.12 · FastAPI</strong>
+            </div>
+          </div>
+          <div class="home-download-card-foot">
+            <span>Açık Kaynak</span>
+            <span class="home-download-card-badge">Geliştirici Sürümü</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-canvas" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Arayüz Önizlemesi</span>
+      <h2>Operatörler için, mühendisler tarafından inşa edildi</h2>
+      <p>Temiz, modern ve hızlı bir arayüz. Tam boyutta görüntülemek için herhangi bir ekran görüntüsüne tıklayın.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('/images/docs/dashboard.png')">
+        <img src="/images/docs/dashboard.png" alt="Stratum Panel">
+        <div class="gallery-overlay"><span>Panel (Dashboard)</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('/images/docs/pf-rules.png')">
+        <img src="/images/docs/pf-rules.png" alt="pf Güvenlik Duvarı Kuralları">
+        <div class="gallery-overlay"><span>Güvenlik Duvarı Kuralları</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('/images/docs/wireguard.png')">
+        <img src="/images/docs/wireguard.png" alt="WireGuard VPN">
+        <div class="gallery-overlay"><span>WireGuard VPN</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('/images/docs/blocklists.png')">
+        <img src="/images/docs/blocklists.png" alt="IP ve DNS Karalisteleri">
+        <div class="gallery-overlay"><span>Tehdit Karalisteleri</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src) {
+    var lightbox = document.getElementById("lightbox");
+    var img = document.getElementById("lightbox-img");
+    img.src = src;
+    lightbox.classList.add("active");
+    document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("active");
+    document.body.style.overflow = 'auto';
+}
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') { closeLightbox(); }
+});
+</script>
+
+{{ end }}

@@ -24,6 +24,21 @@
       </ul>
 
       <div class="nav-actions">
+      <div class="lang-switcher">
+        {{ range .Site.Languages }}
+          {{ if eq .Lang $.Site.Language.Lang }}
+            <span class="active">{{ upper .Lang }}</span>
+          {{ else }}
+            {{ $translation := where $.Translations "Lang" .Lang }}
+            {{ if $translation }}
+              <a href="{{ (index $translation 0).RelPermalink }}">{{ upper .Lang }}</a>
+            {{ else }}
+              <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}">{{ upper .Lang }}</a>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+
         <a href="{{ site.Params.docsURL }}" class="nav-link">Docs</a>
 
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">

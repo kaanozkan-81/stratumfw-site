@@ -2439,3 +2439,30 @@ img{max-width:100%; display:block;}
 .changelog-notice strong {
     color: #D97706;
 }
+
+
+/* ============================================
+   LANGUAGE SWITCHER
+   ============================================ */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 15px;
+    font-family: var(--font-display);
+}
+.lang-switcher span, .lang-switcher a {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.lang-switcher span.active {
+    color: var(--ash-dark);
+}
+.lang-switcher a {
+    color: var(--accent);
+}
+.lang-switcher a:hover {
+    color: var(--blue-900);
+}
