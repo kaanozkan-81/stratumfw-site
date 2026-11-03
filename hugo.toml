@@ -2,6 +2,7 @@ baseURL = 'https://stratumfw.com/'
 languageCode = 'en-us'
 title = 'Stratum Gateway'
 enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
 
 [params]
   tagline = 'Next-Generation Firewall OS'
