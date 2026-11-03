@@ -2398,3 +2398,44 @@ img{max-width:100%; display:block;}
     color: #D97706;
     font-weight: 700;
 }
+
+
+/* ============================================
+   RELEASE BADGE & CHANGELOG NOTICE
+   ============================================ */
+.hero-release-notice {
+    margin-bottom: 24px;
+    display: inline-block;
+}
+.hero-release-notice a {
+    background: #F59E0B;
+    color: #111827;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+.hero-release-notice a:hover {
+    background: #D97706;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.35);
+}
+
+.changelog-notice {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    color: #92400E;
+    font-size: 15px;
+    line-height: 1.6;
+}
+.changelog-notice strong {
+    color: #D97706;
+}
