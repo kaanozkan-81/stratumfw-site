@@ -6,6 +6,7 @@ lead: "Master the pf packet filter — learn how rules are evaluated, ordered, a
 Stratum Gateway uses **pf (Packet Filter)**, the industry-standard firewall engine built into FreeBSD. Unlike legacy firewalls that use complex, proprietary rule syntax, pf uses a clean, readable configuration language.
 
 ## How pf Evaluates Rules
+![pf Rules](/images/docs/pf-rules.png)
 
 The most critical concept to understand is that **pf evaluates rules from top to bottom, and the first matching rule wins.**
 

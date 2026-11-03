@@ -14,6 +14,7 @@ The interface is divided into three main sections:
 3. **Main Content Area:** Where the active module's configuration or dashboard lives.
 
 ## The Dashboard
+![Stratum Dashboard](/images/docs/dashboard.png)
 
 The default view when you log in. The dashboard is highly customizable and provides an at-a-glance view of your network's health.
 

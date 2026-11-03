@@ -12,6 +12,7 @@ Stratum Gateway includes native integration for **WireGuard**, the modern, high-
 - **Modern Crypto:** Uses state-of-the-art cryptography (ChaCha20, Poly1305, Curve25519, BLAKE2).
 
 ## Setting up the Server
+![WireGuard Setup](/images/docs/wireguard.png)
 
 Before creating peers, you must enable the WireGuard service.
 
