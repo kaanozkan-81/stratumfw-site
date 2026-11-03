@@ -1,208 +1,128 @@
 ---
 title: "FAQ"
-lead: "Answers to the questions we're asked most often — about the platform, licensing, deployment, and support."
+lead: "Answers to the most common questions about Stratum Gateway, its architecture, and licensing."
 full_width: true
 ---
 
 <div class="faq-sections">
 
 <section class="faq-section">
-  <h2>General</h2>
+  <h2>General &amp; Platform</h2>
 
   <div class="faq">
     <details>
       <summary>What is Stratum Gateway?</summary>
       <div class="faq-body">
-        Stratum Gateway is an open-source, self-hosted firewall and network security platform. It consolidates more than twenty network functions — routing, failover, VPN, intrusion detection, content filtering, and traffic shaping — into one system managed from a single web panel.
+        Stratum Gateway is an open-source, enterprise-grade Network Security Operating System. It combines the raw power of the <strong>FreeBSD kernel</strong> and the <strong>pf packet filter</strong> with a modern, lightweight <strong>FastAPI management panel</strong>, providing a perfect balance of high performance and easy management.
       </div>
     </details>
 
     <details>
-      <summary>Who builds it?</summary>
+      <summary>Why did you choose FreeBSD instead of Linux?</summary>
       <div class="faq-body">
-        Stratum Gateway is developed by Stratum Security. You can reach the team at <a href="mailto:info@stratumfw.com">info@stratumfw.com</a>.
+        We chose FreeBSD because it is designed to be a cohesive operating system rather than a collection of packages. It features the world's most battle-tested network stack, native support for <code>pf</code>, and ZFS for data integrity. This allows us to build a highly secure and predictable firewall appliance without worrying about upstream Linux distribution changes breaking the system overnight.
       </div>
     </details>
 
     <details>
-      <summary>Is it really free?</summary>
+      <summary>Is it open source?</summary>
       <div class="faq-body">
-        Yes. The platform is open source and free to use, modify, and deploy — including in commercial environments. There are no per-user licenses, no per-device fees, and no subscription requirement. Optional paid services (managed support, professional services) are available but not required.
-      </div>
-    </details>
-
-    <details>
-      <summary>What version is the current release?</summary>
-      <div class="faq-body">
-        The current release is <strong>v1.3.0</strong>. Version information is available in the panel under <em>System → About</em>, and updates are delivered through the built-in update mechanism.
+        Yes. The core configuration engine and panel will be fully open-source. There are no per-user licenses, no per-device fees, and no subscription requirements. You own the hardware and the software.
       </div>
     </details>
 
     <details>
       <summary>Does the platform "phone home" or send telemetry?</summary>
       <div class="faq-body">
-        No. There is no telemetry, no analytics, and no cloud dependency. The only outbound connection the platform makes on its own is a version check against the update server — and this is one-way, verifies signatures, and does not transmit any data about your deployment.
+        Absolutely not. There is no telemetry, no analytics, and no cloud dependency. Your firewall runs completely air-gapped if you want it to. You have full control over your data.
       </div>
     </details>
   </div>
 </section>
 
 <section class="faq-section">
-  <h2>Deployment</h2>
+  <h2>Architecture &amp; Management</h2>
 
   <div class="faq">
     <details>
-      <summary>What hardware do I need?</summary>
+      <summary>What does "Declarative Configuration" mean?</summary>
       <div class="faq-body">
-        Stratum Gateway runs on any modern x86-64 platform. For a small business or branch office, a small-form-factor PC or mini-desktop with two network interfaces is enough. For larger deployments, a 1U rack server sized to your throughput requirements is typical. There is no proprietary hardware.
+        It means you never edit complex firewall rules by hand. You configure the system via the web UI or API, which saves your intent to a single <code>config.json</code> file. A Python engine then translates this JSON into native FreeBSD configuration files (like <code>pf.conf</code>). This ensures your firewall state is always auditable and easy to back up.
       </div>
     </details>
 
     <details>
-      <summary>Can I run it as a virtual machine?</summary>
+      <summary>What is the "Safe-Apply" workflow?</summary>
       <div class="faq-body">
-        Yes. Stratum Gateway runs on KVM, VMware, VirtualBox, Hyper-V, Proxmox, and any standards-compliant hypervisor. It also runs on cloud instances that support Debian 13 images.
+        Safe-Apply prevents you from locking yourself out. When you make a critical change (like changing the WAN IP or a firewall rule), Stratum validates it using <code>pfctl -nf</code>. It then applies the rule but starts a countdown. If you don't confirm that you still have connectivity, it automatically rolls back to the previous working configuration.
       </div>
     </details>
 
     <details>
-      <summary>What operating system is underneath?</summary>
+      <summary>Can I automate Stratum using scripts?</summary>
       <div class="faq-body">
-        Debian 13 (trixie) with the Linux 6.12 LTS kernel. This is a deliberate choice: long-term support, standard tooling, and a package ecosystem your team already knows.
+        Yes. The entire platform is API-first. The web panel is just a client that talks to the FastAPI backend. You can use Ansible, Terraform, or custom Python scripts to automate every aspect of the firewall configuration.
       </div>
     </details>
 
     <details>
-      <summary>How long does installation take?</summary>
+      <summary>How does Role-Based Access Control (RBAC) work?</summary>
       <div class="faq-body">
-        A basic deployment — install, network configuration, initial firewall rules — typically takes an afternoon. A more complete rollout with VPN, filtering, and IDS tuning is measured in days, not weeks.
+        Stratum supports three distinct roles: <strong>Admin</strong> (full access), <strong>Operator</strong> (can run diagnostics and manage states, but cannot change firewall rules), and <strong>Read-Only</strong> (can only view dashboards). This enforces the principle of least privilege for your team.
       </div>
     </details>
-
-    <details>
-      <summary>Can I migrate an existing firewall configuration?</summary>
-      <div class="faq-body">
-        There is no automated import from other firewall vendors. However, Stratum's configuration model is visual and rule-based, so translating existing rules is a matter of re-entering them rather than writing scripts. Support is available for complex migrations.
-      </div>
-    </details>
-  </section>
+  </div>
+</section>
 
 <section class="faq-section">
-  <h2>Capabilities</h2>
+  <h2>Features &amp; Capabilities</h2>
 
   <div class="faq">
     <details>
-      <summary>How many modules does the platform include?</summary>
+      <summary>How does WireGuard integration work?</summary>
       <div class="faq-body">
-        Twenty-six integrated modules, organized into six categories: Network &amp; Connectivity, Security &amp; Threat Protection, Access &amp; Identity, Traffic Control &amp; Visibility, Management &amp; Operations, and Platform &amp; Foundation. A complete list is on the <a href="/product/features/">features page</a>.
+        We didn't just wrap an external library. Stratum implements the X25519 cryptography internally, meaning zero external dependencies. You can generate peer configurations and QR codes in seconds directly from the panel, ensuring maximum security and performance.
       </div>
     </details>
 
     <details>
-      <summary>Which VPN technologies are supported?</summary>
+      <summary>Do you support Multi-WAN Failover?</summary>
       <div class="faq-body">
-        WireGuard is the primary VPN, with per-peer management, QR code provisioning for mobile clients, and downloadable client configurations. WireGuard is also used for site-to-site tunnels where appropriate.
+        Yes. You can configure multiple WAN interfaces (DHCP, Static, PPPoE). Stratum monitors the health of your primary connection and automatically fails over to the backup if it drops, ensuring business continuity.
       </div>
     </details>
 
     <details>
-      <summary>What does "self-hosted" mean in practice?</summary>
+      <summary>Can I block malicious IPs and Domains?</summary>
       <div class="faq-body">
-        It means the entire platform — panel, database, logs, threat feeds, configuration — runs on hardware you control. Nothing is sent to Stratum's servers. Nothing is stored in a third-party cloud. If you unplug the internet, the firewall keeps working.
+        Yes, at both layers. You can ingest public threat feeds to block malicious IPs at the <code>pf</code> level (using pf tables), and you can enable DNSBL to block malicious domains at the Unbound resolver level.
       </div>
     </details>
-
-    <details>
-      <summary>Can it replace my existing router, firewall, and IDS?</summary>
-      <div class="faq-body">
-        In most cases, yes. Stratum covers routing, NAT, DHCP, DNS, VPN, IDS, content filtering, QoS, and more. Organizations typically keep whatever they already have for specialized needs (e.g., a dedicated WAF for web applications), but the core network security functions consolidate onto one platform.
-      </div>
-    </details>
-
-    <details>
-      <summary>Does it support multiple sites?</summary>
-      <div class="faq-body">
-        Yes. Each site runs its own Stratum Gateway instance, all using the same image and configuration model. Consistency across sites is the default, not an achievement. Centralized multi-site management is on the near-term roadmap.
-      </div>
-    </details>
-
-    <details>
-      <summary>Is there an API?</summary>
-      <div class="faq-body">
-        Yes. Every configuration surface is exposed through a REST API, so orchestration tools (Ansible, Terraform, custom scripts) can manage the platform programmatically.
-      </div>
-    </details>
-
-    <details>
-      <summary>Does it integrate with existing monitoring?</summary>
-      <div class="faq-body">
-        Yes. SNMP v2c and v3 let the firewall appear in Zabbix, PRTG, LibreNMS, or any standard NMS. NetFlow exports for flow analysis. Logs are available in standard formats for ingestion by Splunk, Elastic, Wazuh, or similar.
-      </div>
-    </details>
-  </section>
+  </div>
+</section>
 
 <section class="faq-section">
-  <h2>Security model</h2>
+  <h2>Support &amp; Releases</h2>
 
   <div class="faq">
     <details>
-      <summary>What happens if a configuration change breaks connectivity?</summary>
+      <summary>When will the FreeBSD ISO be available?</summary>
       <div class="faq-body">
-        Stratum uses a safe-apply model. Changes are validated, then staged, then applied with a confirmation step. If you lose connectivity after applying a change, the system rolls back automatically to the previous configuration. You cannot permanently lock yourself out with a bad change.
+        We are currently in <strong>Developer Preview (v0.8.0)</strong>. The pre-built FreeBSD installer ISO is under active development and is expected to be released in the upcoming v0.9.0 or v1.0.0 milestone.
       </div>
     </details>
 
     <details>
-      <summary>How are updates delivered?</summary>
+      <summary>Can I use it in production today?</summary>
       <div class="faq-body">
-        Updates are distributed as signed packages with a cryptographic manifest. The panel verifies the signature before applying anything. A compromised mirror cannot deliver a modified payload — the signature check fails and the update is refused.
+        While the core engine (pf, WireGuard) is highly stable, the panel and configuration engine are still being finalized. We recommend using it in homelabs and testing environments for now.
       </div>
     </details>
 
     <details>
-      <summary>Are there audit logs?</summary>
+      <summary>How do I get help or report a bug?</summary>
       <div class="faq-body">
-        Yes. Every configuration change is captured with a timestamp, the user account that made it, and what was changed. Nothing in the panel is done anonymously, which supports audit and compliance requirements.
-      </div>
-    </details>
-
-    <details>
-      <summary>Does the platform include a certificate authority?</summary>
-      <div class="faq-body">
-        Yes. A built-in CA lets you create a local root, sign internal service certificates, and distribute the CA bundle to clients you control — no external PKI dependency.
-      </div>
-    </details>
-  </section>
-
-<section class="faq-section">
-  <h2>Support</h2>
-
-  <div class="faq">
-    <details>
-      <summary>How do I get help?</summary>
-      <div class="faq-body">
-        Email <a href="mailto:support@stratumfw.com">support@stratumfw.com</a>. Include the platform version (visible under <em>System → About</em>) and as much detail as you can about the situation.
-      </div>
-    </details>
-
-    <details>
-      <summary>Is there a community?</summary>
-      <div class="faq-body">
-        Yes — a community forum and discussion channels are being rolled out. Details will be published on this site as they become available.
-      </div>
-    </details>
-
-    <details>
-      <summary>Do you offer commercial support?</summary>
-      <div class="faq-body">
-        Optional paid support and professional services are available for organizations that want them. They are entirely optional — the platform is designed to be self-supported.
-      </div>
-    </details>
-
-    <details>
-      <summary>How do I report a security vulnerability?</summary>
-      <div class="faq-body">
-        Please email <a href="mailto:support@stratumfw.com?subject=Security%20Disclosure">support@stratumfw.com</a> with reproduction details and the affected version. Disclosures are taken seriously and handled responsibly.
+        You can reach the development team directly at <a href="mailto:info@stratumfw.com">info@stratumfw.com</a>, or open an issue on our GitHub repository.
       </div>
     </details>
   </div>

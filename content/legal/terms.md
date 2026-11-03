@@ -87,7 +87,7 @@ Open-source components included in the software remain the property of their res
 
 The website may link to third-party content or services. We do not control and are not responsible for the content, privacy practices, or availability of any third-party services. Links do not imply endorsement.
 
-The software may integrate with third-party components (such as Suricata, CrowdSec, Unbound, WireGuard, and others). Each of these components is governed by its own license and its own terms. You are responsible for understanding and complying with those terms.
+The software integrates with open-source components (such as FreeBSD, pf, Unbound, dnsmasq, and WireGuard). Each of these components is governed by its own open-source license. You are responsible for understanding and complying with their respective terms.
 
 ## Changes to the Services
 

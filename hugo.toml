@@ -4,8 +4,8 @@ title = 'Stratum Gateway'
 enableRobotsTXT = true
 
 [params]
-  tagline = 'Enterprise Network Security'
-  description = 'Stratum Gateway is an enterprise-grade firewall and network security platform built for reliability, visibility, and control.'
+  tagline = 'Next-Generation Firewall OS'
+  description = 'Stratum Gateway is a FreeBSD-based enterprise firewall OS. It combines the raw power of pf packet filtering with a modern FastAPI management panel, role-based access control, and zero-dependency WireGuard support.'
   companyName = 'Stratum Security'
   contactEmail = 'info@stratumfw.com'
   docsURL = '/resources/documentation/'
