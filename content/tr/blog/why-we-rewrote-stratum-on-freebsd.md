@@ -59,4 +59,4 @@ Her zaman istediğimiz güvenlik duvarını inşa ediyoruz. Eğer siz de hantal 
 
 ---
 
-*Mimariyi kendiniz görmek ister misiniz? [Mimari Genel Bakış](/tr/product/architecture/) sayfamızı okuyun veya kaynak koduna [GitHub](https://github.com/kaanozkan-81/stratumfw-site) üzerinden göz atın.*
+*Mimariyi kendiniz görmek ister misiniz? [Mimari Genel Bakış](/tr/product/architecture/) sayfamızı okuyun veya kaynak koduna [GitHub](https://github.com/kaanozkan-81/stratum-panel) üzerinden göz atın.*

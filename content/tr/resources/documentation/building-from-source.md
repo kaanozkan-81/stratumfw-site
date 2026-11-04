@@ -35,8 +35,8 @@ service pf start
 Kaynak kodu genel GitHub depomuzdan klonlayın:
 
 ~~bash
-git clone https://github.com/kaanozkan-81/stratumfw-site.git
-cd stratumfw-site
+git clone https://github.com/kaanozkan-81/stratum-panel.git
+cd stratum-panel
 ~~
 
 *(Not: Çekirdek panel kaynak kodu şu anda özel bir depoda barındırılmaktadır ve v1.0.0 sürümünde genel depoya birleştirilecektir. Bu kılavuz, yaklaşan mimariyi ana hatlarıyla açıklar).*

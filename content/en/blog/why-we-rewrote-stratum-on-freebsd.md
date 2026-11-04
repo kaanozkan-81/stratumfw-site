@@ -59,4 +59,4 @@ We are building the firewall we always wanted. If you are a network engineer tir
 
 ---
 
-*Want to see the architecture for yourself? Read our [Architecture Overview](/product/architecture/) or check out the source code on [GitHub](https://github.com/kaanozkan-81/stratumfw-site).*
+*Want to see the architecture for yourself? Read our [Architecture Overview](/product/architecture/) or check out the source code on [GitHub](https://github.com/kaanozkan-81/stratum-panel).*

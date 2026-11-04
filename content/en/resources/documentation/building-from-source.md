@@ -35,8 +35,8 @@ service pf start
 Clone the source code from our public GitHub repository:
 
 ~~bash
-git clone https://github.com/kaanozkan-81/stratumfw-site.git
-cd stratumfw-site
+git clone https://github.com/kaanozkan-81/stratum-panel.git
+cd stratum-panel
 ~~
 
 *(Note: The core panel source code is currently housed in a private repository and will be merged into the public repo upon the v1.0.0 release. This guide outlines the upcoming architecture).*
