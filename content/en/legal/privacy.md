@@ -15,7 +15,7 @@ Stratum Gateway is self-hosted software. We do not operate a cloud service, we d
 
 ### Website visits
 
-The **stratumfw.com** website is a static site. We do not use analytics, tracking pixels, advertising networks, or third-party cookies. We do not build user profiles. We do not sell, rent, or share visitor data.
+The **stratumfw.com** website is a static site. We use **Google Analytics 4 (GA4)** to understand how visitors interact with our website. Google Analytics collects information such as your IP address (anonymized), browser type, device information, and the pages you visit. This data is processed by Google and is used solely for analytical purposes to improve our website. We do not build user profiles, and we do not sell, rent, or share visitor data.
 
 Server access logs are maintained by our hosting infrastructure for security and operational purposes. These logs may include:
 

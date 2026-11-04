@@ -11,7 +11,7 @@ Stratum Gateway kendi sunucunuzda barındırılan bir yazılımdır. Bulut hizme
 
 ## Topladığımız bilgiler
 ### Web sitesi ziyaretleri
-**stratumfw.com** web sitesi statik bir sitedir. Analitik, izleme pikselleri, reklam ağları veya üçüncü taraf çerezleri kullanmıyoruz.
+**stratumfw.com** web sitesi statik bir sitedir. Web sitemizi ziyaretçilerin nasıl kullandığını anlamak için **Google Analytics 4 (GA4)** kullanıyoruz. Google Analytics; IP adresiniz (anonimleştirilmiş), tarayıcı türünüz, cihaz bilgileriniz ve ziyaret ettiğiniz sayfalar gibi bilgileri toplar. Bu veriler Google tarafından işlenir ve yalnızca web sitemizi geliştirmek amacıyla analitik amaçlarla kullanılır. Kullanıcı profilleri oluşturmuyoruz ve ziyaretçi verilerini satmıyor, kiralamıyor veya paylaşmıyoruz.
 
 ### Canlı panel demosu
 Canlı panel demosu, bir demo örneğine karşı çalışır. Kişisel bilgi toplamaz.

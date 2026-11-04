@@ -5,6 +5,28 @@ description: "Stratum FW'nin sürüm geçmişi - her sürümde yeni özellikler,
 
 Stratum FW'deki tüm önemli değişiklikler burada, en yeniden eskiye doğru listelenmiştir. Stratum FW kendini imzalı güncelleme sunucusundan (Sistem > Güncelleme) veya çevrimdışı bir güncelleme dosyasından (`.sfu`) günceller; her güncelleme bir ZFS önyükleme ortamı oluşturur, böylece önceki sürüm her zaman tekrar önyüklenebilir.
 
+## 0.13.0 - 2026-11-04
+
+### Değişen
+- **Yeni pano**:
+  - Durum şeridi: ana bilgisayar adı, sürüm ve güncelleme durumu, her WAN bağlantısı adresi ve canlı indirme / yükleme hızıyla, çalışma süresi, son yapılandırma değişikliğinin zamanı, güvenlik duvarı durumu.
+  - Temel rakamlar: 5 dakikalık eğriye sahip CPU, bellek, disk, sıcaklık, durum tablosu sınırına karşı bağlantılar ve son bir saatte engellenen paketler (eğriyle); renkler uyarı seviyelerinde değişir.
+  - Her arayüz için ortalama ve tepe değerlerle son bir saatin trafiği.
+  - Koruma: IP ve DNS karalisteleri, IP karalisteleri tarafından durdurulan paketler, başarısız girişlerden sonra engellenen adresler, çevrimiçi OpenVPN kullanıcıları ve WireGuard eşleri, son bir saatte en çok engelleyen kurallar.
+  - Arayüzler (adı, durumu, bağlantı hızı, adresi ve canlı trafiği ile); çalışan / durdurulan özeti olan servisler.
+  - Son bir saatin en çok engellenen kaynakları ve portları ile en son yapılandırma değişiklikleri (uygulandı, tutuldu, geri alındı, başarısız oldu).
+  - Koyu ve açık temalarda ve telefonlarda çalışır.
+
+## 0.12.6 - 2026-11-04
+
+### Eklenen
+- **Sistem > Ayarlar > Ağ**: her fiziksel portta donanım hızlandırmayı (LRO, TSO, checksum) kapatın - portları yeniden başlatmadan canlı olarak ayarlanır ve yeniden başlatmadan sonra korunur - her port için mevcut durum ile; CPU güç yönetimi (uyarlanabilir, maksimum performans, ekonomi); ARP günlüğü ve ARP giriş ömrü; IPv6 durumu.
+- **Sistem > Ayarlar > Ayarlanabilirler (Tunables)**: güvenlik duvarında önemli olan çalışma zamanı sistem değerleri (sysctl), pfSense'in öneri olarak kullandığı değerler ve her birinin mevcut değeri, ayrıca kendi çalışma zamanı tunable'larınız. Değerler Uygula ile ayarlanır ve yeniden başlatmadan sonra korunur (/etc/sysctl.conf.local).
+- Tüm Sistem > Ayarlar sekmeleri artık kullanılabilir.
+
+### Değişen
+- Mevcut bir /etc/sysctl.conf.local dosyası /etc/sysctl.conf.local.stratum-orig olarak saklanır; dosya artık Ayarlar > Tunables'tan yazılır.
+
 ## 0.12.5 - 2026-11-04
 
 ### Eklenen

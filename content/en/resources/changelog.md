@@ -5,6 +5,28 @@ description: "Release history of Stratum FW - new features, changes and fixes in
 
 All notable changes to Stratum FW are listed here, newest first. Stratum FW updates itself from the signed update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot environment, so the previous version can be booted again at any time.
 
+## 0.13.0 - 2026-11-04
+
+### Changed
+- **New dashboard**:
+  - Status strip: host name, version and update state, every WAN connection with its address and live download / upload, uptime, time of the last configuration change, firewall state.
+  - Key figures: CPU with a 5-minute curve, memory, disk, temperature, connections against the state table limit, and packets blocked in the last hour with a curve; colours change at warning levels.
+  - Traffic of the last hour per interface with average and peak.
+  - Protection: IP and DNS blocklists, packets stopped by the IP blocklists, addresses blocked after failed sign-ins, OpenVPN users and WireGuard peers online, the rules that blocked most in the last hour.
+  - Interfaces with their description as the name, status, link speed, address and live traffic; services with a running / stopped summary.
+  - Top blocked sources and ports of the last hour, and the latest configuration changes (applied, kept, reverted, failed).
+  - Works in the dark and light themes and on phones.
+
+## 0.12.6 - 2026-11-04
+
+### Added
+- **System > Settings > Networking**: switch off hardware offload (LRO, TSO, checksum) on every physical port - set live without restarting the ports and kept after a reboot - with the current state per port; CPU power management (adaptive, maximum performance, economy); ARP logging and ARP entry lifetime; IPv6 status.
+- **System > Settings > Tunables**: run-time system values (sysctl) that matter on a firewall, with the values pfSense uses as a recommendation and the current value of each, plus own run-time tunables. Values are set with Apply and kept after a reboot (/etc/sysctl.conf.local); a value set back to default gets the value it had before. Values Stratum FW manages itself cannot be changed here.
+- All System > Settings tabs are now available.
+
+### Changed
+- An existing /etc/sysctl.conf.local is kept as /etc/sysctl.conf.local.stratum-orig; the file is now written from Settings > Tunables.
+
 ## 0.12.5 - 2026-11-04
 
 ### Added
