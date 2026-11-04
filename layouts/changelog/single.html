@@ -1,0 +1,39 @@
+{{ define "main" }}
+
+<section class="page-header">
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ else }}/{{ end }}">Home</a>
+      {{ range .Ancestors.Reverse }}
+        {{ if not .IsHome }}
+          <span class="sep">/</span>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
+      {{ end }}
+      <span class="sep">/</span>
+      <span>{{ .Title }}</span>
+    </nav>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+    
+    <!-- Dil Desteği ile Bildirim Kutusu -->
+    <div class="changelog-alert">
+      {{ if eq .Site.Language.Lang "tr" }}
+        <strong>Sistem Güncelleme Bildirimi:</strong> Stratum FW zaten kuruluysa, ISO'yu tekrar indirmenize gerek yok. En son özellikleri ve güvenlik yamalarını otomatik olarak uygulamak için web panelinizden <strong>Sistem > Güncelleme</strong> bölümüne gidin.
+      {{ else }}
+        <strong>System Update Notice:</strong> If you already have Stratum FW installed, you don't need to download the ISO again. Simply navigate to <strong>System > Update</strong> in your web panel to apply the latest features and security patches automatically.
+      {{ end }}
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

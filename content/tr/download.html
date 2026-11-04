@@ -1,0 +1,107 @@
+---
+title: "İndir"
+lead: "Stratum FW kurulum medyasını edinin ve yeni nesil güvenlik duvarını kendi donanımınıza veya sanal altyapınıza kurun."
+full_width: true
+---
+
+<div class="download-layout">
+
+<section class="download-hero">
+  <div class="download-hero-left">
+    <span class="eyebrow">Güncel Sürüm</span>
+    <h2>Stratum FW v0.8.0 (Beta)</h2>
+    <p>İki kurulum imajı mevcuttur — biri standart VGA konsolları için, diğeri seri konsol ortamları için. Her ikisi de tam FreeBSD tabanlı ağ geçidini kurar; sadece konsol çıktı yöntemi farklıdır.</p>
+
+    <div class="download-meta">
+      <div class="download-meta-item">
+        <span class="download-meta-label">Sürüm</span>
+        <span class="download-meta-value">v0.8.0</span>
+      </div>
+      <div class="download-meta-item">
+        <span class="download-meta-label">Dosya Boyutu</span>
+        <span class="download-meta-value">1.4 GB</span>
+      </div>
+      <div class="download-meta-item">
+        <span class="download-meta-label">Yayın Tarihi</span>
+        <span class="download-meta-value">2026-11-03</span>
+      </div>
+      <div class="download-meta-item">
+        <span class="download-meta-label">Platform</span>
+        <span class="download-meta-value">FreeBSD · x86-64</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="download-hero-right">
+    <div class="download-verify">
+      <h4>İndirmeden Önce</h4>
+      <p>Dosyanın bütünlüğünü doğrulamak için indirdikten sonra SHA-256 hash değerini aşağıda her bir varyant için gösterilen değerle karşılaştırın.</p>
+      <p class="download-verify-hint">Linux veya macOS:</p>
+      <pre><code>sha256sum stratum-fw-v0.8.0-*.iso</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="download-section">
+  <div class="download-section-head">
+    <h2>Kurulum İmajınızı Seçin</h2>
+    <p>Her iki imaj da aynı FreeBSD tabanlı ağ geçidini kurar. Konsol erişim yönteminize uyanı seçin.</p>
+  </div>
+
+  <div class="download-variants">
+    <article class="download-variant">
+      <div class="download-variant-head">
+        <div>
+          <span class="download-variant-badge">Önerilen</span>
+          <h3>VGA Kurulumu</h3>
+        </div>
+      </div>
+      <p class="download-variant-desc">Monitör ve klavye bağlı standart kurulumlar için — fiziksel sunucular, masaüstleri ve çoğu sanal makine.</p>
+      <div class="download-variant-meta">
+        <span><strong>Konsol:</strong> VGA / fiziksel ekran</span>
+        <span><strong>Boyut:</strong> 1.4 GB</span>
+      </div>
+      <div class="download-variant-hash">
+        <span class="download-variant-hash-label">SHA-256</span>
+        <code>fe57db212b06f28517c1f274e193449d332b70c95c108027fb6ea672b13a9e13</code>
+      </div>
+      <a href="https://update.stratumfw.com/packages/stratum-fw-v0.8.0-vga.iso" class="btn btn-primary download-btn">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
+        VGA ISO İndir
+      </a>
+    </article>
+
+    <article class="download-variant">
+      <div class="download-variant-head">
+        <div>
+          <span class="download-variant-badge download-variant-badge-alt">Başsız</span>
+          <h3>Seri Kurulum</h3>
+        </div>
+      </div>
+      <p class="download-variant-desc">Başsız sunucular ve IPMI, iDRAC, iLO gibi seri-over-LAN konsolları üzerinden uzaktan konsol erişimi için.</p>
+      <div class="download-variant-meta">
+        <span><strong>Konsol:</strong> Seri / SOL</span>
+        <span><strong>Boyut:</strong> 1.4 GB</span>
+      </div>
+      <div class="download-variant-hash">
+        <span class="download-variant-hash-label">SHA-256</span>
+        <code>4a1828f49b36f6ddf4019ccc3c6036c054c40bd6f6fcaf061c130f0c1aae099e</code>
+      </div>
+      <a href="https://update.stratumfw.com/packages/stratum-fw-v0.8.0-serial.iso" class="btn btn-primary download-btn">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
+        Seri ISO İndir
+      </a>
+    </article>
+  </div>
+</section>
+
+<section class="download-section download-support">
+  <h3>Kaynak kodu mu arıyorsunuz?</h3>
+  <p>Kurulum medyası test amacıyla sunulmuştur. Ayrıca mevcut bir FreeBSD sistemi üzerinde Stratum FW yönetim panelini doğrudan derleyebilirsiniz.</p>
+  <div>
+    <a href="https://github.com/kaanozkan-81/stratumfw-site/releases" class="btn btn-primary" target="_blank" rel="noopener">GitHub Sürümlerinde Görüntüle</a>
+    <a href="/tr/resources/documentation/building-from-source/" class="btn btn-secondary">Kaynak Koddan Derle</a>
+  </div>
+</section>
+
+</div>

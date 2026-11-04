@@ -2466,3 +2466,36 @@ img{max-width:100%; display:block;}
 .lang-switcher a:hover {
     color: var(--blue-900);
 }
+
+/* Changelog Üst Bildirimi */
+.changelog-alert {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin-top: 24px;
+    color: #92400E;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 820px;
+}
+.changelog-alert strong {
+    color: #D97706;
+}
+
+
+/* ============================================
+   HERO NOTICE & BADGE ALIGNMENT
+   ============================================ */
+.hero-notice {
+    margin: 0 auto 20px auto !important;
+    display: block !important;
+    max-width: 700px;
+}
+.hero-release-notice {
+    margin: 0 auto 24px auto !important;
+    display: block !important;
+}
+.hero-release-notice a {
+    display: inline-block;
+}
