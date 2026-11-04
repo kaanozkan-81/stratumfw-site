@@ -1,0 +1,65 @@
+<div id="cookie-banner" class="cookie-banner" style="display: none;">
+  <div class="cookie-content">
+    <p>
+      {{ if eq .Lang "tr" }}
+        Web sitemizde deneyiminizi iyileştirmek için çerezler (Google Analytics) kullanıyoruz. Detaylar için <a href="/tr/legal/privacy/">Gizlilik Politikamıza</a> göz atın.
+      {{ else }}
+        We use cookies (Google Analytics) to improve your experience on our website. See our <a href="/legal/privacy/">Privacy Policy</a> for details.
+      {{ end }}
+    </p>
+  </div>
+  <div class="cookie-actions">
+    <button id="cookie-reject" class="btn btn-secondary btn-sm">
+      {{ if eq .Lang "tr" }}Reddet{{ else }}Reject{{ end }}
+    </button>
+    <button id="cookie-accept" class="btn btn-primary btn-sm">
+      {{ if eq .Lang "tr" }}Kabul Et{{ else }}Accept{{ end }}
+    </button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const rejectBtn = document.getElementById('cookie-reject');
+    const consent = localStorage.getItem('cookie_consent');
+
+    // Eğer daha önce kabul edildiyse GA4 izinlerini güncelle
+    if (consent === 'granted') {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
+    }
+
+    // Eğer henüz seçim yapılmadıysa banner'ı göster
+    if (!consent) {
+      banner.style.display = 'flex';
+    }
+
+    // Kabul Et butonu
+    acceptBtn.addEventListener('click', function() {
+      localStorage.setItem('cookie_consent', 'granted');
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
+      banner.style.display = 'none';
+    });
+
+    // Reddet butonu
+    rejectBtn.addEventListener('click', function() {
+      localStorage.setItem('cookie_consent', 'denied');
+      banner.style.display = 'none';
+    });
+  });
+</script>
