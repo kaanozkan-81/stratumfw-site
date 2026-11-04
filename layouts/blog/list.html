@@ -3,7 +3,7 @@
 <section class="page-header">
   <div class="wrap">
     <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a>
+      <a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ else }}/{{ end }}">{{ if eq .Site.Language.Lang "tr" }}Ana Sayfa{{ else }}Home{{ end }}</a>
       <span class="sep">/</span>
       <span>Blog</span>
     </nav>

@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="hero" style="min-height: 60vh; display: flex; align-items: center;">
+  <div class="wrap" style="text-align: center;">
+    <div class="hero-badge" style="background: rgba(245, 158, 11, 0.15); color: #D97706; border: 1px solid rgba(245, 158, 11, 0.3);">
+      {{ if eq .Lang "tr" }}Hata 404{{ else }}Error 404{{ end }}
+    </div>
+    <h1 style="font-size: 56px; margin-bottom: 20px;">
+      {{ if eq .Lang "tr" }}Sayfa Bulunamadı{{ else }}Page Not Found{{ end }}
+    </h1>
+    <p style="font-size: 18px; max-width: 600px; margin: 0 auto 32px auto; color: #4B5563;">
+      {{ if eq .Lang "tr" }}
+        Aradığınız sayfa silinmiş, taşınmış veya hiç var olmamış olabilir. Aşağıdaki bağlantılardan devam edebilirsiniz.
+      {{ else }}
+        The page you're looking for has been removed, renamed, or never existed. You can continue from the links below.
+      {{ end }}
+    </p>
+    <div class="hero-ctas">
+      <a href="{{ if eq .Lang "tr" }}/tr/{{ else }}/{{ end }}" class="btn btn-primary">
+        {{ if eq .Lang "tr" }}Ana Sayfaya Dön{{ else }}Back to Home{{ end }}
+      </a>
+      <a href="{{ if eq .Lang "tr" }}/tr/resources/documentation/{{ else }}/resources/documentation/{{ end }}" class="btn btn-secondary">
+        {{ if eq .Lang "tr" }}Dokümantasyon{{ else }}Documentation{{ end }}
+      </a>
+    </div>
+  </div>
+</section>
+{{ end }}
