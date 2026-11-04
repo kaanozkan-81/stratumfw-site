@@ -12,6 +12,10 @@ Eğer İnternet Servis Sağlayıcınız (ISS) korkunç bir gecikme (latency) sa�
 
 En son güncellemelerle (**v0.13.1** ve **v0.13.2**), bunu değiştiriyoruz. Stratum FW panelini proaktif bir ağ komuta merkezine dönüştürüyoruz.
 
+![Stratum FW v0.13.2 Paneli](/images/docs/dashboard.png)
+*WAN sağlığını, trafiği ve koruma istatistiklerini gösteren yeni Stratum FW paneli.*
+
+
 ## 1. WAN Sağlığı: ISS'niz Gerçekten Sözünü Tutuyor mu?
 Belirli bir internet hızı ve güvenilirliği için para ödüyorsunuz. Peki ISS'nin üzerine düşeni yapıp yapmadığını nasıl bileceksiniz?
 

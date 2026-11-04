@@ -12,6 +12,10 @@ If your ISP was providing terrible latency, or if a WireGuard peer was silently 
 
 With the latest updates (**v0.13.1** and **v0.13.2**), we are changing that. We are turning the Stratum FW dashboard into a proactive network command center.
 
+![Stratum FW v0.13.2 Dashboard](/images/docs/dashboard.png)
+*The new Stratum FW dashboard showing WAN health, traffic, and protection stats.*
+
+
 ## 1. WAN Health: Is Your ISP Actually Delivering?
 You pay for a specific internet speed and reliability. But how do you know if your ISP is holding up their end of the bargain?
 
