@@ -1,18 +1,52 @@
 ---
-title: "Hakkımızda"
-lead: "Ağı gerçekten yöneten insanlar için ağ güvenliği araçları geliştiriyoruz."
+title: "Kurucu Hakkında"
+lead: "Kurumsal altyapıların mutfağında yirmi yılı aşkın süredir çalışan bir mühendis tarafından inşa edildi."
 ---
-## Neden Stratum var?
-Kurumsal güvenlik duvarları rehavete kapıldı. Pazar, yavaş ve hantal arayüzlere sahip eski cihazlar veya ağ verilerinizin kontrolünü size bırakmayan bulut tabanlı sistemler tarafından yönetiliyor.
-**Stratum Security** bu kalıbı kırmak için kuruldu.
-## Ne inanıyoruz?
-<div class="card-grid grid-3" style="margin-top:32px;">
-  <div class="card"><h3>Yeniden icat yerine standartlar</h3><p>FreeBSD, pf ve WireGuard kullanıyoruz çünkü profesyonellerin zaten güvendiği araçlar bunlardır.</p></div>
-  <div class="card"><h3>Tasarım gereği şeffaflık</h3><p>Kara kutular yok. Arayüzde yaptığınız her yapılandırma, insan tarafından okunabilir dosyalara dönüştürülür.</p></div>
-  <div class="card"><h3>Güvenlik bir özelliktir</h3><p>Her yapılandırma doğrulanır, aşamalandırılır ve geri alınabilir.</p></div>
-  <div class="card"><h3>Varsayılan olarak yerel</h3><p>Telemetri yapmıyoruz, bulut bağımlılığı yaratmıyoruz.</p></div>
-  <div class="card"><h3>Operatörler için inşa edildi</h3><p>Kullanıcılarımız sistem yöneticileri, MSP'ler ve küçük BT ekipleridir.</p></div>
-  <div class="card"><h3>Uzun vadeli düşünme</h3><p>Kurulumların bir ürün döngüsü değil, on yıl boyunca çalışmasını istiyoruz.</p></div>
+
+## 2004'ten beri süren yolculuk
+
+Ben **Kaan Özkan**. 2004 yılından beri, yani tam 22 yıldır bu sektörün mutfağındayım. Kariyerim boyunca konaklama ve bulut sektörlerinde en zorlu ağ ve altyapı ortamlarını tasarladım, kurdum ve yönettim.
+
+Sistem mühendisliği ile başlayan yolculuğumda Fener Teknoloji'de büyük ölçekli sistemleri ve hibrit ağları yönettim. Ardından Maritim ve Adalya Elite gibi devasa tesislerde IT Manager olarak görev alıp, kritik ağları en yoğun baskı altında bile kesintisiz çalıştırmanın ne demek olduğunu öğrendim.
+
+## "Sıfır Maliyetli Güvenlik" Devrimi
+
+Dönüm noktası **Ethno Hotels**'te yaşandı. IT Manager olarak sıfırdan 48RU'luk bir Tier-3 sistem odası tasarladım, 50TB Ceph depolamalı 8 düğümlü bir Proxmox kümesi kurdum ve 1500'den fazla Wi-Fi erişim noktasına sahip 10G omurga (spine-leaf) ağını hayata geçirdim.
+
+Ancak en büyük sınavım güvenlikti. Ticari satıcılara yüz binlerce lira ödemek yerine; pfSense, pfBlockerNG ve Suricata kullanarak **sıfır maliyetli bir güvenlik yığını** inşa ettim. 600.000'den fazla zararlı alan adını başarıyla engelledik ve derin paket incelemesi (DPI) yaptık — üstelik şirkete yıllık 250.000 TL tasarruf sağlayarak.
+
+Bu deneyim bakış açımı sonsuza dek değiştirdi: **Kurumsal düzeyde güvenlik, kurumsal düzeyde bir bütçe gerektirmemeli.**
+
+## Stratum FW neden var?
+
+Güvendiğim açık kaynak araçların (pfSense gibi) giderek şiştiğini, lisans modellerinin değiştiğini ve topluluğun pahalı bulut aboneliklerine itildiğini fark ettim.
+
+Daha yalın bir şey inşa edip edemeyeceğimi görmek istedim. **FreeBSD ve pf**'in kaya gibi sağlam temeli üzerine kurulu, modern ve API odaklı bir panel. 10 yıllık bir Intel Atom işlemcisinde çalışıp 10G hızında trafik akıtabilecek bir sistem.
+
+**Stratum FW işte bu vizyonün ürünüdür.** Her zaman kullanmak istediğim platform.
+
+## İletişime geçin
+
+Eğer bu açık kaynak altyapı tutkusunu paylaşıyorsanız veya sadece ağ mühendisliği, Proxmox ya da pfSense geçişleri hakkında konuşmak istiyorsanız, bana ulaşmaktan çekinmeyin.
+
+<div class="card-grid grid-2" style="margin-top:32px;">
+  <div class="card">
+    <h3>LinkedIn</h3>
+    <p>Profesyonel olarak bağlantı kuralım ve kurumsal altyapıyı tartışalım.</p>
+    <a href="https://www.linkedin.com/in/kaan-özkan-462b03146" class="card-link" target="_blank" rel="noopener">LinkedIn'de Bağlantı Kur →</a>
+  </div>
+  <div class="card">
+    <h3>İletişim</h3>
+    <p>Destek, geri bildirim veya genel sorularınız için.</p>
+    <p class="mono" style="font-size:13px; margin-bottom:12px;">k.ozkan@ethnohotels.com<br>support@stratumfw.com</p>
+  </div>
 </div>
-## Bize ulaşın
-<div style="margin-top:32px;"><a href="/tr/company/contact/" class="btn btn-primary">Bize ulaşın</a><a href="/tr/product/architecture/" class="btn btn-secondary">Mimariyi keşfedin</a></div>
+
+<div class="stats" style="margin-top:32px; border:1px solid var(--line); border-radius:14px;">
+  <div class="wrap">
+    <div class="stat"><b>2004</b><span>Sektöre Giriş</span></div>
+    <div class="stat"><b>22+</b><span>Yıllık Tecrübe</span></div>
+    <div class="stat"><b>600K+</b><span>Engellenen Domain (pfSense)</span></div>
+    <div class="stat"><b>%100</b><span>Açık Kaynak Tutkusu</span></div>
+  </div>
+</div>
