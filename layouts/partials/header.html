@@ -7,7 +7,7 @@
       </a>
 
       <ul class="nav-menu">
-        {{ range site.Menus.main }}
+        {{ range .Site.Menus.main }}
           {{ if .HasChildren }}
             <li class="has-children">
               <a href="{{ .URL }}">{{ .Name }}</a>
@@ -39,7 +39,7 @@
         {{ end }}
       </div>
 
-        <a href="{{ site.Params.docsURL }}" class="nav-link">Docs</a>
+        <a href="{{ .Site.Params.docsURL }}" class="nav-link">Docs</a>
 
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>

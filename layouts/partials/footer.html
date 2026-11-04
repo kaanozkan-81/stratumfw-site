@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; {{ site.Params.year }} {{ site.Params.companyName }}. {{ if eq .Site.Language.Lang "tr" }}Tüm hakları saklıdır.{{ else }}All rights reserved.{{ end }}</span>
+      <span>&copy; {{ .Site.Params.year }} {{ .Site.Params.companyName }}. {{ if eq .Site.Language.Lang "tr" }}Tüm hakları saklıdır.{{ else }}All rights reserved.{{ end }}</span>
       <div class="legal-links">
         <a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}legal/privacy/">{{ if eq .Site.Language.Lang "tr" }}Gizlilik Politikası{{ else }}Privacy{{ end }}</a>
         <a href="{{ if eq .Site.Language.Lang "tr" }}/tr/{{ end }}legal/terms/">{{ if eq .Site.Language.Lang "tr" }}Kullanım Şartları{{ else }}Terms{{ end }}</a>
