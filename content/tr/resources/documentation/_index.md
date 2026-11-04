@@ -2,6 +2,7 @@
 title: "Dokümantasyon"
 lead: "Stratum Gateway'i kurmak, yapılandırmak ve işletmek için ihtiyacınız olan her şey."
 full_width: true
+hide_pages: true
 ---
 <div class="docs-layout">
 <div class="docs-intro"><p>Dokümantasyon, platformu ilk kurulumdan günlük operasyonlara kadar kapsar.</p></div>
@@ -19,6 +20,8 @@ full_width: true
     <div class="card"><h3>pf ve Güvenlik Duvarı Kuralları</h3><p>pf kuralları oluşturun, sıralayın ve uygulayın.</p><a href="/tr/resources/documentation/pf-rules/" class="card-link">Rehberi Oku →</a></div>
     <div class="card"><h3>WireGuard VPN</h3><p>Eşleri ayarlayın, yapılandırmaları oluşturun.</p><a href="/tr/resources/documentation/wireguard-vpn/" class="card-link">Rehberi Oku →</a></div>
     <div class="card"><h3>IP ve DNS Karalisteleri</h3><p>Tehdit akışlarını etkinleştirin, DNSBL'yi yapılandırın.</p><a href="/tr/resources/documentation/blocklists/" class="card-link">Rehberi Oku →</a></div>
+    <div class="card"><h3>Çoklu WAN Yedekliliği</h3><p>Otomatik yedeklilik için birden fazla internet bağlantısı yapılandırın.</p><a href="/tr/resources/documentation/multi-wan/" class="card-link">Rehberi Oku →</a></div>
+    <div class="card"><h3>VPN Genel Bakış</h3><p>WireGuard ve OpenVPN uzaktan erişim seçeneklerini karşılaştırın.</p><a href="/tr/resources/documentation/vpn/" class="card-link">Rehberi Oku →</a></div>
   </div>
 </section>
 <section class="docs-section">

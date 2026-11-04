@@ -2,6 +2,7 @@
 title: "Documentation"
 lead: "Everything you need to deploy, configure, and operate Stratum Gateway."
 full_width: true
+hide_pages: true
 ---
 
 <div class="docs-layout">
@@ -58,6 +59,16 @@ full_width: true
       <h3>IP &amp; DNS Blocklists</h3>
       <p>Enable threat feeds, manage pf tables, and configure DNSBL.</p>
       <a href="/resources/documentation/blocklists/" class="card-link">Read guide →</a>
+    </div>
+    <div class="card">
+      <h3>Multi-WAN Failover</h3>
+      <p>Configure multiple internet connections for automatic failover.</p>
+      <a href="/resources/documentation/multi-wan/" class="card-link">Read guide →</a>
+    </div>
+    <div class="card">
+      <h3>VPN Overview</h3>
+      <p>Compare WireGuard and OpenVPN remote access options.</p>
+      <a href="/resources/documentation/vpn/" class="card-link">Read guide →</a>
     </div>
   </div>
 </section>
