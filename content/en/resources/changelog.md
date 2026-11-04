@@ -3,52 +3,123 @@ title: "Changelog"
 description: "Release history of Stratum FW - new features, changes and fixes in every version."
 ---
 
-All notable changes to Stratum FW are listed here, newest first. Stratum FW updates itself from the signed update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot environment, so the previous version can be booted again at any time.
+All notable changes to Stratum FW are listed here, newest first. Stratum FW updates itself from the signed
+update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot
+environment, so the previous version can be booted again at any time.
+
+## 0.14.0 - 2026-11-04
+
+### Added
+- **MCP server** (Model Context Protocol, System > Settings > MCP): AI assistants such as Claude, ChatGPT,
+  Gemini or DeepSeek (through an MCP client) can read the firewall's live state and answer questions like
+  "what was blocked in the last hour?" or "which devices are on the guest network?". 14 read-only tools:
+  system status, interfaces, WAN status, services, firewall log, blocked-traffic summary, firewall rules,
+  NAT rules, DHCP leases, VPN sessions, alerts, configuration changes, blocklists and traffic statistics.
+  Nothing can be changed through MCP.
+- Access tokens for MCP, one per assistant or computer, optionally limited to given addresses. A token is
+  shown once and stored only as a hash; last use, address and number of calls are shown, and a token can be
+  revoked at any time. Wrong tokens count as failed sign-ins and block the address.
+- Each tool can be switched off, so its data is never sent to an AI provider. Passwords, keys, tokens and
+  VPN configurations are never returned.
+- The panel certificate can be downloaded for MCP clients that must trust it.
+
+## 0.13.2 - 2026-11-04
+
+### Added
+- Dashboard **Alerts**: the latest events (WAN down or up again, new WAN address, blocked sign-ins, failed
+  applies, automatic rollbacks, available updates, full disk, high temperature, certificate and blocklist
+  problems) with the time and whether each was sent by e-mail or Telegram. Events are now recorded even when
+  no notification channel is set up; the last 100 are kept.
+- Dashboard **DHCP**: per network, the devices with an active lease, how much of the address pool is in use
+  (amber from 75 %, red from 90 %) and the number of static mappings.
+
+## 0.13.1 - 2026-11-04
+
+### Added
+- Dashboard **WAN panel**: connection type, gateway, latency and packet loss to the gateway (measured every 30
+  seconds, with a curve), how long the connection has been up, today's download and upload, and the live rate;
+  latency to the internet (1.1.1.1) in the status strip.
+- Dashboard **VPN connections**: every connected OpenVPN user and active WireGuard peer with the address it
+  connects from, its VPN address, connection time or last handshake, and the data received and sent.
+- Opening the dashboard checks for software updates (at most every 5 minutes), like pfSense, and shows the
+  result as soon as it is there.
+
+### Fixed
+- Firewall log: on FreeBSD 15 every logged packet was given the name of the wrong rule (often "ipv6-off"),
+  because pf now writes rule numbers as "3..1/0". The Firewall Log page, the dashboard and remote syslog
+  show the right rule again; entries logged before the update keep their old names.
+- Dashboard: the CPU tile no longer opens the traffic graphs; the live traffic under the chart uses the same
+  measurement as the interface list.
 
 ## 0.13.0 - 2026-11-04
 
 ### Changed
 - **New dashboard**:
-  - Status strip: host name, version and update state, every WAN connection with its address and live download / upload, uptime, time of the last configuration change, firewall state.
-  - Key figures: CPU with a 5-minute curve, memory, disk, temperature, connections against the state table limit, and packets blocked in the last hour with a curve; colours change at warning levels.
+  - Status strip: host name, version and update state, every WAN connection with its address and live
+    download / upload, uptime, time of the last configuration change, firewall state.
+  - Key figures: CPU with a 5-minute curve, memory, disk, temperature, connections against the state table
+    limit, and packets blocked in the last hour with a curve; colours change at warning levels.
   - Traffic of the last hour per interface with average and peak.
-  - Protection: IP and DNS blocklists, packets stopped by the IP blocklists, addresses blocked after failed sign-ins, OpenVPN users and WireGuard peers online, the rules that blocked most in the last hour.
-  - Interfaces with their description as the name, status, link speed, address and live traffic; services with a running / stopped summary.
-  - Top blocked sources and ports of the last hour, and the latest configuration changes (applied, kept, reverted, failed).
+  - Protection: IP and DNS blocklists, packets stopped by the IP blocklists, addresses blocked after failed
+    sign-ins, OpenVPN users and WireGuard peers online, the rules that blocked most in the last hour.
+  - Interfaces with their description as the name, status, link speed, address and live traffic; services
+    with a running / stopped summary.
+  - Top blocked sources and ports of the last hour, and the latest configuration changes (applied, kept,
+    reverted, failed).
   - Works in the dark and light themes and on phones.
 
 ## 0.12.6 - 2026-11-04
 
 ### Added
-- **System > Settings > Networking**: switch off hardware offload (LRO, TSO, checksum) on every physical port - set live without restarting the ports and kept after a reboot - with the current state per port; CPU power management (adaptive, maximum performance, economy); ARP logging and ARP entry lifetime; IPv6 status.
-- **System > Settings > Tunables**: run-time system values (sysctl) that matter on a firewall, with the values pfSense uses as a recommendation and the current value of each, plus own run-time tunables. Values are set with Apply and kept after a reboot (/etc/sysctl.conf.local); a value set back to default gets the value it had before. Values Stratum FW manages itself cannot be changed here.
+- **System > Settings > Networking**: switch off hardware offload (LRO, TSO, checksum) on every physical port -
+  set live without restarting the ports and kept after a reboot - with the current state per port; CPU power
+  management (adaptive, maximum performance, economy); ARP logging and ARP entry lifetime; IPv6 status.
+- **System > Settings > Tunables**: run-time system values (sysctl) that matter on a firewall, with the values
+  pfSense uses as a recommendation and the current value of each, plus own run-time tunables. Values are set
+  with Apply and kept after a reboot (/etc/sysctl.conf.local); a value set back to default gets the value it
+  had before. Values Stratum FW manages itself cannot be changed here.
 - All System > Settings tabs are now available.
 
 ### Changed
-- An existing /etc/sysctl.conf.local is kept as /etc/sysctl.conf.local.stratum-orig; the file is now written from Settings > Tunables.
+- An existing /etc/sysctl.conf.local is kept as /etc/sysctl.conf.local.stratum-orig; the file is now written
+  from Settings > Tunables.
 
 ## 0.12.5 - 2026-11-04
 
 ### Added
-- **Automatic blocklist updates on a schedule** (Firewall > Blocklists, IP and DNSBL): every hour, every 6 or 12 hours, daily at a chosen hour, weekly on a chosen day, or off. The page shows the next automatic update. A missed update (firewall switched off) runs at the next hour, and after a failed update the next hour tries again. Schedule changes take effect at once, without Apply. Defaults keep the earlier rhythm (IP lists hourly, DNS lists daily at 03:00).
+- **Automatic blocklist updates on a schedule** (Firewall > Blocklists, IP and DNSBL): every hour, every 6 or
+  12 hours, daily at a chosen hour, weekly on a chosen day, or off. The page shows the next automatic update. A
+  missed update (firewall switched off) runs at the next hour, and after a failed update the next hour tries
+  again. Schedule changes take effect at once, without Apply. Defaults keep the earlier rhythm (IP lists hourly,
+  DNS lists daily at 03:00).
 
 ### Fixed
-- The update log of the IP blocklists stayed hidden while an update ran (two elements on the page shared the same id).
+- The update log of the IP blocklists stayed hidden while an update ran (two elements on the page shared the
+  same id).
 
 ## 0.12.4 - 2026-11-04
 
 ### Added
-- **System > Settings > Notifications**: messages from the firewall by **Telegram** (bot) and **e-mail** (SMTP with STARTTLS or TLS), each with a test button that uses the values on the page.
-  - Events, each can be switched off: software update available, applying the configuration failed, changes reverted automatically because they were not kept in time, WAN connection down / up again / new address, an address blocked after failed sign-ins, panel certificate expiring, IP or DNS blocklist downloads failing, disk almost full and CPU temperature high (adjustable thresholds).
-  - Failed applies, automatic rollbacks and blocked sign-ins are reported at once; the rest is checked every 5 minutes. The same problem is repeated only after a pause.
-  - The bot token and the mail password are stored on the firewall only (root-only files) and never shown again. Notification settings take effect at once, without Apply.
+- **System > Settings > Notifications**: messages from the firewall by **Telegram** (bot) and **e-mail**
+  (SMTP with STARTTLS or TLS), each with a test button that uses the values on the page.
+  - Events, each can be switched off: software update available, applying the configuration failed, changes
+    reverted automatically because they were not kept in time, WAN connection down / up again / new address,
+    an address blocked after failed sign-ins, panel certificate expiring, IP or DNS blocklist downloads failing,
+    disk almost full and CPU temperature high (adjustable thresholds).
+  - Failed applies, automatic rollbacks and blocked sign-ins are reported at once; the rest is checked every 5
+    minutes. The same problem is repeated only after a pause.
+  - The bot token and the mail password are stored on the firewall only (root-only files) and never shown
+    again. Notification settings take effect at once, without Apply.
 
 ## 0.12.3 - 2026-11-04
 
 ### Added
 - **System > Settings > Logging**:
-  - Firewall log rotation: file size and number of old files kept; current size of the firewall, system, DHCP/DNS and sign-in logs and the free space for logs.
-  - **Remote syslog**: up to two servers (for example a NAS), each with its own choice of logs: system, sign-ins (panel, SSH, VPN), the firewall log (one readable line per packet, tag `filterlog`) and DHCP/DNS. Sent over UDP by the system's syslogd; the local logs stay as they are.
+  - Firewall log rotation: file size and number of old files kept; current size of the firewall, system, DHCP/DNS
+    and sign-in logs and the free space for logs.
+  - **Remote syslog**: up to two servers (for example a NAS), each with its own choice of logs: system, sign-ins
+    (panel, SSH, VPN), the firewall log (one readable line per packet, tag `filterlog`) and DHCP/DNS. Sent over
+    UDP by the system's syslogd; the local logs stay as they are.
   - **Send test message** checks that a server receives syslog before anything is applied.
 
 ### Changed
@@ -58,24 +129,52 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 ## 0.12.2 - 2026-11-03
 
 ### Added
-- **System > Settings > Firewall & NAT**: Blocked connections dropped silently or rejected; logging of the default block and of broadcast noise. Bogon and private network blocking and ping on the WAN address. State table size with a suggestion for the installed memory and the current usage, idle-connection timeouts, SYN flood protection. Packet normalisation: random IP ID, clearing the don't-fragment bit. **NAT reflection**: local devices reach a port forward through the public address. Static source ports for automatic outbound NAT. The defaults keep the generated pf configuration of earlier versions unchanged.
+- **System > Settings > Firewall & NAT**:
+  - Blocked connections dropped silently or rejected; logging of the default block and of broadcast noise.
+  - Bogon and private network blocking and ping on the WAN address (until now only in the configuration file).
+  - State table size with a suggestion for the installed memory and the current usage, idle-connection timeouts
+    (normal, high latency, conservative, aggressive), SYN flood protection.
+  - Packet normalisation: random IP ID, clearing the don't-fragment bit.
+  - **NAT reflection**: local devices reach a port forward through the public address. The redirected traffic
+    is still filtered by the rules of the device's own interface.
+  - Static source ports for automatic outbound NAT.
+  - The defaults keep the generated pf configuration of earlier versions unchanged.
 
 ### Changed
-- Settings the panel uses on its own (session timeout, sign-in notice, sign-in protection) no longer show the "Apply changes" bar, and Discard keeps them.
+- Settings the panel uses on its own (session timeout, sign-in notice, sign-in protection) no longer show the
+  "Apply changes" bar, and Discard keeps them.
 
 ## 0.12.1 - 2026-11-03
 
 ### Fixed
-- Clicking Apply could start the same apply twice: the apply bar's periodic refresh redrew an active Apply button while the first apply was still running, and the second one ran again right after Keep, asking to keep the same changes a second time. The bar now stays busy until the action has finished, and only one apply, confirm or rollback can run at a time.
-- A WAN port forward on a management port (for example 443) no longer blocks saving any configuration. The forwarded port is left out of the WAN management rule (pf sends it to the forwarded host anyway) and Admin Access shows a notice.
+- Clicking Apply could start the same apply twice: the apply bar's periodic refresh redrew an active Apply
+  button while the first apply was still running, and the second one ran again right after Keep, asking to keep
+  the same changes a second time. The bar now stays busy until the action has finished, and only one apply,
+  confirm or rollback can run at a time (panel, console and rollback timer).
+- A WAN port forward on a management port (for example 443) no longer blocks saving any configuration. The
+  forwarded port is left out of the WAN management rule (pf sends it to the forwarded host anyway) and Admin
+  Access shows a notice.
 
 ## 0.12.0 - 2026-11-03
 
 ### Added
-- **System > Settings** with tabs, replacing System > General. More tabs (Firewall & NAT, Logging, Notifications, Networking, Tunables) follow in the next releases.
-- **General**: hostname, local domain, time zone, and a sign-in notice shown on the sign-in page.
-- **Admin Access**: Web panel port and the HTTP-to-HTTPS redirect, session timeout. Who may manage the firewall. Access from WAN, with a list of allowed source addresses. Sign-in protection. SSH: on or off, port, password or key-only sign-in, root's authorised public keys. Saving is refused when the new settings would lock out the address you are connected from.
-- Console menu 6) **Management access**: shows the current settings, opens or closes WAN access, and resets management access to the defaults.
+- **System > Settings** with tabs, replacing System > General. More tabs (Firewall & NAT, Logging,
+  Notifications, Networking, Tunables) follow in the next releases.
+- **General**: hostname, local domain, time zone, and a sign-in notice shown on the sign-in page (for example a
+  legal notice).
+- **Admin Access**:
+  - Web panel port and the HTTP-to-HTTPS redirect, session timeout.
+  - Who may manage the firewall: all internal networks (firewall rules decide) or only selected interfaces;
+    anti-lockout rule on LAN.
+  - Access from WAN (until now only in the console menu), with a list of allowed source addresses.
+  - Sign-in protection with adjustable attempts, period and block time, a list of blocked addresses and an
+    Unblock button.
+  - SSH: on or off, port, password or key-only sign-in, root's authorised public keys.
+  - Saving is refused when the new settings would lock out the address you are connected from. nginx and sshd
+    check the new settings before Apply; when the panel moves to another port, the apply bar links to the new
+    address.
+- Console menu 6) **Management access**: shows the current settings, opens or closes WAN access, and resets
+  management access to the defaults.
 
 ### Changed
 - The anti-lockout and WAN management rules follow the configured panel and SSH ports.
@@ -84,54 +183,81 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 ## 0.11.0 - 2026-11-03
 
 ### Added
-- **Certificates** (System > Certificates): manage the TLS certificate of the web panel. See the active certificate: names, issuer, expiry date with days left, key type and the SHA-256 fingerprint. Install your own certificate with intermediate certificates. Create a new self-signed certificate. The previous certificate is kept and can be restored from the page or with `stratum-cert restore`.
+- **Certificates** (System > Certificates): manage the TLS certificate of the web panel.
+  - See the active certificate: names, issuer, expiry date with days left, key type and the SHA-256
+    fingerprint to compare with the browser.
+  - Install your own certificate (for example from a company CA), with intermediate certificates in the same
+    file. It is checked before use: the key must match and have no passphrase, the certificate must be valid
+    now, and nginx must accept it.
+  - Create a new self-signed certificate for the host names and addresses the panel is opened with.
+  - The previous certificate is kept and can be restored from the page or with `stratum-cert restore` on the
+    console. A new certificate takes effect at once, without Apply and without dropping open connections.
 - Alert for administrators when a CA-issued panel certificate expires within 21 days.
 - `stratum-cert` command: `show`, `selfsigned`, `install`, `restore`.
 
 ## 0.10.0 - 2026-11-03
 
 ### Security
-- **IPv6 safety baseline**: IPv6 is not supported yet, and now it is guaranteed to stay off — every IPv6 packet is dropped before any pass rule, IPv6 stays disabled on all interfaces and is never forwarded.
+- **IPv6 safety baseline**: IPv6 is not supported yet, and now it is guaranteed to stay off - every IPv6 packet
+  is dropped before any pass rule (in and out, not logged), IPv6 stays disabled on all interfaces and is never
+  forwarded. An ISP that starts offering IPv6 can no longer open a path around the IPv4 rules.
 
 ### Added
-- IPv6 design and release plan (`docs/ipv6.md`).
+- IPv6 design and release plan (`docs/ipv6.md`): WAN IPv6 with DHCPv6 prefix delegation first, then IPv6 for
+  internal networks and firewall rules, services, and VPNs.
 
 ## 0.9.1 - 2026-11-03
 
 ### Changed
-- When an Apply fails, the apply bar now says why: each failed check with its message, with a link to the full output under System Logs > Configuration. Failures are also written to the system log.
+- When an Apply fails, the apply bar now says why: each failed check with its message (for example a pf syntax
+  error), with a link to the full output under System Logs > Configuration. Failures are also written to the
+  system log.
 - `stratum-update run` on an up-to-date system reports "nothing to install" instead of an error.
 
 ## 0.9.0 - 2026-11-03
 
 ### Added
 - **IP blocklists** (Firewall > Blocklists > IP): block known-bad addresses with pf.
-  - Catalogue of 63 maintained IPv4 feeds derived from pfBlockerNG; Spamhaus DROP, Abuse.ch Feodo Tracker and Emerging Threats are recommended and preselected.
-  - Direction: incoming from the internet, outgoing from local networks, or both.
-  - Own allow and block lists and custom list URLs.
-  - Hourly updates without Apply, live progress bar and update log, blocked packet counters, and "Check an address".
-  - Safety: private and reserved ranges and networks larger than /8 are never blocked; the firewall's DNS, update and package servers are always allowed.
-- **Installation media in two variants**: `stratum-fw-v0.9.0-vga.iso` and `stratum-fw-v0.9.0-serial.iso`.
+  - Catalogue of 63 maintained IPv4 feeds derived from pfBlockerNG (PRI1-PRI5, Scanners, TOR, Mail, DoH, VPN,
+    Proxy and more); Spamhaus DROP, Abuse.ch Feodo Tracker and Emerging Threats are recommended and preselected.
+  - Direction: incoming from the internet, outgoing from local networks, or both. Incoming connections are
+    dropped; outgoing ones are rejected so devices fail fast.
+  - Own allow and block lists and custom list URLs. An allowed address inside a blocked network stays reachable.
+  - Hourly updates without Apply (the pf table is replaced live), live progress bar and update log, blocked packet
+    counters, and "Check an address" to see which list contains an IP.
+  - Safety: private and reserved ranges and networks larger than /8 are never blocked, whatever a list contains;
+    the firewall's DNS, update and package servers are always allowed.
+- **Installation media in two variants**: `stratum-fw-v0.9.0-vga.iso` (monitor and keyboard) and
+  `stratum-fw-v0.9.0-serial.iso` (serial console, 115200 8N1). Both are hybrid images for CD and USB sticks, and
+  the installed system keeps the console of the media it was installed from.
 
 ## 0.8.0 - 2026-11-03
 
 ### Added
 - **WireGuard** (VPN > WireGuard): remote access with WireGuard, built into FreeBSD - no extra packages.
-  - Server settings: port, listening WAN, tunnel network, MTU, external address.
-  - Choose exactly which LANs and VLANs peers may reach, plus extra networks.
-  - Peers with key pairs generated on the firewall and preshared keys: the configuration is shown as a QR code or downloaded as a `.conf` file.
+  - Server settings: port, listening WAN, tunnel network, MTU, external address (detected automatically).
+  - Choose exactly which LANs and VLANs peers may reach, plus extra networks; optional full tunnel and
+    peer-to-peer traffic.
+  - Peers (one per device) with key pairs generated on the firewall and preshared keys: the configuration is
+    shown as a QR code for the WireGuard app or downloaded as a `.conf` file. Devices with their own keys are
+    supported too.
   - Live status per peer: connected, endpoint, last handshake, received and sent data.
-- Private keys are kept outside the configuration file.
+  - Adding or removing a peer does not disconnect the others.
+- Private keys are kept outside the configuration file (root-only files); peer configurations are shown to
+  administrators only.
 
 ## 0.7.3 - 2026-11-02
 
 ### Added
-- **OpenVPN advanced settings**: UDP or TCP, listening WAN, which LANs and VLANs VPN clients may reach, client-to-client traffic, several devices per user, maximum connections, DNS servers and domains, data ciphers, authentication digest, minimum TLS version, key renegotiation, keepalive, MTU/MSS, log level, and certificate-only login.
+- **OpenVPN advanced settings**: UDP or TCP, listening WAN, which LANs and VLANs VPN clients may reach (per
+  interface) and extra networks, client-to-client traffic, several devices per user, maximum connections, DNS
+  servers and domains for clients, data ciphers, authentication digest, minimum TLS version, key renegotiation,
+  keepalive, MTU/MSS, log level, and certificate-only login.
 - **Fixed VPN address per user** (System > Users).
 - The panel tells you when connection settings change and the users' profiles must be downloaded again.
 
 ### Changed
-- VPN access checkboxes on the OpenVPN page take effect immediately.
+- VPN access checkboxes on the OpenVPN page take effect immediately; the Save button sits under the settings.
 
 ## 0.7.2 - 2026-11-01
 
@@ -141,48 +267,60 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 ## 0.7.1 - 2026-11-01
 
 ### Added
-- **VPN-only accounts**: users with OpenVPN access but no web panel sign-in.
+- **VPN-only accounts**: users with OpenVPN access but no web panel sign-in, managed on System > Users.
 - Users list: last VPN login and failed VPN password attempts; download the `.ovpn` profile from the list.
 
 ### Changed
 - Removing VPN access, disabling or deleting a user revokes the user's certificate immediately.
-- OpenVPN profiles no longer use the deprecated `persist-key` option.
+- OpenVPN profiles no longer use the deprecated `persist-key` option (OpenVPN 2.7).
 
 ## 0.7.0 - 2026-11-01
 
 ### Added
 - **OpenVPN remote access** (VPN > OpenVPN).
   - Built-in certificate authority (elliptic-curve keys, revocation list, tls-crypt).
-  - Login with the user's certificate and password.
-  - Per-user `.ovpn` profiles, certificate revocation, list of connected clients.
+  - Login with the user's certificate and password; the certificate must belong to the same user.
+  - Per-user `.ovpn` profiles with everything embedded (administrators only), certificate revocation, list of
+    connected clients.
   - Firewall and NAT rules and DNS for VPN clients are created automatically.
 
 ## 0.6.13 - 0.6.19 - 2026-10-31
 
 ### Added
-- **Unbound DNS resolver** (Services > DNS): validating resolver with DNSSEC, forwarder or full-recursion mode.
-- **DNS blocklists** (Firewall > Blocklists > DNSBL), pfBlockerNG-style: catalogue derived from pfBlockerNG plus the HaGeZi lists, recommended defaults, own lists, "Check a domain", nightly updates, and an update screen with a percentage bar, current step and live log.
-- **Dashboard**: update badge next to the version, live uptime, CPU temperature, PPPoE session address and a traffic chart for the last hour.
+- **Unbound DNS resolver** (Services > DNS): validating resolver with DNSSEC, forwarder or full-recursion mode;
+  DHCP client names keep resolving. dnsmasq stays available and the switch between them is safe in both
+  directions.
+- **DNS blocklists** (Firewall > Blocklists > DNSBL), pfBlockerNG-style: catalogue derived from pfBlockerNG plus
+  the HaGeZi lists, recommended defaults, own allow and block lists, custom lists, "Check a domain", nightly
+  updates, and an update screen with a percentage bar, current step and live log.
+- **Dashboard**: update badge next to the version, live uptime, CPU temperature, PPPoE session address and a
+  traffic chart for the last hour.
 
 ### Fixed
-- DNS blocklists: links in list comments are no longer treated as entries; list sources, the update server and shared hosting platforms are never blocked.
+- DNS blocklists: links in list comments are no longer treated as entries (popular sites such as github.com
+  were blocked by some lists); list sources, the update server and shared hosting platforms are never blocked.
 - Applying the configuration with DNS blocklists enabled failed on 0.6.15.
+- The DNSSEC root trust anchor is created before the Unbound configuration is checked.
 
 ## 0.6.6 - 0.6.12 - 2026-10-31
 
 ### Added
-- **Offline updates**: download a signed update file (`.sfu`) and upload it on System > Update.
-- The newest 5 boot environments are kept after every update.
+- **Offline updates**: download a signed update file (`.sfu`) and upload it on System > Update - signature and
+  checksum verification with a progress bar, then the same installation steps as an online update.
+- The newest 5 boot environments are kept after every update; older ones are removed automatically.
 
 ### Fixed
-- Booting an earlier boot environment works.
-- Fresh installations report their version correctly.
-- The online check fails fast without internet.
+- Booting an earlier boot environment works (installer and updater set the correct ZFS properties; existing
+  installations are repaired automatically).
+- Fresh installations report their version correctly (package database schema), so updates are offered.
+- The online check fails fast without internet, and an interrupted package download can no longer hang the
+  update.
 
 ## 0.6.1 - 0.6.5 - 2026-10-31
 
 ### Added
-- Update progress: percentage bar, step checklist with times, in-progress banner, and a "restarting" page.
+- Update progress: percentage bar, step checklist with times, in-progress banner, and a "restarting" page while
+  the panel restarts.
 - System alerts (IP forwarding off, update available) and an own account page with password change.
 
 ### Fixed
@@ -192,11 +330,15 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 ## 0.6.0 - 2026-10-31
 
 ### Added
-- **Users and roles** (System > Users): several accounts, administrator / operator / read-only roles, enable and disable, last login and failed attempts.
+- **Users and roles** (System > Users): several accounts, administrator / operator / read-only roles, enable and
+  disable, last login and failed attempts; sessions end when a password changes or an account is disabled.
 - **General settings** (System > General): hostname, local domain, idle session timeout.
-- **Light theme** and follow-the-system mode.
-- **Backup and restore** (System > Backup): download the configuration, verified restore, configuration history.
-- **Signed software updates** (System > Update): signature-checked repository, a backup and a new ZFS boot environment before every update, live progress, rollback.
+- **Light theme** and follow-the-system mode, chosen per user.
+- **Backup and restore** (System > Backup): download the configuration (optionally with users), verified restore
+  as pending changes, configuration history with differences.
+- **Signed software updates** (System > Update) from update.stratumfw.com: signature-checked repository, a backup
+  and a new ZFS boot environment before every update, live progress, rollback to the previous boot environment,
+  daily update check.
 - Branded boot menu.
 
 ## 0.5.0 - 2026-10-30
@@ -204,41 +346,45 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 ### Added
 - **Firewall Log**: live view with filters and rule names.
 - **System Logs**: system, DHCP/DNS, PPPoE, NTP, authentication, panel and configuration logs.
-- **Ping, Traceroute and DNS lookup**, and the **pf state table**.
-- **Traffic Graphs** for every interface.
+- **Ping, Traceroute and DNS lookup**, and the **pf state table** with the option to kill states.
+- **Traffic Graphs** for every interface (last hour, 24 hours, 30 days).
 
 ### Changed
-- Broadcast and multicast noise is blocked without filling the log.
+- Broadcast and multicast noise is blocked without filling the log (logging can be turned on).
 
 ## 0.4.0 - 2026-10-30
 
 ### Added
-- **DHCP Server**: settings per interface, static mappings, active leases.
+- **DHCP Server**: settings per interface, static mappings, active leases with "make static".
 - **DNS Resolver**: local domain, upstream servers, host and domain overrides.
-- **NTP**: time servers, time zone.
+- **NTP**: time servers, time zone, optional time service for internal networks.
 - Time zone question in the console setup wizard.
 
 ## 0.3.0 - 2026-10-30
 
 ### Added
-- **Interface assignments**: map ports to WAN, LAN and additional (OPT) interfaces.
+- **Interface assignments**: map ports to WAN, LAN and additional (OPT) interfaces; OPT interfaces can be WAN or
+  LAN type.
 - Interface settings: static, DHCP or none, gateway, MTU.
-- **PPPoE** on every WAN-type interface.
+- **PPPoE** on every WAN-type interface (the password is never shown again).
 - **VLANs** (802.1Q), assignable as WAN or LAN.
+
+### Changed
+- An interface's description is shown as its name everywhere, with the role below it.
 
 ## 0.2.0 - 2026-10-30
 
 ### Added
 - **Firewall rules** per interface with system rules shown, hit counters, drag-and-drop order, on/off switch.
 - **Aliases** for hosts, networks and ports.
-- **NAT**: port forwards and outbound NAT modes.
+- **NAT**: port forwards (with automatic pass rules and hit counters) and outbound NAT modes with manual rules.
 - Anti-lockout rule, bogon and private network blocking on WAN.
 - **Safe apply**: every change is applied with an automatic rollback unless it is confirmed in time.
 
 ## 0.1.1 - 2026-10-30
 
 ### Changed
-- Management access from WAN is closed by default.
+- Management access from WAN is closed by default (can be opened in the setup wizard or console menu).
 - Overlapping interface networks are refused.
 
 ### Fixed
