@@ -5,6 +5,34 @@ description: "Release history of Stratum FW - new features, changes and fixes in
 
 All notable changes to Stratum FW are listed here, newest first. Stratum FW updates itself from the signed update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot environment, so the previous version can be booted again at any time.
 
+## 0.12.5 - 2026-11-04
+
+### Added
+- **Automatic blocklist updates on a schedule** (Firewall > Blocklists, IP and DNSBL): every hour, every 6 or 12 hours, daily at a chosen hour, weekly on a chosen day, or off. The page shows the next automatic update. A missed update (firewall switched off) runs at the next hour, and after a failed update the next hour tries again. Schedule changes take effect at once, without Apply. Defaults keep the earlier rhythm (IP lists hourly, DNS lists daily at 03:00).
+
+### Fixed
+- The update log of the IP blocklists stayed hidden while an update ran (two elements on the page shared the same id).
+
+## 0.12.4 - 2026-11-04
+
+### Added
+- **System > Settings > Notifications**: messages from the firewall by **Telegram** (bot) and **e-mail** (SMTP with STARTTLS or TLS), each with a test button that uses the values on the page.
+  - Events, each can be switched off: software update available, applying the configuration failed, changes reverted automatically because they were not kept in time, WAN connection down / up again / new address, an address blocked after failed sign-ins, panel certificate expiring, IP or DNS blocklist downloads failing, disk almost full and CPU temperature high (adjustable thresholds).
+  - Failed applies, automatic rollbacks and blocked sign-ins are reported at once; the rest is checked every 5 minutes. The same problem is repeated only after a pause.
+  - The bot token and the mail password are stored on the firewall only (root-only files) and never shown again. Notification settings take effect at once, without Apply.
+
+## 0.12.3 - 2026-11-04
+
+### Added
+- **System > Settings > Logging**:
+  - Firewall log rotation: file size and number of old files kept; current size of the firewall, system, DHCP/DNS and sign-in logs and the free space for logs.
+  - **Remote syslog**: up to two servers (for example a NAS), each with its own choice of logs: system, sign-ins (panel, SSH, VPN), the firewall log (one readable line per packet, tag `filterlog`) and DHCP/DNS. Sent over UDP by the system's syslogd; the local logs stay as they are.
+  - **Send test message** checks that a server receives syslog before anything is applied.
+
+### Changed
+- Rotation of the firewall and DHCP/DNS logs is generated from the settings (the defaults are unchanged).
+- Software updates restart the firewall log and traffic collectors, so they run the new version at once.
+
 ## 0.12.2 - 2026-11-03
 
 ### Added
@@ -16,7 +44,7 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 ## 0.12.1 - 2026-11-03
 
 ### Fixed
-- Clicking Apply could start the same apply twice: the apply bar's periodic refresh redrew an active Apply button while the first apply was still running, and the second one ran again right after Keep, asking to keep the same changes a second time. The bar now stays busy until the action has finished, and only one apply, confirm or rollback can run at a time (panel, console and rollback timer).
+- Clicking Apply could start the same apply twice: the apply bar's periodic refresh redrew an active Apply button while the first apply was still running, and the second one ran again right after Keep, asking to keep the same changes a second time. The bar now stays busy until the action has finished, and only one apply, confirm or rollback can run at a time.
 - A WAN port forward on a management port (for example 443) no longer blocks saving any configuration. The forwarded port is left out of the WAN management rule (pf sends it to the forwarded host anyway) and Admin Access shows a notice.
 
 ## 0.12.0 - 2026-11-03
@@ -24,7 +52,7 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 ### Added
 - **System > Settings** with tabs, replacing System > General. More tabs (Firewall & NAT, Logging, Notifications, Networking, Tunables) follow in the next releases.
 - **General**: hostname, local domain, time zone, and a sign-in notice shown on the sign-in page.
-- **Admin Access**: Web panel port and the HTTP-to-HTTPS redirect, session timeout. Who may manage the firewall: all internal networks or only selected interfaces; anti-lockout rule on LAN. Access from WAN, with a list of allowed source addresses. Sign-in protection with adjustable attempts, period and block time, a list of blocked addresses and an Unblock button. SSH: on or off, port, password or key-only sign-in, root's authorised public keys. Saving is refused when the new settings would lock out the address you are connected from. nginx and sshd check the new settings before Apply.
+- **Admin Access**: Web panel port and the HTTP-to-HTTPS redirect, session timeout. Who may manage the firewall. Access from WAN, with a list of allowed source addresses. Sign-in protection. SSH: on or off, port, password or key-only sign-in, root's authorised public keys. Saving is refused when the new settings would lock out the address you are connected from.
 - Console menu 6) **Management access**: shows the current settings, opens or closes WAN access, and resets management access to the defaults.
 
 ### Changed
