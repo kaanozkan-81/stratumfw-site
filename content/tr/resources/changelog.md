@@ -5,6 +5,35 @@ description: "Stratum FW sürüm geçmişi - her sürümdeki yeni özellikler, d
 
 Stratum FW'deki tüm önemli değişiklikler burada, en yeniden eskiye doğru listelenmiştir. Stratum FW kendini imzalı güncelleme sunucusundan (System > Update) veya çevrimdışı bir güncelleme dosyasından (`.sfu`) günceller; her güncelleme bir ZFS önyükleme ortamı oluşturur, böylece önceki sürüm herhangi bir zamanda yeniden başlatılabilir.
 
+## 0.15.1 - 2026-11-05
+
+### Düzeltildi
+- Saldırı tespiti, imajdan kurulan sistemlerde başlatılamıyordu: Suricata, minimal temel sistemde bulunmayan
+  netmap kütüphanesine ihtiyaç duyar. Paket artık buna (FreeBSD-netmap) bağımlıdır, böylece güncelleme onu
+  kurar ve yeni kurulumlar onu içerir. Ön kontrol Apply'ı durdurmuştu, bu yüzden hiçbir sistem değiştirilmedi.
+
+## 0.15.0 - 2026-11-05
+
+### Eklendi
+- **Saldırı tespiti** (Services > Intrusion Detection) IDS modunda Suricata 8 ile: seçilen arayüzlerin trafiği
+  ET Open kurallarıyla karşılaştırılır ve eve bağlanan kötü amaçlı yazılımlar, istismarlar, taramalar, kimlik
+  avı, kripto madencileri ve daha fazlası için uyarılar oluşturulur. Henüz hiçbir şey engellenmez; engelleme
+  (IPS), uyarılar ağa hangi kuralların uyduğunu gösterdikten sonra gelir.
+- Üç grupta kural kategorileri, önerilen bir seçimle (tehditler açık, gürültülü politika ve bilgi kuralları
+  kapalı) ve her kategorideki kural sayısı.
+- Engelleme listeleri gibi, zamanlamaya göre otomatik kural güncellemeleri (varsayılan olarak günlük). Yeni bir
+  kural kümesi yalnızca değiştiğinde indirilir ve kullanılmadan önce Suricata ile test edilir. Başarısız bir
+  indirme veya test önceki kuralları korur.
+- Uyarılar sayfası: en yeniden eskiye, önem derecesi, kural, kaynak, hedef ve arayüz ile, bir arama ve bir önem
+  filtresiyle. Normal trafikte uyarı veren bir kural tek tıkla devre dışı bırakılabilir ve Ayarlar sekmesinde
+  yeniden etkinleştirilebilir; değişiklik hemen, Apply olmadan ve tespitte bir boşluk olmadan yürürlüğe girer.
+- Suricata denetimli çalışır ve durursa yeniden başlatılır. Bellek sınırları kurulu belleği izler. Günlükleri
+  diğer günlüklerle birlikte döndürülür ve başarısız kural indirmeleri bildirimlerle raporlanır.
+
+### Değiştirildi
+- MCP adresini bir web tarayıcısında açmak artık boş bir hata sayfası yerine kısa bir açıklama gösterir.
+- stratum-fw paketi artık Suricata'ya bağımlıdır.
+
 ## 0.14.0 - 2026-11-04
 
 ### Eklendi

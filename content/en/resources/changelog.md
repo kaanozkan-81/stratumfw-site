@@ -7,6 +7,36 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot
 environment, so the previous version can be booted again at any time.
 
+## 0.15.1 - 2026-11-05
+
+### Fixed
+- Intrusion detection could not start on systems installed from the image: Suricata needs the netmap
+  library, which the minimal base system did not include. The package now depends on it (FreeBSD-netmap),
+  so updating installs it, and new installations include it. The pre-check had stopped the Apply, so no
+  system was changed.
+
+## 0.15.0 - 2026-11-05
+
+### Added
+- **Intrusion detection** (Services > Intrusion Detection) with Suricata 8 in IDS mode: the traffic of the
+  chosen interfaces is compared with the ET Open rules and alerts are raised for malware calling home,
+  exploits, scans, phishing, coin miners and more. Nothing is blocked yet; blocking (IPS) follows once the
+  alerts have shown which rules fit the network.
+- Rule categories in three groups, with a recommended selection (threats on, noisy policy and information
+  rules off) and the number of rules in each category.
+- Automatic rule updates on a schedule (daily by default), like the blocklists. A new rule set is downloaded
+  only when it changed, and it is tested with Suricata before it is used. A failed download or test keeps
+  the previous rules.
+- Alerts page: newest first, with severity, rule, source, destination and interface, a search and a
+  severity filter. A rule that alerts on normal traffic can be disabled with one click and enabled again
+  on the Settings tab; the change takes effect at once, without Apply and without a gap in detection.
+- Suricata runs supervised and is started again if it stops. Memory limits follow the installed memory.
+  Its logs are rotated with the other logs, and failed rule downloads are reported by the notifications.
+
+### Changed
+- Opening the MCP address in a web browser now shows a short explanation instead of an empty error page.
+- The stratum-fw package now depends on Suricata.
+
 ## 0.14.0 - 2026-11-04
 
 ### Added
