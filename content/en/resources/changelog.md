@@ -7,6 +7,43 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot
 environment, so the previous version can be booted again at any time.
 
+## 0.16.0 - 2026-11-05
+
+### Added
+- **Gateways** (Interfaces > Gateways): every WAN-type interface has a gateway with live status (online,
+  warning, down), latency, packet loss and the last hour as a small graph.
+- A new gateway monitor service probes each gateway once per second from the WAN's own address, also when
+  nobody has the panel open. A gateway is down when the packet loss or latency over the last 30 seconds
+  reaches its limits (20 % and 500 ms by default, set per gateway), or when its interface has no link or
+  address; half of a limit shows a warning.
+- Per gateway: a description, a monitor address (for providers whose gateway does not answer pings; it is
+  always reached through that gateway), the limits, and a priority for the WAN failover that follows in
+  0.16.1.
+- A gateway that goes down while its link is up, and its recovery, are reported by the notifications.
+
+### Changed
+- The dashboard's WAN panel and the MCP tool wan_status now use the gateway monitor (one probe per second
+  instead of three every 30 seconds from the panel).
+
+## 0.15.3 - 2026-11-05
+
+### Fixed
+- Intrusion detection on a WAN interface raised almost no alerts: the firewall's public address was not part
+  of the protected networks (HOME_NET), so traffic from the internet to it did not match most rules. The WAN
+  addresses are now included. When a PPPoE or DHCP address changes, the new address is taken over within
+  five minutes and Suricata restarts; while a WAN is reconnecting, nothing changes.
+
+## 0.15.2 - 2026-11-05
+
+### Added
+- Dashboard: the Protection card shows the intrusion alerts of the last 24 hours (high-severity ones in red)
+  and the three most frequent rules, linked to the Alerts page.
+- Notifications: a new event for high-severity intrusion alerts, by e-mail or Telegram. Each rule is reported
+  at most once every 6 hours, disabled rules never. It can be switched off on System > Settings >
+  Notifications like the other events, and the alerts appear in the dashboard's Alerts card.
+- MCP: a new tool, ids_alerts, gives AI assistants the intrusion detection state, the last 24 hours in
+  numbers, the most frequent rules and the latest alerts, filtered by severity or text.
+
 ## 0.15.1 - 2026-11-05
 
 ### Fixed
