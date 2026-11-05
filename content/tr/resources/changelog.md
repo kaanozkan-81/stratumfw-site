@@ -5,6 +5,42 @@ description: "Stratum FW sürüm geçmişi - her sürümdeki yeni özellikler, d
 
 Stratum FW'deki tüm önemli değişiklikler burada, en yeniden eskiye doğru listelenmiştir. Stratum FW kendini imzalı güncelleme sunucusundan (System > Update) veya çevrimdışı bir güncelleme dosyasından (`.sfu`) günceller; her güncelleme bir ZFS önyükleme ortamı oluşturur, böylece önceki sürüm herhangi bir zamanda yeniden başlatılabilir.
 
+## 0.16.0 - 2026-11-05
+
+### Eklendi
+- **Ağ geçitleri** (Interfaces > Gateways): her WAN tipi arayüzün canlı durumu (çevrimiçi, uyarı, kapalı),
+  gecikme, paket kaybı ve son bir saati küçük bir grafik olarak gösteren bir ağ geçidi vardır.
+- Yeni bir ağ geçidi izleme servisi, kimse paneli açık tutmasa bile her ağ geçidini WAN'ın kendi adresinden
+  saniyede bir yoklar. Son 30 saniyedeki paket kaybı veya gecikme sınırlarına ulaştığında (varsayılan olarak
+  %20 ve 500 ms, ağ geçidi başına ayarlanır) ya da arayüzünde bağlantı veya adres olmadığında bir ağ geçidi
+  kapalı sayılır; sınırın yarısı uyarı gösterir.
+- Ağ geçidi başına: bir açıklama, bir izleme adresi (ağ geçidi ping'lere yanıt vermeyen sağlayıcılar için;
+  her zaman o ağ geçidi üzerinden erişilir), sınırlar ve 0.16.1'de gelecek WAN yedeklemesi için bir öncelik.
+- Bağlantısı açıkken kapanan bir ağ geçidi ve geri dönüşü bildirimlerle raporlanır.
+
+### Değiştirildi
+- Kontrol panelinin WAN paneli ve MCP aracı wan_status artık ağ geçidi izleyicisini kullanır (panelden her 30
+  saniyede üç kez yerine saniyede bir yoklama).
+
+## 0.15.3 - 2026-11-05
+
+### Düzeltildi
+- Bir WAN arayüzünde saldırı tespiti neredeyse hiç uyarı vermiyordu: güvenlik duvarının genel adresi korunan
+  ağların (HOME_NET) bir parçası değildi, bu yüzden internetten ona gelen trafik çoğu kuralla eşleşmiyordu.
+  WAN adresleri artık dahil edildi. Bir PPPoE veya DHCP adresi değiştiğinde, yeni adres beş dakika içinde
+  devralınır ve Suricata yeniden başlar; bir WAN yeniden bağlanırken hiçbir şey değişmez.
+
+## 0.15.2 - 2026-11-05
+
+### Eklendi
+- Kontrol paneli: Koruma kartı son 24 saatteki saldırı uyarılarını (yüksek önem dereceliler kırmızı) ve en sık
+  görülen üç kuralı gösterir, Uyarılar sayfasına bağlantı verir.
+- Bildirimler: yüksek önem dereceli saldırı uyarıları için e-posta veya Telegram ile yeni bir olay. Her kural
+  en fazla 6 saatte bir raporlanır, devre dışı kurallar asla. Diğer olaylar gibi System > Settings >
+  Notifications'tan kapatılabilir ve uyarılar kontrol panelinin Uyarılar kartında görünür.
+- MCP: yeni bir araç olan ids_alerts, yapay zeka asistanlarına saldırı tespiti durumunu, son 24 saati sayılarla,
+  en sık görülen kuralları ve en son uyarıları önem derecesine veya metne göre filtreleyerek sunar.
+
 ## 0.15.1 - 2026-11-05
 
 ### Düzeltildi
