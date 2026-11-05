@@ -5,25 +5,28 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // Varsayılan olarak tüm çerezleri reddet (KVKK/GDPR uyumu)
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'analytics_storage': 'denied'
     });
-
     gtag('config', 'G-FKM9BDBY1L');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.tagline }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <!-- Favicon set -->
   <meta name="theme-color" content="#0F1E3D">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
   <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+  {{- range .Translations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+  {{- end }}
+  {{- if .IsTranslated }}
+  <link rel="alternate" hreflang="x-default" href="{{ (index .Translations 0).Permalink }}">
+  {{- end }}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,5 +36,6 @@
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:locale" content="{{ replace .Language.Lang "-" "_" }}">
   <meta name="twitter:card" content="summary_large_image">
 </head>
