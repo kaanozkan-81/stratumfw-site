@@ -108,7 +108,7 @@ full_width: true
     <details>
       <summary>When will the FreeBSD ISO be available?</summary>
       <div class="faq-body">
-        We are currently in <strong>Developer Preview (v0.8.0)</strong>. The pre-built FreeBSD installer ISO is under active development and is expected to be released in the upcoming v0.9.0 or v1.0.0 milestone.
+        We are currently in <strong>Developer Preview (v0.16.0)</strong>. The pre-built FreeBSD installer ISO is under active development and is released as v0.16.0.
       </div>
     </details>
 

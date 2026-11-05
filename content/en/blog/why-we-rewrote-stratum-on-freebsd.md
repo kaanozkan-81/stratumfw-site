@@ -51,7 +51,7 @@ To prove our commitment to a minimal attack surface, we didn't just wrap an exte
 
 ## The Road Ahead
 
-We are currently at **v0.8.0 (Developer Preview)**. The core engine is running, the API is stable, and the FreeBSD foundation is rock solid. 
+We are currently at **v0.16.0 (Developer Preview)**. The core engine is running, the API is stable, and the FreeBSD foundation is rock solid. 
 
 Over the coming months, we will release our pre-built ISO installer, finalize the IP/DNS Blocklists (for layer 3 and layer 7 threat protection), and introduce Multi-WAN failover logic.
 
