@@ -224,82 +224,86 @@ document.addEventListener('keydown', function(event) {
 </script>
 
 
-<section class="section feature-section" id="features" style="padding: 60px 0; background: #f8f9fa;">
+
+
+
+<section class="section feature-section" id="features" style="padding: 80px 0; background: #ffffff; border-top: 1px solid #edf2f7;">
   <div class="wrap">
-    <div style="text-align: center; margin-bottom: 50px;">
-      <h2 style="font-size: 36px; color: #0F1E3D;">The Future of Firewall Architecture</h2>
-      <p style="font-size: 18px; color: #718096;">Everything you need to protect your network, in one modern platform.</p>
+    <!-- Ana Başlık ve Alt Başlık -->
+    <div style="text-align: center; margin-bottom: 70px;">
+      <h2 style="font-size: 42px; font-weight: 800; color: #0F1E3D; margin-bottom: 15px; letter-spacing: -0.5px;">The Future of Firewall Architecture</h2>
+      <p style="font-size: 20px; color: #4a5568; max-width: 800px; margin: 0 auto; line-height: 1.6;">Everything you need to protect your network, in one modern platform.</p>
     </div>
 
-    <!-- 1. Modül -->
-    <div class="feature-row" style="display: flex; align-items: center; gap: 40px; margin-bottom: 60px; flex-wrap: wrap;">
-      <div class="feature-content" style="flex: 1; min-width: 300px;">
-        <span class="feature-badge" style="display: inline-block; padding: 6px 12px; background: #0F1E3D; color: #4ade80; font-size: 12px; font-weight: bold; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">NETWORK TOPOLOGY & VLAN SEGMENTATION</span>
-        <h2 style="font-size: 28px; margin-bottom: 15px; color: #0F1E3D;">Complete Network Isolation with Multi-VLAN Segmentation</h2>
-        <p style="font-size: 18px; font-weight: 600; color: #4a5568; margin-bottom: 15px;">Manage physical network interfaces and virtual LANs (VLANs) from a unified control plane to securely isolate office workstations, guest Wi-Fi, staff devices, and IoT traffic.</p>
-        <p style="font-size: 15px; color: #718096; margin-bottom: 20px; line-height: 1.6;">Stratum Firewall provides a flexible multi-interface networking architecture designed to simplify complex network topologies. Administrators can map physical interfaces (pppoe0 WAN, igb1 LAN, igb2 OPT1, igb3 OPT2) and carve out logically isolated VLAN segments—such as Office LAN, Guest Wi-Fi, Staff, and Security Cameras—over shared physical infrastructure. With built-in DHCP Server, DNS Resolver, and NTP time synchronization services, each network zone operates with its own dedicated addressing and routing policies.</p>
+    <!-- 1. Modül (Görsel Solda, Yazı Sağda) -->
+    <div class="feature-row" style="display: flex; align-items: center; gap: 60px; margin-bottom: 100px; flex-wrap: wrap;">
+      <div class="feature-image" style="flex: 1.2; min-width: 400px;">
+        <img src="/images/features/topology-vlan.jpg" alt="Stratum Firewall multi-interface WAN, Office LAN, Guest Wi-Fi, IoT VLAN segmentation, and WireGuard VPN topology diagram" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(15,30,61,0.15);" loading="lazy">
+      </div>
+      <div class="feature-content" style="flex: 1; min-width: 350px;">
+        <span class="feature-badge" style="display: inline-block; padding: 8px 16px; background: #e6fffa; color: #047481; font-size: 13px; font-weight: 700; border-radius: 30px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">NETWORK TOPOLOGY & VLAN SEGMENTATION</span>
+        <h3 style="font-size: 32px; margin-bottom: 20px; color: #0F1E3D; font-weight: 700; line-height: 1.3;">Complete Network Isolation with Multi-VLAN Segmentation</h3>
+        <p style="font-size: 18px; font-weight: 600; color: #2d3748; margin-bottom: 20px; line-height: 1.5;">Manage physical network interfaces and virtual LANs (VLANs) from a unified control plane to securely isolate office workstations, guest Wi-Fi, staff devices, and IoT traffic.</p>
+        <p style="font-size: 16px; color: #718096; margin-bottom: 25px; line-height: 1.7;">Stratum Firewall provides a flexible multi-interface networking architecture designed to simplify complex network topologies. Administrators can map physical interfaces (pppoe0 WAN, igb1 LAN, igb2 OPT1, igb3 OPT2) and carve out logically isolated VLAN segments—such as Office LAN, Guest Wi-Fi, Staff, and Security Cameras—over shared physical infrastructure. With built-in DHCP Server, DNS Resolver, and NTP time synchronization services, each network zone operates with its own dedicated addressing and routing policies.</p>
         <ul style="list-style: none; padding: 0;">
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>Multi-Interface & WAN Mapping:</strong> Configure dedicated WAN, LAN, and optional (OPT1/OPT2) interfaces with native PPPoE and static/dynamic IP support.</li>
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>Granular VLAN Segmentation:</strong> Separate untrusted IoT devices and guest wireless clients from core infrastructure to prevent lateral movement.</li>
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>Integrated Core Network Services:</strong> Run dedicated DHCP scopes, local DNS resolution, and NTP services seamlessly across every network segment.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>Multi-Interface & WAN Mapping:</strong> Configure dedicated WAN, LAN, and optional (OPT1/OPT2) interfaces with native PPPoE and static/dynamic IP support.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>Granular VLAN Segmentation:</strong> Separate untrusted IoT devices and guest wireless clients from core infrastructure to prevent lateral movement.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>Integrated Core Network Services:</strong> Run dedicated DHCP scopes, local DNS resolution, and NTP services seamlessly across every network segment.</li>
         </ul>
-      </div>
-      <div class="feature-image" style="flex: 1; min-width: 300px;">
-        <img src="/images/features/topology-vlan.jpg" alt="Stratum Firewall multi-interface WAN, Office LAN, Guest Wi-Fi, IoT VLAN segmentation, and WireGuard VPN topology diagram" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" loading="lazy">
-      </div>
-    </div>
-
-    <!-- 2. Modül -->
-    <div class="feature-row" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 40px; margin-bottom: 60px; flex-wrap: wrap;">
-      <div class="feature-content" style="flex: 1; min-width: 300px;">
-        <span class="feature-badge" style="display: inline-block; padding: 6px 12px; background: #0F1E3D; color: #4ade80; font-size: 12px; font-weight: bold; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">KERNEL-LEVEL PF PACKET FILTER</span>
-        <h2 style="font-size: 28px; margin-bottom: 15px; color: #0F1E3D;">Uncompromising Network Shield with Native FreeBSD pf Filtering</h2>
-        <p style="font-size: 18px; font-weight: 600; color: #4a5568; margin-bottom: 15px;">Powered directly by the FreeBSD 14/15 kernel pf engine, delivering wire-speed stateful packet inspection, ALTQ traffic shaping, and fail-safe rule validation.</p>
-        <p style="font-size: 15px; color: #718096; margin-bottom: 20px; line-height: 1.6;">At the core of Stratum Firewall lies FreeBSD's battle-tested kernel-level pf (Packet Filter) engine. Every network packet is inspected against active connection states at the kernel layer, neutralizing unauthorized access attempts while forwarding legitimate traffic with minimal latency. Integrated Network Address Translation (NAT) and ALTQ bandwidth shaping keep critical applications responsive under heavy load. Before any configuration change goes live, the Safe-Apply engine automatically validates rules against pf syntax to prevent accidental lockouts or broken rulesets.</p>
-        <ul style="list-style: none; padding: 0;">
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>Native Kernel Stateful Inspection:</strong> High-throughput packet filtering powered directly by FreeBSD 14/15 pf without user-space bottlenecks.</li>
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>Safe-Apply Syntax Validation:</strong> Pre-flight verification of all firewall rules and interface updates before committing changes to the active kernel.</li>
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>NAT, ALTQ & Real-Time Rule Hits:</strong> Manage reusable Aliases, Pass / Block / Reject policies, live rule hit counters, and ALTQ traffic prioritization in one place.</li>
-        </ul>
-      </div>
-      <div class="feature-image" style="flex: 1; min-width: 300px;">
-        <img src="/images/features/pf-kernel-shield.jpg" alt="Stratum Firewall FreeBSD kernel-level pf packet filtering and multi-layered network defense shield illustration" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" loading="lazy">
       </div>
     </div>
 
-    <!-- 3. Modül -->
-    <div class="feature-row" style="display: flex; align-items: center; gap: 40px; margin-bottom: 60px; flex-wrap: wrap;">
-      <div class="feature-content" style="flex: 1; min-width: 300px;">
-        <span class="feature-badge" style="display: inline-block; padding: 6px 12px; background: #0F1E3D; color: #4ade80; font-size: 12px; font-weight: bold; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">THREAT INTELLIGENCE & DNSBL</span>
-        <h2 style="font-size: 28px; margin-bottom: 15px; color: #0F1E3D;">Proactive Web Filtering (DNSBL) and Automated IP Blocklists</h2>
-        <p style="font-size: 18px; font-weight: 600; color: #4a5568; margin-bottom: 15px;">Neutralize malicious domains and known attacker IPs before they ever reach your endpoints using DNS-level sinkholing and automated threat intelligence feeds.</p>
-        <p style="font-size: 15px; color: #718096; margin-bottom: 20px; line-height: 1.6;">Stratum Firewall extends packet filtering with multi-layered threat intelligence. The IP Blocklists module ingests external threat feeds to drop traffic from known command-and-control servers, scanners, and malicious hosts directly at the packet level. Simultaneously, DNS-Based Web Filtering (DNSBL) intercepts requests to phishing, malware, and tracking domains at the DNS resolution layer—returning an immediate NXDOMAIN response across all network devices without requiring client-side agents. An integrated domain lookup utility lets administrators test and verify domain blocking status in real time.</p>
-        <ul style="list-style: none; padding: 0;">
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>Network-Wide DNS Sinkholing (DNSBL):</strong> Block malicious, phishing, and unwanted domains at the DNS layer by returning NXDOMAIN responses.</li>
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>Automated Threat Feed IP Blocking:</strong> Import curated IP blocklists to automatically drop packets from hostile networks at the perimeter.</li>
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>Instant Domain Lookup Diagnostic:</strong> Test whether specific domains are permitted or blocked directly from the web dashboard in real time.</li>
-        </ul>
+    <!-- 2. Modül (Yazı Solda, Görsel Sağda) -->
+    <div class="feature-row" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 60px; margin-bottom: 100px; flex-wrap: wrap;">
+      <div class="feature-image" style="flex: 1.2; min-width: 400px;">
+        <img src="/images/features/pf-kernel-shield.jpg" alt="Stratum Firewall FreeBSD kernel-level pf packet filtering and multi-layered network defense shield illustration" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(15,30,61,0.15);" loading="lazy">
       </div>
-      <div class="feature-image" style="flex: 1; min-width: 300px;">
-        <img src="/images/features/dnsbl-web-filter.jpg" alt="Stratum Firewall DNSBL domain sinkholing and threat intelligence IP blocklist filtration layers" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" loading="lazy">
+      <div class="feature-content" style="flex: 1; min-width: 350px;">
+        <span class="feature-badge" style="display: inline-block; padding: 8px 16px; background: #e6fffa; color: #047481; font-size: 13px; font-weight: 700; border-radius: 30px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">KERNEL-LEVEL PF PACKET FILTER</span>
+        <h3 style="font-size: 32px; margin-bottom: 20px; color: #0F1E3D; font-weight: 700; line-height: 1.3;">Uncompromising Network Shield with Native FreeBSD pf Filtering</h3>
+        <p style="font-size: 18px; font-weight: 600; color: #2d3748; margin-bottom: 20px; line-height: 1.5;">Powered directly by the FreeBSD 14/15 kernel pf engine, delivering wire-speed stateful packet inspection, ALTQ traffic shaping, and fail-safe rule validation.</p>
+        <p style="font-size: 16px; color: #718096; margin-bottom: 25px; line-height: 1.7;">At the core of Stratum Firewall lies FreeBSD's battle-tested kernel-level pf (Packet Filter) engine. Every network packet is inspected against active connection states at the kernel layer, neutralizing unauthorized access attempts while forwarding legitimate traffic with minimal latency. Integrated Network Address Translation (NAT) and ALTQ bandwidth shaping keep critical applications responsive under heavy load. Before any configuration change goes live, the Safe-Apply engine automatically validates rules against pf syntax to prevent accidental lockouts or broken rulesets.</p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>Native Kernel Stateful Inspection:</strong> High-throughput packet filtering powered directly by FreeBSD 14/15 pf without user-space bottlenecks.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>Safe-Apply Syntax Validation:</strong> Pre-flight verification of all firewall rules and interface updates before committing changes to the active kernel.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>NAT, ALTQ & Real-Time Rule Hits:</strong> Manage reusable Aliases, Pass / Block / Reject policies, live rule hit counters, and ALTQ traffic prioritization in one place.</li>
+        </ul>
       </div>
     </div>
 
-    <!-- 4. Modül -->
-    <div class="feature-row" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 40px; margin-bottom: 60px; flex-wrap: wrap;">
-      <div class="feature-content" style="flex: 1; min-width: 300px;">
-        <span class="feature-badge" style="display: inline-block; padding: 6px 12px; background: #0F1E3D; color: #4ade80; font-size: 12px; font-weight: bold; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">MODERN ARCHITECTURE & API CONTROL</span>
-        <h2 style="font-size: 28px; margin-bottom: 15px; color: #0F1E3D;">Zero-Dependency Cybersecurity Architecture with Modern API Control</h2>
-        <p style="font-size: 18px; font-weight: 600; color: #4a5568; margin-bottom: 15px;">"Raw FreeBSD power. Modern API control." Experience a lightweight Python 3.12 & FastAPI backend, declarative config.json state management, and native WireGuard cryptography.</p>
-        <p style="font-size: 15px; color: #718096; margin-bottom: 20px; line-height: 1.6;">Engineered to replace bloated legacy firewall appliances, Stratum Firewall pairs raw FreeBSD kernel performance with a clean, developer-first control plane. Its asynchronous Python 3.12 and FastAPI backend delivers both a responsive web UI and a full-featured REST API with a minimal memory footprint. The entire appliance state resides in a single declarative config.json file, which the core engine dynamically compiles into native pf.conf, DHCP, and DNS configurations. Complete with zero-dependency native X25519 (RFC 7748) WireGuard VPN and OpenVPN support, Role-Based Access Control (RBAC), and real-time hardware and firewall log telemetry, it brings modern infrastructure-as-code simplicity to network security.</p>
+    <!-- 3. Modül (Görsel Solda, Yazı Sağda) -->
+    <div class="feature-row" style="display: flex; align-items: center; gap: 60px; margin-bottom: 100px; flex-wrap: wrap;">
+      <div class="feature-image" style="flex: 1.2; min-width: 400px;">
+        <img src="/images/features/dnsbl-web-filter.jpg" alt="Stratum Firewall DNSBL domain sinkholing and threat intelligence IP blocklist filtration layers" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(15,30,61,0.15);" loading="lazy">
+      </div>
+      <div class="feature-content" style="flex: 1; min-width: 350px;">
+        <span class="feature-badge" style="display: inline-block; padding: 8px 16px; background: #e6fffa; color: #047481; font-size: 13px; font-weight: 700; border-radius: 30px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">THREAT INTELLIGENCE & DNSBL</span>
+        <h3 style="font-size: 32px; margin-bottom: 20px; color: #0F1E3D; font-weight: 700; line-height: 1.3;">Proactive Web Filtering (DNSBL) and Automated IP Blocklists</h3>
+        <p style="font-size: 18px; font-weight: 600; color: #2d3748; margin-bottom: 20px; line-height: 1.5;">Neutralize malicious domains and known attacker IPs before they ever reach your endpoints using DNS-level sinkholing and automated threat intelligence feeds.</p>
+        <p style="font-size: 16px; color: #718096; margin-bottom: 25px; line-height: 1.7;">Stratum Firewall extends packet filtering with multi-layered threat intelligence. The IP Blocklists module ingests external threat feeds to drop traffic from known command-and-control servers, scanners, and malicious hosts directly at the packet level. Simultaneously, DNS-Based Web Filtering (DNSBL) intercepts requests to phishing, malware, and tracking domains at the DNS resolution layer—returning an immediate NXDOMAIN response across all network devices without requiring client-side agents. An integrated domain lookup utility lets administrators test and verify domain blocking status in real time.</p>
         <ul style="list-style: none; padding: 0;">
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>FastAPI & Declarative config.json Engine:</strong> Manage the entire firewall state through a single JSON source of truth and automate workflows via a complete REST API.</li>
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>Zero-Dependency WireGuard & OpenVPN:</strong> Built-in RFC 7748 X25519 cryptographic key generation for WireGuard alongside flexible OpenVPN tunneling.</li>
-          <li style="position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 15px; color: #2d3748;"><span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span> <strong>RBAC & Real-Time System Telemetry:</strong> Granular Administrator, Operator, and Read-Only roles paired with live CPU, memory, disk, thermal, traffic, and firewall log dashboards.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>Network-Wide DNS Sinkholing (DNSBL):</strong> Block malicious, phishing, and unwanted domains at the DNS layer by returning NXDOMAIN responses.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>Automated Threat Feed IP Blocking:</strong> Import curated IP blocklists to automatically drop packets from hostile networks at the perimeter.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>Instant Domain Lookup Diagnostic:</strong> Test whether specific domains are permitted or blocked directly from the web dashboard in real time.</li>
         </ul>
       </div>
-      <div class="feature-image" style="flex: 1; min-width: 300px;">
-        <img src="/images/features/api-architecture.jpg" alt="Stratum Firewall Python FastAPI REST API control plane, WireGuard X25519 encryption, and live telemetry architecture" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" loading="lazy">
+    </div>
+
+    <!-- 4. Modül (Yazı Solda, Görsel Sağda) -->
+    <div class="feature-row" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 60px; margin-bottom: 20px; flex-wrap: wrap;">
+      <div class="feature-image" style="flex: 1.2; min-width: 400px;">
+        <img src="/images/features/api-architecture.jpg" alt="Stratum Firewall Python FastAPI REST API control plane, WireGuard X25519 encryption, and live telemetry architecture" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(15,30,61,0.15);" loading="lazy">
+      </div>
+      <div class="feature-content" style="flex: 1; min-width: 350px;">
+        <span class="feature-badge" style="display: inline-block; padding: 8px 16px; background: #e6fffa; color: #047481; font-size: 13px; font-weight: 700; border-radius: 30px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">MODERN ARCHITECTURE & API CONTROL</span>
+        <h3 style="font-size: 32px; margin-bottom: 20px; color: #0F1E3D; font-weight: 700; line-height: 1.3;">Zero-Dependency Cybersecurity Architecture with Modern API Control</h3>
+        <p style="font-size: 18px; font-weight: 600; color: #2d3748; margin-bottom: 20px; line-height: 1.5;">"Raw FreeBSD power. Modern API control." Experience a lightweight Python 3.12 & FastAPI backend, declarative config.json state management, and native WireGuard cryptography.</p>
+        <p style="font-size: 16px; color: #718096; margin-bottom: 25px; line-height: 1.7;">Engineered to replace bloated legacy firewall appliances, Stratum Firewall pairs raw FreeBSD kernel performance with a clean, developer-first control plane. Its asynchronous Python 3.12 and FastAPI backend delivers both a responsive web UI and a full-featured REST API with a minimal memory footprint. The entire appliance state resides in a single declarative config.json file, which the core engine dynamically compiles into native pf.conf, DHCP, and DNS configurations. Complete with zero-dependency native X25519 (RFC 7748) WireGuard VPN and OpenVPN support, Role-Based Access Control (RBAC), and real-time hardware and firewall log telemetry, it brings modern infrastructure-as-code simplicity to network security.</p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>FastAPI & Declarative config.json Engine:</strong> Manage the entire firewall state through a single JSON source of truth and automate workflows via a complete REST API.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>Zero-Dependency WireGuard & OpenVPN:</strong> Built-in RFC 7748 X25519 cryptographic key generation for WireGuard alongside flexible OpenVPN tunneling.</li>
+          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #10b981; font-weight: bold; font-size: 18px;">✓</span> <strong>RBAC & Real-Time System Telemetry:</strong> Granular Administrator, Operator, and Read-Only roles paired with live CPU, memory, disk, thermal, traffic, and firewall log dashboards.</li>
+        </ul>
       </div>
     </div>
   </div>
