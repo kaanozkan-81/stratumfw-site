@@ -78,9 +78,3 @@ Linux'u değil, FreeBSD'yi seçtik. Çünkü FreeBSD, tek ve tutarlı, güvenli 
     <div class="stat"><b>JSON</b><span>Bildirimsel Yapılandırma</span></div>
   </div>
 </div>
-
-## Ağınızın Yeni Kalkanı
-
-{{< figure src="/images/docs/topology.svg" title="Stratum Firewall Ağ Topolojisi" caption="Stratum Firewall, ağınızın her katmanını koruyarak kusursuz bir şekilde entegre olur." >}}
-
-{{< figure src="/images/docs/attack-blocking.svg" title="Stratum Firewall Saldırı Engelleme" caption="Kötü amaçlı trafik ağınıza girmeden engellenirken, meşru veri akışı hız kesmeden devam eder." >}}
