@@ -10,7 +10,7 @@ disableKinds = ["taxonomy", "term"]
     languageCode = 'en-us'
     languageName = 'English'
     weight = 1
-    title = 'Stratum Gateway'
+    title = 'Stratum Firewall (FW)'
     [languages.en.params]
       tagline = 'Next-Generation Firewall OS'
       description = 'Stratum Gateway is a FreeBSD-based enterprise firewall OS. It combines the raw power of pf packet filtering with a modern FastAPI management panel, role-based access control, and zero-dependency WireGuard support.'
@@ -107,7 +107,7 @@ disableKinds = ["taxonomy", "term"]
     languageCode = 'tr-tr'
     languageName = 'Türkçe'
     weight = 2
-    title = 'Stratum Gateway'
+    title = 'Stratum Firewall (FW)'
     [languages.tr.params]
       tagline = 'Yeni Nesil Güvenlik Duvarı İşletim Sistemi'
       description = 'Stratum Gateway, FreeBSD tabanlı kurumsal bir güvenlik duvarı işletim sistemidir. pf paket filtrelemenin ham gücünü, modern FastAPI yönetim paneli, rol tabanlı erişim kontrolü ve sıfır bağımlılıklı WireGuard desteği ile birleştirir.'
