@@ -5,17 +5,46 @@ description: "Stratum FW sürüm geçmişi - her sürümdeki yeni özellikler, d
 
 Stratum FW'deki tüm önemli değişiklikler burada, en yeniden eskiye doğru listelenmiştir. Stratum FW kendini imzalı güncelleme sunucusundan (System > Update) veya çevrimdışı bir güncelleme dosyasından (`.sfu`) günceller; her güncelleme bir ZFS önyükleme ortamı oluşturur, böylece önceki sürüm herhangi bir zamanda yeniden başlatılabilir.
 
+## 0.24.2 - 2026-11-06
+
+### Düzeltildi
+- Saldırı Tespiti, engelleme modu (IPS): Suricata, başlangıcını görmediği her bağlantıyı düşürüyordu. Bunlar,
+  kendisi başlamadan önce açılmış bağlantılar ve telefonların açık tuttuğu anlık bildirim kanalları gibi akış
+  zaman aşımından daha uzun süre boşta kalan uzun ömürlü bağlantılardı. Engelleme ağındaki telefonlar
+  bağlantılarını kaybetti ve Wi-Fi'den düştü. Suricata artık bu tür bağlantıları (akış ortasında) yakalıyor
+  ve herhangi bir istisnada (`exception-policy: ignore`) akışı düşürmek yerine trafiğin geçmesine izin
+  veriyor. Yalnızca engelleme kurallarıyla eşleşenler düşürülür.
+
+## 0.24.1 - 2026-11-05
+
+### Düzeltildi
+- Web Filtresi: kategori listeleri ilk Apply'dan sonra indirilmiyordu, bu yüzden politikalar bir sonraki
+  zamanlanmış güncellemeye kadar hiçbir şeyi engellemiyordu. İndirme artık DNS engelleme listelerinde olduğu
+  gibi kaydedilen yapılandırmayı takip ediyor ve Unbound yalnızca yüklediği bölgeleri yeniden yüklüyor.
+
 ## 0.24.0 - 2026-11-05
 
 ### Eklendi
-- **Web Filtresi** (Firewall > Web Filter), güvenlik duvarının DNS çözümleyicisi (Unbound RPZ) üzerinden site kategorilerini engeller ve ağ başına farklı kurallar uygular.
-  - **Politikalar:** Bir politika, bir veya daha fazla ağa engellenen kategorilerden oluşan bir set atar. VPN istemci ağları da politika ağı olabilir ve her ağ yalnızca bir politikaya bağlıdır.
-  - **Kategoriler:** Université Toulouse Capitole'ün UT1 kara listelerinden (CC BY-SA 4.0, günlük güncellenir) ve Block List Project'ten alınan gruplar halinde 55 kategori (yetişkin içerik, güvenlik tehditleri, filtreyi atlatma yolları, sosyal ağlar, eğlence, alışveriş ve para, indirmeler ve daha fazlası). Yetişkin içerik kompakt ve çok büyük tam liste olarak gelir; politika sayfası seçilen kategorilerin çözümleyici belleğinde ne kadar yer kaplayacağını tahmin eder.
-  - **Güvenli Arama (Safe Search):** Her politika, Google (google.com.tr ve diğer ülke alan adları dahil), Bing ve DuckDuckGo üzerinde güvenli sonuçları ve YouTube'da kısıtlı modu zorunlu kılabilir.
-  - **İstisnalar:** Listelenen siteler web filtresi tarafından asla engellenmez ve Apply gerektirmeden anında etkili olur. DNS kara listeleri onlar için hâlâ geçerlidir.
-  - **Bir siteyi kontrol et:** Bir adın hangi kategorilerde olduğunu ve hangi politikaların onu engellediğini gösterir.
-  - **Engelleme raporu:** Bugün, 7 veya 30 gün için kategori, site ve cihaz başına engellemeler. Web Etkinliği gerektirir; toplayıcısı artık web filtresi ve DNS kara liste engellemelerini de sayar. Raporu yalnızca yöneticiler görür ve görüntüleme günlüğe kaydedilir.
-  - **Güncellemeler:** Kategori listeleri zamanlamaya göre (varsayılan olarak günlük) ve talep üzerine güncellenir; başarısız bir indirme önceki listeyi korur.
+- **Web Filtresi** (Firewall > Web Filter), güvenlik duvarının DNS çözümleyicisi (Unbound RPZ) üzerinden site
+  kategorilerini engeller ve ağ başına farklı kurallar uygular.
+  - **Politikalar:** Bir politika, bir veya daha fazla ağa engellenen kategorilerden oluşan bir set atar. VPN
+    istemci ağları da politika ağı olabilir ve her ağ yalnızca bir politikaya bağlıdır.
+  - **Kategoriler:** Université Toulouse Capitole'ün UT1 kara listelerinden (CC BY-SA 4.0, günlük güncellenir)
+    ve Block List Project'ten alınan gruplar halinde 55 kategori (yetişkin içerik, güvenlik tehditleri,
+    filtreyi atlatma yolları, sosyal ağlar, eğlence, alışveriş ve para, indirmeler ve daha fazlası).
+    Yetişkin içerik kompakt ve çok büyük tam liste olarak gelir; politika sayfası seçilen kategorilerin
+    çözümleyici belleğinde ne kadar yer kaplayacağını tahmin eder.
+  - **Güvenli Arama (Safe Search):** Her politika, Google (google.com.tr ve diğer ülke alan adları dahil),
+    Bing ve DuckDuckGo üzerinde güvenli sonuçları ve YouTube'da kısıtlı modu zorunlu kılabilir.
+  - **İstisnalar:** Listelenen siteler web filtresi tarafından asla engellenmez ve Apply gerektirmeden anında
+    etkili olur. DNS kara listeleri onlar için hâlâ geçerlidir.
+  - **Bir siteyi kontrol et:** Bir adın hangi kategorilerde olduğunu ve hangi politikaların onu engellediğini
+    gösterir.
+  - **Engelleme raporu:** Bugün, 7 veya 30 gün için kategori, site ve cihaz başına engellemeler. Web Etkinliği
+    gerektirir; toplayıcısı artık web filtresi ve DNS kara liste engellemelerini de sayar. Raporu yalnızca
+    yöneticiler görür ve görüntüleme günlüğe kaydedilir.
+  - **Güncellemeler:** Kategori listeleri zamanlamaya göre (varsayılan olarak günlük) ve talep üzerine
+    güncellenir; başarısız bir indirme önceki listeyi korur.
 
 ## 0.23.0 - 2026-11-05
 

@@ -1,12 +1,36 @@
 {{ define "main" }}
 
-<!-- Stratum Firewall Saydam Arka Plan Görseli -->
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; pointer-events: none; overflow: hidden;">
-    <img src="/images/stratum-firewall.jpg" alt="Stratum Firewall Background" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.15; mask-image: linear-gradient(to bottom, black 20%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);">
-</div>
-
-
-
+<!-- STRATUM-HERO-BG-START -->
+<style>
+section.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+section.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/stratum-firewall.jpg"), url("/images/hero-bg.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  opacity: 0.22 !important;
+  filter: saturate(1.1) contrast(1.05);
+  z-index: -2 !important;
+}
+section.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 38%, rgba(249,250,251,0.88) 0%, rgba(249,250,251,0.72) 55%, #F9FAFB 100%) !important;
+  z-index: -1 !important;
+}
+section.hero > .wrap {
+  position: relative;
+  z-index: 2;
+}
+</style>
+<!-- STRATUM-HERO-BG-END -->
 <section class="hero">
   <div class="wrap">
     <span class="hero-badge">Yeni Nesil Güvenlik Duvarı İşletim Sistemi</span>
@@ -86,88 +110,6 @@
         <p>Ağınızı her iki katmanda koruyun. Kötü amaçlı IP'leri paket düzeyinde engellemek için genel tehdit akışlarını kullanın, aynı zamanda DNSBL aracılığıyla kötü amaçlı alan adlarını düşürün.</p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<section class="section feature-section" id="feature-showcase" style="padding: 80px 0; background: #ffffff; border-top: 1px solid #edf2f7;">
-  <div class="wrap">
-    <!-- Ana Başlık ve Alt Başlık -->
-    <div style="text-align: center; margin-bottom: 70px;">
-      <h2 style="font-size: 42px; font-weight: 800; color: #0F1E3D; margin-bottom: 15px; letter-spacing: -0.5px;">Geleceğin Güvenlik Duvarı Mimarisi</h2>
-      <p style="font-size: 20px; color: #4a5568; max-width: 800px; margin: 0 auto; line-height: 1.6;">Ağınızı korumak için ihtiyacınız olan her şey, tek bir modern platformda.</p>
-    </div>
-
-    <!-- 1. Modül (Görsel Solda, Yazı Sağda) -->
-    <div class="feature-row" style="display: flex; align-items: center; gap: 60px; margin-bottom: 100px; flex-wrap: wrap;">
-      <div class="feature-image" style="flex: 1.2; min-width: 280px;">
-        <img src="/images/features/topology-vlan.jpg" alt="Stratum Firewall çoklu arayüz, WAN, Ofis LAN, Misafir Wi-Fi, IoT VLAN bölütleme ve WireGuard VPN ağ topolojisi diyagramı" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(15,30,61,0.15);" loading="lazy">
-      </div>
-      <div class="feature-content" style="flex: 1; min-width: 280px;">
-        <span class="feature-badge" style="display: inline-block; padding: 8px 16px; background: #fffbeb; color: #d97706; border: 1px solid rgba(245,158,11,0.35); font-size: 13px; font-weight: 700; border-radius: 30px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">AĞ TOPOLOJİSİ & VLAN YÖNETİMİ</span>
-        <h3 style="font-size: 32px; margin-bottom: 20px; color: #0F1E3D; font-weight: 700; line-height: 1.3;">Ağ Topolojisi ve Çoklu VLAN Bölütleme ile Tam İzolasyon</h3>
-        <p style="font-size: 18px; font-weight: 600; color: #2d3748; margin-bottom: 20px; line-height: 1.5;">Fiziksel ağ kartlarınızı ve sanal yerel ağlarınızı (VLAN) tek bir merkezden yöneterek ofis, misafir, personel ve IoT cihaz trafiğini birbirinden güvenli biçimde ayırın.</p>
-        <p style="font-size: 16px; color: #718096; margin-bottom: 25px; line-height: 1.7;">Stratum Firewall, karmaşık kurumsal ve kişisel ağ yapılarını sadeleştiren esnek bir çoklu arayüz mimarisi sunar. Fiziksel ağ portlarınızı (pppoe0 WAN, igb1 LAN, igb2 OPT1, igb3 OPT2) ihtiyacınıza göre yapılandırabilir; aynı fiziksel hat üzerinde Ofis LAN, Misafir Wi-Fi, Personel ve Güvenlik Kameraları (IoT) gibi mantıksal olarak tamamen ayrıştırılmış VLAN bölgeleri oluşturabilirsiniz. Entegre DHCP Sunucusu, DNS Çözümleyici (Resolver) ve NTP zaman senkronizasyonu servisleri sayesinde her alt ağ kendi adresleme ve erişim politikalarıyla bağımsız olarak çalışır.</p>
-        <ul style="list-style: none; padding: 0;">
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>Çoklu WAN ve Arayüz Ataması:</strong> pppoe0, igb1, igb2 ve igb3 dahil çoklu fiziksel ve mantıksal ağ arayüzlerini esnek biçimde tanımlama.</li>
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>Mantıksal VLAN Segmentasyonu:</strong> Misafir ağlarını ve güvenlik kameralarını kritik yerel sunuculardan izole ederek yatay tehdit yayılımını engelleme.</li>
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>Yerleşik Temel Ağ Servisleri:</strong> Her VLAN ve arayüz için bağımsız DHCP havuzları, yerel DNS çözümleme ve NTP senkronizasyonunu tek panelden yönetme.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 2. Modül (Yazı Solda, Görsel Sağda) -->
-    <div class="feature-row" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 60px; margin-bottom: 100px; flex-wrap: wrap;">
-      <div class="feature-image" style="flex: 1.2; min-width: 280px;">
-        <img src="/images/features/pf-kernel-shield.jpg" alt="Stratum Firewall FreeBSD çekirdek düzeyinde pf paket filtreleme ve çok katmanlı siber güvenlik kalkanı görseli" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(15,30,61,0.15);" loading="lazy">
-      </div>
-      <div class="feature-content" style="flex: 1; min-width: 280px;">
-        <span class="feature-badge" style="display: inline-block; padding: 8px 16px; background: #fffbeb; color: #d97706; border: 1px solid rgba(245,158,11,0.35); font-size: 13px; font-weight: 700; border-radius: 30px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">FREEBSD PF ÇEKİRDEK KORUMASI</span>
-        <h3 style="font-size: 32px; margin-bottom: 20px; color: #0F1E3D; font-weight: 700; line-height: 1.3;">Ağ Kalkanı ve Kernel Düzeyinde pf Paket Filtreleme</h3>
-        <p style="font-size: 18px; font-weight: 600; color: #2d3748; margin-bottom: 20px; line-height: 1.5;">FreeBSD 14/15 çekirdeğinde çalışan yerel pf (Packet Filter) motoru, durum bilgili paket denetimi (Stateful Inspection) ve Safe-Apply kural doğrulamasıyla ağınızı kesintisiz korur.</p>
-        <p style="font-size: 16px; color: #718096; margin-bottom: 25px; line-height: 1.7;">Stratum Firewall, gücünü doğrudan FreeBSD 14/15 işletim sistemi çekirdeğindeki efsanevi pf (Packet Filter) altyapısından alır. Gelen ve giden her veri paketi çekirdek düzeyinde durum bilgili denetimden (Stateful Inspection) geçirilir; şüpheli bağlantılar anında düşürülürken güvenli trafik minimum gecikmeyle iletilir. Gelişmiş Ağ Adresi Dönüştürme (NAT) ve ALTQ tabanlı bant genişliği/trafik şekillendirme yetenekleri ağ performansını optimize eder. Ayrıca Safe-Apply mekanizması, yazdığınız her kuralı sisteme uygulamadan önce pf sözdizimine göre otomatik test ederek hatalı yapılandırmaların ağ bağlantısını kesmesini önler.</p>
-        <ul style="list-style: none; padding: 0;">
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>Kernel Düzeyinde Stateful Inspection:</strong> FreeBSD pf altyapısıyla yüksek verimli, düşük gecikmeli paket filtreleme ve bağlantı durumu takibi.</li>
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>Safe-Apply Otomatik Kural Doğrulama:</strong> Güvenlik duvarı ve arayüz değişikliklerini canlı sisteme işlemeden önce sözdizimi doğrulamasından geçirerek kilitlenmeleri engelleme.</li>
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>NAT, ALTQ ve Canlı Kural İstatistikleri:</strong> Takma adlar (Aliases), Pass / Block / Reject eylemleri, anlık kural eşleşme sayıları (Hits) ve ALTQ trafik şekillendirme ile tam kontrol.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 3. Modül (Görsel Solda, Yazı Sağda) -->
-    <div class="feature-row" style="display: flex; align-items: center; gap: 60px; margin-bottom: 100px; flex-wrap: wrap;">
-      <div class="feature-image" style="flex: 1.2; min-width: 280px;">
-        <img src="/images/features/dnsbl-web-filter.jpg" alt="Stratum Firewall DNSBL alan adı filtreleme ve tehdit istihbaratı IP karaliste koruma katmanları" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(15,30,61,0.15);" loading="lazy">
-      </div>
-      <div class="feature-content" style="flex: 1; min-width: 280px;">
-        <span class="feature-badge" style="display: inline-block; padding: 8px 16px; background: #fffbeb; color: #d97706; border: 1px solid rgba(245,158,11,0.35); font-size: 13px; font-weight: 700; border-radius: 30px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">TEHDİT İSTİHBARATI & DNSBL</span>
-        <h3 style="font-size: 32px; margin-bottom: 20px; color: #0F1E3D; font-weight: 700; line-height: 1.3;">DNS Tabanlı Web Filtreleme (DNSBL) ve Otomatik IP Karalisteleri</h3>
-        <p style="font-size: 18px; font-weight: 600; color: #2d3748; margin-bottom: 20px; line-height: 1.5;">Küresel tehdit istihbarat akışlarını (threat feeds) ve DNS karalistelerini kullanarak zararlı IP adreslerini ve kötü amaçlı alan adlarını ağınıza ulaşmadan durdurun.</p>
-        <p style="font-size: 16px; color: #718096; margin-bottom: 25px; line-height: 1.7;">Stratum Firewall, geleneksel port bazlı güvenlik duvarı kurallarını proaktif tehdit engelleme katmanlarıyla güçlendirir. IP Karaliste (IP Blocklists) modülü, güncel siber tehdit istihbaratı akışlarını (threat feeds) otomatik olarak içeri aktarır ve bilinen saldırgan IP adreslerini doğrudan paket seviyesinde engeller. DNSBL (DNS Tabanlı Web Filtreleme) motoru ise oltalama (phishing), zararlı yazılım (malware), izleyici ve reklam alan adlarını DNS sorgusu aşamasında yakalayarak NXDOMAIN yanıtıyla düşürür; üstelik dahili alan adı sorgulama aracıyla herhangi bir domain'in filtre durumunu arayüzden anında test etmenize olanak tanır.</p>
-        <ul style="list-style: none; padding: 0;">
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>DNS Seviyesinde Engelleme (DNSBL):</strong> Zararlı ve istenmeyen alan adlarına yapılan istekleri NXDOMAIN yanıtıyla ağ genelinde istemci yazılımı gerektirmeden kesme.</li>
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>Dinamik IP Tehdit Akışları:</strong> Açık kaynaklı ve kurumsal tehdit istihbaratı listelerini içe aktararak bilinen botnet ve saldırgan IP'lerini paket düzeyinde bloklama.</li>
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>Anlık Alan Adı Test Aracı:</strong> Herhangi bir alan adının karalistede olup olmadığını yönetim arayüzü üzerinden tek tıkla sorgulama ve doğrulama.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 4. Modül (Yazı Solda, Görsel Sağda) -->
-    <div class="feature-row" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 60px; margin-bottom: 20px; flex-wrap: wrap;">
-      <div class="feature-image" style="flex: 1.2; min-width: 280px;">
-        <img src="/images/features/api-architecture.jpg" alt="Stratum Firewall Python FastAPI REST API kontrol paneli, WireGuard X25519 şifreleme ve canlı telemetri mimarisi" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(15,30,61,0.15);" loading="lazy">
-      </div>
-      <div class="feature-content" style="flex: 1; min-width: 280px;">
-        <span class="feature-badge" style="display: inline-block; padding: 8px 16px; background: #fffbeb; color: #d97706; border: 1px solid rgba(245,158,11,0.35); font-size: 13px; font-weight: 700; border-radius: 30px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">MODERN MİMARİ & API KONTROLÜ</span>
-        <h3 style="font-size: 32px; margin-bottom: 20px; color: #0F1E3D; font-weight: 700; line-height: 1.3;">Sıfır Bağımlılıklı Siber Güvenlik Mimarisi ve Modern API Kontrolü</h3>
-        <p style="font-size: 18px; font-weight: 600; color: #2d3748; margin-bottom: 20px; line-height: 1.5;">"Saf FreeBSD gücü. Modern API kontrolü." Asenkron Python 3.12 / FastAPI arka ucu, tekil config.json bildirimsel yapılandırması ve yerel WireGuard kriptografisiyle yeni nesil güvenlik duvarı deneyimi.</p>
-        <p style="font-size: 16px; color: #718096; margin-bottom: 25px; line-height: 1.7;">Stratum Firewall, hantal ve eski nesil güvenlik duvarı arayüzlerinin yerini almak üzere modern yazılım mühendisliği ilkeleriyle geliştirilmiştir. Asenkron Python 3.12 ve FastAPI üzerine inşa edilen arka uç, çok düşük bellek tüketimiyle hem hızlı bir web arayüzü hem de tam kapsamlı bir REST API sunar. Tüm sistem durumu tek bir bildirimsel config.json dosyasında tutulur ve Python motoru tarafından pf.conf, DHCP ve DNS yapılandırma dosyalarına dinamik olarak dönüştürülür. Harici kütüphane gerektirmeyen sıfırdan yazılmış X25519 (RFC 7748) kriptografili WireGuard VPN ve OpenVPN desteği, Rol Tabanlı Erişim Kontrolü (RBAC) ve canlı sistem telemetrisi ile tam kapsamlı bir siber güvenlik merkezi oluşturur.</p>
-        <ul style="list-style: none; padding: 0;">
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>FastAPI & Bildirimsel config.json Mimarisi:</strong> Tek bir JSON kaynağından dinamik sistem dosyası üretimi ve otomasyona hazır tam kapsamlı REST API.</li>
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>Sıfır Bağımlılıklı WireGuard & OpenVPN:</strong> Harici bağımlılık olmadan yerel X25519 (RFC 7748) anahtar üretimiyle yüksek hızlı WireGuard ve OpenVPN tünelleme.</li>
-          <li style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 16px; color: #2d3748; line-height: 1.5;"><span style="position: absolute; left: 0; top: 2px; color: #f59e0b; font-weight: bold; font-size: 18px;">✓</span> <strong>RBAC ve Canlı Telemetri İzleme:</strong> Yönetici (Administrator), Operatör (Operator) ve Salt Okunur (Read-Only) yetkilendirme rolleriyle birlikte gerçek zamanlı donanım, trafik ve log izleme.</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>

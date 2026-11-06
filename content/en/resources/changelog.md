@@ -7,17 +7,45 @@ All notable changes to Stratum FW are listed here, newest first. Stratum FW upda
 update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot
 environment, so the previous version can be booted again at any time.
 
+## 0.24.2 - 2026-11-06
+
+### Fixed
+- Intrusion Detection, blocking mode (IPS): Suricata dropped every connection it had not seen start. These
+  are connections open before it started, and long-lived connections that sat idle longer than its flow
+  timeout, such as the push channels phones keep open. Phones on a blocking network lost their connection
+  and dropped off Wi-Fi. Suricata now picks such connections up (midstream), and on any exception
+  (`exception-policy: ignore`) it lets the traffic through instead of dropping the flow. Only matches of
+  blocking rules are dropped.
+
+## 0.24.1 - 2026-11-05
+
+### Fixed
+- Web Filter: the category lists were not downloaded after the first Apply, so the policies blocked nothing
+  until the next scheduled update. The download now follows the saved configuration, as the DNS blocklists
+  do, and Unbound only reloads the zones it has loaded.
+
 ## 0.24.0 - 2026-11-05
 
 ### Added
-- **Web Filter** (Firewall > Web Filter) blocks site categories through the firewall's DNS resolver (Unbound RPZ), with different rules per network.
-  - **Policies:** a policy gives one or more networks a set of blocked categories. VPN client networks can be policy networks too, and each network belongs to one policy.
-  - **Categories:** 55 categories in groups (adult content, security threats, ways around the filter, social networks, entertainment, shopping and money, downloads and more), from the UT1 blacklists of Université Toulouse Capitole (CC BY-SA 4.0, updated daily) and the Block List Project. Adult content comes as a compact list and a very large full list, and the policy page estimates the resolver memory the chosen categories need.
-  - **Safe Search:** each policy can force safe results on Google (also google.com.tr and other country domains), Bing and DuckDuckGo, and restricted mode on YouTube.
-  - **Exceptions:** listed sites are never blocked by the web filter and take effect at once, with no Apply. The DNS blocklists still apply to them.
+- **Web Filter** (Firewall > Web Filter) blocks site categories through the firewall's DNS resolver (Unbound
+  RPZ), with different rules per network.
+  - **Policies:** a policy gives one or more networks a set of blocked categories. VPN client networks can be
+    policy networks too, and each network belongs to one policy.
+  - **Categories:** 55 categories in groups (adult content, security threats, ways around the filter, social
+    networks, entertainment, shopping and money, downloads and more), from the UT1 blacklists of Université
+    Toulouse Capitole (CC BY-SA 4.0, updated daily) and the Block List Project. Adult content comes as a
+    compact list and a very large full list, and the policy page estimates the resolver memory the chosen
+    categories need.
+  - **Safe Search:** each policy can force safe results on Google (also google.com.tr and other country
+    domains), Bing and DuckDuckGo, and restricted mode on YouTube.
+  - **Exceptions:** listed sites are never blocked by the web filter and take effect at once, with no
+    Apply. The DNS blocklists still apply to them.
   - **Check a site:** shows which categories contain a name and which policies block it.
-  - **Blocked report:** blocks per category, site and device for today, 7 or 30 days. It needs Web Activity, whose collector now also counts web filter and DNS blocklist blocks. Only administrators see the report, and viewing it is logged.
-  - **Updates:** category lists update on a schedule (daily by default) and on demand, and a failed download keeps the previous list.
+  - **Blocked report:** blocks per category, site and device for today, 7 or 30 days. It needs Web Activity,
+    whose collector now also counts web filter and DNS blocklist blocks. Only administrators see the report,
+    and viewing it is logged.
+  - **Updates:** category lists update on a schedule (daily by default) and on demand, and a failed download
+    keeps the previous list.
 
 ## 0.23.0 - 2026-11-05
 

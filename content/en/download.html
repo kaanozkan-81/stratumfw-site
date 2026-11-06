@@ -1,127 +1,77 @@
 ---
 title: "Download"
-lead: "Get the latest Stratum FW installer and deploy the next-generation firewall on your own hardware or virtual infrastructure."
+description: "Stratum Firewall is an open-source, AI-powered FreeBSD firewall OS. Download the latest ISO and USB IMG installers."
+lead: "Get the latest Stratum FW installer (.iso and .img) and deploy the next-generation firewall on your own hardware or virtual infrastructure."
 full_width: true
 ---
-
 <div class="download-layout">
-
 <section class="download-hero">
-  <div class="download-hero-left">
-    <span class="eyebrow">Current Release</span>
-    <h2>Stratum FW v0.13.0 (Beta)</h2>
-    <p>Two installer images are available — one for standard VGA consoles and one for serial console environments. Both install the complete FreeBSD-based gateway; only the console output method differs.</p>
-
-    <div class="download-meta">
-      <div class="download-meta-item">
-        <span class="download-meta-label">Version</span>
-        <span class="download-meta-value">v0.13.0</span>
-      </div>
-      <div class="download-meta-item">
-        <span class="download-meta-label">File size</span>
-        <span class="download-meta-value">1.4 GB each</span>
-      </div>
-      <div class="download-meta-item">
-        <span class="download-meta-label">Released</span>
-        <span class="download-meta-value">2026-11-03</span>
-      </div>
-      <div class="download-meta-item">
-        <span class="download-meta-label">Platform</span>
-        <span class="download-meta-value">FreeBSD 14 · x86-64</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="download-hero-right">
-    <div class="download-verify">
-      <h4>Before you download</h4>
-      <p>Verify the integrity of the ISO after downloading by comparing its SHA-256 hash to the values shown in each variant below.</p>
-      <p class="download-verify-hint">On Linux or macOS:</p>
-      <pre><code>sha256sum stratum-fw-v0.13.0-*.iso</code></pre>
-      <p class="download-verify-hint">On Windows (PowerShell):</p>
-      <pre><code>Get-FileHash .\stratum-fw-v0.13.0-*.iso -Algorithm SHA256</code></pre>
-    </div>
-  </div>
+<div class="download-hero-left">
+<span class="eyebrow">Current Release</span>
+<h2>Stratum FW v0.24.2</h2>
+<p>Both ISO and raw USB disk image (.img) installers are available for standard VGA consoles and headless serial console environments. All images install the complete FreeBSD-based gateway.</p>
+<div class="download-meta">
+<div class="download-meta-item"><span class="download-meta-label">Version</span><span class="download-meta-value">v0.24.2</span></div>
+<div class="download-meta-item"><span class="download-meta-label">File size</span><span class="download-meta-value">1.3 GB</span></div>
+<div class="download-meta-item"><span class="download-meta-label">Released</span><span class="download-meta-value">2026-11-03</span></div>
+<div class="download-meta-item"><span class="download-meta-label">Platform</span><span class="download-meta-value">FreeBSD 14 · x86-64</span></div>
+</div>
+</div>
+<div class="download-hero-right">
+<div class="download-verify">
+<h4>Before you download</h4>
+<p>Verify the integrity of the ISO or IMG file after downloading by comparing its SHA-256 hash to the values shown in each variant below.</p>
+<p class="download-verify-hint">On Linux or macOS:</p>
+<pre><code>sha256sum stratum-fw-v0.24.2-*</code></pre>
+<p class="download-verify-hint">On Windows (PowerShell):</p>
+<pre><code>Get-FileHash .\stratum-fw-v0.24.2-* -Algorithm SHA256</code></pre>
+</div>
+</div>
 </section>
-
 <section class="download-section">
-  <div class="download-section-head">
-    <h2>Choose your installer</h2>
-    <p>Both images install the identical FreeBSD-based gateway. Pick the one that matches how you'll access the installation console.</p>
-  </div>
-
-  <div class="download-variants">
-    <article class="download-variant">
-      <div class="download-variant-head">
-        <div>
-          <span class="download-variant-badge">Recommended</span>
-          <h3>VGA Installer</h3>
-        </div>
-      </div>
-      <p class="download-variant-desc">For standard installations with a monitor and keyboard attached — physical servers, desktops, and most virtual machines.</p>
-      <div class="download-variant-meta">
-        <span><strong>Console:</strong> VGA / physical display</span>
-        <span><strong>Size:</strong> 1.4 GB</span>
-      </div>
-      <div class="download-variant-hash">
-        <span class="download-variant-hash-label">SHA-256</span>
-        <code>e845b34ac3c89aed2fb8c958f1a6bd08fdb40d3b1e1fbb1aeb285fc0abdf188c</code>
-      </div>
-      <a href="https://update.stratumfw.com/packages/stratum-fw-v0.13.0-vga.iso" class="btn btn-primary download-btn">
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
-        Download VGA ISO
-      </a>
-    </article>
-
-    <article class="download-variant">
-      <div class="download-variant-head">
-        <div>
-          <span class="download-variant-badge download-variant-badge-alt">Headless</span>
-          <h3>Serial Installer</h3>
-        </div>
-      </div>
-      <p class="download-variant-desc">For headless servers and remote console access — IPMI, iDRAC, iLO, and other serial-over-LAN environments.</p>
-      <div class="download-variant-meta">
-        <span><strong>Console:</strong> Serial / SOL</span>
-        <span><strong>Size:</strong> 1.4 GB</span>
-      </div>
-      <div class="download-variant-hash">
-        <span class="download-variant-hash-label">SHA-256</span>
-        <code>4b9ff4fbf69b1e5bd77e883a778d2a5aece918edabb77df36bc8de1e67dd40ec</code>
-      </div>
-      <a href="https://update.stratumfw.com/packages/stratum-fw-v0.13.0-serial.iso" class="btn btn-primary download-btn">
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
-        Download Serial ISO
-      </a>
-    </article>
-  </div>
+<div class="download-section-head">
+<h2>Choose your installer (.iso &amp; .img)</h2>
+<p>Select the ISO image for virtual machines/optical media or the raw IMG image for writing directly to a USB flash drive.</p>
+</div>
+<div class="download-variants">
+<article class="download-variant">
+<div class="download-variant-head"><div><span class="download-variant-badge">Recommended</span><h3>VGA ISO Installer (.iso)</h3></div></div>
+<p class="download-variant-desc">For standard installations with a monitor and keyboard attached — physical servers, desktops, and most virtual machines.</p>
+<div class="download-variant-meta"><span><strong>Console:</strong> VGA / physical display</span><span><strong>Size:</strong> 1.3 GB</span></div>
+<div class="download-variant-hash"><span class="download-variant-hash-label">SHA-256</span><code>e845b34ac3c89aed2fb8c958f1a6bd08fdb40d3b1e1fbb1aeb285fc0abdf188c</code></div>
+<a href="https://update.stratumfw.com/packages/stratum-fw-v0.24.2-vga.iso" class="btn btn-primary download-btn"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg> Download VGA ISO</a>
+</article>
+<article class="download-variant">
+<div class="download-variant-head"><div><span class="download-variant-badge download-variant-badge-alt">Headless</span><h3>Serial ISO Installer (.iso)</h3></div></div>
+<p class="download-variant-desc">For headless servers and remote console access — IPMI, iDRAC, iLO, and other serial-over-LAN environments.</p>
+<div class="download-variant-meta"><span><strong>Console:</strong> Serial / SOL</span><span><strong>Size:</strong> 1.3 GB</span></div>
+<div class="download-variant-hash"><span class="download-variant-hash-label">SHA-256</span><code>4b9ff4fbf69b1e5bd77e883a778d2a5aece918edabb77df36bc8de1e67dd40ec</code></div>
+<a href="https://update.stratumfw.com/packages/stratum-fw-v0.24.2-serial.iso" class="btn btn-primary download-btn"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg> Download Serial ISO</a>
+</article>
+</div>
 </section>
-
 <section class="download-section">
-  <div class="download-section-head">
-    <h2>Release Notes</h2>
-  </div>
-  <div class="card">
-    <h3>What's new in v0.13.0</h3>
-    <ul class="download-req-list" style="margin-top:16px;">
-      <li>Complete architectural rewrite based on FreeBSD 14</li>
-      <li>Native pf packet filter for wire-speed routing</li>
-      <li>Modern FastAPI management panel</li>
-      <li>Zero-dependency WireGuard VPN integration (X25519)</li>
-      <li>Role-Based Access Control (Admin, Operator, Read-Only)</li>
-      <li>Safe-Apply configuration workflow (automatic rollback)</li>
-    </ul>
-  </div>
+<div class="download-section-head"><h2>Release Notes</h2></div>
+<div class="card">
+<h3>What's new in v0.24.2</h3>
+<ul class="download-req-list" style="margin-top:16px">
+<li>Complete architectural rewrite based on FreeBSD 14</li>
+<li>Both bootable ISO (.iso) and USB flash drive disk images (.img) provided</li>
+<li>Native pf packet filter for wire-speed stateful inspection and ALTQ shaping</li>
+<li>Modern asynchronous Python 3.12 &amp; FastAPI management panel and REST API</li>
+<li>Zero-dependency WireGuard VPN integration (native RFC 7748 X25519)</li>
+<li>DNSBL Web Filtering &amp; automated Threat Intelligence IP Blocklists</li>
+<li>Role-Based Access Control (Admin, Operator, Read-Only) &amp; Safe-Apply rollback workflow</li>
+</ul>
+</div>
 </section>
-
 <section class="download-section download-support">
-  <h3>Looking for the source code?</h3>
-  <p>The installer is provided for testing purposes. You can also build the Stratum FW management panel directly on an existing FreeBSD system.</p>
-  <div>
-    <a href="https://github.com/kaanozkan-81/stratum-panel/releases/tag/v0.13.0" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub Releases</a>
-    <a href="/changelog/" class="btn btn-secondary">Changelog</a>
-    <a href="/resources/documentation/building-from-source/" class="btn btn-secondary">Build from Source</a>
-  </div>
+<h3>Looking for the source code?</h3>
+<p>The installer is provided for testing purposes. You can also build the Stratum FW management panel directly on an existing FreeBSD system.</p>
+<div>
+<a href="https://github.com/kaanozkan-81/stratum-panel/releases" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub Releases</a>
+<a href="/resources/changelog/" class="btn btn-secondary">Changelog</a>
+<a href="/resources/documentation/" class="btn btn-secondary">Read the Docs</a>
+</div>
 </section>
-
 </div>
