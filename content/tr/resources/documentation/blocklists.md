@@ -3,7 +3,7 @@ title: "IP ve DNS Karalisteleri"
 lead: "Ağınızı her iki katmanda koruyun — kötü amaçlı IP'leri paket düzeyinde, kötü amaçlı alan adlarını DNS düzeyinde engelleyin."
 ---
 
-Stratum Gateway, modern siber tehditlere karşı iki katmanlı bir savunma mekanizması sunar. Kötü amaçlı IP adreslerini güvenlik duvarı düzeyinde engelleyebilir ve aynı anda kötü amaçlı alan adlarını (reklamlar, izleyiciler, kimlik avı) DNS çözümleyici düzeyinde engelleyebilirsiniz.
+Stratum Firewall, modern siber tehditlere karşı iki katmanlı bir savunma mekanizması sunar. Kötü amaçlı IP adreslerini güvenlik duvarı düzeyinde engelleyebilir ve aynı anda kötü amaçlı alan adlarını (reklamlar, izleyiciler, kimlik avı) DNS çözümleyici düzeyinde engelleyebilirsiniz.
 
 ## Katman 1: IP Karalisteleri (IPv4/IPv6)
 

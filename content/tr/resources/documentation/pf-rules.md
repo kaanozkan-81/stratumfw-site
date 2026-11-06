@@ -3,7 +3,7 @@ title: "pf ve Güvenlik Duvarı Kuralları"
 lead: "pf paket filtresinde uzmanlaşın — kuralların nasıl değerlendirildiğini, sıralandığını ve güvenli bir şekilde nasıl uygulandığını öğrenin."
 ---
 
-Stratum Gateway, FreeBSD'ye yerleşik endüstri standardı güvenlik duvarı motoru olan **pf (Packet Filter)** kullanır. Karmaşık, tescilli kural sözdizimleri kullanan eski güvenlik duvarlarının aksine pf, temiz ve okunabilir bir yapılandırma dili kullanır.
+Stratum Firewall, FreeBSD'ye yerleşik endüstri standardı güvenlik duvarı motoru olan **pf (Packet Filter)** kullanır. Karmaşık, tescilli kural sözdizimleri kullanan eski güvenlik duvarlarının aksine pf, temiz ve okunabilir bir yapılandırma dili kullanır.
 
 ## pf Kuralları Nasıl Değerlendirir?
 

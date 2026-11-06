@@ -5,7 +5,7 @@ lead: "FreeBSD'nin ham gücü üzerine inşa edilmiş modern bir yönetim düzle
 
 ## Tasarım Prensipleri
 
-Stratum Gateway bir kabuk betiği koleksiyonu değildir. Platformdaki her kod satırını şekillendiren üç temel ilke üzerine inşa edilmiş uyumlu bir sistemdir:
+Stratum Firewall bir kabuk betiği koleksiyonu değildir. Platformdaki her kod satırını şekillendiren üç temel ilke üzerine inşa edilmiş uyumlu bir sistemdir:
 
 <div class="card-grid grid-3" style="margin-top:32px;">
   <div class="card">
@@ -109,7 +109,7 @@ Kendini kanıtlamış, standart bileşenler kullanıyoruz. Kara kutular yok.
   </div>
   <div class="card">
     <h3>Dökümantasyonu Okuyun</h3>
-    <p>Stratum Gateway kurulumu, yapılandırması ve API referansı.</p>
+    <p>Stratum Firewall kurulumu, yapılandırması ve API referansı.</p>
     <a href="/tr/resources/documentation/" class="card-link">Dökümantasyonu açın →</a>
   </div>
 </div>

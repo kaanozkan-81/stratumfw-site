@@ -1,12 +1,12 @@
 ---
-title: "Why We Rewrote Stratum Gateway on FreeBSD (And Never Looked Back)"
+title: "Why We Rewrote Stratum Firewall on FreeBSD (And Never Looked Back)"
 date: 2026-11-03
 author: "Stratum Security Team"
 description: "A deep dive into our engineering journey from a fragmented Linux prototype to a modern, FreeBSD-based, API-driven NGFW with declarative configuration."
 tags: ["freebsd", "architecture", "ngfw", "declarative-config"]
 ---
 
-If you've been following the Stratum Gateway project since the beginning, you might have noticed a massive architectural shift. We went from a heavy, Debian-based Linux appliance with a dozen different external dependencies (Suricata, CrowdSec, Stalwart) to a sleek, cohesive **FreeBSD-based Network Security Operating System**.
+If you've been following the Stratum Firewall project since the beginning, you might have noticed a massive architectural shift. We went from a heavy, Debian-based Linux appliance with a dozen different external dependencies (Suricata, CrowdSec, Stalwart) to a sleek, cohesive **FreeBSD-based Network Security Operating System**.
 
 We didn't do this because Linux is bad. We did it because we wanted to build a firewall that we, as network engineers, would actually want to use. 
 

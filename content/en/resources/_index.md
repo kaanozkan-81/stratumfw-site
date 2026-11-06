@@ -1,6 +1,6 @@
 ---
 title: "Resources"
-lead: "Documentation, answers, and articles for teams evaluating or running Stratum Gateway."
+lead: "Documentation, answers, and articles for teams evaluating or running Stratum Firewall."
 ---
 
 <div class="card-grid grid-3" style="margin-top:24px;">

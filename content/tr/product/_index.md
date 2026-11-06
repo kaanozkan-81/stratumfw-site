@@ -3,9 +3,9 @@ title: "Ürün Genel Bakış"
 lead: "Ağınız üzerinde mutlak kontrol sağlayan, gereksiz yüklerden arındırılmış, API odaklı modern bir güvenlik duvarı işletim sistemi."
 ---
 
-## Stratum Gateway Nedir?
+## Stratum Firewall Nedir?
 
-Stratum Gateway, **FreeBSD** üzerine inşa edilmiş kurumsal düzeyde bir **Ağ Güvenliği İşletim Sistemidir**. Şeffaflık, ham performans ve modern yönetilebilirlik talep eden mühendisler için tasarlanmıştır.
+Stratum Firewall, **FreeBSD** üzerine inşa edilmiş kurumsal düzeyde bir **Ağ Güvenliği İşletim Sistemidir**. Şeffaflık, ham performans ve modern yönetilebilirlik talep eden mühendisler için tasarlanmıştır.
 
 Tescilli komut satırı arayüzleri (CLI) veya ağır, bulut bağımlı paneller arkasına saklanan geleneksel güvenlik duvarı cihazlarının aksine Stratum, sisteme doğrudan bir arayüz görevi gören **hafif bir FastAPI web paneli** sunar.
 

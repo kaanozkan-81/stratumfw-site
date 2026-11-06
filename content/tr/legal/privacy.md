@@ -7,7 +7,7 @@ lead: "stratumfw.com ve ilgili hizmetlerinde bilgileri nasıl işlediğimiz."
 Bu Gizlilik Politikası, Stratum Security'nin ("biz", "bize" veya "bizim") **stratumfw.com** web sitesi ve ilgili hizmetleriyle bağlantılı olarak bilgileri nasıl işlediğini açıklar.
 
 ## Yaklaşımımız
-Stratum Gateway kendi sunucunuzda barındırılan bir yazılımdır. Bulut hizmeti işletmiyoruz, müşteri verilerini yönetmiyoruz ve yazılımımızı kullanmak için herhangi bir hesap gerektirmiyoruz.
+Stratum Firewall kendi sunucunuzda barındırılan bir yazılımdır. Bulut hizmeti işletmiyoruz, müşteri verilerini yönetmiyoruz ve yazılımımızı kullanmak için herhangi bir hesap gerektirmiyoruz.
 
 ## Topladığımız bilgiler
 ### Web sitesi ziyaretleri

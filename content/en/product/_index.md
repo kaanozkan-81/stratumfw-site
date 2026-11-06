@@ -3,9 +3,9 @@ title: "Product Overview"
 lead: "A modern, API-driven firewall OS that strips away bloat and gives you absolute control over your network."
 ---
 
-## What Stratum Gateway is
+## What Stratum Firewall is
 
-Stratum Gateway is an enterprise-grade **Network Security Operating System** built on **FreeBSD**. It is designed for engineers who demand transparency, raw performance, and modern manageability.
+Stratum Firewall is an enterprise-grade **Network Security Operating System** built on **FreeBSD**. It is designed for engineers who demand transparency, raw performance, and modern manageability.
 
 Unlike traditional firewall appliances that hide behind proprietary CLIs or heavy, cloud-dependent dashboards, Stratum provides a **lightweight FastAPI web panel** that acts as a direct interface to the system. 
 

@@ -1,11 +1,11 @@
 ---
 title: "Command Line"
-lead: "Master the underlying FreeBSD tools that power Stratum Gateway."
+lead: "Master the underlying FreeBSD tools that power Stratum Firewall."
 ---
 
 While the Stratum panel provides a comprehensive interface for managing your firewall, advanced users will frequently interact with the underlying FreeBSD system via SSH. Stratum does not hide the operating system from you; it builds upon it.
 
-Here are the essential command-line tools you should know when managing a Stratum Gateway.
+Here are the essential command-line tools you should know when managing a Stratum Firewall.
 
 ## 1. pfctl (Packet Filter Control)
 

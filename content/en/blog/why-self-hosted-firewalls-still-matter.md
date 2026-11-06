@@ -95,9 +95,9 @@ Let's be honest about the trade-offs. Self-hosted isn't right for everyone.
 
 For teams that genuinely can't absorb these responsibilities, cloud-managed is the right answer. But for teams that can — and this includes a much larger set of organizations than the marketing narrative suggests — the benefits of self-hosting usually outweigh the costs.
 
-## Where Stratum Gateway fits
+## Where Stratum Firewall fits
 
-We built Stratum Gateway for exactly this audience: teams who want the operational simplicity of a modern web-managed platform, but who aren't willing to hand over control of their network to a cloud vendor.
+We built Stratum Firewall for exactly this audience: teams who want the operational simplicity of a modern web-managed platform, but who aren't willing to hand over control of their network to a cloud vendor.
 
 Stratum is 100% self-hosted. It runs on your hardware, on your network, on a Debian base you already understand. The panel is modern, the modules are integrated, and updates are delivered through a signed channel — but nothing about your traffic, your logs, or your configuration ever leaves your premises.
 

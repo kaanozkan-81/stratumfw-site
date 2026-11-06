@@ -3,7 +3,7 @@ title: "IP &amp; DNS Blocklists"
 lead: "Protect your network at both layers — block malicious IPs at the packet level and malicious domains at the DNS level."
 ---
 
-Stratum Gateway provides a two-layer defense mechanism against modern cyber threats. You can block malicious IP addresses at the firewall level, and simultaneously block malicious domains (ads, trackers, phishing) at the DNS resolver level.
+Stratum Firewall provides a two-layer defense mechanism against modern cyber threats. You can block malicious IP addresses at the firewall level, and simultaneously block malicious domains (ads, trackers, phishing) at the DNS resolver level.
 
 ## Layer 1: IP Blocklists (IPv4/IPv6)
 ![IP Blocklists](/images/docs/blocklists.png)

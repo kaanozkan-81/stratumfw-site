@@ -5,7 +5,7 @@ lead: "A modern management plane built on top of the raw power of FreeBSD. Decla
 
 ## Design Principles
 
-Stratum Gateway is not a collection of shell scripts. It is a cohesive system built on three core principles that shape every line of code in the platform:
+Stratum Firewall is not a collection of shell scripts. It is a cohesive system built on three core principles that shape every line of code in the platform:
 
 <div class="card-grid grid-3" style="margin-top:32px;">
 
@@ -169,7 +169,7 @@ We use battle-tested, standard components. No black boxes.
   </div>
   <div class="card">
     <h3>Read the Docs</h3>
-    <p>Installation, configuration, and API reference for Stratum Gateway.</p>
+    <p>Installation, configuration, and API reference for Stratum Firewall.</p>
     <a href="/resources/documentation/" class="card-link">Open documentation →</a>
   </div>
 </div>

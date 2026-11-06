@@ -1,6 +1,6 @@
 ---
 title: "Documentation"
-lead: "Everything you need to deploy, configure, and operate Stratum Gateway."
+lead: "Everything you need to deploy, configure, and operate Stratum Firewall."
 full_width: true
 hide_pages: true
 ---

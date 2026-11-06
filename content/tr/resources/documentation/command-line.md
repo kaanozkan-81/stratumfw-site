@@ -1,11 +1,11 @@
 ---
 title: "Komut Satırı"
-lead: "Stratum Gateway'i çalıştıran temel FreeBSD araçlarında uzmanlaşın."
+lead: "Stratum Firewall'ı çalıştıran temel FreeBSD araçlarında uzmanlaşın."
 ---
 
 Stratum paneli, güvenlik duvarınızı yönetmek için kapsamlı bir arayüz sunsa da, ileri düzey kullanıcılar sıklıkla SSH üzerinden temel FreeBSD sistemiyle etkileşime girecektir. Stratum işletim sistemini sizden saklamaz; onun üzerine inşa eder.
 
-Stratum Gateway'i yönetirken bilmeniz gereken temel komut satırı araçları şunlardır.
+Stratum Firewall'ı yönetirken bilmeniz gereken temel komut satırı araçları şunlardır.
 
 ## 1. pfctl (Packet Filter Control)
 

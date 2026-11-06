@@ -3,7 +3,7 @@ title: "Building from Source"
 lead: "How to deploy the Stratum FW management panel and configuration engine on a FreeBSD 14 system."
 ---
 
-Stratum Gateway is currently in **Developer Preview**. A pre-built FreeBSD ISO installer is not yet available. However, developers can deploy the panel and configuration engine directly onto an existing FreeBSD 14 system.
+Stratum Firewall is currently in **Developer Preview**. A pre-built FreeBSD ISO installer is not yet available. However, developers can deploy the panel and configuration engine directly onto an existing FreeBSD 14 system.
 
 ## Prerequisites
 

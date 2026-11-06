@@ -1,10 +1,10 @@
 ---
 title: "Multi-WAN"
-description: "Configure failover and load balancing across multiple internet links in Stratum Gateway — gateway definitions, health checks, policy routing, and worked examples."
+description: "Configure failover and load balancing across multiple internet links in Stratum Firewall — gateway definitions, health checks, policy routing, and worked examples."
 weight: 6
 ---
 
-A single internet link is a single point of failure. Multi-WAN lets Stratum Gateway use two or more upstream connections, either for redundancy (one link backs up another) or for capacity (traffic is shared across links). This guide covers both modes, from interface roles through health monitoring and policy routing.
+A single internet link is a single point of failure. Multi-WAN lets Stratum Firewall use two or more upstream connections, either for redundancy (one link backs up another) or for capacity (traffic is shared across links). This guide covers both modes, from interface roles through health monitoring and policy routing.
 
 > **Before you start:** Each WAN link must already have an interface assigned to the WAN role. See [Network Basics](/resources/documentation/network-basics/) for interface configuration and role assignment.
 

@@ -1,9 +1,9 @@
 ---
 title: "Solutions"
-lead: "Whether you run a single office or a hundred sites, Stratum Gateway adapts to how your organization actually works."
+lead: "Whether you run a single office or a hundred sites, Stratum Firewall adapts to how your organization actually works."
 ---
 
-Every organization has a different network — but the problems are surprisingly similar. Stratum Gateway is deployed across three broad categories of environment. Each brings its own constraints, and each benefits from a different combination of features.
+Every organization has a different network — but the problems are surprisingly similar. Stratum Firewall is deployed across three broad categories of environment. Each brings its own constraints, and each benefits from a different combination of features.
 
 <div class="card-grid grid-3" style="margin-top:40px;">
 

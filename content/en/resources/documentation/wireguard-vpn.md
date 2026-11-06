@@ -3,7 +3,7 @@ title: "WireGuard VPN"
 lead: "Configure high-performance, zero-dependency remote access using WireGuard."
 ---
 
-Stratum Gateway includes native integration for **WireGuard**, the modern, high-performance VPN protocol. Unlike other firewalls that rely on heavy external packages, Stratum implements the X25519 cryptography internally, ensuring maximum security and a minimal attack surface.
+Stratum Firewall includes native integration for **WireGuard**, the modern, high-performance VPN protocol. Unlike other firewalls that rely on heavy external packages, Stratum implements the X25519 cryptography internally, ensuring maximum security and a minimal attack surface.
 
 ## Why WireGuard?
 

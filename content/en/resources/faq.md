@@ -1,6 +1,6 @@
 ---
 title: "FAQ"
-lead: "Answers to the most common questions about Stratum Gateway, its architecture, and licensing."
+lead: "Answers to the most common questions about Stratum Firewall, its architecture, and licensing."
 full_width: true
 ---
 
@@ -11,9 +11,9 @@ full_width: true
 
   <div class="faq">
     <details>
-      <summary>What is Stratum Gateway?</summary>
+      <summary>What is Stratum Firewall?</summary>
       <div class="faq-body">
-        Stratum Gateway is an open-source, enterprise-grade Network Security Operating System. It combines the raw power of the <strong>FreeBSD kernel</strong> and the <strong>pf packet filter</strong> with a modern, lightweight <strong>FastAPI management panel</strong>, providing a perfect balance of high performance and easy management.
+        Stratum Firewall is an open-source, enterprise-grade Network Security Operating System. It combines the raw power of the <strong>FreeBSD kernel</strong> and the <strong>pf packet filter</strong> with a modern, lightweight <strong>FastAPI management panel</strong>, providing a perfect balance of high performance and easy management.
       </div>
     </details>
 

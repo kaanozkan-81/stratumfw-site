@@ -3,7 +3,7 @@ title: "WireGuard VPN"
 lead: "WireGuard kullanarak yüksek performanslı, sıfır bağımlılıklı uzaktan erişim yapılandırın."
 ---
 
-Stratum Gateway, modern ve yüksek performanslı VPN protokolü **WireGuard** için yerel entegrasyon içerir. Ağır harici paketlere güvenen diğer güvenlik duvarlarının aksine Stratum, X25519 kriptografisini dahili olarak uygular; bu da maksimum güvenlik ve minimum saldırı yüzeyi sağlar.
+Stratum Firewall, modern ve yüksek performanslı VPN protokolü **WireGuard** için yerel entegrasyon içerir. Ağır harici paketlere güvenen diğer güvenlik duvarlarının aksine Stratum, X25519 kriptografisini dahili olarak uygular; bu da maksimum güvenlik ve minimum saldırı yüzeyi sağlar.
 
 ## Neden WireGuard?
 

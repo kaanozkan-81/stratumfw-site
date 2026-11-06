@@ -3,7 +3,7 @@ title: "Çoklu WAN Yedekliliği"
 lead: "Birden fazla internet bağlantısı yapılandırın, böylece birincil bağlantınız koptuğunda ağınız çevrimiçi kalır."
 ---
 
-Modern ağlar için tek bir internet bağlantısı tek bir hata noktasıdır. Stratum Gateway, birden fazla WAN arayüzünü yönetmenize ve birincil bağlantı başarısız olduğunda otomatik yedeklilik sağlamanıza olanak tanır.
+Modern ağlar için tek bir internet bağlantısı tek bir hata noktasıdır. Stratum Firewall, birden fazla WAN arayüzünü yönetmenize ve birincil bağlantı başarısız olduğunda otomatik yedeklilik sağlamanıza olanak tanır.
 
 ## Kavramlar
 

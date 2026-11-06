@@ -3,7 +3,7 @@ title: "Kaynak Koddan Derleme"
 lead: "Stratum FW yönetim panelini ve yapılandırma motorunu mevcut bir FreeBSD 14 sistemi üzerinde nasıl kuracağınız."
 ---
 
-Stratum Gateway şu anda **Geliştirici Önizlemesi** aşamasındadır. Önceden oluşturulmuş FreeBSD ISO kurulum medyası henüz mevcut değildir. Ancak geliştiriciler, paneli ve yapılandırma motorunu doğrudan mevcut bir FreeBSD 14 sistemi üzerine kurabilirler.
+Stratum Firewall şu anda **Geliştirici Önizlemesi** aşamasındadır. Önceden oluşturulmuş FreeBSD ISO kurulum medyası henüz mevcut değildir. Ancak geliştiriciler, paneli ve yapılandırma motorunu doğrudan mevcut bir FreeBSD 14 sistemi üzerine kurabilirler.
 
 ## Ön Koşullar
 

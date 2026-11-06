@@ -141,9 +141,9 @@ In the past few years, LTE and 5G have become genuinely viable as backup connect
 
 For many small businesses, a wired primary plus an LTE backup is now the standard recommendation.
 
-## How Stratum Gateway handles multi-WAN
+## How Stratum Firewall handles multi-WAN
 
-Stratum Gateway includes multi-WAN failover and load balancing as a built-in capability. The implementation supports:
+Stratum Firewall includes multi-WAN failover and load balancing as a built-in capability. The implementation supports:
 
 - **Multiple health-check methods** (ICMP, HTTP, DNS) with configurable thresholds
 - **Weighted and equal-cost load balancing** across connections

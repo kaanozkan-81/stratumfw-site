@@ -1,9 +1,9 @@
 ---
 title: "Çözümler"
-lead: "İster tek bir ofis, ister yüzlerce şube işletin; Stratum Gateway kuruluşunuzun gerçekte nasıl çalıştığına uyum sağlar."
+lead: "İster tek bir ofis, ister yüzlerce şube işletin; Stratum Firewall kuruluşunuzun gerçekte nasıl çalıştığına uyum sağlar."
 ---
 
-Her kuruluşun farklı bir ağı vardır, ancak sorunlar şaşırtıcı derecede benzerdir. Stratum Gateway üç geniş ortam kategorisinde konuşlandırılır. Her biri kendi kısıtlamalarını getirir ve her biri farklı özellik kombinasyonlarından yararlanır.
+Her kuruluşun farklı bir ağı vardır, ancak sorunlar şaşırtıcı derecede benzerdir. Stratum Firewall üç geniş ortam kategorisinde konuşlandırılır. Her biri kendi kısıtlamalarını getirir ve her biri farklı özellik kombinasyonlarından yararlanır.
 
 <div class="card-grid grid-3" style="margin-top:40px;">
   <div class="card">

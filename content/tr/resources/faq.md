@@ -7,7 +7,7 @@ full_width: true
 <section class="faq-section">
   <h2>Genel</h2>
   <div class="faq">
-    <details><summary>Stratum Gateway nedir?</summary><div class="faq-body">Stratum Gateway, açık kaynaklı, kendi sunucunuzda barındırılan bir güvenlik duvarı ve ağ güvenliği platformudur. FreeBSD çekirdeği ve pf paket filtresinin ham gücünü, modern bir FastAPI yönetim paneliyle birleştirir.</div></details>
+    <details><summary>Stratum Firewall nedir?</summary><div class="faq-body">Stratum Firewall, açık kaynaklı, kendi sunucunuzda barındırılan bir güvenlik duvarı ve ağ güvenliği platformudur. FreeBSD çekirdeği ve pf paket filtresinin ham gücünü, modern bir FastAPI yönetim paneliyle birleştirir.</div></details>
     <details><summary>Neden Linux yerine FreeBSD?</summary><div class="faq-body">FreeBSD, dağınık bir paket koleksiyonu değil, uyumlu bir işletim sistemi olarak tasarlanmıştır. Dünyanın en çok savaş görmüş ağ yığınına, pf için yerel desteğe ve ZFS'ye sahiptir.</div></details>
     <details><summary>Açık kaynak mı?</summary><div class="faq-body">Evet. Kullanıcı başına lisans, cihaz başına ücret veya abonelik gereksinimi yoktur.</div></details>
     <details><summary>Telemetri veya bulut bağımlılığı var mı?</summary><div class="faq-body">Kesinlikle hayır. Telemetri, analiz veya bulut bağımlılığı yoktur.</div></details>

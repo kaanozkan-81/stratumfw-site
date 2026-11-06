@@ -3,7 +3,7 @@ title: "Dosya ve Yol Referansı"
 lead: "Yapılandırmanın nerede yaşadığı, günlüklerin nerede saklandığı ve her dosyanın ne yaptığı."
 ---
 
-Stratum Gateway'in temel tasarım ilkelerinden biri **şeffaflıktır**. Yapılandırmaları ikili veritabanlarında saklamıyoruz. Her şey inceleyebileceğiniz, yedekleyebileceğiniz veya sürüm kontrolüne alabileceğiniz düz metin dosyalarında saklanır.
+Stratum Firewall'ın temel tasarım ilkelerinden biri **şeffaflıktır**. Yapılandırmaları ikili veritabanlarında saklamıyoruz. Her şey inceleyebileceğiniz, yedekleyebileceğiniz veya sürüm kontrolüne alabileceğiniz düz metin dosyalarında saklanır.
 
 ## Temel Dizinler
 

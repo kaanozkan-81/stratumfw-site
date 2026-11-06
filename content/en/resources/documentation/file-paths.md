@@ -3,7 +3,7 @@ title: "File &amp; Path Reference"
 lead: "Where configuration lives, where logs are stored, and what each file does."
 ---
 
-One of the core design principles of Stratum Gateway is **transparency**. We do not hide configurations in binary databases. Everything is stored in plain text files that you can inspect, back up, or version control.
+One of the core design principles of Stratum Firewall is **transparency**. We do not hide configurations in binary databases. Everything is stored in plain text files that you can inspect, back up, or version control.
 
 ## Core Directories
 

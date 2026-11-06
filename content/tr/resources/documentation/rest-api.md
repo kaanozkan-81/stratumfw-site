@@ -3,7 +3,7 @@ title: "REST API"
 lead: "Her şeyi otomatikleştirin. Stratum paneli sadece bir istemcidir — gerçek güç API'dedir."
 ---
 
-Stratum Gateway, **API-Öncelikli** bir mimariyle tasarlanmıştır. Web arayüzünde gerçekleştirdiğiniz her işlem bir REST API aracılığıyla yürütülür. Bu, özel panolar oluşturabileceğiniz, dağıtımları otomatikleştirebileceğiniz ve Stratum'u mevcut Altyapı-Kod-Olarak (IaC) iş akışlarınıza (Ansible, Terraform vb.) entegre edebileceğiniz anlamına gelir.
+Stratum Firewall, **API-Öncelikli** bir mimariyle tasarlanmıştır. Web arayüzünde gerçekleştirdiğiniz her işlem bir REST API aracılığıyla yürütülür. Bu, özel panolar oluşturabileceğiniz, dağıtımları otomatikleştirebileceğiniz ve Stratum'u mevcut Altyapı-Kod-Olarak (IaC) iş akışlarınıza (Ansible, Terraform vb.) entegre edebileceğiniz anlamına gelir.
 
 ## Temel URL
 

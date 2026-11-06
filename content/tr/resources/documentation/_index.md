@@ -1,6 +1,6 @@
 ---
 title: "Dokümantasyon"
-lead: "Stratum Gateway'i kurmak, yapılandırmak ve işletmek için ihtiyacınız olan her şey."
+lead: "Stratum Firewall'ı kurmak, yapılandırmak ve işletmek için ihtiyacınız olan her şey."
 full_width: true
 hide_pages: true
 ---

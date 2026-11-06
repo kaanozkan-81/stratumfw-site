@@ -1,12 +1,12 @@
 ---
-title: "Stratum Gateway'i Neden FreeBSD Üzerine Yeniden Yazdık (Ve Neden Geriye Bakmadık)"
+title: "Stratum Firewall'ı Neden FreeBSD Üzerine Yeniden Yazdık (Ve Neden Geriye Bakmadık)"
 date: 2026-11-03
 author: "Stratum Security Team"
 description: "Parçalanmış bir Linux prototipinden modern, FreeBSD tabanlı, API odaklı bir NGFW'ye (Yeni Nesil Güvenlik Duvarı) uzanan mühendislik yolculuğumuza derinlemesine bir bakış."
 tags: ["freebsd", "architecture", "ngfw", "declarative-config", "mimari"]
 ---
 
-Stratum Gateway projesini başından beri takip ediyorsanız, devasa bir mimari değişimi fark etmişsinizdir. Onlarca farklı harici bağımlılığa (Suricata, CrowdSec, Stalwart) sahip, Debian tabanlı ağır bir Linux cihazından, yepyeni ve derli toplu bir **FreeBSD tabanlı Ağ Güvenliği İşletim Sistemine** geçtik.
+Stratum Firewall projesini başından beri takip ediyorsanız, devasa bir mimari değişimi fark etmişsinizdir. Onlarca farklı harici bağımlılığa (Suricata, CrowdSec, Stalwart) sahip, Debian tabanlı ağır bir Linux cihazından, yepyeni ve derli toplu bir **FreeBSD tabanlı Ağ Güvenliği İşletim Sistemine** geçtik.
 
 Bunu Linux kötü olduğu için yapmadık. Bunu, ağ mühendisleri olarak bizim bile kullanmak isteyeceğimiz bir güvenlik duvarı inşa etmek istediğimiz için yaptık.
 

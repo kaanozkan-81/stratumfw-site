@@ -1,10 +1,10 @@
 ---
 title: "VPN (WireGuard)"
-description: "Set up WireGuard VPN on Stratum Gateway — server configuration, peer management, client provisioning, and site-to-site tunnels."
+description: "Set up WireGuard VPN on Stratum Firewall — server configuration, peer management, client provisioning, and site-to-site tunnels."
 weight: 7
 ---
 
-WireGuard is a modern, fast, and auditable VPN protocol built into the Linux kernel. Stratum Gateway uses it for two distinct purposes: remote access (letting users connect to the internal network from anywhere) and site-to-site tunnels (linking two Stratum Gateways across the internet so their LANs behave as one network).
+WireGuard is a modern, fast, and auditable VPN protocol built into the Linux kernel. Stratum Firewall uses it for two distinct purposes: remote access (letting users connect to the internal network from anywhere) and site-to-site tunnels (linking two Stratum Firewalls across the internet so their LANs behave as one network).
 
 This guide covers both use cases. The interface configuration is shared; the peer design is what differs.
 
@@ -212,7 +212,7 @@ The QR code is just the base64 encoding of the text config. There is no hidden s
 
 ## Site-to-Site Tunnels
 
-A site-to-site tunnel links two Stratum Gateway deployments so that devices on one LAN can reach devices on the other LAN without individual VPN clients. The two gateways form a permanent tunnel between them, and each gateway routes the other's LAN subnets through it.
+A site-to-site tunnel links two Stratum Firewall deployments so that devices on one LAN can reach devices on the other LAN without individual VPN clients. The two gateways form a permanent tunnel between them, and each gateway routes the other's LAN subnets through it.
 
 This is the right pattern when:
 

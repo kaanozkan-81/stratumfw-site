@@ -1,6 +1,6 @@
 ---
 title: "Kaynaklar"
-lead: "Stratum Gateway'i değerlendiren veya çalıştıran ekipler için dokümantasyon, yanıtlar ve makaleler."
+lead: "Stratum Firewall'ı değerlendiren veya çalıştıran ekipler için dokümantasyon, yanıtlar ve makaleler."
 ---
 <div class="card-grid grid-3" style="margin-top:24px;">
   <div class="card"><h3>Dokümantasyon</h3><p>Kurulum kılavuzları, yapılandırma referansı ve API detayları.</p><a href="/tr/resources/documentation/" class="card-link">Dokümantasyonu Aç →</a></div>

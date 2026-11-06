@@ -1,25 +1,25 @@
 ---
 title: "Terms of Use"
-lead: "Terms governing the use of stratumfw.com, the Stratum Gateway software, and related services."
+lead: "Terms governing the use of stratumfw.com, the Stratum Firewall software, and related services."
 ---
 
 **Last updated: September 2026**
 
-These Terms of Use ("Terms") govern your access to and use of the **stratumfw.com** website, the **Stratum Gateway** software, and related services (collectively, "the Services"). By accessing or using the Services, you agree to these Terms.
+These Terms of Use ("Terms") govern your access to and use of the **stratumfw.com** website, the **Stratum Firewall** software, and related services (collectively, "the Services"). By accessing or using the Services, you agree to these Terms.
 
 If you do not agree with these Terms, please do not use the Services.
 
 ## About the Services
 
-Stratum Gateway is open-source software distributed by Stratum Security ("we", "us", or "our"). The Services include:
+Stratum Firewall is open-source software distributed by Stratum Security ("we", "us", or "our"). The Services include:
 
 - The **stratumfw.com** website, including documentation and informational content
 - The **software update server** at `update.stratumfw.com`
-- The **Stratum Gateway software** itself, distributed as an installable image and update packages
+- The **Stratum Firewall software** itself, distributed as an installable image and update packages
 
 ## Open source software
 
-The Stratum Gateway software is distributed under an open-source license. The specific license terms governing the software are provided with the software distribution and take precedence over these Terms with respect to the software itself. These Terms govern the use of the website and related services.
+The Stratum Firewall software is distributed under an open-source license. The specific license terms governing the software are provided with the software distribution and take precedence over these Terms with respect to the software itself. These Terms govern the use of the website and related services.
 
 You may use, modify, and redistribute the software in accordance with its license.
 
@@ -35,7 +35,7 @@ You agree to use the website only for lawful purposes and in a manner that does 
 
 ## Use of the update server
 
-The update server at `update.stratumfw.com` distributes software packages and a signed manifest. You may access it programmatically as part of a legitimate Stratum Gateway installation. You may not:
+The update server at `update.stratumfw.com` distributes software packages and a signed manifest. You may access it programmatically as part of a legitimate Stratum Firewall installation. You may not:
 
 - Attempt to modify, redirect, or impersonate the update server
 - Use the update server to distribute software that is not authorized by us
@@ -68,7 +68,7 @@ You agree to indemnify and hold harmless Stratum Security and its contributors f
 
 ## Intellectual property
 
-The Stratum Gateway name, logo, and related branding are the property of Stratum Security. Nothing in these Terms grants you the right to use our trademarks, trade names, or branding without prior written permission.
+The Stratum Firewall name, logo, and related branding are the property of Stratum Security. Nothing in these Terms grants you the right to use our trademarks, trade names, or branding without prior written permission.
 
 Open-source components included in the software remain the property of their respective owners and are governed by their own licenses.
 

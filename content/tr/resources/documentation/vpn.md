@@ -1,9 +1,9 @@
 ---
 title: "VPN Genel Bakış"
-lead: "Stratum Gateway, OpenVPN ve WireGuard ile yerel VPN çözümleri sunar."
+lead: "Stratum Firewall, OpenVPN ve WireGuard ile yerel VPN çözümleri sunar."
 ---
 
-Stratum Gateway, uzaktan erişim için iki tam entegre VPN çözümü içerir:
+Stratum Firewall, uzaktan erişim için iki tam entegre VPN çözümü içerir:
 
 - **WireGuard:** Modern, yüksek performanslı, çekirdek içi tüneller için.
 - **OpenVPN:** Klasik uyumluluk ve geniş istemci desteği için.

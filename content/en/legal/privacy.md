@@ -9,7 +9,7 @@ This Privacy Policy describes how Stratum Security ("we", "us", or "our") handle
 
 ## Our approach
 
-Stratum Gateway is self-hosted software. We do not operate a cloud service, we do not manage customer data, and we do not require any account to use our software. The website exists to describe the product and to distribute updates — nothing more.
+Stratum Firewall is self-hosted software. We do not operate a cloud service, we do not manage customer data, and we do not require any account to use our software. The website exists to describe the product and to distribute updates — nothing more.
 
 ## Information we collect
 
@@ -31,7 +31,7 @@ The live dashboard demo runs against a demo instance. It does not require regist
 
 ### The update server (`update.stratumfw.com`)
 
-The update server distributes software packages and a manifest describing the latest release. When a Stratum Gateway installation checks for updates, the server receives the HTTP request. We do not log which specific installation made the request, and we do not associate requests with any installation identifier.
+The update server distributes software packages and a manifest describing the latest release. When a Stratum Firewall installation checks for updates, the server receives the HTTP request. We do not log which specific installation made the request, and we do not associate requests with any installation identifier.
 
 ### Email correspondence
 
