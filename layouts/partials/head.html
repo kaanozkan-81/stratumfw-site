@@ -25,7 +25,6 @@
   <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
   {{- end }}
   {{- if .IsTranslated }}
-  <link rel="alternate" hreflang="x-default" href="{{ (index .Translations 0).Permalink }}">
   {{- end }}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,3 +38,54 @@
   <meta property="og:locale" content="{{ replace .Language.Lang "-" "_" }}">
   <meta name="twitter:card" content="summary_large_image">
 </head>
+<!-- STRATUM-SEO-SCHEMA-START -->
+{{ if eq .Language.Lang "en" }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{ else }}
+  {{ range .Translations }}
+    {{ if eq .Language.Lang "en" }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+    {{ end }}
+  {{ end }}
+{{ end }}
+<meta property="og:image" content="https://stratumfw.com/images/features/topology-vlan.jpg">
+<meta name="twitter:image" content="https://stratumfw.com/images/features/topology-vlan.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://stratumfw.com/#organization",
+      "name": "Stratum Security",
+      "url": "https://stratumfw.com/",
+      "logo": "https://stratumfw.com/images/logo.png",
+      "sameAs": [
+        "https://github.com/kaanozkan-81/stratum-panel",
+        "https://github.com/kaanozkan-81/stratumfw-site"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://stratumfw.com/#software",
+      "name": "Stratum Firewall (Stratum FW)",
+      "operatingSystem": "FreeBSD 14 (x86-64)",
+      "applicationCategory": "SecurityApplication",
+      "softwareVersion": "0.24.2",
+      "url": "{{ .Permalink }}",
+      "downloadUrl": "https://stratumfw.com/download/",
+      "image": "https://stratumfw.com/images/features/topology-vlan.jpg",
+      "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}",
+      "author": {
+        "@id": "https://stratumfw.com/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  ]
+}
+</script>
+<!-- STRATUM-SEO-SCHEMA-END -->

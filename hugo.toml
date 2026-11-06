@@ -12,7 +12,7 @@ disableKinds = ["taxonomy", "term"]
     weight = 1
     title = 'Stratum Firewall (FW)'
     [languages.en.params]
-      tagline = 'Open-Source Free Network Firewall Distribution'
+      tagline = 'Open-Source FreeBSD Network Firewall & pfSense Alternative'
       description = 'Stratum Firewall is an open-source, AI-powered FreeBSD firewall OS. It combines the raw power of pf packet filtering with a modern FastAPI management panel and zero-dependency WireGuard support.'
       companyName = 'Stratum Security'
       contactEmail = 'info@stratumfw.com'
@@ -109,7 +109,7 @@ disableKinds = ["taxonomy", "term"]
     weight = 2
     title = 'Stratum Firewall (FW)'
     [languages.tr.params]
-      tagline = 'Open-Source Free Network Firewall Distribution'
+      tagline = 'Açık Kaynak FreeBSD Güvenlik Duvarı (pfSense & OPNsense Alternatifi)'
       description = 'Stratum Firewall, FreeBSD tabanlı kurumsal bir güvenlik duvarı işletim sistemidir. pf paket filtrelemenin ham gücünü, modern FastAPI yönetim paneli, rol tabanlı erişim kontrolü ve sıfır bağımlılıklı WireGuard desteği ile birleştirir.'
       companyName = 'Stratum Security'
       contactEmail = 'info@stratumfw.com'

@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: {{ "sitemap.xml" | absURL }}
+Sitemap: https://stratumfw.com/sitemap.xml
+Sitemap: https://stratumfw.com/en/sitemap.xml
+Sitemap: https://stratumfw.com/tr/sitemap.xml
