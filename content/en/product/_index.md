@@ -79,3 +79,9 @@ Whether you are running a homelab, a small business, or managing distributed ent
     <div class="stat"><b>JSON</b><span>Declarative Config</span></div>
   </div>
 </div>
+
+## Visualizing Your Security
+
+{{< figure src="/images/docs/topology.svg" title="Stratum Firewall Network Topology" caption="Stratum Firewall seamlessly integrates into your network, protecting every layer." >}}
+
+{{< figure src="/images/docs/attack-blocking.svg" title="Stratum Firewall Attack Blocking" caption="Malicious traffic is dropped at the perimeter, while legitimate data flows freely." >}}

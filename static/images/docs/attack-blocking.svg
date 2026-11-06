@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0F1E3D; }
+      .attack { fill: #ef4444; }
+      .safe { fill: #10b981; }
+      .fw-shield { fill: #1e293b; stroke: #4ade80; stroke-width: 4; }
+      .text { fill: #ffffff; font-family: sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .text-green { fill: #4ade80; }
+    </style>
+  </defs>
+  <rect width="800" height="400" class="bg" rx="10"/>
+  <g transform="translate(50, 100)">
+    <circle cx="30" cy="30" r="20" class="attack"/>
+    <text x="30" y="35" class="text">!</text>
+    <text x="30" y="70" class="text" fill="#ef4444" font-size="12">Saldırganlar</text>
+  </g>
+  <g transform="translate(50, 250)">
+    <circle cx="30" cy="30" r="20" class="attack"/>
+    <text x="30" y="35" class="text">!</text>
+  </g>
+  <path d="M 100 120 L 280 180" stroke="#ef4444" stroke-width="4" stroke-dasharray="8,4" fill="none"/>
+  <text x="200" y="130" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold">X</text>
+  <path d="M 100 270 L 280 220" stroke="#ef4444" stroke-width="4" stroke-dasharray="8,4" fill="none"/>
+  <text x="200" y="260" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold">X</text>
+  <path d="M 120 190 L 300 190" stroke="#10b981" stroke-width="4" fill="none"/>
+  <polygon points="290,185 300,190 290,195" fill="#10b981"/>
+  <text x="200" y="180" class="text text-green">Meşru Trafik</text>
+  <g transform="translate(320, 100)">
+    <path d="M 80 0 L 160 30 L 160 110 C 160 170, 80 200, 80 200 C 80 200, 0 170, 0 110 L 0 30 Z" class="fw-shield"/>
+    <text x="80" y="90" class="text">STRATUM</text>
+    <text x="80" y="115" class="text text-green">ENGEL</text>
+  </g>
+  <path d="M 480 190 L 650 190" stroke="#10b981" stroke-width="4" fill="none"/>
+  <polygon points="640,185 650,190 640,195" fill="#10b981"/>
+  <g transform="translate(650, 150)">
+    <rect width="100" height="80" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="50" y="45" class="text text-green">GÜVENLİ</text>
+    <text x="50" y="65" class="text text-green">AĞ</text>
+  </g>
+</svg>
