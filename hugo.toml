@@ -110,7 +110,7 @@ disableKinds = ["taxonomy", "term"]
     title = 'Stratum Firewall (FW)'
     [languages.tr.params]
       tagline = 'Open-Source Free Network Firewall Distribution'
-      description = 'Stratum Gateway, FreeBSD tabanlı kurumsal bir güvenlik duvarı işletim sistemidir. pf paket filtrelemenin ham gücünü, modern FastAPI yönetim paneli, rol tabanlı erişim kontrolü ve sıfır bağımlılıklı WireGuard desteği ile birleştirir.'
+      description = 'Stratum Firewall, FreeBSD tabanlı kurumsal bir güvenlik duvarı işletim sistemidir. pf paket filtrelemenin ham gücünü, modern FastAPI yönetim paneli, rol tabanlı erişim kontrolü ve sıfır bağımlılıklı WireGuard desteği ile birleştirir.'
       companyName = 'Stratum Security'
       contactEmail = 'info@stratumfw.com'
       docsURL = '/tr/resources/documentation/'
