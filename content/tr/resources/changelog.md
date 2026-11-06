@@ -5,6 +5,117 @@ description: "Stratum FW sürüm geçmişi - her sürümdeki yeni özellikler, d
 
 Stratum FW'deki tüm önemli değişiklikler burada, en yeniden eskiye doğru listelenmiştir. Stratum FW kendini imzalı güncelleme sunucusundan (System > Update) veya çevrimdışı bir güncelleme dosyasından (`.sfu`) günceller; her güncelleme bir ZFS önyükleme ortamı oluşturur, böylece önceki sürüm herhangi bir zamanda yeniden başlatılabilir.
 
+## 0.24.0 - 2026-11-05
+
+### Eklendi
+- **Web Filtresi** (Firewall > Web Filter), güvenlik duvarının DNS çözümleyicisi (Unbound RPZ) üzerinden site kategorilerini engeller ve ağ başına farklı kurallar uygular.
+  - **Politikalar:** Bir politika, bir veya daha fazla ağa engellenen kategorilerden oluşan bir set atar. VPN istemci ağları da politika ağı olabilir ve her ağ yalnızca bir politikaya bağlıdır.
+  - **Kategoriler:** Université Toulouse Capitole'ün UT1 kara listelerinden (CC BY-SA 4.0, günlük güncellenir) ve Block List Project'ten alınan gruplar halinde 55 kategori (yetişkin içerik, güvenlik tehditleri, filtreyi atlatma yolları, sosyal ağlar, eğlence, alışveriş ve para, indirmeler ve daha fazlası). Yetişkin içerik kompakt ve çok büyük tam liste olarak gelir; politika sayfası seçilen kategorilerin çözümleyici belleğinde ne kadar yer kaplayacağını tahmin eder.
+  - **Güvenli Arama (Safe Search):** Her politika, Google (google.com.tr ve diğer ülke alan adları dahil), Bing ve DuckDuckGo üzerinde güvenli sonuçları ve YouTube'da kısıtlı modu zorunlu kılabilir.
+  - **İstisnalar:** Listelenen siteler web filtresi tarafından asla engellenmez ve Apply gerektirmeden anında etkili olur. DNS kara listeleri onlar için hâlâ geçerlidir.
+  - **Bir siteyi kontrol et:** Bir adın hangi kategorilerde olduğunu ve hangi politikaların onu engellediğini gösterir.
+  - **Engelleme raporu:** Bugün, 7 veya 30 gün için kategori, site ve cihaz başına engellemeler. Web Etkinliği gerektirir; toplayıcısı artık web filtresi ve DNS kara liste engellemelerini de sayar. Raporu yalnızca yöneticiler görür ve görüntüleme günlüğe kaydedilir.
+  - **Güncellemeler:** Kategori listeleri zamanlamaya göre (varsayılan olarak günlük) ve talep üzerine güncellenir; başarısız bir indirme önceki listeyi korur.
+
+## 0.23.0 - 2026-11-05
+
+### Değiştirildi
+- **Yeni kontrol paneli:** Her panel taşınabilir ve yeniden boyutlandırılabilir. Özelleştir, bir paneli başlığından sürükleyip 12 sütunlu bir ızgarada kenarlarından veya köşesinden boyutlandırmanıza olanak tanır. Her kullanıcının kendi düzeni vardır, Apply olmadan anında kaydedilir ve Düzeni sıfırla varsayılana döndürür.
+- **Kontrol Paneli > Panel ekle** (tam sayfa) her paneli listeler, eklemek veya kaldırmak için. Paneller:
+  - Sistem, WAN, CPU, Bellek, Disk, Sıcaklık, Bağlantılar, Engellenenler
+  - Trafik, Koruma, Arayüzler, Servisler, DHCP, VPN bağlantıları
+  - En çok engellenen kaynaklar, En çok engellenen portlar, Son değişiklikler
+  - Yeni: Saldırı tespiti, Ağ geçitleri (gecikme, kayıp, yedekleme), Bant genişliği sınırları (sınır ve mevcut hız), Yedekleme ve Web Etkinliği. Yedekleme ve Web Etkinliği yalnızca yöneticiler içindir ve kontrol panelinde Web Etkinliğini görüntülemek günlüğe kaydedilir.
+- Panel içerikleri panel boyutuna uyum sağlar: VPN bağlantıları gibi uzun listeler panel içinde kaydırılır ve trafik grafiği panelini doldurur.
+- **Her sayfanın sağ üst köşesinde bildirimler:** okunmamış sayısını gösteren bir zil, açılır menüde en son olaylar ve yeni bir olay geldiğinde kısa bir açılır pencere. Uyarılar panelinin yerini alırlar.
+- Kontrol panelinde **Güncelleme kontrolü simgesi**: kontrol ederken döner, tıklama hemen kontrol eder ve sonucu gösterir.
+- DHCP ve VPN panelleri ayrıdır. Telefonlarda kontrol paneli tek sütun gösterir.
+- gridstack 12.6.0 (MIT) panel ile birlikte gelir. İnternetten hiçbir şey yüklenmez.
+
+## 0.22.0 - 2026-11-05
+
+### Eklendi
+- **Şifrelenmiş yedekler:** System > Backup, indirilen yedeği bir parola ile şifreleyebilir (AES-256-GCM, anahtar scrypt'ten). Şifrelenmiş bir yedek (.stbk), yapılandırma dışında tutulan **sertifikaları ve sırları** da taşıyabilir: OpenVPN CA ve kullanıcı sertifikaları, WireGuard anahtarları, bildirim sırları, SNMP topluluğu, MCP belirteçleri ve panel sertifikası. Yeni bir güvenlik duvarında geri yüklemek, çalışan VPN profillerini geri getirir.
+- Geri yükleme, şifrelenmiş bir dosyanın parolasını ister ve sertifikaları ve sırları geri koyabilir. Dosyalar yalnızca bilinen yerlerine yazılır.
+- **Sunucuya otomatik yedekleme:** şifrelenmiş bir yedek, SFTP (NAS, Linux veya Windows OpenSSH sunucusu) üzerinden zamanlamaya göre yüklenir.
+  - Güvenlik duvarı kendi SSH anahtarını kullanır ve sunucunun ana makine anahtarı ilk bağlantıda kaydedilir.
+  - Sunucuda bu güvenlik duvarının yalnızca en yeni N yedeği tutulur.
+  - Bağlantıyı test et ve Şimdi yedekle düğmeleri ve son yedekleme durumu.
+  - Başarısız bir yedekleme bir sonraki saatte yeniden denenir ve Bildirimler aracılığıyla raporlanır.
+  - Apply olmadan etkili olur. Parola yalnızca root tarafından okunabilen bir dosyada kalır ve bir daha asla gösterilmez.
+- stratum-fw paketi artık py312-cryptography'ye bağımlıdır.
+
+## 0.21.1 - 2026-11-05
+
+### Değiştirildi
+- Saldırı Tespiti: her arayüz artık pfSense'te olduğu gibi kendi başına **Kapalı**, **İzle** veya **Engelle** şeklindedir. Örneğin, WAN yalnızca uyarı verebilirken yerel ağlar engelleyebilir.
+- En az bir engelleme arayüzü ile, bir Suricata süreci tüm izlenen portları netmap üzerinden denetler, böylece kurallar yalnızca bir kez yüklenir: IPS modunda portları engelleme, tap modunda yalnızca izleme portları (her paket geçer). Aynı porttaki VLAN'lar modunu paylaşır.
+- Uyarı listesi, bir paketi yalnızca bir engelleme arayüzünde Engellendi olarak işaretler ve netmap portlarını arayüzlerine göre adlandırır.
+- 0.21.0 ile kaydedilen ayarlar devralınır: "Algıla ve engelle", izlenen her arayüzde Engelle olur.
+
+## 0.21.0 - 2026-11-05
+
+### Eklendi
+- Services > Intrusion Detection'da **Satır içi engelleme (IPS):** "Algıla ve engelle" modu, Suricata'yı paketlerin yoluna koyar (OPNsense'te olduğu gibi ana bilgisayar yığını ile netmap). **Engelle** olarak işaretlenen kategorilerin kuralları, eşleştikleri şeyleri düşürür; diğer tüm kategoriler hâlâ yalnızca uyarı verir. Engellenen paketler, uyarı listesinde bir "Engellendi" rozeti gösterir.
+- Engelleme kategorileri yeniden başlatma olmadan anında etkili olur. Modu değiştirmek Apply gerektirir ve güvenlik duvarına erişilemez hale gelirse olağan otomatik geri alma ile birlikte.
+- Engelleme modunda, VLAN ve PPPoE arayüzleri fiziksel portlarında denetlenir ve donanım hızlandırma (TSO, LRO, sağlama toplamları) kapatılır. Suricata durursa, portlar normal iletmeye geri döner (fail open).
+- Apply, herhangi bir şey değişmeden önce netmap'in mevcut olduğunu kontrol eder.
+
+## 0.20.3 - 2026-11-05
+
+### Değiştirildi
+- Web Etkinliği: bir cihaz satırında herhangi bir yere tıklamak, o cihazın kullandığı siteleri açar ve bir site satırına tıklamak, onu kullanan cihazları açar. Ctrl / Cmd + tıklama sayfayı yeni bir sekmede açar.
+
+## 0.20.2 - 2026-11-05
+
+### Değiştirildi
+- Web Etkinliği VPN istemcilerini adlandırır: bir OpenVPN adresi kullanıcıyı ("OpenVPN: ad") ve bir WireGuard adresi eşi ("WireGuard: ad") gösterir. Her ikisi de DHCP geçmişinde tutulur, böylece zaman içinde farklı kullanıcılar tarafından kullanılan bir VPN adresi ayrı kalır.
+- Cihaz sayısı başlığın yanındadır.
+
+## 0.20.1 - 2026-11-05
+
+### Düzeltildi
+- Web Etkinliği hiçbir şey kaydetmiyordu: syslogd yalnızca zaten var olan günlük dosyalarına yazar, bu yüzden DNS sorgu günlüğü hiç başlatılmadı. Apply ve toplayıcı artık syslogd yeniden yüklenmeden önce dosyayı (yalnızca root) oluşturur.
+
+## 0.20.0 - 2026-11-05
+
+### Eklendi
+- **Web Etkinliği** (Diagnostics > Web Activity), güvenlik duvarının Unbound çözümleyicisinin yanıtladığı DNS sorgularından hangi cihazın hangi sitelere baktığını gösterir. Her cihaz, gün ve ad, bir sayı ve ilk ve son zaman ile tutulur.
+- Cihazlar sekmesi her adresi ana bilgisayar adı ve MAC adresiyle listeler ve cihazın kullandığı sitelerle bir cihaz sayfası açar. Siteler sekmesi her siteyi onu kullanan cihazlarla listeler. Her iki sekme de döneme (bugünden bir yıla kadar), ağa ve arama metnine göre filtreler.
+- **DHCP geçmişi**, hangi cihazın (MAC adresi, ana bilgisayar adı) her adresi ne zaman tuttuğunu kaydeder. DHCP kiralamalarını ve ARP tablosunu okur, böylece sabit adresli cihazlar da dahil edilir. Geçmiş CSV olarak dışa aktarılabilir.
+- **Tüm DNS'i güvenlik duvarına gönder** (isteğe bağlı): pf, DNS'i iç ağlardan güvenlik duvarına yönlendirir, 8.8.8.8 ve benzerlerine yönelik sorgular dahil. Ayrıca DNS over TLS'i (port 853) engeller ve Firefox'a kendi DNS over HTTPS'ini kullanmamasını söyler.
+- Kayıtlar güvenlik duvarında yalnızca root tarafından okunabilen bir veritabanında 1 ila 730 gün (varsayılan olarak 30) tutulur. Sayfalar yalnızca yöneticilere açıktır ve verilere her bakış sistem günlüğüne yazılır.
+- stratum-fw paketi artık py312-sqlite3'e bağımlıdır.
+
+## 0.19.0 - 2026-11-05
+
+### Eklendi
+- LibreNMS, Zabbix, PRTG, Observium veya Cacti gibi izleme sistemleri için **SNMP aracısı** (System > Settings > SNMP): SNMP v1 / v2c, salt okunur, arayüzler ve 64-bit trafik sayaçları (IF-MIB), CPU, bellek, diskler ve işlemler (HOST-RESOURCES) ve pf istatistikleri ile. FreeBSD'nin kendi bsnmpd'sini kullanır.
+- Yalnızca seçilen iç arayüzlerin adreslerinde yanıt verir, asla bir WAN'da yanıt vermez ve pf sorguların yalnızca izin verilen adreslerden girmesine izin verir. Topluluk yalnızca root tarafından saklanır ve bir daha asla gösterilmez; SNMP üzerinden hiçbir şey değiştirilemez.
+- stratum-fw paketi artık FreeBSD-bsnmp'ye bağımlıdır, böylece güncelleme aracıyı yükler.
+
+## 0.18.0 - 2026-11-05
+
+### Eklendi
+- **Bant genişliği sınırları** (Firewall > Shaper): her iç ağ için bir indirme ve bir yükleme sınırı; tüm ağ tarafından paylaşılır (örneğin ofis VLAN'ı için 255 Mbit/s) veya her cihaz için ayrı ayrı (örneğin misafir telefonu başına 20 Mbit/s). Ondalık değerlere izin verilir; boş bir alan o yönde sınır olmadığı anlamına gelir.
+- Sınırlar, pf'den doğrudan FreeBSD'nin dummynet'ini kullanır (ikinci bir güvenlik duvarı yok). Borular her Apply'da pf'den önce ve önyüklemede FreeBSD tarafından yüklenir; korunmayan bir Apply bunları tekrar kaldırır.
+
+## 0.17.0 - 2026-11-05
+
+### Eklendi
+- **Arayüz grupları** (Interfaces > Groups): örneğin tüm VLAN'lar veya tüm WAN'lar gibi bir arayüz grubu, Firewall > Rules'ta kendi sekmesini alır. Kuralları her üye arayüze uygulanır ve pfSense ve OPNsense'te olduğu gibi her arayüzün kendi kurallarından önce değerlendirilir. WAN üyeleri reply-to'larını korur.
+- Gruplar yeniden adlandırılabilir (kuralları onlarla birlikte taşınır) ve kuralları kalmadığında silinebilir. Bir arayüz kaldırıldığında, gruplarından ayrılır.
+- MCP aracı firewall_rules, grup kurallarını ve uygulandıkları arayüzleri listeler.
+
+## 0.16.1 - 2026-11-05
+
+### Eklendi
+- **WAN yedeklemesi (Failover)** (Interfaces > Gateways, iki veya daha fazla WAN ile gösterilir): varsayılan rotayı taşıyan ağ geçidi düştüğünde, varsayılan rota anında açık olan en iyi ağ geçidine (en düşük öncelik numarası) taşınır. Tercih edilen ağ geçidi, yalnızca belirli bir süre (varsayılan olarak 60 sn) çevrimiçi olduktan sonra tekrar devralır, böylece dalgalanan bir hat ileri geri geçiş yapmaz. Başarısız ağ geçidinin bağlantıları, yenisinden hemen yeniden açılmaları için kapatılabilir. Her geçiş günlüğe kaydedilir ve raporlanır.
+- İki veya daha fazla WAN ile, bir WAN'a gelen bağlantılara verilen yanıtlar (port yönlendirmeleri, yönetim, geçiş kuralları), varsayılan rota ne olursa olsun o aynı WAN'dan çıkar (reply-to). Statik WAN'lar ağ geçitlerini, PPPoE WAN'lar bağlantılarını kullanır. Tek WAN'lı sistemler tamamen aynı güvenlik duvarı kurallarını korur.
+
+### Düzeltildi
+- 0.16.0'a güncellemeden sonra ağ geçidi izleyicisi yalnızca bir sonraki Apply veya yeniden başlatma ile başladı, çünkü önceki sürümün güncelleme aracı onu bilmiyordu. Panel artık etkinleştirildiğinde ancak çalışmadığında onu başlatır.
+
 ## 0.16.0 - 2026-11-05
 
 ### Eklendi
