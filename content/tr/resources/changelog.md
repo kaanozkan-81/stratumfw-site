@@ -5,6 +5,118 @@ description: "Stratum FW sürüm geçmişi - her sürümdeki yeni özellikler, d
 
 Stratum FW'deki tüm önemli değişiklikler burada, en yeniden eskiye doğru listelenmiştir. Stratum FW kendini imzalı güncelleme sunucusundan (System > Update) veya çevrimdışı bir güncelleme dosyasından (`.sfu`) günceller; her güncelleme bir ZFS önyükleme ortamı oluşturur, böylece önceki sürüm herhangi bir zamanda yeniden başlatılabilir.
 
+## 0.27.1 - 2026-11-07
+
+### Eklendi
+- OPNsense'den içe aktarma, "OpenVPN'i de içe aktar" seçeneği: OpenVPN sunucusu eksiksiz olarak devralınır; böylece kullanıcıların bilgisayarlarındaki mevcut profiller hiçbir değişiklik gerektirmeden bağlanmaya devam eder. OPNsense tarzı bir profille gerçek bağlantı üzerinden test edildi.
+  - Devralınan öğeler: özel anahtarıyla birlikte sertifika otoritesi (CA), sunucu sertifikası, `tls-crypt` veya `tls-auth` anahtarı, her kullanıcının sertifikası ve OPNsense parolalarıyla birlikte VPN kullanıcıları.
+  - VPN kullanıcıları yalnızca VPN erişimine sahip (VPN-only) hesaplara dönüştürülür.
+  - Ayarlar da eksiksiz taşınır: port, protokol, tünel ağı, şifreleme algoritmaları (ciphers), özet (digest), DNS, tam tünel (full tunnel) ve `block-outside-dns`.
+  - Bu güvenlik duvarının önceki OpenVPN sertifikaları ayrı bir klasörde saklanır.
+  - Sistemde zaten mevcut olan bir kullanıcı, burada ayarlanmış olan parolasını korur.
+- OpenVPN kullanıcıları diğer sistemlerden gelen parola özetleriyle (hash) oturum açabilir: PHP'nin yazdığı biçimiyle bcrypt (`$2y$`) ve argon2id. Bir argon2id parolası ilk oturum açmada bcrypt olarak kaydedilir.
+- OpenVPN, istemciler için birden fazla adres desteği: yeni profiller her adres için sırayla denenen bir `remote` satırı alır.
+- OpenVPN, Windows istemcileri yalnızca VPN'in DNS sunucularını kullanacak şekilde sınırlandırılabilir (`block-outside-dns`).
+- OpenVPN, başka sistemler tarafından üretilmiş sertifikalar için kullanıcı sertifikalarındaki "TLS client" denetimi kapatılabilir.
+
+### Düzeltildi
+- İki WAN bağlantılı OpenVPN: ikinci WAN adresine bağlanan bir istemci yanıtlarını birinci WAN üzerinden alıyor ve bağlantı kuramıyordu. Sunucu artık istemcinin kullandığı adresten yanıt veriyor (`multihome`) ve `pf` yanıtları geldikleri WAN üzerinden geri gönderiyor.
+- OpenVPN profilleri sabit bir isim yerine sunucunun gerçek sertifika adını denetler; bu durum başka bir sistemden devralınan sunucu sertifikalarında kritik önem taşır.
+
+## 0.27.0 - 2026-11-07
+
+### Eklendi
+- Arayüzler > Sanal IP'ler (Virtual IPs): bir arayüz üzerinde ek adresler; örneğin bir WAN bloğundaki (`/29`) ek genel (public) IP adresleri.
+  - Bir port yönlendirme kuralı hedef adres olarak sanal IP seçebilir; böylece her genel adres farklı bir sunucuya yönlendirilebilir. NAT yansıması (NAT reflection) da bunu takip eder.
+  - Giden NAT (Outbound NAT) trafiği bir sanal IP adresine dönüştürebilir.
+  - Arayüzün kendi ağı içindeki bir adres, FreeBSD'nin gerektirdiği şekilde `/32` olarak eklenir.
+- Arayüzler > Rotalar (Routes): doğrudan bağlı bir ağ üzerindeki ağ geçidi (gateway) aracılığıyla başka bir yönlendiricinin arkasındaki ağlara statik rotalar.
+  - Dahili bir arayüzdeki yönlendirici üzerinden ulaşılan ağlar, tıpkı arayüz ağları gibi internete otomatik olarak NAT'lanır.
+- Sanal IP'ler ve rotalar `rc.conf` dosyasına yazılmaz. `stratum-netextra` sistemi uygulanan listeyle uyumlu tutar: eksik olanları ekler ve yalnızca kendi eklediklerini kaldırır.
+  - Sistem açılışında, her Uygulama (Apply) ve geri alma (rollback) sonrasında ve ayrıca takma adları (alias) ile rotaları düşüren arayüz ve yönlendirme yeniden başlatmalarından sonra çalışır.
+  - Her kayıt güvenlik duvarı üzerinde aktif olup olmadığını gösterir.
+- OPNsense'den içe aktarma: IP takma adı (IP alias) sanal IP'leri, statik rotalar (isimle çözümlenen ağ geçitleri) ve sanal IP'ye yapılan port yönlendirmeleri taşınır. CARP sanal IP'leri desteklenmiyor olarak listelenir.
+
+## 0.26.1 - 2026-11-07
+
+### Düzeltildi
+- Ana bilgisayar adı (host name) ve ülke takma adları (aliases): Uygula (Apply) veya "Şimdi güncelle" (Update now) ile başlatılan güncelleme, o anda 5 dakikalık ana bilgisayar adı güncellemesi çalışıyorsa iz bırakmadan atlanabiliyordu ve yeni bir ülke takma adı bir sonraki günlük çalışmaya kadar boş kalıyordu. Bu güncellemeler artık çalışan işlemin bitmesini bekliyor. Yalnızca 5 dakikalık periyodik çalışma başka bir güncelleme meşgulken atlamaya devam eder.
+
+## 0.26.0 - 2026-11-07
+
+### Eklendi
+- Güvenlik Duvarı > Takma Adlar (Aliases), Ana bilgisayar adları (Host names): `update.example.com` gibi ana bilgisayar adlarından oluşan ve aynı zamanda IP adresleri ile ağları da barındırabilen takma adlar.
+  - Güvenlik duvarı isimleri her 5 dakikada bir kendi DNS'i üzerinden çözümler; böylece istemcilerle aynı adresleri görür.
+  - CDN'ler adreslerini döndürdüğü için bir adres son görüldüğü andan itibaren bir saat boyunca takma ad içinde kalır.
+  - Çözümlenemeyen bir isim son adreslerini korur ve sayfa bu durumu gösterir.
+- Güvenlik Duvarı > Takma Adlar (Aliases), Ülkeler (Countries): aranabilir bir listeden seçilen ülkelerin tüm adres blokları. Tipik kullanım: "bu port yönlendirmeye yalnızca Türkiye erişebilsin" veya "şu ülkeleri engelle".
+  - Veriler beş bölgesel internet kayıt kuruluşundan (ARIN, RIPE NCC, APNIC, LACNIC, AFRINIC) alınır. Ücretsizdir ve lisans anahtarı gerektirmez.
+  - Haftalık olarak indirilir. Başarısız bir indirme önceki verileri korur.
+- Her iki takma ad türü de dosyadan yüklenen `pf` tablolarıdır. Her `pf` yeniden yüklemesi son adresleri okur ve güncellemeler `pf` çalışırken Uygula (Apply) gerektirmeden tabloyu canlı olarak değiştirir.
+- Takma ad listesi bu takma adların her birinin kaç adres tuttuğunu ve en son ne zaman güncellendiğini gösterir. "Şimdi güncelle" (Update now) düğmesi hepsini tek seferde yeniler.
+- OPNsense'den içe aktarma: ana bilgisayar adları içeren takma adlar ana bilgisayar adı takma adına, GeoIP takma adları ise ülke takma adına dönüştürülür. Artık boş olarak içe aktarılmazlar.
+
+### Düzeltildi
+- Takma ad sayfası sekmeleri artık telefon ekranlarında taşma yapmıyor.
+
+## 0.25.1 - 2026-11-07
+
+### Eklendi
+- Sistem > Güç (Power):
+  - Onay adımıyla birlikte yeniden başlatma ve kapatma. Yeniden başlatma sonrasında sayfa kendiliğinden tekrar bağlanır.
+  - Fabrika ayarlarına sıfırlama. Sıfırlama işlemi o anda kullanımda olan portları korur; böylece uzaktaki bir güvenlik duvarı erişilebilir şekilde geri döner: WAN DHCP ile, LAN `192.168.1.1/24` DHCP açık olarak, yönetim paneli yalnızca dahili ağlardan erişilebilir biçimde.
+  - Sıfırlama seçenekleri: panel kullanıcılarını koru veya yeni bir "admin" parolasıyla sıfırdan başla; sertifikaları, anahtarları ve gizli bilgileri sil; günlükleri ve istatistikleri sil.
+  - Sıfırlama işlemi ana bilgisayar adı (hostname) yazılarak onaylanır. Geri alma zamanlayıcısı olmadan uygulanır ve güvenlik duvarı yeniden başlar.
+  - Yalnızca yöneticiler kullanabilir; her işlem günlüğe kaydedilir.
+- Tanılama > ARP Tablosu (ARP Table):
+  - Güvenlik duvarının bildiği her adres; MAC adresi, arayüz, geçerlilik süresi ve ismiyle (DHCP rezervasyonları, kiralamaları ve DNS geçersiz kılmalarından) listelenir.
+  - Telefonların ve dizüstü bilgisayarların özel (rastgele) MAC adresleri işaretlenir.
+  - Bir kayıt silinebilir.
+- ARP Tablosu sayfasında Wake-on-LAN: bir cihazı MAC adresiyle veya DHCP rezervasyonu olan cihazlar arasından tek tıkla uyandırın. Operatörler de kullanabilir.
+- Tanılama > Paket Yakalama (Packet Capture): bir arayüzü Wireshark için `.pcap` dosyasına kaydedin.
+  - Filtre serbest metin yerine alanlardan (protokol, ana bilgisayar veya ağ, port) oluşturulur.
+  - Süre, boyut ve paket sayısı sınırları; aynı anda tek bir yakalama işlemi.
+  - Yöneticinin kendi panel ve SSH trafiği varsayılan olarak hariç tutulur.
+  - Dosya yalnızca root erişimine açık bir klasörde en fazla 24 saat saklanır.
+  - Yalnızca yöneticiler kullanabilir; başlatma, durdurma ve indirme işlemleri günlüğe kaydedilir.
+
+### Düzeltildi
+- Durumlar (States) ve ARP Tablosu sayfalarındaki arama kutularında stil eksikliği giderildi.
+
+## 0.25.0 - 2026-11-07
+
+### Eklendi
+- Sistem > Yedekleme > OPNsense'den İçe Aktar: bir OPNsense `config.xml` dosyası bekleyen yapılandırma haline gelir. İçe aktarma işlemi arayüzleri, VLAN'ları, ağ geçitlerini ve varsayılan ağ geçidini, arayüz gruplarını, takma adları (iç içe takma adlar çözümlenerek), güvenlik duvarı kurallarını (güncel ve eski kural biçimi), port yönlendirmeleri, giden NAT kurallarını, DHCP aralıklarını ve rezervasyonlarını (`dnsmasq` ve `ISC dhcpd`), DNS ana bilgisayar ve alan adı geçersiz kılmalarını, bant genişliği sınırlarını, ana bilgisayar adını, alan adını, saat dilimini ve DNS ile zaman sunucularını taşır.
+- Herhangi bir şey kaydedilmeden önce içe aktarma bir önizleme gösterir:
+  - OPNsense cihazının ağ portları bu sistemin portlarıyla eşleştirilir ve istenen port dışarıda bırakılabilir;
+  - Bir rapor nelerin içe aktarıldığını, aktarım sırasında nelerin değiştiğini ve nelerin hangi nedenle içe aktarılamadığını listeler.
+- Port yönlendirmeleri erişim sınırlarını korur. OPNsense'de bir port yönlendirme genellikle ayrı WAN kurallarıyla izinlendirilir. Stratum'da port yönlendirme kendi trafiğine doğrudan izin verdiği için kaynak sınırı bu WAN kurallarından alınır ve birden fazla kural izin veriyorsa birleşik bir takma ad oluşturulur. Hiçbir kuralın izin vermediği bir yönlendirme kapalı olarak içe aktarılır ve asla herkese açılmaz.
+- Taşınamayan takma adlar (URL tabloları) boş olarak içe aktarılır; böylece bunları kullanan engelleme kuralları hiçbir şeyi engellemez ve izin kuralları hiçbir şeye izin vermez. Bunlar raporda listelenir.
+- İçe aktarma işlemi LAN adresi değiştiğinde ve içe aktarılan bir ağ güvenlik duvarının mevcut WAN adresini içerdiğinde (uygulandığında bağlantıyı keseceği için) uyarı verir.
+- Dosya yalnızca okunur; asla saklanmaz ve raporda hiçbir gizli bilgi yer almaz. Kullanıcılar, sertifikalar, IPsec, WireGuard ve eklentiler içe aktarılmadı olarak listelenir. İşlem yalnızca yöneticilere açıktır ve günlüğe kaydedilir.
+
+### Düzeltildi
+- Geniş tablolara sahip form sayfaları artık telefonlarda yana doğru kaymıyor.
+
+## 0.24.4 - 2026-11-07
+
+### Eklendi
+- Saldırı Tespit Sistemi (Intrusion Detection): İzleme (Watch) ve Engelleme (Block) modları artık pfSense'de olduğu gibi arayüz bazında ayrı ayrı ayarlanabilir. Örneğin WAN yalnızca izlenirken yerel ağlar engelleme yapabilir. İkisini birlikte kullanmak iki Suricata motoru çalıştırır: engelleme yapılan arayüzler için `netmap` üzerinde çalışan bir motor ve yalnızca izlenen arayüzler için kopyaları (`pcap`) okuyan bir motor. Suricata süreç başına tek bir yakalama yöntemine izin verir. Her iki motor da aynı kuralları yükler ve her biri bağımsız olarak denetlenip yeniden başlatılır. İkisinin uyarıları ve istatistikleri birlikte gösterilir; günlük döndürme ve WAN adresi güncellemesi her ikisini de kapsar.
+- İki motor kullanıldığında kurallar iki kez yüklendiği için bellek kullanımı yaklaşık iki katına çıkar. Her motora daha küçük bellek sınırları verilir ve ayarlar sayfası bunu belirtir. Uygula (Apply) işlemi her iki yapılandırmayı da kullanmadan önce Suricata ile denetler.
+
+### Düzeltildi
+- Yapay zeka asistanı (MCP): saldırı tespit aracı her zaman "yalnızca tespit" (detection only) bildiriyordu. Artık engelleme yapan arayüzleri ve kategorileri de listeliyor.
+
+## 0.24.3 - 2026-11-07
+
+### Düzeltildi
+- Saldırı Tespit Sistemi: kural kategorilerinde yapılan değişiklikler (açık, kapalı, Engelle) çalışan Suricata'ya yeniden başlatılana kadar ulaşmıyordu. Canlı kural yenileme işlemi Linux'ta `SIGUSR2` olan ancak FreeBSD'de `SIGSYS` anlamına gelen 12 sinyalini gönderiyordu. Artık doğrudan `SIGUSR2` kullanıyor.
+- Saldırı Tespit Sistemi: bazı arayüzlerde Engelle (Block) ile diğerlerinde İzle (Watch) seçilmesi net bir mesajla reddediliyordu. Suricata tek bir `netmap` sürecinde engelleme ve yalnızca izleme portlarına birlikte izin vermediği için başlatılamıyor ve trafik akmaya devam ederken hiçbir denetim yapılmıyordu.
+- Kontrol Paneli (Dashboard): kablosu takılı olmayan bir arayüz "Açık" (Up) olarak görünüyordu; artık "Kablo yok" (No cable) olarak gösteriliyor.
+
+### Eklendi
+- Saldırı Tespit Sistemi: ET Open "Policy" (bir ağın izin vermeyebileceği yazılım, araç ve servisler) kategorisi varsayılan olarak kapalı biçimde eklendi.
+
 ## 0.24.2 - 2026-11-06
 
 ### Düzeltildi
