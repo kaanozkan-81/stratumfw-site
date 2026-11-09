@@ -41,13 +41,9 @@
 <!-- STRATUM-SEO-SCHEMA-START -->
 {{ if eq .Language.Lang "en" }}
 <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
-{{ else }}
-  {{ range .Translations }}
-    {{ if eq .Language.Lang "en" }}
+{{ else }}{{ range .Translations }}{{ if eq .Language.Lang "en" }}
 <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
-    {{ end }}
-  {{ end }}
-{{ end }}
+{{ end }}{{ end }}{{ end }}
 <meta property="og:image" content="https://stratumfw.com/images/features/topology-vlan.jpg">
 <meta name="twitter:image" content="https://stratumfw.com/images/features/topology-vlan.jpg">
 <script type="application/ld+json">
@@ -60,30 +56,37 @@
       "name": "Stratum Security",
       "url": "https://stratumfw.com/",
       "logo": "https://stratumfw.com/images/logo.png",
-      "sameAs": [
-        "https://github.com/kaanozkan-81/stratum-panel",
-        "https://github.com/kaanozkan-81/stratumfw-site"
-      ]
+      "sameAs": ["https://github.com/kaanozkan-81/stratum-panel", "https://github.com/kaanozkan-81/stratumfw-site"]
     },
     {
       "@type": "SoftwareApplication",
       "@id": "https://stratumfw.com/#software",
       "name": "Stratum Firewall (Stratum FW)",
-      "operatingSystem": "FreeBSD 14 (x86-64)",
+      "operatingSystem": "FreeBSD 15.1-RELEASE (amd64)",
       "applicationCategory": "SecurityApplication",
       "softwareVersion": "0.27.1",
       "url": "{{ .Permalink }}",
       "downloadUrl": "https://stratumfw.com/download/",
       "image": "https://stratumfw.com/images/features/topology-vlan.jpg",
       "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}",
-      "author": {
-        "@id": "https://stratumfw.com/#organization"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+      "author": {"@id": "https://stratumfw.com/#organization"},
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "potentialAction": {
+        "@type": "UseAction",
+        "name": "Try Stratum Firewall Live Demo Online",
+        "target": "https://demo.stratumfw.com/"
       }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://demo.stratumfw.com/#livedemo",
+      "name": "Stratum Firewall v0.27.1 Live Demo",
+      "url": "https://demo.stratumfw.com/",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "All (Browser-based FreeBSD 15.1 Live Appliance)",
+      "softwareVersion": "0.27.1",
+      "isPartOf": {"@id": "https://stratumfw.com/#software"},
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
     }
   ]
 }
