@@ -1,4 +1,5 @@
 ---
+aliases: ["/try-me/"]
 title: "Stratum Firewall Live Demo — Try the FreeBSD Firewall Web UI Online"
 description: "Test-drive Stratum Firewall v0.27.1 directly in your browser with zero installation. Explore pf firewall rules, NAT, Virtual IPs, GeoIP Country Aliases, WireGuard, OpenVPN, and Suricata IPS in a live FreeBSD 15.1 sandbox."
 lead: "Experience the real Stratum FW v0.27.1 management interface running on a live FreeBSD 15.1 virtual appliance directly in your browser — no download or installation required."
