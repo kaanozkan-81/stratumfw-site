@@ -24,7 +24,7 @@ full_width: true
 <section class="faq-section">
   <h2>Destek ve Sürümler</h2>
   <div class="faq">
-    <details><summary>FreeBSD ISO ne zaman yayınlanacak?</summary><div class="faq-body">Şu anda Geliştirici Önizlemesi (v0.12.2) aşamasındayız. FreeBSD kurulum ISO'su v1.0.0'da yayınlanacaktır.</div></details>
+    <details><summary>Hangi kurulum imajları mevcut?</summary><div class="faq-body">Stratum FW v0.27.1 (FreeBSD 15.1 amd64) için hem standart ekranlı sistemlere yönelik <strong>VGA ISO (.iso)</strong> hem de başsız cihazlara yönelik <strong>Seri Konsol USB (.img)</strong> kurulum imajları <a href="/tr/download/">İndir</a> sayfasında sunulmaktadır. Ayrıca kurulum yapmadan <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Canlı Demo</a> üzerinden arayüzü deneyebilirsiniz.</div></details>
     <details><summary>Nasıl yardım alabilirim?</summary><div class="faq-body">info@stratumfw.com adresinden bize ulaşabilir veya GitHub'da bir sorun açabilirsiniz.</div></details>
   </div>
 </section>

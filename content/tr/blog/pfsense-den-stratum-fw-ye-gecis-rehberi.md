@@ -1,4 +1,5 @@
 ---
+translationKey: "migrating-from-pfsense"
 title: "pfSense'ten Stratum FW'ye Sorunsuz Geçiş Rehberi"
 date: 2026-11-05
 description: "Eski ve hantal pfSense arayüzünden sıkıldınız mı? Modern, yapay zeka destekli ve hafif Stratum FW'ye nasıl geçeceğinizi adım adım anlatıyoruz. Yedekleme, kurulum ve geri dönüş adımları."

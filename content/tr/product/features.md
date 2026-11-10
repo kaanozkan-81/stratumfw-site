@@ -1,7 +1,7 @@
 ---
 title: "Özellikler"
 description: "Stratum Firewall'un temel yeteneklerini keşfedin: Çoklu VLAN ağ topolojisi, FreeBSD pf çekirdek paket filtreleme, DNSBL web filtreleme, IP karalisteleri ve FastAPI kontrolü."
-lead: "Ağ altyapınızı bölütlemek, korumak, filtrelemek ve otomatikleştirmek için gereken her şey — saf FreeBSD 14/15 gücü üzerine inşa edildi, modern FastAPI mimarisiyle yönetiliyor."
+lead: "Ağ altyapınızı bölütlemek, korumak, filtrelemek ve otomatikleştirmek için gereken her şey — saf FreeBSD 15.1/15 gücü üzerine inşa edildi, modern FastAPI mimarisiyle yönetiliyor."
 full_width: true
 ---
 <style>
@@ -121,8 +121,8 @@ full_width: true
 <div class="feature-module-head">
 <span class="feature-badge-pill">02 · FREEBSD PF ÇEKİRDEK KORUMASI</span>
 <h2>Ağ Kalkanı ve Kernel Düzeyinde pf Paket Filtreleme</h2>
-<p class="feature-module-lead">FreeBSD 14/15 çekirdeğinde çalışan yerel pf (Packet Filter) motoru, durum bilgili paket denetimi (Stateful Inspection) ve Safe-Apply kural doğrulamasıyla ağınızı kesintisiz korur.</p>
-<p class="feature-module-desc">Stratum Firewall, gücünü doğrudan FreeBSD 14/15 işletim sistemi çekirdeğindeki kendini kanıtlamış <code>pf</code> (Packet Filter) altyapısından alır. Gelen ve giden her veri paketi çekirdek düzeyinde durum bilgili denetimden (Stateful Inspection) geçirilir; yetkisiz erişim girişimleri anında düşürülürken güvenli trafik minimum işlemci yükü ve gecikmeyle iletilir. Gelişmiş Ağ Adresi Dönüştürme (NAT) ve ALTQ tabanlı bant genişliği/trafik şekillendirme yetenekleri yoğun yük altında bile kritik uygulamaların performansını korur. Ayrıca <strong>Safe-Apply</strong> mekanizması, yazdığınız her kuralı canlı sisteme uygulamadan önce <code>pf</code> sözdizimine göre otomatik test ederek hatalı yapılandırmaların sizi sistem dışına kilitlemesini önler.</p>
+<p class="feature-module-lead">FreeBSD 15.1/15 çekirdeğinde çalışan yerel pf (Packet Filter) motoru, durum bilgili paket denetimi (Stateful Inspection) ve Safe-Apply kural doğrulamasıyla ağınızı kesintisiz korur.</p>
+<p class="feature-module-desc">Stratum Firewall, gücünü doğrudan FreeBSD 15.1/15 işletim sistemi çekirdeğindeki kendini kanıtlamış <code>pf</code> (Packet Filter) altyapısından alır. Gelen ve giden her veri paketi çekirdek düzeyinde durum bilgili denetimden (Stateful Inspection) geçirilir; yetkisiz erişim girişimleri anında düşürülürken güvenli trafik minimum işlemci yükü ve gecikmeyle iletilir. Gelişmiş Ağ Adresi Dönüştürme (NAT) ve ALTQ tabanlı bant genişliği/trafik şekillendirme yetenekleri yoğun yük altında bile kritik uygulamaların performansını korur. Ayrıca <strong>Safe-Apply</strong> mekanizması, yazdığınız her kuralı canlı sisteme uygulamadan önce <code>pf</code> sözdizimine göre otomatik test ederek hatalı yapılandırmaların sizi sistem dışına kilitlemesini önler.</p>
 </div>
 <div class="feature-visual-box">
 <img src="/images/features/pf-kernel-shield.jpg" alt="Stratum Firewall FreeBSD çekirdek düzeyinde pf paket filtreleme ve çok katmanlı siber güvenlik kalkanı görseli" loading="lazy">
@@ -130,7 +130,7 @@ full_width: true
 <div class="card-grid grid-3">
 <div class="card">
 <h3>Kernel Düzeyinde Stateful Inspection</h3>
-<p>Kullanıcı alanı (user-space) darboğazlarına takılmadan, doğrudan FreeBSD 14/15 çekirdeğinde çalışan yüksek verimli paket filtreleme ve durum takibi.</p>
+<p>Kullanıcı alanı (user-space) darboğazlarına takılmadan, doğrudan FreeBSD 15.1/15 çekirdeğinde çalışan yüksek verimli paket filtreleme ve durum takibi.</p>
 </div>
 <div class="card">
 <h3>Safe-Apply Otomatik Doğrulama</h3>

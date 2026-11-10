@@ -50,7 +50,7 @@ Stratum kesin olarak ayrılmış üç katmanda çalışır. Bir katmandaki hata 
     <div class="arch-layer-num">01</div>
     <div class="arch-layer-body">
       <h3>Veri Düzlemi (Çekirdek)</h3>
-      <p class="arch-layer-stack">FreeBSD 14 · pf · ALTQ · WireGuard (Çekirdek modülü)</p>
+      <p class="arch-layer-stack">FreeBSD 15.1 · pf · ALTQ · WireGuard (Çekirdek modülü)</p>
       <p>Tüm paket işleme burada gerçekleşir. pf, hat hızında durum bilgili denetim, NAT ve yönlendirmeyi yönetir. WireGuard, maksimum VPN verimi için tamamen çekirdekte çalışır.</p>
     </div>
   </div>
@@ -69,7 +69,7 @@ Kendini kanıtlamış, standart bileşenler kullanıyoruz. Kara kutular yok.
     </tr>
   </thead>
   <tbody>
-    <tr><td>İşletim Sistemi</td><td>FreeBSD 14+</td><td>Temel. Sağlam ağ yığını ve güvenliğiyle bilinir.</td></tr>
+    <tr><td>İşletim Sistemi</td><td>FreeBSD 15.1+</td><td>Temel. Sağlam ağ yığını ve güvenliğiyle bilinir.</td></tr>
     <tr><td>Paket Filtresi</td><td>pf (Packet Filter)</td><td>Durum bilgili güvenlik duvarı, NAT ve trafik şekillendirme (ALTQ).</td></tr>
     <tr><td>VPN</td><td>WireGuard</td><td>Çekirdek içi, yüksek hızlı kriptografik tüneller.</td></tr>
     <tr><td>Panel Arka Ucu</td><td>Python 3.12 · FastAPI</td><td>Eşzamansız, yüksek performanslı REST API ve web sunucusu.</td></tr>

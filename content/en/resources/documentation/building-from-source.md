@@ -1,15 +1,15 @@
 ---
 title: "Building from Source"
-lead: "How to deploy the Stratum FW management panel and configuration engine on a FreeBSD 14 system."
+lead: "How to deploy the Stratum FW management panel and configuration engine on a FreeBSD 15.1 system."
 ---
 
-Stratum Firewall is currently in **Developer Preview**. A pre-built FreeBSD ISO installer is not yet available. However, developers can deploy the panel and configuration engine directly onto an existing FreeBSD 14 system.
+Stratum Firewall is currently in **Developer Preview**. A pre-built FreeBSD ISO installer is not yet available. However, developers can deploy the panel and configuration engine directly onto an existing FreeBSD 15.1 system.
 
 ## Prerequisites
 
 Before you begin, ensure you have:
 
-- A machine running **FreeBSD 14.1** or later
+- A machine running **FreeBSD 15.1** or later
 - Root (or `sudo`) access
 - At least 2 GB of RAM and 10 GB of storage
 - A basic understanding of the `pf` firewall

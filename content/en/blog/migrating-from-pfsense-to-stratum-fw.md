@@ -1,4 +1,5 @@
 ---
+translationKey: "migrating-from-pfsense"
 title: "The Ultimate Guide: Migrating from pfSense to Stratum FW"
 date: 2026-11-05
 description: "Are you tired of the old, clunky pfSense interface? Here is a step-by-step guide on how to migrate to Stratum FW, the modern, AI-powered, and lightweight firewall alternative. Learn about backups, installation, and rollback plans."

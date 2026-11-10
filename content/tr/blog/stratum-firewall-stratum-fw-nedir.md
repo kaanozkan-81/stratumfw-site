@@ -1,4 +1,5 @@
 ---
+translationKey: "what-is-stratum-fw"
 title: "Stratum Firewall (Stratum FW) Nedir? Yeni Nesil FreeBSD Güvenlik Duvarı"
 date: 2026-11-06
 description: "Stratum Firewall (Stratum FW) nedir? FreeBSD tabanlı, yapay zeka destekli ve modern API mimarisine sahip açık kaynak güvenlik duvarı Stratum FW'nin tüm özelliklerini keşfedin."

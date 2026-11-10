@@ -1,4 +1,5 @@
 ---
+translationKey: "stratum-vs-pfsense-mcp"
 title: "pfSense Alternatifi Stratum FW: Yapay Zeka Destekli Yeni Nesil Güvenlik"
 date: 2026-11-05
 description: "FreeBSD tabanlı pfSense alternatifi Stratum FW'yi keşfedin. Modern mimarisi, WireGuard desteği ve yapay zeka asistanlarıyla konuşan MCP (Model Context Protocol) entegrasyonu ile tanışın."

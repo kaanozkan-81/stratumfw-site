@@ -57,7 +57,7 @@ Stratum operates in three strictly separated layers. A failure or change in one 
     <div class="arch-layer-num">01</div>
     <div class="arch-layer-body">
       <h3>Data Plane (Kernel)</h3>
-      <p class="arch-layer-stack">FreeBSD 14 · pf · ALTQ · WireGuard (Kernel module)</p>
+      <p class="arch-layer-stack">FreeBSD 15.1 · pf · ALTQ · WireGuard (Kernel module)</p>
       <p>All packet processing happens here. pf handles stateful inspection, NAT, and routing at wire speed. WireGuard runs entirely in the kernel for maximum VPN throughput.</p>
     </div>
   </div>
@@ -102,7 +102,7 @@ We use battle-tested, standard components. No black boxes.
   <tbody>
     <tr>
       <td>Operating System</td>
-      <td>FreeBSD 14+</td>
+      <td>FreeBSD 15.1+</td>
       <td>The foundation. Known for its robust network stack and security.</td>
     </tr>
     <tr>

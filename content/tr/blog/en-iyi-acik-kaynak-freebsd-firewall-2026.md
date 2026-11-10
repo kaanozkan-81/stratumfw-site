@@ -1,4 +1,5 @@
 ---
+translationKey: "best-freebsd-firewalls-2026"
 title: "2026'da En İyi Açık Kaynak FreeBSD Güvenlik Duvarları"
 date: 2026-11-05
 description: "Kurumsal ağınız veya ev laboratuvarınız için en iyi açık kaynak FreeBSD tabanlı güvenlik duvarını mı arıyorsunuz? pfSense, OPNsense ve modern alternatif Stratum FW'yi karşılaştırıyoruz."

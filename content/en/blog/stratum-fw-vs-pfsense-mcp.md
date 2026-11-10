@@ -1,4 +1,5 @@
 ---
+translationKey: "stratum-vs-pfsense-mcp"
 title: "Stratum FW vs pfSense: The AI-Powered (MCP) Next-Gen Firewall"
 date: 2026-11-05
 description: "Discover Stratum FW, the modern pfSense alternative. Learn about its FreeBSD-based architecture, WireGuard support, and groundbreaking MCP (Model Context Protocol) integration for AI assistants."

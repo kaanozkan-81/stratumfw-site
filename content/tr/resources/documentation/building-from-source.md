@@ -1,15 +1,15 @@
 ---
 title: "Kaynak Koddan Derleme"
-lead: "Stratum FW yönetim panelini ve yapılandırma motorunu mevcut bir FreeBSD 14 sistemi üzerinde nasıl kuracağınız."
+lead: "Stratum FW yönetim panelini ve yapılandırma motorunu mevcut bir FreeBSD 15.1 sistemi üzerinde nasıl kuracağınız."
 ---
 
-Stratum Firewall şu anda **Geliştirici Önizlemesi** aşamasındadır. Önceden oluşturulmuş FreeBSD ISO kurulum medyası henüz mevcut değildir. Ancak geliştiriciler, paneli ve yapılandırma motorunu doğrudan mevcut bir FreeBSD 14 sistemi üzerine kurabilirler.
+Stratum Firewall şu anda **Geliştirici Önizlemesi** aşamasındadır. Önceden oluşturulmuş FreeBSD ISO kurulum medyası henüz mevcut değildir. Ancak geliştiriciler, paneli ve yapılandırma motorunu doğrudan mevcut bir FreeBSD 15.1 sistemi üzerine kurabilirler.
 
 ## Ön Koşullar
 
 Başlamadan önce şunlara sahip olduğunuzdan emin olun:
 
-- **FreeBSD 14.1** veya daha yeni bir sürüm çalıştıran bir makine
+- **FreeBSD 15.1** veya daha yeni bir sürüm çalıştıran bir makine
 - Root (veya `sudo`) erişimi
 - En az 2 GB RAM ve 10 GB depolama alanı
 - `pf` güvenlik duvarı hakkında temel bilgi

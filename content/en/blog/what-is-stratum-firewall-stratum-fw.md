@@ -1,4 +1,5 @@
 ---
+translationKey: "what-is-stratum-fw"
 title: "What is Stratum Firewall (Stratum FW)? The Next-Gen FreeBSD Firewall"
 date: 2026-11-06
 description: "What is Stratum Firewall (Stratum FW)? Discover the features of this open-source, AI-powered FreeBSD firewall with a modern API architecture."

@@ -1,7 +1,7 @@
 ---
 title: "Features"
 description: "Explore Stratum Firewall's core capabilities: Multi-VLAN network topology, native FreeBSD pf kernel packet filtering, DNSBL web filtering, IP blocklists, and FastAPI control."
-lead: "Everything you need to segment, shield, filter, and automate your network infrastructure—built on raw FreeBSD 14/15 power and controlled via a modern FastAPI architecture."
+lead: "Everything you need to segment, shield, filter, and automate your network infrastructure—built on raw FreeBSD 15.1/15 power and controlled via a modern FastAPI architecture."
 full_width: true
 ---
 <style>
@@ -121,7 +121,7 @@ full_width: true
 <div class="feature-module-head">
 <span class="feature-badge-pill">02 · KERNEL-LEVEL PF PACKET FILTER</span>
 <h2>Uncompromising Network Shield with Native FreeBSD pf Filtering</h2>
-<p class="feature-module-lead">Powered directly by the FreeBSD 14/15 kernel pf engine, delivering wire-speed stateful packet inspection, ALTQ traffic shaping, and fail-safe rule validation.</p>
+<p class="feature-module-lead">Powered directly by the FreeBSD 15.1/15 kernel pf engine, delivering wire-speed stateful packet inspection, ALTQ traffic shaping, and fail-safe rule validation.</p>
 <p class="feature-module-desc">At the core of Stratum Firewall lies FreeBSD's battle-tested kernel-level <code>pf</code> (Packet Filter) engine. Every incoming and outgoing packet is evaluated against active state tables directly inside the operating system kernel, neutralizing unauthorized connection attempts while forwarding legitimate traffic at wire speed with minimal CPU overhead. Advanced Network Address Translation (Outbound &amp; Port Forward NAT) and ALTQ bandwidth shaping keep latency-sensitive applications responsive even under heavy load. Before any rule or interface modification is committed, our <strong>Safe-Apply</strong> workflow validates the generated syntax against <code>pfctl -nf</code> to guarantee you never lock yourself out.</p>
 </div>
 <div class="feature-visual-box">
@@ -130,7 +130,7 @@ full_width: true
 <div class="card-grid grid-3">
 <div class="card">
 <h3>Native Kernel Stateful Inspection</h3>
-<p>High-throughput stateful packet filtering executed directly in the FreeBSD 14/15 kernel with zero user-space packet copying bottlenecks.</p>
+<p>High-throughput stateful packet filtering executed directly in the FreeBSD 15.1/15 kernel with zero user-space packet copying bottlenecks.</p>
 </div>
 <div class="card">
 <h3>Safe-Apply Syntax Validation</h3>
