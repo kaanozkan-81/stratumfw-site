@@ -1,136 +1,50 @@
 ---
 title: "FAQ"
-lead: "Answers to the most common questions about Stratum Firewall, its architecture, and licensing."
+description: "Frequently asked questions about Stratum Firewall v0.27.1, OPNsense & OpenVPN migration, Suricata IPS, GeoIP filtering, ZFS boot environments, and installers."
+lead: "Answers to the most common questions about Stratum Firewall, OPNsense migration, security features, updates, and deployment."
 full_width: true
 ---
-
 <div class="faq-sections">
 
 <section class="faq-section">
   <h2>General &amp; Platform</h2>
-
   <div class="faq">
-    <details>
-      <summary>What is Stratum Firewall?</summary>
-      <div class="faq-body">
-        Stratum Firewall is an open-source, enterprise-grade Network Security Operating System. It combines the raw power of the <strong>FreeBSD kernel</strong> and the <strong>pf packet filter</strong> with a modern, lightweight <strong>FastAPI management panel</strong>, providing a perfect balance of high performance and easy management.
-      </div>
-    </details>
-
-    <details>
-      <summary>Why did you choose FreeBSD instead of Linux?</summary>
-      <div class="faq-body">
-        We chose FreeBSD because it is designed to be a cohesive operating system rather than a collection of packages. It features the world's most battle-tested network stack, native support for <code>pf</code>, and ZFS for data integrity. This allows us to build a highly secure and predictable firewall appliance without worrying about upstream Linux distribution changes breaking the system overnight.
-      </div>
-    </details>
-
-    <details>
-      <summary>Is it open source?</summary>
-      <div class="faq-body">
-        Yes. The core configuration engine and panel will be fully open-source. There are no per-user licenses, no per-device fees, and no subscription requirements. You own the hardware and the software.
-      </div>
-    </details>
-
-    <details>
-      <summary>Does the platform "phone home" or send telemetry?</summary>
-      <div class="faq-body">
-        Absolutely not. There is no telemetry, no analytics, and no cloud dependency. Your firewall runs completely air-gapped if you want it to. You have full control over your data.
-      </div>
-    </details>
+    <details><summary>What is Stratum Firewall?</summary><div class="faq-body">Stratum Firewall (Stratum FW) is a self-hosted Network Security Operating System built on <strong>FreeBSD 15.1-RELEASE</strong> and the native <code>pf</code> packet filter, managed through a fast, asynchronous <strong>Python 3.12 / FastAPI</strong> web interface and REST API.</div></details>
+    <details><summary>Can I try Stratum Firewall online before installing it?</summary><div class="faq-body">Yes! You can explore a real FreeBSD 15.1 virtual appliance running Stratum FW v0.27.1 directly in your browser via our <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Live Demo (demo.stratumfw.com)</a> in read-only sandbox mode (credentials <code>demo</code> / <code>Stratum2026</code> are auto-filled on the sign-in screen).</div></details>
+    <details><summary>Why did you choose FreeBSD 15.1 instead of Linux?</summary><div class="faq-body">FreeBSD is engineered as a cohesive operating system rather than a patchwork of disparate components. Its battle-tested network stack, native <code>pf</code> firewall, high-speed <code>netmap</code> packet I/O, and built-in <strong>ZFS</strong> boot environments provide rock-solid predictability for network appliances.</div></details>
+    <details><summary>Are there user limits, subscriptions, or telemetry?</summary><div class="faq-body">No. There are zero per-user fees, device limits, or mandatory subscriptions, and Stratum FW sends zero telemetry or analytics. It can run completely air-gapped using signed offline update packages (<code>.sfu</code>).</div></details>
   </div>
 </section>
 
 <section class="faq-section">
-  <h2>Architecture &amp; Management</h2>
-
+  <h2>OPNsense Migration, Architecture &amp; Updates</h2>
   <div class="faq">
-    <details>
-      <summary>What does "Declarative Configuration" mean?</summary>
-      <div class="faq-body">
-        It means you never edit complex firewall rules by hand. You configure the system via the web UI or API, which saves your intent to a single <code>config.json</code> file. A Python engine then translates this JSON into native FreeBSD configuration files (like <code>pf.conf</code>). This ensures your firewall state is always auditable and easy to back up.
-      </div>
-    </details>
-
-    <details>
-      <summary>What is the "Safe-Apply" workflow?</summary>
-      <div class="faq-body">
-        Safe-Apply prevents you from locking yourself out. When you make a critical change (like changing the WAN IP or a firewall rule), Stratum validates it using <code>pfctl -nf</code>. It then applies the rule but starts a countdown. If you don't confirm that you still have connectivity, it automatically rolls back to the previous working configuration.
-      </div>
-    </details>
-
-    <details>
-      <summary>Can I automate Stratum using scripts?</summary>
-      <div class="faq-body">
-        Yes. The entire platform is API-first. The web panel is just a client that talks to the FastAPI backend. You can use Ansible, Terraform, or custom Python scripts to automate every aspect of the firewall configuration.
-      </div>
-    </details>
-
-    <details>
-      <summary>How does Role-Based Access Control (RBAC) work?</summary>
-      <div class="faq-body">
-        Stratum supports three distinct roles: <strong>Admin</strong> (full access), <strong>Operator</strong> (can run diagnostics and manage states, but cannot change firewall rules), and <strong>Read-Only</strong> (can only view dashboards). This enforces the principle of least privilege for your team.
-      </div>
-    </details>
+    <details><summary>Can I migrate my existing OPNsense configuration and OpenVPN users?</summary><div class="faq-body">Yes (<code>v0.25.0</code> &amp; <code>v0.27.1</code>). Under <strong>System &gt; Backup &gt; Import from OPNsense</strong>, upload your OPNsense <code>config.xml</code> to map hardware ports and convert interfaces, VLANs, nested aliases, firewall &amp; NAT rules, DHCP reservations, and DNS overrides. Enabling <em>"Also import OpenVPN"</em> transfers your CA, server &amp; user certificates, <code>tls-crypt</code>/<code>tls-auth</code> keys, and VPN user password hashes (including PHP <code>$2y$</code> bcrypt and <code>argon2id</code>) so existing client <code>.ovpn</code> profiles connect unchanged.</div></details>
+    <details><summary>What are "Declarative Configuration" and the "Safe-Apply" workflow?</summary><div class="faq-body">All settings reside in a single auditable <code>config.json</code> source of truth that generates <code>pf.conf</code>, Unbound, dnsmasq, Suricata, OpenVPN, and WireGuard configs cleanly. Every change is pre-checked (<code>pfctl -n</code>, etc.) and applied with a <strong>60-second confirmation timer</strong>—if a rule cuts off your remote session, Stratum automatically rolls back to the previous working state.</div></details>
+    <details><summary>How do system updates and ZFS Boot Environments work?</summary><div class="faq-body">Appliances update directly from our signed update server (<strong>System &gt; Update</strong>) or via offline <code>.sfu</code> files. Before applying any update, Stratum automatically snapshots the system into a new <strong>ZFS Boot Environment</strong>, allowing instant rollback at boot time if needed.</div></details>
+    <details><summary>Does Stratum support Role-Based Access Control (RBAC) and API automation?</summary><div class="faq-body">Yes. Stratum provides <strong>Administrator</strong>, <strong>Operator</strong>, <strong>Read-Only</strong>, and <strong>VPN-only</strong> user roles, and its API-first FastAPI backend lets you automate configurations with Ansible, Terraform, or Python scripts.</div></details>
   </div>
 </section>
 
 <section class="faq-section">
-  <h2>Features &amp; Capabilities</h2>
-
+  <h2>Security, VPN &amp; Networking Capabilities</h2>
   <div class="faq">
-    <details>
-      <summary>How does WireGuard integration work?</summary>
-      <div class="faq-body">
-        We didn't just wrap an external library. Stratum implements the X25519 cryptography internally, meaning zero external dependencies. You can generate peer configurations and QR codes in seconds directly from the panel, ensuring maximum security and performance.
-      </div>
-    </details>
-
-    <details>
-      <summary>Do you support Multi-WAN Failover?</summary>
-      <div class="faq-body">
-        Yes. You can configure multiple WAN interfaces (DHCP, Static, PPPoE). Stratum monitors the health of your primary connection and automatically fails over to the backup if it drops, ensuring business continuity.
-      </div>
-    </details>
-
-    <details>
-      <summary>Can I block malicious IPs and Domains?</summary>
-      <div class="faq-body">
-        Yes, at both layers. You can ingest public threat feeds to block malicious IPs at the <code>pf</code> level (using pf tables), and you can enable DNSBL to block malicious domains at the Unbound resolver level.
-      </div>
-    </details>
+    <details><summary>How does per-interface Suricata IPS/IDS work?</summary><div class="faq-body">Under <strong>Services &gt; Intrusion Detection</strong>, each interface can independently run in <strong>Watch (IDS)</strong> or inline <strong>Block (IPS)</strong> mode. When mixed across interfaces, Stratum supervises dedicated <code>netmap</code> (blocking) and <code>pcap</code> (watch-only) Suricata processes and reloads rule category updates live via FreeBSD <code>SIGUSR2</code> without dropping traffic.</div></details>
+    <details><summary>Do GeoIP country blocking, DNSBL, and IP blocklists require paid API keys?</summary><div class="faq-body">No—everything works out of the box with zero license keys. Stratum includes weekly <strong>Country (GeoIP) aliases</strong> pulled directly from all five Regional Internet Registries (ARIN, RIPE NCC, APNIC, LACNIC, AFRINIC), CDN-friendly <strong>Hostname aliases</strong>, 63 hourly-updated IPv4 threat feeds in <code>pf</code> tables, and Unbound RPZ <strong>DNSBL sinkholing</strong>.</div></details>
+    <details><summary>Do you support WireGuard, Multi-WAN OpenVPN, Virtual IPs (VIPs), and Static Routes?</summary><div class="faq-body">Yes. Stratum supports kernel-native <strong>WireGuard (<code>if_wg</code>)</strong> with instant QR/config generation, <strong>OpenVPN</strong> with multi-WAN <code>multihome</code> reply routing and Windows <code>block-outside-dns</code>, <strong>Multi-WAN failover</strong>, <strong>Virtual IPs (VIPs)</strong> for routed public subnets (<code>/29</code>, etc.) with NAT reflection, and <strong>Static Routes</strong> reconciled cleanly via <code>stratum-netextra</code>.</div></details>
+    <details><summary>What built-in diagnostic tools are included?</summary><div class="faq-body">Stratum includes downloadable Wireshark <strong>Packet Capture (<code>.pcap</code>)</strong> with smart filters, an <strong>ARP Table</strong> with randomized mobile MAC indicators and one-click <strong>Wake-on-LAN</strong>, live firewall rule hit counters, and a <strong>Remote-Safe Factory Reset</strong> that preserves active physical NIC assignments so remote appliances stay reachable.</div></details>
   </div>
 </section>
 
 <section class="faq-section">
-  <h2>Support &amp; Releases</h2>
-
+  <h2>Installers &amp; Support</h2>
   <div class="faq">
-    <details>
-      <summary>When will the FreeBSD ISO be available?</summary>
-      <div class="faq-body">
-        We are currently in <strong>Developer Preview (v0.16.0)</strong>. The pre-built FreeBSD installer ISO is under active development and is released as v0.16.0.
-      </div>
-    </details>
-
-    <details>
-      <summary>Can I use it in production today?</summary>
-      <div class="faq-body">
-        While the core engine (pf, WireGuard) is highly stable, the panel and configuration engine are still being finalized. We recommend using it in homelabs and testing environments for now.
-      </div>
-    </details>
-
-    <details>
-      <summary>How do I get help or report a bug?</summary>
-      <div class="faq-body">
-        You can reach the development team directly at <a href="mailto:info@stratumfw.com">info@stratumfw.com</a>, or open an issue on our GitHub repository.
-      </div>
-    </details>
+    <details><summary>Which installer images are available?</summary><div class="faq-body">Stratum FW v0.27.1 (FreeBSD 15.1 amd64) ships with both a bootable <strong>VGA ISO (<code>.iso</code>)</strong> for standard displays and virtual machines (Proxmox, VMware, KVM) and a raw <strong>Serial Console USB (<code>.img</code>)</strong> disk image for headless hardware appliances on the <a href="/download/">Download</a> page.</div></details>
+    <details><summary>How do I get help or report a bug?</summary><div class="faq-body">Reach us directly at <a href="mailto:info@stratumfw.com">info@stratumfw.com</a> or open an issue on <a href="https://github.com/kaanozkan-81/stratum-panel/issues" target="_blank" rel="noopener">GitHub Issues</a>.</div></details>
   </div>
 </section>
 
 </div>
-
----
 
 <div style="text-align:center; margin-top:64px;">
   <h3 style="font-family:var(--font-display); font-size:22px; margin-bottom:12px;">Still have questions?</h3>
