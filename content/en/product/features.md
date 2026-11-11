@@ -5,6 +5,60 @@ lead: "Stratum Firewall combines the battle-tested pf packet filter with a light
 full_width: true
 seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & Multi-WAN VPN"
 ---
+
+<!-- STRATUM-OPNSENSE-SHOWCASE-START -->
+<div class="opn-feature-showcase">
+  <div class="opn-showcase-head">
+    <span class="opn-showcase-eyebrow">Drop-In Migration Engine &middot; Zero Rebuild Required</span>
+    <h2>Direct OPNsense <code>config.xml</code> &amp; OpenVPN Migration</h2>
+    <p>Switching firewall distributions shouldn't mean spending an entire weekend re-typing hundreds of rules or re-issuing VPN profiles to every laptop. Upload your existing OPNsense <code>config.xml</code> backup under <strong>System &rarr; Backup &rarr; Import from OPNsense</strong> to preview, map interfaces, and cut over cleanly in minutes.</p>
+  </div>
+
+  <div class="opn-showcase-visual">
+    <img src="/images/features/opnsense-migration.jpg" alt="Direct OPNsense config.xml backup migration to Stratum Firewall FreeBSD 15.1 architecture" width="1280" height="714" loading="eager">
+    <div class="opn-showcase-caption">
+      <span><b>SOURCE:</b> OPNsense config.xml (Rules, VLANs, VIPs, DHCP, DNS, OpenVPN PKI)</span>
+      <span><b>ENGINE:</b> Interactive Port Mapper &amp; Dry-Run Validator &rarr; Stratum FW v0.30.0</span>
+    </div>
+  </div>
+
+  <div class="opn-showcase-grid">
+    <div class="opn-mig-card">
+      <h3>1. Interactive Port, VLAN &amp; VIP Mapping</h3>
+      <p>Map OPNsense NICs onto your target appliance's physical ports before saving, carrying over <code>802.1Q</code> VLANs, interface groups, static routes, <code>/29</code> IP-alias Virtual IPs, and static/PPPoE/DHCP Multi-WAN interfaces.</p>
+    </div>
+    <div class="opn-mig-card">
+      <h3>2. Stateful pf Rules, NAT &amp; Policy Routing</h3>
+      <p>Imports both legacy and MVC firewall rules, outbound NAT, and port forwards with their original source restrictions intact. Per-rule WAN gateways translate to Policy Routing, while scheduled rules import safely disabled for review.</p>
+    </div>
+    <div class="opn-mig-card">
+      <h3>3. Zero-Touch OpenVPN Server Takeover</h3>
+      <p>Transfers your OpenVPN CA, server certificate, <code>tls-crypt</code> / <code>tls-auth</code> keys, client certs, and user passwords (supporting PHP <code>$2y$</code> bcrypt and <code>argon2id</code>) so existing remote laptops and phones reconnect unchanged.</p>
+    </div>
+    <div class="opn-mig-card">
+      <h3>4. Aliases, GeoIP &amp; Threat Blocklist Feeds</h3>
+      <p>Flattens nested aliases, turns FQDN entries into live 5-minute Hostname aliases, maps GeoIP rules to license-free 5-RIR Country tables, and activates matching catalog IP blocklists (such as <code>CINS Army</code> or <code>blocklist.de</code>).</p>
+    </div>
+    <div class="opn-mig-card">
+      <h3>5. Force DNS, DHCP &amp; Shaper Continuity</h3>
+      <p>Migrates <code>dnsmasq</code> and <code>ISC dhcpd</code> ranges, static MAC leases, Unbound host/domain overrides, <code>dummynet</code> bandwidth limits, and converts DNS redirect port forwards (with exception aliases) into native <strong>Force DNS</strong>.</p>
+    </div>
+    <div class="opn-mig-card">
+      <h3>6. Privacy-Safe Audit &amp; 60s Safe-Apply</h3>
+      <p>Your uploaded XML is parsed in memory and never stored on disk. A detailed pre-apply report flags translated items, LAN/WAN subnet conflicts, and unsupported objects—backed by Stratum's 60-second automatic rollback timer.</p>
+    </div>
+  </div>
+
+  <div class="opn-showcase-actions">
+    <span class="opn-showcase-note">Tested with production OPNsense profiles, multi-VLAN topologies, and live OpenVPN road-warrior clients.</span>
+    <div class="opn-showcase-btns">
+      <a href="/resources/documentation/opnsense-migration/" class="btn btn-primary">Read Migration Guide &rarr;</a>
+      <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="btn btn-secondary" style="background:#FFFFFF;color:#0F172A;">Inspect in Live Demo</a>
+    </div>
+  </div>
+</div>
+<!-- STRATUM-OPNSENSE-SHOWCASE-END -->
+
 <style>
 .feature-showcase-page {
   width: 100%;
