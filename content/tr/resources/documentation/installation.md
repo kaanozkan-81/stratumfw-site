@@ -22,8 +22,8 @@ Stratum Firewall, [İndir](/tr/download/) sayfasında doğrudan kuruluma hazır 
 
 [İndir](/tr/download/) sayfasında iki farklı kurulum dosyası yer alır:
 
-* **VGA ISO Kurulum İmajı (`stratum-fw-0.27.1-amd64.iso`):** Monitör ve klavye bağlı fiziksel sunucular ile tüm sanallaştırma platformları (**Proxmox VE**, **VMware ESXi**, **KVM / QEMU**, **Hyper-V**) için standart ISO imajıdır.
-* **Seri Konsol USB İmajı (`stratum-fw-0.27.1-amd64.img`):** Ekran çıkışı olmayan (headless) donanım güvenlik duvarı cihazları (`COM1` / `ttyu0` üzerinde `115200 baud, 8N1`, RJ45/USB konsol kabloları ve IPMI Serial-over-LAN) için doğrudan USB belleğe yazdırılan ham disk imajıdır.
+* **VGA ISO Kurulum İmajı (`stratum-fw-0.30.3-amd64.iso`):** Monitör ve klavye bağlı fiziksel sunucular ile tüm sanallaştırma platformları (**Proxmox VE**, **VMware ESXi**, **KVM / QEMU**, **Hyper-V**) için standart ISO imajıdır.
+* **Seri Konsol USB İmajı (`stratum-fw-0.30.3-amd64.img`):** Ekran çıkışı olmayan (headless) donanım güvenlik duvarı cihazları (`COM1` / `ttyu0` üzerinde `115200 baud, 8N1`, RJ45/USB konsol kabloları ve IPMI Serial-over-LAN) için doğrudan USB belleğe yazdırılan ham disk imajıdır.
 
 Kurulan sistem hangi medyadan kurulduysa (`VGA` veya `Serial`) o konsol modunu otomatik korur; dahili hoparlöre (PC speaker) sahip fiziksel kutularda sistem hazır olduğunda kısa bir açılış melodisi çalar (`v0.28.5` – `v0.28.6`).
 
@@ -45,7 +45,7 @@ Get-FileHash .\stratum-fw-*-amd64.* -Algorithm SHA256
 * **Linux / FreeBSD / macOS Komut Satırı:**
   ```bash
   # /dev/sdX kismini kendi USB surucu yolunuzla degistirin!
-  sudo dd if=stratum-fw-0.27.1-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
+  sudo dd if=stratum-fw-0.30.3-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
   ```
 
 ## 4. Sanal Makine İpuçları (Proxmox / KVM / ESXi)
