@@ -1,68 +1,47 @@
 {{ define "main" }}
-
-<!-- STRATUM-HERO-BG-START -->
-<style>
-section.hero {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-section.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("/images/stratum-firewall.jpg"), url("/images/hero-bg.jpg") !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  opacity: 0.22 !important;
-  filter: saturate(1.1) contrast(1.05);
-  z-index: -2 !important;
-}
-section.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 38%, rgba(249,250,251,0.88) 0%, rgba(249,250,251,0.72) 55%, #F9FAFB 100%) !important;
-  z-index: -1 !important;
-}
-section.hero > .wrap {
-  position: relative;
-  z-index: 2;
-}
-</style>
-<!-- STRATUM-HERO-BG-END -->
-<section class="hero">
+<section class="hero cyber-hero">
   <div class="wrap">
-    <span class="hero-badge">Next-Generation Firewall OS</span>
-    <h1>Raw FreeBSD power.<br><span>Modern API control.</span></h1>
-    <p>Stratum Firewall combines the battle-tested <strong>pf packet filter</strong> with a lightning-fast FastAPI management panel. Zero proprietary dependencies, absolute control, and a security-first architecture built for modern infrastructure.</p>
-    
-    <!-- 1. Uyarı Bandı -->
-    <div class="hero-notice">
-      <strong>Note:</strong> Stratum Firewall is an active, personal open-source project (v0.28.3 Beta). It is currently under heavy development and not yet recommended for critical production environments.
-    </div>
-    
-    <!-- 2. Sürüm Butonu -->
-    <div class="hero-release-notice">
-      <a href="/resources/changelog/">Stratum Firewall v0.28.3 is out now. Read the changelog &rarr;</a>
-    </div>
-    
-    <!-- 3. CTA Butonları -->
-    <div class="hero-ctas">
-      <a href="/download/" class="btn btn-primary">Get Stratum Firewall</a>
-          <!-- DEMO-BTN --><a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color:#F59E0B;background:rgba(245,158,11,0.12);font-weight:600;display:inline-flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#10B981;box-shadow:0 0 8px #10B981;display:inline-block;"></span>Try Live Demo</a><!-- /DEMO-BTN -->
-      <a href="/product/architecture/" class="btn btn-secondary">Explore Architecture</a>
+    <div class="cyber-hero-grid">
+      <div>
+        <div class="cyber-badge-row">
+          <span class="cyber-pill"><span class="cyber-pill-dot"></span>FreeBSD 15.1 · Kernel pf · ZFS</span>
+          <a href="/resources/changelog/" class="cyber-version-link">v0.28.3 Out Now &rarr;</a>
+        </div>
+        <h1>Raw FreeBSD power.<br><span>Modern API control.</span></h1>
+        <p class="cyber-hero-lead">Stratum Firewall unites FreeBSD 15.1's kernel-level <strong>pf packet filter</strong>, dual-engine <strong>Suricata 8 IPS</strong>, Unbound DNSBL, and atomic <strong>ZFS Boot Environments</strong> inside a lightning-fast asynchronous FastAPI control plane.</p>
+        <div class="cyber-hero-ctas">
+          <a href="/download/" class="btn-cyber-primary"><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>Download ISO / IMG</a>
+          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="btn-cyber-demo"><span class="cyber-pill-dot"></span>Try Live Demo</a>
+          <a href="/product/features/" class="btn-cyber-ghost">Explore Features</a>
+        </div>
+        <div class="cyber-beta-note">
+          <strong>Active v0.28.3 Beta:</strong> Ships with bootable VGA <code>.iso</code> &amp; Headless Serial <code>.img</code> installers, drop-in OPNsense + OpenVPN migration, and 60-second Safe-Apply rollback.
+        </div>
+      </div>
+
+      <div class="cyber-hero-visual">
+        <div class="cyber-logo-frame">
+          <div class="cyber-logo-img-wrap">
+            <img src="/images/stratum-logo-3d.jpg" alt="Stratum Firewall 3D Architecture Emblem">
+          </div>
+          <div class="cyber-hud-bar">
+            <span><b>OS:</b> FreeBSD 15.1</span>
+            <span><b>FILTER:</b> pf + netmap</span>
+            <span><b>FS:</b> ZFS BE</span>
+            <span><b>API:</b> FastAPI + MCP</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-
 <section class="stats">
   <div class="wrap">
-    <div class="stat"><b>FreeBSD</b><span>Kernel-level Security</span></div>
-    <div class="stat"><b>pf</b><span>Stateful Packet Filter</span></div>
-    <div class="stat"><b>100%</b><span>API-Driven Panel</span></div>
-    <div class="stat"><b>RBAC</b><span>Role-Based Access</span></div>
+    <div class="stat"><b>FreeBSD 15.1</b><span>ZFS Boot Environments</span></div>
+    <div class="stat"><b>pf + Suricata</b><span>Kernel Filter &amp; Inline IPS</span></div>
+    <div class="stat"><b>60s Safe-Apply</b><span>Zero-Lockout Auto-Rollback</span></div>
+    <div class="stat"><b>OPNsense &rarr;</b><span>1-Click Rule &amp; OpenVPN Import</span></div>
   </div>
 </section>
 
@@ -70,52 +49,45 @@ section.hero > .wrap {
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Core Capabilities</span>
-      <h2>Engineered for absolute control</h2>
-      <p>No bloatware, no hidden vendor locks. Just the raw power of FreeBSD, wrapped in a modern, responsive interface.</p>
+      <h2>Engineered for absolute network control</h2>
+      <p>No legacy PHP overhead, no cloud lock-in, no license keys. Pure FreeBSD kernel networking paired with a clean declarative engine.</p>
     </div>
     <div class="card-grid grid-3">
-
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10c2-3.3 5-5 8-5s6 1.7 8 5c-2 3.3-5 5-8 5s-6-1.7-8-5Z"/><circle cx="10" cy="10" r="2"/></svg></div>
-        <h3>pf Packet Filter</h3>
-        <p>Powered by FreeBSD's native firewall. Stateful inspection, NAT, traffic shaping (ALTQ), and maximum throughput at kernel level.</p>
+        <h3>pf &amp; Multi-WAN Policy Routing</h3>
+        <p>Stateful packet inspection, NAT reflection, Virtual IPs, 1-second gateway failover, per-rule WAN steering, and license-free 5-RIR GeoIP aliases.</p>
       </div>
-
-      <div class="card">
-        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="9" rx="1.5"/><path d="M6 8V6a4 4 0 0 1 8 0v2"/></svg></div>
-        <h3>Zero-Dependency VPN</h3>
-        <p>Native WireGuard implementation. We wrote the X25519 cryptography from scratch (RFC 7748) so you don't need external dependencies to secure your tunnels.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H4v4M12 16h4v-4M4 16l5-5M16 4l-5 5"/></svg></div>
-        <h3>Declarative Config</h3>
-        <p>A single <code>config.json</code> drives the entire system. Our Python engine dynamically renders your <code>pf.conf</code>, DHCP, and DNS files with absolute precision.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l-8 8 8 8 8-8-8-8z"/><path d="M8 12l4-4"/></svg></div>
-        <h3>FastAPI Backend</h3>
-        <p>A fully asynchronous Python backend. The panel serves as a lightweight, high-performance REST API and UI, keeping memory footprint to an absolute minimum.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"/><path d="M10 6v4l3 3"/></svg></div>
-        <h3>Role-Based Access</h3>
-        <p>Enterprise-grade RBAC out of the box. Differentiate between Administrators, Operators, and Read-Only users across every API and interface.</p>
-      </div>
-
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17.5S4 12.8 4 8a6 6 0 0 1 12 0c0 4.8-6 9.5-6 9.5Z"/></svg></div>
-        <h3>IP &amp; DNS Blocklists</h3>
-        <p>Protect your network at both layers. Ingest public threat feeds to block malicious IPs at the packet level, while simultaneously dropping malicious domains via DNSBL.</p>
+        <h3>DNSBL, Web Filter &amp; Suricata IPS</h3>
+        <p>63 live IP threat feeds, Unbound RPZ sinkholing, 55-category Web Filter, per-interface dual-engine Suricata 8 IPS/IDS, and unified block reports.</p>
       </div>
-
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="9" rx="1.5"/><path d="M6 8V6a4 4 0 0 1 8 0v2"/></svg></div>
+        <h3>WireGuard &amp; OpenVPN Takeover</h3>
+        <p>Kernel-native <code>if_wg</code> WireGuard with instant QR codes plus full Multi-WAN OpenVPN and drop-in OPNsense server &amp; client migration.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H4v4M12 16h4v-4M4 16l5-5M16 4l-5 5"/></svg></div>
+        <h3>Declarative JSON &amp; ZFS Updates</h3>
+        <p>A single auditable <code>config.json</code> generates every system service cleanly, backed by signed online/<code>.sfu</code> updates and atomic ZFS snapshots.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l-8 8 8 8 8-8-8-8z"/><path d="M8 12l4-4"/></svg></div>
+        <h3>FastAPI &amp; AI Diagnostics (MCP)</h3>
+        <p>Asynchronous Python 3.12 REST API, customizable 12-column dashboard, service supervision, and read-only Model Context Protocol (MCP) tools.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"/><path d="M10 6v4l3 3"/></svg></div>
+        <h3>RBAC, PCAP &amp; Encrypted SFTP</h3>
+        <p>Admin, Operator, Read-Only, and VPN-only roles, built-in Wireshark <code>.pcap</code> capture, Wake-on-LAN, and scheduled AES-256-GCM SFTP backups.</p>
+      </div>
     </div>
   </div>
 </section>
 
-  <section class="section section-dark">
+<section class="section section-dark">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Why Stratum</span>
@@ -124,18 +96,18 @@ section.hero > .wrap {
     <div class="why-grid">
       <div class="why-item">
         <div class="num">01</div>
-        <h3>Safe-Apply Architecture</h3>
-        <p>Never lock yourself out again. Every firewall rule and interface change is validated and tested against the pf syntax before applying.</p>
+        <h3>Safe-Apply &amp; ZFS Rollback</h3>
+        <p>Every rule and interface change is pre-checked with <code>pfctl -n</code> and guarded by a 60-second confirmation timer plus bootable ZFS environments.</p>
       </div>
       <div class="why-item">
         <div class="num">02</div>
-        <h3>Zero Vendor Lock-in</h3>
-        <p>100% open-source, FreeBSD-based, and run entirely on your own hardware. No cloud dependencies, no subscriptions, and no telemetry.</p>
+        <h3>Seamless OPNsense Cutover</h3>
+        <p>Import your OPNsense <code>config.xml</code>—interfaces, VLANs, VIPs, NAT, aliases, and your entire OpenVPN server—so client devices stay connected unchanged.</p>
       </div>
       <div class="why-item">
         <div class="num">03</div>
-        <h3>Clean &amp; Auditable</h3>
-        <p>The generated configuration files are human-readable. Inspect your <code>pf.conf</code> and <code>wg0.conf</code> at any time. What you see is exactly what the kernel runs.</p>
+        <h3>Zero Telemetry or Lock-in</h3>
+        <p>Runs 100% on your own bare-metal or virtual hardware with offline <code>.sfu</code> update support, human-readable configs, and zero per-user fees.</p>
       </div>
     </div>
   </div>
@@ -144,19 +116,16 @@ section.hero > .wrap {
 <section class="section section-canvas">
   <div class="wrap">
     <div class="home-download">
-
       <div class="home-download-content">
-        <span class="eyebrow">Developer Preview</span>
-        <h2>Deploy the next generation</h2>
-        <p>Stratum Firewall is currently under active development. We are finalizing the installer and core modules. Developers and early adopters can test the API and panel right now.</p>
-
+        <span class="eyebrow">Ready to Deploy</span>
+        <h2>Install on hardware, VM, or test in your browser</h2>
+        <p>Deploy Stratum Firewall using our offline ZFS installers for standard VGA monitors/hypervisors and headless serial appliances, or explore a real FreeBSD 15.1 instance right now in our read-only Live Demo.</p>
         <ul class="home-download-list">
-          <li>Built on FreeBSD 15.1 (Kernel-level security)</li>
-          <li>Python 3.12 &amp; FastAPI Backend</li>
-          <li>Native pf, WireGuard, and DHCP support</li>
-          <li>Managed entirely via REST API</li>
+          <li>Bootable VGA <code>.iso</code> (Proxmox, ESXi, KVM) &amp; Serial USB <code>.img</code></li>
+          <li>Signed online updates &amp; air-gapped <code>.sfu</code> packages</li>
+          <li>Drop-in OPNsense &amp; OpenVPN migration wizard</li>
+          <li>Full documentation in English &amp; Turkish</li>
         </ul>
-
         <div class="home-download-actions">
           <a href="/resources/documentation/" class="btn btn-primary">Read the Docs</a>
           <a href="https://github.com/kaanozkan-81/stratum-panel" class="btn btn-secondary" target="_blank" rel="noopener">View on GitHub</a>
@@ -166,92 +135,38 @@ section.hero > .wrap {
       <div class="home-download-visual">
         <div class="home-download-card">
           <div class="home-download-card-head">
-            <span class="home-download-card-dot"></span>
-            <span class="home-download-card-title">stratum-gateway-core</span>
+            <span class="home-download-card-dot" style="background:#10B981;box-shadow:0 0 8px #10B981;"></span>
+            <span class="home-download-card-title">stratum-fw :: appliance-spec</span>
           </div>
           <div class="home-download-card-body">
             <div class="home-download-card-row">
-              <span>Status</span>
-              <strong>Active Development</strong>
+              <span>Release</span>
+              <strong>v0.28.3 (2026-11-11)</strong>
             </div>
             <div class="home-download-card-row">
-              <span>Version</span>
-              <strong>v0.28.3 (Beta)</strong>
+              <span>Base OS</span>
+              <strong>FreeBSD 15.1-RELEASE · ZFS</strong>
             </div>
             <div class="home-download-card-row">
-              <span>Engine</span>
-              <strong>FreeBSD · pf</strong>
+              <span>Data Plane</span>
+              <strong>pf · dummynet · Suricata netmap</strong>
             </div>
             <div class="home-download-card-row">
-              <span>Backend</span>
-              <strong>Python 3.12 · FastAPI</strong>
+              <span>Control Plane</span>
+              <strong>Python 3.12 · FastAPI · MCP</strong>
+            </div>
+            <div class="home-download-card-row">
+              <span>Install Media</span>
+              <strong>VGA .iso (1.3G) · Serial .img (1.5G)</strong>
             </div>
           </div>
           <div class="home-download-card-foot">
-            <span>Open Source</span>
-            <span class="home-download-card-badge">Dev Build</span>
+            <span>Live Sandbox Online</span>
+            <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="home-download-card-badge" style="background:rgba(16,185,129,0.18);color:#34D399;">demo.stratumfw.com &rarr;</a>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
-
-
-<section class="section section-canvas" id="gallery">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Interface Preview</span>
-      <h2>Built for operators, by engineers</h2>
-      <p>A clean, modern, and fast interface. Click on any screenshot to view it in full size.</p>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox('/images/docs/dashboard.png')">
-        <img src="/images/docs/dashboard.png" alt="Stratum Dashboard">
-        <div class="gallery-overlay"><span>Dashboard</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('/images/docs/pf-rules.png')">
-        <img src="/images/docs/pf-rules.png" alt="pf Firewall Rules">
-        <div class="gallery-overlay"><span>Firewall Rules</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('/images/docs/wireguard.png')">
-        <img src="/images/docs/wireguard.png" alt="WireGuard VPN">
-        <div class="gallery-overlay"><span>WireGuard VPN</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('/images/docs/blocklists.png')">
-        <img src="/images/docs/blocklists.png" alt="IP & DNS Blocklists">
-        <div class="gallery-overlay"><span>Threat Blocklists</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Lightbox Modal -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <span class="close">&times;</span>
-  <img class="lightbox-content" id="lightbox-img">
-</div>
-
-<script>
-function openLightbox(src) {
-    var lightbox = document.getElementById("lightbox");
-    var img = document.getElementById("lightbox-img");
-    img.src = src;
-    lightbox.classList.add("active");
-    document.body.style.overflow = 'hidden'; // Scroll'u engelle
-}
-function closeLightbox() {
-    document.getElementById("lightbox").classList.remove("active");
-    document.body.style.overflow = 'auto'; // Scroll'u geri aç
-}
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeLightbox();
-    }
-});
-</script>
-
 {{ end }}

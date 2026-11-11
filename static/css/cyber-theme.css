@@ -1,0 +1,539 @@
+/* ==========================================================================
+   Stratum Firewall — High-Tech Cyber Appliance UI Theme (cyber-theme.css)
+   ========================================================================== */
+
+:root {
+  --cyber-bg-950: #060B16;
+  --cyber-bg-900: #0B1324;
+  --cyber-bg-800: #111E36;
+  --cyber-surface: #162440;
+  --cyber-border: rgba(148, 163, 184, 0.16);
+  --cyber-amber: #F59E0B;
+  --cyber-amber-bright: #FBBF24;
+  --cyber-emerald: #10B981;
+  --cyber-cyan: #38BDF8;
+}
+
+/* ---------- 1. DARK FROSTED GLASS HEADER ---------- */
+.site-header {
+  background: rgba(7, 13, 25, 0.88) !important;
+  backdrop-filter: blur(16px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.28);
+}
+
+.site-header .brand {
+  color: #F8FAFC !important;
+  letter-spacing: -0.01em;
+}
+
+.site-header .brand img {
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.35));
+}
+
+.site-header .nav-menu > li > a {
+  color: #CBD5E1 !important;
+  font-weight: 500;
+}
+
+.site-header .nav-menu > li > a:hover {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.site-header .nav-menu .submenu {
+  background: rgba(11, 19, 36, 0.97) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: blur(16px);
+}
+
+.site-header .nav-menu .submenu a {
+  color: #CBD5E1 !important;
+}
+
+.site-header .nav-menu .submenu a:hover {
+  background: rgba(245, 158, 11, 0.14) !important;
+  color: #FBBF24 !important;
+}
+
+.site-header .lang-switcher {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  border-radius: 8px;
+  padding: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.site-header .lang-switcher a,
+.site-header .lang-switcher span {
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  color: #94A3B8 !important;
+}
+
+.site-header .lang-switcher span.active {
+  background: rgba(245, 158, 11, 0.2) !important;
+  color: #FBBF24 !important;
+}
+
+.site-header .lang-switcher a:hover {
+  color: #F8FAFC !important;
+}
+
+.site-header .nav-actions .nav-link {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  color: #E2E8F0 !important;
+  border-radius: 9px !important;
+  transition: all 0.18s ease !important;
+}
+
+.site-header .nav-actions .nav-link:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.55) !important;
+  color: #FFFFFF !important;
+}
+
+.site-header .nav-actions a[href*="demo.stratumfw.com"] {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.45) !important;
+  color: #FBBF24 !important;
+}
+
+.site-header .nav-actions a[href*="demo.stratumfw.com"]:hover {
+  background: rgba(245, 158, 11, 0.22) !important;
+  border-color: #FBBF24 !important;
+}
+
+.site-header .nav-toggle span {
+  background: #F8FAFC !important;
+}
+
+@media (max-width: 960px) {
+  .site-header .nav-menu.active {
+    background: #0B1324 !important;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2) !important;
+  }
+}
+
+/* ---------- 2. CYBER SPLIT HERO WITH 3D STRATUM LOGO ---------- */
+section.hero.cyber-hero {
+  position: relative;
+  padding: 84px 0 88px !important;
+  text-align: left !important;
+  background: radial-gradient(circle at 78% 42%, rgba(245, 158, 11, 0.16) 0%, rgba(56, 189, 248, 0.06) 32%, transparent 65%),
+              linear-gradient(165deg, #060B16 0%, #0B1324 52%, #0F1C34 100%) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+section.hero.cyber-hero::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.055) 1px, transparent 1px) !important;
+  background-size: 44px 44px !important;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, #000 45%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, #000 45%, transparent 100%);
+  opacity: 1 !important;
+  filter: none !important;
+  z-index: -2 !important;
+}
+
+section.hero.cyber-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -140px;
+  right: -120px;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, transparent 68%) !important;
+  pointer-events: none;
+  z-index: -1 !important;
+}
+
+.cyber-hero-grid {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.cyber-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.cyber-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #FBBF24;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cyber-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981;
+  animation: stratumPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes stratumPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.88); }
+}
+
+.cyber-version-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  color: #CBD5E1;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: all 0.18s ease;
+}
+
+.cyber-version-link:hover {
+  border-color: #F59E0B;
+  color: #FFFFFF;
+}
+
+section.hero.cyber-hero h1 {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #F8FAFC !important;
+  margin-bottom: 20px;
+}
+
+section.hero.cyber-hero h1 span {
+  background: linear-gradient(92deg, #FBBF24 0%, #F59E0B 50%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+section.hero.cyber-hero p.cyber-hero-lead {
+  font-size: 17.5px;
+  line-height: 1.62;
+  color: #94A3B8 !important;
+  max-width: 580px;
+  margin: 0 0 26px 0 !important;
+}
+
+section.hero.cyber-hero p.cyber-hero-lead strong {
+  color: #E2E8F0;
+}
+
+.cyber-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.btn-cyber-primary {
+  padding: 13px 24px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: #060B16 !important;
+  font-weight: 700;
+  font-size: 14.5px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-cyber-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.48);
+  filter: brightness(1.05);
+}
+
+.btn-cyber-demo {
+  padding: 13px 22px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #ECFDF5 !important;
+  font-weight: 600;
+  font-size: 14.5px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-cyber-demo:hover {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: #10B981;
+  transform: translateY(-2px);
+}
+
+.btn-cyber-ghost {
+  padding: 13px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #CBD5E1 !important;
+  font-weight: 600;
+  font-size: 14.5px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.btn-cyber-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #94A3B8;
+  color: #FFFFFF !important;
+}
+
+.cyber-beta-note {
+  font-size: 12.5px;
+  color: #64748B;
+  border-left: 2px solid rgba(245, 158, 11, 0.5);
+  padding-left: 12px;
+  max-width: 540px;
+}
+
+.cyber-beta-note strong {
+  color: #94A3B8;
+}
+
+/* 3D Logo Showcase Frame */
+.cyber-hero-visual {
+  position: relative;
+}
+
+.cyber-logo-frame {
+  position: relative;
+  border-radius: 20px;
+  padding: 10px;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.72) 0%, rgba(7, 13, 25, 0.92) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.32);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.65),
+    0 0 48px rgba(245, 158, 11, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cyber-logo-frame:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 34px 70px rgba(0, 0, 0, 0.75),
+    0 0 60px rgba(245, 158, 11, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.cyber-logo-img-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #070D19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cyber-logo-img-wrap img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  display: block;
+}
+
+.cyber-hud-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11.5px;
+  color: #94A3B8;
+  flex-wrap: wrap;
+}
+
+.cyber-hud-bar span b {
+  color: #FBBF24;
+  font-weight: 600;
+}
+
+@media (max-width: 920px) {
+  .cyber-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  section.hero.cyber-hero {
+    padding: 56px 0 64px !important;
+  }
+  section.hero.cyber-hero h1 {
+    font-size: 38px;
+  }
+}
+
+/* ---------- 3. TELEMETRY STATS BAR ---------- */
+section.stats {
+  background: #09101F !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.12) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18) !important;
+  padding: 30px 0 !important;
+}
+
+section.stats .stat b {
+  color: #F8FAFC !important;
+  font-size: 26px !important;
+  letter-spacing: -0.01em;
+}
+
+section.stats .stat span {
+  color: #94A3B8 !important;
+  font-size: 13px !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* ---------- 4. INNER PAGE HEADERS (COHESIVE DARK TECH BANNER) ---------- */
+.page-header {
+  position: relative;
+  background: radial-gradient(circle at 80% 25%, rgba(245, 158, 11, 0.12) 0%, transparent 55%),
+              linear-gradient(165deg, #070D19 0%, #0D182E 100%) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18) !important;
+  padding: 64px 0 48px !important;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.page-header .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header h1 {
+  color: #F8FAFC !important;
+}
+
+.page-header .lead {
+  color: #94A3B8 !important;
+}
+
+.page-header .breadcrumbs,
+.page-header .breadcrumbs a {
+  color: #94A3B8 !important;
+}
+
+.page-header .breadcrumbs a:hover {
+  color: #FBBF24 !important;
+}
+
+/* ---------- 5. HIGH-TECH CARDS & TERMINAL APPLIANCE SPEC ---------- */
+.card {
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 14px !important;
+  background: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease !important;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 158, 11, 0.55) !important;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.09), 0 0 0 1px rgba(245, 158, 11, 0.15) !important;
+}
+
+.card-icon {
+  background: linear-gradient(135deg, #0B1324 0%, #1E293B 100%) !important;
+  color: #FBBF24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.14);
+}
+
+.section-dark {
+  background: radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.10) 0%, transparent 50%),
+              linear-gradient(165deg, #070D19 0%, #0E1A32 100%) !important;
+}
+
+.section-dark .section-head .eyebrow {
+  color: #FBBF24 !important;
+}
+
+.why-item .num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: #FBBF24 !important;
+}
+
+/* Dark Terminal Appliance Card on Homepage */
+.home-download-card {
+  background: linear-gradient(160deg, #0B1324 0%, #070D19 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.32) !important;
+  color: #E2E8F0 !important;
+  box-shadow: 0 22px 48px rgba(7, 13, 25, 0.28) !important;
+}
+
+.home-download-card-head {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15) !important;
+}
+
+.home-download-card-title {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+  color: #FBBF24 !important;
+}
+
+.home-download-card-row {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.10) !important;
+}
+
+.home-download-card-row span {
+  color: #94A3B8 !important;
+}
+
+.home-download-card-row strong {
+  color: #F8FAFC !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13.5px;
+}
+
+.home-download-card-foot {
+  border-top: 1px solid rgba(148, 163, 184, 0.15) !important;
+  color: #94A3B8 !important;
+}
