@@ -18,7 +18,7 @@ Stratum Firewall, harici abonelik veya lisans anahtarı gerektirmeyen dört ente
 * **DNS Engelleme Listeleri (`Engelleme Listeleri → DNSBL`):** pfBlockerNG ve **HaGeZi** kataloglarıyla reklam, izleyici, oltalama (phishing) ve zararlı alan adlarını **Unbound RPZ** katmanında durdurun.
 * **Ağ Bazlı Web Filtresi (`Güvenlik Duvarı → Web Filtresi`):** Her LAN, VLAN veya VPN ağına farklı politikalar atayarak **55 kategori** (*UT1 Université Toulouse Capitole* ve *Block List Project* — yetişkin içerik, zararlı siteler, filtre aşma araçları, sosyal ağlar vb.) bazında filtreleme yapın ve Google (`google.com.tr` dahil), Bing, DuckDuckGo **Güvenli Arama (Safe Search)** ile YouTube Kısıtlı Modunu zorunlu kılın.
 
-## 3. Birleşik Engelleme Raporları (`Engelleme Listeleri → Engellenenler`, `v0.28.2` – `v0.28.3`)
+## 3. Birleşik Engelleme Raporları (`Engelleme Listeleri → Engellenenler`, `v0.28.2` – `v0.29.0`)
 
 pfBlockerNG raporlarına benzer şekilde **DNSBL**, **Web Filtresi** ve **IP Engelleme Listelerinin** durdurduğu tüm trafiği tek ekranda (ve Kontrol Paneli **Engelleme Listeleri** kartında) inceleyin:
 * Son **1 saat, 24 saat veya 7 gün** için saatlik/günlük grafikleri, hangi listenin engelleme yaptığını, en çok engellenen alan adlarını/IP'leri ve en fazla engelleme üreten cihazları filtreleyin (Unbound 1.26 RPZ günlük formatıyla tam uyumludur).

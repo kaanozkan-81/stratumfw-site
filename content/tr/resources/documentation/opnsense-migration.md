@@ -4,7 +4,7 @@ description: "OPNsense config.xml dosyasını Stratum Firewall'a aktarın — et
 lead: "OPNsense yapılandırmanızı dakikalar içinde Stratum Firewall'a taşıyın — güvenlik duvarı kurallarınızı, VLAN ve Sanal IP yapınızı ve tüm OpenVPN sunucunuzu kullanıcı bilgisayarlarına dokunmadan devralın."
 ---
 
-Güvenlik duvarı değiştirmek normalde yüzlerce kuralı baştan yazmayı ve tüm çalışanların cihazlarına yeni VPN profilleri dağıtmayı gerektirir. Stratum Firewall (`v0.25.0` – `v0.28.3`), **Sistem → Yedekleme → OPNsense'den İçe Aktar (`System → Backup → Import from OPNsense`)** aracıyla bir OPNsense `config.xml` yedeğini etkileşimli önizleme raporuyla doğrudan bekleyen yapılandırmaya dönüştürür.
+Güvenlik duvarı değiştirmek normalde yüzlerce kuralı baştan yazmayı ve tüm çalışanların cihazlarına yeni VPN profilleri dağıtmayı gerektirir. Stratum Firewall (`v0.25.0` – `v0.29.0`), **Sistem → Yedekleme → OPNsense'den İçe Aktar (`System → Backup → Import from OPNsense`)** aracıyla bir OPNsense `config.xml` yedeğini etkileşimli önizleme raporuyla doğrudan bekleyen yapılandırmaya dönüştürür.
 
 ## 1. Otomatik Aktarılan Bileşenler
 

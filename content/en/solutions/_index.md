@@ -126,7 +126,7 @@ hide_pages: true
 <div class="sol-cta-box">
   <div>
     <h3>Test-drive a real FreeBSD 15.1 appliance in your browser</h3>
-    <p>Explore Stratum FW v0.28.3 live in our isolated read-only sandbox before deploying to bare-metal hardware or your hypervisor.</p>
+    <p>Explore Stratum FW v0.29.0 live in our isolated read-only sandbox before deploying to bare-metal hardware or your hypervisor.</p>
   </div>
   <div class="sol-cta-actions">
     <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="btn btn-primary">Launch Live Demo</a>

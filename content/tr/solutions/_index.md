@@ -126,7 +126,7 @@ hide_pages: true
 <div class="sol-cta-box">
   <div>
     <h3>Kurulum yapmadan canlı sistem üzerinde test edin</h3>
-    <p>Gerçek bir FreeBSD 15.1 sanal makinesi üzerinde çalışan Stratum FW v0.28.3 yönetim panelini tarayıcınızda hemen inceleyin veya donanımınıza kurun.</p>
+    <p>Gerçek bir FreeBSD 15.1 sanal makinesi üzerinde çalışan Stratum FW v0.29.0 yönetim panelini tarayıcınızda hemen inceleyin veya donanımınıza kurun.</p>
   </div>
   <div class="sol-cta-actions">
     <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="btn btn-primary">Canlı Demo'yu Aç</a>

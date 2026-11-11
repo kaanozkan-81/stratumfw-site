@@ -1,9 +1,70 @@
 ---
 title: "Sürüm Notları"
-description: "Stratum FW sürüm geçmişi - her sürümdeki yeni özellikler, değişiklikler ve düzeltmeler."
+seo_title: "Stratum Firewall Sürüm Notları (v0.29.0) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.29.0 sürümüne kadar tüm yenilikler, değişiklikler ve hata düzeltmeleri — zamanlanmış güvenlik kuralları, 1:1 NAT, Güvenlik Duvarı Günlük Özeti, açılış melodileri ve birleşik engelleme raporları."
 ---
 
-Stratum FW'deki tüm önemli değişiklikler burada, en yeniden eskiye doğru listelenmiştir. Stratum FW kendini imzalı güncelleme sunucusundan (System > Update) veya çevrimdışı bir güncelleme dosyasından (`.sfu`) günceller; her güncelleme bir ZFS önyükleme ortamı oluşturur, böylece önceki sürüm herhangi bir zamanda yeniden başlatılabilir.
+Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## 0.29.0 - 2026-11-11
+
+### Eklendi
+- **Güvenlik Duvarı > Zamanlamalar (`Firewall > Schedules`):** Güvenlik duvarı kurallarında kullanılabilen `"Pzt-Cum 08:00-18:00; Cmt 09:00-13:00"` gibi adlandırılmış zaman aralıkları. pfSense'de olduğu gibi zamanlamaya bağlı bir kural yalnızca tanımlı saat dilimleri içinde geçerlidir.
+  - Tanımlı saatlerin dışında izin (`pass`) kuralı artık trafiğe izin vermez, engelleme (`block`) kuralı ise engellemez; kararı alt sıradaki kurallar verir.
+  - Bir zamanlama süresi sona erdiğinde, ilgili izin kurallarının açtığı mevcut bağlantılar kapatılır.
+  - Kurallar **Uygula (`Apply`)** işlemine gerek kalmadan saat dilimine göre bir dakika içinde otomatik devreye girer veya çıkar. Saatler güvenlik duvarının yerel saat dilimini kullanır; gece yarısını aşan aralıklar iki parça halinde yazılır.
+  - Zamanlama listesinde her planın şu an aktif olup olmadığı, bir sonraki başlangıç veya bitiş zamanı ve kaç kural tarafından kullanıldığı gösterilir. Zamanlamanın adını değiştirmek bağlı kuralları korur; kullanımda olan bir zamanlama silinemez.
+  - Kural sayfalarında her kural için **Zamanlama (`Schedule`)** seçimi ve kural listesinde durum rozeti (aktifken yeşil) yer alır.
+- **OPNsense'den İçe Aktarma:** Zamanlamaya sahip kurallar gün boyu yanlışlıkla açık kalmaması için kapalı (`disabled`) olarak içe aktarılır ve aktarım raporunda listelenir.
+
+### Değiştirildi
+- Politika yönlendirmesi (Policy Routing) ve zamanlamalar; çalışan `pf.conf` dosyası yalnızca yapılandırmanın ürettiği çıktıyla birebir aynı olduğunda `pf.conf` dosyasını **Uygula** gerektirmeden yenileyen tek bir ortak mekanizmayı (`stratum-pfrefresh`, dakikada bir çalışır; bir ağ geçidi düştüğünde ağ geçidi izleyicisi anında tetikler) paylaşır.
+
+## 0.28.9 - 2026-11-11
+
+### Eklendi
+- **Güvenlik Duvarı > NAT > 1:1:** Dahili bir sunucuya (veya alt ağa) çift yönlü olarak kendine ait bir genel (public) IP adresi (veya aynı boyutta genel ağ bloğu) tahsis eder. İçerideki sunucu internete bu genel adresle çıkar ve bu genel adrese gelen trafik doğrudan o sunucuya ulaşır.
+  - Tekil bir genel IP adresi WAN üzerinde tanımlı bir Sanal IP (Virtual IP) olmalıdır; bir ağ bloğu ise servis sağlayıcı tarafından güvenlik duvarına yönlendirilmiş olmalıdır. Güvenlik duvarına erişimin kaybedilmemesi için WAN arayüzünün kendi ana IP adresi 1:1 NAT için reddedilir.
+  - pfSense'de olduğu gibi 1:1 NAT tek başına dışarıdan port açmaz: gelen trafik için WAN üzerinde dahili adrese izin veren bir `pass` kuralı tanımlanmalıdır. Liste ekranı her sunucuya kaç WAN kuralının izin verdiğini (hiç yoksa `"kapalı / closed"`) gösterir.
+  - İlgili portlarda Port Yönlendirme (`Port Forward`) kuralları önceliklidir; 1:1 NAT ise giden NAT (`Outbound NAT`) kurallarından önce değerlendirilir.
+- **OPNsense'den İçe Aktarma:** 1:1 NAT kayıtları içe aktarım raporunda bilgi amaçlı listelenir (otomatik taşınmaz).
+
+## 0.28.8 - 2026-11-11
+
+### Eklendi
+- **Tanılama > Güvenlik Duvarı Günlüğü > Özet (`Diagnostics > Firewall Log > Summary`):** Canlı günlük sekmesinin yanında yeni analiz sekmesi.
+  - Son 1 saati veya 24 saati kapsar; en çok trafik üreten kaynak IP'leri (ülke bilgisiyle), en çok hedeflenen portları (`SSH` veya `RDP` gibi servis adlarıyla), ilk sıradaki ülkeleri, en çok eşleşen kuralları, hedef adresleri ve arayüz bazlı paket sayılarını 5 dakikalık veya saatlik grafiklerle gösterir.
+  - Engellenen veya izin verilen (günlüğe kaydedilen) paketlere ve arayüze göre filtrelenebilir. Herhangi bir IP adresine veya porta tıklandığında o değere filtrelenmiş canlı günlük ekranı açılır.
+  - Seçilen zaman aralığı gerektirdiğinde döndürülmüş (rotated) eski günlük dosyaları da otomatik okunur; günlük geçmişi seçilen sürenin tamamını kapsamıyorsa sayfada belirtilir.
+  - Ülke eşleştirmesi ülke takma adlarının (GeoIP) verisini kullanır; bu veri henüz indirilmemişse özet ekranı ülke sütunu olmadan çalışmaya devam eder.
+
+### Değiştirildi
+- **Güvenlik Duvarı Günlüğü:** Sistemin kendi dahili kuralları artık iç etiketler yerine okunabilir adlarla (`"IP blocklist: inbound (WAN)"`, `"Block bogon networks"`, `"Broadcast and multicast"`) gösterilir.
+
+## 0.28.7 - 2026-11-11
+
+### Düzeltildi
+- **Uygula (`Apply`):** Her değişiklik uygulandığında görünen gereksiz `"rc.conf remove dummynet_enable"`, `"dnctl_*"` ve `"bsnmpd_*"` satırları giderildi. Bu değişkenler FreeBSD'nin `/etc/defaults/rc.conf` dosyasında varsayılan değere sahip olduğu için sistem bunları kaldırılacak ayar sanıyordu; artık yalnızca `/etc/rc.conf` içinde gerçekten tanımlı olan değişkenler temizlenir.
+
+## 0.28.6 - 2026-11-11
+
+### Eklendi
+- **Açılış ve Kapanış Melodileri:** **Sistem > Ayarlar > Genel (`System > Settings > General`)** altında her birinin kendine özgü kapanış versiyonu bulunan melodi seçenekleri eklendi: `Stratum` (varsayılan), `Klasik bip (Classic beep)`, `Çan (Westminster)`, `Neşeye Övgü (Ode to Joy)`, `Für Elise (Beethoven)` ve `Arcade`. Kaydetmeden önce **Test** düğmesiyle seçilen melodi güvenlik duvarı üzerinde dinlenebilir.
+
+## 0.28.5 - 2026-11-11
+
+### Eklendi
+- pfSense ve OPNsense'de olduğu gibi donanım hoparlörü (PC speaker) üzerinden **açılış ve kapanış sesi**: güvenlik duvarı tamamen açıldığında yükselen kısa bir melodi, kapatılırken veya yeniden başlatılırken (`Sistem > Güç` dahil) alçalan bir melodi çalar.
+  - **Sistem > Ayarlar > Genel:** `"Açılış ve kapanışta ses çal"` seçeneği (varsayılan açık) ve **Test** düğmesi eklendi.
+  - Sanal makineler gibi dahili hoparlörü bulunmayan sistemler sessiz kalır.
+
+## 0.28.4 - 2026-11-11
+
+### Eklendi
+- **Sistem > Ayarlar > Güvenlik Duvarı ve NAT:** Varsayılan engelleme günlüğü seçeneğinin altına **"WAN üzerinde de (`Also on the WAN`)"** ayarı eklendi. Kapatıldığında WAN arayüzlerindeki varsayılan kurala takılan paketler (internet taramaları ve kapanmış bağlantıların gecikmiş yanıtları) artık günlüğü şişirmez; yerel ağ ve VPN arayüzlerindeki engellemeler kaydedilmeye devam eder. Mevcut davranışı koruma amacıyla varsayılan olarak açıktır.
+
+### Değiştirildi
+- **Engelleme Listesi Raporu:** Engelleme anından sonra güncellenen listelerden çıkmış olan adreslere ait eski kayıtlar artık `"Artık listede değil (No longer in a list)"` olarak işaretlenir.
 
 ## 0.28.3 - 2026-11-11
 

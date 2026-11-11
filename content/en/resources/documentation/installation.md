@@ -63,4 +63,4 @@ To write the `.img` (or hybrid `.iso`) to a USB flash drive:
    * Setting your `LAN` IPv4 subnet (default `192.168.1.1/24` with DHCP enabled) and `WAN` mode (`DHCP`, `Static`, or `PPPoE`),
    * Setting your time zone and initial `admin` password.
 
-Once booted, open `https://192.168.1.1/` from a machine on your LAN and continue with [Initial Configuration](/resources/documentation/initial-configuration/)—including updating to the latest release (**v0.28.3**) from **System → Update**.
+Once booted, open `https://192.168.1.1/` from a machine on your LAN and continue with [Initial Configuration](/resources/documentation/initial-configuration/)—including updating to the latest release (**v0.29.0**) from **System → Update**.

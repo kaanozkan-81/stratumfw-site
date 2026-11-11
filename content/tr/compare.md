@@ -1,7 +1,7 @@
 ---
 title: "Güvenlik Duvarı ve UTM Karşılaştırması"
 seo_title: "Stratum FW vs OPNsense, pfSense, FortiGate, Sophos ve WatchGuard — Ücretsiz Firewall"
-description: "Stratum Firewall v0.28.3 ile OPNsense, pfSense, IPFire ve yıllık abonelikli ticari UTM cihazlarının (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) teknik ve maliyet karşılaştırması — FreeBSD 15.1 pf, FastAPI, ZFS geri alma ve 55 kategorili Web Filtresi."
+description: "Stratum Firewall v0.29.0 ile OPNsense, pfSense, IPFire ve yıllık abonelikli ticari UTM cihazlarının (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) teknik ve maliyet karşılaştırması — FreeBSD 15.1 pf, FastAPI, ZFS geri alma ve 55 kategorili Web Filtresi."
 lead: "Stratum Firewall'ı hem açık kaynak dağıtımlarla (OPNsense, pfSense, IPFire) hem de her yıl döviz bazlı lisans yenilemesi gerektiren ticari UTM cihazlarıyla (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) mühendislik ve toplam sahip olma maliyeti açısından karşılaştırın."
 translationKey: "firewall-comparison"
 aliases:
@@ -29,7 +29,7 @@ full_width: true
       <thead>
         <tr>
           <th>Yetenek / Katman</th>
-          <th class="cmp-highlight">Stratum FW (v0.28.3)</th>
+          <th class="cmp-highlight">Stratum FW (v0.29.0)</th>
           <th>OPNsense (26.7)</th>
           <th>pfSense CE (2.9)</th>
           <th>IPFire (2.29)</th>
@@ -272,7 +272,7 @@ full_width: true
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
       <h3>Ne zaman Stratum Firewall tercih edilmeli?</h3>
-      <p><a href="/tr/solutions/smb/">Yıllık UTM aboneliklerinden çıkmak isteyen KOBİ'ler</a>, şube ağları, ev laboratuvarları ve eğitim kurumlarında; hızlı FastAPI arayüzü, 60 sn Safe-Apply koruması, ücretsiz ZFS geri alma, 55 kategorili Web Filtresi, çift motorlu Suricata 8 ve OPNsense göçü arıyorsanız idealdir (Not: v0.28.3 şu an aktif Beta aşamasındadır).</p>
+      <p><a href="/tr/solutions/smb/">Yıllık UTM aboneliklerinden çıkmak isteyen KOBİ'ler</a>, şube ağları, ev laboratuvarları ve eğitim kurumlarında; hızlı FastAPI arayüzü, 60 sn Safe-Apply koruması, ücretsiz ZFS geri alma, 55 kategorili Web Filtresi, çift motorlu Suricata 8 ve OPNsense göçü arıyorsanız idealdir (Not: v0.29.0 şu an aktif Beta aşamasındadır).</p>
     </div>
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
