@@ -1,75 +1,26 @@
 ---
-title: "WireGuard VPN"
-lead: "WireGuard kullanarak yüksek performanslı, sıfır bağımlılıklı uzaktan erişim yapılandırın."
+title: "WireGuard VPN Kurulumu"
+description: "Stratum Firewall üzerinde FreeBSD çekirdek tabanlı WireGuard (if_wg) kurulumu — sıfır bağımlılıklı X25519 anahtar üretimi, QR kod, VLAN erişim kontrolü ve kesintisiz eş yönetimi."
+lead: "FreeBSD çekirdeğinde çalışan WireGuard tünellerini dahili X25519 kriptografisi ve anında QR kod kurulumuyla saniyeler içinde devreye alın."
 ---
 
-Stratum Firewall, modern ve yüksek performanslı VPN protokolü **WireGuard** için yerel entegrasyon içerir. Ağır harici paketlere güvenen diğer güvenlik duvarlarının aksine Stratum, X25519 kriptografisini dahili olarak uygular; bu da maksimum güvenlik ve minimum saldırı yüzeyi sağlar.
+Stratum Firewall, FreeBSD 15.1 çekirdeğindeki yerel **WireGuard (`if_wg`)** sürücüsünü kullanır ve **RFC 7748 X25519** anahtar üretimini harici paket bağımlılığı olmadan doğrudan kendi içinde gerçekleştirir.
 
-## Neden WireGuard?
-
-- **Şimşek Hızında:** Çekirdek alanında (kernel space) çalışır, OpenVPN'den önemli ölçüde daha yüksek verim sağlar.
-- **Durumsuz (Stateless):** Ağ değişikliklerini (örneğin bir telefonda Wi-Fi'den LTE'ye geçiş) sorunsuz şekilde yönetir.
-- **Modern Kriptografi:** En son kriptografi teknolojilerini (ChaCha20, Poly1305, Curve25519, BLAKE2) kullanır.
-
-## Sunucuyu Ayarlama
+## 1. WireGuard Sunucusunu Etkinleştirme
 
 ![WireGuard Setup](/images/docs/wireguard.png)
 
-Eş oluşturmadan önce WireGuard hizmetini etkinleştirmelisiniz.
+1. **VPN → WireGuard** sayfasına gidin ve **WireGuard'ı Etkinleştir** anahtarını açın.
+2. **Dinleme Portu ve WAN:** Varsayılan `UDP 51820` portunu koruyun (veya özel port girin) ve dinlenecek WAN arayüzünü seçin; dış IP adresiniz otomatik algılanır (veya dinamik DNS / Sanal IP adresi yazabilirsiniz).
+3. **Tünel Ağı:** VPN istemcileri için ayrı bir özel alt ağ belirleyin (örn. `10.202.0.0/24`). Güvenlik duvarı `.1` adresini alır, eşlere sırayla tekil adresler atanır.
+4. **Erişim İzinleri:** İstemcilerin hangi yerel LAN ve VLAN ağlarına ulaşabileceğini seçin; isteğe bağlı olarak **Tam Tünel (Full Tunnel)** (tüm internet çıkışını güvenlik duvarından geçirme) ve istemciler arası iletişimi açın.
+5. **Kaydet** ve **Değişiklikleri uygula** düğmelerine tıklayın; WAN portu izin kuralı, tünel kuralları, NAT ve DNS erişimi otomatik oluşturulur.
 
-1. **VPN → WireGuard** bölümüne gidin.
-2. **WireGuard'ı Etkinleştir** seçeneğini açın.
-3. **Dinleme Portu:** Belirli bir gereksiniminiz yoksa varsayılan olarak bırakın (UDP 51820).
-4. **Tünel Ağı:** VPN'iniz için özel IP aralığını tanımlayın (örn. `10.202.0.0/24`). Güvenlik duvarı ilk adresi (`10.202.0.1`) alır, eşler geri kalanı alır.
-5. **Erişim Ağları:** VPN kullanıcılarının erişmesine izin verilen dahili ağları (örn. LAN) seçin.
-6. **Kaydet** ve **Uygula**'ya tıklayın.
+## 2. Kesintisiz Eş (Cihaz) Ekleme
 
-## Bir Eş (Cihaz) Oluşturma
+1. **Eşler (`Peers`)** bölümünden **Eş Ekle**'ye tıklayın ve cihaza açıklayıcı bir ad verin (örn. `Kaan-Telefon` veya `Dizustu`).
+2. **Anahtar çiftini güvenlik duvarında oluştur** ve ekstra simetrik şifreleme katmanı sağlayan **Ön Paylaşılan Anahtar (PSK)** seçeneklerini açık bırakıp kaydedin:
+   * **Mobil Cihazlar (iOS / Android):** Resmi WireGuard uygulamasından ekrandaki **QR Kodu** okutun.
+   * **Bilgisayarlar:** `.conf` dosyasını indirip WireGuard istemcisine aktarın.
 
-"Eş" (Peer), VPN'e bağlanan tek bir cihazdır (bir telefon, bir dizüstü bilgisayar).
-
-1. **Eşler** bölümünün altında **Eş Ekle**'ye tıklayın.
-2. **Cihaz Adı:** Tanınabilir bir isim verin (örn. "Kaan iPhone").
-3. **Anahtar Oluşturma:** "Anahtar çiftini güvenlik duvarında oluştur" seçeneğini seçili bırakın. Stratum, cihaz için özel ve genel anahtarları güvenli bir şekilde oluşturacaktır.
-4. **Ön Paylaşılan Anahtar (PSK):** Bunu etkinleştirmenizi şiddetle tavsiye ederiz. Ekstra bir simetrik şifreleme katmanı ekler (kuantum sonrası direnç).
-5. **Kaydet**'e tıklayın.
-
-## Mobil Cihaz Bağlama (QR Kod)
-
-Bir telefonu bağlamanın en kolay yolu QR kodudur.
-
-1. WireGuard sayfasında, yeni oluşturduğunuz eşi bulun.
-2. **QR Kod** düğmesine tıklayın.
-3. Telefonunuzda resmi WireGuard uygulamasını açın (iOS veya Android).
-4. **"+" → "QR kodundan oluştur"** seçeneğine dokunun ve ekranınızdaki kodu tarayın.
-
-Telefonunuz artık bağlı. Stratum panelindeki "Son El Sıkışma" sütununu kontrol ederek bağlantıyı doğrulayabilirsiniz.
-
-## Dizüstü Bilgisayar Bağlama (Yapılandırma Dosyası)
-
-Dizüstü bilgisayarlar için yapılandırma dosyasını doğrudan indirebilirsiniz.
-
-1. Eşin yanındaki **İndir** simgesine tıklayın.
-2. Bir `.conf` dosyası alacaksınız.
-3. Dizüstü bilgisayarınızda WireGuard uygulamasını açın, **"Dosyadan tünel(ler) içe aktar"** seçeneğine tıklayın ve indirdiğiniz `.conf` dosyasını seçin.
-
-## Güvenlik En İyi Uygulamaları
-
-- **Cihaz Başına Bir Eş:** Bir eş yapılandırmasını asla birden fazla kişi arasında paylaşmayın. Bir cihaz kaybolursa, diğerlerini etkilemeden o belirli eşi silebilirsiniz.
-- **Anahtar Yönetimi:** Eşlerin özel anahtarları güvenlik duvarında sıkı izinlerle (`chmod 600`) saklanır. Ana `config.json` dosyasında asla açığa çıkarılmazlar.
-- **Kullanılmayan Eşleri Silin:** Bir çalışan ayrılırsa veya bir cihaz kullanımdan kaldırılırsa, erişimi iptal etmek için eşi hemen silin.
-
-## Sonraki Adımlar
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>DNS'nizi Koruyun</h3>
-    <p>DNSBL ile kötü amaçlı alan adlarını nasıl engelleyeceğinizi öğrenin.</p>
-    <a href="/tr/resources/documentation/blocklists/" class="card-link">Karalisteler Kılavuzu →</a>
-  </div>
-  <div class="card">
-    <h3>API ile Otomatikleştirin</h3>
-    <p>REST API'mizi kullanarak eşleri programatik olarak yönetin.</p>
-    <a href="/tr/resources/documentation/rest-api/" class="card-link">API Referansı →</a>
-  </div>
-</div>
+Yeni bir eş eklemek veya silmek, o anda bağlı olan diğer WireGuard kullanıcılarının bağlantısını **koparmadan** canlı uygulanır. Özel anahtarlar `config.json` dışında yalnızca `root` erişimli dosyalarda saklanır.

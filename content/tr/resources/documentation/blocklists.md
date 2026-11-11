@@ -1,81 +1,29 @@
 ---
-title: "IP ve DNS Karalisteleri"
-lead: "Ağınızı her iki katmanda koruyun — kötü amaçlı IP'leri paket düzeyinde, kötü amaçlı alan adlarını DNS düzeyinde engelleyin."
+title: "Engelleme Listeleri, Web Filtresi ve Suricata IPS"
+description: "Stratum Firewall çok katmanlı tehdit savunması — 63 IP tehdit listesi, Unbound RPZ DNSBL, 55 kategorili Web Filtresi, Çift Motorlu Suricata 8 IPS/IDS ve Birleşik Engelleme Raporları."
+lead: "Tehditleri her katmanda durdurun — çekirdek pf IP listeleri, Unbound RPZ DNS engelleme, 55 kategorili Web Filtresi, satır içi Suricata 8 IPS ve pfBlockerNG tarzı birleşik raporlar."
 ---
 
-Stratum Firewall, modern siber tehditlere karşı iki katmanlı bir savunma mekanizması sunar. Kötü amaçlı IP adreslerini güvenlik duvarı düzeyinde engelleyebilir ve aynı anda kötü amaçlı alan adlarını (reklamlar, izleyiciler, kimlik avı) DNS çözümleyici düzeyinde engelleyebilirsiniz.
+Stratum Firewall, harici abonelik veya lisans anahtarı gerektirmeyen dört entegre savunma katmanını tek bir yönetim panelinde birleştirir.
 
-## Katman 1: IP Karalisteleri (IPv4/IPv6)
+## 1. IP Engelleme Listeleri (`Güvenlik Duvarı → Engelleme Listeleri → IP`, `v0.9.0`)
 
-IP Karalisteleri, genel tehdit akışlarını (veya özel listelerinizi) `pf` tablolarını kullanarak doğrudan engellemenize olanak tanır. Bu, çekirdek düzeyinde gerçekleşir ve milyonlarca IP ile bile sıfır performans etkisi sağlar.
+![IP Blocklists](/images/docs/blocklists.png)
 
-### Nasıl Etkinleştirilir
+* **63 Hazır Tehdit Beslemesi:** *Spamhaus DROP, Abuse.ch Feodo Tracker, Emerging Threats, PRI1–PRI5, Tarayıcılar, TOR* dahil 63 güncel IPv4 beslemesi doğrudan çekirdek `pf` tablolarına yüklenir.
+* **Gelen ve Giden Koruma:** İnternetten gelen saldırılar sessizce düşürülürken içeriden dışarıya giden zararlı bağlantılar hızla reddedilir; kendi izin listeniz her zaman önceliklidir ve yerel ağ aralıkları yanlışlıkla engellenmeye karşı korumalıdır.
 
-1. **Güvenlik → Karalisteler** bölümüne gidin.
-2. **IP Karalisteleri** sekmesini seçin.
-3. **IP Karalistelerini Etkinleştir** seçeneğini açın.
+## 2. DNSBL ve 55 Kategorili Web Filtresi (`v0.24.0`)
 
-### Bir Akış (Feed) Ekleme
+* **DNS Engelleme Listeleri (`Engelleme Listeleri → DNSBL`):** pfBlockerNG ve **HaGeZi** kataloglarıyla reklam, izleyici, oltalama (phishing) ve zararlı alan adlarını **Unbound RPZ** katmanında durdurun.
+* **Ağ Bazlı Web Filtresi (`Güvenlik Duvarı → Web Filtresi`):** Her LAN, VLAN veya VPN ağına farklı politikalar atayarak **55 kategori** (*UT1 Université Toulouse Capitole* ve *Block List Project* — yetişkin içerik, zararlı siteler, filtre aşma araçları, sosyal ağlar vb.) bazında filtreleme yapın ve Google (`google.com.tr` dahil), Bing, DuckDuckGo **Güvenli Arama (Safe Search)** ile YouTube Kısıtlı Modunu zorunlu kılın.
 
-Stratum standart CIDR listelerini destekler (örn. Spamhaus DROP, DShield, Abuse.ch).
+## 3. Birleşik Engelleme Raporları (`Engelleme Listeleri → Engellenenler`, `v0.28.2` – `v0.28.3`)
 
-1. **Akış Ekle**'ye tıklayın.
-2. Ham metin dosyasının URL'sini yapıştırın (örn. `https://www.spamhaus.org/drop/drop.txt`).
-3. Güncelleme aralığını ayarlayın (örn. her 12 saatte bir).
-4. **Kaydet**'e tıklayın.
+pfBlockerNG raporlarına benzer şekilde **DNSBL**, **Web Filtresi** ve **IP Engelleme Listelerinin** durdurduğu tüm trafiği tek ekranda (ve Kontrol Paneli **Engelleme Listeleri** kartında) inceleyin:
+* Son **1 saat, 24 saat veya 7 gün** için saatlik/günlük grafikleri, hangi listenin engelleme yaptığını, en çok engellenen alan adlarını/IP'leri ve en fazla engelleme üreten cihazları filtreleyin (Unbound 1.26 RPZ günlük formatıyla tam uyumludur).
 
-Stratum listeyi hemen indirecek, geçerli IP'leri ayrıştıracak ve bunları `<blocklist_feed_name>` adlı bir `pf` tablosuna ekleyecektir. Bu IP'lerle eşleşen gelen ve giden trafiği engellemek için otomatik olarak varsayılan bir kural uygulanır.
+## 4. Arayüz Bazlı Çift Motorlu Suricata 8 IPS / IDS (`Servisler → Saldırı Tespit`, `v0.24.4`)
 
-### Özel IP Engelleme
-
-Bir akışa gerek kalmadan manuel olarak bir IP veya alt ağı da engelleyebilirsiniz:
-
-1. IP Karalisteleri sekmesinde **Özel IP'ler** bölümüne gidin.
-2. IP'yi (örn. `1.2.3.4`) veya CIDR'ı (örn. `192.168.50.0/24`) ekleyin.
-3. **Kaydet**'e tıklayın.
-
-## Katman 2: DNSBL (DNS Engelleme)
-
-DNSBL, ağınızdaki cihazların kötü amaçlı veya istenmeyen alan adlarını çözümlemesini önler. Engellenen alan adları için `NXDOMAIN` döndürmek üzere Unbound'un RPZ (Yanıt Politikası Bölgeleri) özelliğini kullanıyoruz.
-
-### Nasıl Etkinleştirilir
-
-1. **Güvenlik → Karalisteler** bölümüne gidin.
-2. **DNSBL** sekmesini seçin.
-3. **DNSBL'yi Etkinleştir** seçeneğini açın.
-
-### Kategorileri Seçme
-
-Alan adlarını manuel olarak yönetmek yerine Stratum, özenle seçilmiş akışlar sunar. Engellemek istediğiniz kategorileri seçin (örn. Reklamlar, Kötü Amaçlı Yazılım, Kimlik Avı, Yetişkin İçerik). Listeler otomatik olarak indirilecek ve yerel bir bölge dosyasında derlenecektir.
-
-### Alan Adlarını İzin Listesine Ekleme
-
-Engellenen bir akış, ihtiyaç duyduğunuz bir alan adını yanlışlıkla engelliyorsa (yanlış pozitif), bunu geçersiz kılabilirsiniz:
-1. **İzin Listesi** bölümüne gidin.
-2. Alan adını (örn. `ornek.com`) ekleyin.
-3. **Kaydet**'e tıklayın.
-
-## İzleme ve Günlükler
-
-DNSBL tarafından bir alan adı engellendiğinde Unbound bunu günlüğe kaydeder. Bu günlükleri **Teşhisler → Sistem Günlükleri** altında (dnsbl filtresi ile) görüntüleyebilirsiniz. IP Karalisteleri için, engellenen paketleri **Teşhisler → Güvenlik Duvarı Günlüğü** bölümünde görebilirsiniz; buradaki engellenen paketler `ipblock-in-*` veya `ipblock-out-*` etiketlerini taşır.
-
-## En İyi Uygulamalar
-
-- **DNSBL ile başlayın:** Meşru IP trafiğini bozma riski olmadan tehditleri engellemeye başlamanın en güvenli yoludur.
-- **IP Karalistelerinde dikkatli olun:** Büyük IP aralıklarını engellemek bazen CDN'lere (İçerik Dağıtım Ağları) erişimi bozabilir. Giden engellemeyi etkinleştirmeden önce akışları her zaman doğrulayın.
-- **Güncelleme Sıklığı:** Taze tehdit verisi ihtiyacını güvenlik duvarınızın bant genişliğiyle dengeleyin. Günlük güncellemeler genellikle küçük işletmeler için yeterlidir.
-
-## Sonraki Adımlar
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>API'yi Keşfedin</h3>
-    <p>Karaliste yönetimini REST API kullanarak otomatikleştirin.</p>
-    <a href="/tr/resources/documentation/rest-api/" class="card-link">API Referansı →</a>
-  </div>
-  <div class="card">
-    <h3>Sistem Günlükleri</h3>
-    <p>Engellenen trafiği izleyin ve ağ sorunlarını teşhis edin.</p>
-    <a href="/tr/resources/documentation/command-line/" class="card-link">Günlükler Kılavuzu →</a>
-  </div>
-</div>
+* **Arayüz Başına İzle veya Engelle:** Her arayüzü bağımsız olarak **Kapalı**, **İzle (`Watch` / IDS)** veya **Engelle (`Block` / satır içi `netmap` IPS)** moduna alabilirsiniz. İki mod farklı arayüzlerde birlikte seçildiğinde Stratum otomatik olarak `netmap` ve `pcap` tabanlı iki ayrı Suricata sürecini yönetir.
+* **Kesintisiz Kural Güncelleme (`SIGUSR2`):** ET Open kural kategorilerinde yapılan değişiklikler ve tek tıkla kural devre dışı bırakma işlemleri FreeBSD `SIGUSR2` sinyaliyle trafiği kesmeden canlı uygulanır.

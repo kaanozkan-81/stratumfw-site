@@ -1,63 +1,38 @@
 ---
-title: "REST API"
-description: "Automate firewall rules, WireGuard peers, aliases, and Safe-Apply workflows using the Stratum Firewall REST API."
-lead: "Automate everything. The Stratum web panel is backed by a clean asynchronous FastAPI REST architecture."
+title: "REST API, MCP & SNMP"
+description: "Automate Stratum Firewall via the FastAPI REST API, query live state from AI assistants over Model Context Protocol (MCP), and monitor metrics via read-only SNMP."
+lead: "Automate configuration via REST API, inspect live firewall state safely with AI assistants over MCP, and integrate with LibreNMS, Zabbix, or PRTG via SNMP."
 ---
 
-Stratum Firewall is built with an **API-first** architecture on FreeBSD 15.1. Every action available in the web interface executes through structured REST endpoints, allowing you to integrate Stratum FW into your monitoring and Infrastructure-as-Code (Ansible, Terraform, Python) workflows.
+Stratum Firewall is built on an **API-first** Python 3.12 &amp; FastAPI architecture on FreeBSD 15.1, complemented by a read-only **Model Context Protocol (MCP)** server for AI assistants and a native FreeBSD **SNMP (`bsnmpd`)** agent.
 
-## Base URL
+## 1. REST API Authentication &amp; Safe-Apply
 
-All API endpoints are served over HTTPS relative to your firewall's management address:
-
-```text
-https://<firewall-ip>/api/
-```
-
-## Authentication
-
-### 1. Sign In (Obtain Session Cookie)
+All management endpoints are served over HTTPS behind Nginx (`https://<firewall-ip>/api/`):
 
 ```bash
+# 1. Sign in to obtain a session cookie
 curl -k -X POST https://192.168.1.1/login \
   -d "username=admin&password=your_secure_password" \
   -c cookies.txt
-```
 
-### 2. Authenticated Requests
-
-Include the session cookie and the `X-Requested-With: stratum` CSRF protection header:
-
-```bash
+# 2. Query live status (include CSRF protection header)
 curl -k -X GET https://192.168.1.1/api/status \
   -b cookies.txt \
   -H "X-Requested-With: stratum"
 ```
 
-## Role-Based Access Control (RBAC)
+* **RBAC Enforcement:** **Administrator** accounts have full CRUD access; **Operator** accounts can read state and trigger `/api/diag/*` actions; **Read-Only** accounts receive `403 Forbidden` on write methods.
+* **Safe-Apply Confirmation:** Configuration writes validate syntax and return `apply_needed: true`. Trigger apply and call `/api/apply/confirm` within **60 seconds** to commit changes permanently.
 
-| Role | Permissions |
-| :--- | :--- |
-| **Administrator** | Full read/write access across all configuration and system endpoints. |
-| **Operator** | Read access across configuration endpoints plus diagnostic actions (`/api/diag/*`). |
-| **Read-Only** | Read-only inspection access (used in the [Live Demo](https://demo.stratumfw.com)); write requests return `403 Forbidden`. |
+## 2. AI Diagnostics via Model Context Protocol (`System → Settings → MCP`, `v0.14.0`)
 
-## Safe-Apply Rollback Workflow via API
+Connect MCP-compatible AI clients (**Claude, ChatGPT, Gemini, Cursor, DeepSeek**) directly to your firewall with strict security boundaries:
 
-1. Submit your configuration update; Stratum validates the configuration (`pfctl -n`, `unbound-checkconf`, etc.) and returns `apply_needed: true`.
-2. Apply changes and call `/api/apply/confirm` within **60 seconds**; otherwise Stratum automatically rolls back to the previous working snapshot to prevent remote lockouts.
+* **Strictly Read-Only Tools (15+ Tools):** Query live system health, interfaces, WAN latency/failover, service status, firewall &amp; NAT rules (including interface groups), live firewall logs, blocked-traffic summaries, Suricata IPS alerts (`ids_alerts`), DHCP leases, WireGuard/OpenVPN sessions, and traffic graphs—**nothing can be modified via MCP**.
+* **Scoped, Hashed Tokens &amp; Granular Privacy:** Create per-device access tokens (stored only as hashes, optionally restricted by source IP) and toggle individual MCP tools off if you never want specific data exposed. Passwords, private keys, and VPN profiles are never returned.
 
-## Next Steps
+## 3. SNMP Monitoring (`System → Settings → SNMP`, `v0.19.0`)
 
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>Command Line Utilities</h3>
-    <p>Explore Stratum FW's built-in FreeBSD CLI tools.</p>
-    <a href="/resources/documentation/command-line/" class="card-link">CLI Reference →</a>
-  </div>
-  <div class="card">
-    <h3>File &amp; Path Reference</h3>
-    <p>See where configuration files, keys, and ZFS snapshots live.</p>
-    <a href="/resources/documentation/file-paths/" class="card-link">File Reference →</a>
-  </div>
-</div>
+Monitor Stratum FW from **Zabbix, LibreNMS, PRTG, Observium, or Cacti** using FreeBSD's native `bsnmpd` (`SNMP v1 / v2c`, strictly read-only):
+* Exports 64-bit interface counters (`IF-MIB`), CPU/RAM/disk/process metrics (`HOST-RESOURCES-MIB`), and `pf` state/packet statistics—answering **only on selected internal interfaces** and allowed management IPs, never on WAN.

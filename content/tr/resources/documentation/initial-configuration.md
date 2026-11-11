@@ -1,77 +1,36 @@
 ---
 title: "İlk Yapılandırma"
-lead: "İlk önyüklemeden sonra güvenlik duvarınızı ayarlayın — arayüzler, yönlendirme ve yönetici erişimi."
+description: "Kurulum sonrasında Stratum Firewall'ı devreye alın — WAN/LAN arayüzleri, 802.1Q VLAN'lar, DNS/DHCP, Yönetici Erişimi güvenliği, Safe-Apply ve ZFS güncellemeleri."
+lead: "Yeni kurduğunuz Stratum Firewall cihazını güvenli şekilde devreye alın — arayüzler, DNS, DHCP, yönetim güvenliği ve imzalı güncellemeler."
 ---
 
-Stratum panelini başarıyla kurup ilk kez oturum açtığınızda, sistem çalışıyor demektir ancak henüz trafiği yönlendirmeye hazır değildir. Bu kılavuz, güvenlik duvarınızı güvenli bir şekilde devreye almak için gereken temel adımları açıklar.
+[VGA ISO veya Seri Konsol IMG](/tr/resources/documentation/installation/) medyasından kurulumu tamamlayıp tarayıcınızdan `https://192.168.1.1/` adresine giriş yaptıktan sonra aşağıdaki adımlarla temel yapılandırmanızı tamamlayabilirsiniz.
 
-## 1. Varsayılan Kimlik Bilgilerini Değiştirin
+## 1. Genel Ayarlar ve Yönetici Erişimi Güvenliği
 
-Güvenlik için, panele ilk kez giriş yaptığınızda (konsolda yazan varsayılan `admin` bilgilerini kullanarak), şifrenizi değiştirmeniz zorunlu tutulur.
+**Sistem → Ayarlar (`System → Settings`)** menüsüne gidin:
 
-- Güçlü ve benzersiz bir şifre kullanın (en az 12 karakter).
-- Değiştirildikten sonra sistem panelin geri kalanının kilidini açar.
+* **Genel (`General`) Sekmesi:** Cihaz adını (**Hostname**), yerel alan adını (örn. `ofis.yerel`), saat dilimini ve isteğe bağlı giriş ekranı duyurusunu tanımlayın.
+* **Yönetici Erişimi (`Admin Access`) Sekmesi:**
+  * Web paneli HTTPS portunu ve yönetim erişimine izin verilen iç ağ arayüzlerini seçin (WAN üzerinden yönetim erişimi varsayılan olarak kapalıdır).
+  * **Giriş Korumasını** (hatalı parola denemelerinden sonra otomatik IP engelleme) yapılandırın.
+  * **SSH** erişimini (açık/kapalı, özel port, yalnızca anahtarla giriş ve yetkili SSH açık anahtarları) ayarlayın. O anda bağlı olduğunuz IP adresini kilitleyecek bir değişiklik kaydedilmeye çalışılırsa sistem bunu otomatik olarak reddeder.
+* **Sertifikalar (`Sistem → Sertifikalar`):** Panel TLS sertifikasının SHA-256 parmak izini kontrol edebilir, cihaz adınıza uygun yeni sertifika üretebilir veya kendi kurumsal CA sertifikanızı yükleyebilirsiniz.
 
-## 2. Arayüz Atamaları (WAN ve LAN)
+## 2. Arayüzler ve 802.1Q VLAN Tanımları
 
-**Arayüzler → Atamalar** (Interfaces → Assignments) bölümüne gidin. Stratum FreeBSD `pf` motorunu kullandığı için, kurallar uygulanmadan önce arayüzlere belirli roller atanmalıdır.
+1. **Arayüzler → Atamalar (`Interfaces → Assignments`)** ekranından fiziksel ağ kartlarını (`igb0`, `vtnet0` vb.) veya **802.1Q VLAN** alt arayüzlerini `WAN`, `LAN` ve `OPT1..N` rollerine atayın (`OPT` arayüzleri ek yerel ağ veya ikinci WAN olarak kullanılabilir).
+2. **Arayüzler → WAN** altından internet bağlantı türünüzü seçin:
+   * **DHCP:** ISS modem/hattından otomatik IP ve ağ geçidi alır.
+   * **Statik IPv4:** Sabit IP, alt ağ maskesi, ağ geçidi ve gerekirse özel MTU değerini girin.
+   * **PPPoE (`mpd5`):** Fiber/DSL kullanıcı adı ve parolanızı girin.
+3. **Kaydet (`Save`)** düğmesine ve hemen yanında beliren **Değişiklikleri uygula (`Apply changes`)** düğmesine tıklayın. Sistem tüm yapılandırmaları önceden doğrular (`pfctl -n` vb.) ve **60 saniyelik Güvenli Uygulama (Safe-Apply)** sayacını başlatır; bağlantınız sürüyorsa **Değişiklikleri koru (`Keep changes`)** ile kalıcı hale getirin.
 
-- **WAN:** Modeminize veya ISS'nize bağlı fiziksel arayüzü seçin.
-- **LAN:** Dahili ağ anahtarınıza (switch) bağlı fiziksel arayüzü seçin.
-- **OPT:** (İsteğe bağlı) DMZ, VLAN'lar veya ikincil bir WAN için ek arayüzleri atayın.
+## 3. DHCP ve DNS Çözümleyici (Unbound / dnsmasq)
 
-**Kaydet**'e tıklayın. Bu kritik bir değişiklik olduğu için **Güvenli Uygulama (Safe-Apply)** mekanizması devreye girecektir. 60 saniye içinde bağlantıyı onaylamanız gerekir, aksi takdirde sistem kilitlenmeyi önlemek için değişiklikleri otomatik olarak geri alır.
+* **DHCP Sunucusu (`Servisler → DHCP`):** Her LAN/VLAN için IP havuzlarını ve aktif kiralamalardan tek tıkla sabit IP rezervasyonlarını (*Make static*) tanımlayın.
+* **DNS Çözümleyici (`Servisler → DNS`):** DNSSEC doğrulamalı **Unbound** (tam özyinelemeli veya yönlendirici mod) ya da **dnsmasq** motorunu seçin; DHCP istemci isimleri her iki modda da otomatik çözümlenir.
 
-## 3. WAN Yapılandırması
+## 4. İmzalı Yazılım Güncellemeleri (ZFS Önyükleme Ortamları)
 
-**Arayüzler → WAN** bölümüne gidin.
-
-Güvenlik duvarının genel IP adresini nasıl alacağını yapılandırmalısınız:
-- **DHCP:** (En yaygın) Güvenlik duvarı ISS'nizden otomatik olarak bir IP ister.
-- **Statik IP:** ISS'nizin sağladığı IP, Alt Ağ Maskesi ve Ağ Geçidi'ni girin.
-- **PPPoE:** ISS'nizin sağladığı kullanıcı adı ve şifreyi girin (DSL/Fiber için yaygındır).
-
-Değişiklikleri uygulayın. WAN arayüzünün "Up" (Çalışıyor) durumunda olduğunu ve bir IP adresi aldığını doğrulamak için **Pano**'yu (Dashboard) kontrol edin.
-
-## 4. LAN ve DHCP Kurulumu
-
-**Servisler → DHCP** bölümüne gidin.
-
-Varsayılan olarak Stratum, cihazların (dizüstü bilgisayarlar, telefonlar) otomatik olarak bir IP adresi alıp internete erişebilmesi için LAN arayüzünde bir DHCP sunucusu çalıştırır.
-
-- LAN alt ağınızı tanımlayın (örn. `192.168.1.1/24`).
-- DHCP havuzunu tanımlayın (örn. `192.168.1.100` ile `192.168.1.200` arası).
-- DNS sunucularınızı ayarlayın (genellikle güvenlik duvarının LAN IP'si).
-
-## 5. Rol Tabanlı Erişim Kontrolü (RBAC)
-
-Stratum ekipler için tasarlanmıştır. Diğer yöneticileri eklemek için **Sistem → Kullanıcılar** bölümüne gidin. `admin` hesabını asla paylaşmamalısınız.
-
-Bireysel kullanıcılar oluşturun ve onlara üç rolden birini atayın:
-- **Yönetici (Admin):** Güvenlik duvarı kurallarını, VPN'leri ve sistem ayarlarını yapılandırmaya tam erişim.
-- **Operatör:** Panoları görüntüleyebilir, teşhisleri çalıştırabilir (ping/traceroute) ve aktif durumları yönetebilir ancak güvenlik duvarı kurallarını değiştiremez.
-- **Salt Okunur:** Panoyu ve günlükleri görüntüleyebilir ancak hiçbir değişiklik yapamaz.
-
-## 6. Tehdit İstihbaratını Etkinleştirin
-
-Ağ artık canlı olduğuna göre onu koruyun. **Güvenlik → Karalisteler** bölümüne gidin.
-
-- Bilinen kötü amaçlı IP'leri otomatik olarak `pf` tablolarına indirmek için **IP Karalistelerini** etkinleştirin.
-- Çözümleyici düzeyinde reklamları, izleyicileri ve kötü amaçlı yazılım alan adlarını engellemek için **DNSBL**'yi etkinleştirin.
-
-## Sonraki Adımlar
-
-Güvenlik duvarınız artık trafiği yönlendiriyor ve ağınızı koruyor. Buradan itibaren şunları keşfedebilirsiniz:
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>VPN'i Ayarlayın</h3>
-    <p>Güvenli uzaktan erişim için WireGuard'ı yapılandırın.</p>
-    <a href="/tr/resources/documentation/wireguard-vpn/" class="card-link">WireGuard Kılavuzu →</a>
-  </div>
-  <div class="card">
-    <h3>Güvenlik Duvarında Uzmanlaşın</h3>
-    <p>Güvenli Uygulama (Safe-Apply) kullanarak karmaşık pf kurallarının nasıl yazılacağını öğrenin.</p>
-    <a href="/tr/resources/documentation/pf-rules/" class="card-link">pf Kuralları Kılavuzu →</a>
-  </div>
-</div>
+**Sistem → Güncelleme (`System → Update`)** menüsünden çevrimiçi güncelleme kontrolü yapabilir veya kapalı devre ağlarda çevrimdışı `.sfu` güncelleme dosyasını yükleyebilirsiniz. Her güncelleme öncesinde otomatik olarak yeni bir **ZFS Önyükleme Ortamı (Boot Environment)** oluşturulur (en güncel 5 ortam saklanır); böylece istediğiniz an önceki sürüme güvenle geri dönebilirsiniz.

@@ -1,107 +1,40 @@
 ---
-title: "Komut Satırı"
-lead: "Stratum Firewall'ı çalıştıran temel FreeBSD araçlarında uzmanlaşın."
+title: "Tanılama ve Komut Satırı"
+description: "Stratum Firewall yerleşik Wireshark paket yakalama, ARP/Wake-on-LAN, Web Etkinliği, Stratum CLI komutları, pfctl ve ZFS bectl araçlarıyla ağ sorunlarını giderin."
+lead: "Hem web panelinden hem SSH üzerinden tam hakimiyet — Wireshark .pcap paket yakalama, ARP ve Wake-on-LAN, Web Etkinliği, Stratum CLI ve FreeBSD araçları."
 ---
 
-Stratum paneli, güvenlik duvarınızı yönetmek için kapsamlı bir arayüz sunsa da, ileri düzey kullanıcılar sıklıkla SSH üzerinden temel FreeBSD sistemiyle etkileşime girecektir. Stratum işletim sistemini sizden saklamaz; onun üzerine inşa eder.
+Stratum Firewall, günlük ağ sorunlarını komut satırına gerek kalmadan çözebileceğiniz kapsamlı web tanılama araçlarının yanı sıra FreeBSD 15.1 üzerinde şeffaf CLI komutları sunar.
 
-Stratum Firewall'ı yönetirken bilmeniz gereken temel komut satırı araçları şunlardır.
+## 1. Web Paneli Tanılama Araçları (`Tanılama / Diagnostics` Menüsü)
 
-## 1. pfctl (Packet Filter Control)
+* **Paket Yakalama (`Diagnostics → Packet Capture`, `v0.25.1`):** İstediğiniz arayüzdeki trafiği protokol, IP/alt ağ ve port alanlarıyla filtreleyip **Wireshark** ile incelemek üzere `.pcap` dosyası olarak indirin (kendi yönetim ve SSH trafiğiniz varsayılan olarak hariç tutulur).
+* **ARP Tablosu ve Wake-on-LAN (`Diagnostics → ARP Table`, `v0.25.1`):** Ağdaki tüm cihazları MAC adresi, DHCP/DNS ismi ve rastgele (mobil) MAC işaretiyle görün; uyku modundaki bilgisayarları tek tıkla **Wake-on-LAN** ile uyandırın.
+* **Web Etkinliği ve DHCP Geçmişi (`Diagnostics → Web Activity`, `v0.20.0`):** Hangi cihazın (OpenVPN kullanıcıları ve WireGuard eş isimleri dahil) hangi alan adlarına eriştiğini inceleyin, DHCP/ARP geçmişini CSV olarak dışa aktarın ve isteğe bağlı **"Tüm DNS trafiğini güvenlik duvarına yönlendir"** kuralını etkinleştirin.
+* **Canlı Günlükler ve `pf` Durum Tablosu:** Eşleşen kural isimleriyle canlı güvenlik duvarı günlüklerini izleyin, aktif bağlantıları (`states`) filtreleyip sonlandırın ve Ping / Traceroute / DNS testleri çalıştırın.
 
-`pfctl` komutu, `pf` güvenlik duvarına arayüzdür. Kuralları kontrol etmek, durumları görüntülemek ve istatistikleri görmek için kullanabilirsiniz.
+## 2. Yerleşik Stratum Komut Satırı Araçları
 
-Aktif kural setini görüntüleyin:
+SSH üzerinden veya konsol menüsündeki **`8) Shell`** seçeneğinden erişebileceğiniz yönetim komutları:
 
-~~
-sudo pfctl -sr
-~~
+| Komut | Görevi |
+| :--- | :--- |
+| `stratum-menu` | Konsol kurulum ve kurtarma menüsünü açar (arayüz atama, IP verme, admin şifre sıfırlama, WAN erişimi). |
+| `stratum-config` | Merkezi yapılandırmayı doğrular, ön kontrollerden geçirir ve uygular veya geri alır. |
+| `stratum-update` | İmzalı güncellemeleri denetler ve ZFS Önyükleme Ortamı yedeği alarak kurar (`stratum-update run`). |
+| `stratum-netextra` | Sanal IP'leri (VIP) ve statik rotaları çekirdek durumuyla senkronize eder. |
+| `stratum-cert` | Web paneli TLS sertifikasını görüntüler, yeniler, yükler veya bir önceki sertifikayı geri yükler (`restore`). |
+| `stratum-ipbl` / `stratum-dnsbl` | IP engelleme tablolarını ve Unbound RPZ DNS listelerini anında günceller. |
 
-Aktif bağlantıları (durumları) görüntüleyin:
+## 3. Temel FreeBSD 15.1 Komutları (`pfctl` ve `bectl`)
 
-~~
-sudo pfctl -ss
-~~
+```bash
+# Aktif pf filtre/NAT kurallarini, istatistikleri ve tablo boyutunu inceleyin
+pfctl -sr
+pfctl -sn
+pfctl -si
 
-Güvenlik duvarı istatistiklerini gösterin:
-
-~~
-sudo pfctl -si
-~~
-
-Bir yapılandırma dosyasını sözdizimi hataları için test edin:
-
-~~
-sudo pfctl -nf /etc/pf.conf
-~~
-
-## 2. ifconfig (Arayüz Yapılandırması)
-
-Ağ arayüzlerinizin durumunu görüntülemek, IP adreslerini kontrol etmek ve MAC adreslerini görmek için `ifconfig` kullanın.
-
-Tüm arayüzleri listeleyin:
-
-~~
-ifconfig -a
-~~
-
-Belirli bir arayüz için ayrıntıları gösterin (örn. em0):
-
-~~
-ifconfig em0
-~~
-
-## 3. netstat ve sockstat
-
-Bu araçlar, ağ bağlantılarını teşhis etmek ve hangi hizmetlerin hangi portlarda dinlediğini görmek için gereklidir.
-
-Dinleyen TCP/UDP portlarını gösterin:
-
-~~
-sockstat -4 -l
-~~
-
-Yönlendirme tablosunu gösterin:
-
-~~
-netstat -rn
-~~
-
-## 4. service (Hizmet Yönetimi)
-
-FreeBSD, rc.d betiklerini yönetmek için `service` komutunu kullanır.
-
-Bir hizmetin durumunu kontrol edin (örn. WireGuard):
-
-~~
-sudo service stratum_wireguard status
-~~
-
-Paneli yeniden başlatın (arka uç değişiklikleri uygulamak için):
-
-~~
-sudo service stratum-panel restart
-~~
-
-## 5. tcpdump (Paket Yakalama)
-
-Derinlemesine paket analizi için `tcpdump` yerleşiktir. Bunu arayüzün Teşhisler sayfasından da çalıştırabilirsiniz.
-
-~~
-sudo tcpdump -i em0 -n port 80
-~~
-
-## Sonraki Adımlar
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>Dosya ve Yol Referansı</h3>
-    <p>Stratum'un yapılandırmasını ve günlüklerini nerede sakladığını öğrenin.</p>
-    <a href="/tr/resources/documentation/file-paths/" class="card-link">Dosya Referansı →</a>
-  </div>
-  <div class="card">
-    <h3>Yardıma mı İhtiyacınız Var?</h3>
-    <p>Takıldıysanız ekiple iletişime geçin.</p>
-    <a href="/tr/company/contact/" class="card-link">Bize Ulaşın →</a>
-  </div>
-</div>
+# Her guncelleme oncesi otomatik olusturulan ZFS Onyukleme Ortamlarini listeleyin
+bectl list
+zfs list
+```

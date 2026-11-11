@@ -1,105 +1,37 @@
 ---
-title: "REST API"
-lead: "Her şeyi otomatikleştirin. Stratum paneli sadece bir istemcidir — gerçek güç API'dedir."
+title: "REST API, MCP ve SNMP"
+description: "Stratum Firewall'ı FastAPI REST API ile otomatikleştirin, Model Context Protocol (MCP) üzerinden yapay zeka asistanlarıyla canlı durumu sorgulayın ve SNMP ile izleyin."
+lead: "Yapılandırmayı REST API ile otomatikleştirin, MCP üzerinden yapay zeka asistanlarıyla canlı ağ analizi yapın ve Zabbix, LibreNMS veya PRTG ile izleyin."
 ---
 
-Stratum Firewall, **API-Öncelikli** bir mimariyle tasarlanmıştır. Web arayüzünde gerçekleştirdiğiniz her işlem bir REST API aracılığıyla yürütülür. Bu, özel panolar oluşturabileceğiniz, dağıtımları otomatikleştirebileceğiniz ve Stratum'u mevcut Altyapı-Kod-Olarak (IaC) iş akışlarınıza (Ansible, Terraform vb.) entegre edebileceğiniz anlamına gelir.
+Stratum Firewall; FreeBSD 15.1 üzerinde **API-öncelikli** Python 3.12 / FastAPI mimarisiyle çalışır ve buna ek olarak yapay zeka asistanları için salt-okunur **Model Context Protocol (MCP)** sunucusu ile yerleşik FreeBSD **SNMP (`bsnmpd`)** ajanını barındırır.
 
-## Temel URL
+## 1. REST API Kimlik Doğrulama ve Safe-Apply
 
-Tüm API uç noktaları güvenlik duvarınızın panel URL'sine görelidir:
+Tüm yönetim uç noktaları standart HTTPS üzerinden sunulur (`https://<guvenlik-duvari-ip>/api/`):
 
-~~
-https://<guvenlik-duvari-ip>:8000/api/
-~~
-
-## Kimlik Doğrulama
-
-Stratum, web arayüzü için oturum çerezlerini kullanır, ancak API otomasyonu için oturum almak üzere giriş uç noktasını kullanmalısınız.
-
-### 1. Giriş
-
-Oturum çerezi almak için bir POST isteği gönderin.
-
-~~bash
-curl -X POST https://192.168.1.1:8000/login \
+```bash
+# 1. Oturum cerezi (cookie) almak icin giris yapin
+curl -k -X POST https://192.168.1.1/login \
   -d "username=admin&password=guvenli_sifreniz" \
   -c cookies.txt
-~~
 
-`-c cookies.txt` parametresi, sonraki istekler için oturum çerezini bir dosyaya kaydeder.
-
-### 2. Kimliği Doğrulanmış İstek
-
-CSRF saldırılarını önlemek için `X-Requested-With: stratum` başlığını eklemelisiniz.
-
-~~bash
-curl -X GET https://192.168.1.1:8000/api/wireguard \
+# 2. CSRF basligiyla kimligi dogrulanmis istek gonderin
+curl -k -X GET https://192.168.1.1/api/status \
   -b cookies.txt \
   -H "X-Requested-With: stratum"
-~~
+```
 
-## Rol Tabanlı Erişim Kontrolü (RBAC)
+* **RBAC Yetkileri:** **Yönetici** tüm uç noktalarda tam yetkiye sahiptir; **Operatör** okuma ve `/api/diag/*` tanılama işlemlerini çalıştırabilir; **Salt Okunur** hesaplarda yazma istekleri `403 Forbidden` döndürür.
+* **Safe-Apply Onayı:** Yapılandırma değişiklikleri uygulandığında bağlantıyı korumak için **60 saniye** içinde `/api/apply/confirm` çağrılmalıdır; aksi halde sistem otomatik geri döner.
 
-API izinleriniz kullanıcı rolünüze bağlıdır:
+## 2. Yapay Zeka Tanılama — MCP Sunucusu (`Sistem → Ayarlar → MCP`, `v0.14.0`)
 
-| Rol | İzinler |
-|---|---|
-| **Yönetici (Admin)** | Tüm uç noktalarda tam CRUD. |
-| **Operatör** | Okuma erişimi. `/api/diag/*`'a POST atabilir. |
-| **Salt Okunur** | Okuma erişimi. Yazma istekleri `403 Forbidden` döndürür. |
+**Claude, ChatGPT, Gemini veya DeepSeek** gibi MCP destekli yapay zeka istemcilerini güvenlik duvarınıza tam kontrollü şekilde bağlayarak *"son 1 saatte hangi port taramaları engellendi?"* veya *"misafir ağında hangi cihazlar var?"* gibi sorular sorabilirsiniz:
 
-## Yaygın Uç Noktalar
+* **%100 Salt Okunur (15+ Araç):** Sistem durumu, arayüzler, WAN gecikme/failover durumu, servisler, güvenlik duvarı ve NAT kuralları, Suricata IPS uyarıları (`ids_alerts`), engelleme özetleri, DHCP kiralamaları ve aktif VPN oturumlarını okur — **MCP üzerinden hiçbir ayar değiştirilemez**.
+* **IP Kısıtlamalı Token ve Gizlilik:** Her asistan için ayrı erişim anahtarı (yalnızca özet/hash olarak saklanır) üretebilir ve istediğiniz aracı tek tek kapatabilirsiniz. Parolalar, özel anahtarlar ve VPN profilleri asla paylaşılmaz.
 
-### Sistem Durumu
+## 3. SNMP İzleme (`Sistem → Ayarlar → SNMP`, `v0.19.0`)
 
-~~bash
-curl -X GET https://192.168.1.1:8000/api/status \
-  -b cookies.txt -H "X-Requested-With: stratum"
-~~
-
-### WireGuard Eşleri
-
-~~bash
-curl -X GET https://192.168.1.1:8000/api/wireguard \
-  -b cookies.txt -H "X-Requested-With: stratum"
-~~
-
-Yeni bir eş oluşturun:
-
-~~bash
-curl -X POST https://192.168.1.1:8000/api/wireguard/peers \
-  -b cookies.txt -H "X-Requested-With: stratum" \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Ansible-Laptop", "psk": true}'
-~~
-
-## API Üzerinden Güvenli Uygulama İş Akışı
-
-API aracılığıyla bir yapılandırma değişikliği gönderdiğinizde, arayüzdekiyle aynı **Güvenli Uygulama** iş akışına girer:
-
-1. API JSON'u doğrular.
-2. `apply_needed: true` ile bir başarı yanıtı döndürür.
-3. Değişiklikleri korumak için 60 saniye içinde `/api/apply/confirm` çağırmalısınız.
-
-## Hata İşleme
-
-- `400 Bad Request`: Doğrulama hatası (örn. geçersiz IP).
-- `401 Unauthorized`: Oturum süresi dolmuş veya geçersiz.
-- `403 Forbidden`: Rolünüz bu eyleme izin vermiyor.
-- `404 Not Found`: Kaynak mevcut değil.
-
-## Sonraki Adımlar
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>Komut Satırı</h3>
-    <p>Temel FreeBSD CLI araçlarını öğrenin.</p>
-    <a href="/tr/resources/documentation/command-line/" class="card-link">CLI Referansı →</a>
-  </div>
-  <div class="card">
-    <h3>Dosya ve Yol Referansı</h3>
-    <p>Yapılandırmanın nerede yaşadığı.</p>
-    <a href="/tr/resources/documentation/file-paths/" class="card-link">Dosya Referansı →</a>
-  </div>
-</div>
+FreeBSD'nin yerel `bsnmpd` servisiyle (**Zabbix, LibreNMS, PRTG, Cacti** uyumlu, salt-okunur `SNMP v1 / v2c`) 64-bit arayüz sayaçlarını (`IF-MIB`), CPU/bellek/disk metriklerini ve `pf` istatistiklerini izleyebilirsiniz. Yalnızca seçilen iç arayüzlerden ve izin verilen IP adreslerinden gelen sorgulara yanıt verir; WAN üzerinde asla açılmaz.

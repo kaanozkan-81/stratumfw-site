@@ -1,72 +1,39 @@
 ---
-title: "pf &amp; Firewall Rules"
-lead: "Master the pf packet filter — learn how rules are evaluated, ordered, and applied safely."
+title: "pf Rules, NAT & Aliases"
+description: "Configure FreeBSD pf firewall rules, Interface Groups, Port Forwards, NAT Reflection, Dynamic Hostname & License-Free GeoIP Country Aliases, and dummynet Bandwidth Shaping."
+lead: "Control packet flow at wire speed — stateful pf rules, interface groups, dynamic GeoIP & Hostname aliases, NAT reflection, and per-device bandwidth limits."
 ---
 
-Stratum Firewall uses **pf (Packet Filter)**, the industry-standard firewall engine built into FreeBSD. Unlike legacy firewalls that use complex, proprietary rule syntax, pf uses a clean, readable configuration language.
+Stratum Firewall compiles your declarative settings directly into FreeBSD's kernel-resident **pf (Packet Filter)** and **dummynet** traffic shaper—with live packet/byte hit counters, drag-and-drop ordering, and zero-lockout validation.
 
-## How pf Evaluates Rules
+## 1. Rule Evaluation Order &amp; Interface Groups (`v0.17.0`)
+
 ![pf Rules](/images/docs/pf-rules.png)
 
-The most critical concept to understand is that **pf evaluates rules from top to bottom, and the first matching rule wins.**
+Under **Firewall → Rules**, rules are evaluated **top-to-bottom (first match wins)** with a strict **Default Deny** baseline (plus a guaranteed **IPv6 safety drop baseline** until native IPv6 support is enabled):
 
-If a packet matches a rule, the action (pass, block, or reject) is taken immediately, and no further rules are evaluated. 
+1. **System &amp; Anti-Lockout Rules:** Shown transparently at the top of each interface tab (bogon/private WAN blocks, DHCP, anti-lockout).
+2. **Interface Group Rules (`Interfaces → Groups`):** Group multiple interfaces (e.g., all internal VLANs) into a single tab; group rules evaluate *before* individual member interface rules while preserving per-WAN `reply-to`.
+3. **Interface Rules:** Per-interface **Pass**, **Block** (silent drop), or **Reject** (`TCP RST` / `ICMP unreachable`) rules with one-click enable/disable switches and optional [Multi-WAN Policy Routing](/resources/documentation/multi-wan/) gateway selection.
 
-- **Pass:** Allows the packet through.
-- **Block:** Drops the packet silently. The sender receives no response (good for security).
-- **Reject:** Drops the packet and sends a TCP RST or ICMP unreachable back to the sender (good for debugging).
+## 2. Static, Hostname &amp; License-Free Country (GeoIP) Aliases (`v0.26.0`)
 
-Stratum enforces a **Default Deny** policy. If a packet doesn't match any rule, it is blocked.
+Keep rules clean and readable under **Firewall → Aliases**:
 
-## Anatomy of a Rule
+* **Hosts, Networks &amp; Ports:** Group IPs, CIDRs, and port ranges into reusable named aliases.
+* **Hostname Aliases (FQDNs):** Enter domain names such as `update.example.com`. Stratum resolves them every **5 minutes** through its own local DNS resolver and retains resolved IPs for **60 minutes** after last seen so CDN IP rotation never drops active sessions.
+* **Country (GeoIP) Aliases:** Restrict port forwards (e.g., *"only allow Türkiye"*) or block hostile regions using weekly IPv4 country blocks fetched directly from all five Regional Internet Registries (**ARIN, RIPE NCC, APNIC, LACNIC, AFRINIC**)—100% free and with **no external license key required**.
 
-When you create a rule in the Stratum panel (under **Firewall → Rules**), you are defining the following parameters:
+Both Hostname and Country aliases back live file-based `pf` tables that refresh in memory without requiring a firewall Apply.
 
-- **Interface:** Which interface does this traffic enter/leave? (e.g., WAN, LAN).
-- **Direction:** `In` (traffic entering the firewall) or `Out` (traffic leaving the firewall).
-- **Action:** Pass, Block, or Reject.
-- **Protocol:** TCP, UDP, ICMP, or any.
-- **Source / Destination:** IP addresses, networks, or Aliases.
-- **Port:** The destination port (e.g., 80 for HTTP, 22 for SSH).
+## 3. Port Forwards, Outbound NAT &amp; NAT Reflection
 
-## Aliases and Macros
+Under **Firewall → NAT**:
 
-To keep your ruleset clean, avoid writing raw IP addresses or ports. Instead, use **Aliases** (under **Firewall → Aliases**).
+* **Port Forwards:** Forward incoming WAN (or [Virtual IP](/resources/documentation/multi-wan/)) ports to internal servers with automatic pass rules and hit counters. Enabling **NAT Reflection** (`System → Settings → Firewall & NAT`) allows internal LAN clients to reach forwarded services via your public IP while still enforcing interface filter rules.
+* **Outbound NAT:** Choose **Automatic** (translates all LANs, VLANs, VPNs, and static internal routes), **Hybrid** (automatic + custom rules, e.g., translating a server out a dedicated Virtual IP), or **Manual** mode, with optional static source ports for gaming/VoIP.
 
-- **Host Alias:** A list of single IP addresses (e.g., `Web_Servers`).
-- **Network Alias:** A list of subnets (e.g., `Internal_Subnets`).
-- **Port Alias:** A list of ports (e.g., `Web_Ports` = 80, 443).
+## 4. Bandwidth Limits (`Firewall → Shaper`, `v0.18.0`)
 
-When you update an Alias, `pf` automatically updates all rules that reference it, without requiring a full firewall reload.
-
-## The Safe-Apply Workflow in Practice
-
-Writing firewall rules carries a risk: you might accidentally block your own management access. Stratum solves this with **Safe-Apply**.
-
-When you click **Apply** in the rule editor:
-1. The system runs a syntax check using `pfctl -nf`.
-2. It applies the new ruleset to the kernel.
-3. A **confirmation banner** appears at the top of the screen with a 60-second countdown.
-4. You must click **"Confirm"** to keep the changes. If you lose connectivity, the system automatically rolls back to the previous ruleset after the timeout.
-
-## Best Practices
-
-1. **Order Matters:** Place more specific rules above general rules.
-2. **Use Anti-Lockout Rules:** Stratum automatically adds an anti-lockout rule for the LAN interface by default. Do not delete it unless you know exactly what you are doing.
-3. **Log Everything:** Enable logging on block rules to see what traffic is being dropped in the **Firewall Log**.
-4. **Test with Diagnostics:** Before applying a strict rule, use the **Diagnostics → Packet Capture** tool to confirm the traffic patterns.
-
-## Next Steps
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>Set up WireGuard VPN</h3>
-    <p>Allow secure remote access to your protected network.</p>
-    <a href="/resources/documentation/wireguard-vpn/" class="card-link">WireGuard Guide →</a>
-  </div>
-  <div class="card">
-    <h3>Enable Threat Intel</h3>
-    <p>Automatically block malicious IPs using pf tables.</p>
-    <a href="/resources/documentation/blocklists/" class="card-link">Blocklists Guide →</a>
-  </div>
-</div>
+Throttle download and upload rates using FreeBSD's kernel **dummynet** pipes directly from `pf`:
+* Set a **shared network limit** (e.g., `250 Mbit/s` total for an office VLAN) or a **per-device limit** (e.g., `20 Mbit/s` per guest phone) in either direction.

@@ -1,98 +1,41 @@
 ---
-title: "Command Line"
-lead: "Master the underlying FreeBSD tools that power Stratum Firewall."
+title: "Diagnostics & Command Line"
+description: "Troubleshoot networks using Stratum Firewall's built-in Wireshark packet capture, ARP/Wake-on-LAN, Web Activity, Stratum CLI tools, pfctl, and ZFS bectl."
+lead: "Troubleshoot from the web UI or SSH — Wireshark .pcap capture, ARP & Wake-on-LAN, Web Activity, Stratum CLI utilities, and native FreeBSD tools."
 ---
 
-While the Stratum panel provides a comprehensive interface for managing your firewall, advanced users will frequently interact with the underlying FreeBSD system via SSH. Stratum does not hide the operating system from you; it builds upon it.
+Stratum Firewall equips administrators with rich browser-based diagnostics alongside clean command-line utilities on the underlying FreeBSD 15.1 system.
 
-Here are the essential command-line tools you should know when managing a Stratum Firewall.
+## 1. Built-In Web Diagnostics (`Diagnostics` Menu)
 
-## 1. pfctl (Packet Filter Control)
+* **Packet Capture (`Diagnostics → Packet Capture`, `v0.25.1`):** Capture traffic on any interface into a downloadable `.pcap` file for **Wireshark** using structured protocol, host/network, and port filters (automatically excluding your own admin web/SSH session).
+* **ARP Table &amp; Wake-on-LAN (`Diagnostics → ARP Table`, `v0.25.1`):** View every neighbor IP, MAC, interface, DHCP/DNS hostname, and randomized mobile MAC indicator—and wake sleeping machines with one-click **Wake-on-LAN**.
+* **Web Activity &amp; DHCP History (`Diagnostics → Web Activity`, `v0.20.0`):** Audit per-device domain lookups (including OpenVPN usernames and WireGuard peer names) and exportable CSV DHCP/ARP history, with optional **Send all DNS to the firewall** redirection (plus DoT port 853 &amp; Firefox DoH canary blocking).
+* **Live Firewall Log, States &amp; Network Tools:** Inspect real-time `filterlog` hits with matched rule names, search/kill active `pf` states, view 1h/24h/30d traffic graphs, and run Ping, Traceroute, and DNS lookups.
 
-The `pfctl` command is the interface to the `pf` firewall. You can use it to check rules, view states, and see statistics.
+## 2. Stratum CLI Utilities
 
-- **View the active ruleset:**
-  ~~~bash
-  sudo pfctl -sr
-  ~~~
-  *(Because Stratum uses declarative config, you should see your rules here after clicking "Apply" in the UI).*
+Connect via SSH or choose **`8) Shell`** from the console menu (`stratum-menu`):
 
-- **View active connections (states):**
-  ~~~bash
-  sudo pfctl -ss
-  ~~~
+| Command | Purpose |
+| :--- | :--- |
+| `stratum-menu` | Launch the interactive console setup and recovery menu (assign interfaces, set IPs, reset admin password, toggle WAN access). |
+| `stratum-config` | Validate, pre-check, apply, or roll back `/usr/local/etc/stratum/config.json` from the command line. |
+| `stratum-update` | Check for signed online updates (`stratum-update run`) or verify/apply updates with automatic ZFS Boot Environment creation. |
+| `stratum-netextra` | Reconcile active Virtual IPs (VIPs) and static routes with the applied configuration. |
+| `stratum-cert` | Inspect, generate self-signed, install, or restore the previous web panel TLS certificate (`show`, `selfsigned`, `install`, `restore`). |
+| `stratum-ipbl` / `stratum-dnsbl` | Refresh IP threat feeds (`pf` tables) or Unbound RPZ DNS blocklists on demand. |
 
-- **Show firewall statistics:**
-  ~~~bash
-  sudo pfctl -si
-  ~~~
+## 3. Essential FreeBSD 15.1 Commands (`pfctl` &amp; `bectl`)
 
-- **Test a configuration file for syntax errors:**
-  ~~~bash
-  sudo pfctl -nf /etc/pf.conf
-  ~~~
+```bash
+# Inspect active pf filter, NAT rules, states, and blocklist table counts
+pfctl -sr
+pfctl -sn
+pfctl -si
+pfctl -t stratum_ipbl -T show | wc -l
 
-## 2. ifconfig (Interface Configuration)
-
-Use `ifconfig` to view the status of your network interfaces, check IP addresses, and see MAC addresses.
-
-- **List all interfaces:**
-  ~~~bash
-  ifconfig -a
-  ~~~
-
-- **Show details for a specific interface (e.g., em0):**
-  ~~~bash
-  ifconfig em0
-  ~~~
-
-## 3. netstat & sockstat
-
-These tools are essential for troubleshooting network connections and seeing which services are listening on which ports.
-
-- **Show listening TCP/UDP ports:**
-  ~~~bash
-  sockstat -4 -l
-  ~~~
-
-- **Show routing table:**
-  ~~~bash
-  netstat -rn
-  ~~~
-
-## 4. service (Service Management)
-
-FreeBSD uses the `service` command to manage rc.d scripts.
-
-- **Check the status of a service (e.g., WireGuard):**
-  ~~~bash
-  sudo service stratum_wireguard status
-  ~~~
-
-- **Restart the panel (if you need to apply manual backend changes):**
-  ~~~bash
-  sudo service stratum-panel restart
-  ~~~
-
-## 5. tcpdump (Packet Capture)
-
-For deep packet analysis, `tcpdump` is built-in. You can also run this from the UI's Diagnostics page.
-
-~~bash
-sudo tcpdump -i em0 -n port 80
-~~
-
-## Next Steps
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>File &amp; Path Reference</h3>
-    <p>Learn where Stratum stores its configuration and logs.</p>
-    <a href="/resources/documentation/file-paths/" class="card-link">File Reference →</a>
-  </div>
-  <div class="card">
-    <h3>Need help?</h3>
-    <p>If you are stuck, reach out to the team.</p>
-    <a href="/company/contact/" class="card-link">Contact Us →</a>
-  </div>
-</div>
+# List ZFS Boot Environments created automatically before each update
+bectl list
+zfs list
+```

@@ -1,77 +1,36 @@
 ---
 title: "Initial Configuration"
-lead: "Set up your firewall after first boot — interfaces, routing, and administrator access."
+description: "Set up Stratum Firewall after installation — WAN/LAN interfaces, 802.1Q VLANs, DNS/DHCP, Admin Access hardening, Safe-Apply, and ZFS updates."
+lead: "Bring your newly installed Stratum Firewall appliance online securely — interfaces, DNS, DHCP, admin hardening, and signed updates."
 ---
 
-Once you have successfully deployed the Stratum panel and logged in for the first time, the system is running but not yet ready to route traffic. This guide walks through the essential first steps to bring your firewall online securely.
+Once you have installed Stratum Firewall from the [VGA ISO or Serial IMG](/resources/documentation/installation/) and opened `https://192.168.1.1/` in your browser, follow these steps to complete your production baseline.
 
-## 1. Change the Default Credentials
+## 1. General Settings &amp; Admin Access Hardening
 
-For security, the first time you log into the panel (using the default `admin` credentials printed in the console), you will be forced to change your password. 
+Navigate to **System → Settings**:
 
-- Use a strong, unique password (minimum 12 characters).
-- Once changed, the system will unlock the rest of the dashboard.
+* **General Tab:** Set the appliance **Hostname**, **Local Domain** (e.g., `lan.example.com`), **Time Zone**, and optional **Sign-in Notice**.
+* **Admin Access Tab:**
+  * Choose the web panel HTTPS port and restrict management access to trusted internal interfaces (WAN management access is closed by default).
+  * Configure **Sign-in Protection** (automatic IP lockout after repeated failed login attempts).
+  * Manage **SSH** access (enable/disable, custom port, key-only authentication, and `root` authorized public keys). Saving any setting that would lock out your current IP address is refused automatically.
+* **Certificates (`System → Certificates`):** Inspect the panel TLS fingerprint, generate a fresh self-signed certificate matching your hostname/IPs, or upload a custom/CA-signed TLS certificate.
 
-## 2. Interface Assignments (WAN & LAN)
+## 2. Interfaces &amp; 802.1Q VLANs
 
-Navigate to **Interfaces → Assignments**. Stratum uses the FreeBSD `pf` engine, so interfaces must be assigned specific roles before rules can be applied.
+1. Navigate to **Interfaces → Assignments** to map physical NICs (`igb0`, `vtnet0`, etc.) or **802.1Q VLANs** (`Interfaces → VLANs`) to `WAN`, `LAN`, and `OPT1..N` roles (`OPT` ports can act as either internal LAN segments or additional WAN links).
+2. Configure your **WAN** under **Interfaces → WAN**:
+   * **DHCP:** Obtains a public IP and gateway automatically from your ISP.
+   * **Static IPv4:** Set your assigned IP/prefix, upstream gateway, and custom MTU if required.
+   * **PPPoE (`mpd5`):** Enter your fiber/DSL ISP credentials; passwords are stored securely in root-only files.
+3. Click **Save**, then click **Apply changes** right beside the Save button. Stratum validates the generated configurations (`pfctl -n`, `nginx -t`, `unbound-checkconf`) and starts a **60-second Safe-Apply timer**—click **Keep changes** to make them permanent, or let the timer expire to roll back automatically if connectivity was lost.
 
-- **WAN:** Select the physical interface connected to your modem or ISP.
-- **LAN:** Select the physical interface connected to your internal network switch.
-- **OPT:** (Optional) Assign any additional interfaces for DMZ, VLANs, or a secondary WAN.
+## 3. DHCP &amp; Validating DNS (Unbound / dnsmasq)
 
-Click **Save**. Because this is a critical change, the **Safe-Apply** mechanism will trigger. You must confirm connectivity within 60 seconds, or the system will revert the changes automatically to prevent a lockout.
+* **DHCP Server (`Services → DHCP`):** Define address pools, static MAC reservations (with one-click *"Make static"* from active leases), and custom gateway/DNS options per LAN/VLAN.
+* **DNS Resolver (`Services → DNS`):** Use **Unbound** (validating DNSSEC resolver in full-recursion or forwarder mode) or **dnsmasq**; DHCP client hostnames resolve automatically across both engines, and you can add local host/domain overrides.
 
-## 3. WAN Configuration
+## 4. Check for Signed Software Updates (ZFS Boot Environments)
 
-Navigate to **Interfaces → WAN**.
-
-You must configure how the firewall obtains its public IP address:
-- **DHCP:** (Most common) The firewall will automatically request an IP from your ISP.
-- **Static IP:** Enter the IP, Subnet Mask, and Gateway provided by your ISP.
-- **PPPoE:** Enter the username and password provided by your ISP (common for DSL/Fiber).
-
-Apply the changes. Check the **Dashboard** to verify that the WAN interface shows an "Up" status and has received an IP address.
-
-## 4. LAN & DHCP Setup
-
-Navigate to **Services → DHCP**.
-
-By default, Stratum will run a DHCP server on the LAN interface so that devices (laptops, phones) can automatically get an IP address and access the internet.
-
-- Define your LAN subnet (e.g., `192.168.1.1/24`).
-- Define the DHCP pool (e.g., `192.168.1.100` to `192.168.1.200`).
-- Set your DNS servers (usually the firewall's LAN IP).
-
-## 5. Role-Based Access Control (RBAC)
-
-Stratum is built for teams. Navigate to **System → Users** to add other administrators. You should never share the `admin` account.
-
-Create individual users and assign them one of three roles:
-- **Admin:** Full access to configure firewall rules, VPNs, and system settings.
-- **Operator:** Can view dashboards, run diagnostics (ping/traceroute), and manage active states, but cannot change firewall rules.
-- **Read-Only:** Can view the dashboard and logs but cannot make any changes.
-
-## 6. Enable Threat Intelligence
-
-Now that the network is live, protect it. Navigate to **Security → Blocklists**.
-
-- Enable **IP Blocklists** to automatically download known malicious IPs into `pf` tables.
-- Enable **DNSBL** to block ads, trackers, and malware domains at the resolver level.
-
-## Next Steps
-
-Your firewall is now routing traffic and protecting your network. From here, you can explore:
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>Set up VPN</h3>
-    <p>Configure WireGuard for secure remote access.</p>
-    <a href="/resources/documentation/wireguard-vpn/" class="card-link">WireGuard Guide →</a>
-  </div>
-  <div class="card">
-    <h3>Master the Firewall</h3>
-    <p>Learn how to write complex pf rules using Safe-Apply.</p>
-    <a href="/resources/documentation/pf-rules/" class="card-link">pf Rules Guide →</a>
-  </div>
-</div>
+Navigate to **System → Update** and click **Check for updates** (or upload an offline `.sfu` update package on air-gapped networks). Before applying **v0.28.3** or any future release, Stratum automatically snapshots your current system into a new **ZFS Boot Environment** (retaining the newest 5 environments) so you can always boot back into the previous version if needed.

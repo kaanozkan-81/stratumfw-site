@@ -1,83 +1,30 @@
 ---
-title: "IP &amp; DNS Blocklists"
-lead: "Protect your network at both layers — block malicious IPs at the packet level and malicious domains at the DNS level."
+title: "Blocklists, Web Filter & Suricata IPS"
+description: "Multi-layer threat defense in Stratum Firewall — 63 IP blocklist feeds, Unbound RPZ DNSBL, 55-category Web Filter, Dual-Engine Suricata 8 IPS/IDS, and Unified Block Reports."
+lead: "Stop threats across every layer — kernel pf IP feeds, Unbound RPZ DNS sinkholing, 55-category Web Filtering, inline Suricata 8 IPS, and pfBlockerNG-style unified reports."
 ---
 
-Stratum Firewall provides a two-layer defense mechanism against modern cyber threats. You can block malicious IP addresses at the firewall level, and simultaneously block malicious domains (ads, trackers, phishing) at the DNS resolver level.
+Stratum Firewall combines four complementary defense engines—managed directly from the web UI with zero external subscriptions or license keys.
 
-## Layer 1: IP Blocklists (IPv4/IPv6)
+## 1. IP Blocklists (`Firewall → Blocklists → IP`, `v0.9.0`)
+
 ![IP Blocklists](/images/docs/blocklists.png)
 
-IP Blocklists allow you to ingest public threat feeds (or custom lists) and block them directly using `pf` tables. This happens at the kernel level, ensuring zero performance impact even with millions of IPs.
+* **63 Maintained Threat Feeds:** Derived from pfBlockerNG catalogs (*Spamhaus DROP, Abuse.ch Feodo Tracker, Emerging Threats, PRI1–PRI5, Scanners, TOR, Proxy* and more) loaded straight into kernel `pf` tables.
+* **Inbound &amp; Outbound Enforcement:** Drop inbound attacks silently while rejecting outbound botnet/C2 connections fast; custom allowlists always override blocked ranges, and private/reserved CIDRs are protected from accidental lockout.
+* **Live Updates:** Feeds refresh on a configurable schedule (hourly by default) without requiring a firewall Apply.
 
-### How to Enable
+## 2. DNSBL &amp; 55-Category Web Filter (`v0.6.13`, `v0.24.0`)
 
-1. Navigate to **Security → Blocklists**.
-2. Select the **IP Blocklists** tab.
-3. Toggle **Enable IP Blocklists**.
+* **DNS Blocklists (`Firewall → Blocklists → DNSBL`):** Sinkhole ads, trackers, phishing, and malware domains in **Unbound RPZ** using curated pfBlockerNG and **HaGeZi** catalogs plus custom allow/block lists.
+* **Per-Network Web Filter (`Firewall → Web Filter`):** Assign different content policies per LAN, VLAN, or VPN network across **55 categories** (*UT1 Université Toulouse Capitole* &amp; *Block List Project*—adult content, malware, proxies/VPN bypass, social media, gambling, etc.), enforce **Safe Search** on Google (including regional domains), Bing, DuckDuckGo, and YouTube Restricted Mode, and test domains with **Check a site**.
 
-### Adding a Feed
+## 3. Unified Blocklist Reports (`Firewall → Blocklists → Blocked`, `v0.28.2` – `v0.28.3`)
 
-Stratum supports standard CIDR lists (e.g., Spamhaus DROP, DShield, Abuse.ch).
+Inspect everything stopped by **DNSBL**, **Web Filter**, and **IP Blocklists** in a single pfBlockerNG-style analytics view (plus the **Blocklists** Dashboard widget):
+* View hourly/daily block charts, which feed matched each event, top blocked domains/IPs, and client devices with the most blocks across the last **1 hour, 24 hours, or 7 days** (fully compatible with Unbound 1.26 RPZ logs).
 
-1. Click **Add Feed**.
-2. Paste the URL of the raw text file (e.g., `https://www.spamhaus.org/drop/drop.txt`).
-3. Set the update interval (e.g., every 12 hours).
-4. Click **Save**.
+## 4. Per-Interface Suricata 8 IPS / IDS (`Services → Intrusion Detection`, `v0.15.0` – `v0.24.4`)
 
-Stratum will immediately download the list, parse the valid IPs, and inject them into a `pf` table named `<blocklist_feed_name>`. A default rule is automatically applied to block inbound and outbound traffic matching those IPs.
-
-### Custom IP Blocking
-
-You can also manually block an IP or a subnet without a feed:
-
-1. In the IP Blocklists tab, scroll to **Custom IPs**.
-2. Add the IP (e.g., `1.2.3.4`) or CIDR (e.g., `192.168.50.0/24`).
-3. Click **Save**.
-
-## Layer 2: DNSBL (DNS Blocking)
-
-DNSBL prevents devices on your network from resolving malicious or unwanted domains. We use Unbound's RPZ (Response Policy Zones) feature to return `NXDOMAIN` for blocked domains.
-
-### How to Enable
-
-1. Navigate to **Security → Blocklists**.
-2. Select the **DNSBL** tab.
-3. Toggle **Enable DNSBL**.
-
-### Selecting Categories
-
-Instead of manually managing domains, Stratum provides curated feeds.
-Select the categories you want to block (e.g., Ads, Malware, Phishing, Adult Content). The lists will be automatically downloaded and compiled into a local zone file.
-
-### Whitelisting Domains
-
-If a blocked feed inadvertently blocks a domain you need (a false positive), you can override it:
-1. Scroll to the **Whitelist** section.
-2. Add the domain (e.g., `example.com`).
-3. Click **Save**.
-
-## Monitoring and Logs
-
-When a domain is blocked by DNSBL, Unbound logs it. You can view these logs under **Diagnostics → System Logs** (filter for `dnsbl`). For IP Blocklists, you can view blocked packets in **Diagnostics → Firewall Log**, where blocked packets will have the label `ipblock-in-*` or `ipblock-out-*`.
-
-## Best Practices
-
-- **Start with DNSBL:** It is the safest way to start blocking threats without the risk of breaking legitimate IP traffic.
-- **Be careful with IP Blocklists:** Blocking large IP ranges can sometimes break access to CDNs (Content Delivery Networks). Always verify feeds before enabling outbound blocking.
-- **Update Frequency:** Balance the need for fresh threat data with the bandwidth of your firewall. Daily updates are usually sufficient for small businesses.
-
-## Next Steps
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>Explore the API</h3>
-    <p>Automate blocklist management using the REST API.</p>
-    <a href="/resources/documentation/rest-api/" class="card-link">API Reference →</a>
-  </div>
-  <div class="card">
-    <h3>System Logs</h3>
-    <p>Monitor blocked traffic and diagnose network issues.</p>
-    <a href="/resources/documentation/system-logs/" class="card-link">Logs Guide →</a>
-  </div>
-</div>
+* **Per-Interface Watch or Block:** Set each interface independently to **Off**, **Watch** (`pcap` IDS alerts), or **Block** (inline `netmap` IPS packet dropping). When Watch and Block are mixed across interfaces, Stratum automatically supervises dedicated `netmap` and `pcap` Suricata processes in parallel.
+* **Live Rule Reloads (`SIGUSR2`):** Enable ET Open threat categories, toggle categories to **Block**, or disable noisy individual SIDs with one click—changes reload live without restarting Suricata or interrupting traffic.

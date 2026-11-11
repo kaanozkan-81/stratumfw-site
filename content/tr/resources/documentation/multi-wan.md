@@ -1,72 +1,31 @@
 ---
-title: "Çoklu WAN Yedekliliği"
-lead: "Birden fazla internet bağlantısı yapılandırın, böylece birincil bağlantınız koptuğunda ağınız çevrimiçi kalır."
+title: "Çoklu WAN, Politika Yönlendirme ve Sanal IP'ler"
+description: "Stratum Firewall üzerinde 1 saniyelik ağ geçidi izleme, otomatik Çoklu WAN yedekliliği (failover), kural bazlı Politika Yönlendirme, Sanal IP'ler (VIP) ve Statik Rotalar."
+lead: "İnternet kesintilerinde çevrimiçi kalın ve trafiği VLAN veya kural bazında istediğiniz hatta yönlendirin — ağ geçidi izleme, otomatik failover, politika yönlendirme, Sanal IP ve statik rotalar."
 ---
 
-Modern ağlar için tek bir internet bağlantısı tek bir hata noktasıdır. Stratum Firewall, birden fazla WAN arayüzünü yönetmenize ve birincil bağlantı başarısız olduğunda otomatik yedeklilik sağlamanıza olanak tanır.
+Stratum Firewall; **Arayüzler → Ağ Geçitleri**, **Arayüzler → Sanal IP'ler**, **Arayüzler → Rotalar** ve **Güvenlik Duvarı → Kurallar** modülleriyle tam kapsamlı çoklu internet hattı (Multi-WAN) ve kurumsal yönlendirme yetenekleri sunar.
 
-## Kavramlar
+## 1. Saniyelik Ağ Geçidi İzleme (`Arayüzler → Ağ Geçitleri`, `v0.16.0`)
 
-- **WAN:** Geniş Alan Ağı — ağınız ile internet arasındaki bağlantı.
-- **Yedeklilik (Failover):** Bir bağlantı koptuğunda trafiğin otomatik olarak diğerine kaydırılması.
-- **Yük Dengeleme:** Trafiğin mevcut tüm bağlantılara dağıtılması.
-- **Ağ Geçidi Grubu:** Birden fazla WAN arayüzünü birlikte yönetmek için mantıksal bir grup.
+WAN rolündeki her arayüz (`WAN` veya WAN tipinde atanmış `OPT` portları), arka planda çalışan izleme servisi tarafından **saniyede bir kez** denetlenir:
 
-## Adım 1: Birden Fazla WAN Arayüzü Atama
+* **Özel İzleme IP'si:** ISS ağ geçidi ping yanıtı vermiyorsa, yalnızca o WAN hattı üzerinden çıkacak şekilde harici bir hedef (`1.1.1.1` vb.) tanımlayabilirsiniz.
+* **Gecikme ve Paket Kaybı Eşikleri:** Varsayılan olarak son 30 saniyede `%20` paket kaybı veya `500 ms` gecikme aşıldığında hat `Down` (Çöktü) olarak işaretlenir ve bildirim gönderilir.
 
-1. **Arayüzler → Atamalar** bölümüne gidin.
-2. Ek fiziksel arayüzleri **WAN** veya **WAN tipi OPT** rolüne atayın.
-3. Her birini ayrı ayrı yapılandırın (**Arayüzler → WAN1**, **WAN2** vb.).
+## 2. Otomatik Hat Yedekleme (WAN Failover) ve Simetrik Yanıt (`v0.16.1`)
 
-## Adım 2: Ağ Geçidi Grupları Oluşturma
+* **Öncelik Tabanlı Geçiş:** Ana internet hattı koptuğunda varsayılan rota anında en yüksek öncelikli sağlam yedek hatta aktarılır. Ana hat geri geldiğinde dalgalanmayı (flapping) önlemek için varsayılan olarak **60 saniye** kesintisiz sağlıklı kaldıktan sonra trafiği geri devralır.
+* **Simetrik Dönüş (`reply-to`):** İkinci WAN hattına gelen port yönlendirmeleri ve OpenVPN (`multihome`) bağlantıları, varsayılan rota hangi hatta olursa olsun geldiği WAN üzerinden yanıtlanır.
 
-1. **Arayüzler → Ağ Geçidi Grupları** bölümüne gidin.
-2. **Grup Ekle**'ye tıklayın.
-3. Bir ad girin (örn. `wan-failover`).
-4. Arayüzleri öncelik sırasına göre ekleyin.
+## 3. Kural Bazlı Politika Yönlendirme — Policy Routing (`v0.27.2`)
 
-### Katman Türleri
+Dahili bir arayüzdeki veya [Arayüz Grubundaki](/tr/resources/documentation/pf-rules/) herhangi bir **İzin (`Pass`)** kuralında trafiğin hangi WAN ağ geçidinden (statik veya PPPoE) çıkacağını seçebilirsiniz (örneğin misafir VLAN ağını ikinci internet hattından çıkarmak):
 
-- **Failover:** Birincil bağlantı koptuğunda yedeğe geçer.
-- **Load Balance (Yük Dengeleme):** Trafiği mevcut tüm bağlantılara dağıtır.
+* **Otomatik Yerel Ağ Koruması:** Bu kurala giren cihazların yerel LAN/VLAN ağlarına, WireGuard/OpenVPN tünellerine, statik rotalı iç ağlara veya güvenlik duvarının kendisine giden trafiği otomatik olarak yerel yönlendirmede kalır; ISS'ye gönderilmez.
+* **Hat Çökmesi Davranışı:** Seçilen ağ geçidi çöktüğünde trafiğin saniyeler içinde varsayılan rotaya (yedek hatta) düşmesini veya yalnızca o hatta bağlı kalmasını seçebilirsiniz.
 
-## Adım 3: Yedeklilik Kuralları
+## 4. Sanal IP'ler (VIP) ve Statik Rotalar (`stratum-netextra`, `v0.27.0`)
 
-**Güvenlik Duvarı → Kurallar** altında, kuralınızın **Ağ Geçidi** seçeneğini oluşturduğunuz gruba ayarlayın.
-
-## Sağlık Kontrolleri
-
-Stratum, bağlantı sağlığını çeşitli yöntemlerle izler:
-- **ICMP:** Güvenilir uzak ana bilgisayarlara ping atar.
-- **HTTP/HTTPS:** Bilinen bir uç noktaya ulaşır.
-- **DNS:** Bilinen bir alan adını çözer.
-
-## Kullanım Senaryoları
-
-### KOBİ: Birincil + Yedek
-İki bağlantı: fiber birincil, LTE yedek. Birincil çöktüğünde otomatik geçiş.
-
-### Kurumsal: Aktif/Aktif
-İki eşit bağlantı: trafik her ikisine de dağıtılır. Biri çökerse diğeri tüm yükü alır.
-
-## Sorun Giderme
-
-### Yedeklilik Çalışmıyor
-- Her arayüzün ayrı ayrı IP aldığını doğrulayın.
-- Sağlık kontrol ayarlarını kontrol edin (**Sistem → Ayarlar → Ağ Geçitleri**).
-- Test için birincil bağlantının kablosunu çıkarın.
-
-## Sonraki Adımlar
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>pf ve Kurallar</h3>
-    <p>Yedeklilik kuralları yazın ve uygulayın.</p>
-    <a href="/tr/resources/documentation/pf-rules/" class="card-link">pf Kılavuzu →</a>
-  </div>
-  <div class="card">
-    <h3>WireGuard VPN</h3>
-    <p>Uzaktan çalışanlar için güvenli erişim sağlayın.</p>
-    <a href="/tr/resources/documentation/wireguard-vpn/" class="card-link">VPN Kılavuzu →</a>
-  </div>
-</div>
+* **Sanal IP'ler (`Arayüzler → Sanal IP'ler`):** `/29` gibi birden fazla genel IP adresine sahip WAN hatlarında ek IP'leri arayüze tanımlayın; her genel IP'yi farklı bir iç sunucuya port yönlendirin veya Giden NAT'ta çıkış IP'si olarak kullanın.
+* **Statik Rotalar (`Arayüzler → Rotalar`):** İç ağdaki alt yönlendiricilerin arkasındaki ağları tanımlayın; bu ağlar internete otomatik olarak NAT'lanır ve `/etc/rc.conf` kirletilmeden `stratum-netextra` ile çekirdekte senkronize tutulur.

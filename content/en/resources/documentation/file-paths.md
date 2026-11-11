@@ -1,67 +1,34 @@
 ---
-title: "File &amp; Path Reference"
-lead: "Where configuration lives, where logs are stored, and what each file does."
+title: "File & Path Reference"
+description: "Reference guide to Stratum Firewall's configuration files, root-only secret storage, generated FreeBSD daemon configs, logs, and ZFS boot environments."
+lead: "Transparent by design — see where Stratum stores its single declarative configuration, cryptographic secrets, generated service files, and logs."
 ---
 
-One of the core design principles of Stratum Firewall is **transparency**. We do not hide configurations in binary databases. Everything is stored in plain text files that you can inspect, back up, or version control.
+Stratum Firewall never locks your settings inside opaque binary databases. All configuration state is driven from one auditable JSON file, while sensitive keys remain isolated in root-only files on your ZFS pool.
 
-## Core Directories
+## 1. Source of Truth &amp; Isolated Secrets
 
-| Path | Description |
-|---|---|
-| `/usr/local/etc/stratum/` | The main configuration directory. |
-| `/usr/local/etc/stratum/config.json` | The single source of truth for all firewall settings. |
-| `/usr/local/etc/stratum/wireguard/` | Stores WireGuard keys and generated `wg0.conf` files. |
-| `/usr/local/etc/stratum/blocklists/` | Stores downloaded IP feeds for `pf` tables. |
-| `/opt/stratum/` | The installation directory for the panel and Python virtual environment. |
+| Path / Location | Purpose |
+| :--- | :--- |
+| `config.json` | Single declarative source of truth for interfaces, rules, NAT, aliases, services, and system settings, versioned with configuration history and diffs. |
+| **Root-Only Secret Files** (`0600`) | Kept strictly outside `config.json`: panel user password hashes, WireGuard private/preshared keys, OpenVPN CA/server/user keys &amp; `tls-crypt`, PPPoE passwords, SMTP/Telegram notification tokens, SNMP community, SFTP backup password, and hashed MCP tokens. Included when exporting an encrypted `.stbk` backup with secrets enabled. |
 
-## Generated Configuration Files
+## 2. Generated System Configurations (Managed by `stratum-config`)
 
-When you click **Apply** in the panel, the Python engine renders your `config.json` into native FreeBSD files. **Do not edit these files directly**, as they will be overwritten.
+Every **Apply** validates and regenerates native FreeBSD configuration files from `config.json` (do not hand-edit generated files, as the next Apply will overwrite them):
 
-| Path | Rendered By | Description |
-|---|---|---|
-| `/etc/pf.conf` | `generators.py` | The main firewall rules, NAT, and routing configuration. |
-| `/usr/local/etc/wireguard/wg0.conf` | `generators.py` | The WireGuard server interface configuration. |
-| `/usr/local/etc/unbound/unbound.conf` | `generators.py` | The DNS resolver configuration, including DNSBL zones. |
-| `/etc/rc.conf` | `generators.py` | FreeBSD system startup configuration (e.g., enabling `pf`). |
+| Generated Target | Daemon / Subsystem | Notes |
+| :--- | :--- | :--- |
+| `/etc/pf.conf` &amp; `pf` table files | FreeBSD `pf` &amp; `dummynet` | Filter rules, NAT, policy routing, shaper pipes, IP blocklists, and Hostname/Country (GeoIP) tables. |
+| `/etc/rc.conf` | FreeBSD `rc(8)` | Interface addresses, VLANs, daemons (VIPs and static routes are reconciled dynamically by `stratum-netextra` rather than cluttering `rc.conf`). |
+| `/etc/sysctl.conf.local` | Kernel Tunables (`v0.12.6`) | Managed from **System → Settings → Tunables**; any pre-existing file is preserved as `/etc/sysctl.conf.local.stratum-orig`. |
+| Unbound &amp; `dnsmasq` configs | DNS, DNSBL &amp; DHCP | DNSSEC trust anchor, RPZ DNSBL zones, 55-category Web Filter zones, and DHCP static mappings. |
+| Suricata (`netmap` / `pcap`) | Intrusion Detection / IPS | Supervised per-engine configs and ET Open ruleset categories. |
+| OpenVPN &amp; `wg0` | Remote Access VPNs | Server configs, CRL, `multihome` flags, and kernel `if_wg` peer definitions. |
+| `nginx` &amp; `sshd` | Management Plane | Verified via `nginx -t` and `sshd -t` prior to every Apply. |
 
-## Log Files
+## 3. Logs, Rotation &amp; ZFS Boot Environments
 
-Logs are essential for troubleshooting. By default, Stratum uses FreeBSD's native logging mechanisms.
-
-- **Panel & Auth Logs:**
-  ~~~bash
-  cat /var/log/auth.log
-  ~~~
-  *(Contains successful and failed login attempts, as well as API actions).*
-
-- **Firewall Logs:**
-  Blocked packets are logged to `pflog0`. You can read them via `tcpdump`:
-  ~~~bash
-  tcpdump -n -e -ttt -i pflog0
-  ~~~
-
-- **System Messages:**
-  ~~~bash
-  cat /var/log/messages
-  ~~~
-
-## Backups
-
-You do not need to back up the entire filesystem. Backing up the `/usr/local/etc/stratum/` directory is sufficient to preserve your entire firewall state, as it contains your `config.json` and private keys.
-
-## Next Steps
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>REST API</h3>
-    <p>Automate configuration management via the API.</p>
-    <a href="/resources/documentation/rest-api/" class="card-link">API Reference →</a>
-  </div>
-  <div class="card">
-    <h3>Back to Installation</h3>
-    <p>Review the installation steps.</p>
-    <a href="/resources/documentation/building-from-source/" class="card-link">Read Guide →</a>
-  </div>
-</div>
+* **System &amp; Security Logs (`/var/log/`):** Managed under **System → Settings → Logging** with configurable file sizes, retention counts, and optional **Remote Syslog** forwarding (up to 2 UDP syslog servers with readability-parsed `filterlog`, auth, system, and DHCP/DNS streams).
+* **Blocklist &amp; Web Activity Databases:** Stored in root-only SQLite databases on the appliance (`7-day` retention for Unified Blocklist Reports; `1–730` days configurable for Web Activity; `24-hour` auto-expiry for `.pcap` packet captures).
+* **ZFS Boot Environments (`zroot/ROOT/*`):** Every online or `.sfu` offline update snapshots the active root dataset into a bootable ZFS environment (retaining the newest 5 environments automatically).

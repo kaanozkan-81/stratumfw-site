@@ -1,73 +1,38 @@
 ---
-title: "pf ve Güvenlik Duvarı Kuralları"
-lead: "pf paket filtresinde uzmanlaşın — kuralların nasıl değerlendirildiğini, sıralandığını ve güvenli bir şekilde nasıl uygulandığını öğrenin."
+title: "pf Kuralları, NAT ve Takma Adlar"
+description: "FreeBSD pf güvenlik duvarı kuralları, Arayüz Grupları, Port Yönlendirme, NAT Yansıması, Dinamik Hostname ve Ücretsiz Ülke (GeoIP) Takma Adları ile dummynet Hız Sınırlaması."
+lead: "Trafiği çekirdek hızında yönetin — durum bilgili pf kuralları, arayüz grupları, lisanssız GeoIP ve Hostname takma adları, NAT yansıması ve cihaz başına hız sınırları."
 ---
 
-Stratum Firewall, FreeBSD'ye yerleşik endüstri standardı güvenlik duvarı motoru olan **pf (Packet Filter)** kullanır. Karmaşık, tescilli kural sözdizimleri kullanan eski güvenlik duvarlarının aksine pf, temiz ve okunabilir bir yapılandırma dili kullanır.
+Stratum Firewall, tanımladığınız kuralları doğrudan FreeBSD çekirdeğindeki **pf (Packet Filter)** ve **dummynet** trafik şekillendiricisine derler; canlı paket/bayt sayaçları, sürükle-bırak sıralama ve 60 saniyelik Safe-Apply güvencesi sunar.
 
-## pf Kuralları Nasıl Değerlendirir?
+## 1. Kural Değerlendirme Sırası ve Arayüz Grupları (`v0.17.0`)
 
 ![pf Rules](/images/docs/pf-rules.png)
 
-Anlaşılması gereken en kritik kavram şudur: **pf, kuralları yukarıdan aşağıya doğru değerlendirir ve ilk eşleşen kural kazanır.**
+**Güvenlik Duvarı → Kurallar (`Firewall → Rules`)** altında kurallar **yukarıdan aşağıya doğru (ilk eşleşen kural uygulanır)** değerlendirilir ve eşleşmeyen tüm trafik **Varsayılan Engelle (Default Deny)** ilkesiyle durdurulur:
 
-Bir paket bir kuralla eşleşirse, işlem (geçiş, engelleme veya reddetme) hemen gerçekleştirilir ve başka hiçbir kural değerlendirilmez.
+1. **Sistem ve Kilitlenme Önleme (Anti-Lockout) Kuralları:** Her arayüz sekmesinin üstünde şeffaf biçimde gösterilir.
+2. **Arayüz Grupları (`Arayüzler → Gruplar`):** Birden fazla VLAN veya WAN arayüzünü tek grupta toplayabilirsiniz; grup kuralları üye arayüzlerin kendi kurallarından *önce* çalışır.
+3. **Arayüz Kuralları:** **İzin Ver (`Pass`)**, **Engelle (`Block` — sessiz düşürme)** veya **Reddet (`Reject` — TCP RST / ICMP yanıtlı)** kuralları oluşturabilir ve her kuralda çıkış hattı ([Politika Yönlendirme](/tr/resources/documentation/multi-wan/)) seçebilirsiniz.
 
-- **Geçiş (Pass):** Paketin geçmesine izin verir.
-- **Engelle (Block):** Paketi sessizce düşürür. Gönderen taraf herhangi bir yanıt almaz (güvenlik için iyidir).
-- **Reddet (Reject):** Paketi düşürür ve gönderene bir TCP RST veya ICMP ulaşılamıyor yanıtı gönderir (hata ayıklama için iyidir).
+## 2. Statik, Hostname ve Ücretsiz Ülke (GeoIP) Takma Adları (`v0.26.0`)
 
-Stratum varsayılan olarak **Varsayılan Reddet (Default Deny)** politikasını uygular. Bir paket hiçbir kuralla eşleşmezse engellenir.
+Kurallarda ham IP yazmak yerine **Güvenlik Duvarı → Takma Adlar (`Firewall → Aliases`)** modülünü kullanın:
 
-## Bir Kuralın Anatomisi
+* **Sunucu, Ağ ve Port Takma Adları:** IP adreslerini, alt ağları ve port aralıklarını tek isim altında gruplayın.
+* **Hostname (Alan Adı) Takma Adları:** `update.example.com` gibi alan adları her **5 dakikada bir** güvenlik duvarının kendi DNS çözümleyicisi üzerinden sorgulanır; CDN IP değişimlerinde bağlantı kopmaması için adresler son görüldükten sonra **1 saat** tabloda tutulur.
+* **Ülke (GeoIP) Takma Adları:** Port yönlendirmelerini belirli ülkelerle sınırlandırmak (örn. *"yalnızca Türkiye erişebilsin"*) veya ülkeleri engellemek için beş bölgesel internet kayıt kuruluşundan (**ARIN, RIPE NCC, APNIC, LACNIC, AFRINIC**) haftalık indirilen ülke IP bloklarını kullanır — **ücretsizdir ve harici API/lisans anahtarı gerektirmez**.
 
-Stratum panelinde (**Güvenlik Duvarı → Kurallar**) bir kural oluşturduğunuzda, aşağıdaki parametreleri tanımlıyorsunuz demektir:
+Her iki dinamik takma ad türü de `pf` çalışırken Uygula (Apply) gerektirmeden bellekte canlı güncellenir.
 
-- **Arayüz:** Bu trafik hangi arayüze giriyor/çıkıyor? (örn. WAN, LAN).
-- **Yön:** `In` (güvenlik duvarına giren) veya `Out` (güvenlik duvarından çıkan).
-- **İşlem:** Geçiş (Pass), Engelleme (Block) veya Reddetme (Reject).
-- **Protokol:** TCP, UDP, ICMP veya herhangi biri.
-- **Kaynak / Hedef:** IP adresleri, ağlar veya Takma Adlar (Aliases).
-- **Port:** Hedef port (örn. HTTP için 80, SSH için 22).
+## 3. Port Yönlendirme, Giden NAT ve NAT Yansıması
 
-## Takma Adlar ve Makrolar
+**Güvenlik Duvarı → NAT** altında:
 
-Kural setinizi temiz tutmak için ham IP adresleri veya portlar yazmaktan kaçının. Bunun yerine **Takma Adlar** (Aliases) kullanın (**Güvenlik Duvarı → Takma Adlar**).
+* **Port Yönlendirme (`Port Forwards`):** WAN adresine veya belirli bir [Sanal IP'ye (VIP)](/tr/resources/documentation/multi-wan/) gelen istekleri iç sunuculara yönlendirin. **NAT Yansıması (`NAT Reflection`)** açıksa yerel ağdaki cihazlar da dış genel IP üzerinden iç sunuculara erişebilir.
+* **Giden NAT (`Outbound NAT`):** **Otomatik**, **Hibrit** (otomatik + Sanal IP çıkış kuralları) veya **Manuel** modlardan birini ve gerekirse statik kaynak portu seçeneğini kullanın.
 
-- **Ana Bilgisayar Takma Adı:** Tek IP adreslerinin listesi (örn. `Web_Sunuculari`).
-- **Ağ Takma Adı:** Alt ağların listesi (örn. `Dahili_Alt_Aglar`).
-- **Port Takma Adı:** Portların listesi (örn. `Web_Portlari` = 80, 443).
+## 4. Bant Genişliği Sınırları (`Güvenlik Duvarı → Hız Sınırlayıcı`, `v0.18.0`)
 
-Bir Takma Adı güncellediğinizde, `pf` tam bir güvenlik duvarı yeniden yüklemesi gerektirmeden ona başvuran tüm kuralları otomatik olarak günceller.
-
-## Güvenli Uygulama (Safe-Apply) İş Akışı
-
-Güvenlik duvarı kuralları yazmak bir risk taşır: yanlışlıkla kendi yönetim erişiminizi engelleyebilirsiniz. Stratum bunu **Güvenli Uygulama** ile çözer.
-
-Kural düzenleyicide **Uygula**'ya tıkladığınızda:
-1. Sistem `pfctl -nf` kullanarak sözdizimi kontrolü yapar.
-2. Yeni kural setini çekirdeğe uygular.
-3. Ekranın üst kısmında 60 saniyelik geri sayımlı bir **onay bandı** belirir.
-4. Değişiklikleri korumak için **Onayla**'ya tıklamalısınız. Bağlantıyı kaybederseniz, sistem zaman aşımından sonra otomatik olarak önceki kural setine geri döner.
-
-## En İyi Uygulamalar
-
-1. **Sıra Önemlidir:** Daha spesifik kuralları genel kuralların üstüne yerleştirin.
-2. **Anti-Lockout Kurallarını Kullanın:** Stratum, LAN arayüzü için varsayılan olarak otomatik bir anti-lockout kuralı ekler. Ne yaptığınızı kesinlikle bilmiyorsanız silmeyin.
-3. **Her Şeyi Günlüğe Kaydedin:** Hangi trafiğin düşürüldüğünü görmek için engelleme kurallarında günlüğe kaydetmeyi etkinleştirin (**Güvenlik Duvarı Günlüğü**).
-4. **Teşhislerle Test Edin:** Katı bir kuralı uygulamadan önce, trafik modellerini doğrulamak için **Teşhisler → Paket Yakalama** aracını kullanın.
-
-## Sonraki Adımlar
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>WireGuard VPN Kurun</h3>
-    <p>Korumalı ağınıza güvenli uzaktan erişime izin verin.</p>
-    <a href="/tr/resources/documentation/wireguard-vpn/" class="card-link">WireGuard Kılavuzu →</a>
-  </div>
-  <div class="card">
-    <h3>Tehdit İstihbaratını Etkinleştirin</h3>
-    <p>pf tablolarını kullanarak kötü amaçlı IP'leri otomatik olarak engelleyin.</p>
-    <a href="/tr/resources/documentation/blocklists/" class="card-link">Karalisteler Kılavuzu →</a>
-  </div>
-</div>
+FreeBSD çekirdeğindeki **dummynet** borularını doğrudan `pf` üzerinden kullanarak her yerel ağ için **toplam paylaşımlı hız sınırı** (örn. ofis VLAN'ı için `250 Mbit/sn`) veya **cihaz başına hız sınırı** (örn. misafir telefonları için cihaz başı `20 Mbit/sn`) tanımlayabilirsiniz.

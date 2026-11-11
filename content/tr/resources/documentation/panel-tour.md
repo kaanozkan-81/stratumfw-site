@@ -1,63 +1,37 @@
 ---
-title: "Panel Turu"
-lead: "Stratum arayüzünde gezinin — düzeni, modülleri ve Güvenli Uygulama (Safe-Apply) iş akışını anlayın."
+title: "Panel Turu ve Operasyonlar"
+description: "Stratum Firewall web arayüzünü keşfedin — 12 sütunlu özelleştirilebilir kontrol paneli, kişisel bildirimler, sabit Safe-Apply çubuğu, Servis Durumu, RBAC ve şifreli SFTP yedeklemeleri."
+lead: "Stratum web panelinde uzmanlaşın — kontrol panelinizi özelleştirin, çalışan servisleri denetleyin, kullanıcı rolleri atayın ve şifreli uzak sunucu yedeklemelerini otomatikleştirin."
 ---
 
-Stratum yönetim paneli, eski nesil güvenlik duvarı arayüzlerinde bulunan karmaşadan arındırılmış, hızlı ve duyarlı olacak şekilde tasarlanmıştır. REST API üzerine inşa edilmiş ince bir istemcidir; yani gerçekleştirdiğiniz her işlem, otomasyon için kullanabileceğiniz API tarafından desteklenir.
+Stratum yönetim paneli; Python 3.12, FastAPI ve hafif modüler JavaScript mimarisiyle (hem **Koyu** hem **Açık** tema, mobil ekran uyumu ve anlık **TR / EN** dil geçişi desteğiyle) yüksek hızda çalışacak şekilde tasarlanmıştır.
 
-## Düzen
-
-Arayüz üç ana bölüme ayrılmıştır:
-
-1. **Kenar Çubuğu Navigasyonu:** İşleve göre gruplandırılmıştır (Genel Bakış, Arayüzler, Güvenlik Duvarı, Servisler, VPN, Sistem, Teşhisler).
-2. **Üst Çubuk:** Mevcut sayfa konumunu (breadcrumb), aktif kullanıcı rolünüzü ve sistem durumu göstergelerini gösterir.
-3. **Ana İçerik Alanı:** Aktif modülün yapılandırmasının veya panosunun bulunduğu yerdir.
-
-## Pano (Dashboard)
+## 1. Özelleştirilebilir 12 Sütunlu Kontrol Paneli (`v0.23.0` – `v0.28.2`)
 
 ![Stratum Dashboard](/images/docs/dashboard.png)
 
-Oturum açtığınızda varsayılan görünümdür. Pano son derece özelleştirilebilir ve ağınızın sağlığına dair bir bakışta genel bir görünüm sunar.
+Her kullanıcı kendi kontrol paneli düzenini Uygula (Apply) gerektirmeden anında kaydedebilir:
 
-- **Sistem Hayati Verileri:** FreeBSD ana bilgisayarının CPU, RAM ve Disk kullanımı.
-- **Arayüz Trafiği:** WAN ve LAN için gerçek zamanlı RX/TX (Alınan/Gönderilen) grafikleri.
-- **Aktif Durumlar:** `pf` tarafından izlenen aktif bağlantıların sayısı.
-- **Güvenlik Uyarıları:** IP Karalisteleri veya DNSBL'den gelen son engellemeler.
+* **Sürükle ve Boyutlandır (`gridstack`):** **Özelleştir (`Customize`)** düğmesiyle kartları sürükleyip 12 sütunlu ızgara üzerinde boyutlandırabilir, **Düzeni sıfırla** ile varsayılan görünüme dönebilirsiniz.
+* **Kontrol Paneli → Paneller:** *Sistem*, *WAN*, *CPU*, *Bellek*, *Disk*, *Sıcaklık*, *Bağlantılar*, *Trafik*, *Ağ Geçitleri*, *Bant Genişliği Sınırları*, *Saldırı Tespit*, *Engelleme Listeleri (`v0.28.2`)*, *DHCP*, *VPN Bağlantıları*, *Yedekleme* ve *Web Etkinliği* kartlarını dilediğiniz gibi ekleyip çıkarabilirsiniz.
 
-## Rol Tabanlı Görünümler
+## 2. Kaydet Yanında Uygula ve Sabit Safe-Apply Çubuğu (`v0.28.0`)
 
-Neyi göreceğiniz rolünüze bağlıdır:
-- **Yöneticiler (Admins)** her menü öğesini görür.
-- **Operatörler** teşhis araçlarını, durumları ve günlükleri görür, ancak yapılandırma sayfaları (güvenlik duvarı kuralları gibi) salt okunurdur veya gizlidir.
-- **Salt Okunur** kullanıcılar yalnızca panoyu, metrikleri ve günlükleri görür.
+* Yapılandırmayı değiştiren bir ayar kaydedildiğinde **Kaydet** düğmesinin hemen yanında **Değişiklikleri uygula (`Apply changes`)** düğmesi belirir.
+* **Değişiklikleri uygula / Değişiklikleri koru** çubuğu uzun kural tablolarında aşağı kaydırırken üst barın altında sabit kalır. Uygulama sonrasında **60 saniye** içinde onay verilmezse sistem önceki çalışan `config.json` durumuna otomatik geri döner.
 
-## Güvenli Uygulama (Safe-Apply) Göstergesi
+## 3. Kişisel Bildirim Merkezi ve Telegram / E-posta Uyarıları (`v0.28.0`)
 
-Ekranın üst kısmında bazen yeşil veya sarı bir çubuk belirdiğini göreceksiniz. Bu **Uygulama Çubuğu**'dur (Apply Bar).
+* **Sağ Üst Bildirim Zili:** WAN hat geçişleri, engellenen hatalı girişler, yüksek önem dereceli Suricata IPS uyarıları, sertifika süresi ve yedekleme durumlarını gösterir. Okundu işaretleme ve listeyi temizleme işlemleri her yönetici için kişiseldir; diğer kullanıcıların listesini etkilemez.
+* **Telegram ve SMTP Bildirimleri (`Sistem → Ayarlar → Bildirimler`):** Kritik olayları anlık olarak Telegram botunuza veya e-posta sunucunuza iletebilirsiniz.
 
-Stratum bildirimsel bir yapılandırma motoru kullandığından, siz "Uygula" (Apply) düğmesine tıklayana kadar değişiklikler bellekte aşamalandırılır. Bu, birden fazla ayarlama yapmanıza ve hepsini tek seferde onaylamanıza olanak tanır. Uygula'ya tıkladığınızda, Güvenli Uygulama iş akışı kuralları doğrular, bunları `pf`'e uygular ve bağlantıyı onaylamanız için size bir zaman aşımı penceresi verir.
+## 4. Merkezi Servis Durumu (`Servisler → Servis Durumu`, `v0.28.1`)
 
-## Temel Modüller
+Güvenlik duvarındaki tüm servisleri çalışma durumu (`çalışıyor`, `durduruldu`, `kapalı`), çalışma süresi, bellek kullanımı ve `PID` bilgisiyle tek listede izleyin:
+* Yöneticiler servisleri doğrudan başlatabilir, çift tıklama onayıyla durdurabilir veya yeniden başlatabilir.
+* Çekirdek servisler (`pf`, Nginx, web paneli, SSH, sistem günlüğü, zamanlayıcı) güvenlik nedeniyle yalnızca yeniden başlatılabilir; `pf` yeniden başlatıldığında kurallar ve IP engelleme tabloları kesintisiz yenilenir.
 
-- **Arayüzler (Interfaces):** Fiziksel Ağ Kartlarını (NIC) WAN, LAN veya OPT rollerine atayın.
-- **Güvenlik Duvarı / Kurallar (Firewall / Rules):** `pf` kural setini yönetin. Sürükle ve bırak ile sıralama.
-- **VPN / WireGuard:** Anahtarlar oluşturun, eşleri yönetin ve QR kodlarını tarayın.
-- **Güvenlik / Karalisteler (Security / Blocklists):** Tehdit akışlarını ve DNSBL kategorilerini yönetin.
-- **Teşhisler (Diagnostics):** Canlı `pf` durumları, paket yakalama ve sistem günlükleri.
+## 5. Rol Tabanlı Erişim (RBAC) ve Şifreli SFTP Yedekleme (`v0.22.0`)
 
-## Sonraki Adımlar
-
-Düzeni anladığınıza göre, güvenlik duvarınızı yapılandırma zamanı geldi.
-
-<div class="card-grid grid-2" style="margin-top:32px;">
-  <div class="card">
-    <h3>İlk Yapılandırma</h3>
-    <p>WAN/LAN arayüzlerini ve yönetici erişimini ayarlayın.</p>
-    <a href="/tr/resources/documentation/initial-configuration/" class="card-link">Kılavuzu Okuyun →</a>
-  </div>
-  <div class="card">
-    <h3>pf ve Güvenlik Duvarı Kuralları</h3>
-    <p>Güvenlik duvarı kurallarını güvenli bir şekilde yazmayı, sıralamayı ve uygulamayı öğrenin.</p>
-    <a href="/tr/resources/documentation/pf-rules/" class="card-link">Kılavuzu Okuyun →</a>
-  </div>
-</div>
+* **Kullanıcılar ve Roller (`Sistem → Kullanıcılar`):** **Yönetici (Admin)**, **Operatör** (tanılama ve Wake-on-LAN yetkili), **Salt Okunur (Read-Only)** ([Canlı Demo](https://demo.stratumfw.com) rolü) ve **VPN-only** (yalnızca OpenVPN bağlantısı) rollerini atayın.
+* **Şifreli Yedekler (`.stbk`) ve Otomatik SFTP (`Sistem → Yedekleme`):** Tüm yapılandırmayı ve isteğe bağlı olarak OpenVPN/TLS sertifikalarını, WireGuard anahtarlarını ve gizli parolaları `AES-256-GCM` ile şifrelenmiş tek bir `.stbk` dosyasında yedekleyin veya zamanlanmış görevle NAS / SFTP sunucunuza otomatik aktarın.
