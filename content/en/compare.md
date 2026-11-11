@@ -29,7 +29,7 @@ full_width: true
       <thead>
         <tr>
           <th>Capability / Layer</th>
-          <th class="cmp-highlight">Stratum FW (v0.30.0)</th>
+          <th class="cmp-highlight">Stratum FW (v0.30.3)</th>
           <th>OPNsense (26.7)</th>
           <th>pfSense CE (2.9)</th>
           <th>IPFire (2.29)</th>

@@ -1,10 +1,34 @@
 ---
 title: "Sürüm Notları"
-seo_title: "Stratum Firewall Sürüm Notları (v0.30.0) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.30.0 sürümüne kadar tüm yenilikler, değişiklikler ve düzeltmeler — TOTP iki aşamalı doğrulama (2FA), Zorunlu DNS yönlendirmesi, ek WAN üzerinde DHCP, zamanlanmış kurallar, 1:1 NAT ve günlük özeti."
+seo_title: "Stratum Firewall Sürüm Notları (v0.30.3) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.30.3 sürümüne kadar tüm yenilikler, değişiklikler ve düzeltmeler — OPNsense Unbound DNSBL göçü, bölünmeyen DHCP havuzları, dummynet hız sınırı koruması, TOTP 2FA, Zorunlu DNS ve DHCP Çoklu WAN."
 ---
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## 0.30.3 - 2026-11-11
+
+### Düzeltildi
+- **Kurulum İmajından Kurulan Sistemlerde Bant Genişliği Sınırları (`Güvenlik Duvarı > Hız Sınırlayıcı`):** İmajdan kurulan sistemlerde `dnctl` aracı ve `dummynet` başlangıç betikleri (`FreeBSD-ipfw`) eksikti; `pf` hız sınırı tanımlı ağların trafiğini `dummynet`'e yönlendirmeye devam ettiği için bu ağlarda DHCP dışındaki trafik düşüyordu. `FreeBSD-ipfw` artık hem kurulum imajına dahil edildi hem de paket bağımlılığı olarak eklendi (güncelleme yapan sistemlere otomatik kurulur).
+- `dnctl` aracı veya `dummynet` çekirdek modülü eksik olduğunda, bant genişliği sınırı içeren bir yapılandırmanın uygulanması trafiği düşürecek `pf` kuralları yüklemek yerine açık gerekçesiyle reddedilir.
+
+## 0.30.2 - 2026-11-11
+
+### Eklendi
+- **OPNsense'den İçe Aktarma (`Unbound DNS Engelleme Listeleri`):** OPNsense üzerindeki Unbound DNS engelleme listeleri (hem eski biçim hem de birden fazla liste içeren yeni biçim) artık otomatik olarak taşınır ve güvenlik duvarının DNS engelleme listesi ayarlarının yerini alır.
+  - Katalogda aynı kaynağa sahip olan listeler (URL adresine göre, ayrıca *Steven Black* ve *AdGuard* kendi OPNsense kodlarıyla) otomatik etkinleştirilir; diğer `https://` listeleri özel liste (`custom list`) olarak eklenir.
+  - İzin listesi (`allow list`), engelleme listesi (`block list`) ve joker (`wildcard`) alan adları olduğu gibi aktarılır.
+  - Karşılığı bulunmayan OPNsense liste kodları, şifresiz `http://` listeleri ve düzenli ifade (`pattern`) kuralları önizleme raporunda listelenir.
+  - OPNsense'de yalnızca belirli ağlar için seçilmiş bir liste varsa raporda belirtilir (Stratum'un DNS engelleme listeleri tüm ağları kapsar).
+
+### Düzeltildi
+- **OPNsense'den İçe Aktarma:** Yeni OPNsense biçimindeki DNS engelleme listelerinin ne içe aktarılması ne de raporda gösterilmesi sorunu giderildi.
+
+## 0.30.1 - 2026-11-11
+
+### Değiştirildi
+- **DHCP:** Bir IP dağıtım aralığı artık OPNsense'de olduğu gibi arayüzün kendi IP adresini (ve istemcilere verilen ağ geçidi adresini) kapsayabilir; bu adresler hiçbir istemciye dağıtılmaz. Aralık, bu adreslerin etrafında iki ayrı havuz olarak yazıldığı için hiçbir IP bloğu kaybedilmez ve kontrol paneli havuz boyutunu bu adresleri düşerek hesaplar.
+- **OPNsense'den İçe Aktarma:** Arayüz adresini kapsayan DHCP aralıkları artık yalnızca büyük parçasına kesilmek yerine tam kapsamıyla korunur; ağ adresinden (`network address`) başlayan veya yayın adresinde (`broadcast`) biten aralıklar ise otomatik olarak geçerli sınıra kaydırılır.
 
 ## 0.30.0 - 2026-11-11
 

@@ -1,6 +1,6 @@
 ---
 title: "Blocklists, Force DNS, Web Filter & Suricata IPS"
-description: "Multi-layer threat defense in Stratum Firewall v0.30.0 — 63 IP blocklist feeds, Force DNS with Active Directory exceptions, Unbound RPZ DNSBL, 55-category Web Filter, Dual-Engine Suricata 8 IPS/IDS, and Unified Block Reports."
+description: "Multi-layer threat defense in Stratum Firewall v0.30.3 — 63 IP blocklist feeds, Force DNS with Active Directory exceptions, Unbound RPZ DNSBL, 55-category Web Filter, Dual-Engine Suricata 8 IPS/IDS, and Unified Block Reports."
 lead: "Stop threats across every layer — kernel pf IP feeds, unbypassable Force DNS with AD exceptions, Unbound RPZ DNS sinkholing, 55-category Web Filtering, inline Suricata 8 IPS, and pfBlockerNG-style unified reports."
 ---
 
