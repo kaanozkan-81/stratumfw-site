@@ -1,8 +1,9 @@
 ---
 title: "Stratum Firewall Canlı Demo — FreeBSD Güvenlik Duvarı Arayüzünü Tarayıcıda Deneyin"
-description: "Kurulum yapmadan Stratum Firewall v0.27.1 yönetim panelini tarayıcınızda canlı deneyimleyin. Gerçek FreeBSD 15.1 sanal makinesi üzerinde pf kuralları, NAT, Sanal IP, GeoIP Ülke Takma Adları, WireGuard, OpenVPN ve Suricata IPS modüllerini inceleyin."
+description: "Kurulum yapmadan tarayıcınızda çalışan gerçek FreeBSD 15.1 Stratum Firewall sanal makinesini inceleyin — pf kuralları, Suricata IPS, DNSBL raporları ve Çoklu WAN ayarlarını canlı test edin."
 lead: "Hiçbir dosya indirmeden veya kurulum yapmadan, gerçek bir FreeBSD 15.1 sanal makinesi üzerinde çalışan Stratum FW v0.27.1 web yönetim panelini tarayıcınızda canlı olarak test edin."
 full_width: true
+seo_title: "Canlı Güvenlik Duvarı Demosu — Stratum Firewall'ı Tarayıcıda Deneyin"
 ---
 <div class="download-layout">
 <section class="download-hero">

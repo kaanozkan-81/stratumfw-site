@@ -1,8 +1,9 @@
 ---
 title: "Features"
-description: "Explore Stratum Firewall's core capabilities: Multi-VLAN network topology, native FreeBSD pf kernel packet filtering, DNSBL web filtering, IP blocklists, and FastAPI control."
+description: "Full feature matrix of Stratum Firewall v0.28.3: stateful pf rules, Multi-WAN policy routing, 63 IP blocklists, Unbound RPZ DNSBL, 55-category Web Filter, Suricata 8 IPS/IDS, WireGuard, OpenVPN, and ZFS rollback."
 lead: "Everything you need to segment, shield, filter, and automate your network infrastructure—built on raw FreeBSD 15.1/15 power and controlled via a modern FastAPI architecture."
 full_width: true
+seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & Multi-WAN VPN"
 ---
 <style>
 .feature-showcase-page {

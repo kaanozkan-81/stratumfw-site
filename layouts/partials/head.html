@@ -15,7 +15,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.tagline }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+  <title>{{ with .Params.seo_title }}{{ . }}{{ else }}{{ if .IsHome }}{{ if eq .Site.Language.Lang "tr" }}Stratum Firewall — Ücretsiz ve Açık Kaynak FreeBSD 15.1 Güvenlik Duvarı İşletim Sistemi{{ else }}Stratum Firewall — Free Open-Source FreeBSD 15.1 Firewall OS (pf, FastAPI & ZFS){{ end }}{{ else }}{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.tagline }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}{{ end }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta name="theme-color" content="#0F1E3D">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">

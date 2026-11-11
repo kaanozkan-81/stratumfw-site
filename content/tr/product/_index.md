@@ -1,6 +1,8 @@
 ---
 title: "Ürün Genel Bakış"
 lead: "Ağınız üzerinde mutlak kontrol sağlayan, gereksiz yüklerden arındırılmış, API odaklı modern bir güvenlik duvarı işletim sistemi."
+seo_title: "Ürün Özeti — Modern FreeBSD 15.1 ve pf Açık Kaynak Güvenlik Duvarı"
+description: "Stratum Firewall'ın FreeBSD 15.1 pf paket filtreleme, Suricata 8 IPS, Unbound DNSBL, WireGuard ve ZFS Önyükleme Ortamlarını Python 3.12 FastAPI kontrol katmanıyla nasıl birleştirdiğini inceleyin."
 ---
 
 ## Stratum Firewall Nedir?

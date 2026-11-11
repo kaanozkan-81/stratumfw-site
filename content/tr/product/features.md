@@ -1,8 +1,9 @@
 ---
 title: "Özellikler"
-description: "Stratum Firewall'un temel yeteneklerini keşfedin: Çoklu VLAN ağ topolojisi, FreeBSD pf çekirdek paket filtreleme, DNSBL web filtreleme, IP karalisteleri ve FastAPI kontrolü."
+description: "Stratum Firewall v0.28.3 tüm özellikleri: durum bilgili pf kuralları, Çoklu WAN politika yönlendirmesi, 63 IP tehdit listesi, Unbound DNSBL, 55 kategorili Web Filtresi, Suricata 8 IPS/IDS, WireGuard, OpenVPN ve ZFS geri alma."
 lead: "Ağ altyapınızı bölütlemek, korumak, filtrelemek ve otomatikleştirmek için gereken her şey — saf FreeBSD 15.1/15 gücü üzerine inşa edildi, modern FastAPI mimarisiyle yönetiliyor."
 full_width: true
+seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Çoklu WAN VPN"
 ---
 <style>
 .feature-showcase-page {
