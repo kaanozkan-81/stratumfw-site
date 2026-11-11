@@ -14,20 +14,23 @@ section.hero::before {
   background-image: url("/images/stratum-logo-3d.jpg?v=20261111") !important;
   background-size: cover !important;
   background-position: center center !important;
-  opacity: 0.30 !important;
-  filter: saturate(1.1) contrast(1.05);
+  opacity: 0.82 !important;
+  filter: saturate(1.18) contrast(1.06);
   z-index: -2 !important;
 }
 section.hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 38%, rgba(249,250,251,0.88) 0%, rgba(249,250,251,0.72) 55%, #F9FAFB 100%) !important;
+  background: linear-gradient(180deg, rgba(249,250,251,0.62) 0%, rgba(249,250,251,0.52) 55%, rgba(249,250,251,0.88) 92%, #F9FAFB 100%) !important;
   z-index: -1 !important;
 }
 section.hero > .wrap {
   position: relative;
   z-index: 2;
+}
+section.hero h1, section.hero p {
+  text-shadow: 0 1px 16px rgba(255,255,255,0.85);
 }
 </style>
 <!-- STRATUM-HERO-BG-END -->
