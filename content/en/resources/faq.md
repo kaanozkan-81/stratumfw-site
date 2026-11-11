@@ -41,6 +41,11 @@ full_width: true
   <div class="faq">
     <details><summary>Which installer images are available?</summary><div class="faq-body">Stratum FW v0.27.1 (FreeBSD 15.1 amd64) ships with both a bootable <strong>VGA ISO (<code>.iso</code>)</strong> for standard displays and virtual machines (Proxmox, VMware, KVM) and a raw <strong>Serial Console USB (<code>.img</code>)</strong> disk image for headless hardware appliances on the <a href="/download/">Download</a> page.</div></details>
     <details><summary>How do I get help or report a bug?</summary><div class="faq-body">Reach us directly at <a href="mailto:info@stratumfw.com">info@stratumfw.com</a> or open an issue on <a href="https://github.com/kaanozkan-81/stratum-panel/issues" target="_blank" rel="noopener">GitHub Issues</a>.</div></details>
+    <!-- STRATUM-V0300-FAQ-START -->
+    <details><summary>Does Stratum Firewall support Two-Factor Authentication (2FA) for admin sign-in?</summary><div class="faq-body">Yes. Starting in <strong>v0.30.0</strong>, every panel account can enable <strong>TOTP two-factor sign-in</strong> under <strong>My Account</strong> using <em>Google Authenticator</em>, <em>Microsoft Authenticator</em>, <em>1Password</em>, <em>Bitwarden</em>, or any standard authenticator app. The QR code is drawn locally in the browser from a bundled library so your TOTP secret never leaves the firewall. Setup generates <strong>10 one-time recovery codes</strong>, enforces single-use code replay protection, and allows administrators (or physical/serial console access via <code>stratum-menu</code>) to reset 2FA if a phone is lost.</div></details>
+    <details><summary>Can I prevent users from bypassing DNS blocklists and the Web Filter with hardcoded DNS?</summary><div class="faq-body">Yes. Enable <strong>Services &rarr; DNS Resolver &rarr; Force DNS through the firewall</strong> (<code>v0.29.2</code>) on your chosen LAN, Guest, or VLAN interfaces. Any device querying an external resolver like <code>8.8.8.8</code> or <code>1.1.1.1</code> is transparently redirected to Stratum&rsquo;s local resolver, and <strong>DNS over TLS (<code>TCP 853</code>)</strong> is blocked on those networks. If you run <strong>Active Directory</strong>, add your domain controllers to the <strong>Exception alias</strong> so internal AD lookups bypass redirection, and Force DNS records zero browsing history on its own.</div></details>
+    <details><summary>Does Multi-WAN work with dynamic DHCP backup connections like 4G/5G LTE, Cable, or Starlink?</summary><div class="faq-body">Yes (<code>v0.29.1</code>). Secondary and tertiary WAN interfaces (<code>WAN2</code>, <code>WAN3</code>) support <strong>DHCP</strong> alongside Static IPv4 and PPPoE. An additional DHCP WAN never hijacks your default route or system DNS servers&mdash;failover stays governed by the 1-second gateway monitor, and whenever the backup ISP changes your lease gateway, <code>stratum-pfrefresh</code> updates failover, <code>reply-to</code>, and Policy Routing rules within seconds without needing an Apply.</div></details>
+    <!-- STRATUM-V0300-FAQ-END -->
   </div>
 </section>
 
@@ -51,19 +56,3 @@ full_width: true
   <p style="color:var(--ash); margin-bottom:24px;">Reach out — we'd rather answer them than have you guess.</p>
   <a href="/company/contact/" class="btn btn-primary">Contact us</a>
 </div>
-
-<!-- STRATUM-V0300-FAQ-START -->
-
-## Does Stratum Firewall support Two-Factor Authentication (2FA) for admin sign-in?
-
-Yes. Starting in **v0.30.0**, every panel account can enable **TOTP two-factor sign-in** under **My Account** using *Google Authenticator*, *Microsoft Authenticator*, *1Password*, *Bitwarden*, or any RFC 6238 authenticator app. The QR code is drawn locally in the browser from a bundled library so your TOTP secret never leaves the firewall. Setup generates **10 one-time recovery codes**, enforces single-use code replay protection, and allows administrators (or physical/serial console access via `stratum-menu`) to reset 2FA if a phone is lost.
-
-## Can I prevent users from bypassing DNS blocklists and the Web Filter with hardcoded DNS?
-
-Yes. Enable **Services → DNS Resolver → Force DNS through the firewall** (`v0.29.2`) on your chosen LAN, Guest, or VLAN interfaces. Any device querying an external resolver like `8.8.8.8` or `1.1.1.1` is transparently redirected to Stratum's local resolver, and **DNS over TLS (`TCP 853`)** is blocked on those networks. If you run **Active Directory**, add your domain controllers to the **Exception alias** so internal AD lookups bypass redirection, and rest assured that Force DNS records zero browsing history on its own.
-
-## Does Multi-WAN work with dynamic DHCP backup connections like 4G/5G LTE, Cable, or Starlink?
-
-Yes (`v0.29.1`). Secondary and tertiary WAN interfaces (`WAN2`, `WAN3`) support **DHCP** alongside Static IPv4 and PPPoE. An additional DHCP WAN never hijacks your default route or system DNS servers—failover stays governed by the 1-second gateway monitor, and whenever the backup ISP changes your lease gateway, `stratum-pfrefresh` updates failover, `reply-to`, and Policy Routing rules within seconds without needing an Apply.
-
-<!-- STRATUM-V0300-FAQ-END -->

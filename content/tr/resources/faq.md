@@ -41,6 +41,11 @@ full_width: true
   <div class="faq">
     <details><summary>Hangi kurulum imajları mevcut?</summary><div class="faq-body">Stratum FW v0.27.1 (FreeBSD 15.1 amd64) için standart monitörlü sunucular ve sanal makineler (Proxmox, VMware, KVM) için <strong>VGA ISO (<code>.iso</code>)</strong> ve monitörsüz donanımlar (COM1 / IPMI seri konsol) için USB belleğe yazdırılabilir <strong>Serial IMG (<code>.img</code>)</strong> kurulum dosyaları <a href="/tr/download/">İndir</a> sayfasında sunulmaktadır.</div></details>
     <details><summary>Nasıl destek alabilir veya hata bildirebilirim?</summary><div class="faq-body">Doğrudan <a href="mailto:info@stratumfw.com">info@stratumfw.com</a> e-posta adresinden bize ulaşabilir veya <a href="https://github.com/kaanozkan-81/stratum-panel/issues" target="_blank" rel="noopener">GitHub Issues</a> üzerinden bildirim oluşturabilirsiniz.</div></details>
+    <!-- STRATUM-V0300-FAQ-START -->
+    <details><summary>Yönetim paneli girişinde İki Aşamalı Doğrulama (2FA / TOTP) var mı?</summary><div class="faq-body">Evet. <strong>v0.30.0</strong> sürümüyle birlikte tüm panel kullanıcıları <strong>Hesabım (<code>My Account</code>)</strong> ekranından <em>Google Authenticator</em>, <em>Microsoft Authenticator</em>, <em>1Password</em> veya <em>Bitwarden</em> uyumlu <strong>TOTP iki aşamalı girişi</strong> etkinleştirebilir. Kurulum QR kodu gömülü kütüphaneyle doğrudan tarayıcıda çizilir; gizli anahtar güvenlik duvarından dışarı çıkmaz. Telefon kaybına karşı <strong>10 adet tek kullanımlık kurtarma kodu</strong> üretilir ve gerektiğinde başka bir yönetici veya fiziksel konsol (<code>stratum-menu</code>) üzerinden 2FA kapatılabilir.</div></details>
+    <details><summary>Kullanıcıların elle 8.8.8.8 vererek DNSBL ve Web Filtresini aşmasını engelleyebilir miyim?</summary><div class="faq-body">Evet. <strong>Servisler &rarr; DNS Çözümleyici &rarr; Force DNS</strong> (<code>v0.29.2</code>) özelliğini seçtiğiniz iç LAN, Misafir veya VLAN ağlarında açtığınızda cihazların hangi DNS sunucusunu sorduğuna bakılmaksızın tüm sorgular güvenlik duvarının çözümleyicisine yönlendirilir ve <strong>DNS over TLS (<code>TCP 853</code>)</strong> engellenir. <strong>Active Directory</strong> bulunan ortamlarda etki alanı denetleyicilerini <strong>İstisna takma adına (<code>Exception alias</code>)</strong> ekleyebilir, üstelik hiçbir gezinme geçmişi kaydetmeden filtrelemeyi zorunlu tutabilirsiniz.</div></details>
+    <details><summary>Çoklu WAN (Multi-WAN) özelliğinde 4G/5G LTE, Kablo veya Starlink gibi dinamik DHCP yedek hatlar çalışır mı?</summary><div class="faq-body">Evet (<code>v0.29.1</code>). İkincil ve üçüncül WAN arayüzleri (<code>WAN2</code>, <code>WAN3</code>), Statik IP ve PPPoE&rsquo;nin yanı sıra <strong>DHCP</strong> ile otomatik adres alabilir. Ek bir DHCP WAN varsayılan rotayı tek başına devralmaz; hat geçişi saniyelik ağ geçidi izleyicisinin kontrolünde kalır ve operatör yeni bir ağ geçidi verdiğinde kurallar Uygula (Apply) gerektirmeden saniyeler içinde güncellenir.</div></details>
+    <!-- STRATUM-V0300-FAQ-END -->
   </div>
 </section>
 
@@ -51,19 +56,3 @@ full_width: true
   <p style="color:var(--ash); margin-bottom:24px;">Tahmin yürütmenize gerek yok — doğrudan bize yazın, memnuniyetle yanıtlayalım.</p>
   <a href="/tr/company/contact/" class="btn btn-primary">İletişime Geçin</a>
 </div>
-
-<!-- STRATUM-V0300-FAQ-START -->
-
-## Yönetim paneli girişinde İki Aşamalı Doğrulama (2FA / TOTP) var mı?
-
-Evet. **v0.30.0** sürümüyle birlikte tüm panel kullanıcıları **Hesabım (`My Account`)** ekranından *Google Authenticator*, *Microsoft Authenticator*, *1Password* veya *Bitwarden* uyumlu **TOTP iki aşamalı girişi** etkinleştirebilir. Kurulum QR kodu gömülü kütüphaneyle doğrudan tarayıcıda çizilir; gizli anahtar güvenlik duvarından dışarı çıkmaz. Telefon kaybına karşı **10 adet tek kullanımlık kurtarma kodu** üretilir ve gerektiğinde başka bir yönetici veya fiziksel konsol (`stratum-menu`) üzerinden 2FA kapatılabilir.
-
-## Kullanıcıların elle 8.8.8.8 vererek DNSBL ve Web Filtresini aşmasını engelleyebilir miyim?
-
-Evet. **Servisler → DNS Çözümleyici → Force DNS (`v0.29.2`)** özelliğini seçtiğiniz iç LAN, Misafir veya VLAN ağlarında açtığınızda cihazların hangi DNS sunucusunu sorduğuna bakılmaksızın tüm sorgular güvenlik duvarının çözümleyicisine yönlendirilir ve **DNS over TLS (`TCP 853`)** engellenir. **Active Directory** bulunan ortamlarda etki alanı denetleyicilerini **İstisna takma adına (`Exception alias`)** ekleyebilir, üstelik hiçbir gezinme geçmişi kaydetmeden filtrelemeyi zorunlu tutabilirsiniz.
-
-## Çoklu WAN (Multi-WAN) özelliğinde 4G/5G LTE, Kablo veya Starlink gibi dinamik DHCP yedek hatlar çalışır mı?
-
-Evet (`v0.29.1`). İkincil ve üçüncül WAN arayüzleri (`WAN2`, `WAN3`), Statik IP ve PPPoE'nin yanı sıra **DHCP** ile otomatik adres alabilir. Ek bir DHCP WAN varsayılan rotayı tek başına devralmaz; hat geçişi saniyelik ağ geçidi izleyicisinin kontrolünde kalır ve operatör yeni bir ağ geçidi verdiğinde kurallar Uygula (Apply) gerektirmeden saniyeler içinde güncellenir.
-
-<!-- STRATUM-V0300-FAQ-END -->
