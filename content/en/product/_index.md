@@ -1,7 +1,7 @@
 ---
 title: "Product Overview"
 lead: "A modern, API-driven firewall OS that strips away bloat and gives you absolute control over your network."
-seo_title: "Product Overview — Modern FreeBSD 15.1 & pf Open-Source Firewall Appliance"
+seo_title: "Product Overview — Modern FreeBSD 15.1 & pf Subscription-Free Firewall Appliance"
 description: "Discover how Stratum Firewall pairs FreeBSD 15.1 pf packet filtering, Suricata 8 IPS, Unbound DNSBL, WireGuard, and ZFS Boot Environments with a Python 3.12 FastAPI control plane."
 ---
 

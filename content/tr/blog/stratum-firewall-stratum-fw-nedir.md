@@ -13,7 +13,7 @@ Ağ güvenliği dünyasında yeni bir isim hızla duyuluyor: **Stratum Firewall*
 Peki Stratum Firewall'u bu kadar özel kılan ne? Neden IT profesyonelleri ve homelab meraklıları pfSense veya OPNsense yerine **Stratum FW**'yi tercih etmeye başlıyor? İşte bu sorunun cevabı:
 
 ## Stratum Firewall (Stratum FW) Nedir?
-**Stratum Firewall**, tamamen sıfırdan geliştirilmiş, kurumsal düzeyde güvenlik sunan **açık kaynaklı bir FreeBSD güvenlik duvarı (firewall) işletim sistemidir**. 
+**Stratum Firewall**, tamamen sıfırdan geliştirilmiş, kurumsal düzeyde güvenlik sunan **ücretsiz ve aboneliksiz bir FreeBSD güvenlik duvarı (firewall) işletim sistemidir**. 
 
 Geleneksel firewall'ların aksine Stratum FW; PHP tabanlı eski mimariler yerine, modern bir Python (FastAPI) API'si ve ZFS dosya sistemi üzerine inşa edilmiştir. Amacı, ağınızı korurken size esneklik, hız ve en önemlisi **geleceğin teknolojilerini** (yapay zeka gibi) sunmaktır.
 
