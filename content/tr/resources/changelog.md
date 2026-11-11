@@ -5,6 +5,59 @@ description: "Stratum FW sürüm geçmişi - her sürümdeki yeni özellikler, d
 
 Stratum FW'deki tüm önemli değişiklikler burada, en yeniden eskiye doğru listelenmiştir. Stratum FW kendini imzalı güncelleme sunucusundan (System > Update) veya çevrimdışı bir güncelleme dosyasından (`.sfu`) günceller; her güncelleme bir ZFS önyükleme ortamı oluşturur, böylece önceki sürüm herhangi bir zamanda yeniden başlatılabilir.
 
+## 0.28.3 - 2026-11-11
+
+### Düzeltildi
+- Engelleme listesi (Blocklist) raporu: sorgulanan alan adından önce eşleşen kuralı (`*.example.com.`) ve `rpz-nxdomain` eylemini kaydeden Unbound 1.26 ile engellenen DNS sorguları sayılmıyordu. Sorgulanan alan adı artık doğru şekilde okunuyor. Güncellemeden sonra DNS günlüğü baştan bir kez daha okunarak son günlerdeki engellemelerin raporda görünmesi sağlanır; IP engellemeleri iki kez sayılmaz.
+- Web Etkinliği (Web Activity): aynı nedenle cihaz başına engellenen sorgular sayılmıyordu; düzeltildi.
+- Yalnızca engelleme eylemleri engelleme olarak sayılır; izin verilen bir alan adı (`rpz-passthru`) engelleme olarak değerlendirilmez.
+
+## 0.28.2 - 2026-11-11
+
+### Eklendi
+- Güvenlik Duvarı > Engelleme Listeleri > Engellenenler (Firewall > Blocklists > Blocked): pfBlockerNG raporlarına benzer şekilde, engelleme listelerinin neleri durdurduğunu gösteren kapsamlı rapor.
+  - DNS engelleme listelerini, Web Filtresini ve IP engelleme listelerini kapsar.
+  - Kaç adet DNS sorgusunun ve IP paketinin (gelen ve giden) engellendiğini ve saatlik veya günlük engelleme grafiğini gösterir.
+  - Engellemeyi hangi listenin yaptığını, en çok engellenen alan adlarını ve IP adreslerini ve en fazla engelleme yaşanan cihazları listeler.
+  - Engellenen her sorgu ve paket; türe, listeye, alan adına, IP adresine veya cihaza göre aranabilir ve filtrelenebilir.
+  - Zaman aralıkları: son 1 saat, 24 saat veya 7 gün. Kayıtlar 7 gün boyunca saklanır.
+  - Yalnızca yöneticiler erişebilir; Web Etkinliği'nde olduğu gibi her görüntüleme sistem günlüğüne kaydedilir. Rapor temizlenebilir.
+- Kontrol Paneli (Dashboard) "Engelleme Listeleri (Blocklists)" paneli: son 24 saatteki DNS ve IP engellemelerini ve liste bazlı sayıları gösterir. Yöneticiler en çok engellenen alan adlarını ve adresleri de görür. Kontrol Paneli > Paneller menüsünden eklenebilir.
+- Rapor verileri her dakika Unbound günlüğünden ve güvenlik duvarı günlüğünden toplanır. Her engelleme, önce kendi özel engelleme listenizden başlayarak ilgili alan adını veya adresi içeren listeyle eşleştirilir.
+
+### Değiştirildi
+- Unbound artık yalnızca Web Etkinliği açıkken değil, herhangi bir DNS engelleme listesi veya Web Filtresi etkin olduğunda da engellenen sorguları kendi dosyasına yazar. Web Etkinliği kapalıysa bu dosyaya yalnızca engellenen sorgular kaydedilir. Güncellemeden sonra bir sonraki Uygula (Apply) işleminde devreye girer.
+- IP engellemeleri yalnızca IP engelleme listelerinde "Engellenen paketleri günlüğe kaydet" seçeneği açıkken sayılır (varsayılan olarak açıktır).
+
+## 0.28.1 - 2026-11-11
+
+### Eklendi
+- Servisler > Servis Durumu (Services > Service Status): güvenlik duvarındaki tüm servisler; durumu (çalışıyor, durduruldu, kapalı), çalışma süresi, bellek kullanımı ve süreç kimliği (PID) ile tek listede görüntülenir. Yöneticiler servisleri doğrudan buradan başlatabilir, durdurabilir ve yeniden başlatabilir.
+  - Durdurma işlemi onay için ikinci bir tıklama ister. Durdurulan bir servis tekrar başlatılana, kendisini değiştiren bir sonraki Uygula (Apply) işlemine veya sistem yeniden başlatılana kadar durdurulmuş kalır.
+  - Kendi ayarlarında kapalı olan bir servis buradan başlatılamaz; bunun yerine doğrudan ilgili ayar sayfasına bağlantı verilir.
+  - Paket filtresi (`pf`), web sunucusu, web paneli, SSH, sistem günlüğü ve zamanlayıcı yalnızca yeniden başlatılabilir. Paket filtresi yeniden başlatıldığında kurallar yeniden yüklenir ve IP engelleme listesi tablosu tekrar doldurulur.
+  - Diğer kullanıcı rolleri listeyi görebilir ancak değişiklik yapamaz.
+
+## 0.28.0 - 2026-11-11
+
+### Eklendi
+- Bildirimler (sağ üstteki zil simgesi): her kullanıcı tek bir bildirimi veya tümünü okundu olarak işaretleyebilir, tek tek silebilir ya da listeyi tamamen temizleyebilir. Bu işlemler kullanıcıya özeldir; diğer kullanıcıların bildirim listeleri ve olay geçmişi etkilenmez. Temizleme sonrasında gelen yeni olaylar tekrar görünür.
+- Bir değişiklik kaydedildikten sonra OPNsense ve pfSense'de olduğu gibi sayfadaki Kaydet (Save) düğmesinin yanında doğrudan bir "Değişiklikleri uygula (Apply changes)" düğmesi belirir. Yalnızca yapılandırma gerçekten değiştiğinde görünür; Wake-on-LAN veya paket yakalama gibi anlık eylemlerden sonra çıkmaz.
+
+### Değiştirildi
+- Değişiklikleri uygula / Değişiklikleri koru çubuğu sayfa aşağı kaydırılırken üst çubuğun altında görünür kalmaya devam eder ve kaydetme sonrasında kısaca parlayarak dikkat çeker. Dar ekranlarda sayfanın üstünde sabit kalır.
+- Bildirim listesini açmak artık tüm bildirimleri otomatik olarak okundu işaretlemez; bunun için "Tümünü okundu işaretle" düğmesini kullanabilir veya bildirimin üzerine tıklayabilirsiniz.
+
+## 0.27.2 - 2026-11-11
+
+### Eklendi
+- Güvenlik duvarı kuralları, politika tabanlı yönlendirme (Policy Routing): dahili bir arayüzdeki (veya dahili arayüz grubundaki) bir izin (pass) kuralı, trafiğini seçilen belirli bir WAN üzerinden gönderebilir (örneğin misafir ağını ikinci internet sağlayıcısı üzerinden çıkarmak).
+  - Statik ağ geçidine sahip veya PPPoE kullanan WAN bağlantılarıyla çalışır.
+  - Kural kapsamındaki trafiğin kendi ağlarınıza (yerel ağlar, VPN ağları, statik rotalı ağlar) ve doğrudan güvenlik duvarının kendisine giden kısmı normal yönlendirmeyi korur; böylece yerel erişim yanlışlıkla internet sağlayıcısına gönderilmez.
+  - Seçilen ağ geçidi çökerse (down): trafik, ağ geçidi geri gelene kadar varsayılan rotayı (yedek hat / failover dahil) kullanır veya tercih edilirse yalnızca o ağ geçidinde kalır. Ağ geçidi izleyicisi kuralları saniyeler içinde yeni hatta geçirir; açık bağlantılar korunur.
+  - Kural listesinde her kuralın kullandığı ağ geçidi doğrudan gösterilir.
+- OPNsense'den içe aktarma: kural ağ geçitleri eşleşen WAN arayüzüne taşınır. Ağ geçidi grupları ve WAN kurallarındaki ağ geçitleri uyumluluk raporunda belirtilir ve varsayılan rotayı kullanır.
+
 ## 0.27.1 - 2026-11-07
 
 ### Eklendi
