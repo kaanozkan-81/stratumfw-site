@@ -1,7 +1,7 @@
 ---
 title: "Dokümantasyon"
-description: "Stratum Firewall v0.30.0 resmi dokümantasyonu — VGA ISO ve Serial IMG kurulumu, OPNsense göçü, pf kuralları, Çoklu WAN politika yönlendirme, Suricata IPS, DNSBL, WireGuard, OpenVPN ve REST API."
-lead: "FreeBSD 15.1 tabanlı Stratum Firewall'ı kurmak, taşımak, yapılandırmak ve işletmek için ihtiyacınız olan tüm teknik rehberler."
+description: "Stratum Firewall v0.30.0 resmi dokümantasyonu — VGA ISO ve Serial IMG kurulumu, OPNsense göçü, TOTP 2FA, Zorunlu DNS, 1:1 NAT, zamanlamalı pf kuralları, DHCP Çoklu WAN, Suricata IPS ve WireGuard/OpenVPN."
+lead: "FreeBSD 15.1 tabanlı Stratum Firewall v0.30.0 sürümünü kurmak, taşımak, yapılandırmak ve işletmek için ihtiyacınız olan tüm teknik rehberler."
 full_width: true
 hide_pages: true
 ---
@@ -9,14 +9,14 @@ hide_pages: true
 <div class="docs-layout">
 
 <div class="docs-intro">
-  <p>Stratum Firewall; ZFS Önyükleme Ortamları (Boot Environments), bildirimsel yapılandırma motoru ve 60 saniyelik Güvenli Uygulama (Safe-Apply) geri alma mimarisiyle anahtar teslim bir FreeBSD 15.1 güvenlik duvarı işletim sistemi olarak sunulur. Kuruluma başlamak için <a href="/tr/download/">VGA ISO veya Serial IMG imajını indirin</a> ya da önce <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Canlı Tarayıcı Demosu</a> üzerinden arayüzü inceleyin.</p>
+  <p>Stratum Firewall; ZFS Önyükleme Ortamları (Boot Environments), yerleşik iki aşamalı giriş (TOTP 2FA), bildirimsel yapılandırma motoru ve 60 saniyelik Güvenli Uygulama (Safe-Apply) geri alma mimarisiyle anahtar teslim bir FreeBSD 15.1 güvenlik duvarı işletim sistemi olarak sunulur. Kuruluma başlamak için <a href="/tr/download/">VGA ISO veya Serial IMG imajını indirin</a> ya da önce <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Canlı Tarayıcı Demosu</a> üzerinden arayüzü inceleyin.</p>
 </div>
 
 <section id="getting-started" class="docs-section">
   <div class="docs-section-head">
     <span class="eyebrow">01</span>
     <h2>Başlarken ve Göç</h2>
-    <p>ISO/IMG medyasından kurulum yapın, ilk önyükleme ayarlarını tamamlayın veya mevcut OPNsense cihazınızı taşıyın.</p>
+    <p>ISO/IMG medyasından kurulum yapın, TOTP 2FA ile yönetici girişini koruyun veya mevcut OPNsense cihazınızı taşıyın.</p>
   </div>
   <div class="card-grid grid-3">
     <div class="card">
@@ -25,13 +25,13 @@ hide_pages: true
       <a href="/tr/resources/documentation/installation/" class="card-link">Rehberi Oku →</a>
     </div>
     <div class="card">
-      <h3>İlk Yapılandırma</h3>
-      <p>WAN/LAN arayüzlerini atayın, DHCP/PPPoE bağlantılarını, yönetici güvenliğini ve güncellemeleri ayarlayın.</p>
+      <h3>İlk Yapılandırma ve 2FA</h3>
+      <p>WAN/LAN arayüzlerini atayın, kurtarma kodlu TOTP 2FA doğrulamasını açın ve imzalı güncellemeleri uygulayın.</p>
       <a href="/tr/resources/documentation/initial-configuration/" class="card-link">Rehberi Oku →</a>
     </div>
     <div class="card">
       <h3>OPNsense'den Geçiş</h3>
-      <p>OPNsense <code>config.xml</code> kurallarını, VLAN/VIP yapılarını ve OpenVPN sunucusunu kesintisiz devralın.</p>
+      <p>OPNsense <code>config.xml</code> kurallarını, DHCP WAN2, Zorunlu DNS, URL tablo listelerini ve OpenVPN sunucusunu kesintisiz devralın.</p>
       <a href="/tr/resources/documentation/opnsense-migration/" class="card-link">Rehberi Oku →</a>
     </div>
   </div>
@@ -41,22 +41,22 @@ hide_pages: true
   <div class="docs-section-head">
     <span class="eyebrow">02</span>
     <h2>Panel, Güvenlik Duvarı ve Yönlendirme</h2>
-    <p>Özelleştirilebilir web panelini yönetin, durum bilgili pf kuralları yazın ve Çoklu WAN trafiğini yönlendirin.</p>
+    <p>Özelleştirilebilir web panelini yönetin, zamanlamalı pf kuralları ve 1:1 NAT tanımlayın, Çoklu WAN trafiğini yönlendirin.</p>
   </div>
   <div class="card-grid grid-3">
     <div class="card">
       <h3>Panel Turu ve Operasyonlar</h3>
-      <p>12 sütunlu kontrol panelini özelleştirin, servis durumlarını yönetin, RBAC ve şifreli SFTP yedeklerini kurun.</p>
+      <p>12 sütunlu kontrol panelini özelleştirin, servis durumlarını yönetin, TOTP 2FA/RBAC ve şifreli SFTP yedeklerini kurun.</p>
       <a href="/tr/resources/documentation/panel-tour/" class="card-link">Rehberi Oku →</a>
     </div>
     <div class="card">
-      <h3>pf Kuralları, NAT ve Takma Adlar</h3>
-      <p>Arayüz grupları, port yönlendirme, NAT yansıması, Ülke (GeoIP)/Hostname takma adları ve hız sınırı tanımlayın.</p>
+      <h3>pf Kuralları, Zamanlama, 1:1 NAT ve Takma Adlar</h3>
+      <p>Saat aralıklı kural zamanlamaları, çift yönlü 1:1 NAT, port yönlendirme, Ülke (GeoIP) takma adları ve hız sınırı tanımlayın.</p>
       <a href="/tr/resources/documentation/pf-rules/" class="card-link">Rehberi Oku →</a>
     </div>
     <div class="card">
-      <h3>Çoklu WAN, Politika Yönlendirme ve VIP</h3>
-      <p>1 saniyelik ağ geçidi izleme, otomatik hat yedekleme, kural bazlı WAN seçimi, Sanal IP ve statik rota kurun.</p>
+      <h3>Çoklu WAN (DHCP/PPPoE), Politika Yönlendirme ve VIP</h3>
+      <p>1 saniyelik ağ geçidi izleme, dinamik DHCP ikincil WAN hatları, otomatik failover, Sanal IP ve statik rota kurun.</p>
       <a href="/tr/resources/documentation/multi-wan/" class="card-link">Rehberi Oku →</a>
     </div>
   </div>
@@ -66,12 +66,12 @@ hide_pages: true
   <div class="docs-section-head">
     <span class="eyebrow">03</span>
     <h2>Tehdit Koruması ve VPN</h2>
-    <p>IP, DNS ve paket yükü katmanlarında tehditleri durdurun ve uzaktaki kullanıcıları güvenle bağlayın.</p>
+    <p>Zorunlu DNS ile filtre aşmayı önleyin, IP/DNS/paket katmanlarında tehditleri durdurun ve VPN tünelleri kurun.</p>
   </div>
   <div class="card-grid grid-3">
     <div class="card">
-      <h3>Engelleme Listeleri, Web Filtresi ve IPS</h3>
-      <p>63 IP tehdit beslemesini, Unbound DNSBL, 55 kategorili Web Filtresi, Suricata IPS ve birleşik raporları açın.</p>
+      <h3>Engelleme Listeleri, Zorunlu DNS, Web Filtresi ve IPS</h3>
+      <p>63 IP beslemesini, AD istisnalı Zorunlu DNS'i, Unbound DNSBL, 55 kategorili Web Filtresi ve Suricata IPS'i açın.</p>
       <a href="/tr/resources/documentation/blocklists/" class="card-link">Rehberi Oku →</a>
     </div>
     <div class="card">
@@ -91,7 +91,7 @@ hide_pages: true
   <div class="docs-section-head">
     <span class="eyebrow">04</span>
     <h2>Otomasyon, Tanılama ve Referans</h2>
-    <p>REST API ile otomatikleştirin, MCP üzerinden yapay zeka bağlayın, paket yakalayın ve dosya yapısını inceleyin.</p>
+    <p>REST API ile otomatikleştirin, 24 saatlik Güvenlik Duvarı Günlük Özetini inceleyin ve dosya yapısını denetleyin.</p>
   </div>
   <div class="card-grid grid-3">
     <div class="card">
@@ -100,13 +100,13 @@ hide_pages: true
       <a href="/tr/resources/documentation/rest-api/" class="card-link">Rehberi Oku →</a>
     </div>
     <div class="card">
-      <h3>Tanılama ve Komut Satırı</h3>
-      <p>Wireshark <code>.pcap</code> paket yakalama, ARP/Wake-on-LAN, Web Etkinliği ve Stratum CLI araçlarını kullanın.</p>
+      <h3>Tanılama, Günlük Özeti ve CLI</h3>
+      <p>Güvenlik Duvarı Günlük Özeti grafikleri, Wireshark <code>.pcap</code> yakalama, ARP/Wake-on-LAN ve CLI araçlarını kullanın.</p>
       <a href="/tr/resources/documentation/command-line/" class="card-link">Rehberi Oku →</a>
     </div>
     <div class="card">
       <h3>Dosya ve Yol Referansı</h3>
-      <p><code>config.json</code> kaynağını, gizli anahtar dizinlerini, üretilen dosyaları ve ZFS önyükleme ortamlarını tanıyın.</p>
+      <p><code>config.json</code> kaynağını, izole 2FA/VPN anahtar dizinlerini, üretilen dosyaları ve ZFS önyükleme ortamlarını tanıyın.</p>
       <a href="/tr/resources/documentation/file-paths/" class="card-link">Rehberi Oku →</a>
     </div>
   </div>

@@ -96,7 +96,7 @@ full_width: true
         <tr>
           <td><strong>Uzaktan Çalışan ve Şube VPN Sınırı</strong></td>
           <td>Kutu modeline göre tünel sınırı veya ek istemci/EMS lisansı</td>
-          <td><strong>Sınırsız</strong> WireGuard QR eşi ve Çoklu WAN OpenVPN kullanıcısı</td>
+          <td><strong>Sınırsız</strong> WireGuard QR eşi, Çoklu WAN OpenVPN ve yerleşik <strong>TOTP 2FA</strong></td>
         </tr>
         <tr>
           <td><strong>Uzak Şubede Hatalı Kural Koruması</strong></td>

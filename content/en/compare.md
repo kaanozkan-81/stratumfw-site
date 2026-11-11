@@ -78,6 +78,15 @@ full_width: true
           <td><span class="cmp-badge-partial">Manual</span><br>Manual revert / console recovery</td>
           <td><span class="cmp-badge-partial">Manual</span><br>Manual revert</td>
         </tr>
+        <!-- STRATUM-CMP-2FA-START -->
+        <tr>
+          <td><strong>Admin Two-Factor Auth (2FA) &amp; RBAC</strong></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in Local TOTP</span><br>On-box QR TOTP (<code>v0.30.0</code>), 10 recovery codes, 4 RBAC roles &amp; console reset</td>
+          <td><span class="cmp-badge-yes">Built-in</span><br>TOTP + ACL groups</td>
+          <td><span class="cmp-badge-partial">Add-on Package</span><br>Requires FreeRADIUS / external package</td>
+          <td><span class="cmp-badge-no">Basic Auth</span><br>HTTP admin password</td>
+        </tr>
+        <!-- STRATUM-CMP-2FA-END -->
         <tr>
           <td><strong>IPS / IDS Engine</strong></td>
           <td class="cmp-highlight"><span class="cmp-badge-yes">Dual-Engine</span><br>Per-interface Suricata 8 (<code>netmap</code> IPS + <code>pcap</code> IDS)</td>
@@ -87,7 +96,7 @@ full_width: true
         </tr>
         <tr>
           <td><strong>DNSBL &amp; Web Category Filter</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in</span><br>63 IP feeds + Unbound 1.26 RPZ + 55-category Web Filter &amp; unified reports</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in Free</span><br>Unbound 1.26 RPZ + 55-category Web Filter + <strong>Force DNS</strong> (DoT block &amp; AD exceptions)</td>
           <td><span class="cmp-badge-partial">Plugin Tiered</span><br>Unbound DNSBL; category filter via 3rd-party Zenarmor</td>
           <td><span class="cmp-badge-partial">Add-on Package</span><br><code>pfBlockerNG</code> + SquidGuard</td>
           <td><span class="cmp-badge-yes">Built-in</span><br>IPFire DBL + Location ASN DB</td>
@@ -101,14 +110,14 @@ full_width: true
         </tr>
         <tr>
           <td><strong>Multi-WAN &amp; Policy Routing</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in</span><br>1s probes, auto-failover &amp; per-rule WAN selection with smart LAN bypass</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">1s Probes + DHCP WAN2</span><br>Static/PPPoE/DHCP Multi-WAN, Policy Routing, <strong>1:1 NAT</strong> &amp; Time Schedules</td>
           <td>Gateway groups &amp; policy rules</td>
           <td>Gateway groups &amp; policy rules</td>
           <td>Red/Green/Blue/Orange zone routing</td>
         </tr>
         <tr>
           <td><strong>Drop-In OPNsense Migration</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">1-Click Wizard</span><br>Imports <code>config.xml</code> + OpenVPN PKI with zero client changes</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">1-Click Import</span><br>Imports <code>config.xml</code>, DHCP WAN2, Force DNS, URL-table feeds &amp; OpenVPN PKI</td>
           <td>Native format</td>
           <td>Manual conversion required</td>
           <td>Manual rebuild required</td>

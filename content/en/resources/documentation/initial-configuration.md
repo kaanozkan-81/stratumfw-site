@@ -1,36 +1,35 @@
 ---
-title: "Initial Configuration"
-description: "Set up Stratum Firewall after installation — WAN/LAN interfaces, 802.1Q VLANs, DNS/DHCP, Admin Access hardening, Safe-Apply, and ZFS updates."
-lead: "Bring your newly installed Stratum Firewall appliance online securely — interfaces, DNS, DHCP, admin hardening, and signed updates."
+title: "Initial Configuration & Two-Factor Sign-In"
+description: "Set up Stratum Firewall after installation — TOTP 2FA with recovery codes, Admin Access hardening, WAN/LAN & DHCP Multi-WAN interfaces, Force DNS, Safe-Apply, and ZFS updates."
+lead: "Bring your newly installed Stratum Firewall appliance online securely — TOTP two-factor sign-in, admin hardening, interfaces, DNS/DHCP, and signed ZFS updates."
 ---
 
 Once you have installed Stratum Firewall from the [VGA ISO or Serial IMG](/resources/documentation/installation/) and opened `https://192.168.1.1/` in your browser, follow these steps to complete your production baseline.
 
-## 1. General Settings &amp; Admin Access Hardening
+## 1. General Settings, Admin Hardening &amp; TOTP 2FA (`v0.30.0`)
 
-Navigate to **System → Settings**:
+Navigate to **System → Settings** and **My Account**:
 
-* **General Tab:** Set the appliance **Hostname**, **Local Domain** (e.g., `lan.example.com`), **Time Zone**, and optional **Sign-in Notice**.
-* **Admin Access Tab:**
-  * Choose the web panel HTTPS port and restrict management access to trusted internal interfaces (WAN management access is closed by default).
-  * Configure **Sign-in Protection** (automatic IP lockout after repeated failed login attempts).
-  * Manage **SSH** access (enable/disable, custom port, key-only authentication, and `root` authorized public keys). Saving any setting that would lock out your current IP address is refused automatically.
-* **Certificates (`System → Certificates`):** Inspect the panel TLS fingerprint, generate a fresh self-signed certificate matching your hostname/IPs, or upload a custom/CA-signed TLS certificate.
+* **Two-Factor Sign-In (`My Account`, `v0.30.0`):** Enable **TOTP 2FA** using *Google Authenticator*, *Microsoft Authenticator*, *1Password*, *Bitwarden*, or any standard authenticator app:
+  * **100% On-Box Privacy:** The setup QR code is rendered locally in your browser from a bundled library—the secret key **never leaves the firewall** and is never displayed again after setup.
+  * **Replay &amp; Brute-Force Protection:** Every 6-digit code works only once (`±30s` clock tolerance), the challenge screen expires after 5 minutes, failed codes count toward **Sign-in Protection**, and enabling 2FA immediately ends your other active sessions.
+  * **10 One-Time Recovery Codes:** Generated for lost-phone emergencies (using a recovery code raises a system notification). Administrators can also switch off a locked-out user's 2FA under **System → Users**, or from the physical/serial console password reset in `stratum-menu`.
+* **General Tab &amp; Boot Tunes (`v0.28.5` – `v0.28.6`):** Set the **Hostname**, **Local Domain** (e.g., `lan.example.com`), **Time Zone**, optional **Sign-in Notice**, and choose a PC-speaker **Start-up &amp; Shutdown Tune** (*Stratum*, *Classic beep*, *Westminster Chime*, *Ode to Joy*, *Für Elise*, or *Arcade*) with a live **Test** button (machines without a PC speaker stay silent).
+* **Admin Access &amp; Certificates:** Choose your web panel HTTPS port, restrict management to trusted internal interfaces (WAN access is closed by default), configure SSH keys/ports without risking self-lockout, and manage TLS certificates under **System → Certificates**.
 
-## 2. Interfaces &amp; 802.1Q VLANs
+## 2. Interfaces, 802.1Q VLANs &amp; Additional WANs
 
-1. Navigate to **Interfaces → Assignments** to map physical NICs (`igb0`, `vtnet0`, etc.) or **802.1Q VLANs** (`Interfaces → VLANs`) to `WAN`, `LAN`, and `OPT1..N` roles (`OPT` ports can act as either internal LAN segments or additional WAN links).
-2. Configure your **WAN** under **Interfaces → WAN**:
-   * **DHCP:** Obtains a public IP and gateway automatically from your ISP.
-   * **Static IPv4:** Set your assigned IP/prefix, upstream gateway, and custom MTU if required.
-   * **PPPoE (`mpd5`):** Enter your fiber/DSL ISP credentials; passwords are stored securely in root-only files.
-3. Click **Save**, then click **Apply changes** right beside the Save button. Stratum validates the generated configurations (`pfctl -n`, `nginx -t`, `unbound-checkconf`) and starts a **60-second Safe-Apply timer**—click **Keep changes** to make them permanent, or let the timer expire to roll back automatically if connectivity was lost.
+1. Navigate to **Interfaces → Assignments** to map physical NICs (`igb0`, `vtnet0`, etc.) or **802.1Q VLANs** (`Interfaces → VLANs`) to `WAN`, `LAN`, and `OPT1..N` roles (`OPT` ports can serve as internal VLANs or secondary/tertiary WAN links).
+2. Configure your **WAN** (and any optional `WAN2` / `WAN3`) under **Interfaces**:
+   * **DHCP (`v0.29.1`):** Supported on both primary `WAN` and additional WANs (such as cable, 4G/5G LTE, or Starlink modems—secondary DHCP WANs never hijack your default route or system DNS on their own).
+   * **Static IPv4** or **PPPoE (`mpd5`):** Enter your ISP gateway/MTU or fiber/DSL credentials (passwords are stored in root-only `0600` files).
+3. Click **Save**, then click **Apply changes** right beside Save. Stratum validates generated configs (`pfctl -n`, `nginx -t`, `unbound-checkconf`) and starts the **60-second Safe-Apply timer**—click **Keep changes** to commit permanently, or let it roll back automatically if connectivity was interrupted.
 
-## 3. DHCP &amp; Validating DNS (Unbound / dnsmasq)
+## 3. DHCP, Validating DNS &amp; Force DNS (`v0.29.2`)
 
-* **DHCP Server (`Services → DHCP`):** Define address pools, static MAC reservations (with one-click *"Make static"* from active leases), and custom gateway/DNS options per LAN/VLAN.
-* **DNS Resolver (`Services → DNS`):** Use **Unbound** (validating DNSSEC resolver in full-recursion or forwarder mode) or **dnsmasq**; DHCP client hostnames resolve automatically across both engines, and you can add local host/domain overrides.
+* **DHCP Server (`Services → DHCP`):** Define address pools, one-click *"Make static"* MAC reservations from active leases, and per-VLAN gateway/DNS options.
+* **DNS Resolver &amp; Force DNS (`Services → DNS`):** Run **Unbound** (DNSSEC-validating recursive or forwarder mode) or **dnsmasq** with automatic DHCP hostname registration. Enable **Force DNS through the firewall** (`v0.29.2`) on chosen internal networks so hardcoded client DNS (`8.8.8.8`) is transparently redirected to Stratum and DNS over TLS (`TCP 853`) is blocked—with an **Exception alias** for internal Active Directory domain controllers and zero browsing history recorded.
 
 ## 4. Check for Signed Software Updates (ZFS Boot Environments)
 
-Navigate to **System → Update** and click **Check for updates** (or upload an offline `.sfu` update package on air-gapped networks). Before applying **v0.30.0** or any future release, Stratum automatically snapshots your current system into a new **ZFS Boot Environment** (retaining the newest 5 environments) so you can always boot back into the previous version if needed.
+Navigate to **System → Update** and click **Check for updates** (or upload an offline `.sfu` update package on air-gapped networks). Before applying **v0.30.0** or any future release, Stratum automatically snapshots your root pool into a new **ZFS Boot Environment** (retaining the newest 5 environments) so you can always boot back into the previous version.

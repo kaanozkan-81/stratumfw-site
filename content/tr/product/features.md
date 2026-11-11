@@ -59,6 +59,42 @@ seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Ç
 </div>
 <!-- STRATUM-OPNSENSE-SHOWCASE-END -->
 
+<!-- STRATUM-V0300-FEATURES-START -->
+<section class="section" style="padding-top: 12px; padding-bottom: 28px;">
+  <div class="section-head" style="max-width: 820px; margin: 0 auto 28px auto; text-align: center;">
+    <span class="eyebrow">v0.28.4 – v0.30.0 Yenilikleri</span>
+    <h2>İki Aşamalı Kimlik Doğrulama, Zorunlu DNS ve Dinamik Çoklu WAN</h2>
+    <p>Aşağıdaki tüm kurumsal yetenekler FreeBSD 15.1 tabanlı Stratum Firewall v0.30.0 sürümünde hiçbir eklenti, bulut bağımlılığı veya yıllık lisans ücreti olmadan yerleşik gelir.</p>
+  </div>
+  <div class="card-grid grid-3">
+    <div class="card">
+      <h3>Yerleşik İki Aşamalı Giriş — TOTP 2FA (<code>v0.30.0</code>)</h3>
+      <p>Yönetici ve operatör hesaplarını 6 haneli doğrulayıcı uygulama kodlarıyla (<em>Google/Microsoft Authenticator, 1Password, Bitwarden</em>) koruyun. QR kodu tarayıcıda yerel çizilir; gizli anahtar cihazdan dışarı çıkmaz. Tek kullanımlık kod koruması, 10 kurtarma kodu ve konsoldan sıfırlama dahildir.</p>
+    </div>
+    <div class="card">
+      <h3>AD İstisnalı Zorunlu DNS (<code>v0.29.2</code>)</h3>
+      <p>Seçilen iç ağlarda elle DNS (<code>8.8.8.8</code>) girilmiş cihazların sorgularını güvenlik duvarına yönlendirin ve DNS over TLS (port 853) kaçışlarını kapatın; Active Directory etki alanı denetleyicilerini İstisna takma adıyla hariç tutun ve hiçbir gezinme kaydı tutmadan DNSBL/Web Filtresini zorunlu kılın.</p>
+    </div>
+    <div class="card">
+      <h3>Dinamik DHCP Çoklu WAN (<code>v0.29.1</code>)</h3>
+      <p>Kablo modem, 4G/5G LTE veya Starlink hatlarını varsayılan rotayı bozmadan ikincil/üçüncül DHCP WAN olarak bağlayın. Operatör ağ geçidi değiştiğinde yedekleme, <code>reply-to</code> ve Politika Yönlendirme kuralları Uygula gerektirmeden saniyeler içinde güncellenir.</p>
+    </div>
+    <div class="card">
+      <h3>Zamanlamalı pf Kuralları (<code>v0.29.0</code>)</h3>
+      <p>İsimlendirilmiş saat aralıklarını (<code>Mon-Fri 08:00-18:00</code>) kurallara bağlayın. <code>stratum-pfrefresh</code> ile dakikada bir Uygula gerektirmeden devreye girer; süre bittiğinde zamanlamalı izin kurallarının açtığı mevcut bağlantıları otomatik kapatır.</p>
+    </div>
+    <div class="card">
+      <h3>Çift Yönlü 1:1 NAT (<code>v0.28.9</code>)</h3>
+      <p>İç sunuculara veya alt ağlara kendilerine ait genel Sanal IP (VIP) ya da yönlendirilmiş genel ağ bloklarını çift yönlü atayın; WAN'ın kendi IP adresini reddeden kilitlenme koruması ve canlı WAN izin kuralı sayacıyla güvenle yönetin.</p>
+    </div>
+    <div class="card">
+      <h3>1s / 24s Güvenlik Duvarı Günlük Özeti (<code>v0.28.8</code>)</h3>
+      <p>Son 1 veya 24 saatteki en yoğun kaynak IP'leri (ülkesiyle), hedef portları (<code>SSH</code>, <code>RDP</code>), ülkeleri (GeoIP), anlaşılır sistem kural isimlerini ve 5 dakikalık/saatlik arayüz grafiklerini tek tıkla canlı günlüğe filtreleyerek inceleyin.</p>
+    </div>
+  </div>
+</section>
+<!-- STRATUM-V0300-FEATURES-END -->
+
 <style>
 .feature-showcase-page {
   width: 100%;

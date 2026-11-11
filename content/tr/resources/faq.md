@@ -51,3 +51,19 @@ full_width: true
   <p style="color:var(--ash); margin-bottom:24px;">Tahmin yürütmenize gerek yok — doğrudan bize yazın, memnuniyetle yanıtlayalım.</p>
   <a href="/tr/company/contact/" class="btn btn-primary">İletişime Geçin</a>
 </div>
+
+<!-- STRATUM-V0300-FAQ-START -->
+
+## Yönetim paneli girişinde İki Aşamalı Doğrulama (2FA / TOTP) var mı?
+
+Evet. **v0.30.0** sürümüyle birlikte tüm panel kullanıcıları **Hesabım (`My Account`)** ekranından *Google Authenticator*, *Microsoft Authenticator*, *1Password* veya *Bitwarden* uyumlu **TOTP iki aşamalı girişi** etkinleştirebilir. Kurulum QR kodu gömülü kütüphaneyle doğrudan tarayıcıda çizilir; gizli anahtar güvenlik duvarından dışarı çıkmaz. Telefon kaybına karşı **10 adet tek kullanımlık kurtarma kodu** üretilir ve gerektiğinde başka bir yönetici veya fiziksel konsol (`stratum-menu`) üzerinden 2FA kapatılabilir.
+
+## Kullanıcıların elle 8.8.8.8 vererek DNSBL ve Web Filtresini aşmasını engelleyebilir miyim?
+
+Evet. **Servisler → DNS Çözümleyici → Force DNS (`v0.29.2`)** özelliğini seçtiğiniz iç LAN, Misafir veya VLAN ağlarında açtığınızda cihazların hangi DNS sunucusunu sorduğuna bakılmaksızın tüm sorgular güvenlik duvarının çözümleyicisine yönlendirilir ve **DNS over TLS (`TCP 853`)** engellenir. **Active Directory** bulunan ortamlarda etki alanı denetleyicilerini **İstisna takma adına (`Exception alias`)** ekleyebilir, üstelik hiçbir gezinme geçmişi kaydetmeden filtrelemeyi zorunlu tutabilirsiniz.
+
+## Çoklu WAN (Multi-WAN) özelliğinde 4G/5G LTE, Kablo veya Starlink gibi dinamik DHCP yedek hatlar çalışır mı?
+
+Evet (`v0.29.1`). İkincil ve üçüncül WAN arayüzleri (`WAN2`, `WAN3`), Statik IP ve PPPoE'nin yanı sıra **DHCP** ile otomatik adres alabilir. Ek bir DHCP WAN varsayılan rotayı tek başına devralmaz; hat geçişi saniyelik ağ geçidi izleyicisinin kontrolünde kalır ve operatör yeni bir ağ geçidi verdiğinde kurallar Uygula (Apply) gerektirmeden saniyeler içinde güncellenir.
+
+<!-- STRATUM-V0300-FAQ-END -->

@@ -59,6 +59,42 @@ seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & M
 </div>
 <!-- STRATUM-OPNSENSE-SHOWCASE-END -->
 
+<!-- STRATUM-V0300-FEATURES-START -->
+<section class="section" style="padding-top: 12px; padding-bottom: 28px;">
+  <div class="section-head" style="max-width: 820px; margin: 0 auto 28px auto; text-align: center;">
+    <span class="eyebrow">New in v0.28.4 – v0.30.0</span>
+    <h2>Enterprise Identity, Unbypassable DNS &amp; Dynamic Multi-WAN</h2>
+    <p>Every capability below ships built into Stratum Firewall v0.30.0 on FreeBSD 15.1—with zero plugins, zero external cloud dependencies, and zero recurring license fees.</p>
+  </div>
+  <div class="card-grid grid-3">
+    <div class="card">
+      <h3>Built-In TOTP Two-Factor Sign-In (<code>v0.30.0</code>)</h3>
+      <p>Protect administrator and operator accounts with 6-digit authenticator codes (<em>Google/Microsoft Authenticator, 1Password, Bitwarden</em>). QR codes render locally in your browser so secrets never leave the firewall—backed by single-use replay protection, 10 recovery codes, and console reset.</p>
+    </div>
+    <div class="card">
+      <h3>Force DNS with AD Exceptions (<code>v0.29.2</code>)</h3>
+      <p>Redirect hardcoded client DNS queries (<code>8.8.8.8</code>) on selected internal VLANs to Stratum's resolver and block DNS over TLS (port 853) so DNSBL and the 55-category Web Filter cannot be bypassed—with an Exception alias for Active Directory domain controllers and zero browsing logs.</p>
+    </div>
+    <div class="card">
+      <h3>Dynamic DHCP Multi-WAN (<code>v0.29.1</code>)</h3>
+      <p>Attach cable, 4G/5G LTE, or Starlink modems as secondary or tertiary DHCP WANs without hijacking your default route or DNS. Failover, symmetric <code>reply-to</code>, and Policy Routing follow ISP lease gateway changes within seconds without an Apply.</p>
+    </div>
+    <div class="card">
+      <h3>Time-Based Rule Schedules (<code>v0.29.0</code>)</h3>
+      <p>Bind reusable time windows (<code>Mon-Fri 08:00-18:00</code>) to any <code>pf</code> rule. Evaluated every minute via <code>stratum-pfrefresh</code> without an Apply, automatically closing open sessions created by scheduled <code>pass</code> rules the moment the window ends.</p>
+    </div>
+    <div class="card">
+      <h3>Bidirectional 1:1 NAT (<code>v0.28.9</code>)</h3>
+      <p>Map internal servers or subnets 1:1 to public WAN Virtual IPs or routed blocks in both directions—complete with anti-lockout protection that refuses the WAN's own management IP and live WAN pass-rule visibility.</p>
+    </div>
+    <div class="card">
+      <h3>1h / 24h Firewall Log Summary (<code>v0.28.8</code>)</h3>
+      <p>Analyze top source IPs with GeoIP country flags, top targeted service ports (<code>SSH</code>, <code>RDP</code>), top countries, human-readable system rule names, and 5-minute/hourly interface charts—with one-click drilldown into the live log.</p>
+    </div>
+  </div>
+</section>
+<!-- STRATUM-V0300-FEATURES-END -->
+
 <style>
 .feature-showcase-page {
   width: 100%;

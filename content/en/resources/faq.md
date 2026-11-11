@@ -51,3 +51,19 @@ full_width: true
   <p style="color:var(--ash); margin-bottom:24px;">Reach out — we'd rather answer them than have you guess.</p>
   <a href="/company/contact/" class="btn btn-primary">Contact us</a>
 </div>
+
+<!-- STRATUM-V0300-FAQ-START -->
+
+## Does Stratum Firewall support Two-Factor Authentication (2FA) for admin sign-in?
+
+Yes. Starting in **v0.30.0**, every panel account can enable **TOTP two-factor sign-in** under **My Account** using *Google Authenticator*, *Microsoft Authenticator*, *1Password*, *Bitwarden*, or any RFC 6238 authenticator app. The QR code is drawn locally in the browser from a bundled library so your TOTP secret never leaves the firewall. Setup generates **10 one-time recovery codes**, enforces single-use code replay protection, and allows administrators (or physical/serial console access via `stratum-menu`) to reset 2FA if a phone is lost.
+
+## Can I prevent users from bypassing DNS blocklists and the Web Filter with hardcoded DNS?
+
+Yes. Enable **Services → DNS Resolver → Force DNS through the firewall** (`v0.29.2`) on your chosen LAN, Guest, or VLAN interfaces. Any device querying an external resolver like `8.8.8.8` or `1.1.1.1` is transparently redirected to Stratum's local resolver, and **DNS over TLS (`TCP 853`)** is blocked on those networks. If you run **Active Directory**, add your domain controllers to the **Exception alias** so internal AD lookups bypass redirection, and rest assured that Force DNS records zero browsing history on its own.
+
+## Does Multi-WAN work with dynamic DHCP backup connections like 4G/5G LTE, Cable, or Starlink?
+
+Yes (`v0.29.1`). Secondary and tertiary WAN interfaces (`WAN2`, `WAN3`) support **DHCP** alongside Static IPv4 and PPPoE. An additional DHCP WAN never hijacks your default route or system DNS servers—failover stays governed by the 1-second gateway monitor, and whenever the backup ISP changes your lease gateway, `stratum-pfrefresh` updates failover, `reply-to`, and Policy Routing rules within seconds without needing an Apply.
+
+<!-- STRATUM-V0300-FAQ-END -->

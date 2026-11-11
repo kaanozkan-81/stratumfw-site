@@ -96,7 +96,7 @@ full_width: true
         <tr>
           <td><strong>Remote Employee &amp; Branch VPN</strong></td>
           <td>Model tunnel caps or paid endpoint/EMS add-on licenses</td>
-          <td><strong>Unlimited</strong> WireGuard QR peers &amp; Multi-WAN OpenVPN accounts</td>
+          <td><strong>Unlimited</strong> WireGuard QR peers, Multi-WAN OpenVPN &amp; built-in <strong>TOTP 2FA</strong></td>
         </tr>
         <tr>
           <td><strong>Remote Branch Mistake Recovery</strong></td>

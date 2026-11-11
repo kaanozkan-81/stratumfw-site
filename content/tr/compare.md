@@ -78,6 +78,15 @@ full_width: true
           <td><span class="cmp-badge-partial">Manuel</span><br>Manuel geri alma / konsol müdahalesi</td>
           <td><span class="cmp-badge-partial">Manuel</span><br>Manuel geri alma</td>
         </tr>
+        <!-- STRATUM-CMP-2FA-START -->
+        <tr>
+          <td><strong>Yönetici İki Aşamalı Giriş (2FA) &amp; RBAC</strong></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik TOTP 2FA</span><br>Cihaz içi yerel QR TOTP (<code>v0.30.0</code>), 10 kurtarma kodu, 4 RBAC rolü ve konsol sıfırlama</td>
+          <td><span class="cmp-badge-yes">Yerleşik</span><br>TOTP + yetki grupları</td>
+          <td><span class="cmp-badge-partial">Ek Paket</span><br>FreeRADIUS veya harici eklenti gerektirir</td>
+          <td><span class="cmp-badge-no">Temel Parola</span><br>Standart HTTP yönetici girişi</td>
+        </tr>
+        <!-- STRATUM-CMP-2FA-END -->
         <tr>
           <td><strong>IPS / IDS Saldırı Önleme</strong></td>
           <td class="cmp-highlight"><span class="cmp-badge-yes">Çift Motorlu</span><br>Arayüz bazlı Suricata 8 (<code>netmap</code> IPS + <code>pcap</code> IDS)</td>
@@ -87,7 +96,7 @@ full_width: true
         </tr>
         <tr>
           <td><strong>DNSBL ve Web Kategori Filtresi</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik</span><br>63 IP listesi + Unbound 1.26 RPZ + 55 kategorili Web Filtresi ve birleşik raporlar</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik &amp; Ücretsiz</span><br>Unbound 1.26 RPZ + 55 kategorili Web Filtresi + <strong>Zorunlu DNS</strong> (DoT engeli &amp; AD istisnası)</td>
           <td><span class="cmp-badge-partial">Eklenti Bazlı</span><br>Unbound DNSBL; kategori filtresi için 3. parti Zenarmor</td>
           <td><span class="cmp-badge-partial">Ek Paket</span><br><code>pfBlockerNG</code> + SquidGuard</td>
           <td><span class="cmp-badge-yes">Yerleşik</span><br>IPFire DBL + Location ASN DB</td>
@@ -101,14 +110,14 @@ full_width: true
         </tr>
         <tr>
           <td><strong>Çoklu WAN ve Politika Yönlendirmesi</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik</span><br>1 sn izleme, otomatik yedekleme ve akıllı LAN korumalı kural bazlı WAN seçimi</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">1 sn İzleme + DHCP WAN2</span><br>Statik/PPPoE/DHCP Çoklu WAN, Politika Yönlendirme, <strong>1:1 NAT</strong> ve Kural Zamanlama</td>
           <td>Ağ geçidi grupları ve politika kuralları</td>
           <td>Ağ geçidi grupları ve politika kuralları</td>
           <td>Kırmızı/Yeşil/Mavi/Turuncu bölge modeli</td>
         </tr>
         <tr>
           <td><strong>Kesintisiz OPNsense Göç Aracı</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Tek Tık Sihirbaz</span><br><code>config.xml</code> + OpenVPN PKI aktarımı (istemci ayarı değişmez)</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Tek Tıkla İçe Aktar</span><br><code>config.xml</code>, DHCP WAN2, Zorunlu DNS, URL tablo tehdit listeleri ve OpenVPN PKI devralma</td>
           <td>Kendi yerel formatı</td>
           <td>Manuel dönüştürme gerekir</td>
           <td>Sıfırdan kurulum gerekir</td>

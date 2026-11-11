@@ -25,7 +25,7 @@ Two dedicated media types are published on the [Download](/download/) page:
 * **VGA ISO Installer (`stratum-fw-0.27.1-amd64.iso`):** Designed for physical servers with a monitor and keyboard attached, as well as virtual machines (**Proxmox VE**, **VMware ESXi**, **KVM / QEMU**, **Hyper-V**).
 * **Serial USB Disk Image (`stratum-fw-0.27.1-amd64.img`):** Raw disk image pre-configured for headless network appliances (`115200 baud, 8N1` on `COM1` / `ttyu0`, RJ45/USB console cables, IPMI Serial-over-LAN).
 
-The installed OS automatically preserves the console mode (`VGA` or `Serial`) of the installer you booted from.
+The installed OS automatically preserves the console mode (`VGA` or `Serial`) of the installer you booted from, and physical appliances equipped with a PC speaker play a short rising start-up tune once boot completes (`v0.28.5` – `v0.28.6`).
 
 ## 3. Verify SHA-256 Checksum &amp; Write USB Media
 
