@@ -3,7 +3,7 @@ translationKey: "best-freebsd-firewalls-2026"
 title: "Best Open Source FreeBSD Firewalls in 2026"
 date: 2026-11-05
 description: "Looking for the best open-source FreeBSD-based firewall for your enterprise network or homelab? We compare pfSense, OPNsense, and the modern alternative Stratum FW."
-tags: ["FreeBSD", "Open Source", "Firewall", "pfSense", "OPNsense", "Security"]
+tags: ["firewall", "FreeBSD", "Open Source", "Firewall", "pfSense", "OPNsense", "Security"]
 categories: ["Security", "Guide"]
 author: "Stratum Security"
 ---

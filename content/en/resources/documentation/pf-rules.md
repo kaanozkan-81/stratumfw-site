@@ -2,6 +2,8 @@
 title: "pf Rules, NAT & Aliases"
 description: "Configure FreeBSD pf firewall rules, Interface Groups, Port Forwards, NAT Reflection, Dynamic Hostname & License-Free GeoIP Country Aliases, and dummynet Bandwidth Shaping."
 lead: "Control packet flow at wire speed — stateful pf rules, interface groups, dynamic GeoIP & Hostname aliases, NAT reflection, and per-device bandwidth limits."
+aliases:
+  - /resources/documentation/firewall-rules/
 ---
 
 Stratum Firewall compiles your declarative settings directly into FreeBSD's kernel-resident **pf (Packet Filter)** and **dummynet** traffic shaper—with live packet/byte hit counters, drag-and-drop ordering, and zero-lockout validation.

@@ -2,6 +2,8 @@
 title: "pf Kuralları, NAT ve Takma Adlar"
 description: "FreeBSD pf güvenlik duvarı kuralları, Arayüz Grupları, Port Yönlendirme, NAT Yansıması, Dinamik Hostname ve Ücretsiz Ülke (GeoIP) Takma Adları ile dummynet Hız Sınırlaması."
 lead: "Trafiği çekirdek hızında yönetin — durum bilgili pf kuralları, arayüz grupları, lisanssız GeoIP ve Hostname takma adları, NAT yansıması ve cihaz başına hız sınırları."
+aliases:
+  - /tr/resources/documentation/firewall-rules/
 ---
 
 Stratum Firewall, tanımladığınız kuralları doğrudan FreeBSD çekirdeğindeki **pf (Packet Filter)** ve **dummynet** trafik şekillendiricisine derler; canlı paket/bayt sayaçları, sürükle-bırak sıralama ve 60 saniyelik Safe-Apply güvencesi sunar.
