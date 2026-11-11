@@ -3072,3 +3072,74 @@ img{max-width:100%; display:block;}
   border-radius: 999px;
 }
 /* === STRATUM-COMPARE-STYLE-END === */
+
+/* === STRATUM-HERO-REFINEMENT-START === */
+.hero .hero-os-display {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 auto 8px auto !important;
+  max-width: 980px !important;
+}
+
+.hero .hero-os-display .hero-os-text {
+  display: block !important;
+  font-family: var(--font-display, 'Inter', system-ui, -apple-system, sans-serif) !important;
+  font-size: clamp(36px, 5.2vw, 60px) !important;
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.028em !important;
+  color: #090D16 !important;
+  text-transform: none !important;
+  text-align: center !important;
+  text-shadow: 0 2px 22px rgba(255, 255, 255, 0.85), 0 1px 3px rgba(255, 255, 255, 0.9) !important;
+}
+
+.hero .hero-os-display .hero-os-bar {
+  display: block !important;
+  width: 84px !important;
+  height: 4px !important;
+  border-radius: 999px !important;
+  margin: 14px auto 0 auto !important;
+  background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 55%, #14B8A6 100%) !important;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.38) !important;
+}
+
+.hero h1.hero-power-sub {
+  font-size: clamp(22px, 2.6vw, 31px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.018em !important;
+  color: #0F172A !important;
+  margin: 56px auto 14px auto !important;
+  padding: 8px 20px !important;
+  display: block !important;
+  width: fit-content !important;
+  max-width: 94% !important;
+  text-align: center !important;
+  background: rgba(255, 255, 255, 0.62) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05) !important;
+}
+
+@media (min-width: 760px) {
+  .hero h1.hero-power-sub br {
+    display: none !important;
+  }
+  .hero h1.hero-power-sub span {
+    margin-left: 8px !important;
+  }
+}
+
+.hero h1.hero-power-sub span {
+  color: #D97706 !important;
+}
+/* === STRATUM-HERO-REFINEMENT-END === */

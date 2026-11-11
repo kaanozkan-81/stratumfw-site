@@ -1,7 +1,7 @@
 ---
 title: "Features"
 description: "Full feature matrix of Stratum Firewall v0.30.0: stateful pf rules, Multi-WAN policy routing, 63 IP blocklists, Unbound RPZ DNSBL, 55-category Web Filter, Suricata 8 IPS/IDS, WireGuard, OpenVPN, and ZFS rollback."
-lead: "Everything you need to segment, shield, filter, and automate your network infrastructure—built on raw FreeBSD 15.1/15 power and controlled via a modern FastAPI architecture."
+lead: "Stratum Firewall combines the battle-tested pf packet filter with a lightning-fast FastAPI management panel. Zero proprietary dependencies, absolute control, and a security-first architecture built for modern infrastructure."
 full_width: true
 seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & Multi-WAN VPN"
 ---
