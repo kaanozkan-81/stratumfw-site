@@ -2552,3 +2552,113 @@ img{max-width:100%; display:block;}
         flex: 1;
     }
 }
+
+/* === STRATUM-HERO-HARMONY-START === */
+/* 1. Ust Rozet: Koyu Silikon Lacivert + Altin Kehribar */
+.hero .hero-badge {
+  background: #0F172A !important;
+  color: #FBBF24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.65) !important;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.20) !important;
+  font-weight: 700 !important;
+}
+
+/* 2. Ana Baslik: Tam Koyu Kontrast + Kehribar/Turkuaz Devre Gecisi */
+.hero h1 {
+  color: #070B14 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 18px rgba(255, 255, 255, 0.92) !important;
+}
+.hero h1 span {
+  background: linear-gradient(92deg, #9A3412 0%, #B45309 42%, #0F766E 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.85));
+}
+
+/* 3. Hero Aciklama Metni: Koyu Yazi + Buzlu Cam Okunaklilik Kapsulu */
+.hero p {
+  color: #0F172A !important;
+  font-weight: 500 !important;
+  background: rgba(255, 255, 255, 0.74) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.88) !important;
+  border-radius: 14px !important;
+  padding: 14px 22px !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07) !important;
+  text-shadow: none !important;
+}
+.hero p strong {
+  color: #070B14 !important;
+  font-weight: 700 !important;
+}
+
+/* 4. Note Kutusu & Surum Duyuru Bandi: Mikrocip Laciverti ve Siber Turkuaz Dengesi */
+.hero .hero-notice {
+  background: rgba(15, 23, 42, 0.90) !important;
+  color: #E2E8F0 !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18) !important;
+  backdrop-filter: blur(8px) !important;
+}
+.hero .hero-notice strong {
+  color: #FBBF24 !important;
+}
+.hero .hero-release-notice a {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #0F172A !important;
+  border: 1.5px solid #0D9488 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.16) !important;
+}
+.hero .hero-release-notice a:hover {
+  background: #0F172A !important;
+  color: #2DD4BF !important;
+  border-color: #2DD4BF !important;
+}
+
+/* 5. Hero CTA Butonlari: Daha Keskin ve Belirgin */
+.hero .hero-ctas .btn-primary {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+  color: #FBBF24 !important;
+  border: 1.5px solid #F59E0B !important;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.26) !important;
+}
+.hero .hero-ctas .btn-primary:hover {
+  background: #F59E0B !important;
+  color: #070B14 !important;
+}
+.hero .hero-ctas .btn-secondary {
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: #0F172A !important;
+  border: 1.5px solid #94A3B8 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.10) !important;
+}
+.hero .hero-ctas .btn-secondary:hover {
+  border-color: #0F172A !important;
+  background: #FFFFFF !important;
+}
+
+/* 6. Sayfa Genelindeki Kart Ikonlari (Kehribar & Siber Turkuaz) ve Koyu Metinler */
+.card h3 {
+  color: #090D16 !important;
+  font-weight: 700 !important;
+}
+.card p {
+  color: #334155 !important;
+}
+.card-icon {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+  color: #FBBF24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.42) !important;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.14) !important;
+}
+.card-grid > .card:nth-child(even) .card-icon {
+  color: #2DD4BF !important;
+  border-color: rgba(45, 212, 191, 0.42) !important;
+}
+/* === STRATUM-HERO-HARMONY-END === */
