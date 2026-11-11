@@ -1,6 +1,6 @@
 ---
 title: "Documentation"
-description: "Official Stratum Firewall v0.29.0 documentation — VGA ISO & Serial IMG installation, OPNsense migration, pf rules, Multi-WAN policy routing, Suricata IPS, DNSBL, WireGuard, OpenVPN, and REST API."
+description: "Official Stratum Firewall v0.30.0 documentation — VGA ISO & Serial IMG installation, OPNsense migration, pf rules, Multi-WAN policy routing, Suricata IPS, DNSBL, WireGuard, OpenVPN, and REST API."
 lead: "Everything you need to install, migrate, configure, and operate Stratum Firewall on FreeBSD 15.1."
 full_width: true
 hide_pages: true

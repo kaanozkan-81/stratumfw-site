@@ -1,10 +1,41 @@
 ---
 title: "Sürüm Notları"
-seo_title: "Stratum Firewall Sürüm Notları (v0.29.0) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.29.0 sürümüne kadar tüm yenilikler, değişiklikler ve hata düzeltmeleri — zamanlanmış güvenlik kuralları, 1:1 NAT, Güvenlik Duvarı Günlük Özeti, açılış melodileri ve birleşik engelleme raporları."
+seo_title: "Stratum Firewall Sürüm Notları (v0.30.0) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.30.0 sürümüne kadar tüm yenilikler, değişiklikler ve düzeltmeler — TOTP iki aşamalı doğrulama (2FA), Zorunlu DNS yönlendirmesi, ek WAN üzerinde DHCP, zamanlanmış kurallar, 1:1 NAT ve günlük özeti."
 ---
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## 0.30.0 - 2026-11-11
+
+### Eklendi
+- **Hesabım (`My Account`) altında İki Aşamalı Giriş (`TOTP 2FA`):** Parola doğrulamasının ardından yönetim paneli kimlik doğrulama uygulamasındaki (`Google Authenticator`, `Microsoft Authenticator`, `1Password`, `Bitwarden` vb.) 6 haneli kodu ister.
+  - Karekod (QR kod) okutarak veya gizli anahtarı elle girerek kurulur. Karekod yerleşik kütüphaneyle doğrudan tarayıcı içinde çizilir; gizli anahtar güvenlik duvarı dışına asla çıkmaz ve kurulum tamamlandıktan sonra bir daha gösterilmez.
+  - Her kod yalnızca bir kez geçerlidir (tekrar kullanımı engellenir); ileri veya geri 30 saniyelik saat farkı kabul edilir.
+  - Telefon kaybına karşı tek seferlik gösterilen **10 adet kurtarma kodu** üretilir; istenildiği zaman yeni kurtarma kodları oluşturulabilir. Kurtarma koduyla yapılan her giriş sistem bildirimi üretir.
+  - İki aşamalı giriş etkinleştirildiğinde kullanıcının açık olan diğer tüm oturumları sonlandırılır.
+  - Hatalı kod denemeleri giriş koruması (`sign-in protection`) sayacına dahil edilir; kod doğrulama ekranı 5 dakika sonunda zaman aşımına uğrar.
+- **Kullanıcılar (`Users`):** Kullanıcı listesinde `2FA` rozeti gösterilir; yöneticiler telefonunu kaybeden bir kullanıcının iki aşamalı girişini kapatabilir.
+- **Konsol Menüsü:** Parola sıfırlama adımı artık iki aşamalı girişi kapatma seçeneğini de sunar.
+
+## 0.29.2 - 2026-11-11
+
+### Eklendi
+- **Servisler > DNS Çözümleyici > DNS'i Güvenlik Duvarından Zorla (`Force DNS through the firewall`):** Seçilen dahili ağlardaki cihazlar hangi DNS sunucusunu sorgularsa sorgulasın (örneğin elle girilmiş `8.8.8.8`), tüm DNS sorguları güvenlik duvarının kendi çözümleyicisine yönlendirilir; böylece DNS engelleme listeleri (DNSBL) ve Web Filtresi aşılması imkansız hale gelir. Bu ağlarda şifreli DNS over TLS (`DoT`) de otomatik engellenir.
+  - **İstisna Takma Adı (`Exception alias`):** Örneğin bir Active Directory etki alanı denetleyicisi (Domain Controller) gibi belirli sunuculara doğrudan erişimin açık kalmasını sağlar.
+  - **Web Etkinliği (`Web Activity`) özelliğinden bağımsızdır:** Hiçbir gezinme kaydı tutulmaz.
+- **OPNsense'den İçe Aktarma:**
+  - Dahili ağların DNS trafiğini güvenlik duvarına yönlendiren port yönlendirme kuralları, ters çevrilmiş (`negated`) hedef takma adı istisna listesi olacak şekilde otomatik olarak **Zorunlu DNS (`Force DNS`)** ayarına dönüştürülür.
+  - IP engelleme kataloğundaki listelerden birini indiren URL tablosu takma adları (örneğin `CINS Army` veya `blocklist.de`, eski alan adlarıyla tanımlanmış olsalar bile) artık boş aktarılmak yerine ilgili IP engelleme listesini gelen ve giden yönlerde otomatik etkinleştirir.
+
+## 0.29.1 - 2026-11-11
+
+### Eklendi
+- **Ek WAN Arayüzlerinde DHCP Desteği:** İkinci (veya üçüncü) internet bağlantısı artık kablo modem veya 4G/5G LTE yönlendirici gibi cihazlardan **DHCP** ile dinamik IP adresi alabilir.
+  - Ek bir DHCP WAN hattı varsayılan rotayı veya sistem DNS sunucularını tek başına üzerine almaz; varsayılan rotayı hangi hattın taşıyacağına her zaman ağ geçidi izleyicisi (**Arayüzler > Ağ Geçitleri**, yedeklilik/failover) karar verir.
+  - DHCP kiralamasıyla alınan ağ geçidi; hat yedekleme (`failover`), o hattan gelen bağlantılara dönüş (`reply-to`) ve politika tabanlı yönlendirme (`policy routing`) için kullanılır. Servis sağlayıcı farklı bir ağ geçidi verdiğinde güvenlik duvarı kuralları **Uygula (`Apply`)** gerektirmeden saniyeler içinde yeni adresi takip eder.
+- **Politika Yönlendirmesi (`Policy routing`):** Bir kuralın çıkış ağ geçidi olarak DHCP tabanlı ek WAN seçilebilir; hat IP kiralayana kadar kural normal yönlendirmeyi kullanır.
+- **OPNsense'den İçe Aktarma:** DHCP kullanan `WAN2` arayüzleri artık uyarı üretmeden doğrudan içe aktarılır.
 
 ## 0.29.0 - 2026-11-11
 

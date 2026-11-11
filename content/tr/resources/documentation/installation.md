@@ -63,4 +63,4 @@ Get-FileHash .\stratum-fw-*-amd64.* -Algorithm SHA256
    * `LAN` IP adresini (varsayılan `192.168.1.1/24`, DHCP açık) ve `WAN` bağlantı tipini (`DHCP`, `Statik` veya `PPPoE`) belirleyin,
    * Saat dilimini ve yönetici (`admin`) parolasını tanımlayın.
 
-Ardından yerel ağdaki bir bilgisayardan `https://192.168.1.1/` adresine bağlanarak [İlk Yapılandırma](/tr/resources/documentation/initial-configuration/) adımlarına geçebilir ve **Sistem → Güncelleme** menüsünden en son sürüme (**v0.29.0**) tek tıkla yükseltebilirsiniz.
+Ardından yerel ağdaki bir bilgisayardan `https://192.168.1.1/` adresine bağlanarak [İlk Yapılandırma](/tr/resources/documentation/initial-configuration/) adımlarına geçebilir ve **Sistem → Güncelleme** menüsünden en son sürüme (**v0.30.0**) tek tıkla yükseltebilirsiniz.

@@ -13,8 +13,8 @@ Multilingual (**English** & **Turkish**) Hugo source repository for the official
 | Directory / File | Description |
 | :--- | :--- |
 | `hugo.toml` | Multilingual (`en` & `tr`) Hugo configuration, menus, and SEO metadata |
-| `content/en/` | English pages: Product, Solutions, Documentation (12 guides), Changelog (`v0.29.0`), FAQ, Download, Live Demo, and Blog |
-| `content/tr/` | Turkish pages (`1:1` parity): Ürün, Çözümler, Dokümantasyon (12 rehber), Sürüm Notları (`v0.29.0`), SSS, İndir, Canlı Demo ve Blog |
+| `content/en/` | English pages: Product, Solutions, Documentation (12 guides), Changelog (`v0.30.0`), FAQ, Download, Live Demo, and Blog |
+| `content/tr/` | Turkish pages (`1:1` parity): Ürün, Çözümler, Dokümantasyon (12 rehber), Sürüm Notları (`v0.30.0`), SSS, İndir, Canlı Demo ve Blog |
 | `layouts/` | Custom HTML5 templates, JSON-LD (`SoftwareApplication` & `WebApplication`) Schema, `hreflang`, and custom `robots.txt` |
 | `static/` | CSS, brand SVGs, 3D product architecture visuals (`images/features/`), UI docs screenshots, and `.well-known/security.txt` |
 

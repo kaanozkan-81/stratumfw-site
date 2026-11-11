@@ -33,4 +33,4 @@ Navigate to **System → Settings**:
 
 ## 4. Check for Signed Software Updates (ZFS Boot Environments)
 
-Navigate to **System → Update** and click **Check for updates** (or upload an offline `.sfu` update package on air-gapped networks). Before applying **v0.29.0** or any future release, Stratum automatically snapshots your current system into a new **ZFS Boot Environment** (retaining the newest 5 environments) so you can always boot back into the previous version if needed.
+Navigate to **System → Update** and click **Check for updates** (or upload an offline `.sfu` update package on air-gapped networks). Before applying **v0.30.0** or any future release, Stratum automatically snapshots your current system into a new **ZFS Boot Environment** (retaining the newest 5 environments) so you can always boot back into the previous version if needed.

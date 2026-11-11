@@ -4,7 +4,7 @@ description: "Import an OPNsense config.xml into Stratum Firewall — interactiv
 lead: "Move from OPNsense to Stratum Firewall in minutes — including your firewall rules, VLANs, NAT, Virtual IPs, and your entire OpenVPN server without touching a single client laptop."
 ---
 
-Switching firewall platforms normally requires days of rewriting rules and re-issuing VPN profiles to every employee. Stratum Firewall (`v0.25.0` – `v0.29.0`) includes a built-in **OPNsense Migration Engine** under **System → Backup → Import from OPNsense** that converts an OPNsense `config.xml` into a pending Stratum configuration with an interactive pre-flight report.
+Switching firewall platforms normally requires days of rewriting rules and re-issuing VPN profiles to every employee. Stratum Firewall (`v0.25.0` – `v0.30.0`) includes a built-in **OPNsense Migration Engine** under **System → Backup → Import from OPNsense** that converts an OPNsense `config.xml` into a pending Stratum configuration with an interactive pre-flight report.
 
 ## 1. What Gets Imported Automatically
 

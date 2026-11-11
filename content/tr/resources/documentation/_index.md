@@ -1,6 +1,6 @@
 ---
 title: "Dokümantasyon"
-description: "Stratum Firewall v0.29.0 resmi dokümantasyonu — VGA ISO ve Serial IMG kurulumu, OPNsense göçü, pf kuralları, Çoklu WAN politika yönlendirme, Suricata IPS, DNSBL, WireGuard, OpenVPN ve REST API."
+description: "Stratum Firewall v0.30.0 resmi dokümantasyonu — VGA ISO ve Serial IMG kurulumu, OPNsense göçü, pf kuralları, Çoklu WAN politika yönlendirme, Suricata IPS, DNSBL, WireGuard, OpenVPN ve REST API."
 lead: "FreeBSD 15.1 tabanlı Stratum Firewall'ı kurmak, taşımak, yapılandırmak ve işletmek için ihtiyacınız olan tüm teknik rehberler."
 full_width: true
 hide_pages: true

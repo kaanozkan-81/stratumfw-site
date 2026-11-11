@@ -19,7 +19,7 @@ Stratum Firewall combines four complementary defense engines—managed directly 
 * **DNS Blocklists (`Firewall → Blocklists → DNSBL`):** Sinkhole ads, trackers, phishing, and malware domains in **Unbound RPZ** using curated pfBlockerNG and **HaGeZi** catalogs plus custom allow/block lists.
 * **Per-Network Web Filter (`Firewall → Web Filter`):** Assign different content policies per LAN, VLAN, or VPN network across **55 categories** (*UT1 Université Toulouse Capitole* &amp; *Block List Project*—adult content, malware, proxies/VPN bypass, social media, gambling, etc.), enforce **Safe Search** on Google (including regional domains), Bing, DuckDuckGo, and YouTube Restricted Mode, and test domains with **Check a site**.
 
-## 3. Unified Blocklist Reports (`Firewall → Blocklists → Blocked`, `v0.28.2` – `v0.29.0`)
+## 3. Unified Blocklist Reports (`Firewall → Blocklists → Blocked`, `v0.28.2` – `v0.30.0`)
 
 Inspect everything stopped by **DNSBL**, **Web Filter**, and **IP Blocklists** in a single pfBlockerNG-style analytics view (plus the **Blocklists** Dashboard widget):
 * View hourly/daily block charts, which feed matched each event, top blocked domains/IPs, and client devices with the most blocks across the last **1 hour, 24 hours, or 7 days** (fully compatible with Unbound 1.26 RPZ logs).
