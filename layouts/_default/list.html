@@ -22,9 +22,7 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="prose">
-      {{ .Content }}
-    </div>
+    {{ if .Params.full_width }}{{ .Content }}{{ else }}<div class="prose">{{ .Content }}</div>{{ end }}
 
     {{ if and .Pages (not .Params.hide_pages) }}
       <div class="card-grid grid-3" style="margin-top:48px;">
