@@ -17,7 +17,7 @@ Güvenlik duvarı değiştirmek normalde yüzlerce kuralı baştan yazmayı ve t
 | **Temel Servisler** | Arayüz IP'sini kapsayan bölünmez DHCP aralıkları (`v0.30.1`) ve statik rezervasyonlar (`dnsmasq` / `ISC dhcpd`), **Unbound DNS engelleme listeleri** (*Steven Black* ve *AdGuard* dahil katalog eşleşmeleri, özel `https://` listeleri, izin/engelleme ve joker alan adları — `v0.30.2`), DNS geçersiz kılmaları, cihaz adı, alan adı, saat dilimi, DNS ve NTP sunucuları. |
 | **OpenVPN Sunucusunu Devralma** | *(İsteğe bağlı kutucuk)* CA ve özel anahtarı, sunucu sertifikası, `tls-crypt`/`tls-auth` anahtarı, tüm kullanıcı sertifikaları, tünel/şifreleme/DNS/`block-outside-dns` ayarları ve mevcut OPNsense parola özetleriyle (PHP `$2y$` bcrypt ve `argon2id`) birlikte VPN kullanıcıları. |
 
-## 2. Adım Adım Göç İş Akışı
+## 2. Adım Adım Geçiş İş Akışı
 
 1. **OPNsense'den `config.xml` Yedeğini Alın:** OPNsense panelinde *System → Configuration → Backups* menüsünden şifrelenmemiş `config.xml` dosyasını indirin.
 2. **Stratum FW Üzerine Yükleyin:** **Sistem → Yedekleme → OPNsense'den İçe Aktar** ekranını açın, `config.xml` dosyasını seçin ve OpenVPN sunucunuzu da taşımak istiyorsanız **"OpenVPN'i de içe aktar"** kutucuğunu işaretleyin.

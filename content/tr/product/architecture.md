@@ -40,7 +40,7 @@ full_width: true
 <span class="arch-pill"><b>Durum:</b> config.json + SQLite WAL</span>
 <span class="arch-pill"><b>Derleyici:</b> stratum-config (Ön Doğrulamalı)</span>
 <span class="arch-pill"><b>Canlı pf:</b> stratum-pfrefresh + stratum-netextra</span>
-<span class="arch-pill"><b>Göç:</b> OPNsense XML + OpenVPN PKI Aktarıcı</span>
+<span class="arch-pill"><b>Geçiş:</b> OPNsense XML + OpenVPN PKI Aktarıcı</span>
 </div>
 </div>
 </div>
@@ -160,7 +160,7 @@ full_width: true
 <td>Tarayıcıda yerel çizilen QR kodlu <strong>TOTP 2FA</strong> (<code>v0.30.0</code>), tek kullanımlık kod koruması, 10 kurtarma kodu, konsol 2FA sıfırlama (<code>stratum-menu</code>) ve zamanlanmış şifreli <code>.stbk</code> SFTP yedekleme.</td>
 </tr>
 <tr>
-<td><strong>OPNsense Göç Motoru</strong></td>
+<td><strong>OPNsense Geçiş Motoru</strong></td>
 <td>Bildirimsel XML Dönüştürücü</td>
 <td>Uygulama öncesi etkileşimli uyumluluk raporu</td>
 <td>OPNsense <code>config.xml</code> içinden VLAN, VIP, kurallar, Politika Yönlendirme, <strong>DHCP WAN2</strong>, <strong>Zorunlu DNS</strong>, katalog <strong>URL-tablo IP listeleri</strong> ve OpenVPN PKI + <code>$2y$</code>/<code>argon2id</code> parolalarını devralma.</td>

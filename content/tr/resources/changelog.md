@@ -1,7 +1,7 @@
 ---
 title: "Sürüm Notları"
 seo_title: "Stratum Firewall Sürüm Notları (v0.30.3) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.30.3 sürümüne kadar tüm yenilikler, değişiklikler ve düzeltmeler — OPNsense Unbound DNSBL göçü, bölünmeyen DHCP havuzları, dummynet hız sınırı koruması, TOTP 2FA, Zorunlu DNS ve DHCP Çoklu WAN."
+description: "Stratum Firewall v0.30.3 sürümüne kadar tüm yenilikler, değişiklikler ve düzeltmeler — OPNsense Unbound DNSBL geçişi, bölünmeyen DHCP havuzları, dummynet hız sınırı koruması, TOTP 2FA, Zorunlu DNS ve DHCP Çoklu WAN."
 ---
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.

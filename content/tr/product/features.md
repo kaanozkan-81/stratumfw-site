@@ -9,8 +9,8 @@ seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Ç
 <!-- STRATUM-OPNSENSE-SHOWCASE-START -->
 <div class="opn-feature-showcase">
   <div class="opn-showcase-head">
-    <span class="opn-showcase-eyebrow">Kesintisiz Göç Motoru &middot; Sıfırdan Kurulum Gerekmez</span>
-    <h2>OPNsense <code>config.xml</code> ve OpenVPN Doğrudan Göç Desteği</h2>
+    <span class="opn-showcase-eyebrow">Kesintisiz Geçiş Motoru &middot; Sıfırdan Kurulum Gerekmez</span>
+    <h2>OPNsense <code>config.xml</code> ve OpenVPN Doğrudan Geçiş Desteği</h2>
     <p>Güvenlik duvarı işletim sistemini değiştirmek, yüzlerce kuralı hafta sonu boyunca elle yeniden yazmak veya uzaktaki çalışanların bilgisayarlarına tek tek yeni VPN profili dağıtmak anlamına gelmemeli. Mevcut OPNsense <code>config.xml</code> yedeğinizi <strong>Sistem &rarr; Yedekleme &rarr; OPNsense'den İçe Aktar</strong> ekranına yükleyip dakikalar içinde önizlemeli geçiş yapabilirsiniz.</p>
   </div>
 
@@ -52,7 +52,7 @@ seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Ç
   <div class="opn-showcase-actions">
     <span class="opn-showcase-note">Gerçek OPNsense profilleri, çoklu VLAN topolojileri ve canlı OpenVPN istemcileriyle doğrulanmıştır.</span>
     <div class="opn-showcase-btns">
-      <a href="/tr/resources/documentation/opnsense-migration/" class="btn btn-primary">OPNsense Göç Rehberini Oku &rarr;</a>
+      <a href="/tr/resources/documentation/opnsense-migration/" class="btn btn-primary">OPNsense Geçiş Rehberini Oku &rarr;</a>
       <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="btn btn-secondary" style="background:#FFFFFF;color:#0F172A;">Canlı Demoda İncele</a>
     </div>
   </div>

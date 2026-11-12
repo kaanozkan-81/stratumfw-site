@@ -1,15 +1,15 @@
 ---
-title: "Stratum Firewall v0.27.1: Kesintisiz OPNsense ve OpenVPN Göçü, Sanal IP'ler, Ülke Takma Adları ve Tanılama Araçları"
+title: "Stratum Firewall v0.27.1: Kesintisiz OPNsense ve OpenVPN Geçişi, Sanal IP'ler, Ülke Takma Adları ve Tanılama Araçları"
 date: 2026-11-08
 author: "Stratum Security"
 description: "Stratum Firewall v0.27.1 sürümüyle OPNsense yapılandırmalarını ve OpenVPN sunucusunu mevcut istemci profillerini bozmadan içe aktarın; Sanal IP (VIP), Statik Rota, Ülke (GeoIP) takma adları ve Wireshark paket yakalama özelliklerini keşfedin."
-lead: "v0.24.3'ten v0.27.1'e uzanan güncelleme serisiyle Stratum Firewall; kesintisiz OPNsense ve OpenVPN göçü, Sanal IP yönetimi, lisans gerektirmeyen ülke bazlı filtreleme ve gelişmiş ağ tanılama araçlarına kavuştu."
+lead: "v0.24.3'ten v0.27.1'e uzanan güncelleme serisiyle Stratum Firewall; kesintisiz OPNsense ve OpenVPN geçişi, Sanal IP yönetimi, lisans gerektirmeyen ülke bazlı filtreleme ve gelişmiş ağ tanılama araçlarına kavuştu."
 tags: ["stratum firewall", "stratum fw", "freebsd", "opnsense", "openvpn", "sanal ip", "geoip", "suricata"]
 ---
 
-[Stratum Firewall TR](https://stratumfw.com/tr/) için yayınladığımız **v0.27.1** sürümü, mevcut bir güvenlik duvarından geçiş sürecini zahmetsiz hale getiren ve günlük ağ operasyonlarını hızlandıran kritik yetenekleri bir araya getiriyor. [Sürüm Notları](https://stratumfw.com/tr/resources/changelog/) sayfasında detaylandırılan `v0.24.3` ile `v0.27.1` arasındaki geliştirmeler; OPNsense üzerinden tam kapsamlı yapılandırma ve OpenVPN göçünden Sanal IP (Virtual IP) yönetimine, ülke bazlı `pf` tablolarından Wireshark paket yakalama araçlarına kadar uzanıyor.
+[Stratum Firewall TR](https://stratumfw.com/tr/) için yayınladığımız **v0.27.1** sürümü, mevcut bir güvenlik duvarından geçiş sürecini zahmetsiz hale getiren ve günlük ağ operasyonlarını hızlandıran kritik yetenekleri bir araya getiriyor. [Sürüm Notları](https://stratumfw.com/tr/resources/changelog/) sayfasında detaylandırılan `v0.24.3` ile `v0.27.1` arasındaki geliştirmeler; OPNsense üzerinden tam kapsamlı yapılandırma ve OpenVPN geçişinden Sanal IP (Virtual IP) yönetimine, ülke bazlı `pf` tablolarından Wireshark paket yakalama araçlarına kadar uzanıyor.
 
-### 1. Kesintisiz OPNsense ve OpenVPN Göçü (v0.25.0 & v0.27.1)
+### 1. Kesintisiz OPNsense ve OpenVPN Geçişi (v0.25.0 & v0.27.1)
 
 Bir güvenlik duvarını değiştirmenin en zor kısmı, yıllar içinde birikmiş kuralları ve son kullanıcıların cihazlarındaki VPN profillerini yeniden dağıtmaktır. **Sistem > Yedekleme > OPNsense'den İçe Aktar** aracı, bir OPNsense `config.xml` dosyasını okuyarak [Stratum Firewall TR](https://stratumfw.com/tr/) üzerinde bekleyen yapılandırmaya dönüştürür:
 

@@ -16,7 +16,7 @@ Birleşik engelleme listesi raporları ve politika yönlendirmesinin hemen ardı
 
 * **Uygula Gerektirmeyen Otomatik Geçiş:** `stratum-pfrefresh` servisi kuralları sistem saatine göre bir dakika içinde kendiliğinden devreye alır veya çıkarır.
 * **Açık Oturumların Otomatik Kapatılması:** Bir izin (`pass`) kuralının süresi dolduğunda o kural üzerinden açılmış aktif bağlantılar derhal sonlandırılır; mesai veya ders saati bitiminde açık oturum kalmaz.
-* **Güvenli OPNsense Göçü:** OPNsense `config.xml` dosyasından aktarılan zamanlamalı kurallar gün boyu yanlışlıkla açık kalmaması için pasif olarak içe aktarılır ve raporda vurgulanır.
+* **Güvenli OPNsense Geçişi:** OPNsense `config.xml` dosyasından aktarılan zamanlamalı kurallar gün boyu yanlışlıkla açık kalmaması için pasif olarak içe aktarılır ve raporda vurgulanır.
 
 ### 2. Sabit IP Blokları İçin Çift Yönlü 1:1 NAT (`v0.28.9`)
 

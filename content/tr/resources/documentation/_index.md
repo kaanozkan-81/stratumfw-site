@@ -1,6 +1,6 @@
 ---
 title: "Dokümantasyon"
-description: "Stratum Firewall v0.30.0 resmi dokümantasyonu — VGA ISO ve Serial IMG kurulumu, OPNsense göçü, TOTP 2FA, Zorunlu DNS, 1:1 NAT, zamanlamalı pf kuralları, DHCP Çoklu WAN, Suricata IPS ve WireGuard/OpenVPN."
+description: "Stratum Firewall v0.30.0 resmi dokümantasyonu — VGA ISO ve Serial IMG kurulumu, OPNsense geçişi, TOTP 2FA, Zorunlu DNS, 1:1 NAT, zamanlamalı pf kuralları, DHCP Çoklu WAN, Suricata IPS ve WireGuard/OpenVPN."
 lead: "FreeBSD 15.1 tabanlı Stratum Firewall v0.30.0 sürümünü kurmak, taşımak, yapılandırmak ve işletmek için ihtiyacınız olan tüm teknik rehberler."
 full_width: true
 hide_pages: true
@@ -15,7 +15,7 @@ hide_pages: true
 <section id="getting-started" class="docs-section">
   <div class="docs-section-head">
     <span class="eyebrow">01</span>
-    <h2>Başlarken ve Göç</h2>
+    <h2>Başlarken ve Geçiş</h2>
     <p>ISO/IMG medyasından kurulum yapın, TOTP 2FA ile yönetici girişini koruyun veya mevcut OPNsense cihazınızı taşıyın.</p>
   </div>
   <div class="card-grid grid-3">

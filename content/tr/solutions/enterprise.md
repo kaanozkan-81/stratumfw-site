@@ -1,6 +1,6 @@
 ---
 title: "Kurumsal ve Çok Şubeli Ağlar"
-description: "Kurumsal altyapı ekipleri için API-öncelikli FreeBSD 15.1 güvenlik duvarı — kesintisiz OPNsense göçü, /29 Sanal IP, çift motorlu Suricata IPS, RBAC, SNMP, Uzak Syslog ve ZFS geri alma."
+description: "Kurumsal altyapı ekipleri için API-öncelikli FreeBSD 15.1 güvenlik duvarı — kesintisiz OPNsense geçişi, /29 Sanal IP, çift motorlu Suricata IPS, RBAC, SNMP, Uzak Syslog ve ZFS geri alma."
 lead: "Çok şubeli ağlar, veri merkezleri ve regülasyonlara tabi kurumlar için API-öncelikli otomasyon, denetlenebilir tekil yapılandırma ve çekirdek hızında güvenlik."
 full_width: true
 ---
@@ -10,7 +10,7 @@ full_width: true
   <div class="sol-head">
     <span class="eyebrow">Kurumsal Altyapı Mimarisi</span>
     <h2>Otomasyon, denetlenebilirlik ve kesintisiz operasyon için sıfırdan tasarlandı</h2>
-    <p>Kurumsal ölçekte güvenlik duvarı yönetimi; yalnızca paket filtrelemekten ibaret değildir. Değişikliklerin ön kontrolden geçmesi, kimlik ve yetki ayrımı (ISO 27001 / KVKK / SOC 2 denetim izleri), merkezi izleme ve eski cihazlardan kesintisiz göç yeteneği gerektirir.</p>
+    <p>Kurumsal ölçekte güvenlik duvarı yönetimi; yalnızca paket filtrelemekten ibaret değildir. Değişikliklerin ön kontrolden geçmesi, kimlik ve yetki ayrımı (ISO 27001 / KVKK / SOC 2 denetim izleri), merkezi izleme ve eski cihazlardan kesintisiz geçiş yeteneği gerektirir.</p>
   </div>
 
   <div class="card-grid grid-3">

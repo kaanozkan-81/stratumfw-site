@@ -4,7 +4,7 @@ description: "Stratum Firewall üzerinde WireGuard ve OpenVPN uzaktan erişim ç
 lead: "Uzaktaki çalışanlarınızı ve cihazlarınızı FreeBSD çekirdek tabanlı WireGuard veya yerleşik PKI ve Çoklu WAN destekli OpenVPN ile güvenle ağınıza bağlayın."
 ---
 
-Stratum Firewall, hem **FreeBSD 15.1 çekirdeğinde (`if_wg`)** çalışan yüksek hızlı **WireGuard** hem de yerleşik Sertifika Otoritesi (CA), parola doğrulaması ve kesintisiz OPNsense göç desteğine sahip **OpenVPN** çözümlerini yerleşik olarak sunar.
+Stratum Firewall, hem **FreeBSD 15.1 çekirdeğinde (`if_wg`)** çalışan yüksek hızlı **WireGuard** hem de yerleşik Sertifika Otoritesi (CA), parola doğrulaması ve kesintisiz OPNsense geçiş desteğine sahip **OpenVPN** çözümlerini yerleşik olarak sunar.
 
 ## 1. WireGuard ve OpenVPN Karşılaştırması
 
@@ -14,7 +14,7 @@ Stratum Firewall, hem **FreeBSD 15.1 çekirdeğinde (`if_wg`)** çalışan yüks
 | **Kimlik Doğrulama** | Anahtar çifti (`X25519`) + isteğe bağlı PSK | Kullanıcı Sertifikası + Parola (`bcrypt` / `argon2id`) veya yalnızca sertifika |
 | **İstemci Kurulumu** | Anında QR kod okutma ve `.conf` indirme | Her şey gömülü tekil `.ovpn` profil dosyası |
 | **Çoklu WAN Desteği** | Otomatik genel IP algılama | Çoklu sıralı `remote` satırı + `multihome` simetrik WAN yanıtı (`v0.27.1`) |
-| **En Uygun Senaryo** | Maksimum hız, mobil ağ geçişleri (Wi-Fi ↔ LTE) | Parolalı kurumsal hesaplar, Windows DNS kilidi, [OPNsense göçü](/tr/resources/documentation/opnsense-migration/) |
+| **En Uygun Senaryo** | Maksimum hız, mobil ağ geçişleri (Wi-Fi ↔ LTE) | Parolalı kurumsal hesaplar, Windows DNS kilidi, [OPNsense geçişi](/tr/resources/documentation/opnsense-migration/) |
 
 ## 2. OpenVPN Uzaktan Erişim Özellikleri (`v0.7.0` – `v0.27.1`)
 

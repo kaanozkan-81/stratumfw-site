@@ -1,7 +1,7 @@
 ---
 title: "Sıkça Sorulan Sorular"
-description: "Stratum Firewall v0.30.3 mimarisi, OPNsense ve OpenVPN göçü, Suricata IPS, GeoIP filtreleme, ZFS güncellemeleri ve kurulum imajları hakkında sıkça sorulan sorular."
-lead: "Platform, OPNsense göçü, güvenlik modülleri, güncellemeler ve dağıtım hakkında en sık sorulan sorulara yanıtlar."
+description: "Stratum Firewall v0.30.3 mimarisi, OPNsense ve OpenVPN geçişi, Suricata IPS, GeoIP filtreleme, ZFS güncellemeleri ve kurulum imajları hakkında sıkça sorulan sorular."
+lead: "Platform, OPNsense geçişi, güvenlik modülleri, güncellemeler ve dağıtım hakkında en sık sorulan sorulara yanıtlar."
 full_width: true
 ---
 <div class="faq-sections">
@@ -17,7 +17,7 @@ full_width: true
 </section>
 
 <section class="faq-section">
-  <h2>OPNsense Göçü, Mimari ve Güncellemeler</h2>
+  <h2>OPNsense Geçişi, Mimari ve Güncellemeler</h2>
   <div class="faq">
     <details><summary>Mevcut OPNsense kurallarımı ve OpenVPN kullanıcılarımı aktarabilir miyim?</summary><div class="faq-body">Evet (<code>v0.25.0</code> – <code>v0.30.3</code>). <strong>Sistem &gt; Yedekleme &gt; OPNsense'den İçe Aktar</strong> aracıyla bir OPNsense <code>config.xml</code> dosyasını yükleyerek arayüzleri, VLAN'ları, takma adları, güvenlik duvarı ve NAT kurallarını, DHCP rezervasyonlarını ve DNS ayarlarını önizlemeli olarak taşıyabilirsiniz. <em>"OpenVPN'i de içe aktar"</em> seçeneğiyle CA, sertifikalar, <code>tls-crypt</code> anahtarı ve kullanıcı parolaları (PHP <code>$2y$</code> bcrypt ve <code>argon2id</code> dahil) devralınır; son kullanıcıların bilgisayarlarındaki mevcut <code>.ovpn</code> profilleri hiçbir değişiklik yapılmadan bağlanmaya devam eder.</div></details>
     <details><summary>"Bildirimsel Yapılandırma" ve "Güvenli Uygulama" (Safe-Apply) nedir?</summary><div class="faq-body">Tüm ayarlar tek bir <code>config.json</code> kaynağında tutulur ve <code>pf.conf</code>, Unbound, dnsmasq, Suricata, OpenVPN ve WireGuard dosyaları buradan üretilir. Bir değişiklik uygulandığında önce sözdizimi doğrulaması (<code>pfctl -n</code> vb.) yapılır ve <strong>60 saniyelik geri sayım</strong> başlar; bağlantınızı onaylamazsanız sistem sizi kilitlememek için otomatik olarak önceki çalışan yapılandırmaya geri döner.</div></details>

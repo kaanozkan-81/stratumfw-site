@@ -46,7 +46,7 @@ hide_pages: true
   <div class="card-grid grid-3">
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></div>
-      <h3>Sıfır Kesintili OPNsense &amp; OpenVPN Göçü</h3>
+      <h3>Sıfır Kesintili OPNsense &amp; OpenVPN Geçişi</h3>
       <p>Mevcut OPNsense <code>config.xml</code> dosyanızı yükleyerek kuralları, VLAN/VIP yapılarını ve tüm OpenVPN sunucunuzu (CA, sertifikalar ve kullanıcı parolaları dahil) istemci cihazlara dokunmadan devralın.</p>
     </div>
     <div class="card">

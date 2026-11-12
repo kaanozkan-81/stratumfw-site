@@ -25,7 +25,7 @@ Birden fazla internet hattına (Multi-WAN) sahip yapılarda artık yalnızca hat
 
 * **Ağ veya Kural Bazlı Çıkış Hattı Seçimi:** Dahili bir arayüzdeki veya arayüz grubundaki herhangi bir izin (`pass`) kuralında trafiğin hangi WAN ağ geçidinden (statik veya PPPoE) çıkacağını seçebilirsiniz — örneğin misafir Wi-Fi VLAN'ını ikinci internet sağlayıcısına yönlendirirken sunucu trafiğini ana fiber hatta tutabilirsiniz ([Sürüm Notları](https://stratumfw.com/tr/resources/changelog/)).
 * **Akıllı Yerel Ağ Koruması:** Kural kapsamındaki trafiğin yerel LAN/VLAN ağlarına, VPN tünellerine, statik rotalı alt ağlara veya güvenlik duvarının kendisine giden kısmı otomatik olarak normal yerel yönlendirmede kalır; iç ağ trafiği yanlışlıkla internet sağlayıcısına gönderilmez.
-* **Kesintisiz Yedeklilik ve OPNsense Göç Uyumu:** Seçilen WAN ağ geçidi çökerse ağ geçidi izleyicisi kuralları saniyeler içinde varsayılan rotaya (veya tercih edilirse yalnızca seçili hatta) geçirir. Ayrıca OPNsense `config.xml` içe aktarma aracı artık kurallardaki ağ geçidi tanımlarını da eşleşen WAN arayüzüne otomatik taşır.
+* **Kesintisiz Yedeklilik ve OPNsense Geçiş Uyumu:** Seçilen WAN ağ geçidi çökerse ağ geçidi izleyicisi kuralları saniyeler içinde varsayılan rotaya (veya tercih edilirse yalnızca seçili hatta) geçirir. Ayrıca OPNsense `config.xml` içe aktarma aracı artık kurallardaki ağ geçidi tanımlarını da eşleşen WAN arayüzüne otomatik taşır.
 
 ### 3. Merkezi Servis Durumu ve Güvenli Süreç Yönetimi (v0.28.1)
 
