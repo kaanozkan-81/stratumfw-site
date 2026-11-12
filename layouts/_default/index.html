@@ -227,33 +227,86 @@ section.hero h1, section.hero p {
 </section>
 <!-- STRATUM-HOME-COMPARE-END -->
 
+<!-- STRATUM-V0303-GALLERY-START -->
 <section class="section section-canvas" id="gallery">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Interface Preview</span>
+      <span class="eyebrow">v0.30.3 Interface Preview</span>
       <h2>Built for operators, by engineers</h2>
-      <p>A clean, modern, and fast interface. Click on any screenshot to view it in full size.</p>
+      <p>A fast, clean Python 3.12 &amp; FastAPI control plane with zero legacy PHP/XML clutter. Click any screen to view full size, or test a real FreeBSD 15.1 VM live in your browser.</p>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox('/images/docs/dashboard.png')">
-        <img src="/images/docs/dashboard.png" alt="Stratum Dashboard">
-        <div class="gallery-overlay"><span>Dashboard</span></div>
+
+    <div class="stratum-v0303-gallery-wrap">
+      <div class="stratum-gallery-featured" onclick="openLightbox('/images/gallery/stratum-v0303-showcase.webp')">
+        <div class="stratum-gallery-featured-media">
+          <img src="/images/gallery/stratum-v0303-showcase.webp" alt="Stratum Firewall v0.30.3 Appliance and FastAPI Dashboard Overview" loading="lazy">
+        </div>
+        <div class="stratum-gallery-featured-bar">
+          <div class="stratum-gallery-featured-meta">
+            <strong>Stratum Firewall v0.30.3 &middot; FreeBSD 15.1 &amp; Kernel pf Appliance OS</strong>
+            <span>Declarative JSON engine, atomic ZFS Boot Environments, 60-second Safe-Apply rollback, and zero annual subscriptions.</span>
+          </div>
+          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-gallery-demo-cta" onclick="event.stopPropagation()">Launch Live v0.30.3 Demo &rarr;</a>
+        </div>
       </div>
-      <div class="gallery-item" onclick="openLightbox('/images/docs/pf-rules.png')">
-        <img src="/images/docs/pf-rules.png" alt="pf Firewall Rules">
-        <div class="gallery-overlay"><span>Firewall Rules</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('/images/docs/wireguard.png')">
-        <img src="/images/docs/wireguard.png" alt="WireGuard VPN">
-        <div class="gallery-overlay"><span>WireGuard VPN</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('/images/docs/blocklists.png')">
-        <img src="/images/docs/blocklists.png" alt="IP & DNS Blocklists">
-        <div class="gallery-overlay"><span>Threat Blocklists</span></div>
+
+      <div class="stratum-gallery-grid-v0303">
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-dashboard-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-dashboard-v0303.webp" alt="Stratum FW v0.30.3 Live Dashboard and Multi-WAN Telemetry" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>12-Column Live Dashboard</strong>
+              <span class="stratum-panel-shot-tag">Multi-WAN</span>
+            </div>
+            <p>Real-time interface throughput, 1-second Static/PPPoE/DHCP WAN failover probes, ZFS health, and 24h block counters.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-opnsense-import-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-opnsense-import-v0303.webp" alt="OPNsense config.xml, OpenVPN PKI and Unbound DNSBL Migration" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>1-Click OPNsense &amp; DNSBL Migration</strong>
+              <span class="stratum-panel-shot-tag">v0.30.2</span>
+            </div>
+            <p>Maps NIC ports and imports VLANs, rules, full-span DHCP pools, Unbound DNSBL feeds, and OpenVPN PKI + user passwords.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-threat-forcedns-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-threat-forcedns-v0303.webp" alt="Suricata 8 Dual-Engine IPS, Force DNS and 55-Category Web Filter" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Suricata 8 IPS, Force DNS &amp; Web Filter</strong>
+              <span class="stratum-panel-shot-tag">Zero Logs</span>
+            </div>
+            <p>Simultaneous netmap IPS + pcap IDS, Force DNS with DoT 853 blocking &amp; AD exception aliases, and 55-category RPZ filtering.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-totp-wireguard-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Browser-Local QR TOTP 2FA, 60s Safe-Apply and Kernel WireGuard VPN" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Local-QR TOTP 2FA &amp; Kernel WireGuard</strong>
+              <span class="stratum-panel-shot-tag">v0.30.0</span>
+            </div>
+            <p>Two-factor sign-in with browser-drawn QR codes &amp; 10 recovery codes, 60s Safe-Apply protection, and native FreeBSD if_wg VPN.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+<!-- STRATUM-V0303-GALLERY-END -->
 
 
 <!-- Lightbox Modal -->

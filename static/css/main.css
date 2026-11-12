@@ -3459,3 +3459,192 @@ img{max-width:100%; display:block;}
   color: #E2E8F0 !important;
 }
 /* === STRATUM-ARCH-V0300-END === */
+
+/* === STRATUM-V0303-GALLERY-CSS-START === */
+.stratum-v0303-gallery-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 12px;
+}
+
+.stratum-gallery-featured {
+  background: #0B1120 !important;
+  border: 1px solid rgba(245, 158, 11, 0.34) !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 48px rgba(9, 13, 22, 0.22) !important;
+  cursor: zoom-in;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.stratum-gallery-featured:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 158, 11, 0.65) !important;
+  box-shadow: 0 26px 56px rgba(9, 13, 22, 0.3) !important;
+}
+
+.stratum-gallery-featured-media {
+  position: relative;
+  width: 100%;
+  background: #090D16;
+  overflow: hidden;
+}
+
+.stratum-gallery-featured-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.stratum-gallery-featured:hover .stratum-gallery-featured-media img {
+  transform: scale(1.012);
+}
+
+.stratum-gallery-featured-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px !important;
+  background: linear-gradient(180deg, #0F172A 0%, #0B1120 100%) !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.16) !important;
+}
+
+.stratum-gallery-featured-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stratum-gallery-featured-meta strong {
+  color: #FFFFFF !important;
+  font-size: 1.04rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+
+.stratum-gallery-featured-meta span {
+  color: #CBD5E1 !important;
+  font-size: 0.9rem !important;
+}
+
+.stratum-gallery-demo-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #F59E0B !important;
+  color: #090D16 !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  text-decoration: none !important;
+  transition: background 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.stratum-gallery-demo-cta:hover {
+  background: #FBBF24 !important;
+  transform: translateY(-1px);
+}
+
+.stratum-gallery-grid-v0303 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+@media (max-width: 820px) {
+  .stratum-gallery-grid-v0303 {
+    grid-template-columns: 1fr;
+  }
+  .stratum-gallery-featured-bar {
+    padding: 16px 18px !important;
+  }
+}
+
+.stratum-panel-shot {
+  background: #0F172A !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  box-shadow: 0 12px 30px rgba(9, 13, 22, 0.14) !important;
+  cursor: zoom-in;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.stratum-panel-shot:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 158, 11, 0.55) !important;
+  box-shadow: 0 18px 38px rgba(9, 13, 22, 0.24) !important;
+}
+
+.stratum-panel-shot-img {
+  position: relative;
+  width: 100%;
+  background: #090D16;
+  overflow: hidden;
+}
+
+.stratum-panel-shot-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.32s ease;
+}
+
+.stratum-panel-shot:hover .stratum-panel-shot-img img {
+  transform: scale(1.02);
+}
+
+.stratum-panel-shot-cap {
+  padding: 14px 18px !important;
+  background: #0F172A !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.14) !important;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stratum-panel-shot-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stratum-panel-shot-head strong {
+  color: #F8FAFC !important;
+  font-size: 0.98rem !important;
+  font-weight: 700 !important;
+}
+
+.stratum-panel-shot-tag {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.73rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+  color: #FBBF24 !important;
+  background: rgba(245, 158, 11, 0.14) !important;
+  border: 1px solid rgba(245, 158, 11, 0.32) !important;
+  white-space: nowrap;
+}
+
+.stratum-panel-shot-cap p {
+  margin: 0 !important;
+  color: #CBD5E1 !important;
+  font-size: 0.85rem !important;
+  line-height: 1.45 !important;
+}
+/* === STRATUM-V0303-GALLERY-CSS-END === */
+

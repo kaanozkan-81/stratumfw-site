@@ -225,33 +225,86 @@ section.hero h1, section.hero p {
 </section>
 <!-- STRATUM-HOME-COMPARE-END -->
 
+<!-- STRATUM-V0303-GALLERY-START -->
 <section class="section section-canvas" id="gallery">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Arayüz Önizlemesi</span>
-      <h2>Operatörler için, mühendisler tarafından inşa edildi</h2>
-      <p>Temiz, modern ve hızlı bir arayüz. Tam boyutta görüntülemek için herhangi bir ekran görüntüsüne tıklayın.</p>
+      <span class="eyebrow">v0.30.3 Arayüz Önizlemesi</span>
+      <h2>Operatörler için, mühendisler tarafından geliştirildi</h2>
+      <p>Eski PHP/XML karmaşasından arındırılmış hızlı ve sade Python 3.12 &amp; FastAPI yönetim paneli. Tam boy görmek için ekranlara tıklayın veya gerçek FreeBSD 15.1 sanal makinesini tarayıcınızda deneyin.</p>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox('/images/docs/dashboard.png')">
-        <img src="/images/docs/dashboard.png" alt="Stratum Panel">
-        <div class="gallery-overlay"><span>Panel (Dashboard)</span></div>
+
+    <div class="stratum-v0303-gallery-wrap">
+      <div class="stratum-gallery-featured" onclick="openLightbox('/images/gallery/stratum-v0303-showcase.webp')">
+        <div class="stratum-gallery-featured-media">
+          <img src="/images/gallery/stratum-v0303-showcase.webp" alt="Stratum Firewall v0.30.3 Donanım ve FastAPI Yönetim Paneli Görünümü" loading="lazy">
+        </div>
+        <div class="stratum-gallery-featured-bar">
+          <div class="stratum-gallery-featured-meta">
+            <strong>Stratum Firewall v0.30.3 &middot; FreeBSD 15.1 &amp; Çekirdek pf Güvenlik Duvarı İS</strong>
+            <span>Bildirimsel JSON motoru, atomik ZFS Önyükleme Ortamları, 60 saniyelik Safe-Apply geri alma koruması ve sıfır yıllık abonelik.</span>
+          </div>
+          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-gallery-demo-cta" onclick="event.stopPropagation()">Canlı v0.30.3 Demoyu Aç &rarr;</a>
+        </div>
       </div>
-      <div class="gallery-item" onclick="openLightbox('/images/docs/pf-rules.png')">
-        <img src="/images/docs/pf-rules.png" alt="pf Güvenlik Duvarı Kuralları">
-        <div class="gallery-overlay"><span>Güvenlik Duvarı Kuralları</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('/images/docs/wireguard.png')">
-        <img src="/images/docs/wireguard.png" alt="WireGuard VPN">
-        <div class="gallery-overlay"><span>WireGuard VPN</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('/images/docs/blocklists.png')">
-        <img src="/images/docs/blocklists.png" alt="IP ve DNS Karalisteleri">
-        <div class="gallery-overlay"><span>Tehdit Karalisteleri</span></div>
+
+      <div class="stratum-gallery-grid-v0303">
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-dashboard-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-dashboard-v0303.webp" alt="Stratum FW v0.30.3 Canlı Kontrol Paneli ve Çoklu WAN İzleme" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>12 Sütunlu Canlı Kontrol Paneli</strong>
+              <span class="stratum-panel-shot-tag">Çoklu WAN</span>
+            </div>
+            <p>Anlık hat trafiği, Statik/PPPoE/DHCP WAN yedekleme ölçümleri, ZFS havuz sağlığı ve son 24 saatlik engelleme sayaçları.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-opnsense-import-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-opnsense-import-v0303.webp" alt="OPNsense config.xml, OpenVPN PKI ve Unbound DNSBL Göç Sihirbazı" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Tek Tıkla OPNsense &amp; DNSBL Göçü</strong>
+              <span class="stratum-panel-shot-tag">v0.30.2</span>
+            </div>
+            <p>Ağ portlarını eşleştirir; VLAN, kural, tam aralıklı DHCP, Unbound DNSBL kara listeleri ve OpenVPN sertifika/parolalarını taşır.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-threat-forcedns-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-threat-forcedns-v0303.webp" alt="Çift Motorlu Suricata 8 IPS, Zorunlu DNS ve 55 Kategorili Web Filtresi" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Suricata 8 IPS, Zorunlu DNS &amp; Web Filtresi</strong>
+              <span class="stratum-panel-shot-tag">Kayıtsız DNS</span>
+            </div>
+            <p>Eşzamanlı netmap IPS + pcap IDS, DoT 853 engelli ve AD istisnalı Zorunlu DNS ile 55 kategorili Unbound RPZ filtreleme.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-totp-wireguard-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Tarayıcıda Yerel QR TOTP 2FA, 60sn Safe-Apply ve Çekirdek WireGuard VPN" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Yerel QR TOTP 2FA &amp; Çekirdek WireGuard</strong>
+              <span class="stratum-panel-shot-tag">v0.30.0</span>
+            </div>
+            <p>Tarayıcıda yerel çizilen QR kodlu iki aşamalı giriş, 10 kurtarma kodu, 60 sn Safe-Apply güvencesi ve yerleşik if_wg VPN.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+<!-- STRATUM-V0303-GALLERY-END -->
 
 <!-- Lightbox Modal -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
