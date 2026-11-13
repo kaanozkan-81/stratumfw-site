@@ -6,21 +6,66 @@ full_width: true
 seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Çoklu WAN VPN"
 ---
 
-<!-- STRATUM-TELEMETRY-SHOWCASE-START -->
-<div class="stratum-telemetry-banner">
-<div class="stratum-tel-visual" onclick="if(typeof openLightbox==='function'){openLightbox('/images/features/dpi-telemetry.jpg')}else{window.open('/images/features/dpi-telemetry.jpg','_blank')}"><img src="/images/features/dpi-telemetry.jpg" alt="FreeBSD 15.1 pf ve Suricata 8 DPI Veri Hattı — 37.287 Kural, 2,11+ Milyar Paket, %0,00 Kayıp" loading="lazy"></div>
-<div class="stratum-tel-body">
-<div class="stratum-tel-eyebrow"><span class="stratum-tel-dot"></span>Canlı Üretim Telemetrisi · Çoklu WAN & Çoklu VLAN</div>
-<h3 class="stratum-tel-title">Sahada Kanıtlanmış Çekirdek ve DPI Performansı</h3>
-<div class="stratum-tel-grid">
-<div class="stratum-tel-stat"><span class="stratum-tel-val amber">37.287</span><span class="stratum-tel-lbl">Aktif ET Open Suricata Kuralı</span></div>
-<div class="stratum-tel-stat"><span class="stratum-tel-val">2,11+ Milyar</span><span class="stratum-tel-lbl">İncelenen Canlı Üretim Paketi</span></div>
-<div class="stratum-tel-stat"><span class="stratum-tel-val emerald">%0,00</span><span class="stratum-tel-lbl">Çekirdek Tamponu Paket Kaybı</span></div>
-</div>
-<p class="stratum-tel-desc">Standart güvenlik duvarı dağıtımlarında on binlerce derin paket inceleme imzası etkinleştirildiğinde çekirdek tamponlarında darboğaz ve paket düşmeleri yaşanırken; Stratum Firewall, donanım belleğine göre otomatik ölçeklenen Suricata 8 denetimi ve FreeBSD 15.1 çekirdek veri düzlemi sayesinde çoklu WAN ve çoklu VLAN taşıyan canlı kurumsal üretim trafiğinde 37.287 aktif ET Open kuralı altında 2,11 milyarı aşkın paketi %0,00 paket kaybıyla işler.</p>
-</div>
-</div>
-<!-- STRATUM-TELEMETRY-SHOWCASE-END -->
+<!-- STRATUM-DPI-SHOWCASE-START -->
+<style>
+.stratum-dpi-showcase{position:relative;margin:2.5rem 0;border-radius:20px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#101f3c 0%,#070d19 55%,#050912 100%) !important;border:1px solid rgba(245,158,11,0.24);box-shadow:0 24px 60px rgba(2,6,23,0.55),inset 0 1px 0 rgba(255,255,255,0.06);}
+.stratum-dpi-top{position:relative;z-index:3;padding:2.1rem 2.25rem 0;text-align:center;}
+.stratum-dpi-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;padding:0.32rem 0.85rem;border-radius:999px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.32);color:#fbbf24 !important;font-size:0.74rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;margin-bottom:0.85rem;}
+.stratum-dpi-dot{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399;}
+.stratum-dpi-title{margin:0 auto !important;padding:0 !important;border:0 !important;max-width:840px;color:#f8fafc !important;font-size:clamp(1.45rem,2.5vw,2.05rem) !important;font-weight:800 !important;line-height:1.22 !important;letter-spacing:-0.02em;}
+.stratum-dpi-metrics{position:relative;z-index:3;max-width:940px;margin:1.25rem auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
+.stratum-dpi-metric{padding:1rem 1.15rem;border-radius:14px;background:rgba(10,18,35,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,0.18);box-shadow:0 12px 28px rgba(2,6,23,0.45);text-align:center;}
+.stratum-dpi-metric--amber{border-top:2px solid rgba(251,191,36,0.8);}
+.stratum-dpi-metric--cyan{border-top:2px solid rgba(56,189,248,0.8);}
+.stratum-dpi-metric--emerald{border-top:2px solid rgba(52,211,153,0.8);}
+.stratum-dpi-val{display:block;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;line-height:1.12;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;margin-bottom:0.3rem;}
+.stratum-dpi-val--amber{color:#fbbf24 !important;}
+.stratum-dpi-val--cyan{color:#38bdf8 !important;}
+.stratum-dpi-val--emerald{color:#34d399 !important;}
+.stratum-dpi-lbl{display:block;color:#cbd5e1 !important;font-size:0.84rem;font-weight:600;line-height:1.35;}
+.stratum-dpi-visual{position:relative;z-index:1;margin:-4.6rem auto 0;max-width:1100px;}
+.stratum-dpi-visual img{display:block;width:100% !important;max-width:100% !important;height:auto;margin:0 !important;padding:0 !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;aspect-ratio:16/8.1;object-fit:cover;object-position:center bottom;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.58) 14%,#000 28%);mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.58) 14%,#000 28%);}
+.stratum-dpi-bottom{position:relative;z-index:3;padding:1.45rem 2.25rem 2.1rem;background:linear-gradient(180deg,rgba(7,13,25,0.84) 0%,rgba(5,9,18,0.98) 100%);border-top:1px solid rgba(148,163,184,0.14);text-align:center;}
+.stratum-dpi-desc{max-width:880px;margin:0 auto 1.1rem !important;color:#cbd5e1 !important;font-size:1rem !important;line-height:1.72 !important;}
+.stratum-dpi-desc strong{color:#f8fafc !important;font-weight:700;}
+.stratum-dpi-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:0.55rem;}
+.stratum-dpi-pill{display:inline-flex;align-items:center;padding:0.34rem 0.8rem;border-radius:999px;background:rgba(30,41,59,0.65);border:1px solid rgba(148,163,184,0.22);color:#e2e8f0 !important;font-size:0.78rem;font-weight:600;}
+@media (max-width:900px){.stratum-dpi-top{padding:1.6rem 1.35rem 0;}.stratum-dpi-visual{margin-top:-2.4rem;}.stratum-dpi-bottom{padding:1.25rem 1.35rem 1.7rem;}}
+@media (max-width:680px){.stratum-dpi-metrics{grid-template-columns:1fr;gap:0.65rem;}.stratum-dpi-visual{margin-top:-1rem;}.stratum-dpi-visual img{aspect-ratio:16/8.6;}}
+</style>
+<section class="stratum-dpi-showcase">
+  <div class="stratum-dpi-top">
+    <div class="stratum-dpi-eyebrow"><span class="stratum-dpi-dot"></span>Canlı Üretim Telemetrisi</div>
+    <h2 class="stratum-dpi-title">Sahada Kanıtlanmış Çekirdek ve DPI Performansı</h2>
+    <div class="stratum-dpi-metrics">
+      <div class="stratum-dpi-metric stratum-dpi-metric--amber">
+        <span class="stratum-dpi-val stratum-dpi-val--amber">37.287</span>
+        <span class="stratum-dpi-lbl">Aktif ET Open Suricata Kuralı</span>
+      </div>
+      <div class="stratum-dpi-metric stratum-dpi-metric--cyan">
+        <span class="stratum-dpi-val stratum-dpi-val--cyan">2,11+ Milyar</span>
+        <span class="stratum-dpi-lbl">İncelenen Canlı Üretim Paketi</span>
+      </div>
+      <div class="stratum-dpi-metric stratum-dpi-metric--emerald">
+        <span class="stratum-dpi-val stratum-dpi-val--emerald">%0,00</span>
+        <span class="stratum-dpi-lbl">Çekirdek Tamponu Paket Kaybı</span>
+      </div>
+    </div>
+  </div>
+  <div class="stratum-dpi-visual">
+    <img src="/images/features/dpi-telemetry.jpg" alt="Stratum Firewall FreeBSD 15.1 pf ve Suricata 8 DPI Canlı Üretim Telemetrisi" loading="lazy" decoding="async">
+  </div>
+  <div class="stratum-dpi-bottom">
+    <p class="stratum-dpi-desc">Standart güvenlik duvarı dağıtımlarında on binlerce derin paket inceleme imzası etkinleştirildiğinde çekirdek tamponlarında darboğaz ve paket düşmeleri yaşanırken; <strong>Stratum Firewall</strong>, donanım belleğine göre otomatik ölçeklenen <strong>Suricata 8</strong> denetimi ve saf <strong>FreeBSD 15.1</strong> çekirdek veri düzlemi sayesinde çoklu WAN ve çoklu VLAN taşıyan canlı kurumsal üretim trafiğinde <strong>37.287 aktif ET Open kuralı</strong> altında <strong>2,11 milyarı aşkın paketi %0,00 paket kaybıyla</strong> işler.</p>
+    <div class="stratum-dpi-pills">
+      <span class="stratum-dpi-pill">Saf FreeBSD 15.1 pf</span>
+      <span class="stratum-dpi-pill">Suricata 8 Çift Motor (netmap + pcap)</span>
+      <span class="stratum-dpi-pill">Bellek Duyarlı Otomatik Ölçekleme</span>
+      <span class="stratum-dpi-pill">Çoklu WAN ve Çoklu VLAN</span>
+    </div>
+  </div>
+</section>
+<!-- STRATUM-DPI-SHOWCASE-END -->
 
 <!-- STRATUM-OPNSENSE-SHOWCASE-START -->
 <div class="opn-feature-showcase">
