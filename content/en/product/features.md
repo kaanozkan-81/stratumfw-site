@@ -8,30 +8,30 @@ seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & M
 
 <!-- STRATUM-DPI-SHOWCASE-START -->
 <style>
-.stratum-dpi-showcase{position:relative;margin:2.5rem 0;border-radius:20px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#101f3c 0%,#070d19 55%,#050912 100%) !important;border:1px solid rgba(245,158,11,0.24);box-shadow:0 24px 60px rgba(2,6,23,0.55),inset 0 1px 0 rgba(255,255,255,0.06);}
-.stratum-dpi-top{position:relative;z-index:3;padding:2.1rem 2.25rem 0;text-align:center;}
-.stratum-dpi-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;padding:0.32rem 0.85rem;border-radius:999px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.32);color:#fbbf24 !important;font-size:0.74rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;margin-bottom:0.85rem;}
+.stratum-dpi-showcase{position:relative;margin:2.5rem 0;border-radius:20px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#101f3c 0%,#08101f 52%,#060b16 100%) !important;border:1px solid rgba(245,158,11,0.24);box-shadow:0 24px 60px rgba(2,6,23,0.55),inset 0 1px 0 rgba(255,255,255,0.06);}
+.stratum-dpi-top{position:relative;z-index:3;padding:1.85rem 2.25rem 0.5rem;text-align:center;}
+.stratum-dpi-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;padding:0.32rem 0.85rem;border-radius:999px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.32);color:#fbbf24 !important;font-size:0.74rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;margin-bottom:0.8rem;}
 .stratum-dpi-dot{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399;}
-.stratum-dpi-title{margin:0 auto !important;padding:0 !important;border:0 !important;max-width:840px;color:#f8fafc !important;font-size:clamp(1.45rem,2.5vw,2.05rem) !important;font-weight:800 !important;line-height:1.22 !important;letter-spacing:-0.02em;}
-.stratum-dpi-metrics{position:relative;z-index:3;max-width:940px;margin:1.25rem auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
-.stratum-dpi-metric{padding:1rem 1.15rem;border-radius:14px;background:rgba(10,18,35,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,0.18);box-shadow:0 12px 28px rgba(2,6,23,0.45);text-align:center;}
+.stratum-dpi-title{margin:0 auto !important;padding:0 !important;border:0 !important;max-width:960px;color:#f8fafc !important;font-size:clamp(1.35rem,2.2vw,1.88rem) !important;font-weight:800 !important;line-height:1.24 !important;letter-spacing:-0.02em;}
+.stratum-dpi-metrics{position:relative;z-index:3;max-width:980px;margin:1.15rem auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
+.stratum-dpi-metric{padding:0.9rem 1.05rem;border-radius:14px;background:rgba(10,18,35,0.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,0.18);box-shadow:0 10px 24px rgba(2,6,23,0.4);text-align:center;}
 .stratum-dpi-metric--amber{border-top:2px solid rgba(251,191,36,0.8);}
 .stratum-dpi-metric--cyan{border-top:2px solid rgba(56,189,248,0.8);}
 .stratum-dpi-metric--emerald{border-top:2px solid rgba(52,211,153,0.8);}
-.stratum-dpi-val{display:block;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;line-height:1.12;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;margin-bottom:0.3rem;}
+.stratum-dpi-val{display:block;font-size:clamp(1.45rem,2.05vw,1.92rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;white-space:nowrap;margin-bottom:0.28rem;}
 .stratum-dpi-val--amber{color:#fbbf24 !important;}
 .stratum-dpi-val--cyan{color:#38bdf8 !important;}
 .stratum-dpi-val--emerald{color:#34d399 !important;}
-.stratum-dpi-lbl{display:block;color:#cbd5e1 !important;font-size:0.84rem;font-weight:600;line-height:1.35;}
-.stratum-dpi-visual{position:relative;z-index:1;margin:-4.6rem auto 0;max-width:1100px;}
-.stratum-dpi-visual img{display:block;width:100% !important;max-width:100% !important;height:auto;margin:0 !important;padding:0 !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;aspect-ratio:16/8.1;object-fit:cover;object-position:center bottom;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.58) 14%,#000 28%);mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.58) 14%,#000 28%);}
-.stratum-dpi-bottom{position:relative;z-index:3;padding:1.45rem 2.25rem 2.1rem;background:linear-gradient(180deg,rgba(7,13,25,0.84) 0%,rgba(5,9,18,0.98) 100%);border-top:1px solid rgba(148,163,184,0.14);text-align:center;}
+.stratum-dpi-lbl{display:block;color:#cbd5e1 !important;font-size:0.82rem;font-weight:600;line-height:1.35;}
+.stratum-dpi-visual{position:relative;z-index:1;margin:0.5rem auto 0;max-width:1100px;}
+.stratum-dpi-visual img{display:block;width:100% !important;max-width:100% !important;height:auto !important;margin:0 !important;padding:0 !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 6%,#000 95%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 6%,#000 95%,transparent 100%);}
+.stratum-dpi-bottom{position:relative;z-index:3;padding:1.4rem 2.25rem 2.05rem;background:linear-gradient(180deg,rgba(7,13,25,0.88) 0%,rgba(5,9,18,0.98) 100%);border-top:1px solid rgba(148,163,184,0.14);text-align:center;}
 .stratum-dpi-desc{max-width:880px;margin:0 auto 1.1rem !important;color:#cbd5e1 !important;font-size:1rem !important;line-height:1.72 !important;}
 .stratum-dpi-desc strong{color:#f8fafc !important;font-weight:700;}
 .stratum-dpi-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:0.55rem;}
 .stratum-dpi-pill{display:inline-flex;align-items:center;padding:0.34rem 0.8rem;border-radius:999px;background:rgba(30,41,59,0.65);border:1px solid rgba(148,163,184,0.22);color:#e2e8f0 !important;font-size:0.78rem;font-weight:600;}
-@media (max-width:900px){.stratum-dpi-top{padding:1.6rem 1.35rem 0;}.stratum-dpi-visual{margin-top:-2.4rem;}.stratum-dpi-bottom{padding:1.25rem 1.35rem 1.7rem;}}
-@media (max-width:680px){.stratum-dpi-metrics{grid-template-columns:1fr;gap:0.65rem;}.stratum-dpi-visual{margin-top:-1rem;}.stratum-dpi-visual img{aspect-ratio:16/8.6;}}
+@media (max-width:900px){.stratum-dpi-top{padding:1.5rem 1.25rem 0.4rem;}.stratum-dpi-val{white-space:normal;}.stratum-dpi-bottom{padding:1.25rem 1.25rem 1.65rem;}}
+@media (max-width:680px){.stratum-dpi-metrics{grid-template-columns:1fr;gap:0.65rem;}.stratum-dpi-visual{margin-top:0.35rem;}}
 </style>
 <section class="stratum-dpi-showcase">
   <div class="stratum-dpi-top">
