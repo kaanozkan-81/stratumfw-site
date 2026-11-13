@@ -3648,3 +3648,93 @@ img{max-width:100%; display:block;}
 }
 /* === STRATUM-V0303-GALLERY-CSS-END === */
 
+/* === STRATUM-TELEMETRY-CSS-START === */
+.stratum-telemetry-banner {
+  background: linear-gradient(135deg, #0B1120 0%, #0F172A 65%, #16223B 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.32) !important;
+  border-left: 4px solid #F59E0B !important;
+  border-radius: 16px !important;
+  padding: 28px 30px !important;
+  margin: 28px 0 36px 0 !important;
+  box-shadow: 0 18px 42px rgba(9, 13, 22, 0.18) !important;
+}
+.stratum-telemetry-banner .stratum-tel-eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  background: rgba(16, 185, 129, 0.14) !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+  color: #34D399 !important;
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 12px !important;
+}
+.stratum-telemetry-banner .stratum-tel-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #10B981 !important;
+  box-shadow: 0 0 8px #10B981 !important;
+  display: inline-block !important;
+}
+.stratum-telemetry-banner h3.stratum-tel-title {
+  color: #FFFFFF !important;
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin: 0 0 18px 0 !important;
+  letter-spacing: -0.015em !important;
+}
+.stratum-telemetry-banner .stratum-tel-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  margin: 0 0 18px 0 !important;
+}
+@media (max-width: 760px) {
+  .stratum-telemetry-banner .stratum-tel-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .stratum-telemetry-banner {
+    padding: 22px 20px !important;
+  }
+}
+.stratum-telemetry-banner .stratum-tel-stat {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(148, 163, 184, 0.18) !important;
+  border-radius: 12px !important;
+  padding: 16px 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+.stratum-telemetry-banner .stratum-tel-val {
+  font-size: clamp(1.55rem, 2.5vw, 2.05rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+  color: #FFFFFF !important;
+}
+.stratum-telemetry-banner .stratum-tel-val.amber {
+  color: #FBBF24 !important;
+}
+.stratum-telemetry-banner .stratum-tel-val.emerald {
+  color: #34D399 !important;
+}
+.stratum-telemetry-banner .stratum-tel-lbl {
+  color: #94A3B8 !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+}
+.stratum-telemetry-banner p.stratum-tel-desc {
+  color: #E2E8F0 !important;
+  font-size: 0.96rem !important;
+  line-height: 1.65 !important;
+  margin: 0 !important;
+}
+/* === STRATUM-TELEMETRY-CSS-END === */
+

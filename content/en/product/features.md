@@ -6,6 +6,19 @@ full_width: true
 seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & Multi-WAN VPN"
 ---
 
+<!-- STRATUM-TELEMETRY-SHOWCASE-START -->
+<div class="stratum-telemetry-banner">
+<div class="stratum-tel-eyebrow"><span class="stratum-tel-dot"></span>Live Enterprise Telemetry · Multi-WAN & Multi-VLAN</div>
+<h3 class="stratum-tel-title">Field-Proven Deep Packet Inspection at Scale</h3>
+<div class="stratum-tel-grid">
+<div class="stratum-tel-stat"><span class="stratum-tel-val amber">37,287</span><span class="stratum-tel-lbl">Active ET Open Suricata Rules</span></div>
+<div class="stratum-tel-stat"><span class="stratum-tel-val">2.11B+</span><span class="stratum-tel-lbl">Production Packets Inspected</span></div>
+<div class="stratum-tel-stat"><span class="stratum-tel-val emerald">0.00%</span><span class="stratum-tel-lbl">Kernel Buffer Packet Drops</span></div>
+</div>
+<p class="stratum-tel-desc">Where conventional firewall distributions often hit kernel buffer exhaustion once tens of thousands of deep packet inspection signatures are enabled, Stratum Firewall pairs memory-tuned Suricata 8 supervision with FreeBSD 15.1 kernel networking — inspecting over 2.11 billion packets across live multi-WAN, multi-VLAN enterprise production traffic with 37,287 active rules and zero packet loss.</p>
+</div>
+<!-- STRATUM-TELEMETRY-SHOWCASE-END -->
+
 <!-- STRATUM-OPNSENSE-SHOWCASE-START -->
 <div class="opn-feature-showcase">
   <div class="opn-showcase-head">

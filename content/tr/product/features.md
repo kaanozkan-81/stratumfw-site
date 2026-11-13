@@ -6,6 +6,19 @@ full_width: true
 seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Çoklu WAN VPN"
 ---
 
+<!-- STRATUM-TELEMETRY-SHOWCASE-START -->
+<div class="stratum-telemetry-banner">
+<div class="stratum-tel-eyebrow"><span class="stratum-tel-dot"></span>Canlı Üretim Telemetrisi · Çoklu WAN & Çoklu VLAN</div>
+<h3 class="stratum-tel-title">Sahada Kanıtlanmış Çekirdek ve DPI Performansı</h3>
+<div class="stratum-tel-grid">
+<div class="stratum-tel-stat"><span class="stratum-tel-val amber">37.287</span><span class="stratum-tel-lbl">Aktif ET Open Suricata Kuralı</span></div>
+<div class="stratum-tel-stat"><span class="stratum-tel-val">2,11+ Milyar</span><span class="stratum-tel-lbl">İncelenen Canlı Üretim Paketi</span></div>
+<div class="stratum-tel-stat"><span class="stratum-tel-val emerald">%0,00</span><span class="stratum-tel-lbl">Çekirdek Tamponu Paket Kaybı</span></div>
+</div>
+<p class="stratum-tel-desc">Standart güvenlik duvarı dağıtımlarında on binlerce derin paket inceleme imzası etkinleştirildiğinde çekirdek tamponlarında darboğaz ve paket düşmeleri yaşanırken; Stratum Firewall, donanım belleğine göre otomatik ölçeklenen Suricata 8 denetimi ve FreeBSD 15.1 çekirdek veri düzlemi sayesinde çoklu WAN ve çoklu VLAN taşıyan canlı kurumsal üretim trafiğinde 37.287 aktif ET Open kuralı altında 2,11 milyarı aşkın paketi %0,00 paket kaybıyla işler.</p>
+</div>
+<!-- STRATUM-TELEMETRY-SHOWCASE-END -->
+
 <!-- STRATUM-OPNSENSE-SHOWCASE-START -->
 <div class="opn-feature-showcase">
   <div class="opn-showcase-head">
