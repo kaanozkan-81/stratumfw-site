@@ -37,12 +37,12 @@ section.hero h1, section.hero p {
 <section class="hero">
   <div class="wrap">
     <div class="hero-os-display"><span class="hero-os-text">Next-Generation Firewall OS</span><span class="hero-os-bar" aria-hidden="true"></span></div>
-    <h1 class="hero-power-sub">Raw FreeBSD power.<br><span>Modern API control.</span></h1>
+    <h1 class="hero-power-sub">Pure FreeBSD 15.1 power.<br><span>Modern API control.</span></h1>
     <!-- 1. Uyarı Bandı -->
     
     <!-- 2. Sürüm Butonu -->
     <div class="hero-release-notice">
-      <a href="/resources/changelog/">Stratum Firewall v0.30.0 is out now. Read the changelog &rarr;</a>
+      <a href="/resources/changelog/">Stratum Firewall v0.30.3 is out now. Read the changelog &rarr;</a>
     </div>
     
     <!-- 3. CTA Butonları -->
@@ -55,6 +55,188 @@ section.hero h1, section.hero p {
   </div>
 </section>
 
+<!-- STRATUM-HOME-COMPARE-END -->
+
+<!-- STRATUM-V0303-GALLERY-START -->
+<section class="section section-canvas" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">v0.30.3 Interface Preview</span>
+      <h2>Inside the FastAPI Control Plane</h2>
+      <p>A fast, clean Python 3.12 &amp; FastAPI control plane with zero legacy PHP/XML clutter. Click any screen to view full size, or test a real FreeBSD 15.1 VM live in your browser.</p>
+    </div>
+
+    <div class="stratum-v0303-gallery-wrap">
+      <div class="stratum-gallery-featured" onclick="openLightbox('/images/gallery/stratum-v0303-showcase.webp')">
+        <div class="stratum-gallery-featured-media">
+          <img src="/images/gallery/stratum-v0303-showcase.webp" alt="Stratum Firewall v0.30.3 Appliance and FastAPI Dashboard Overview" loading="lazy">
+        </div>
+        <div class="stratum-gallery-featured-bar">
+          <div class="stratum-gallery-featured-meta">
+            <strong>Stratum Firewall v0.30.3 &middot; FreeBSD 15.1 &amp; Kernel pf Appliance OS</strong>
+            <span>Declarative JSON engine, atomic ZFS Boot Environments, 60-second Safe-Apply rollback, and zero annual subscriptions.</span>
+          </div>
+          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-gallery-demo-cta" onclick="event.stopPropagation()">Launch Live v0.30.3 Demo &rarr;</a>
+        </div>
+      </div>
+
+      <div class="stratum-gallery-grid-v0303">
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-dashboard-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-dashboard-v0303.webp" alt="Stratum FW v0.30.3 Live Dashboard and Multi-WAN Telemetry" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>12-Column Live Dashboard</strong>
+              <span class="stratum-panel-shot-tag">Multi-WAN</span>
+            </div>
+            <p>Real-time interface throughput, 1-second Static/PPPoE/DHCP WAN failover probes, ZFS health, and 24h block counters.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-opnsense-import-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-opnsense-import-v0303.webp" alt="OPNsense config.xml, OpenVPN PKI and Unbound DNSBL Migration" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>1-Click OPNsense &amp; DNSBL Migration</strong>
+              <span class="stratum-panel-shot-tag">v0.30.2</span>
+            </div>
+            <p>Maps NIC ports and imports VLANs, rules, full-span DHCP pools, Unbound DNSBL feeds, and OpenVPN PKI + user passwords.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-threat-forcedns-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-threat-forcedns-v0303.webp" alt="Suricata 8 Dual-Engine IPS, Force DNS and 55-Category Web Filter" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Suricata 8 IPS, Force DNS &amp; Web Filter</strong>
+              <span class="stratum-panel-shot-tag">Zero Logs</span>
+            </div>
+            <p>Simultaneous netmap IPS + pcap IDS, Force DNS with DoT 853 blocking &amp; AD exception aliases, and 55-category RPZ filtering.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-totp-wireguard-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Browser-Local QR TOTP 2FA, 60s Safe-Apply and Kernel WireGuard VPN" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Local-QR TOTP 2FA &amp; Kernel WireGuard</strong>
+              <span class="stratum-panel-shot-tag">v0.30.0</span>
+            </div>
+            <p>Two-factor sign-in with browser-drawn QR codes &amp; 10 recovery codes, 60s Safe-Apply protection, and native FreeBSD if_wg VPN.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- STRATUM-HOME-LIGHTBOX-START -->
+<style>
+#gallery img:not(#stratum-lb-img){cursor:zoom-in !important;transition:transform 0.22s ease,filter 0.22s ease;}
+#gallery img:not(#stratum-lb-img):hover{filter:brightness(1.06);}
+.stratum-zoom-hint{display:inline-flex;align-items:center;gap:0.45rem;margin-top:0.65rem;padding:0.32rem 0.9rem;border-radius:999px;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);color:#38bdf8 !important;font-size:0.78rem;font-weight:600;}
+.stratum-lb-backdrop{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:1.25rem;background:rgba(3,7,18,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+.stratum-lb-backdrop.is-open{display:flex;}
+.stratum-lb-dialog{position:relative;max-width:min(95vw,1360px);width:100%;display:flex;flex-direction:column;align-items:center;gap:0.85rem;}
+.stratum-lb-img{max-width:100%;max-height:80vh;width:auto;height:auto;border-radius:14px;border:1px solid rgba(148,163,184,0.28);box-shadow:0 28px 80px rgba(0,0,0,0.75);object-fit:contain;background:#070d19;}
+.stratum-lb-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.85rem;width:100%;max-width:1120px;padding:0.65rem 1rem;border-radius:12px;background:rgba(15,23,42,0.9);border:1px solid rgba(148,163,184,0.22);color:#e2e8f0 !important;font-size:0.9rem;}
+.stratum-lb-actions{display:flex;align-items:center;gap:0.5rem;}
+.stratum-lb-btn{cursor:pointer;padding:0.42rem 0.82rem;border-radius:8px;border:1px solid rgba(148,163,184,0.28);background:rgba(30,41,59,0.88);color:#f8fafc !important;font-size:0.84rem;font-weight:600;text-decoration:none !important;}
+.stratum-lb-btn:hover{background:rgba(51,65,85,0.96);}
+.stratum-lb-demo{background:rgba(245,158,11,0.18);border-color:rgba(245,158,11,0.48);color:#fbbf24 !important;}
+</style>
+<div class="stratum-lb-backdrop" id="stratum-lb" role="dialog" aria-modal="true" aria-label="Interface Preview">
+  <div class="stratum-lb-dialog">
+    <img class="stratum-lb-img" id="stratum-lb-img" src="" alt="">
+    <div class="stratum-lb-bar">
+      <span id="stratum-lb-cap"></span>
+      <div class="stratum-lb-actions">
+        <button type="button" class="stratum-lb-btn" id="stratum-lb-prev">←</button>
+        <button type="button" class="stratum-lb-btn" id="stratum-lb-next">→</button>
+        <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-lb-btn stratum-lb-demo">Try in Live Demo →</a>
+        <button type="button" class="stratum-lb-btn" id="stratum-lb-close">✕ Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var gal=document.getElementById('gallery');
+  var lb=document.getElementById('stratum-lb');
+  if(!gal||!lb)return;
+  var imgs=Array.prototype.slice.call(gal.querySelectorAll('img:not(#stratum-lb-img)'));
+  if(!imgs.length)return;
+  var sub=gal.querySelector('p');
+  if(sub&&!gal.querySelector('.stratum-zoom-hint')){
+    var hint=document.createElement('div');
+    hint.innerHTML='<span class="stratum-zoom-hint">🔍 Click any screen below to inspect in full resolution</span>';
+    sub.parentNode.insertBefore(hint,sub.nextSibling);
+  }
+  var lbImg=document.getElementById('stratum-lb-img');
+  var lbCap=document.getElementById('stratum-lb-cap');
+  var idx=0;
+  function show(i){
+    idx=(i+imgs.length)%imgs.length;
+    var el=imgs[idx];
+    lbImg.src=el.currentSrc||el.src;
+    lbImg.alt=el.alt||'';
+    lbCap.textContent=(idx+1)+' / '+imgs.length+(el.alt?' — '+el.alt:'');
+    lb.classList.add('is-open');
+    document.body.style.overflow='hidden';
+  }
+  function hide(){
+    lb.classList.remove('is-open');
+    document.body.style.overflow='';
+  }
+  imgs.forEach(function(im,i){
+    im.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();show(i);});
+  });
+  document.getElementById('stratum-lb-prev').addEventListener('click',function(){show(idx-1);});
+  document.getElementById('stratum-lb-next').addEventListener('click',function(){show(idx+1);});
+  document.getElementById('stratum-lb-close').addEventListener('click',hide);
+  lb.addEventListener('click',function(e){if(e.target===lb)hide();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('is-open'))return;
+    if(e.key==='Escape')hide();
+    if(e.key==='ArrowLeft')show(idx-1);
+    if(e.key==='ArrowRight')show(idx+1);
+  });
+})();
+</script>
+<!-- STRATUM-HOME-LIGHTBOX-END -->
+</section>
+
+<!-- STRATUM-HOME-COMPARE-START -->
+<section class="home-compare-sec">
+  <div class="wrap">
+    <div class="home-compare-box">
+      <div class="home-compare-left">
+        <div class="home-compare-badge" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+        </div>
+        <div class="home-compare-copy">
+          <span class="eyebrow-tag">2026 Architecture Comparison</span>
+          <h3>Stratum FW vs. OPNsense vs. pfSense CE vs. IPFire</h3>
+          <p>See how Stratum's FreeBSD 15.1 + Python/FastAPI control plane compares side-by-side against legacy PHP/XML and Linux firewall distributions across 14 technical dimensions.</p>
+          <div class="home-compare-pills">
+            <span>Zero PHP / XML</span>
+            <span>Free ZFS Boot Environments</span>
+            <span>60s Safe-Apply Rollback</span>
+            <span>1-Click OPNsense Migration</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a href="/compare/" class="btn btn-primary">Compare Firewalls &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="stats">
   <div class="wrap">
@@ -114,7 +296,7 @@ section.hero h1, section.hero p {
   </div>
 </section>
 
-  <section class="section section-dark">
+<section class="section section-dark">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Why Stratum</span>
@@ -193,116 +375,6 @@ section.hero h1, section.hero p {
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-
-
-<!-- STRATUM-HOME-COMPARE-START -->
-<section class="home-compare-sec">
-  <div class="wrap">
-    <div class="home-compare-box">
-      <div class="home-compare-left">
-        <div class="home-compare-badge" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
-        </div>
-        <div class="home-compare-copy">
-          <span class="eyebrow-tag">2026 Architecture Comparison</span>
-          <h3>Stratum FW vs. OPNsense vs. pfSense CE vs. IPFire</h3>
-          <p>See how Stratum's FreeBSD 15.1 + Python/FastAPI control plane compares side-by-side against legacy PHP/XML and Linux firewall distributions across 14 technical dimensions.</p>
-          <div class="home-compare-pills">
-            <span>Zero PHP / XML</span>
-            <span>Free ZFS Boot Environments</span>
-            <span>60s Safe-Apply Rollback</span>
-            <span>1-Click OPNsense Migration</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <a href="/compare/" class="btn btn-primary">Compare Firewalls &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- STRATUM-HOME-COMPARE-END -->
-
-<!-- STRATUM-V0303-GALLERY-START -->
-<section class="section section-canvas" id="gallery">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">v0.30.3 Interface Preview</span>
-      <h2>Built for operators, by engineers</h2>
-      <p>A fast, clean Python 3.12 &amp; FastAPI control plane with zero legacy PHP/XML clutter. Click any screen to view full size, or test a real FreeBSD 15.1 VM live in your browser.</p>
-    </div>
-
-    <div class="stratum-v0303-gallery-wrap">
-      <div class="stratum-gallery-featured" onclick="openLightbox('/images/gallery/stratum-v0303-showcase.webp')">
-        <div class="stratum-gallery-featured-media">
-          <img src="/images/gallery/stratum-v0303-showcase.webp" alt="Stratum Firewall v0.30.3 Appliance and FastAPI Dashboard Overview" loading="lazy">
-        </div>
-        <div class="stratum-gallery-featured-bar">
-          <div class="stratum-gallery-featured-meta">
-            <strong>Stratum Firewall v0.30.3 &middot; FreeBSD 15.1 &amp; Kernel pf Appliance OS</strong>
-            <span>Declarative JSON engine, atomic ZFS Boot Environments, 60-second Safe-Apply rollback, and zero annual subscriptions.</span>
-          </div>
-          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-gallery-demo-cta" onclick="event.stopPropagation()">Launch Live v0.30.3 Demo &rarr;</a>
-        </div>
-      </div>
-
-      <div class="stratum-gallery-grid-v0303">
-        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-dashboard-v0303.webp')">
-          <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-dashboard-v0303.webp" alt="Stratum FW v0.30.3 Live Dashboard and Multi-WAN Telemetry" loading="lazy">
-          </div>
-          <div class="stratum-panel-shot-cap">
-            <div class="stratum-panel-shot-head">
-              <strong>12-Column Live Dashboard</strong>
-              <span class="stratum-panel-shot-tag">Multi-WAN</span>
-            </div>
-            <p>Real-time interface throughput, 1-second Static/PPPoE/DHCP WAN failover probes, ZFS health, and 24h block counters.</p>
-          </div>
-        </div>
-
-        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-opnsense-import-v0303.webp')">
-          <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-opnsense-import-v0303.webp" alt="OPNsense config.xml, OpenVPN PKI and Unbound DNSBL Migration" loading="lazy">
-          </div>
-          <div class="stratum-panel-shot-cap">
-            <div class="stratum-panel-shot-head">
-              <strong>1-Click OPNsense &amp; DNSBL Migration</strong>
-              <span class="stratum-panel-shot-tag">v0.30.2</span>
-            </div>
-            <p>Maps NIC ports and imports VLANs, rules, full-span DHCP pools, Unbound DNSBL feeds, and OpenVPN PKI + user passwords.</p>
-          </div>
-        </div>
-
-        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-threat-forcedns-v0303.webp')">
-          <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-threat-forcedns-v0303.webp" alt="Suricata 8 Dual-Engine IPS, Force DNS and 55-Category Web Filter" loading="lazy">
-          </div>
-          <div class="stratum-panel-shot-cap">
-            <div class="stratum-panel-shot-head">
-              <strong>Suricata 8 IPS, Force DNS &amp; Web Filter</strong>
-              <span class="stratum-panel-shot-tag">Zero Logs</span>
-            </div>
-            <p>Simultaneous netmap IPS + pcap IDS, Force DNS with DoT 853 blocking &amp; AD exception aliases, and 55-category RPZ filtering.</p>
-          </div>
-        </div>
-
-        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-totp-wireguard-v0303.webp')">
-          <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Browser-Local QR TOTP 2FA, 60s Safe-Apply and Kernel WireGuard VPN" loading="lazy">
-          </div>
-          <div class="stratum-panel-shot-cap">
-            <div class="stratum-panel-shot-head">
-              <strong>Local-QR TOTP 2FA &amp; Kernel WireGuard</strong>
-              <span class="stratum-panel-shot-tag">v0.30.0</span>
-            </div>
-            <p>Two-factor sign-in with browser-drawn QR codes &amp; 10 recovery codes, 60s Safe-Apply protection, and native FreeBSD if_wg VPN.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>

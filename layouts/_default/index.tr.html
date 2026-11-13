@@ -42,7 +42,7 @@ section.hero h1, section.hero p {
     
     <!-- 2. Sürüm Butonu -->
     <div class="hero-release-notice">
-      <a href="/tr/resources/changelog/">Stratum Firewall v0.30.0 yayınlandı. Sürüm notlarını okuyun &rarr;</a>
+      <a href="/tr/resources/changelog/">Stratum Firewall v0.30.3 yayınlandı. Sürüm notlarını okuyun &rarr;</a>
     </div>
     
     <!-- 3. CTA Butonları -->
@@ -55,6 +55,188 @@ section.hero h1, section.hero p {
   </div>
 </section>
 
+<!-- STRATUM-HOME-COMPARE-END -->
+
+<!-- STRATUM-V0303-GALLERY-START -->
+<section class="section section-canvas" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">v0.30.3 Arayüz Önizlemesi</span>
+      <h2>FastAPI Kontrol Düzlemini Yakından İnceleyin</h2>
+      <p>Eski PHP/XML karmaşasından arındırılmış hızlı ve sade Python 3.12 &amp; FastAPI yönetim paneli. Tam boy görmek için ekranlara tıklayın veya gerçek FreeBSD 15.1 sanal makinesini tarayıcınızda deneyin.</p>
+    </div>
+
+    <div class="stratum-v0303-gallery-wrap">
+      <div class="stratum-gallery-featured" onclick="openLightbox('/images/gallery/stratum-v0303-showcase.webp')">
+        <div class="stratum-gallery-featured-media">
+          <img src="/images/gallery/stratum-v0303-showcase.webp" alt="Stratum Firewall v0.30.3 Donanım ve FastAPI Yönetim Paneli Görünümü" loading="lazy">
+        </div>
+        <div class="stratum-gallery-featured-bar">
+          <div class="stratum-gallery-featured-meta">
+            <strong>Stratum Firewall v0.30.3 &middot; FreeBSD 15.1 &amp; Çekirdek pf Güvenlik Duvarı İS</strong>
+            <span>Bildirimsel JSON motoru, atomik ZFS Önyükleme Ortamları, 60 saniyelik Safe-Apply geri alma koruması ve sıfır yıllık abonelik.</span>
+          </div>
+          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-gallery-demo-cta" onclick="event.stopPropagation()">Canlı v0.30.3 Demoyu Aç &rarr;</a>
+        </div>
+      </div>
+
+      <div class="stratum-gallery-grid-v0303">
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-dashboard-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-dashboard-v0303.webp" alt="Stratum FW v0.30.3 Canlı Kontrol Paneli ve Çoklu WAN İzleme" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>12 Sütunlu Canlı Kontrol Paneli</strong>
+              <span class="stratum-panel-shot-tag">Çoklu WAN</span>
+            </div>
+            <p>Anlık hat trafiği, Statik/PPPoE/DHCP WAN yedekleme ölçümleri, ZFS havuz sağlığı ve son 24 saatlik engelleme sayaçları.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-opnsense-import-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-opnsense-import-v0303.webp" alt="OPNsense config.xml, OpenVPN PKI ve Unbound DNSBL Geçiş Sihirbazı" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Tek Tıkla OPNsense &amp; DNSBL Geçişi</strong>
+              <span class="stratum-panel-shot-tag">v0.30.2</span>
+            </div>
+            <p>Ağ portlarını eşleştirir; VLAN, kural, tam aralıklı DHCP, Unbound DNSBL kara listeleri ve OpenVPN sertifika/parolalarını taşır.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-threat-forcedns-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-threat-forcedns-v0303.webp" alt="Çift Motorlu Suricata 8 IPS, Zorunlu DNS ve 55 Kategorili Web Filtresi" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Suricata 8 IPS, Zorunlu DNS &amp; Web Filtresi</strong>
+              <span class="stratum-panel-shot-tag">Kayıtsız DNS</span>
+            </div>
+            <p>Eşzamanlı netmap IPS + pcap IDS, DoT 853 engelli ve AD istisnalı Zorunlu DNS ile 55 kategorili Unbound RPZ filtreleme.</p>
+          </div>
+        </div>
+
+        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-totp-wireguard-v0303.webp')">
+          <div class="stratum-panel-shot-img">
+            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Tarayıcıda Yerel QR TOTP 2FA, 60sn Safe-Apply ve Çekirdek WireGuard VPN" loading="lazy">
+          </div>
+          <div class="stratum-panel-shot-cap">
+            <div class="stratum-panel-shot-head">
+              <strong>Yerel QR TOTP 2FA &amp; Çekirdek WireGuard</strong>
+              <span class="stratum-panel-shot-tag">v0.30.0</span>
+            </div>
+            <p>Tarayıcıda yerel çizilen QR kodlu iki aşamalı giriş, 10 kurtarma kodu, 60 sn Safe-Apply güvencesi ve yerleşik if_wg VPN.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- STRATUM-HOME-LIGHTBOX-START -->
+<style>
+#gallery img:not(#stratum-lb-img){cursor:zoom-in !important;transition:transform 0.22s ease,filter 0.22s ease;}
+#gallery img:not(#stratum-lb-img):hover{filter:brightness(1.06);}
+.stratum-zoom-hint{display:inline-flex;align-items:center;gap:0.45rem;margin-top:0.65rem;padding:0.32rem 0.9rem;border-radius:999px;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);color:#38bdf8 !important;font-size:0.78rem;font-weight:600;}
+.stratum-lb-backdrop{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:1.25rem;background:rgba(3,7,18,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+.stratum-lb-backdrop.is-open{display:flex;}
+.stratum-lb-dialog{position:relative;max-width:min(95vw,1360px);width:100%;display:flex;flex-direction:column;align-items:center;gap:0.85rem;}
+.stratum-lb-img{max-width:100%;max-height:80vh;width:auto;height:auto;border-radius:14px;border:1px solid rgba(148,163,184,0.28);box-shadow:0 28px 80px rgba(0,0,0,0.75);object-fit:contain;background:#070d19;}
+.stratum-lb-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.85rem;width:100%;max-width:1120px;padding:0.65rem 1rem;border-radius:12px;background:rgba(15,23,42,0.9);border:1px solid rgba(148,163,184,0.22);color:#e2e8f0 !important;font-size:0.9rem;}
+.stratum-lb-actions{display:flex;align-items:center;gap:0.5rem;}
+.stratum-lb-btn{cursor:pointer;padding:0.42rem 0.82rem;border-radius:8px;border:1px solid rgba(148,163,184,0.28);background:rgba(30,41,59,0.88);color:#f8fafc !important;font-size:0.84rem;font-weight:600;text-decoration:none !important;}
+.stratum-lb-btn:hover{background:rgba(51,65,85,0.96);}
+.stratum-lb-demo{background:rgba(245,158,11,0.18);border-color:rgba(245,158,11,0.48);color:#fbbf24 !important;}
+</style>
+<div class="stratum-lb-backdrop" id="stratum-lb" role="dialog" aria-modal="true" aria-label="Interface Preview">
+  <div class="stratum-lb-dialog">
+    <img class="stratum-lb-img" id="stratum-lb-img" src="" alt="">
+    <div class="stratum-lb-bar">
+      <span id="stratum-lb-cap"></span>
+      <div class="stratum-lb-actions">
+        <button type="button" class="stratum-lb-btn" id="stratum-lb-prev">←</button>
+        <button type="button" class="stratum-lb-btn" id="stratum-lb-next">→</button>
+        <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-lb-btn stratum-lb-demo">Canlı Demoda Dene →</a>
+        <button type="button" class="stratum-lb-btn" id="stratum-lb-close">✕ Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var gal=document.getElementById('gallery');
+  var lb=document.getElementById('stratum-lb');
+  if(!gal||!lb)return;
+  var imgs=Array.prototype.slice.call(gal.querySelectorAll('img:not(#stratum-lb-img)'));
+  if(!imgs.length)return;
+  var sub=gal.querySelector('p');
+  if(sub&&!gal.querySelector('.stratum-zoom-hint')){
+    var hint=document.createElement('div');
+    hint.innerHTML='<span class="stratum-zoom-hint">🔍 Tam ekran incelemek için herhangi bir görsele tıklayın</span>';
+    sub.parentNode.insertBefore(hint,sub.nextSibling);
+  }
+  var lbImg=document.getElementById('stratum-lb-img');
+  var lbCap=document.getElementById('stratum-lb-cap');
+  var idx=0;
+  function show(i){
+    idx=(i+imgs.length)%imgs.length;
+    var el=imgs[idx];
+    lbImg.src=el.currentSrc||el.src;
+    lbImg.alt=el.alt||'';
+    lbCap.textContent=(idx+1)+' / '+imgs.length+(el.alt?' — '+el.alt:'');
+    lb.classList.add('is-open');
+    document.body.style.overflow='hidden';
+  }
+  function hide(){
+    lb.classList.remove('is-open');
+    document.body.style.overflow='';
+  }
+  imgs.forEach(function(im,i){
+    im.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();show(i);});
+  });
+  document.getElementById('stratum-lb-prev').addEventListener('click',function(){show(idx-1);});
+  document.getElementById('stratum-lb-next').addEventListener('click',function(){show(idx+1);});
+  document.getElementById('stratum-lb-close').addEventListener('click',hide);
+  lb.addEventListener('click',function(e){if(e.target===lb)hide();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('is-open'))return;
+    if(e.key==='Escape')hide();
+    if(e.key==='ArrowLeft')show(idx-1);
+    if(e.key==='ArrowRight')show(idx+1);
+  });
+})();
+</script>
+<!-- STRATUM-HOME-LIGHTBOX-END -->
+</section>
+
+<!-- STRATUM-HOME-COMPARE-START -->
+<section class="home-compare-sec">
+  <div class="wrap">
+    <div class="home-compare-box">
+      <div class="home-compare-left">
+        <div class="home-compare-badge" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+        </div>
+        <div class="home-compare-copy">
+          <span class="eyebrow-tag">2026 Mimari Karşılaştırması</span>
+          <h3>Stratum FW vs. OPNsense vs. pfSense CE vs. IPFire</h3>
+          <p>FreeBSD 15.1 ve Python/FastAPI kontrol katmanının; klasik PHP/XML ve Linux güvenlik duvarı dağıtımlarıyla 14 teknik kriterde nasıl ayrıştığını yan yana inceleyin.</p>
+          <div class="home-compare-pills">
+            <span>Sıfır PHP / XML</span>
+            <span>Ücretsiz ZFS Geri Alma</span>
+            <span>60 sn Safe-Apply Koruması</span>
+            <span>Tek Tık OPNsense Geçişi</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a href="/tr/compare/" class="btn btn-primary">Karşılaştırmayı İncele &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="stats">
   <div class="wrap">
@@ -114,7 +296,7 @@ section.hero h1, section.hero p {
   </div>
 </section>
 
-  <section class="section section-dark">
+<section class="section section-dark">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Neden Stratum?</span>
@@ -193,114 +375,6 @@ section.hero h1, section.hero p {
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- STRATUM-HOME-COMPARE-START -->
-<section class="home-compare-sec">
-  <div class="wrap">
-    <div class="home-compare-box">
-      <div class="home-compare-left">
-        <div class="home-compare-badge" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
-        </div>
-        <div class="home-compare-copy">
-          <span class="eyebrow-tag">2026 Mimari Karşılaştırması</span>
-          <h3>Stratum FW vs. OPNsense vs. pfSense CE vs. IPFire</h3>
-          <p>FreeBSD 15.1 ve Python/FastAPI kontrol katmanının; klasik PHP/XML ve Linux güvenlik duvarı dağıtımlarıyla 14 teknik kriterde nasıl ayrıştığını yan yana inceleyin.</p>
-          <div class="home-compare-pills">
-            <span>Sıfır PHP / XML</span>
-            <span>Ücretsiz ZFS Geri Alma</span>
-            <span>60 sn Safe-Apply Koruması</span>
-            <span>Tek Tık OPNsense Geçişi</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <a href="/tr/compare/" class="btn btn-primary">Karşılaştırmayı İncele &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- STRATUM-HOME-COMPARE-END -->
-
-<!-- STRATUM-V0303-GALLERY-START -->
-<section class="section section-canvas" id="gallery">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">v0.30.3 Arayüz Önizlemesi</span>
-      <h2>Operatörler için, mühendisler tarafından geliştirildi</h2>
-      <p>Eski PHP/XML karmaşasından arındırılmış hızlı ve sade Python 3.12 &amp; FastAPI yönetim paneli. Tam boy görmek için ekranlara tıklayın veya gerçek FreeBSD 15.1 sanal makinesini tarayıcınızda deneyin.</p>
-    </div>
-
-    <div class="stratum-v0303-gallery-wrap">
-      <div class="stratum-gallery-featured" onclick="openLightbox('/images/gallery/stratum-v0303-showcase.webp')">
-        <div class="stratum-gallery-featured-media">
-          <img src="/images/gallery/stratum-v0303-showcase.webp" alt="Stratum Firewall v0.30.3 Donanım ve FastAPI Yönetim Paneli Görünümü" loading="lazy">
-        </div>
-        <div class="stratum-gallery-featured-bar">
-          <div class="stratum-gallery-featured-meta">
-            <strong>Stratum Firewall v0.30.3 &middot; FreeBSD 15.1 &amp; Çekirdek pf Güvenlik Duvarı İS</strong>
-            <span>Bildirimsel JSON motoru, atomik ZFS Önyükleme Ortamları, 60 saniyelik Safe-Apply geri alma koruması ve sıfır yıllık abonelik.</span>
-          </div>
-          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-gallery-demo-cta" onclick="event.stopPropagation()">Canlı v0.30.3 Demoyu Aç &rarr;</a>
-        </div>
-      </div>
-
-      <div class="stratum-gallery-grid-v0303">
-        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-dashboard-v0303.webp')">
-          <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-dashboard-v0303.webp" alt="Stratum FW v0.30.3 Canlı Kontrol Paneli ve Çoklu WAN İzleme" loading="lazy">
-          </div>
-          <div class="stratum-panel-shot-cap">
-            <div class="stratum-panel-shot-head">
-              <strong>12 Sütunlu Canlı Kontrol Paneli</strong>
-              <span class="stratum-panel-shot-tag">Çoklu WAN</span>
-            </div>
-            <p>Anlık hat trafiği, Statik/PPPoE/DHCP WAN yedekleme ölçümleri, ZFS havuz sağlığı ve son 24 saatlik engelleme sayaçları.</p>
-          </div>
-        </div>
-
-        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-opnsense-import-v0303.webp')">
-          <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-opnsense-import-v0303.webp" alt="OPNsense config.xml, OpenVPN PKI ve Unbound DNSBL Geçiş Sihirbazı" loading="lazy">
-          </div>
-          <div class="stratum-panel-shot-cap">
-            <div class="stratum-panel-shot-head">
-              <strong>Tek Tıkla OPNsense &amp; DNSBL Geçişi</strong>
-              <span class="stratum-panel-shot-tag">v0.30.2</span>
-            </div>
-            <p>Ağ portlarını eşleştirir; VLAN, kural, tam aralıklı DHCP, Unbound DNSBL kara listeleri ve OpenVPN sertifika/parolalarını taşır.</p>
-          </div>
-        </div>
-
-        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-threat-forcedns-v0303.webp')">
-          <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-threat-forcedns-v0303.webp" alt="Çift Motorlu Suricata 8 IPS, Zorunlu DNS ve 55 Kategorili Web Filtresi" loading="lazy">
-          </div>
-          <div class="stratum-panel-shot-cap">
-            <div class="stratum-panel-shot-head">
-              <strong>Suricata 8 IPS, Zorunlu DNS &amp; Web Filtresi</strong>
-              <span class="stratum-panel-shot-tag">Kayıtsız DNS</span>
-            </div>
-            <p>Eşzamanlı netmap IPS + pcap IDS, DoT 853 engelli ve AD istisnalı Zorunlu DNS ile 55 kategorili Unbound RPZ filtreleme.</p>
-          </div>
-        </div>
-
-        <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-totp-wireguard-v0303.webp')">
-          <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Tarayıcıda Yerel QR TOTP 2FA, 60sn Safe-Apply ve Çekirdek WireGuard VPN" loading="lazy">
-          </div>
-          <div class="stratum-panel-shot-cap">
-            <div class="stratum-panel-shot-head">
-              <strong>Yerel QR TOTP 2FA &amp; Çekirdek WireGuard</strong>
-              <span class="stratum-panel-shot-tag">v0.30.0</span>
-            </div>
-            <p>Tarayıcıda yerel çizilen QR kodlu iki aşamalı giriş, 10 kurtarma kodu, 60 sn Safe-Apply güvencesi ve yerleşik if_wg VPN.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>

@@ -85,6 +85,11 @@ disableKinds = ["taxonomy", "term"]
       [[languages.en.menu.main]]
         name = 'Download'
         url = '/download/'
+        weight = 33
+
+[[languages.en.menu.main]]
+        name = 'Download'
+        url = '/download/'
         weight = 35
       [[languages.en.menu.main]]
         name = 'Company'
@@ -180,6 +185,11 @@ disableKinds = ["taxonomy", "term"]
         parent = 'resources'
         weight = 34
       [[languages.tr.menu.main]]
+        name = 'İndir'
+        url = '/tr/download/'
+        weight = 33
+
+[[languages.tr.menu.main]]
         name = 'İndir'
         url = '/tr/download/'
         weight = 35
