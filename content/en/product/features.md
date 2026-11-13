@@ -123,11 +123,14 @@ seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & M
 <!-- STRATUM-V0300-FEATURES-START -->
 <section class="section stratum-dark-module">
   <div class="section-head" style="max-width: 820px; margin: 0 auto 28px auto; text-align: center;">
-    <span class="eyebrow stratum-module-eyebrow">New in v0.28.8 – v0.30.3</span>
+    <span class="eyebrow stratum-module-eyebrow">New in v0.28.8 – v0.31.1</span>
     <h2>Enterprise Identity, Unbypassable DNS &amp; Dynamic Multi-WAN</h2>
-    <p>Every capability below ships built into Stratum Firewall v0.30.3 on FreeBSD 15.1—with zero plugins, zero external cloud dependencies, and zero recurring license fees.</p>
+    <p>Every capability below ships built into Stratum Firewall v0.31.1 on FreeBSD 15.1—with zero plugins, zero external cloud dependencies, and zero recurring license fees.</p>
   </div>
   <div class="card-grid grid-3 stratum-subgrid">
+<div class="card stratum-subcard"><h3>Rule &amp; NAT Separators + Views (v0.31.1)</h3><p>Group Firewall, Port Forward, and manual Outbound NAT rules with named, coloured pfSense-style separators and up/down arrows, and filter cleanly across All, Default, and Custom views.</p></div>
+<div class="card stratum-subcard"><h3>HTTPS-Only Sessions &amp; Multi-WAN VPN (v0.30.5)</h3><p>Protects panel sessions with strict HTTPS-only Secure cookies, writes ordered per-address OpenVPN remote lines for multi-WAN profiles, and ships FreeBSD-ipfw dummynet built in.</p></div>
+<div class="card stratum-subcard"><h3>OPNsense DNSBL &amp; Full-Span DHCP Import (v0.30.2)</h3><p>Imports OPNsense Unbound DNSBL feeds (Steven Black, AdGuard, custom HTTPS lists, allow/block/wildcards) and preserves full-span DHCP pools that cross the interface gateway IP.</p></div>
     <div class="card stratum-subcard">
       <h3>Built-In TOTP Two-Factor Sign-In (<code>v0.30.0</code>)</h3>
       <p>Protect administrator and operator accounts with 6-digit authenticator codes (<em>Google/Microsoft Authenticator, 1Password, Bitwarden</em>). QR codes render locally in your browser so secrets never leave the firewall—backed by single-use replay protection, 10 recovery codes, and console reset.</p>

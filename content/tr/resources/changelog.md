@@ -6,6 +6,51 @@ description: "Stratum Firewall v0.30.3 sürümüne kadar tüm yenilikler, deği�
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
 
+## 0.31.1 - 2026-11-13
+
+### Eklendi
+- NAT > Port Yönlendirme: **Tümü / Varsayılan / Özel** görünümleri eklendi. Varsayılan kayıtlar Stratum'un kendi
+  oluşturduğu yönlendirmeleri (istisnalarıyla birlikte Zorunlu DNS), özel kayıtlar ise tanımladığınız port
+  yönlendirmelerini gösterir.
+- NAT > Port Yönlendirme ve NAT > Giden (manuel kurallar): Güvenlik Duvarı > Kurallar sayfasındaki gibi **ayırıcı
+  başlıklar (separators)** ve **yukarı / aşağı taşıma** okları eklendi.
+
+### Değiştirildi
+- NAT > Giden: bölüm başlıkları "Özel kurallar (manuel)" ve "Varsayılan kurallar (otomatik)" olarak adlandırıldı.
+- Güvenlik Duvarı > Kurallar ve NAT: uzun açıklamalar alt satıra sarılarak işlem sütununun her zaman görünür kalması
+  sağlandı.
+
+## 0.31.0 - 2026-11-13
+
+### Eklendi
+- Güvenlik Duvarı > Kurallar: **Tüm kurallar / Varsayılan / Özel** görünümleri eklendi. Varsayılan kurallar Stratum'un
+  diğer ayarlardan otomatik ürettiği kuralları (kilitlenme koruması, DHCP, yönetim erişimi, varsayılan engelleme), özel
+  kurallar ise kendi kurallarınızı gösterir. Son seçilen görünüm tarayıcıda hatırlanır.
+- Güvenlik Duvarı > Kurallar: pfSense'teki gibi kuralları gruplamak için isimlendirilebilir ve renklendirilebilir
+  **ayırıcı başlıklar (separators)** eklendi ("QR yazıcı", "Elka otomasyon" vb.). Liste içinde eklenebilir, yeniden
+  adlandırılabilir, rengi değiştirilebilir, taşınabilir ve silinebilir; yalnızca görsel listeyi düzenler, `pf.conf`
+  dosyasını değiştirmez.
+- Güvenlik Duvarı > Kurallar: sürükleme tutamacının yanına her kural ve ayırıcı için **yukarı / aşağı taşıma** okları
+  eklendi. Bir ayırıcının üzerinden taşınan kural üstteki veya alttaki gruba katılır.
+
+### Değiştirildi
+- Bir kural silindiğinde altındaki ayırıcılar aynı kuralların üzerinde kalacak şekilde korunur. Bir arayüz grubunun adı
+  değiştirildiğinde ayırıcıları taşınır; grup silindiğinde kaldırılır. OPNsense üzerinden geçiş işlemi ayırıcısız başlar.
+
+## 0.30.5 - 2026-11-13
+
+### Düzeltildi
+- OpenVPN: birden fazla dış adres ("a, b") tanımlıyken indirilen istemci profilinde tüm adreslerin tek bir `remote`
+  satırına yazılması ve istemcilerin bunu çözümleyemeyip bağlanamaması düzeltildi. Artık her adres sırayla denenmek
+  üzere kendi ayrı `remote` satırına yazılır.
+
+## 0.30.4 - 2026-11-12
+
+### Güvenlik
+- Yönetim paneli oturum çerezi (cookie) artık `Secure` olarak işaretleniyor; tarayıcılar çerezi yalnızca HTTPS
+  üzerinden gönderiyor. Öncesinde panele `http://` ile girildiğinde HTTPS yönlendirmesinden önce çerez port 80
+  üzerinden şifresiz iletilebiliyor ve aynı ağdaki biri tarafından okunabiliyordu.
+
 ## 0.30.3 - 2026-11-11
 
 ### Düzeltildi
