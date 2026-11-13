@@ -4,6 +4,8 @@ seo_title: "Stratum Firewall v0.30.0 Architecture — FreeBSD 15.1, pf, FastAPI,
 description: "Inside Stratum Firewall v0.30.3 — FreeBSD 15.1-RELEASE kernel pf & 1:1 binat data plane, dual-engine Suricata 8 IPS, Force DNS with AD exceptions, Python 3.12 FastAPI control plane with TOTP 2FA, and ZFS Boot Environments."
 lead: "Zero PHP overhead, a single declarative source of truth, a 60-second Safe-Apply rollback guarantee, and a pure FreeBSD 15.1 kernel data plane."
 full_width: true
+seoTitle: "FreeBSD 15.1, OpenZFS & FastAPI Architecture | Stratum FW"
+seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 kernel pf & netmap data plane, declarative config.json, 60s Safe-Apply, and ZFS boot rollback."
 ---
 
 <div class="solutions-layout">

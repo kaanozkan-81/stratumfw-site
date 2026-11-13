@@ -4,6 +4,8 @@ description: "Stratum Firewall v0.30.0 tüm özellikleri: durum bilgili pf kural
 lead: "Stratum Firewall, kendini kanıtlamış pf paket filtresini şimşek hızındaki bir FastAPI yönetim paneliyle birleştirir. Tescilli bağımlılıklar yok, mutlak kontrol var. Modern altyapılar için güvenlik odaklı bir mimariyle inşa edildi."
 full_width: true
 seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Çoklu WAN VPN"
+seoTitle: "Özellikler: FreeBSD pf, Suricata 8 DPI ve 2FA | Stratum FW"
+seoDescription: "FreeBSD 15.1 üzerinde durum korumalı pf kuralları, renkli ayırıcılar, Suricata 8 DPI, 55 kategorili Web Filtresi, AD istisnalı Zorunlu DNS, TOTP 2FA ve Çoklu WAN."
 ---
 
 <!-- STRATUM-DPI-SHOWCASE-START -->

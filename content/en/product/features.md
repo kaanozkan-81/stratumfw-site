@@ -4,6 +4,8 @@ description: "Full feature matrix of Stratum Firewall v0.30.0: stateful pf rules
 lead: "Stratum Firewall combines the battle-tested pf packet filter with a lightning-fast FastAPI management panel. Zero proprietary dependencies, absolute control, and a security-first architecture built for modern infrastructure."
 full_width: true
 seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & Multi-WAN VPN"
+seoTitle: "Firewall Features: pf, Suricata 8 DPI & WireGuard | Stratum FW"
+seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: stateful pf rules with separators, Suricata 8 IPS/IDS, Unbound DNSBL, Force DNS for AD, TOTP 2FA & Multi-WAN."
 ---
 
 <!-- STRATUM-DPI-SHOWCASE-START -->

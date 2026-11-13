@@ -4,6 +4,8 @@ seo_title: "Stratum Firewall v0.30.0 Mimarisi — FreeBSD 15.1, pf, FastAPI, TOT
 description: "Stratum Firewall v0.30.0 teknik mimarisi — FreeBSD 15.1-RELEASE çekirdeği, pf ve 1:1 binat veri düzlemi, çift motorlu Suricata 8 IPS, AD istisnalı Zorunlu DNS, TOTP 2FA destekli FastAPI kontrol düzlemi ve ZFS Önyükleme Ortamları."
 lead: "Sıfır PHP yükü, tekil bildirimsel yapılandırma kaynağı, 60 saniyelik Safe-Apply geri alma güvencesi ve saf FreeBSD 15.1 çekirdek veri düzlemi üzerine inşa edilen v0.30.0 sistem mimarisi."
 full_width: true
+seoTitle: "FreeBSD 15.1, OpenZFS ve FastAPI Sistem Mimarisi | Stratum FW"
+seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf ve netmap veri düzlemi, tekil config.json, 60 sn Safe-Apply ve ZFS önyükleme ortamı koruması."
 ---
 
 <div class="solutions-layout">
