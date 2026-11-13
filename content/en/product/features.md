@@ -8,6 +8,8 @@ seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & M
 
 <!-- STRATUM-TELEMETRY-SHOWCASE-START -->
 <div class="stratum-telemetry-banner">
+<div class="stratum-tel-visual" onclick="if(typeof openLightbox==='function'){openLightbox('/images/features/dpi-telemetry.jpg')}else{window.open('/images/features/dpi-telemetry.jpg','_blank')}"><img src="/images/features/dpi-telemetry.jpg" alt="FreeBSD 15.1 pf and Suricata 8 DPI Pipeline — 37,287 Rules, 2.11B+ Packets, 0.00% Drop" loading="lazy"></div>
+<div class="stratum-tel-body">
 <div class="stratum-tel-eyebrow"><span class="stratum-tel-dot"></span>Live Enterprise Telemetry · Multi-WAN & Multi-VLAN</div>
 <h3 class="stratum-tel-title">Field-Proven Deep Packet Inspection at Scale</h3>
 <div class="stratum-tel-grid">
@@ -16,6 +18,7 @@ seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & M
 <div class="stratum-tel-stat"><span class="stratum-tel-val emerald">0.00%</span><span class="stratum-tel-lbl">Kernel Buffer Packet Drops</span></div>
 </div>
 <p class="stratum-tel-desc">Where conventional firewall distributions often hit kernel buffer exhaustion once tens of thousands of deep packet inspection signatures are enabled, Stratum Firewall pairs memory-tuned Suricata 8 supervision with FreeBSD 15.1 kernel networking — inspecting over 2.11 billion packets across live multi-WAN, multi-VLAN enterprise production traffic with 37,287 active rules and zero packet loss.</p>
+</div>
 </div>
 <!-- STRATUM-TELEMETRY-SHOWCASE-END -->
 

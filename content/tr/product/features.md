@@ -8,6 +8,8 @@ seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Ç
 
 <!-- STRATUM-TELEMETRY-SHOWCASE-START -->
 <div class="stratum-telemetry-banner">
+<div class="stratum-tel-visual" onclick="if(typeof openLightbox==='function'){openLightbox('/images/features/dpi-telemetry.jpg')}else{window.open('/images/features/dpi-telemetry.jpg','_blank')}"><img src="/images/features/dpi-telemetry.jpg" alt="FreeBSD 15.1 pf ve Suricata 8 DPI Veri Hattı — 37.287 Kural, 2,11+ Milyar Paket, %0,00 Kayıp" loading="lazy"></div>
+<div class="stratum-tel-body">
 <div class="stratum-tel-eyebrow"><span class="stratum-tel-dot"></span>Canlı Üretim Telemetrisi · Çoklu WAN & Çoklu VLAN</div>
 <h3 class="stratum-tel-title">Sahada Kanıtlanmış Çekirdek ve DPI Performansı</h3>
 <div class="stratum-tel-grid">
@@ -16,6 +18,7 @@ seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Ç
 <div class="stratum-tel-stat"><span class="stratum-tel-val emerald">%0,00</span><span class="stratum-tel-lbl">Çekirdek Tamponu Paket Kaybı</span></div>
 </div>
 <p class="stratum-tel-desc">Standart güvenlik duvarı dağıtımlarında on binlerce derin paket inceleme imzası etkinleştirildiğinde çekirdek tamponlarında darboğaz ve paket düşmeleri yaşanırken; Stratum Firewall, donanım belleğine göre otomatik ölçeklenen Suricata 8 denetimi ve FreeBSD 15.1 çekirdek veri düzlemi sayesinde çoklu WAN ve çoklu VLAN taşıyan canlı kurumsal üretim trafiğinde 37.287 aktif ET Open kuralı altında 2,11 milyarı aşkın paketi %0,00 paket kaybıyla işler.</p>
+</div>
 </div>
 <!-- STRATUM-TELEMETRY-SHOWCASE-END -->
 
