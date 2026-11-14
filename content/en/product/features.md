@@ -125,11 +125,12 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: stateful pf 
 <!-- STRATUM-V0300-FEATURES-START -->
 <section class="section stratum-dark-module">
   <div class="section-head" style="max-width: 820px; margin: 0 auto 28px auto; text-align: center;">
-    <span class="eyebrow stratum-module-eyebrow">New in v0.28.8 – v0.31.6</span>
+    <span class="eyebrow stratum-module-eyebrow">New in v0.28.9 – v0.32.0</span>
     <h2>Enterprise Identity, Unbypassable DNS &amp; Dynamic Multi-WAN</h2>
-    <p>Every capability below ships built into Stratum Firewall v0.31.6 on FreeBSD 15.1—with zero plugins, zero external cloud dependencies, and zero recurring license fees.</p>
+    <p>Every capability below ships built into Stratum Firewall v0.32.0 on FreeBSD 15.1—with zero plugins, zero external cloud dependencies, and zero recurring license fees.</p>
   </div>
   <div class="card-grid grid-3 stratum-subgrid">
+<div class="card stratum-subcard"><h3>Inter-VLAN Traffic Matrix (v0.32.0)</h3><p>30-day East-West traffic discovery (Between networks) and 1h/24h summaries showing which VLANs talk on which destination IPs and ports—so you can lock down segmentation with certainty.</p></div>
 <div class="card stratum-subcard"><h3>Rule &amp; NAT Separators + Views (v0.31.3)</h3><p>Group Firewall, Port Forward, and manual Outbound NAT rules with coloured pfSense-style separators, up/down arrows, and All / Default / Custom views—without consuming your 30 config backup slots.</p></div>
 <div class="card stratum-subcard"><h3>Hitless Suricata Updates &amp; Hardened UI (v0.31.6)</h3><p>Eliminates igb/netmap WAN port resets during Suricata restarts and OS updates, flags post-update pending applies, enforces HTTPS Secure cookies, and refines the Light Theme.</p></div>
 <div class="card stratum-subcard"><h3>OPNsense DNSBL &amp; Full-Span DHCP Import (v0.30.2)</h3><p>Imports OPNsense Unbound DNSBL feeds (Steven Black, AdGuard, custom HTTPS lists, allow/block/wildcards) and preserves full-span DHCP pools that cross the interface gateway IP.</p></div>
@@ -152,10 +153,6 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: stateful pf 
     <div class="card stratum-subcard">
       <h3>Bidirectional 1:1 NAT (<code>v0.28.9</code>)</h3>
       <p>Map internal servers or subnets 1:1 to public WAN Virtual IPs or routed blocks in both directions—complete with anti-lockout protection that refuses the WAN's own management IP and live WAN pass-rule visibility.</p>
-    </div>
-    <div class="card stratum-subcard">
-      <h3>1h / 24h Firewall Log Summary (<code>v0.28.8</code>)</h3>
-      <p>Analyze top source IPs with GeoIP country flags, top targeted service ports (<code>SSH</code>, <code>RDP</code>), top countries, human-readable system rule names, and 5-minute/hourly interface charts—with one-click drilldown into the live log.</p>
     </div>
   </div>
 </section>

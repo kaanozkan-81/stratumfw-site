@@ -125,11 +125,12 @@ seoDescription: "FreeBSD 15.1 üzerinde durum korumalı pf kuralları, renkli ay
 <!-- STRATUM-V0300-FEATURES-START -->
 <section class="section stratum-dark-module">
   <div class="section-head" style="max-width: 820px; margin: 0 auto 28px auto; text-align: center;">
-    <span class="eyebrow stratum-module-eyebrow">v0.28.8 – v0.31.6 Yenilikleri</span>
+    <span class="eyebrow stratum-module-eyebrow">v0.28.9 – v0.32.0 Yenilikleri</span>
     <h2>İki Aşamalı Kimlik Doğrulama, Zorunlu DNS ve Dinamik Çoklu WAN</h2>
-    <p>Aşağıdaki tüm kurumsal yetenekler FreeBSD 15.1 tabanlı Stratum Firewall v0.31.6 sürümünde hiçbir eklenti, bulut bağımlılığı veya yıllık lisans ücreti olmadan yerleşik gelir.</p>
+    <p>Aşağıdaki tüm kurumsal yetenekler FreeBSD 15.1 tabanlı Stratum Firewall v0.32.0 sürümünde hiçbir eklenti, bulut bağımlılığı veya yıllık lisans ücreti olmadan yerleşik gelir.</p>
   </div>
   <div class="card-grid grid-3 stratum-subgrid">
+<div class="card stratum-subcard"><h3>Ağlar Arası VLAN Trafik Matrisi (v0.32.0)</h3><p>İç ağların birbirine hangi hedef IP ve portlardan eriştiğini (izin verilen ve engellenen) 30 gün boyunca saklayan Ağlar Arası matris ve 1s/24s özetleriyle VLAN bölütlemesini sıfır tahminle yapın.</p></div>
 <div class="card stratum-subcard"><h3>Kural ve NAT Ayırıcıları + Görünümler (v0.31.3)</h3><p>Güvenlik Duvarı, Port Yönlendirme ve manuel Giden NAT kurallarını renkli başlıklar ve Tümü / Varsayılan / Özel görünümleriyle düzenleyin; ayırıcı düzenlemeleri 30 yedek kotasını tüketmez.</p></div>
 <div class="card stratum-subcard"><h3>Kesintisiz Suricata Güncellemesi ve Arayüz (v0.31.6)</h3><p>Suricata yeniden başlatmalarında ve sistem güncellemelerinde igb/netmap WAN hat düşmelerini önler, Uygula bekleyen güncellemeleri bildirir, HTTPS Secure çerez koruması ve göz yormayan Açık Tema sunar.</p></div>
 <div class="card stratum-subcard"><h3>OPNsense DNSBL ve Tam Havuzlu DHCP Geçişi (v0.30.2)</h3><p>OPNsense üzerindeki Unbound DNSBL listelerini (Steven Black, AdGuard, özel HTTPS kaynakları, izin/engel/joker kayıtları) ve ağ geçidi IP adresini kapsayan tam aralıklı DHCP havuzlarını bölmeden aktarır.</p></div>
@@ -152,10 +153,6 @@ seoDescription: "FreeBSD 15.1 üzerinde durum korumalı pf kuralları, renkli ay
     <div class="card stratum-subcard">
       <h3>Çift Yönlü 1:1 NAT (<code>v0.28.9</code>)</h3>
       <p>İç sunuculara veya alt ağlara kendilerine ait genel Sanal IP (VIP) ya da yönlendirilmiş genel ağ bloklarını çift yönlü atayın; WAN'ın kendi IP adresini reddeden kilitlenme koruması ve canlı WAN izin kuralı sayacıyla güvenle yönetin.</p>
-    </div>
-    <div class="card stratum-subcard">
-      <h3>1s / 24s Güvenlik Duvarı Günlük Özeti (<code>v0.28.8</code>)</h3>
-      <p>Son 1 veya 24 saatteki en yoğun kaynak IP'leri (ülkesiyle), hedef portları (<code>SSH</code>, <code>RDP</code>), ülkeleri (GeoIP), anlaşılır sistem kural isimlerini ve 5 dakikalık/saatlik arayüz grafiklerini tek tıkla canlı günlüğe filtreleyerek inceleyin.</p>
     </div>
   </div>
 </section>

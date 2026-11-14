@@ -2,13 +2,23 @@
 title: "Changelog"
 seo_title: "Stratum Firewall Changelog (v0.30.3) — FreeBSD 15.1 Release Notes"
 description: "Complete release history of Stratum Firewall through v0.30.3 — OPNsense Unbound DNSBL migration, full-span DHCP pools, dummynet/dnctl shaper pre-checks, TOTP 2FA, Force DNS, DHCP Multi-WAN, 1:1 NAT, and schedules."
-seoTitle: "Stratum Firewall Changelog & Release Notes (v0.31.6)"
+seoTitle: "Stratum Firewall Changelog & Release Notes (v0.32.0)"
 seoDescription: "Complete release history of Stratum Firewall on FreeBSD 15.1: new features, security hardening, OPNsense import upgrades, and pf/DPI fixes in every version."
 ---
 
 All notable changes to Stratum FW are listed here, newest first. Stratum FW updates itself from the signed
 update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot
 environment, so the previous version can be booted again at any time.
+
+## 0.32.0 - 2026-11-14
+
+### Added
+- Diagnostics > Firewall Log > **Between networks**: the traffic between the internal networks that the firewall
+  logs - which network reaches which (passed and blocked), and for each destination address and port how many
+  connections from how many devices, first and last seen. Kept for 30 days after it was last seen, whatever the
+  firewall log's rotation keeps; updated every minute with the blocklist report. The firewall's own addresses are a
+  destination of their own. It is the data for segmenting the VLANs: log what a network sends to the others, allow
+  what is really used, block the rest - and see afterwards what the blocking rules stop.
 
 ## 0.31.6 - 2026-11-13
 

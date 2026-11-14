@@ -8,6 +8,18 @@ seoDescription: "FreeBSD 15.1 tabanlı Stratum Firewall işletim sisteminin tüm
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
 
+## 0.32.0 - 2026-11-14
+
+### Eklendi
+- Tanılama > Güvenlik Duvarı Günlüğü > **Ağlar arası (Between networks)**: güvenlik duvarının kaydettiği iç ağlar
+  arası trafik matrisi eklendi. Hangi iç ağın hangisine ulaştığını (izin verilen ve engellenen), her hedef adres ve
+  port için kaç farklı cihazdan kaç bağlantı kurulduğunu, ilk ve son görülme zamanlarıyla birlikte gösterir. Güvenlik
+  duvarı günlüğünün döngü süresinden bağımsız olarak son görülmeden itibaren 30 gün boyunca saklanır ve karaliste
+  raporuyla birlikte dakikada bir güncellenir; güvenlik duvarının kendi adresleri ayrı bir hedef olarak izlenir. VLAN
+  bölütlemesi (mikro-segmentasyon) için doğrudan karar verisi sunar: önce bir ağın diğerlerine ne gönderdiğini
+  kaydedin, gerçekten kullanılan trafiğe izin verip kalanını kapatın ve sonrasında engelleme kurallarının neyi
+  durdurduğunu izleyin.
+
 ## 0.31.6 - 2026-11-13
 
 ### Değiştirildi
