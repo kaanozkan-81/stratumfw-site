@@ -125,13 +125,13 @@ seoDescription: "FreeBSD 15.1 üzerinde durum korumalı pf kuralları, renkli ay
 <!-- STRATUM-V0300-FEATURES-START -->
 <section class="section stratum-dark-module">
   <div class="section-head" style="max-width: 820px; margin: 0 auto 28px auto; text-align: center;">
-    <span class="eyebrow stratum-module-eyebrow">v0.28.8 – v0.31.1 Yenilikleri</span>
+    <span class="eyebrow stratum-module-eyebrow">v0.28.8 – v0.31.6 Yenilikleri</span>
     <h2>İki Aşamalı Kimlik Doğrulama, Zorunlu DNS ve Dinamik Çoklu WAN</h2>
-    <p>Aşağıdaki tüm kurumsal yetenekler FreeBSD 15.1 tabanlı Stratum Firewall v0.31.1 sürümünde hiçbir eklenti, bulut bağımlılığı veya yıllık lisans ücreti olmadan yerleşik gelir.</p>
+    <p>Aşağıdaki tüm kurumsal yetenekler FreeBSD 15.1 tabanlı Stratum Firewall v0.31.6 sürümünde hiçbir eklenti, bulut bağımlılığı veya yıllık lisans ücreti olmadan yerleşik gelir.</p>
   </div>
   <div class="card-grid grid-3 stratum-subgrid">
-<div class="card stratum-subcard"><h3>Kural ve NAT Ayırıcıları + Görünümler (v0.31.1)</h3><p>Güvenlik Duvarı, Port Yönlendirme ve manuel Giden NAT kurallarını pfSense tarzı renkli başlıklarla gruplayın; yukarı/aşağı oklarla sıralayın ve Tümü, Varsayılan, Özel görünümleri arasında geçiş yapın.</p></div>
-<div class="card stratum-subcard"><h3>HTTPS Oturum Koruması ve Çoklu Adresli VPN (v0.30.5)</h3><p>Yönetim paneli oturum çerezini yalnızca HTTPS üzerinden iletilecek şekilde korur, çoklu dış adresli OpenVPN profillerinde her adresi ayrı remote satırına yazar ve dummynet hız sınırlayıcıyı yerleşik sunar.</p></div>
+<div class="card stratum-subcard"><h3>Kural ve NAT Ayırıcıları + Görünümler (v0.31.3)</h3><p>Güvenlik Duvarı, Port Yönlendirme ve manuel Giden NAT kurallarını renkli başlıklar ve Tümü / Varsayılan / Özel görünümleriyle düzenleyin; ayırıcı düzenlemeleri 30 yedek kotasını tüketmez.</p></div>
+<div class="card stratum-subcard"><h3>Kesintisiz Suricata Güncellemesi ve Arayüz (v0.31.6)</h3><p>Suricata yeniden başlatmalarında ve sistem güncellemelerinde igb/netmap WAN hat düşmelerini önler, Uygula bekleyen güncellemeleri bildirir, HTTPS Secure çerez koruması ve göz yormayan Açık Tema sunar.</p></div>
 <div class="card stratum-subcard"><h3>OPNsense DNSBL ve Tam Havuzlu DHCP Geçişi (v0.30.2)</h3><p>OPNsense üzerindeki Unbound DNSBL listelerini (Steven Black, AdGuard, özel HTTPS kaynakları, izin/engel/joker kayıtları) ve ağ geçidi IP adresini kapsayan tam aralıklı DHCP havuzlarını bölmeden aktarır.</p></div>
     <div class="card stratum-subcard">
       <h3>Yerleşik İki Aşamalı Giriş — TOTP 2FA (<code>v0.30.0</code>)</h3>

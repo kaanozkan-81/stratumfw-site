@@ -8,6 +8,52 @@ seoDescription: "FreeBSD 15.1 tabanlı Stratum Firewall işletim sisteminin tüm
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
 
+## 0.31.6 - 2026-11-13
+
+### Değiştirildi
+- Güncellemeler artık Suricata'nın kendisi, kullandığı bir kütüphane veya başlatma betiği güncellenmediği sürece
+  saldırı tespit servisini yeniden başlatmaz. Suricata herhangi bir Stratum kodu çalıştırmaz: ayarları Uygula (Apply)
+  ile değişir ve kuralları yeniden başlatma gerekmeden yüklenir. Satır içi engelleme (Block, netmap) motoru her açılış
+  ve kapanışta portları sıfırladığı için öncesinde her güncelleme engelleme modundaki bir WAN hattını birkaç
+  saniyeliğine düşürüyordu.
+
+## 0.31.5 - 2026-11-13
+
+### Eklendi
+- Güncellemeler: yeni sürüm bazı ayar dosyalarını (Suricata, pf veya servis ayarları) farklı üretiyorsa güncelleme
+  tamamlandığında bunu açıkça bildirir; güncelleme günlüğünde, Gösterge Paneli Uyarılar kartında ve bildirimlerde
+  ilgili dosyalarla birlikte "Güncelleme değişikliklerini etkinleştirmek için Uygula'ya basın" uyarısı gösterilir.
+  Öncesinde bu tür değişiklikler bir sonraki Uygula işlemine kadar sessizce bekliyordu.
+
+## 0.31.4 - 2026-11-13
+
+### Düzeltildi
+- Saldırı tespiti: Suricata izlediği portların donanım hızlandırma bayraklarını (checksum, TSO, LRO) başlarken kapatıp
+  dururken tekrar açıyordu. Intel `igb` portlarında bu bayrakların her değişimi portu yeniden başlattığı için her
+  Suricata yeniden başlatması (sistem güncellemesi, IDS ayar uygulaması veya WAN üzerinde yeni DHCP adresi alınması)
+  izlenen WAN hatlarını birkaç saniyeliğine iki kez düşürüyor ve ağ geçidi izleyicisinin varsayılan rotayı
+  değiştirmesine yol açıyordu. Suricata artık port bayraklarına dokunmaz (`capture.disable-offloading: false`); donanım
+  hızlandırma yalnızca Stratum tarafından yönetilir (Sistem > Ayarlar > İnce Ayarlar ve kapalı olması gereken Engelleme
+  portları için).
+- Yükseltme notu: yeni Suricata ayarı bir sonraki Uygula (`stratum-config apply`) işleminde devreye girer. Bu ilk
+  Uygula sırasında eski motor dururken bayrakları geri yüklediği için izlenen portlar son bir kez sıfırlanır;
+  sonrasında Suricata portlara dokunmadan yeniden başlar.
+
+## 0.31.3 - 2026-11-13
+
+### Değiştirildi
+- Yapılandırma yedekleri: yalnızca ayırıcı başlık ekleyen, adını değiştiren veya yerini kaydıran işlemler artık
+  saklanan 30 yedek hakkından birini tüketmez; böylece kural listesini görsel olarak düzenlemek gerçek yapılandırma
+  değişikliklerine ait yedekleri listeden dışarı itmez. Bir kuralın sırasını değiştirmek `pf` değerlendirme sırasını
+  etkilediği için yedek oluşturmaya devam eder.
+
+## 0.31.2 - 2026-11-13
+
+### Değiştirildi
+- Açık tema (Light theme) gözü yormayacak şekilde yenilendi: saf beyaz yüzeyler yerine açık gri zemin üzerinde kırık
+  beyaz paneller, yumuşak gri yan menü ve daha belirgin çerçeve çizgileri kullanıldı. Vurgu rengi sarı-kahverengi
+  tondan OPNsense tarzı canlı turuncuya (butonlarda beyaz metinle) geçirildi. Koyu tema değişmedi.
+
 ## 0.31.1 - 2026-11-13
 
 ### Eklendi

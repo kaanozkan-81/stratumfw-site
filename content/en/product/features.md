@@ -125,13 +125,13 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: stateful pf 
 <!-- STRATUM-V0300-FEATURES-START -->
 <section class="section stratum-dark-module">
   <div class="section-head" style="max-width: 820px; margin: 0 auto 28px auto; text-align: center;">
-    <span class="eyebrow stratum-module-eyebrow">New in v0.28.8 – v0.31.1</span>
+    <span class="eyebrow stratum-module-eyebrow">New in v0.28.8 – v0.31.6</span>
     <h2>Enterprise Identity, Unbypassable DNS &amp; Dynamic Multi-WAN</h2>
-    <p>Every capability below ships built into Stratum Firewall v0.31.1 on FreeBSD 15.1—with zero plugins, zero external cloud dependencies, and zero recurring license fees.</p>
+    <p>Every capability below ships built into Stratum Firewall v0.31.6 on FreeBSD 15.1—with zero plugins, zero external cloud dependencies, and zero recurring license fees.</p>
   </div>
   <div class="card-grid grid-3 stratum-subgrid">
-<div class="card stratum-subcard"><h3>Rule &amp; NAT Separators + Views (v0.31.1)</h3><p>Group Firewall, Port Forward, and manual Outbound NAT rules with named, coloured pfSense-style separators and up/down arrows, and filter cleanly across All, Default, and Custom views.</p></div>
-<div class="card stratum-subcard"><h3>HTTPS-Only Sessions &amp; Multi-WAN VPN (v0.30.5)</h3><p>Protects panel sessions with strict HTTPS-only Secure cookies, writes ordered per-address OpenVPN remote lines for multi-WAN profiles, and ships FreeBSD-ipfw dummynet built in.</p></div>
+<div class="card stratum-subcard"><h3>Rule &amp; NAT Separators + Views (v0.31.3)</h3><p>Group Firewall, Port Forward, and manual Outbound NAT rules with coloured pfSense-style separators, up/down arrows, and All / Default / Custom views—without consuming your 30 config backup slots.</p></div>
+<div class="card stratum-subcard"><h3>Hitless Suricata Updates &amp; Hardened UI (v0.31.6)</h3><p>Eliminates igb/netmap WAN port resets during Suricata restarts and OS updates, flags post-update pending applies, enforces HTTPS Secure cookies, and refines the Light Theme.</p></div>
 <div class="card stratum-subcard"><h3>OPNsense DNSBL &amp; Full-Span DHCP Import (v0.30.2)</h3><p>Imports OPNsense Unbound DNSBL feeds (Steven Black, AdGuard, custom HTTPS lists, allow/block/wildcards) and preserves full-span DHCP pools that cross the interface gateway IP.</p></div>
     <div class="card stratum-subcard">
       <h3>Built-In TOTP Two-Factor Sign-In (<code>v0.30.0</code>)</h3>
