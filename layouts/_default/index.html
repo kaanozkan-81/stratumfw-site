@@ -322,59 +322,56 @@ section.hero h1, section.hero p {
   </div>
 </section>
 
-<section class="section section-canvas">
+<style>
+.stratum-deploy-sec{padding:4.5rem 0;background:#ffffff;}
+.stratum-deploy-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,0.92fr);gap:3rem;align-items:center;}
+.stratum-deploy-kicker{display:inline-flex;align-items:center;gap:0.45rem;font-size:0.76rem;font-weight:800;letter-spacing:0.09em;text-transform:uppercase;color:#d97706;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);padding:0.32rem 0.85rem;border-radius:999px;margin-bottom:0.9rem;}
+.stratum-deploy-title{font-size:clamp(1.75rem,2.8vw,2.35rem);font-weight:800;line-height:1.18;letter-spacing:-0.02em;color:#0f172a;margin:0 0 1rem;}
+.stratum-deploy-lead{font-size:1.02rem;line-height:1.72;color:#475569;margin:0 0 1.4rem;}
+.stratum-deploy-list{list-style:none;padding:0;margin:0 0 1.75rem;display:grid;gap:0.85rem;}
+.stratum-deploy-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.94rem;line-height:1.6;color:#334155;}
+.stratum-deploy-list li strong{color:#0f172a;font-weight:700;}
+.stratum-deploy-list li code{background:#f1f5f9;border:1px solid #e2e8f0;color:#0f172a;padding:0.08rem 0.36rem;border-radius:5px;font-size:0.84em;}
+.stratum-deploy-chk{flex:0 0 22px;width:22px;height:22px;margin-top:2px;border-radius:50%;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.45);color:#d97706;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;}
+.stratum-deploy-btns{display:flex;flex-wrap:wrap;gap:0.85rem;align-items:center;}
+.stratum-deploy-btn-pri{display:inline-flex;align-items:center;justify-content:center;padding:0.78rem 1.4rem;border-radius:10px;background:#f59e0b;color:#0f172a !important;font-weight:700;font-size:0.94rem;text-decoration:none !important;box-shadow:0 8px 20px rgba(245,158,11,0.28);transition:transform 0.16s ease,background 0.16s ease;}
+.stratum-deploy-btn-pri:hover{background:#fbbf24;transform:translateY(-1px);}
+.stratum-deploy-btn-sec{display:inline-flex;align-items:center;justify-content:center;padding:0.76rem 1.3rem;border-radius:10px;background:#ffffff;color:#0f172a !important;border:1px solid #cbd5e1;font-weight:700;font-size:0.94rem;text-decoration:none !important;transition:border-color 0.16s ease,background 0.16s ease;}
+.stratum-deploy-btn-sec:hover{background:#f8fafc;border-color:#94a3b8;}
+.stratum-deploy-card{border-radius:20px;overflow:hidden;background:#08101f;border:1px solid rgba(56,189,248,0.26);box-shadow:0 24px 56px rgba(15,23,42,0.22);}
+.stratum-deploy-card img{display:block;width:100%;height:auto;margin:0;border:0;}
+.stratum-deploy-card-foot{padding:0.75rem 1.1rem;background:#060c18;border-top:1px solid rgba(148,163,184,0.16);display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;font-size:0.79rem;font-weight:600;color:#94a3b8;}
+.stratum-deploy-card-foot span{color:#34d399;}
+@media (max-width:920px){.stratum-deploy-grid{grid-template-columns:1fr;gap:2rem;}.stratum-deploy-sec{padding:3.25rem 0;}}
+</style>
+<section class="section stratum-deploy-sec" id="stratum-deploy-stack">
   <div class="wrap">
-    <div class="home-download">
-
-      <div class="home-download-content">
-        <span class="eyebrow">Developer Preview</span>
-        <h2>Deploy the next generation</h2>
-        <p>Stratum Firewall is currently under active development. We are finalizing the installer and core modules. Developers and early adopters can test the API and panel right now.</p>
-
-        <ul class="home-download-list">
-          <li>Built on FreeBSD 15.1 (Kernel-level security)</li>
-          <li>Python 3.12 &amp; FastAPI Backend</li>
-          <li>Native pf, WireGuard, and DHCP support</li>
-          <li>Managed entirely via REST API</li>
+    <div class="stratum-deploy-grid">
+      <div>
+        <div class="stratum-deploy-kicker">Production Deployment & Lifecycle</div>
+        <h2 class="stratum-deploy-title">Deploy on bare-metal or hypervisors in minutes</h2>
+        <p class="stratum-deploy-lead">Stratum Firewall ships as a self-contained FreeBSD 15.1-RELEASE appliance OS with fully offline OpenZFS installers for monitor/keyboard rigs (VGA ISO) and headless serial hardware (115200 8N1 IMG). Whether you are importing an existing OPNsense gateway, linking branches over IPsec and WireGuard S2S, or running on Proxmox VE, KVM, and VMware ESXi, every change and update is engineered against remote lockouts.</p>
+        <ul class="stratum-deploy-list">
+          <li><span class="stratum-deploy-chk">✓</span><div><strong>Offline OpenZFS Installers & Boot Environments:</strong> Installs directly onto ZFS; every signed online update or air-gapped <code>.sfu</code> bundle snapshots a new boot environment so previous versions remain one reboot away.</div></li>
+          <li><span class="stratum-deploy-chk">✓</span><div><strong>Declarative JSON & 60s Safe-Apply:</strong> Replaces fragile PHP/XML files with a single auditable <code>config.json</code> (isolating VPN and 2FA keys in <code>0600</code> root-only files) and automatically reverts unconfirmed changes.</div></li>
+          <li><span class="stratum-deploy-chk">✓</span><div><strong>Full Enterprise Routing, VPN & DPI:</strong> Multi-vendor IPsec (IKEv2/IKEv1), dedicated WireGuard S2S (<code>wg1+</code>), OpenVPN, dual-engine Suricata 8 IPS/IDS, 55-category Web Filter, and 30-day inter-VLAN traffic matrix.</div></li>
+          <li><span class="stratum-deploy-chk">✓</span><div><strong>Encrypted SFTP Backups & Read-Only MCP:</strong> Scheduled <code>AES-256-GCM</code> (<code>.stbk</code>) backups including all PKI/certificates, plus an optional 14-tool read-only MCP server for safe AI diagnostics.</div></li>
         </ul>
-
-        <div class="home-download-actions">
-          <a href="/resources/documentation/" class="btn btn-primary">Read the Docs</a>
-          <a href="https://github.com/kaanozkan-81/stratum-panel" class="btn btn-secondary" target="_blank" rel="noopener">View on GitHub</a>
+        <div class="stratum-deploy-btns">
+          <a href="/download/" class="stratum-deploy-btn-pri">Download ISO / IMG</a>
+          <a href="/resources/documentation/" class="stratum-deploy-btn-sec">Read the Docs</a>
+          <a href="https://github.com/kaanozkan-81/stratum-panel" target="_blank" rel="noopener" class="stratum-deploy-btn-sec">View on GitHub</a>
         </div>
       </div>
-
-      <div class="home-download-visual">
-        <div class="home-download-card">
-          <div class="home-download-card-head">
-            <span class="home-download-card-dot"></span>
-            <span class="home-download-card-title">stratum-gateway-core</span>
-          </div>
-          <div class="home-download-card-body">
-            <div class="home-download-card-row">
-              <span>Status</span>
-              <strong>Active Development</strong>
-            </div>
-            <div class="home-download-card-row">
-              <span>Version</span>
-              <strong>FreeBSD 15.1 (Beta)</strong>
-            </div>
-            <div class="home-download-card-row">
-              <span>Engine</span>
-              <strong>FreeBSD · pf</strong>
-            </div>
-            <div class="home-download-card-row">
-              <span>Backend</span>
-              <strong>Python 3.12 · FastAPI</strong>
-            </div>
-          </div>
-          <div class="home-download-card-foot">
-            <span>Open Source</span>
-            <span class="home-download-card-badge">Dev Build</span>
+      <div>
+        <div class="stratum-deploy-card">
+          <img src="/images/home-deploy-stack.jpg?v=1" alt="Stratum Firewall Production-Ready FreeBSD 15.1 OpenZFS and FastAPI Appliance Stack" loading="lazy" decoding="async">
+          <div class="stratum-deploy-card-foot">
+            <div>x86_64 Bare-Metal · Proxmox · KVM · ESXi</div>
+            <span>● Zero License Fees</span>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>

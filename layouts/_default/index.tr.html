@@ -322,59 +322,56 @@ section.hero h1, section.hero p {
   </div>
 </section>
 
-<section class="section section-canvas">
+<style>
+.stratum-deploy-sec{padding:4.5rem 0;background:#ffffff;}
+.stratum-deploy-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,0.92fr);gap:3rem;align-items:center;}
+.stratum-deploy-kicker{display:inline-flex;align-items:center;gap:0.45rem;font-size:0.76rem;font-weight:800;letter-spacing:0.09em;text-transform:uppercase;color:#d97706;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);padding:0.32rem 0.85rem;border-radius:999px;margin-bottom:0.9rem;}
+.stratum-deploy-title{font-size:clamp(1.75rem,2.8vw,2.35rem);font-weight:800;line-height:1.18;letter-spacing:-0.02em;color:#0f172a;margin:0 0 1rem;}
+.stratum-deploy-lead{font-size:1.02rem;line-height:1.72;color:#475569;margin:0 0 1.4rem;}
+.stratum-deploy-list{list-style:none;padding:0;margin:0 0 1.75rem;display:grid;gap:0.85rem;}
+.stratum-deploy-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.94rem;line-height:1.6;color:#334155;}
+.stratum-deploy-list li strong{color:#0f172a;font-weight:700;}
+.stratum-deploy-list li code{background:#f1f5f9;border:1px solid #e2e8f0;color:#0f172a;padding:0.08rem 0.36rem;border-radius:5px;font-size:0.84em;}
+.stratum-deploy-chk{flex:0 0 22px;width:22px;height:22px;margin-top:2px;border-radius:50%;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.45);color:#d97706;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;}
+.stratum-deploy-btns{display:flex;flex-wrap:wrap;gap:0.85rem;align-items:center;}
+.stratum-deploy-btn-pri{display:inline-flex;align-items:center;justify-content:center;padding:0.78rem 1.4rem;border-radius:10px;background:#f59e0b;color:#0f172a !important;font-weight:700;font-size:0.94rem;text-decoration:none !important;box-shadow:0 8px 20px rgba(245,158,11,0.28);transition:transform 0.16s ease,background 0.16s ease;}
+.stratum-deploy-btn-pri:hover{background:#fbbf24;transform:translateY(-1px);}
+.stratum-deploy-btn-sec{display:inline-flex;align-items:center;justify-content:center;padding:0.76rem 1.3rem;border-radius:10px;background:#ffffff;color:#0f172a !important;border:1px solid #cbd5e1;font-weight:700;font-size:0.94rem;text-decoration:none !important;transition:border-color 0.16s ease,background 0.16s ease;}
+.stratum-deploy-btn-sec:hover{background:#f8fafc;border-color:#94a3b8;}
+.stratum-deploy-card{border-radius:20px;overflow:hidden;background:#08101f;border:1px solid rgba(56,189,248,0.26);box-shadow:0 24px 56px rgba(15,23,42,0.22);}
+.stratum-deploy-card img{display:block;width:100%;height:auto;margin:0;border:0;}
+.stratum-deploy-card-foot{padding:0.75rem 1.1rem;background:#060c18;border-top:1px solid rgba(148,163,184,0.16);display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;font-size:0.79rem;font-weight:600;color:#94a3b8;}
+.stratum-deploy-card-foot span{color:#34d399;}
+@media (max-width:920px){.stratum-deploy-grid{grid-template-columns:1fr;gap:2rem;}.stratum-deploy-sec{padding:3.25rem 0;}}
+</style>
+<section class="section stratum-deploy-sec" id="stratum-deploy-stack">
   <div class="wrap">
-    <div class="home-download">
-
-      <div class="home-download-content">
-        <span class="eyebrow">Geliştirici Önizlemesi</span>
-        <h2>Yeni nesli kullanıma alın</h2>
-        <p>Stratum Firewall şu anda aktif geliştirme aşamasındadır. Kurulum medyasını ve temel modülleri tamamlıyoruz. Geliştiriciler ve erken benimseyenler API'yi ve paneli şimdi test edebilir.</p>
-
-        <ul class="home-download-list">
-          <li>FreeBSD 15.1 üzerine inşa edildi (Çekirdek düzeyinde güvenlik)</li>
-          <li>Python 3.12 ve FastAPI Arka Ucu</li>
-          <li>Yerel pf, WireGuard ve DHCP desteği</li>
-          <li>Tamamen REST API ile yönetilir</li>
+    <div class="stratum-deploy-grid">
+      <div>
+        <div class="stratum-deploy-kicker">Üretim Kurulumu ve Yaşam Döngüsü</div>
+        <h2 class="stratum-deploy-title">Fiziksel donanıma veya sanallaştırma ortamına dakikalar içinde kurun</h2>
+        <p class="stratum-deploy-lead">Stratum Firewall; monitörlü sistemler için VGA ISO ve ekransız seri konsol donanımları için (115200 8N1) IMG kurulum imajlarıyla tamamen çevrimdışı kurulabilen, kendi kendine yeten bir saf FreeBSD 15.1-RELEASE güvenlik duvarı işletim sistemidir. İster mevcut bir OPNsense kutusundan geçiş yapın, ister şubelerinizi IPsec ve WireGuard S2S ile birleştirin ya da Proxmox VE, KVM ve VMware ESXi üzerinde çalıştırın; her ayar ve güncelleme uzaktan erişim kaybına karşı korumalıdır.</p>
+        <ul class="stratum-deploy-list">
+          <li><span class="stratum-deploy-chk">✓</span><div><strong>Çevrimdışı OpenZFS Kurulumu ve Önyükleme Koruması:</strong> Doğrudan ZFS kök havuzuna kurulur; her imzalı çevrimiçi güncelleme veya çevrimdışı <code>.sfu</code> paketi yeni bir ZFS önyükleme ortamı oluşturarak önceki sürüme anında dönüş imkânı tanır.</div></li>
+          <li><span class="stratum-deploy-chk">✓</span><div><strong>Bildirimsel JSON ve 60 sn Safe-Apply:</strong> Kırılgan PHP/XML yığınları yerine tek bir denetlenebilir <code>config.json</code> kullanır (VPN ve 2FA anahtarlarını <code>0600</code> izinli ayrı dosyalarda yalıtır) ve onaylanmayan kuralları 60 saniyede geri alır.</div></li>
+          <li><span class="stratum-deploy-chk">✓</span><div><strong>Kurumsal VPN, DPI ve VLAN Bölütleme:</strong> Çoklu üretici uyumlu IPsec (IKEv2/IKEv1), adanmış WireGuard S2S (<code>wg1+</code>), OpenVPN, çift motorlu Suricata 8 IPS/IDS, 55 kategorili Web Filtresi ve 30 günlük Ağlar Arası VLAN matrisi yerleşik gelir.</div></li>
+          <li><span class="stratum-deploy-chk">✓</span><div><strong>Şifreli SFTP Yedekleme ve Salt-Okunur MCP:</strong> Tüm sertifika ve anahtarları kapsayan zamanlamalı <code>AES-256-GCM</code> (<code>.stbk</code>) uzak sunucu yedeklemesi ve güvenli yapay zeka tanılama sorguları için 14 araçlı salt-okunur MCP sunucusu içerir.</div></li>
         </ul>
-
-        <div class="home-download-actions">
-          <a href="/tr/resources/documentation/" class="btn btn-primary">Dökümantasyonu Oku</a>
-          <a href="https://github.com/kaanozkan-81/stratum-panel" class="btn btn-secondary" target="_blank" rel="noopener">GitHub'da İncele</a>
+        <div class="stratum-deploy-btns">
+          <a href="/tr/download/" class="stratum-deploy-btn-pri">ISO / IMG İndir</a>
+          <a href="/tr/resources/documentation/" class="stratum-deploy-btn-sec">Dokümantasyon</a>
+          <a href="https://github.com/kaanozkan-81/stratum-panel" target="_blank" rel="noopener" class="stratum-deploy-btn-sec">GitHub Deposu</a>
         </div>
       </div>
-
-      <div class="home-download-visual">
-        <div class="home-download-card">
-          <div class="home-download-card-head">
-            <span class="home-download-card-dot"></span>
-            <span class="home-download-card-title">stratum-gateway-core</span>
-          </div>
-          <div class="home-download-card-body">
-            <div class="home-download-card-row">
-              <span>Durum</span>
-              <strong>Aktif Geliştirme</strong>
-            </div>
-            <div class="home-download-card-row">
-              <span>Sürüm</span>
-              <strong>FreeBSD 15.1 (Beta)</strong>
-            </div>
-            <div class="home-download-card-row">
-              <span>Motor</span>
-              <strong>FreeBSD · pf</strong>
-            </div>
-            <div class="home-download-card-row">
-              <span>Arka Uç</span>
-              <strong>Python 3.12 · FastAPI</strong>
-            </div>
-          </div>
-          <div class="home-download-card-foot">
-            <span>Açık Kaynak</span>
-            <span class="home-download-card-badge">Geliştirici Sürümü</span>
+      <div>
+        <div class="stratum-deploy-card">
+          <img src="/images/home-deploy-stack.jpg?v=1" alt="Stratum Firewall Üretime Hazır FreeBSD 15.1 OpenZFS ve FastAPI Mimari Yığını" loading="lazy" decoding="async">
+          <div class="stratum-deploy-card-foot">
+            <div>x86_64 Fiziksel Cihaz · Proxmox · KVM · ESXi</div>
+            <span>● Sıfır Lisans Ücreti</span>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
