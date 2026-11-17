@@ -8,6 +8,10 @@ seoDescription: "FreeBSD 15.1 tabanlı Stratum Firewall işletim sisteminin tüm
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
 
+## v0.34.2 — 2026-11-17
+
+* **OpenSSL Anahtar Üretimi (`cryptography`):** Yönetim katmanındaki WireGuard / X25519 anahtar üretim yardımcıları denetlenmiş Python `cryptography` (OpenSSL) kütüphanesine taşındı; böylece Stratum FW kendi özel kriptografik algoritmasını barındırmaz.
+
 ## 0.34.1 - 2026-11-17
 
 ### Düzeltildi

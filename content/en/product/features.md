@@ -398,7 +398,7 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 </div>
 <div class="card stratum-subcard">
 <h3>Zero-Dependency WireGuard &amp; OpenVPN</h3>
-<p>Audited FreeBSD kernel WireGuard (if_wg) with standard wg(8) tooling, kernel ESP (enc0) IPsec, and OpenSSL-backed OpenVPN PKI.</p>
+<p>WireGuard runs in the FreeBSD kernel (if_wg) and IPsec uses strongSwan + kernel ESP (enc0); keys are generated with OpenSSL (via Python cryptography). Stratum FW implements no cryptography of its own.</p>
 </div>
 <div class="card stratum-subcard">
 <h3>RBAC &amp; Live System Telemetry</h3>

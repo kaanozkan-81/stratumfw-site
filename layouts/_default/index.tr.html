@@ -50,6 +50,7 @@ section.hero h1, section.hero p {
       <a href="/tr/download/" class="btn btn-primary">Stratum Firewall'ı İndir</a>
           <!-- DEMO-BTN --><a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color:#F59E0B;background:rgba(245,158,11,0.12);font-weight:600;display:inline-flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#10B981;box-shadow:0 0 8px #10B981;display:inline-block;"></span>Canlı Demo'yu Dene</a><!-- /DEMO-BTN -->
       <a href="/tr/product/architecture/" class="btn btn-secondary">Mimariyi İncele</a>
+      <a href="/tr/product/security/" class="btn btn-secondary">Güvenlikyi İncele</a>
           <a href="/tr/compare/" class="btn btn-secondary" data-hero-compare="1"><svg class="hero-compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Karşılaştırma</a>
     </div>
   </div>
@@ -222,7 +223,7 @@ section.hero h1, section.hero p {
         <div class="home-compare-copy">
           <span class="eyebrow-tag">2026 Mimari Karşılaştırması</span>
           <h3>Stratum FW vs. OPNsense vs. pfSense CE vs. IPFire</h3>
-          <p>FreeBSD 15.1 ve Python/FastAPI kontrol katmanının; klasik PHP/XML ve Linux güvenlik duvarı dağıtımlarıyla 14 teknik kriterde nasıl ayrıştığını yan yana inceleyin.</p>
+          <p>FreeBSD 15.1 ve Python/FastAPI kontrol katmanının; klasik PHP/XML ve Linux güvenlik duvarı dağıtımlarıyla 15 teknik kriterde nasıl ayrıştığını yan yana inceleyin.</p>
           <div class="home-compare-pills">
             <span>Sıfır PHP / XML</span>
             <span>Ücretsiz ZFS Geri Alma</span>
@@ -259,13 +260,13 @@ section.hero h1, section.hero p {
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10c2-3.3 5-5 8-5s6 1.7 8 5c-2 3.3-5 5-8 5s-6-1.7-8-5Z"/><circle cx="10" cy="10" r="2"/></svg></div>
         <h3>pf Paket Filtresi</h3>
-        <p>FreeBSD'nin yerel güvenlik duvarı ile güçlendirilmiştir. Çekirdek düzeyinde maksimum verim için durum bilgili denetim, NAT ve trafik şekillendirme.</p>
+        <p>FreeBSD çekirdek pf motorunda durum bilgili paket filtreleme ve NAT; ağ ve istemci bazlı bant genişliği sınırları pf ile birlikte çalışan dummynet üzerinden uygulanır.</p>
       </div>
 
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="9" rx="1.5"/><path d="M6 8V6a4 4 0 0 1 8 0v2"/></svg></div>
         <h3>Çoklu Üretici S2S ve Uzak VPN</h3>
-        <p>FortiGate, Cisco ve MikroTik uyumlu IKEv2/IKEv1 IPsec (enc0), izole çekirdek WireGuard S2S (wg1+), QR kodlu mobil WireGuard ve Çoklu WAN OpenVPN desteği.</p>
+        <p>FortiGate, MikroTik RouterOS 7, pfSense/OPNsense, Cisco ve bulut ağ geçitlerine IPsec (IKEv2/IKEv1, strongSwan) ve FreeBSD çekirdek WireGuard tünelleri. Anahtarlar OpenSSL (Python cryptography) ile üretilir; Stratum kendi özel kriptografisini yazmaz.</p>
       </div>
 
       <div class="card">
@@ -306,16 +307,16 @@ section.hero h1, section.hero p {
       <div class="why-item">
         <div class="num">01</div>
         <h3>Güvenli Uygulama (Safe-Apply)</h3>
-        <p>Kendinizi bir daha asla sistemden kilitlemeyin. Her güvenlik duvarı kuralı ve arayüz değişikliği, uygulanmadan önce pf sözdizimine göre doğrulanır ve test edilir.</p>
+        <p>Her değişiklik uygulanmadan önce ön kontrolden geçirilir (pf, nginx, DNS ve SSH yapılandırma testleri). 60 saniyelik süre içinde onaylamazsanız otomatik olarak geri alınır; böylece hatalı bir ayar sizi sistemden kilitleyemez.</p>
       </div>
       <div class="why-item">
         <div class="num">02</div>
         <h3>Sıfır Satıcı Bağımlılığı</h3>
-        <p>%100 açık kaynak, FreeBSD tabanlı ve tamamen kendi donanımınızda çalışır. Bulut bağımlılığı, abonelikler veya telemetri yok.</p>
+        <p>Mevcut OPNsense yapılandırmanızı (arayüzler, VLAN'lar, kurallar, NAT, takma adlar, DHCP, OpenVPN kullanıcıları, DNS engelleme listeleri) doğrudan içe aktarın. Bulut hesabı, abonelik ve dış telemetri olmadan kendi donanımınızda çalışır.</p>
       </div>
       <div class="why-item">
         <div class="num">03</div>
-        <h3>Temiz ve Denetlenebilir</h3>
+        <h3>Tasarımdan Şeffaf ve Denetlenebilir</h3>
         <p>Oluşturulan yapılandırma dosyaları insan tarafından okunabilir. <code>pf.conf</code> ve <code>wg0.conf</code> dosyalarınızı dilediğiniz zaman inceleyin. Gördüğünüz şey, çekirdeğin çalıştırdığı şeyin tam olarak aynısıdır.</p>
       </div>
     </div>

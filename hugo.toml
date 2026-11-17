@@ -37,6 +37,12 @@ disableKinds = ["taxonomy", "term"]
         url = '/product/architecture/'
         parent = 'product'
         weight = 12
+      
+[[languages.en.menu.main]]
+        name = 'Security'
+        url = '/product/security/'
+        parent = 'product'
+        weight = 13
       [[languages.en.menu.main]]
         name = 'Solutions'
         url = '/solutions/'
@@ -139,6 +145,12 @@ disableKinds = ["taxonomy", "term"]
         url = '/tr/product/architecture/'
         parent = 'product'
         weight = 12
+      
+[[languages.tr.menu.main]]
+        name = 'Güvenlik'
+        url = '/tr/product/security/'
+        parent = 'product'
+        weight = 13
       [[languages.tr.menu.main]]
         name = 'Çözümler'
         url = '/tr/solutions/'

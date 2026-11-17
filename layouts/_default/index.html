@@ -50,6 +50,7 @@ section.hero h1, section.hero p {
       <a href="/download/" class="btn btn-primary">Get Stratum Firewall</a>
           <!-- DEMO-BTN --><a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color:#F59E0B;background:rgba(245,158,11,0.12);font-weight:600;display:inline-flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#10B981;box-shadow:0 0 8px #10B981;display:inline-block;"></span>Try Live Demo</a><!-- /DEMO-BTN -->
       <a href="/product/architecture/" class="btn btn-secondary">Explore Architecture</a>
+      <a href="/product/security/" class="btn btn-secondary">Explore Security</a>
           <a href="/compare/" class="btn btn-secondary" data-hero-compare="1"><svg class="hero-compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Compare Firewalls</a>
     </div>
   </div>
@@ -259,13 +260,13 @@ section.hero h1, section.hero p {
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10c2-3.3 5-5 8-5s6 1.7 8 5c-2 3.3-5 5-8 5s-6-1.7-8-5Z"/><circle cx="10" cy="10" r="2"/></svg></div>
         <h3>pf Packet Filter</h3>
-        <p>Powered by FreeBSD's native firewall. Stateful inspection, NAT, traffic shaping (dummynet), and maximum throughput at kernel level.</p>
+        <p>Stateful packet filtering and NAT in the FreeBSD kernel pf engine, with per-network and per-host bandwidth limits applied via dummynet alongside pf.</p>
       </div>
 
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="9" rx="1.5"/><path d="M6 8V6a4 4 0 0 1 8 0v2"/></svg></div>
         <h3>Multi-Vendor S2S & Remote VPN</h3>
-        <p>Policy-based IKEv2/IKEv1 IPsec (enc0), isolated kernel WireGuard Site-to-Site (wg1+), QR road-warrior WireGuard, and Multi-WAN OpenVPN with zero per-tunnel licensing.</p>
+        <p>Site-to-Site IPsec (IKEv2/IKEv1, strongSwan) and FreeBSD kernel WireGuard tunnels to FortiGate, MikroTik RouterOS 7, pfSense/OPNsense, Cisco, and cloud gateways. Keys are generated with OpenSSL (Python cryptography); Stratum implements no custom cryptography.</p>
       </div>
 
       <div class="card">
@@ -306,12 +307,12 @@ section.hero h1, section.hero p {
       <div class="why-item">
         <div class="num">01</div>
         <h3>Safe-Apply Architecture</h3>
-        <p>Never lock yourself out again. Every firewall rule and interface change is validated and tested against the pf syntax before applying.</p>
+        <p>Every change is checked before it is applied (pf, nginx, DNS, and SSH configuration tests). If you do not confirm it within the 60-second timeout, it is rolled back automatically so a mistake cannot lock you out.</p>
       </div>
       <div class="why-item">
         <div class="num">02</div>
         <h3>Zero Vendor Lock-in</h3>
-        <p>100% open-source, FreeBSD-based, and run entirely on your own hardware. No cloud dependencies, no subscriptions, and no telemetry.</p>
+        <p>Import your existing OPNsense configuration (interfaces, VLANs, rules, NAT, aliases, DHCP, OpenVPN users, DNS blocklists). Runs on your own hardware with zero subscriptions, no cloud account, and no outbound telemetry.</p>
       </div>
       <div class="why-item">
         <div class="num">03</div>

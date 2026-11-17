@@ -398,7 +398,7 @@ seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, 
 </div>
 <div class="card stratum-subcard">
 <h3>Sıfır Bağımlılıklı WireGuard &amp; OpenVPN</h3>
-<p>Standart wg(8) anahtar araçlarıyla çalışan FreeBSD çekirdek içi WireGuard (if_wg), çekirdek ESP (enc0) IPsec ve OpenSSL tabanlı OpenVPN PKI altyapısı.</p>
+<p>WireGuard FreeBSD çekirdeğinde (if_wg), IPsec ise strongSwan + çekirdek ESP (enc0) üzerinde çalışır; anahtarlar OpenSSL (Python cryptography paketi) ile üretilir. Stratum FW kendi özel kriptografisini yazmaz.</p>
 </div>
 <div class="card stratum-subcard">
 <h3>RBAC ve Canlı Sistem Telemetrisi</h3>
