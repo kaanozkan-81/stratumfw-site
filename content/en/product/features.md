@@ -136,6 +136,15 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 .stratum-s2s-fig img{display:block;width:100% !important;max-width:100% !important;height:auto !important;margin:0 !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;}
 .stratum-s2s-cap{padding:0.55rem 0.85rem;background:rgba(10,18,35,0.92);border-top:1px solid rgba(148,163,184,0.14);color:#94a3b8 !important;font-size:0.79rem;font-weight:600;text-align:center;}
 @media (max-width:860px){.stratum-s2s-showcase{padding:1.65rem 1.3rem !important;}.stratum-s2s-media-grid{grid-template-columns:1fr;}}
+.stratum-s2s-showcase .stratum-subgrid{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(275px,1fr)) !important;gap:1rem !important;margin-top:1.25rem !important;text-align:left !important;}
+.stratum-s2s-showcase .stratum-subcard{padding:1.2rem 1.25rem !important;border-radius:14px !important;background:rgba(10,18,35,0.84) !important;border:1px solid rgba(148,163,184,0.18) !important;border-top:2px solid rgba(56,189,248,0.8) !important;box-shadow:0 10px 24px rgba(2,6,23,0.4) !important;text-align:left !important;}
+.stratum-s2s-showcase .stratum-subcard:nth-child(3n+1){border-top-color:rgba(251,191,36,0.82) !important;}
+.stratum-s2s-showcase .stratum-subcard:nth-child(3n+2){border-top-color:rgba(56,189,248,0.82) !important;}
+.stratum-s2s-showcase .stratum-subcard:nth-child(3n+3){border-top-color:rgba(52,211,153,0.82) !important;}
+.stratum-s2s-showcase .stratum-subcard h3,.stratum-s2s-showcase .stratum-subcard h4{color:#f8fafc !important;font-size:1.02rem !important;font-weight:700 !important;line-height:1.35 !important;margin:0 0 0.5rem !important;text-align:left !important;}
+.stratum-s2s-showcase .stratum-subcard p,.stratum-s2s-showcase .stratum-subcard li{color:#cbd5e1 !important;font-size:0.92rem !important;line-height:1.62 !important;margin:0 !important;max-width:none !important;text-align:left !important;}
+.stratum-s2s-showcase .stratum-subcard strong,.stratum-s2s-showcase .stratum-subcard em{color:#f8fafc !important;}
+.stratum-s2s-showcase .stratum-subcard code{background:rgba(56,189,248,0.12) !important;color:#7dd3fc !important;border:1px solid rgba(56,189,248,0.24) !important;padding:0.1rem 0.36rem !important;border-radius:5px !important;font-size:0.84em !important;}
 </style>
 <section class="stratum-s2s-showcase" id="s2s-vpn">
   <div class="stratum-s2s-eyebrow"><span class="stratum-s2s-dot"></span>Site-to-Site VPN Engine · Kernel Cryptography</div>
