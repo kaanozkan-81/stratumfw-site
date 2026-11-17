@@ -322,55 +322,199 @@ section.hero h1, section.hero p {
   </div>
 </section>
 
+<section class="stratum-lifecycle-band" id="deployment">
 <style>
-.stratum-deploy-sec{padding:4.5rem 0;background:#ffffff;}
-.stratum-deploy-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,0.92fr);gap:3rem;align-items:center;}
-.stratum-deploy-kicker{display:inline-flex;align-items:center;gap:0.45rem;font-size:0.76rem;font-weight:800;letter-spacing:0.09em;text-transform:uppercase;color:#d97706;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);padding:0.32rem 0.85rem;border-radius:999px;margin-bottom:0.9rem;}
-.stratum-deploy-title{font-size:clamp(1.75rem,2.8vw,2.35rem);font-weight:800;line-height:1.18;letter-spacing:-0.02em;color:#0f172a;margin:0 0 1rem;}
-.stratum-deploy-lead{font-size:1.02rem;line-height:1.72;color:#475569;margin:0 0 1.4rem;}
-.stratum-deploy-list{list-style:none;padding:0;margin:0 0 1.75rem;display:grid;gap:0.85rem;}
-.stratum-deploy-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.94rem;line-height:1.6;color:#334155;}
-.stratum-deploy-list li strong{color:#0f172a;font-weight:700;}
-.stratum-deploy-list li code{background:#f1f5f9;border:1px solid #e2e8f0;color:#0f172a;padding:0.08rem 0.36rem;border-radius:5px;font-size:0.84em;}
-.stratum-deploy-chk{flex:0 0 22px;width:22px;height:22px;margin-top:2px;border-radius:50%;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.45);color:#d97706;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;}
-.stratum-deploy-btns{display:flex;flex-wrap:wrap;gap:0.85rem;align-items:center;}
-.stratum-deploy-btn-pri{display:inline-flex;align-items:center;justify-content:center;padding:0.78rem 1.4rem;border-radius:10px;background:#f59e0b;color:#0f172a !important;font-weight:700;font-size:0.94rem;text-decoration:none !important;box-shadow:0 8px 20px rgba(245,158,11,0.28);transition:transform 0.16s ease,background 0.16s ease;}
-.stratum-deploy-btn-pri:hover{background:#fbbf24;transform:translateY(-1px);}
-.stratum-deploy-btn-sec{display:inline-flex;align-items:center;justify-content:center;padding:0.76rem 1.3rem;border-radius:10px;background:#ffffff;color:#0f172a !important;border:1px solid #cbd5e1;font-weight:700;font-size:0.94rem;text-decoration:none !important;transition:border-color 0.16s ease,background 0.16s ease;}
-.stratum-deploy-btn-sec:hover{background:#f8fafc;border-color:#94a3b8;}
-.stratum-deploy-card{border-radius:20px;overflow:hidden;background:#08101f;border:1px solid rgba(56,189,248,0.26);box-shadow:0 24px 56px rgba(15,23,42,0.22);}
-.stratum-deploy-card img{display:block;width:100%;height:auto;margin:0;border:0;}
-.stratum-deploy-card-foot{padding:0.75rem 1.1rem;background:#060c18;border-top:1px solid rgba(148,163,184,0.16);display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;font-size:0.79rem;font-weight:600;color:#94a3b8;}
-.stratum-deploy-card-foot span{color:#34d399;}
-@media (max-width:920px){.stratum-deploy-grid{grid-template-columns:1fr;gap:2rem;}.stratum-deploy-sec{padding:3.25rem 0;}}
+  section.stratum-lifecycle-band {
+    padding: 4.5rem 0 !important;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    border-top: 1px solid #e2e8f0 !important;
+  }
+  section.stratum-lifecycle-band .stratum-lifecycle-inner {
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+  }
+  section.stratum-lifecycle-band .stratum-lifecycle-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.22fr) !important;
+    gap: 3rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  section.stratum-lifecycle-band .stratum-lifecycle-copy {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    max-width: 520px !important;
+  }
+  section.stratum-lifecycle-band .stratum-lifecycle-eyebrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    font-size: 0.70rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.09em !important;
+    text-transform: uppercase !important;
+    color: #d97706 !important;
+    margin: 0 0 0.55rem 0 !important;
+  }
+  section.stratum-lifecycle-band h2.stratum-lifecycle-title {
+    font-size: clamp(1.35rem, 1.85vw, 1.62rem) !important;
+    line-height: 1.25 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    color: #0f172a !important;
+    margin: 0 0 0.65rem 0 !important;
+  }
+  section.stratum-lifecycle-band p.stratum-lifecycle-lead {
+    font-size: 0.88rem !important;
+    line-height: 1.56 !important;
+    color: #475569 !important;
+    margin: 0 0 1rem 0 !important;
+  }
+  section.stratum-lifecycle-band ul.stratum-lifecycle-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 1.25rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.52rem !important;
+  }
+  section.stratum-lifecycle-band ul.stratum-lifecycle-list li {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.6rem !important;
+    font-size: 0.825rem !important;
+    line-height: 1.46 !important;
+    color: #334155 !important;
+    margin: 0 !important;
+  }
+  section.stratum-lifecycle-band ul.stratum-lifecycle-list li strong {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+  }
+  section.stratum-lifecycle-band .stratum-lifecycle-check {
+    flex: 0 0 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+    margin-top: 2px !important;
+    border-radius: 999px !important;
+    background: rgba(245, 158, 11, 0.14) !important;
+    border: 1px solid rgba(217, 119, 6, 0.35) !important;
+    color: #d97706 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.68rem !important;
+    font-weight: 800 !important;
+  }
+  section.stratum-lifecycle-band .stratum-lifecycle-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+  }
+  section.stratum-lifecycle-band .stratum-btn-primary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.58rem 1.15rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    background: #f59e0b !important;
+    color: #0f172a !important;
+    text-decoration: none !important;
+    border: 1px solid #d97706 !important;
+    transition: transform 0.15s ease, background 0.15s ease !important;
+  }
+  section.stratum-lifecycle-band .stratum-btn-primary:hover {
+    background: #fbbf24 !important;
+    transform: translateY(-1px) !important;
+  }
+  section.stratum-lifecycle-band .stratum-btn-secondary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.58rem 1.05rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    color: #1e293b !important;
+    text-decoration: none !important;
+    border: 1px solid #cbd5e1 !important;
+    transition: transform 0.15s ease, border-color 0.15s ease !important;
+  }
+  section.stratum-lifecycle-band .stratum-btn-secondary:hover {
+    border-color: #94a3b8 !important;
+    transform: translateY(-1px) !important;
+  }
+  section.stratum-lifecycle-band .stratum-lifecycle-visual {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  section.stratum-lifecycle-band .stratum-lifecycle-visual img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(15, 23, 42, 0.12) !important;
+    box-shadow: 0 22px 48px -12px rgba(15, 23, 42, 0.24) !important;
+  }
+  @media (max-width: 991px) {
+    section.stratum-lifecycle-band .stratum-lifecycle-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+    section.stratum-lifecycle-band .stratum-lifecycle-copy {
+      max-width: 640px !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+      align-items: center !important;
+    }
+    section.stratum-lifecycle-band ul.stratum-lifecycle-list {
+      text-align: left !important;
+    }
+    section.stratum-lifecycle-band .stratum-lifecycle-actions {
+      justify-content: center !important;
+    }
+    section.stratum-lifecycle-band .stratum-lifecycle-visual {
+      max-width: 680px !important;
+      margin: 0 auto !important;
+    }
+  }
 </style>
-<section class="section stratum-deploy-sec" id="stratum-deploy-stack">
-  <div class="wrap">
-    <div class="stratum-deploy-grid">
-      <div>
-        <div class="stratum-deploy-kicker">Production Deployment & Lifecycle</div>
-        <h2 class="stratum-deploy-title">Deploy on bare-metal or hypervisors in minutes</h2>
-        <p class="stratum-deploy-lead">Stratum Firewall ships as a self-contained FreeBSD 15.1-RELEASE appliance OS with fully offline OpenZFS installers for monitor/keyboard rigs (VGA ISO) and headless serial hardware (115200 8N1 IMG). Whether you are importing an existing OPNsense gateway, linking branches over IPsec and WireGuard S2S, or running on Proxmox VE, KVM, and VMware ESXi, every change and update is engineered against remote lockouts.</p>
-        <ul class="stratum-deploy-list">
-          <li><span class="stratum-deploy-chk">✓</span><div><strong>Offline OpenZFS Installers & Boot Environments:</strong> Installs directly onto ZFS; every signed online update or air-gapped <code>.sfu</code> bundle snapshots a new boot environment so previous versions remain one reboot away.</div></li>
-          <li><span class="stratum-deploy-chk">✓</span><div><strong>Declarative JSON & 60s Safe-Apply:</strong> Replaces fragile PHP/XML files with a single auditable <code>config.json</code> (isolating VPN and 2FA keys in <code>0600</code> root-only files) and automatically reverts unconfirmed changes.</div></li>
-          <li><span class="stratum-deploy-chk">✓</span><div><strong>Full Enterprise Routing, VPN & DPI:</strong> Multi-vendor IPsec (IKEv2/IKEv1), dedicated WireGuard S2S (<code>wg1+</code>), OpenVPN, dual-engine Suricata 8 IPS/IDS, 55-category Web Filter, and 30-day inter-VLAN traffic matrix.</div></li>
-          <li><span class="stratum-deploy-chk">✓</span><div><strong>Encrypted SFTP Backups & Read-Only MCP:</strong> Scheduled <code>AES-256-GCM</code> (<code>.stbk</code>) backups including all PKI/certificates, plus an optional 14-tool read-only MCP server for safe AI diagnostics.</div></li>
+  <div class="stratum-lifecycle-inner">
+    <div class="stratum-lifecycle-grid">
+      <div class="stratum-lifecycle-copy">
+        <div class="stratum-lifecycle-eyebrow">PRODUCTION DEPLOYMENT & LIFECYCLE</div>
+        <h2 class="stratum-lifecycle-title">Deploy on bare-metal or hypervisors in minutes</h2>
+        <p class="stratum-lifecycle-lead">Stratum Firewall ships as a self-contained FreeBSD 15.1-RELEASE appliance OS with offline VGA ISO and headless serial (115200 8N1) IMG installers for x86_64 appliances, Proxmox VE, VMware ESXi, and KVM/QEMU.</p>
+        <ul class="stratum-lifecycle-list">
+          <li><span class="stratum-lifecycle-check">✓</span><span><strong>Offline OpenZFS & Boot Environments:</strong> Guided ZFS root setup with instant <code>bectl</code> rollback snapshots before system updates.</span></li>
+          <li><span class="stratum-lifecycle-check">✓</span><span><strong>Declarative JSON & 60s Safe-Apply:</strong> Asynchronous Python 3.12 / FastAPI control plane with lockout rollback and <code>0600</code> isolated secrets.</span></li>
+          <li><span class="stratum-lifecycle-check">✓</span><span><strong>Enterprise Routing, Multi-Vendor VPN & DPI:</strong> Kernel <code>pf</code>, Multi-WAN failover, IKEv2/IKEv1 IPsec, dedicated WireGuard S2S, Unbound RPZ, and Suricata 8 IPS.</span></li>
+          <li><span class="stratum-lifecycle-check">✓</span><span><strong>OPNsense Import, Encrypted Backups & MCP:</strong> Direct <code>config.xml</code> + PKI migration, scheduled <code>.stbk</code> SFTP backups, and a 14-tool read-only MCP server.</span></li>
         </ul>
-        <div class="stratum-deploy-btns">
-          <a href="/download/" class="stratum-deploy-btn-pri">Download ISO / IMG</a>
-          <a href="/resources/documentation/" class="stratum-deploy-btn-sec">Read the Docs</a>
-          <a href="https://github.com/kaanozkan-81/stratum-panel" target="_blank" rel="noopener" class="stratum-deploy-btn-sec">View on GitHub</a>
+        <div class="stratum-lifecycle-actions">
+          <a href="/download/" class="stratum-btn-primary">Download ISO / IMG</a>
+          <a href="/resources/documentation/" class="stratum-btn-secondary">Read the Docs</a>
+          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-btn-secondary">Live Demo</a>
         </div>
       </div>
-      <div>
-        <div class="stratum-deploy-card">
-          <img src="/images/home-deploy-stack.jpg?v=1" alt="Stratum Firewall Production-Ready FreeBSD 15.1 OpenZFS and FastAPI Appliance Stack" loading="lazy" decoding="async">
-          <div class="stratum-deploy-card-foot">
-            <div>x86_64 Bare-Metal · Proxmox · KVM · ESXi</div>
-            <span>● Zero License Fees</span>
-          </div>
-        </div>
+      <div class="stratum-lifecycle-visual">
+        <img src="/images/home-deploy-stack.jpg" alt="Stratum Firewall FreeBSD 15.1 OpenZFS FastAPI Architecture Stack" loading="lazy" width="1200" height="900">
       </div>
     </div>
   </div>
