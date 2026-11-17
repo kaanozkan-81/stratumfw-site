@@ -4,8 +4,8 @@ description: "Full feature matrix of Stratum Firewall v0.30.0: stateful pf rules
 lead: "Stratum Firewall combines the battle-tested pf packet filter with a lightning-fast FastAPI management panel. Zero proprietary dependencies, absolute control, and a security-first architecture built for modern infrastructure."
 full_width: true
 seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & Multi-WAN VPN"
-seoTitle: "Firewall Features: pf, Suricata 8 DPI & WireGuard | Stratum FW"
-seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: stateful pf rules with separators, Suricata 8 IPS/IDS, Unbound DNSBL, Force DNS for AD, TOTP 2FA & Multi-WAN."
+seoTitle: "FreeBSD 15.1 Firewall: pf, IPsec, WireGuard & Suricata 8 DPI"
+seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/IKEv1 & WireGuard S2S VPN, stateful pf separators, Suricata 8 DPI, Unbound DNSBL, Force DNS & 2FA."
 ---
 
 <!-- STRATUM-DPI-SHOWCASE-START -->
@@ -123,13 +123,72 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: stateful pf 
 <!-- STRATUM-OPNSENSE-SHOWCASE-END -->
 
 <!-- STRATUM-V0300-FEATURES-START -->
+<!-- STRATUM-S2S-VPN-SHOWCASE-START -->
+<style>
+.stratum-s2s-showcase{position:relative;width:100% !important;max-width:100% !important;box-sizing:border-box;margin:2.5rem 0 !important;padding:2.35rem 2.25rem 2.25rem !important;border-radius:20px !important;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#101f3c 0%,#08101f 52%,#060b16 100%) !important;border:1px solid rgba(56,189,248,0.26) !important;box-shadow:0 24px 60px rgba(2,6,23,0.55),inset 0 1px 0 rgba(255,255,255,0.06) !important;text-align:center;}
+.stratum-s2s-eyebrow{display:inline-flex !important;align-items:center;gap:0.5rem;padding:0.32rem 0.9rem !important;margin:0 auto 0.85rem !important;border-radius:999px !important;background:rgba(56,189,248,0.12) !important;border:1px solid rgba(56,189,248,0.34) !important;color:#38bdf8 !important;font-size:0.74rem !important;font-weight:700 !important;letter-spacing:0.09em !important;text-transform:uppercase !important;}
+.stratum-s2s-dot{width:7px;height:7px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #10b981;}
+.stratum-s2s-title{margin:0 auto 0.8rem !important;padding:0 !important;border:0 !important;max-width:940px !important;color:#f8fafc !important;font-size:clamp(1.38rem,2.3vw,1.95rem) !important;font-weight:800 !important;line-height:1.24 !important;letter-spacing:-0.02em !important;}
+.stratum-s2s-lead{margin:0 auto 1.5rem !important;max-width:880px !important;color:#cbd5e1 !important;font-size:1rem !important;line-height:1.72 !important;}
+.stratum-s2s-lead strong{color:#f8fafc !important;}
+.stratum-s2s-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem;max-width:1080px;margin:0 auto 1.5rem;}
+.stratum-s2s-fig{margin:0 !important;padding:0 !important;border-radius:14px;overflow:hidden;border:1px solid rgba(148,163,184,0.18);background:#070d19;}
+.stratum-s2s-fig img{display:block;width:100% !important;max-width:100% !important;height:auto !important;margin:0 !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;}
+.stratum-s2s-cap{padding:0.55rem 0.85rem;background:rgba(10,18,35,0.92);border-top:1px solid rgba(148,163,184,0.14);color:#94a3b8 !important;font-size:0.79rem;font-weight:600;text-align:center;}
+@media (max-width:860px){.stratum-s2s-showcase{padding:1.65rem 1.3rem !important;}.stratum-s2s-media-grid{grid-template-columns:1fr;}}
+</style>
+<section class="stratum-s2s-showcase" id="s2s-vpn">
+  <div class="stratum-s2s-eyebrow"><span class="stratum-s2s-dot"></span>Site-to-Site VPN Engine · Kernel Cryptography</div>
+  <h2 class="stratum-s2s-title">Multi-Vendor IPsec (IKEv2 / IKEv1) &amp; WireGuard Site-to-Site Tunnels</h2>
+  <p class="stratum-s2s-lead">Interconnect headquarters, branch offices, and cloud VPCs across <strong>FortiGate, Cisco/ASA, MikroTik RouterOS 7, OPNsense, pfSense, and Linux</strong> gateways — pairing strongSwan IKEv2/IKEv1 key exchange and FreeBSD kernel ESP (<code>enc0</code>) with isolated per-tunnel WireGuard interfaces (<code>wg1, wg2…</code>).</p>
+  <div class="stratum-s2s-media-grid">
+    <figure class="stratum-s2s-fig">
+      <img src="/images/features/s2s-vpn-topology.jpg" alt="Stratum Firewall Multi-Vendor IPsec IKEv2 IKEv1 and WireGuard S2S Topology" loading="lazy" decoding="async">
+      <figcaption class="stratum-s2s-cap">Multi-Vendor Hub Architecture: FortiGate, Cisco, Cloud VPC, MikroTik RouterOS 7 &amp; OPNsense</figcaption>
+    </figure>
+    <figure class="stratum-s2s-fig">
+      <img src="/images/features/s2s-vpn-panel.jpg" alt="Stratum Firewall v0.34.1 Site-to-Site VPN Control Plane Status Table" loading="lazy" decoding="async">
+      <figcaption class="stratum-s2s-cap">Unified Control Plane: Live IKEv2, IKEv1 &amp; WireGuard S2S Handshake and Kernel Crypto Status</figcaption>
+    </figure>
+  </div>
+  <div class="stratum-subgrid">
+    <div class="stratum-subcard">
+      <h3>IPsec IKEv2 &amp; Legacy IKEv1 Interop</h3>
+      <p>Policy-based strongSwan negotiation with FreeBSD kernel ESP encryption (<code>AES-GCM</code>, <code>AES-CBC</code>, <code>SHA-2</code>, DH <code>14–21</code>, <code>Curve25519</code>, PFS, DPD, auto NAT-T) plus per-subnet Phase 2 selectors for FortiGate and Cisco gateways.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>Dedicated WireGuard S2S (wg1, wg2…)</h3>
+      <p>Each site-to-site peer runs on its own kernel interface while road-warrior <code>wg0</code> stays untouched. Verified behind NAT against MikroTik RouterOS 7 (<code>RB4011</code>) with hitless <code>wg syncconf</code> updates and optional pingable <code>/30</code> tunnel IPs.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>Strict enc0 &amp; AllowedIPs Isolation</h3>
+      <p>Decrypted IPsec traffic lands on <code>enc0</code> and WireGuard enforces strict peer subnet <code>AllowedIPs</code>. WAN IKE/ESP/UDP ports open solely to known peers, and overlap checks protect road-warrior VPN pools from route hijacking.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>Auto NAT Exemption &amp; MSS Clamping</h3>
+      <p>Tunnel traffic automatically bypasses outbound NAT, clamps TCP MSS (<code>1350</code> on IPsec, tunnel MTU on WireGuard) to prevent PMTU blackholes over PPPoE, and stays local across policy-routed Multi-WAN rules.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>0600 Root-Only Key Protection</h3>
+      <p>Preshared and private keys are generated in-browser or on-appliance, stored strictly in <code>0600</code> root-only files outside <code>config.json</code>, redacted from <code>stratum-config diff</code> and API responses, and backed up in encrypted <code>.stbk</code> archives.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>Dashboard &amp; 30-Day VLAN Matrix</h3>
+      <p>Track tunnel state, uptime, NAT-T, handshake age, and traffic counters directly on the Dashboard (<code>IPsec tunnels up: n of m</code>), with East-West flows logged as <code>IPsec</code> and <code>WireGuard S2S</code> in <em>Between networks</em>.</p>
+    </div>
+  </div>
+</section>
+<!-- STRATUM-S2S-VPN-SHOWCASE-END -->
+
 <section class="section stratum-dark-module">
   <div class="section-head" style="max-width: 820px; margin: 0 auto 28px auto; text-align: center;">
-    <span class="eyebrow stratum-module-eyebrow">New in v0.28.9 – v0.32.0</span>
+    <span class="eyebrow stratum-module-eyebrow">New in v0.29.1 – v0.34.1</span>
     <h2>Enterprise Identity, Unbypassable DNS &amp; Dynamic Multi-WAN</h2>
-    <p>Every capability below ships built into Stratum Firewall v0.32.0 on FreeBSD 15.1—with zero plugins, zero external cloud dependencies, and zero recurring license fees.</p>
+    <p>Every capability below ships built into Stratum Firewall v0.34.1 on FreeBSD 15.1—with zero plugins, zero external cloud dependencies, and zero recurring license fees.</p>
   </div>
   <div class="card-grid grid-3 stratum-subgrid">
+<div class="card stratum-subcard"><h3>WireGuard Site-to-Site (v0.34.1)</h3><p>Dedicated wg1/wg2 site-to-site interfaces tested behind NAT with MikroTik RouterOS 7, OPNsense, pfSense, and Linux—with hitless wg syncconf updates and strict AllowedIPs.</p></div>
+<div class="card stratum-subcard"><h3>IPsec IKEv2 &amp; IKEv1 S2S VPN (v0.33.2)</h3><p>Policy-based strongSwan + FreeBSD kernel ESP (enc0) tunnels to FortiGate, Cisco/ASA, and cloud VPCs with AES-GCM, Curve25519, auto NAT-T, and live Dashboard status.</p></div>
 <div class="card stratum-subcard"><h3>Inter-VLAN Traffic Matrix (v0.32.0)</h3><p>30-day East-West traffic discovery (Between networks) and 1h/24h summaries showing which VLANs talk on which destination IPs and ports—so you can lock down segmentation with certainty.</p></div>
 <div class="card stratum-subcard"><h3>Rule &amp; NAT Separators + Views (v0.31.3)</h3><p>Group Firewall, Port Forward, and manual Outbound NAT rules with coloured pfSense-style separators, up/down arrows, and All / Default / Custom views—without consuming your 30 config backup slots.</p></div>
 <div class="card stratum-subcard"><h3>Hitless Suricata Updates &amp; Hardened UI (v0.31.6)</h3><p>Eliminates igb/netmap WAN port resets during Suricata restarts and OS updates, flags post-update pending applies, enforces HTTPS Secure cookies, and refines the Light Theme.</p></div>
@@ -145,14 +204,6 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: stateful pf 
     <div class="card stratum-subcard">
       <h3>Dynamic DHCP Multi-WAN (<code>v0.29.1</code>)</h3>
       <p>Attach cable, 4G/5G LTE, or Starlink modems as secondary or tertiary DHCP WANs without hijacking your default route or DNS. Failover, symmetric <code>reply-to</code>, and Policy Routing follow ISP lease gateway changes within seconds without an Apply.</p>
-    </div>
-    <div class="card stratum-subcard">
-      <h3>Time-Based Rule Schedules (<code>v0.29.0</code>)</h3>
-      <p>Bind reusable time windows (<code>Mon-Fri 08:00-18:00</code>) to any <code>pf</code> rule. Evaluated every minute via <code>stratum-pfrefresh</code> without an Apply, automatically closing open sessions created by scheduled <code>pass</code> rules the moment the window ends.</p>
-    </div>
-    <div class="card stratum-subcard">
-      <h3>Bidirectional 1:1 NAT (<code>v0.28.9</code>)</h3>
-      <p>Map internal servers or subnets 1:1 to public WAN Virtual IPs or routed blocks in both directions—complete with anti-lockout protection that refuses the WAN's own management IP and live WAN pass-rule visibility.</p>
     </div>
   </div>
 </section>
@@ -361,8 +412,8 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: stateful pf 
 .stratum-dark-module p,.stratum-dark-pillar p{color:#cbd5e1 !important;font-size:1rem !important;line-height:1.7 !important;margin:0 auto 1.5rem !important;max-width:860px;text-align:center;}
 .stratum-dark-pillar .stratum-pillar-media{background:transparent !important;border:0 !important;box-shadow:none !important;padding:0 !important;margin:0.4rem auto 1.65rem !important;max-width:1040px !important;border-radius:16px !important;overflow:hidden;}
 .stratum-dark-pillar img{display:block;width:100% !important;max-width:100% !important;height:auto !important;margin:0 auto !important;padding:0 !important;border:0 !important;border-radius:14px !important;box-shadow:none !important;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 5%,#000 95%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 5%,#000 95%,transparent 100%);}
-.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(275px,1fr)) !important;gap:1rem !important;margin-top:1.25rem !important;text-align:left !important;}
-.stratum-dark-module .stratum-subcard,.stratum-dark-pillar .stratum-subcard{padding:1.2rem 1.25rem !important;border-radius:14px !important;background:rgba(10,18,35,0.84) !important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,0.18) !important;border-top:2px solid rgba(56,189,248,0.75) !important;box-shadow:0 10px 24px rgba(2,6,23,0.4) !important;text-align:left !important;transition:transform 0.18s ease,border-color 0.18s ease;}
+.stratum-s2s-showcase .stratum-subgrid,.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(275px,1fr)) !important;gap:1rem !important;margin-top:1.25rem !important;text-align:left !important;}
+.stratum-s2s-showcase .stratum-subcard,.stratum-dark-module .stratum-subcard,.stratum-dark-pillar .stratum-subcard{padding:1.2rem 1.25rem !important;border-radius:14px !important;background:rgba(10,18,35,0.84) !important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,0.18) !important;border-top:2px solid rgba(56,189,248,0.75) !important;box-shadow:0 10px 24px rgba(2,6,23,0.4) !important;text-align:left !important;transition:transform 0.18s ease,border-color 0.18s ease;}
 .stratum-dark-module .stratum-subcard:nth-child(3n+1),.stratum-dark-pillar .stratum-subcard:nth-child(3n+1){border-top-color:rgba(251,191,36,0.8) !important;}
 .stratum-dark-module .stratum-subcard:nth-child(3n+2),.stratum-dark-pillar .stratum-subcard:nth-child(3n+2){border-top-color:rgba(56,189,248,0.8) !important;}
 .stratum-dark-module .stratum-subcard:nth-child(3n+3),.stratum-dark-pillar .stratum-subcard:nth-child(3n+3){border-top-color:rgba(52,211,153,0.8) !important;}
@@ -372,6 +423,6 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: stateful pf 
 .stratum-dark-module .stratum-subcard strong,.stratum-dark-module .stratum-subcard em,.stratum-dark-pillar .stratum-subcard strong,.stratum-dark-pillar .stratum-subcard em{color:#f8fafc !important;}
 .stratum-dark-module .stratum-subcard code,.stratum-dark-pillar .stratum-subcard code{background:rgba(56,189,248,0.12) !important;color:#7dd3fc !important;border:1px solid rgba(56,189,248,0.24) !important;padding:0.1rem 0.36rem !important;border-radius:5px !important;font-size:0.84em !important;}
 @media (max-width:900px){.stratum-dark-module,.stratum-dark-pillar{padding:1.65rem 1.3rem 1.65rem !important;}}
-@media (max-width:680px){.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{grid-template-columns:1fr !important;gap:0.75rem !important;}}
+@media (max-width:680px){.stratum-s2s-showcase .stratum-subgrid,.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{grid-template-columns:1fr !important;gap:0.75rem !important;}}
 </style>
 <!-- STRATUM-UNIFIED-DARK-STYLE-END -->

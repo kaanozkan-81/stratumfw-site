@@ -4,8 +4,8 @@ description: "Stratum Firewall v0.30.0 tüm özellikleri: durum bilgili pf kural
 lead: "Stratum Firewall, kendini kanıtlamış pf paket filtresini şimşek hızındaki bir FastAPI yönetim paneliyle birleştirir. Tescilli bağımlılıklar yok, mutlak kontrol var. Modern altyapılar için güvenlik odaklı bir mimariyle inşa edildi."
 full_width: true
 seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Çoklu WAN VPN"
-seoTitle: "Özellikler: FreeBSD pf, Suricata 8 DPI ve 2FA | Stratum FW"
-seoDescription: "FreeBSD 15.1 üzerinde durum korumalı pf kuralları, renkli ayırıcılar, Suricata 8 DPI, 55 kategorili Web Filtresi, AD istisnalı Zorunlu DNS, TOTP 2FA ve Çoklu WAN."
+seoTitle: "Özellikler: FreeBSD pf, IPsec, WireGuard ve Suricata 8 DPI"
+seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, durum korumalı pf ayırıcıları, Suricata 8 DPI, Web Filtresi, AD istisnalı Zorunlu DNS ve TOTP 2FA."
 ---
 
 <!-- STRATUM-DPI-SHOWCASE-START -->
@@ -123,13 +123,72 @@ seoDescription: "FreeBSD 15.1 üzerinde durum korumalı pf kuralları, renkli ay
 <!-- STRATUM-OPNSENSE-SHOWCASE-END -->
 
 <!-- STRATUM-V0300-FEATURES-START -->
+<!-- STRATUM-S2S-VPN-SHOWCASE-START -->
+<style>
+.stratum-s2s-showcase{position:relative;width:100% !important;max-width:100% !important;box-sizing:border-box;margin:2.5rem 0 !important;padding:2.35rem 2.25rem 2.25rem !important;border-radius:20px !important;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#101f3c 0%,#08101f 52%,#060b16 100%) !important;border:1px solid rgba(56,189,248,0.26) !important;box-shadow:0 24px 60px rgba(2,6,23,0.55),inset 0 1px 0 rgba(255,255,255,0.06) !important;text-align:center;}
+.stratum-s2s-eyebrow{display:inline-flex !important;align-items:center;gap:0.5rem;padding:0.32rem 0.9rem !important;margin:0 auto 0.85rem !important;border-radius:999px !important;background:rgba(56,189,248,0.12) !important;border:1px solid rgba(56,189,248,0.34) !important;color:#38bdf8 !important;font-size:0.74rem !important;font-weight:700 !important;letter-spacing:0.09em !important;text-transform:uppercase !important;}
+.stratum-s2s-dot{width:7px;height:7px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #10b981;}
+.stratum-s2s-title{margin:0 auto 0.8rem !important;padding:0 !important;border:0 !important;max-width:940px !important;color:#f8fafc !important;font-size:clamp(1.38rem,2.3vw,1.95rem) !important;font-weight:800 !important;line-height:1.24 !important;letter-spacing:-0.02em !important;}
+.stratum-s2s-lead{margin:0 auto 1.5rem !important;max-width:880px !important;color:#cbd5e1 !important;font-size:1rem !important;line-height:1.72 !important;}
+.stratum-s2s-lead strong{color:#f8fafc !important;}
+.stratum-s2s-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem;max-width:1080px;margin:0 auto 1.5rem;}
+.stratum-s2s-fig{margin:0 !important;padding:0 !important;border-radius:14px;overflow:hidden;border:1px solid rgba(148,163,184,0.18);background:#070d19;}
+.stratum-s2s-fig img{display:block;width:100% !important;max-width:100% !important;height:auto !important;margin:0 !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;}
+.stratum-s2s-cap{padding:0.55rem 0.85rem;background:rgba(10,18,35,0.92);border-top:1px solid rgba(148,163,184,0.14);color:#94a3b8 !important;font-size:0.79rem;font-weight:600;text-align:center;}
+@media (max-width:860px){.stratum-s2s-showcase{padding:1.65rem 1.3rem !important;}.stratum-s2s-media-grid{grid-template-columns:1fr;}}
+</style>
+<section class="stratum-s2s-showcase" id="s2s-vpn">
+  <div class="stratum-s2s-eyebrow"><span class="stratum-s2s-dot"></span>Merkez–Şube (S2S) VPN Motoru · Çekirdek Şifreleme</div>
+  <h2 class="stratum-s2s-title">Çoklu Üretici Uyumlu IPsec (IKEv2 / IKEv1) ve WireGuard S2S Tünelleri</h2>
+  <p class="stratum-s2s-lead">Merkez ofisleri, şubeleri ve bulut ağlarını <strong>FortiGate, Cisco/ASA, MikroTik RouterOS 7, OPNsense, pfSense ve Linux</strong> geçitleriyle kesintisiz bağlayın; strongSwan IKEv2/IKEv1 anahtar değişimi ve saf FreeBSD çekirdek ESP (<code>enc0</code>) şifrelemesini yalıtılmış WireGuard arayüzleriyle (<code>wg1, wg2…</code>) tek panelden yönetin.</p>
+  <div class="stratum-s2s-media-grid">
+    <figure class="stratum-s2s-fig">
+      <img src="/images/features/s2s-vpn-topology.jpg" alt="Stratum Firewall Çoklu Üretici IPsec IKEv2 IKEv1 ve WireGuard S2S Mimari Topolojisi" loading="lazy" decoding="async">
+      <figcaption class="stratum-s2s-cap">Çoklu Üretici Merkez–Şube Topolojisi: FortiGate, Cisco, Bulut VPN, MikroTik RouterOS 7 ve OPNsense</figcaption>
+    </figure>
+    <figure class="stratum-s2s-fig">
+      <img src="/images/features/s2s-vpn-panel.jpg" alt="Stratum Firewall v0.34.1 Merkez-Şube VPN Tünel Durum Ekranı" loading="lazy" decoding="async">
+      <figcaption class="stratum-s2s-cap">Birleşik Kontrol Düzlemi: Canlı IKEv2, IKEv1 ve WireGuard S2S El Sıkışma ve Çekirdek Şifreleme Durumu</figcaption>
+    </figure>
+  </div>
+  <div class="stratum-subgrid">
+    <div class="stratum-subcard">
+      <h3>IPsec IKEv2 ve Klasik IKEv1 Uyumluluğu</h3>
+      <p>FreeBSD çekirdek ESP şifrelemeli (<code>AES-GCM</code>, <code>AES-CBC</code>, <code>SHA-2</code>, DH <code>14–21</code>, <code>Curve25519</code>, PFS, DPD, otomatik NAT-T) strongSwan tünelleri ve FortiGate/Cisco cihazlar için alt ağ çifti başına ayrı Faz 2 seçici desteği.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>Adanmış WireGuard S2S Arayüzleri (wg1+)</h3>
+      <p>Her şube tüneli kendi <code>wg1, wg2…</code> arayüzünde çalışır; uzaktan erişim <code>wg0</code> sunucusuna dokunulmaz. NAT arkasından MikroTik RouterOS 7 (<code>RB4011</code>) ile doğrulandı; kesintisiz <code>wg syncconf</code> ve pinglenebilir <code>/30</code> tünel IP desteği sunar.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>Sıkı enc0 ve AllowedIPs İzolasyonu</h3>
+      <p>Çözülen IPsec trafiği <code>enc0</code> arayüzüne düşer, WireGuard ise yalnızca izinli uzak alt ağları kabul eder. WAN portları yalnızca bilinen eş IP adresine açılır ve alt ağ çakışma denetimi VPN istemci trafiğini korur.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>Otomatik NAT Muafiyeti ve MSS Kenetleme</h3>
+      <p>Tünel trafiği giden NAT kurallarından otomatik muaf tutulur, PPPoE hatlarda paket parçalanmasını önlemek için TCP MSS (IPsec <code>1350</code>, WireGuard tünel MTU) kenetlenir ve Çoklu WAN kurallarında yerel kalır.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>0600 Kök İzolasyonlu Anahtar Koruması</h3>
+      <p>Ön paylaşımlı ve özel anahtarlar tarayıcıda üretilir, <code>config.json</code> dışında yalnızca <code>0600</code> izinli dosyalarda saklanır, <code>stratum-config diff</code> ve API çıktılarından gizlenir ve şifreli <code>.stbk</code> yedeklerine dahil edilir.</p>
+    </div>
+    <div class="stratum-subcard">
+      <h3>Gösterge Paneli ve 30 Günlük Matris</h3>
+      <p>Tünel durumunu, çalışma süresini, el sıkışma zamanını ve trafik sayaçlarını Gösterge Panelinden (<code>Açık IPsec tünelleri: n / m</code>) ve 30 günlük <em>Ağlar Arası</em> matrisinden (<code>IPsec</code> ve <code>WireGuard S2S</code> olarak) canlı izleyin.</p>
+    </div>
+  </div>
+</section>
+<!-- STRATUM-S2S-VPN-SHOWCASE-END -->
+
 <section class="section stratum-dark-module">
   <div class="section-head" style="max-width: 820px; margin: 0 auto 28px auto; text-align: center;">
-    <span class="eyebrow stratum-module-eyebrow">v0.28.9 – v0.32.0 Yenilikleri</span>
+    <span class="eyebrow stratum-module-eyebrow">v0.29.1 – v0.34.1 Yenilikleri</span>
     <h2>İki Aşamalı Kimlik Doğrulama, Zorunlu DNS ve Dinamik Çoklu WAN</h2>
-    <p>Aşağıdaki tüm kurumsal yetenekler FreeBSD 15.1 tabanlı Stratum Firewall v0.32.0 sürümünde hiçbir eklenti, bulut bağımlılığı veya yıllık lisans ücreti olmadan yerleşik gelir.</p>
+    <p>Aşağıdaki tüm kurumsal yetenekler FreeBSD 15.1 tabanlı Stratum Firewall v0.34.1 sürümünde hiçbir eklenti, bulut bağımlılığı veya yıllık lisans ücreti olmadan yerleşik gelir.</p>
   </div>
   <div class="card-grid grid-3 stratum-subgrid">
+<div class="card stratum-subcard"><h3>WireGuard Merkez–Şube S2S (v0.34.1)</h3><p>MikroTik RouterOS 7, OPNsense, pfSense ve Linux ile uyumlu adanmış wg1/wg2 arayüzleri; kesintisiz wg syncconf güncellemeleri ve sıkı AllowedIPs denetimi sunar.</p></div>
+<div class="card stratum-subcard"><h3>IPsec IKEv2 ve IKEv1 S2S VPN (v0.33.2)</h3><p>FortiGate, Cisco/ASA ve bulut ağ geçitlerine strongSwan ve FreeBSD çekirdek ESP (enc0) tabanlı AES-GCM, Curve25519, otomatik NAT-T ve Gösterge Paneli izlemeli tüneller.</p></div>
 <div class="card stratum-subcard"><h3>Ağlar Arası VLAN Trafik Matrisi (v0.32.0)</h3><p>İç ağların birbirine hangi hedef IP ve portlardan eriştiğini (izin verilen ve engellenen) 30 gün boyunca saklayan Ağlar Arası matris ve 1s/24s özetleriyle VLAN bölütlemesini sıfır tahminle yapın.</p></div>
 <div class="card stratum-subcard"><h3>Kural ve NAT Ayırıcıları + Görünümler (v0.31.3)</h3><p>Güvenlik Duvarı, Port Yönlendirme ve manuel Giden NAT kurallarını renkli başlıklar ve Tümü / Varsayılan / Özel görünümleriyle düzenleyin; ayırıcı düzenlemeleri 30 yedek kotasını tüketmez.</p></div>
 <div class="card stratum-subcard"><h3>Kesintisiz Suricata Güncellemesi ve Arayüz (v0.31.6)</h3><p>Suricata yeniden başlatmalarında ve sistem güncellemelerinde igb/netmap WAN hat düşmelerini önler, Uygula bekleyen güncellemeleri bildirir, HTTPS Secure çerez koruması ve göz yormayan Açık Tema sunar.</p></div>
@@ -145,14 +204,6 @@ seoDescription: "FreeBSD 15.1 üzerinde durum korumalı pf kuralları, renkli ay
     <div class="card stratum-subcard">
       <h3>Dinamik DHCP Çoklu WAN (<code>v0.29.1</code>)</h3>
       <p>Kablo modem, 4G/5G LTE veya Starlink hatlarını varsayılan rotayı bozmadan ikincil/üçüncül DHCP WAN olarak bağlayın. Operatör ağ geçidi değiştiğinde yedekleme, <code>reply-to</code> ve Politika Yönlendirme kuralları Uygula gerektirmeden saniyeler içinde güncellenir.</p>
-    </div>
-    <div class="card stratum-subcard">
-      <h3>Zamanlamalı pf Kuralları (<code>v0.29.0</code>)</h3>
-      <p>İsimlendirilmiş saat aralıklarını (<code>Mon-Fri 08:00-18:00</code>) kurallara bağlayın. <code>stratum-pfrefresh</code> ile dakikada bir Uygula gerektirmeden devreye girer; süre bittiğinde zamanlamalı izin kurallarının açtığı mevcut bağlantıları otomatik kapatır.</p>
-    </div>
-    <div class="card stratum-subcard">
-      <h3>Çift Yönlü 1:1 NAT (<code>v0.28.9</code>)</h3>
-      <p>İç sunuculara veya alt ağlara kendilerine ait genel Sanal IP (VIP) ya da yönlendirilmiş genel ağ bloklarını çift yönlü atayın; WAN'ın kendi IP adresini reddeden kilitlenme koruması ve canlı WAN izin kuralı sayacıyla güvenle yönetin.</p>
     </div>
   </div>
 </section>
@@ -361,8 +412,8 @@ seoDescription: "FreeBSD 15.1 üzerinde durum korumalı pf kuralları, renkli ay
 .stratum-dark-module p,.stratum-dark-pillar p{color:#cbd5e1 !important;font-size:1rem !important;line-height:1.7 !important;margin:0 auto 1.5rem !important;max-width:860px;text-align:center;}
 .stratum-dark-pillar .stratum-pillar-media{background:transparent !important;border:0 !important;box-shadow:none !important;padding:0 !important;margin:0.4rem auto 1.65rem !important;max-width:1040px !important;border-radius:16px !important;overflow:hidden;}
 .stratum-dark-pillar img{display:block;width:100% !important;max-width:100% !important;height:auto !important;margin:0 auto !important;padding:0 !important;border:0 !important;border-radius:14px !important;box-shadow:none !important;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 5%,#000 95%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 5%,#000 95%,transparent 100%);}
-.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(275px,1fr)) !important;gap:1rem !important;margin-top:1.25rem !important;text-align:left !important;}
-.stratum-dark-module .stratum-subcard,.stratum-dark-pillar .stratum-subcard{padding:1.2rem 1.25rem !important;border-radius:14px !important;background:rgba(10,18,35,0.84) !important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,0.18) !important;border-top:2px solid rgba(56,189,248,0.75) !important;box-shadow:0 10px 24px rgba(2,6,23,0.4) !important;text-align:left !important;transition:transform 0.18s ease,border-color 0.18s ease;}
+.stratum-s2s-showcase .stratum-subgrid,.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(275px,1fr)) !important;gap:1rem !important;margin-top:1.25rem !important;text-align:left !important;}
+.stratum-s2s-showcase .stratum-subcard,.stratum-dark-module .stratum-subcard,.stratum-dark-pillar .stratum-subcard{padding:1.2rem 1.25rem !important;border-radius:14px !important;background:rgba(10,18,35,0.84) !important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,0.18) !important;border-top:2px solid rgba(56,189,248,0.75) !important;box-shadow:0 10px 24px rgba(2,6,23,0.4) !important;text-align:left !important;transition:transform 0.18s ease,border-color 0.18s ease;}
 .stratum-dark-module .stratum-subcard:nth-child(3n+1),.stratum-dark-pillar .stratum-subcard:nth-child(3n+1){border-top-color:rgba(251,191,36,0.8) !important;}
 .stratum-dark-module .stratum-subcard:nth-child(3n+2),.stratum-dark-pillar .stratum-subcard:nth-child(3n+2){border-top-color:rgba(56,189,248,0.8) !important;}
 .stratum-dark-module .stratum-subcard:nth-child(3n+3),.stratum-dark-pillar .stratum-subcard:nth-child(3n+3){border-top-color:rgba(52,211,153,0.8) !important;}
@@ -372,6 +423,6 @@ seoDescription: "FreeBSD 15.1 üzerinde durum korumalı pf kuralları, renkli ay
 .stratum-dark-module .stratum-subcard strong,.stratum-dark-module .stratum-subcard em,.stratum-dark-pillar .stratum-subcard strong,.stratum-dark-pillar .stratum-subcard em{color:#f8fafc !important;}
 .stratum-dark-module .stratum-subcard code,.stratum-dark-pillar .stratum-subcard code{background:rgba(56,189,248,0.12) !important;color:#7dd3fc !important;border:1px solid rgba(56,189,248,0.24) !important;padding:0.1rem 0.36rem !important;border-radius:5px !important;font-size:0.84em !important;}
 @media (max-width:900px){.stratum-dark-module,.stratum-dark-pillar{padding:1.65rem 1.3rem 1.65rem !important;}}
-@media (max-width:680px){.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{grid-template-columns:1fr !important;gap:0.75rem !important;}}
+@media (max-width:680px){.stratum-s2s-showcase .stratum-subgrid,.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{grid-template-columns:1fr !important;gap:0.75rem !important;}}
 </style>
 <!-- STRATUM-UNIFIED-DARK-STYLE-END -->

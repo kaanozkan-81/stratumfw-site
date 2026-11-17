@@ -8,6 +8,99 @@ seoDescription: "FreeBSD 15.1 tabanlı Stratum Firewall işletim sisteminin tüm
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
 
+## 0.34.1 - 2026-11-17
+
+### Düzeltildi
+- WireGuard S2S: bir tünelin ön paylaşımlı anahtarı (PSK) kaldırıldığında artık çalışan arayüzden de temizleniyor.
+  Tüneller kesinti olmaması için `wg syncconf` ile güncellenir; bu komut kendisine verilmeyen anahtarı koruduğu için
+  yapılandırma artık anahtarı her zaman açıkça yazar ("yok" anlamında tamamı sıfır anahtar). Öncesinde eski anahtar
+  aktif kalıyor ve el sıkışma başarısız oluyordu.
+
+### Notlar
+- WireGuard S2S, NAT arkasından bağlanan bir Stratum FW ile MikroTik RouterOS 7 (RB4011) arasında canlı olarak test
+  edildi.
+
+## 0.34.0 - 2026-11-16
+
+### Eklendi
+- VPN > **WireGuard S2S**: başka bir Stratum FW, OPNsense, pfSense, MikroTik RouterOS 7 veya Linux geçidine merkezden
+  şubeye (site-to-site) WireGuard tünelleri eklendi. Her tünel kendi anahtarlarına ve portuna sahip bağımsız bir
+  arayüzdür (`wg1`, `wg2` ...); uzak ağlar bu arayüze yönlendirilir ve WireGuard karşı taraftan yalnızca bu ağlara ait
+  adresleri kabul eder.
+  - Bu tarafın anahtar çifti tünel eklendiğinde üretilir; karşı tarafa verilmek üzere yalnızca açık anahtar gösterilir.
+    İsteğe bağlı ön paylaşımlı anahtar ("Üret" düğmesi tarayıcıda oluşturur) yalnızca `root` erişimli dosyada saklanır
+    ve hiçbir zaman dışarı döndürülmez.
+  - Her iki taraf da bağlantıyı başlatabilir: erişilebilir olan karşı tarafın adresini girmeniz yeterlidir; NAT
+    arkasındaki taraf `keepalive` seçeneğini açık tutar. İsteğe bağlı tünel adresi (ör. `10.203.0.1/30`) tünelin
+    kendisine ping atılabilmesini sağlar.
+  - Güvenlik Duvarı: tünelin UDP portu WAN üzerinde açılır (karşı tarafın adresi biliniyorsa yalnızca o adrese); "izin
+    ver" açıkken uzak ağlardan yerel ağlara gelen trafik geçer, kapalıyken yalnızca yanıt paketlerine izin verilir; TCP
+    MSS tünel MTU değerine kenetlenir; politika yönlendirmeli kurallar uzak ağ trafiğini yerel tutar.
+  - Tünel durumu (bağlı, son el sıkışma, trafik miktarı) hem kendi sayfasında hem de Gösterge Paneli VPN kartında
+    izlenir.
+  - Uzak ağlar yerel, OpenVPN, WireGuard ve IPsec ağlarına karşı çakışma denetiminden geçirilir ve Güvenlik Duvarı
+    Günlüğü > Ağlar arası matrisinde "WireGuard S2S" olarak görünür.
+  - Karşı tarafın açık anahtarı henüz bilinmiyorsa önce bu tarafın anahtarını almak için tünel devre dışı olarak
+    kaydedilebilir.
+- Uzaktan erişim sunucusu (`wg0`, VPN > WireGuard) değişmedi.
+
+## 0.33.2 - 2026-11-16
+
+### Eklendi
+- Gösterge Paneli: VPN bağlantıları kartına IPsec tünelleri (durum, uzak ağ geçidi ve ağlar, çalışma süresi, trafik) ve
+  güvenlik özetine "Açık IPsec tünelleri: n / m" satırı eklendi (herhangi bir tünel düştüğünde kırmızı görünür).
+
+### Notlar
+- Bir Stratum FW arkasındaki dizüstü bilgisayarın IKEv2 tüneli üzerinden başka bir Stratum FW arkasındaki dosya
+  paylaşımlarına ve web sayfalarına erişimiyle uçtan uca doğrulandı.
+
+## 0.33.1 - 2026-11-16
+
+### Eklendi
+- VPN > IPsec: IKEv2'nin yanına **IKEv1** desteği eklendi (FortiGate IPsec sihirbazının varsayılanı, eski Cisco/ASA
+  cihazları ve IKEv2 konuşmayan yönlendiriciler için). Varsayılan olarak Ana mod (Main mode) kullanılır; Agresif mod
+  yalnızca karşı taraf zorunlu kıldığında seçilir (değişken IP adresli IKEv1 uçları için gereklidir). IKEv1'de her
+  yerel/uzak ağ çifti kendi ayrı Faz 2 kaydını alır ve Faz 1 yeniden kimlik doğrulamayla yenilenir.
+
+### Düzeltildi
+- IPsec: bir tünelin uzak ağı artık OpenVPN veya WireGuard tünel ağıyla ya da yönlendirilmiş bir iç ağla çakışamaz.
+  Uzak ağa giden trafik çekirdek tarafından şifrelendiği için böyle bir çakışmada VPN istemcilerine dönen yanıtlar
+  istemci yerine IPsec tüneline giriyordu.
+
+### Notlar
+- 0.33.0 sürümü biri NAT arkasında, diğeri PPPoE hattında çalışan iki Stratum FW arasında test edildi: NAT geçişli
+  (NAT-T) IKEv2, tünel içi trafik akışı ve "izin ver" kapalıyken ters yön trafiğinin `enc0` üzerinde engellenip
+  günlüğe yazılması doğrulandı.
+
+## 0.33.0 - 2026-11-16
+
+### Eklendi
+- VPN > **IPsec**: diğer güvenlik duvarlarına ve yönlendiricilere (FortiGate, MikroTik, pfSense/OPNsense, Cisco, bulut
+  VPN geçitleri) merkezden şubeye (site-to-site) tüneller eklendi. Ön paylaşımlı anahtarlı IKEv2 ve politika tabanlı
+  mimari: bir tünel seçilen yerel ağları karşı tarafın arkasındaki ağlarla birleştirir. Anahtar değişimini `strongSwan`
+  yapar; şifrelemeyi doğrudan FreeBSD çekirdeği yürütür.
+  - Tünel bazlı Faz 1 ve Faz 2 ayarları: `AES-GCM` veya `AES-CBC`, `SHA-2` (eski cihazlar için `SHA-1`), DH grupları
+    `14-21` ve `Curve25519` (`2` ve `5` zayıf olarak işaretlidir), PFS, yaşam süreleri ve ölü uç tespiti (DPD).
+    Gönderilen teklif dizileri seçim yaptıkça ekranda gösterilir.
+  - Alt ağ başına tek seçici tutan cihazlar (FortiGate, Cisco) için "Her ağ çifti için ayrı Faz 2 kaydı" seçeneği.
+  - Başlangıçta bağlanıp tüneli ayakta tutma veya karşı tarafı bekleme (değişken IP'li uçlar dahil). NAT geçişi (NAT-T)
+    otomatiktir.
+  - Tünel bazlı durum (bağlı, yalnızca Faz 1, bağlanıyor, bağlı değil), çalışma süresi, NAT-T, trafik sayaçları,
+    Bağlan / Kes düğmeleri ve yöneticiler için aynı sayfada IPsec günlüğü.
+  - Güvenlik Duvarı: IKE ve ESP paketlerine yalnızca eş (peer) adresinden izin verilir; şifresi çözülen trafik kendi
+    arayüzünde (`enc0`) görünür ve tünelin "izin ver" seçeneği yalnızca uzak ağlardan yerel ağlara gelen trafiği
+    geçirir; tünelden gelen diğer her şey bilinmeyen trafik gibi engellenir ve günlüğe yazılır. Tünel trafiğine asla
+    NAT uygulanmaz (NAT muafiyeti), TCP MSS tünel içinde kenetlenir (varsayılan `1350`) ve politika yönlendirmeli
+    kurallar tünel trafiğini yerel tutar.
+  - Ön paylaşımlı anahtar yalnızca `root` erişimli ayrı bir dosyada tutulur; `config.json` içine yazılmaz, bir daha
+    gösterilmez ve API tarafından döndürülmez; "Üret" düğmesi tarayıcıda güçlü anahtar oluşturur. Anahtarlar şifreli
+    yedeklere (`.stbk`) dahil edilir.
+  - Tünellerin uzak ağları Güvenlik Duvarı Günlüğü > Ağlar arası matrisinde "IPsec" olarak görünür.
+- Yeni paket bağımlılığı: `strongSwan`.
+
+### Değiştirildi
+- `stratum-config diff` komutu artık WireGuard ve IPsec anahtarlarını açık metin olarak göstermez.
+
 ## 0.32.0 - 2026-11-14
 
 ### Eklendi
