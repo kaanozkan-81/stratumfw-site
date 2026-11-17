@@ -29,7 +29,7 @@ Every change you make in the UI is validated, declaratively written to a single 
   <div class="card">
     <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l-8 8 8 8 8-8-8-8z"/><path d="M8 12l4-4"/></svg></div>
     <h3>Kernel-Level Security</h3>
-    <p>We don't do userspace filtering. Stratum leverages FreeBSD's native <strong>pf packet filter</strong> and ALTQ for stateful inspection and traffic shaping at wire speed.</p>
+    <p>We don't do userspace filtering. Stratum leverages FreeBSD's native <strong>pf packet filter</strong> and dummynet for stateful inspection and traffic shaping at wire speed.</p>
   </div>
 </div>
 

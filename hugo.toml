@@ -114,7 +114,7 @@ disableKinds = ["taxonomy", "term"]
     weight = 2
     title = 'Stratum Firewall (FW)'
     [languages.tr.params]
-      tagline = 'Açık Kaynak FreeBSD Güvenlik Duvarı (pfSense & OPNsense Alternatifi)'
+      tagline = 'ücretsiz ve aboneliksiz FreeBSD güvenlik duvarı (pfSense & OPNsense Alternatifi)'
       description = 'Stratum Firewall, FreeBSD tabanlı kurumsal bir güvenlik duvarı işletim sistemidir. pf paket filtrelemenin ham gücünü, modern FastAPI yönetim paneli, rol tabanlı erişim kontrolü ve sıfır bağımlılıklı WireGuard desteği ile birleştirir.'
       companyName = 'Stratum Security'
       contactEmail = 'info@stratumfw.com'

@@ -336,7 +336,7 @@ seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, 
 <span class="feature-badge-pill stratum-module-eyebrow">FREEBSD PF ÇEKİRDEK KORUMASI</span>
 <h2>Ağ Kalkanı ve Çekirdek Düzeyinde pf Paket Filtreleme</h2>
 <p class="feature-module-lead">FreeBSD 15.1/15 çekirdeğinde çalışan yerel pf (Packet Filter) motoru, durum bilgili paket denetimi (Stateful Inspection) ve Safe-Apply kural doğrulamasıyla ağınızı kesintisiz korur.</p>
-<p class="feature-module-desc">Stratum Firewall, gücünü doğrudan FreeBSD 15.1/15 işletim sistemi çekirdeğindeki kendini kanıtlamış <code>pf</code> (Packet Filter) altyapısından alır. Gelen ve giden her veri paketi çekirdek düzeyinde durum bilgili denetimden (Stateful Inspection) geçirilir; yetkisiz erişim girişimleri anında düşürülürken güvenli trafik minimum işlemci yükü ve gecikmeyle iletilir. Gelişmiş Ağ Adresi Dönüştürme (NAT) ve ALTQ tabanlı bant genişliği/trafik şekillendirme yetenekleri yoğun yük altında bile kritik uygulamaların performansını korur. Ayrıca <strong>Safe-Apply</strong> mekanizması, yazdığınız her kuralı canlı sisteme uygulamadan önce <code>pf</code> sözdizimine göre otomatik test ederek hatalı yapılandırmaların sizi sistem dışına kilitlemesini önler.</p>
+<p class="feature-module-desc">Stratum Firewall, gücünü doğrudan FreeBSD 15.1/15 işletim sistemi çekirdeğindeki kendini kanıtlamış <code>pf</code> (Packet Filter) altyapısından alır. Gelen ve giden her veri paketi çekirdek düzeyinde durum bilgili denetimden (Stateful Inspection) geçirilir; yetkisiz erişim girişimleri anında düşürülürken güvenli trafik minimum işlemci yükü ve gecikmeyle iletilir. Gelişmiş Ağ Adresi Dönüştürme (1:1 NAT, Giden ve Port Yönlendirme NAT), Politika Yönlendirme ve dummynet bant genişliği sınırlayıcıları yoğun yük altında bile kritik uygulamaların performansını korur. Ayrıca <strong>Safe-Apply</strong> mekanizması, yazdığınız her kuralı canlı sisteme uygulamadan önce <code>pf</code> sözdizimine göre otomatik test ederek hatalı yapılandırmaların sizi sistem dışına kilitlemesini önler.</p>
 </div>
 <div class="feature-visual-box stratum-pillar-media">
 <img src="/images/features/pf-kernel-shield.jpg" alt="Stratum Firewall FreeBSD çekirdek düzeyinde pf paket filtreleme ve çok katmanlı siber güvenlik kalkanı görseli" loading="lazy">
@@ -351,8 +351,8 @@ seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, 
 <p>Güvenlik duvarı kurallarını ve arayüz değişikliklerini canlı çekirdeğe işlemeden önce sözdizimi testinden geçirerek bağlantı kopmalarını ve kilitlenmeleri önleme.</p>
 </div>
 <div class="card stratum-subcard">
-<h3>NAT, ALTQ ve Canlı Kural İstatistikleri</h3>
-<p>Yeniden kullanılabilir Takma Adlar (Aliases), <code>Pass / Block / Reject</code> politikaları, anlık kural eşleşme sayıları (Hits) ve ALTQ trafik önceliklendirme kontrolü.</p>
+<h3>NAT, Hız Sınırlayıcılar ve Kural İstatistikleri</h3>
+<p>Yeniden kullanılabilir Takma Adlar (Aliases), <code>Pass / Block / Reject</code> politikaları, renkli kural ayırıcılar, anlık eşleşme sayaçları (Hits) ve dummynet bant genişliği sınırlayıcıları.</p>
 </div>
 </div>
 </div>
@@ -384,7 +384,7 @@ seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, 
 <div class="feature-module stratum-dark-pillar" id="modern-api-mimarisi">
 <div class="feature-module-head">
 <span class="feature-badge-pill stratum-module-eyebrow">MODERN MİMARİ &amp; API KONTROLÜ</span>
-<h2>Sıfır Bağımlılıklı Siber Güvenlik Mimarisi ve Modern API Kontrolü</h2>
+<h2>Bildirimsel FreeBSD Güvenlik Mimarisi ve Modern FastAPI Kontrolü</h2>
 <p class="feature-module-lead">"Saf FreeBSD gücü. Modern API kontrolü." Asenkron Python 3.12 / FastAPI arka ucu, tekil config.json bildirimsel yapılandırması ve yerel WireGuard kriptografisiyle yeni nesil güvenlik duvarı deneyimi.</p>
 <p class="feature-module-desc">Hantal ve eski nesil PHP/XML tabanlı güvenlik duvarı arayüzlerinin yerini almak üzere sıfırdan tasarlanan Stratum Firewall, FreeBSD çekirdek performansını geliştirici odaklı modern bir kontrol katmanıyla buluşturur. Asenkron <strong>Python 3.12</strong> ve <strong>FastAPI</strong> üzerine inşa edilen arka uç, çok düşük bellek tüketimiyle hem hızlı bir web arayüzü hem de tam kapsamlı bir <strong>REST API</strong> sunar. Tüm sistem durumu tek bir okunabilir, bildirimsel <code>config.json</code> dosyasında tutulur ve çekirdek motor tarafından dinamik olarak yerel <code>pf.conf</code>, DHCP ve DNS yapılandırma dosyalarına derlenir. Harici kütüphane gerektirmeyen sıfırdan yazılmış X25519 (RFC 7748) kriptografili <strong>WireGuard VPN</strong> ve <strong>OpenVPN</strong> desteği, Rol Tabanlı Erişim Kontrolü (RBAC) ve canlı sistem telemetrisiyle ağ güvenliğine modern "Infrastructure-as-Code" sadeliği kazandırır.</p>
 </div>
@@ -398,7 +398,7 @@ seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, 
 </div>
 <div class="card stratum-subcard">
 <h3>Sıfır Bağımlılıklı WireGuard &amp; OpenVPN</h3>
-<p>Harici paket bağımlılığı olmadan sıfırdan yazılmış yerel RFC 7748 X25519 anahtar üretimiyle yüksek hızlı WireGuard ve esnek OpenVPN tünelleme.</p>
+<p>Standart wg(8) anahtar araçlarıyla çalışan FreeBSD çekirdek içi WireGuard (if_wg), çekirdek ESP (enc0) IPsec ve OpenSSL tabanlı OpenVPN PKI altyapısı.</p>
 </div>
 <div class="card stratum-subcard">
 <h3>RBAC ve Canlı Sistem Telemetrisi</h3>

@@ -152,7 +152,7 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 <tr>
 <td><strong>Remote Access VPN</strong></td>
 <td>Kernel <code>if_wg</code> (WireGuard) · <code>OpenVPN</code></td>
-<td>On-box RFC 7748 X25519 &amp; built-in EC PKI</td>
+<td>Kernel if_wg (wg(8)), strongSwan/enc0 IPsec &amp; built-in EC PKI</td>
 <td>Wire-speed QR WireGuard provisioning (hitless peer updates) and Multi-WAN <code>multihome</code> OpenVPN with <code>tls-crypt</code>, CRL revocation, and <code>VPN-only</code> user accounts.</td>
 </tr>
 <tr>

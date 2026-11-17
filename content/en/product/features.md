@@ -335,8 +335,8 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 <div class="feature-module-head">
 <span class="feature-badge-pill stratum-module-eyebrow">KERNEL-LEVEL PF PACKET FILTER</span>
 <h2>Uncompromising Network Shield with Native FreeBSD pf Filtering</h2>
-<p class="feature-module-lead">Powered directly by the FreeBSD 15.1/15 kernel pf engine, delivering wire-speed stateful packet inspection, ALTQ traffic shaping, and fail-safe rule validation.</p>
-<p class="feature-module-desc">At the core of Stratum Firewall lies FreeBSD's battle-tested kernel-level <code>pf</code> (Packet Filter) engine. Every incoming and outgoing packet is evaluated against active state tables directly inside the operating system kernel, neutralizing unauthorized connection attempts while forwarding legitimate traffic at wire speed with minimal CPU overhead. Advanced Network Address Translation (Outbound &amp; Port Forward NAT) and ALTQ bandwidth shaping keep latency-sensitive applications responsive even under heavy load. Before any rule or interface modification is committed, our <strong>Safe-Apply</strong> workflow validates the generated syntax against <code>pfctl -nf</code> to guarantee you never lock yourself out.</p>
+<p class="feature-module-lead">Powered directly by the FreeBSD 15.1/15 kernel pf engine, delivering wire-speed stateful packet inspection, dummynet bandwidth shaping, and fail-safe pfctl -n rule validation.</p>
+<p class="feature-module-desc">At the core of Stratum Firewall lies FreeBSD's battle-tested kernel-level <code>pf</code> (Packet Filter) engine. Every incoming and outgoing packet is evaluated against active state tables directly inside the operating system kernel, neutralizing unauthorized connection attempts while forwarding legitimate traffic at wire speed with minimal CPU overhead. Advanced Network Address Translation (Outbound &amp; Port Forward NAT) and dummynet bandwidth shaping keep latency-sensitive applications responsive even under heavy load. Before any rule or interface modification is committed, our <strong>Safe-Apply</strong> workflow validates the generated syntax against <code>pfctl -nf</code> to guarantee you never lock yourself out.</p>
 </div>
 <div class="feature-visual-box stratum-pillar-media">
 <img src="/images/features/pf-kernel-shield.jpg" alt="Stratum Firewall FreeBSD kernel-level pf packet filtering and multi-layered network defense shield illustration" loading="lazy">
@@ -351,8 +351,8 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 <p>Automatic pre-flight verification of all firewall rulesets and interface assignments before applying changes to the active kernel state.</p>
 </div>
 <div class="card stratum-subcard">
-<h3>NAT, ALTQ &amp; Live Rule Telemetry</h3>
-<p>Manage reusable IP/Port Aliases, granular <code>Pass / Block / Reject</code> rules, real-time rule hit counters, and ALTQ traffic queues from a single view.</p>
+<h3>NAT, dummynet &amp; Live Rule Telemetry</h3>
+<p>Manage reusable IP/Port Aliases, granular <code>Pass / Block / Reject</code> rules, colored separators, real-time rule hit counters, and dummynet bandwidth limiters from a single view.</p>
 </div>
 </div>
 </div>
@@ -384,8 +384,8 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 <div class="feature-module stratum-dark-pillar" id="modern-api-architecture">
 <div class="feature-module-head">
 <span class="feature-badge-pill stratum-module-eyebrow">MODERN ARCHITECTURE &amp; API CONTROL</span>
-<h2>Zero-Dependency Cybersecurity Architecture with Modern API Control</h2>
-<p class="feature-module-lead">"Raw FreeBSD power. Modern API control." Experience a lightweight Python 3.12 &amp; FastAPI backend, declarative config.json state management, and native WireGuard cryptography.</p>
+<h2>Declarative FreeBSD Security Architecture with Modern FastAPI Control</h2>
+<p class="feature-module-lead">"Pure FreeBSD power. Modern API control." Experience a lightweight Python 3.12 &amp; FastAPI backend, declarative config.json state management, and audited kernel WireGuard & IPsec cryptography.</p>
 <p class="feature-module-desc">Engineered from the ground up to replace bloated legacy PHP/XML firewall interfaces, Stratum Firewall pairs raw FreeBSD kernel performance with a clean, developer-first control plane. Its asynchronous <strong>Python 3.12</strong> and <strong>FastAPI</strong> backend serves both a responsive web UI and a comprehensive <strong>REST API</strong> while maintaining an ultra-low memory footprint. The entire system state lives in a single human-readable, declarative <code>config.json</code> file that dynamically compiles into native <code>pf.conf</code>, DHCP, and DNS files. Combined with zero-dependency X25519 (RFC 7748) <strong>WireGuard VPN</strong> and <strong>OpenVPN</strong> support, Role-Based Access Control (RBAC), and live hardware/log telemetry, Stratum brings true Infrastructure-as-Code simplicity to network security.</p>
 </div>
 <div class="feature-visual-box stratum-pillar-media">
@@ -398,7 +398,7 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 </div>
 <div class="card stratum-subcard">
 <h3>Zero-Dependency WireGuard &amp; OpenVPN</h3>
-<p>Native RFC 7748 X25519 cryptographic key generation written from scratch for high-speed WireGuard tunnels alongside full OpenVPN support.</p>
+<p>Audited FreeBSD kernel WireGuard (if_wg) with standard wg(8) tooling, kernel ESP (enc0) IPsec, and OpenSSL-backed OpenVPN PKI.</p>
 </div>
 <div class="card stratum-subcard">
 <h3>RBAC &amp; Live System Telemetry</h3>

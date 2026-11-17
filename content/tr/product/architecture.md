@@ -152,7 +152,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 <tr>
 <td><strong>Uzaktan Erişim VPN</strong></td>
 <td>Kernel <code>if_wg</code> (WireGuard) · <code>OpenVPN</code></td>
-<td>Cihaz içi RFC 7748 X25519 ve yerleşik EC PKI</td>
+<td>Çekirdek if_wg (wg(8)), strongSwan/enc0 IPsec ve yerleşik EC PKI</td>
 <td>Çekirdek hızında QR kodlu WireGuard (kesintisiz eş ekleme) ve çoklu WAN <code>multihome</code>, <code>tls-crypt</code>, <code>VPN-only</code> kullanıcı destekli OpenVPN sunucusu.</td>
 </tr>
 <tr>
