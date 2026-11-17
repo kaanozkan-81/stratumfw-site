@@ -105,7 +105,7 @@ seoDescription: "Stratum Firewall ile OPNsense, pfSense CE ve IPFire dağıtıml
         </tr>
         <tr>
           <td><strong>VPN Protokolleri</strong></td>
-          <td class="cmp-highlight">Çekirdek WireGuard (<code>if_wg</code> + QR) ve Çoklu WAN OpenVPN</td>
+          <td class="cmp-highlight">Merkez-Şube IPsec (IKEv2/IKEv1 <code>enc0</code>), Adanmış WireGuard S2S (<code>wg1+</code>), Mobil WireGuard (QR) ve Çoklu WAN OpenVPN</td>
           <td>Çekirdek WireGuard, OpenVPN ve IPsec</td>
           <td>WireGuard paketi, OpenVPN ve IPsec</td>
           <td>WireGuard, OpenVPN ve IPsec</td>

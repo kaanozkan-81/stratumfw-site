@@ -105,7 +105,7 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
         </tr>
         <tr>
           <td><strong>VPN Protocols</strong></td>
-          <td class="cmp-highlight">Kernel WireGuard (<code>if_wg</code> + QR) &amp; Multi-WAN OpenVPN</td>
+          <td class="cmp-highlight">Site-to-Site IPsec (IKEv2/IKEv1 <code>enc0</code>), WireGuard S2S (<code>wg1+</code>), Mobile WireGuard (QR) &amp; Multi-WAN OpenVPN</td>
           <td>Kernel WireGuard, OpenVPN &amp; IPsec</td>
           <td>WireGuard package, OpenVPN &amp; IPsec</td>
           <td>WireGuard, OpenVPN &amp; IPsec</td>
