@@ -31,7 +31,7 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
       <thead>
         <tr>
           <th>Capability / Layer</th>
-          <th class="cmp-highlight">Stratum FW (v0.30.3)</th>
+          <th class="cmp-highlight">Stratum FW</th>
           <th>OPNsense (26.7)</th>
           <th>pfSense CE (2.9)</th>
           <th>IPFire (2.29)</th>
@@ -245,7 +245,7 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
   <div class="cmp-head">
     <span class="eyebrow">Key Differentiators</span>
     <h2>Why engineers evaluate Stratum Firewall as a modern FreeBSD firewall OS</h2>
-    <p>Stratum Firewall focuses on making the core 95% of gateway security—packet filtering, Multi-WAN, WireGuard/OpenVPN, Suricata IPS, DNSBL/Web Filtering, and atomic recovery—radically cleaner, faster, and subscription-free.</p>
+    <p>Stratum Firewall focuses on making the core 95% of gateway security—packet filtering, Multi-WAN, IPsec, WireGuard S2S, OpenVPN, Suricata IPS, DNSBL/Web Filtering, and atomic recovery—radically cleaner, faster, and subscription-free.</p>
   </div>
 
   <div class="card-grid grid-2">
@@ -283,12 +283,12 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
       <h3>When to choose Stratum Firewall</h3>
-      <p>Ideal for <a href="/solutions/smb/">SMBs escaping UTM renewals</a>, branch offices, homelabs, and campuses wanting a clean FreeBSD 15.1 + <code>pf</code> appliance with an async FastAPI UI, 60s Safe-Apply protection, built-in 55-category Web Filtering, dual-engine Suricata 8, and seamless OPNsense migration (note: v0.30.0 is currently in active Beta).</p>
+      <p>Ideal for <a href="/solutions/smb/">SMBs escaping UTM renewals</a>, branch offices, homelabs, and campuses wanting a clean FreeBSD 15.1 + <code>pf</code> appliance with an async FastAPI UI, 60s Safe-Apply protection, built-in 55-category Web Filtering, dual-engine Suricata 8, and seamless OPNsense migration.</p>
     </div>
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
       <h3>When OPNsense, pfSense, or a Commercial NGFW fits better today</h3>
-      <p>Choose <strong>OPNsense / pfSense</strong> if you currently need active/passive CARP HA clustering, BGP/OSPF dynamic routing (FRR), or IPsec IKEv2; keep a commercial NGFW if strict compliance mandates full MITM TLS 1.3 payload decryption (<code>ssl-bump</code>) with cloud sandboxing and 24/7 vendor SLA replacement.</p>
+      <p>Choose <strong>OPNsense / pfSense</strong> if you currently need active/passive CARP HA clustering, or BGP/OSPF dynamic routing (FRR); keep a commercial NGFW if strict compliance mandates full MITM TLS 1.3 payload decryption (<code>ssl-bump</code>) with cloud sandboxing and 24/7 vendor SLA replacement.</p>
     </div>
   </div>
 </div>
@@ -301,7 +301,7 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
   <div class="cmp-faq">
     <div class="cmp-faq-item">
       <h3>Can Stratum replace an expired FortiGate, WatchGuard, or EOL Sophos UTM 9?</h3>
-      <p>Yes. Install Stratum on any multi-NIC x86-64 mini-appliance or Proxmox VM to replace expiring FortiGuard UTP, WatchGuard Security Suite, or EOL Sophos SG/UTM boxes with permanent Suricata 8 IPS, 55-category Web Filtering, Multi-WAN failover, and WireGuard/OpenVPN at $0/year.</p>
+      <p>Yes. Install Stratum on any multi-NIC x86-64 mini-appliance or Proxmox VM to replace expiring FortiGuard UTP, WatchGuard Security Suite, or EOL Sophos SG/UTM boxes with permanent Suricata 8 IPS, 55-category Web Filtering, Multi-WAN failover, Site-to-Site IPsec, WireGuard S2S, and OpenVPN at $0/year.</p>
     </div>
     <div class="cmp-faq-item">
       <h3>Is Stratum Firewall completely free to download without registration?</h3>

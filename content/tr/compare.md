@@ -31,7 +31,7 @@ seoDescription: "Stratum Firewall ile OPNsense, pfSense CE ve IPFire dağıtıml
       <thead>
         <tr>
           <th>Yetenek / Katman</th>
-          <th class="cmp-highlight">Stratum FW (v0.30.3)</th>
+          <th class="cmp-highlight">Stratum FW</th>
           <th>OPNsense (26.7)</th>
           <th>pfSense CE (2.9)</th>
           <th>IPFire (2.29)</th>
@@ -283,12 +283,12 @@ seoDescription: "Stratum Firewall ile OPNsense, pfSense CE ve IPFire dağıtıml
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
       <h3>Ne zaman Stratum Firewall tercih edilmeli?</h3>
-      <p><a href="/tr/solutions/smb/">Yıllık UTM aboneliklerinden çıkmak isteyen KOBİ'ler</a>, şube ağları, ev laboratuvarları ve eğitim kurumlarında; hızlı FastAPI arayüzü, 60 sn Safe-Apply koruması, ücretsiz ZFS geri alma, 55 kategorili Web Filtresi, çift motorlu Suricata 8 ve OPNsense geçişi arıyorsanız idealdir (Not: v0.30.0 şu an aktif Beta aşamasındadır).</p>
+      <p><a href="/tr/solutions/smb/">Yıllık UTM aboneliklerinden çıkmak isteyen KOBİ'ler</a>, şube ağları, ev laboratuvarları ve eğitim kurumlarında; hızlı FastAPI arayüzü, 60 sn Safe-Apply koruması, ücretsiz ZFS geri alma, 55 kategorili Web Filtresi, çift motorlu Suricata 8 ve OPNsense geçişi arıyorsanız idealdir.</p>
     </div>
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
       <h3>Ne zaman OPNsense, pfSense veya Ticari NGFW seçilmeli?</h3>
-      <p>Topolojiniz şu anda aktif/pasif CARP yüksek erişilebilirlik (HA) kümesi, BGP/OSPF dinamik yönlendirme (FRR) veya IPsec IKEv2 tünelleri gerektiriyorsa <strong>OPNsense / pfSense</strong>; regülasyon gereği tam TLS 1.3 şifre çözme (<code>ssl-bump</code>), bulut sandbox ve 7/24 yerinde donanım değişim SLA'i zorunluysa ticari bir NGFW tercih edilmelidir.</p>
+      <p>Topolojiniz şu anda aktif/pasif CARP yüksek erişilebilirlik (HA) kümesi veya BGP/OSPF dinamik yönlendirme (FRR) gerektiriyorsa <strong>OPNsense / pfSense</strong>; regülasyon gereği tam TLS 1.3 şifre çözme (<code>ssl-bump</code>), bulut sandbox ve 7/24 yerinde donanım değişim SLA'i zorunluysa ticari bir NGFW tercih edilmelidir.</p>
     </div>
   </div>
 </div>
@@ -301,7 +301,7 @@ seoDescription: "Stratum Firewall ile OPNsense, pfSense CE ve IPFire dağıtıml
   <div class="cmp-faq">
     <div class="cmp-faq-item">
       <h3>Lisansı biten FortiGate, WatchGuard veya EOL Sophos UTM 9 yerine geçebilir mi?</h3>
-      <p>Evet. Standart çok portlu bir x86-64 mini sunucu veya Proxmox sanal makinesi üzerine Stratum kurarak; her yıl döviz bazlı FortiGuard UTP, WatchGuard Security Suite veya ömrü dolan Sophos SG/UTM kutularının yerine yıllık 0 $ maliyetle Suricata 8 IPS, 55 kategorili Web Filtresi, Çoklu WAN ve sınırsız VPN konumlandırabilirsiniz.</p>
+      <p>Evet. Standart çok portlu bir x86-64 mini sunucu veya Proxmox sanal makinesi üzerine Stratum kurarak; her yıl döviz bazlı FortiGuard UTP, WatchGuard Security Suite veya ömrü dolan Sophos SG/UTM kutularının yerine yıllık 0 $ maliyetle Suricata 8 IPS, 55 kategorili Web Filtresi, Çoklu WAN ve sınırsız IPsec / WireGuard S2S / OpenVPN konumlandırabilirsiniz.</p>
     </div>
     <div class="cmp-faq-item">
       <h3>Stratum Firewall kayıt olmadan tamamen ücretsiz mi indiriliyor?</h3>
