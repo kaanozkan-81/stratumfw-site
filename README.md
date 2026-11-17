@@ -1,35 +1,41 @@
-# Stratum Firewall Official Website (`stratumfw.com`)
+<div align="center">
 
-Multilingual (**English** & **Turkish**) Hugo source repository for the official **[Stratum Firewall (Stratum FW)](https://stratumfw.com/)** website.
+# Stratum Firewall — Official Bilingual Portal & Documentation
 
-* **Live Website (EN):** [https://stratumfw.com/](https://stratumfw.com/)
-* **Live Website (TR):** [https://stratumfw.com/tr/](https://stratumfw.com/tr/)
-* **Interactive Live Demo (FreeBSD 15.1 VM):** [https://demo.stratumfw.com/](https://demo.stratumfw.com/) (`demo` / `Stratum2026`)
-* **Download Installers (`.iso` VGA & `.img` Serial):** [https://stratumfw.com/download/](https://stratumfw.com/download/)
-* **Appliance Architecture & Issue Tracker:** [kaanozkan-81/stratum-panel](https://github.com/kaanozkan-81/stratum-panel)
+**Enterprise Network Security & Routing Appliance OS built on FreeBSD 15.1-RELEASE, Kernel `pf`, OpenZFS & FastAPI**
+
+[[https://img.shields.io/badge/Website-stratumfw.com-f59e0b?style=for-the-badge]](https://stratumfw.com/)
+[[https://img.shields.io/badge/Türkçe-stratumfw.com%2Ftr-0ea5e9?style=for-the-badge]](https://stratumfw.com/tr/)
+[[https://img.shields.io/badge/Live_Demo-demo.stratumfw.com-10b981?style=for-the-badge]](https://demo.stratumfw.com)
+[[https://img.shields.io/badge/Release-v0.34.1-6366f1?style=for-the-badge]](https://stratumfw.com/download/)
+
+<br>
+
+<a href="https://stratumfw.com/">
+  <img src="./static/images/og-stratum-firewall.jpg" alt="Stratum Firewall Overview" width="100%">
+</a>
+
+</div>
+
+## Overview
+
+This repository contains the bilingual (**English** & **Turkish**) Hugo source for [stratumfw.com](https://stratumfw.com/), covering architecture specifications, multi-vendor VPN documentation, OPNsense migration guides, release changelogs, technical blog articles, and offline installer verification pages.
+
+| Main Appliance Showcase | Production Architecture Stack |
+| :---: | :---: |
+| <img src="./static/images/og-stratum-firewall.jpg" alt="Stratum Firewall Appliance Showcase" width="100%"> | <img src="./static/images/home-deploy-stack.jpg" alt="Stratum Firewall Architecture Stack" width="100%"> |
 
 ## Repository Structure
 
-| Directory / File | Description |
-| :--- | :--- |
-| `hugo.toml` | Multilingual (`en` & `tr`) Hugo configuration, menus, and SEO metadata |
-| `content/en/` | English pages: Product, Solutions, Documentation (12 guides), Changelog (`v0.30.0`), FAQ, Download, Live Demo, and Blog |
-| `content/tr/` | Turkish pages (`1:1` parity): Ürün, Çözümler, Dokümantasyon (12 rehber), Sürüm Notları (`v0.30.0`), SSS, İndir, Canlı Demo ve Blog |
-| `layouts/` | Custom HTML5 templates, JSON-LD (`SoftwareApplication` & `WebApplication`) Schema, `hreflang`, and custom `robots.txt` |
-| `static/` | CSS, brand SVGs, 3D product architecture visuals (`images/features/`), UI docs screenshots, and `.well-known/security.txt` |
+* `content/en/` & `content/tr/` — Bilingual product pages, comparison matrices, documentation, download metadata, and engineering blog posts with bidirectional `hreflang` linking.
+* `layouts/` — Custom dark/light responsive Hugo templates, OpenGraph/Twitter card partials, and interactive gallery lightbox components.
+* `static/` — Architectural diagrams, UI screenshots, and static assets.
 
-## Building & Deploying
+## Quick Links
 
-Requires **Hugo Extended** (`v0.154+`):
+* **Interactive Read-Only Browser Demo:** [https://demo.stratumfw.com](https://demo.stratumfw.com)
+* **Offline VGA `.iso` & Headless Serial `.img` Installers:** [https://stratumfw.com/download/](https://stratumfw.com/download/)
+* **Official Changelog (`v0.1.0` – `v0.34.1`):** [https://stratumfw.com/resources/changelog/](https://stratumfw.com/resources/changelog/)
+* **Main Appliance Documentation & Issue Tracker:** [kaanozkan-81/stratum-panel](https://github.com/kaanozkan-81/stratum-panel)
 
-```bash
-# Local development server
-hugo server --buildFuture
-
-# Production build & deploy to Nginx web root
-hugo --minify --buildFuture
-sudo cp -rf public/. /var/www/stratumfw-site/
-sudo chown -R www-data:www-data /var/www/stratumfw-site
-```
-
-© 2026 Stratum Security · Kaan Özkan. All rights reserved.
+© 2026 Kaan Özkan. All rights reserved.
