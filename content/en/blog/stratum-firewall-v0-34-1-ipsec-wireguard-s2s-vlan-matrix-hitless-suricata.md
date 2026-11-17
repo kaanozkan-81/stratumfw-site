@@ -20,7 +20,7 @@ Enterprise branch networks rarely run a single vendor end to end. Under **VPN ->
 * **Automatic NAT Exemption, MSS Clamping & Peer Lockdown:** Private branch traffic is automatically exempted from WAN outbound NAT, TCP `SYN` segments are clamped to `1360` bytes to prevent PMTUD blackholes, pre-shared keys stay isolated in `0600` root-only secret files, and WAN `UDP 500/4500` + `ESP` ports open strictly to configured peer endpoints.
 
 <figure style="margin:1.75rem 0;background:#08101f;border:1px solid #1e293b;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -12px rgba(15,23,42,0.35);">
-  <img src="/images/s2s-vpn-topology.jpg" alt="Stratum Firewall Multi-Vendor IPsec and WireGuard Site-to-Site Hub Architecture" loading="lazy" style="display:block;width:100%;height:auto;">
+  <img src="/images/features/s2s-vpn-topology.jpg" alt="Stratum Firewall Multi-Vendor IPsec and WireGuard Site-to-Site Hub Architecture" loading="lazy" style="display:block;width:100%;height:auto;">
   <figcaption style="padding:0.75rem 1rem;font-size:0.84rem;color:#cbd5e1;text-align:center;border-top:1px solid #1e293b;">Multi-vendor Site-to-Site hub interconnecting FortiGate, Cisco, cloud VPCs, MikroTik RouterOS 7, and remote Stratum / OPNsense gateways.</figcaption>
 </figure>
 
@@ -32,7 +32,7 @@ Prior to `v0.34.0`, remote road-warrior clients shared `wg0`. Branch-to-branch l
 * **Strict `AllowedIPs` & Route-Overlap Guards:** Each peer enforces exact remote subnet `AllowedIPs` selectors at the kernel cryptokey routing layer, while pre-apply validation blocks overlapping CIDR claims that could otherwise hijack local VLANs or road-warrior VPN pools.
 
 <figure style="margin:1.75rem 0;background:#08101f;border:1px solid #1e293b;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -12px rgba(15,23,42,0.35);">
-  <img src="/images/s2s-vpn-panel.jpg" alt="Stratum Firewall Live IPsec and WireGuard Site-to-Site Tunnel Status Panel" loading="lazy" style="display:block;width:100%;height:auto;">
+  <img src="/images/features/s2s-vpn-panel.jpg" alt="Stratum Firewall Live IPsec and WireGuard Site-to-Site Tunnel Status Panel" loading="lazy" style="display:block;width:100%;height:auto;">
   <figcaption style="padding:0.75rem 1rem;font-size:0.84rem;color:#cbd5e1;text-align:center;border-top:1px solid #1e293b;">Unified tunnel telemetry displaying live IKEv2, IKEv1, and WireGuard S2S handshakes alongside kernel crypto status.</figcaption>
 </figure>
 

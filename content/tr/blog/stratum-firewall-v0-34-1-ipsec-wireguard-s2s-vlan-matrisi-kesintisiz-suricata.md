@@ -20,7 +20,7 @@ Kurumsal topolojilerde merkez ve şubeler her zaman aynı marka donanımı kulla
 * **Otomatik NAT Muafiyeti, MSS Sabitleme ve Uç Nokta Koruması:** Şube alt ağları giden WAN NAT kurallarından otomatik muaf tutulur, PMTUD paket parçalanması sorunlarını önlemek için TCP `SYN` paketleri `1360` bayt MSS değerine sabitlenir, paylaşımlı anahtarlar `0600` izinli izole dosyalarda saklanır ve WAN üzerindeki `UDP 500/4500` ile `ESP` portları yalnızca tanımlı uzak IP adreslerine açılır.
 
 <figure style="margin:1.75rem 0;background:#08101f;border:1px solid #1e293b;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -12px rgba(15,23,42,0.35);">
-  <img src="/images/s2s-vpn-topology.jpg" alt="Stratum Firewall Coklu Uretici IPsec ve WireGuard S2S Merkez Mimarisi" loading="lazy" style="display:block;width:100%;height:auto;">
+  <img src="/images/features/s2s-vpn-topology.jpg" alt="Stratum Firewall Coklu Uretici IPsec ve WireGuard S2S Merkez Mimarisi" loading="lazy" style="display:block;width:100%;height:auto;">
   <figcaption style="padding:0.75rem 1rem;font-size:0.84rem;color:#cbd5e1;text-align:center;border-top:1px solid #1e293b;">FortiGate, Cisco, bulut VPC, MikroTik RouterOS 7 ve uzak Stratum / OPNsense şubelerini tek merkezde birleştiren S2S VPN mimarisi.</figcaption>
 </figure>
 
@@ -32,7 +32,7 @@ Mobil kullanıcı bağlantıları `wg0` üzerinde çalışmaya devam ederken, ş
 * **Sıkı `AllowedIPs` ve Rota Çakışma Koruması:** Her şube tüneli çekirdek kripto yönlendirme tablosunda yalnızca yetkili uzak alt ağları kabul eder; uygulama öncesi çakışma kontrolü, yerel VLAN bloklarının veya uzaktan erişim VPN havuzlarının yanlış rota tanımlarıyla ezilmesini engeller.
 
 <figure style="margin:1.75rem 0;background:#08101f;border:1px solid #1e293b;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -12px rgba(15,23,42,0.35);">
-  <img src="/images/s2s-vpn-panel.jpg" alt="Stratum Firewall Canli IPsec ve WireGuard S2S Tunel Durum Paneli" loading="lazy" style="display:block;width:100%;height:auto;">
+  <img src="/images/features/s2s-vpn-panel.jpg" alt="Stratum Firewall Canli IPsec ve WireGuard S2S Tunel Durum Paneli" loading="lazy" style="display:block;width:100%;height:auto;">
   <figcaption style="padding:0.75rem 1rem;font-size:0.84rem;color:#cbd5e1;text-align:center;border-top:1px solid #1e293b;">IKEv2, IKEv1 ve WireGuard S2S el sıkışma zamanlarını ve çekirdek kripto durumunu tek ekranda gösteren kontrol paneli.</figcaption>
 </figure>
 
