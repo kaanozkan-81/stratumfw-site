@@ -39,17 +39,29 @@ section.hero h1, section.hero p {
 <style>
   section:has(.stratum-hero-v2) {
     position: relative !important;
-    padding: 1.75rem 0 2.6rem 0 !important;
-    min-height: 600px !important;
+    padding: 1.5rem 0 2.4rem 0 !important;
+    min-height: 670px !important;
     display: flex !important;
     align-items: stretch !important;
+    background-color: #050a1c !important;
+    background-image:
+      linear-gradient(180deg, rgba(5,10,28,0.55) 0%, rgba(5,10,28,0.0) 16%, rgba(5,10,28,0.0) 64%, rgba(5,10,28,0.86) 84%, #08101f 100%),
+      radial-gradient(ellipse at 50% 44%, rgba(5,10,28,0.0) 42%, #050a1c 88%),
+      url('/images/hero-stratum-chip.jpg') !important;
+    background-repeat: no-repeat, no-repeat, no-repeat !important;
+    background-position: center center, center center, center 68px !important;
+    background-size: 100% 100%, 100% 100%, min(1140px, 96vw) auto !important;
+    border-bottom: 1px solid #1e293b !important;
+    overflow: hidden !important;
   }
-  /* Arka plandaki 3D altin katman gorselini belirginlestir, beyaz sis perdeyi hafiflet */
+  /* Eski temadan kalan beyaz perde / arka plan katmanlarini tamamen kapat */
   section:has(.stratum-hero-v2)::before,
+  section:has(.stratum-hero-v2)::after,
   section:has(.stratum-hero-v2) .hero-overlay,
-  section:has(.stratum-hero-v2) .hero-backdrop {
-    background: radial-gradient(ellipse at 50% 42%, rgba(255,255,255,0.02) 0%, rgba(248,250,252,0.28) 62%, rgba(248,250,252,0.86) 100%) !important;
-    opacity: 1 !important;
+  section:has(.stratum-hero-v2) .hero-backdrop,
+  section:has(.stratum-hero-v2) .hero-bg {
+    display: none !important;
+    content: none !important;
   }
   section:has(.stratum-hero-v2) > .container,
   section:has(.stratum-hero-v2) .hero-container,
@@ -60,10 +72,11 @@ section.hero h1, section.hero p {
     display: flex !important;
     flex-direction: column !important;
     flex: 1 1 auto !important;
+    background: transparent !important;
   }
   .stratum-hero-v2 {
     width: 100% !important;
-    min-height: 530px !important;
+    min-height: 605px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
@@ -72,51 +85,52 @@ section.hero h1, section.hero p {
     position: relative !important;
     z-index: 3 !important;
   }
-  /* Ustteki ince, zarif ve kibar buton seridi */
+  /* Ustteki ince, zarif koyu-cam (dark-glass) aksiyon seridi */
   .stratum-hero-slimbar {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 0.5rem !important;
-    padding: 0.35rem 0.5rem !important;
+    gap: 0.45rem !important;
+    padding: 0.34rem 0.48rem !important;
     border-radius: 999px !important;
-    background: rgba(255, 255, 255, 0.72) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    border: 1px solid rgba(15, 23, 42, 0.1) !important;
-    box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.1) !important;
+    background: rgba(8, 16, 31, 0.72) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(56, 189, 248, 0.22) !important;
+    box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.55) !important;
   }
   .stratum-slim-btn {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 0.4rem !important;
-    padding: 0.36rem 0.82rem !important;
+    gap: 0.38rem !important;
+    padding: 0.34rem 0.8rem !important;
     border-radius: 999px !important;
-    font-size: 0.77rem !important;
+    font-size: 0.76rem !important;
     font-weight: 600 !important;
     line-height: 1.2 !important;
-    color: #1e293b !important;
-    background: rgba(255, 255, 255, 0.88) !important;
-    border: 1px solid rgba(15, 23, 42, 0.1) !important;
+    color: #e2e8f0 !important;
+    background: rgba(15, 23, 42, 0.75) !important;
+    border: 1px solid rgba(148, 163, 184, 0.2) !important;
     text-decoration: none !important;
     transition: all 0.16s ease !important;
     white-space: nowrap !important;
   }
   .stratum-slim-btn:hover {
-    background: #ffffff !important;
-    border-color: rgba(217, 119, 6, 0.45) !important;
-    color: #0f172a !important;
+    background: rgba(30, 41, 59, 0.95) !important;
+    border-color: rgba(56, 189, 248, 0.55) !important;
+    color: #ffffff !important;
     transform: translateY(-1px) !important;
   }
   .stratum-slim-btn.primary {
-    background: #0f172a !important;
-    color: #fbbf24 !important;
-    border-color: rgba(245, 158, 11, 0.5) !important;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    border-color: #fbbf24 !important;
   }
   .stratum-slim-btn.primary:hover {
-    background: #1e293b !important;
-    color: #fde68a !important;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+    color: #090d16 !important;
   }
   .stratum-slim-btn svg {
     width: 13px !important;
@@ -128,82 +142,83 @@ section.hero h1, section.hero p {
     width: 6px !important;
     height: 6px !important;
     border-radius: 999px !important;
-    background: #f59e0b !important;
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.22) !important;
+    background: #38bdf8 !important;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.22) !important;
   }
-  /* Orta pencere: 3D gorselin tam gorunmesi icin bos birakilan alan */
+  /* Ortada STRATUM FIREWALL cipinin tam acik gorunmesi icin birakilan pencere */
   .stratum-hero-window {
     flex: 1 1 auto !important;
-    min-height: 215px !important;
+    min-height: 365px !important;
     width: 100% !important;
     pointer-events: none !important;
   }
-  /* Asagi cekilen ana baslik, alt baslik ve panel uyumlu kehribar AI rozeti */
+  /* Cipin altina inen baslik, alt baslik ve AI rozeti */
   .stratum-hero-lower {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 0.7rem !important;
-    padding-top: 0.5rem !important;
+    gap: 0.58rem !important;
+    padding-top: 0.25rem !important;
   }
   .stratum-hero-lower h1 {
-    font-size: clamp(2.15rem, 4vw, 3.25rem) !important;
+    font-size: clamp(1.85rem, 3.1vw, 2.55rem) !important;
     font-weight: 800 !important;
-    letter-spacing: -0.028em !important;
-    line-height: 1.12 !important;
-    color: #0f172a !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.15 !important;
+    color: #f8fafc !important;
     margin: 0 !important;
-    text-shadow: 0 2px 18px rgba(255, 255, 255, 0.85) !important;
+    text-shadow: 0 4px 22px rgba(5, 10, 28, 0.95) !important;
   }
   .stratum-hero-accent-line {
-    width: 56px !important;
+    width: 52px !important;
     height: 3px !important;
     border-radius: 999px !important;
-    background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%) !important;
-    margin: 0.1rem 0 !important;
+    background: linear-gradient(90deg, #38bdf8 0%, #f59e0b 100%) !important;
+    margin: 0.05rem 0 !important;
   }
   .stratum-hero-subpill {
     display: inline-block !important;
-    padding: 0.42rem 1.15rem !important;
-    border-radius: 12px !important;
-    background: rgba(255, 255, 255, 0.82) !important;
+    padding: 0.36rem 1.05rem !important;
+    border-radius: 10px !important;
+    background: rgba(15, 23, 42, 0.72) !important;
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
-    border: 1px solid rgba(15, 23, 42, 0.08) !important;
-    font-size: clamp(1rem, 1.55vw, 1.24rem) !important;
-    font-weight: 700 !important;
-    color: #0f172a !important;
+    border: 1px solid rgba(148, 163, 184, 0.18) !important;
+    font-size: clamp(0.95rem, 1.35vw, 1.12rem) !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
     margin: 0 !important;
   }
   .stratum-hero-subpill span {
-    color: #d97706 !important;
+    color: #fbbf24 !important;
+    font-weight: 700 !important;
   }
   .stratum-hero-ai-pill {
     display: inline-flex !important;
     align-items: center !important;
     gap: 0.6rem !important;
-    margin-top: 0.35rem !important;
-    padding: 0.48rem 1.1rem 0.48rem 0.6rem !important;
+    margin-top: 0.25rem !important;
+    padding: 0.45rem 1.08rem 0.45rem 0.56rem !important;
     border-radius: 999px !important;
-    background: #0f172a !important;
+    background: rgba(15, 23, 42, 0.92) !important;
     border: 1.5px solid rgba(245, 158, 11, 0.72) !important;
     color: #f8fafc !important;
-    font-size: 0.81rem !important;
+    font-size: 0.8rem !important;
     font-weight: 600 !important;
     text-decoration: none !important;
-    box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.38), 0 0 0 1px rgba(245, 158, 11, 0.15) !important;
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.65) !important;
     transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease !important;
   }
   .stratum-hero-ai-pill:hover {
     transform: translateY(-1px) !important;
     border-color: #fbbf24 !important;
-    box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.46), 0 0 16px rgba(245, 158, 11, 0.28) !important;
+    box-shadow: 0 16px 32px -6px rgba(0, 0, 0, 0.75), 0 0 18px rgba(245, 158, 11, 0.3) !important;
   }
   .stratum-hero-ai-badge {
     display: inline-flex !important;
     align-items: center !important;
     gap: 0.3rem !important;
-    padding: 0.2rem 0.55rem !important;
+    padding: 0.18rem 0.52rem !important;
     border-radius: 999px !important;
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
     color: #0f172a !important;
@@ -217,9 +232,15 @@ section.hero h1, section.hero p {
     fill: #0f172a !important;
   }
   @media (max-width: 768px) {
-    .stratum-hero-slimbar { border-radius: 16px !important; padding: 0.5rem !important; }
-    .stratum-hero-window { min-height: 130px !important; }
-    .stratum-hero-ai-pill { font-size: 0.75rem !important; flex-wrap: wrap !important; justify-content: center !important; border-radius: 14px !important; }
+    section:has(.stratum-hero-v2) {
+      min-height: 540px !important;
+      background-position: center center, center center, center 105px !important;
+      background-size: 100% 100%, 100% 100%, 135vw auto !important;
+    }
+    .stratum-hero-v2 { min-height: 480px !important; }
+    .stratum-hero-window { min-height: 220px !important; }
+    .stratum-hero-slimbar { border-radius: 16px !important; padding: 0.45rem !important; }
+    .stratum-hero-ai-pill { font-size: 0.74rem !important; flex-wrap: wrap !important; justify-content: center !important; border-radius: 14px !important; }
   }
 </style>
     <div class="stratum-hero-v2">
