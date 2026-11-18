@@ -36,24 +36,211 @@ section.hero h1, section.hero p {
 <!-- STRATUM-HERO-BG-END -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-os-display"><span class="hero-os-text">Next-Generation Firewall OS</span><span class="hero-os-bar" aria-hidden="true"></span></div>
-    <h1 class="hero-power-sub">Pure FreeBSD 15.1 power.<br><span>Modern API control.</span></h1>
-    <!-- 1. Uyarı Bandı -->
-    
-    <!-- 2. Sürüm Butonu -->
-    <div class="hero-release-notice">
-      <a href="/resources/changelog/">FreeBSD 15.1-RELEASE · Live Demo & ISO Ready Read the changelog &rarr;</a>
+<style>
+  section:has(.stratum-hero-v2) {
+    position: relative !important;
+    padding: 1.75rem 0 2.6rem 0 !important;
+    min-height: 600px !important;
+    display: flex !important;
+    align-items: stretch !important;
+  }
+  /* Arka plandaki 3D altin katman gorselini belirginlestir, beyaz sis perdeyi hafiflet */
+  section:has(.stratum-hero-v2)::before,
+  section:has(.stratum-hero-v2) .hero-overlay,
+  section:has(.stratum-hero-v2) .hero-backdrop {
+    background: radial-gradient(ellipse at 50% 42%, rgba(255,255,255,0.02) 0%, rgba(248,250,252,0.28) 62%, rgba(248,250,252,0.86) 100%) !important;
+    opacity: 1 !important;
+  }
+  section:has(.stratum-hero-v2) > .container,
+  section:has(.stratum-hero-v2) .hero-container,
+  section:has(.stratum-hero-v2) .hero-content {
+    width: 100% !important;
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+  }
+  .stratum-hero-v2 {
+    width: 100% !important;
+    min-height: 530px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+  /* Ustteki ince, zarif ve kibar buton seridi */
+  .stratum-hero-slimbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.35rem 0.5rem !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(15, 23, 42, 0.1) !important;
+    box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.1) !important;
+  }
+  .stratum-slim-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    padding: 0.36rem 0.82rem !important;
+    border-radius: 999px !important;
+    font-size: 0.77rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    color: #1e293b !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    border: 1px solid rgba(15, 23, 42, 0.1) !important;
+    text-decoration: none !important;
+    transition: all 0.16s ease !important;
+    white-space: nowrap !important;
+  }
+  .stratum-slim-btn:hover {
+    background: #ffffff !important;
+    border-color: rgba(217, 119, 6, 0.45) !important;
+    color: #0f172a !important;
+    transform: translateY(-1px) !important;
+  }
+  .stratum-slim-btn.primary {
+    background: #0f172a !important;
+    color: #fbbf24 !important;
+    border-color: rgba(245, 158, 11, 0.5) !important;
+  }
+  .stratum-slim-btn.primary:hover {
+    background: #1e293b !important;
+    color: #fde68a !important;
+  }
+  .stratum-slim-btn svg {
+    width: 13px !important;
+    height: 13px !important;
+    flex: 0 0 13px !important;
+    stroke-width: 1.65 !important;
+  }
+  .stratum-slim-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 999px !important;
+    background: #f59e0b !important;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.22) !important;
+  }
+  /* Orta pencere: 3D gorselin tam gorunmesi icin bos birakilan alan */
+  .stratum-hero-window {
+    flex: 1 1 auto !important;
+    min-height: 215px !important;
+    width: 100% !important;
+    pointer-events: none !important;
+  }
+  /* Asagi cekilen ana baslik, alt baslik ve panel uyumlu kehribar AI rozeti */
+  .stratum-hero-lower {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.7rem !important;
+    padding-top: 0.5rem !important;
+  }
+  .stratum-hero-lower h1 {
+    font-size: clamp(2.15rem, 4vw, 3.25rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.028em !important;
+    line-height: 1.12 !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    text-shadow: 0 2px 18px rgba(255, 255, 255, 0.85) !important;
+  }
+  .stratum-hero-accent-line {
+    width: 56px !important;
+    height: 3px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%) !important;
+    margin: 0.1rem 0 !important;
+  }
+  .stratum-hero-subpill {
+    display: inline-block !important;
+    padding: 0.42rem 1.15rem !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    font-size: clamp(1rem, 1.55vw, 1.24rem) !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+  }
+  .stratum-hero-subpill span {
+    color: #d97706 !important;
+  }
+  .stratum-hero-ai-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    margin-top: 0.35rem !important;
+    padding: 0.48rem 1.1rem 0.48rem 0.6rem !important;
+    border-radius: 999px !important;
+    background: #0f172a !important;
+    border: 1.5px solid rgba(245, 158, 11, 0.72) !important;
+    color: #f8fafc !important;
+    font-size: 0.81rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.38), 0 0 0 1px rgba(245, 158, 11, 0.15) !important;
+    transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease !important;
+  }
+  .stratum-hero-ai-pill:hover {
+    transform: translateY(-1px) !important;
+    border-color: #fbbf24 !important;
+    box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.46), 0 0 16px rgba(245, 158, 11, 0.28) !important;
+  }
+  .stratum-hero-ai-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+    padding: 0.2rem 0.55rem !important;
+    border-radius: 999px !important;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: #0f172a !important;
+    font-size: 0.68rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.04em !important;
+  }
+  .stratum-hero-ai-badge svg {
+    width: 12px !important;
+    height: 12px !important;
+    fill: #0f172a !important;
+  }
+  @media (max-width: 768px) {
+    .stratum-hero-slimbar { border-radius: 16px !important; padding: 0.5rem !important; }
+    .stratum-hero-window { min-height: 130px !important; }
+    .stratum-hero-ai-pill { font-size: 0.75rem !important; flex-wrap: wrap !important; justify-content: center !important; border-radius: 14px !important; }
+  }
+</style>
+    <div class="stratum-hero-v2">
+      <nav class="stratum-hero-slimbar" aria-label="Quick Actions">
+        <a href="/download/" class="stratum-slim-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg><span>Get Stratum Firewall</span></a>
+        <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-slim-btn"><span class="stratum-slim-dot"></span><span>Try Live Demo</span></a>
+        <a href="/product/architecture/" class="stratum-slim-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg><span>Explore Architecture</span></a>
+        <a href="/product/security/" class="stratum-slim-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Explore Security</span></a>
+        <a href="/compare/" class="stratum-slim-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M8 21H3v-5M21 3l-7 7M3 21l7-7"/></svg><span>Compare Firewalls</span></a>
+      </nav>
+      <div class="stratum-hero-window" aria-hidden="true"></div>
+      <div class="stratum-hero-lower">
+        <h1>Next-Generation Firewall OS</h1>
+        <div class="stratum-hero-accent-line"></div>
+        <p class="stratum-hero-subpill">Pure FreeBSD 15.1 power. <span>Modern API control.</span></p>
+        <a href="#ai-assistant" class="stratum-hero-ai-pill">
+          <span class="stratum-hero-ai-badge"><svg viewBox="0 0 24 24"><path d="M12 2l2.1 6.1L20.2 10l-6.1 2.1L12 18.2l-2.1-6.1L3.8 10l6.1-1.9L12 2zm6.5 13l1.1 3.1 3.1 1.1-3.1 1.1-1.1 3.1-1.1-3.1-3.1-1.1 3.1-1.1 1.1-3.1zM5.5 15l.9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9.9-2.4z"/></svg><span>AI</span></span>
+          <span>Built-in Read-Only AI Assistant · Claude, OpenAI, DeepSeek, Gemini & Local Ollama →</span>
+        </a>
+      </div>
     </div>
-    
-    <!-- 3. CTA Butonları -->
-    <div class="hero-ctas">
-      <a href="/download/" class="btn btn-primary">Get Stratum Firewall</a>
-          <!-- DEMO-BTN --><a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color:#F59E0B;background:rgba(245,158,11,0.12);font-weight:600;display:inline-flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#10B981;box-shadow:0 0 8px #10B981;display:inline-block;"></span>Try Live Demo</a><!-- /DEMO-BTN -->
-      <a href="/product/architecture/" class="btn btn-secondary">Explore Architecture</a>
-      <a href="/product/security/" class="btn btn-secondary">Explore Security</a>
-          <a href="/compare/" class="btn btn-secondary" data-hero-compare="1"><svg class="hero-compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Compare Firewalls</a>
-    </div>
-        <div style="margin-top:0.85rem;"><a href="#ai-assistant" class="stratum-hero-ai-pill"><span class="stratum-hero-ai-dot">AI</span><span>Built-in Read-Only AI Assistant &middot; Claude, OpenAI, DeepSeek, Gemini &amp; Local Ollama &rarr;</span></a></div>
   </div>
 </section>
 
@@ -88,9 +275,9 @@ section.hero h1, section.hero p {
     font-weight: 700 !important;
     letter-spacing: 0.09em !important;
     text-transform: uppercase !important;
-    color: #34d399 !important;
-    background: rgba(16, 185, 129, 0.12) !important;
-    border: 1px solid rgba(52, 211, 153, 0.35) !important;
+    color: #fbbf24 !important;
+    background: rgba(245, 158, 11, 0.12) !important;
+    border: 1px solid rgba(245, 158, 11, 0.38) !important;
     padding: 0.28rem 0.72rem !important;
     border-radius: 999px !important;
     margin: 0 0 0.75rem 0 !important;
@@ -153,8 +340,8 @@ section.hero h1, section.hero p {
     color: #94a3b8 !important;
   }
   section.stratum-ai-band .stratum-ai-chip.ollama {
-    border-color: rgba(52, 211, 153, 0.45) !important;
-    color: #6ee7b7 !important;
+    border-color: rgba(245, 158, 11, 0.5) !important;
+    color: #fbbf24 !important;
   }
   section.stratum-ai-band .stratum-ai-actions {
     display: flex !important;
