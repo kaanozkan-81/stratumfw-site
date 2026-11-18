@@ -8,6 +8,16 @@ seoDescription: "FreeBSD 15.1 tabanlı Stratum Firewall işletim sisteminin tüm
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
 
+## v0.35.1 — 2026-11-18
+
+* **Deterministik MCP Kural ve Sayaç Hesabı:** Güvenlik duvarı ve NAT kuralı MCP araçları artık toplam, etkin ve devre dışı kural sayılarını modele saydırmak yerine kesin olarak hesaplayıp döndürür; ayrıca `0` paket sayacının *"hiç kullanılmadı"* değil *"son Apply/yenilemeden beri eşleşmedi"* anlamına geldiğini açıklar. Üretim ortamındaki bir güvenlik duvarında DeepSeek ile doğrulandı.
+
+## v0.35.0 — 2026-11-18
+
+* **Yerleşik `Tanılama > Yapay Zeka Asistanı`:** Güvenlik duvarının canlı durumunu doğal dilde sorgulayın (*"son bir saatte nereden gelen neler engellendi?"*, *"WAN2 sağlıklı mı?"*, *"iç ağda şüpheli cihaz var mı?"*). 14 salt okunur MCP aracıyla çalışır, hiçbir ayarı değiştiremez, kullandığı araçları her yanıtın altında gösterir ve değişiklik için ilgili panel ekranını tarif eder.
+* **Yerel `Ollama` Dahil 5 Sağlayıcı Desteği:** Anthropic Claude, OpenAI, DeepSeek, Google Gemini ve hiçbir sorunun veya verinin ağ dışına çıkmadığı yerel **Ollama** sunucusu desteği.
+* **Otomatik Genel IP Maskeleme ve 1 Saatlik Bellek İçi Sohbet:** Genel IP adresleri bulut sağlayıcılara gönderilmeden önce varsayılan olarak takma adlarla (`PUB-1`, `PUB-2`...) değiştirilir ve yanıtta gerçek adresleriyle gösterilir; parolalar, `0600` gizli anahtarlar ve VPN profilleri asla döndürülmez; API anahtarları `0600` dosyalarda tutulur (şifreli yedeklere dahildir); yalnızca yöneticilere açıktır ve soru/yanıtlar diske yazılmadan 1 saat bellekte tutulur.
+
 ## v0.34.2 — 2026-11-17
 
 * **OpenSSL Anahtar Üretimi (`cryptography`):** Yönetim katmanındaki WireGuard / X25519 anahtar üretim yardımcıları denetlenmiş Python `cryptography` (OpenSSL) kütüphanesine taşındı; böylece Stratum FW kendi özel kriptografik algoritmasını barındırmaz.

@@ -155,6 +155,23 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 .stratum-s2s-showcase .stratum-subcard strong,.stratum-s2s-showcase .stratum-subcard em{color:#f8fafc !important;}
 .stratum-s2s-showcase .stratum-subcard code{background:rgba(56,189,248,0.12) !important;color:#7dd3fc !important;border:1px solid rgba(56,189,248,0.24) !important;padding:0.1rem 0.36rem !important;border-radius:5px !important;font-size:0.84em !important;}
 </style>
+<!-- STRATUM-FEATURES-AI-START -->
+<section id="ai-assistant" style="margin:2rem 0;padding:2.25rem;background:#08101f !important;border:1px solid #1e293b !important;border-radius:18px !important;box-shadow:0 22px 48px -12px rgba(8,16,31,0.45) !important;">
+<span style="display:inline-block !important;font-size:0.73rem !important;font-weight:700 !important;letter-spacing:0.08em !important;text-transform:uppercase !important;color:#34d399 !important;background:rgba(16,185,129,0.12) !important;border:1px solid rgba(52,211,153,0.35) !important;padding:0.28rem 0.72rem !important;border-radius:999px !important;margin-bottom:0.75rem !important;">DIAGNOSTICS &rarr; AI ASSISTANT &bull; READ-ONLY MCP</span>
+<h2 style="color:#f8fafc !important;font-size:clamp(1.45rem,2.2vw,1.85rem) !important;font-weight:800 !important;margin:0 0 0.65rem 0 !important;">Built-In Natural-Language AI Diagnostics (Cloud or Local Ollama)</h2>
+<p style="color:#cbd5e1 !important;font-size:0.96rem !important;line-height:1.65 !important;margin:0 0 1.4rem 0 !important;max-width:980px !important;">Ask about blocked threats, WAN failover health, NAT rule counts, or suspicious LAN devices in your own words. Powered by 14 deterministic read-only MCP tools, the assistant cannot change any setting, masks public IPs as <code>PUB-1</code> before cloud calls, and supports Anthropic Claude, OpenAI, DeepSeek, Google Gemini, or a 100% local <strong>Ollama</strong> server where zero data leaves your network.</p>
+<figure style="margin:0 0 1.4rem 0 !important;border-radius:14px !important;overflow:hidden !important;border:1px solid #1e293b !important;background:#050b16 !important;">
+<img src="/images/ai-assistant-ui.jpg" alt="Stratum Firewall Diagnostics AI Assistant Showcase" loading="lazy" style="display:block !important;width:100% !important;height:auto !important;">
+</figure>
+<div style="display:grid !important;grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) !important;gap:1.1rem !important;margin-bottom:1.35rem !important;">
+<div style="background:#0f172a !important;border:1px solid #1e293b !important;border-radius:12px !important;padding:1.2rem !important;"><strong style="display:block !important;color:#f8fafc !important;margin-bottom:0.35rem !important;">Strictly Read-Only &amp; Exact Math</strong><span style="color:#cbd5e1 !important;font-size:0.86rem !important;line-height:1.5 !important;">Pre-computes exact rule/NAT totals and explains <code>0</code> packet counters accurately while citing every MCP tool used.</span></div>
+<div style="background:#0f172a !important;border:1px solid #1e293b !important;border-radius:12px !important;padding:1.2rem !important;"><strong style="display:block !important;color:#f8fafc !important;margin-bottom:0.35rem !important;">Public IP Masking &amp; 1h RAM</strong><span style="color:#cbd5e1 !important;font-size:0.86rem !important;line-height:1.5 !important;">Aliases public IPs (<code>PUB-1</code>) automatically, never touches <code>0600</code> keys or passwords, and never writes chats to disk.</span></div>
+<div style="background:#0f172a !important;border:1px solid #1e293b !important;border-radius:12px !important;padding:1.2rem !important;"><strong style="display:block !important;color:#f8fafc !important;margin-bottom:0.35rem !important;">5 Providers Incl. Air-Gap Ollama</strong><span style="color:#cbd5e1 !important;font-size:0.86rem !important;line-height:1.5 !important;">Run Claude, OpenAI, DeepSeek, or Gemini in the cloud, or keep 100% of queries inside your LAN with local Ollama.</span></div>
+</div>
+<a href="/product/ai-assistant/" style="display:inline-flex !important;align-items:center !important;padding:0.65rem 1.25rem !important;background:#f59e0b !important;color:#0f172a !important;font-weight:700 !important;font-size:0.86rem !important;border-radius:8px !important;text-decoration:none !important;">Deep-Dive: AI Assistant &amp; Privacy Architecture &rarr;</a>
+</section>
+<!-- STRATUM-FEATURES-AI-END -->
+
 <section class="stratum-s2s-showcase" id="s2s-vpn">
   <div class="stratum-s2s-eyebrow"><span class="stratum-s2s-dot"></span>Site-to-Site VPN Engine · Kernel Cryptography</div>
   <h2 class="stratum-s2s-title">Multi-Vendor IPsec (IKEv2 / IKEv1) &amp; WireGuard Site-to-Site Tunnels</h2>

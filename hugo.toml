@@ -33,6 +33,13 @@ disableKinds = ["taxonomy", "term"]
         parent = 'product'
         weight = 11
       
+
+[[languages.en.menu.main]]
+        name = 'AI Assistant'
+        url = '/product/ai-assistant/'
+        parent = 'product'
+        weight = 11
+      
 [[languages.en.menu.main]]
         name = 'Security Guard'
         url = '/product/security-guard/'
@@ -144,6 +151,13 @@ disableKinds = ["taxonomy", "term"]
       [[languages.tr.menu.main]]
         name = 'Özellikler'
         url = '/tr/product/features/'
+        parent = 'product'
+        weight = 11
+      
+
+[[languages.tr.menu.main]]
+        name = 'AI Asistanı'
+        url = '/tr/product/ai-assistant/'
         parent = 'product'
         weight = 11
       

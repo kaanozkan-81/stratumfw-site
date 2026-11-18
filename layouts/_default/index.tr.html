@@ -53,12 +53,209 @@ section.hero h1, section.hero p {
       <a href="/tr/product/security/" class="btn btn-secondary">Güvenlikyi İncele</a>
           <a href="/tr/compare/" class="btn btn-secondary" data-hero-compare="1"><svg class="hero-compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Karşılaştırma</a>
     </div>
+        <div style="margin-top:0.85rem;"><a href="#ai-assistant" class="stratum-hero-ai-pill"><span class="stratum-hero-ai-dot">AI</span><span>Yerleşik Salt Okunur Yapay Zeka Asistanı &middot; Claude, OpenAI, DeepSeek, Gemini ve Yerel Ollama &rarr;</span></a></div>
   </div>
 </section>
 
 <!-- STRATUM-HOME-COMPARE-END -->
 
 <!-- STRATUM-V0303-GALLERY-START -->
+<!-- STRATUM-AI-BAND-START -->
+<section class="stratum-ai-band" id="ai-assistant">
+<style>
+  section.stratum-ai-band {
+    padding: 3.75rem 0 !important;
+    background: #08101f !important;
+    border-top: 1px solid #1e293b !important;
+    border-bottom: 1px solid #1e293b !important;
+  }
+  section.stratum-ai-band .stratum-ai-inner {
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+  }
+  section.stratum-ai-band .stratum-ai-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.24fr) !important;
+    gap: 2.75rem !important;
+    align-items: center !important;
+  }
+  section.stratum-ai-band .stratum-ai-eyebrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.09em !important;
+    text-transform: uppercase !important;
+    color: #34d399 !important;
+    background: rgba(16, 185, 129, 0.12) !important;
+    border: 1px solid rgba(52, 211, 153, 0.35) !important;
+    padding: 0.28rem 0.72rem !important;
+    border-radius: 999px !important;
+    margin: 0 0 0.75rem 0 !important;
+  }
+  section.stratum-ai-band h2.stratum-ai-title {
+    font-size: clamp(1.4rem, 2vw, 1.72rem) !important;
+    line-height: 1.24 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    color: #f8fafc !important;
+    margin: 0 0 0.65rem 0 !important;
+  }
+  section.stratum-ai-band p.stratum-ai-lead {
+    font-size: 0.88rem !important;
+    line-height: 1.58 !important;
+    color: #cbd5e1 !important;
+    margin: 0 0 1rem 0 !important;
+  }
+  section.stratum-ai-band ul.stratum-ai-points {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 1.25rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  section.stratum-ai-band ul.stratum-ai-points li {
+    font-size: 0.82rem !important;
+    line-height: 1.48 !important;
+    color: #cbd5e1 !important;
+    padding-left: 1.15rem !important;
+    position: relative !important;
+    margin: 0 !important;
+  }
+  section.stratum-ai-band ul.stratum-ai-points li::before {
+    content: "✦" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: #fbbf24 !important;
+    font-size: 0.78rem !important;
+  }
+  section.stratum-ai-band ul.stratum-ai-points li strong {
+    color: #f8fafc !important;
+    font-weight: 700 !important;
+  }
+  section.stratum-ai-band .stratum-ai-providers {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.4rem !important;
+    margin: 0 0 1.2rem 0 !important;
+  }
+  section.stratum-ai-band .stratum-ai-chip {
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    padding: 0.22rem 0.6rem !important;
+    border-radius: 6px !important;
+    background: #0f172a !important;
+    border: 1px solid #1e293b !important;
+    color: #94a3b8 !important;
+  }
+  section.stratum-ai-band .stratum-ai-chip.ollama {
+    border-color: rgba(52, 211, 153, 0.45) !important;
+    color: #6ee7b7 !important;
+  }
+  section.stratum-ai-band .stratum-ai-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.65rem !important;
+  }
+  section.stratum-ai-band .stratum-ai-btn1 {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0.58rem 1.15rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    background: #f59e0b !important;
+    color: #0f172a !important;
+    text-decoration: none !important;
+  }
+  section.stratum-ai-band .stratum-ai-btn2 {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0.58rem 1.05rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    background: #0f172a !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+    text-decoration: none !important;
+  }
+  section.stratum-ai-band .stratum-ai-visual img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 16px !important;
+    border: 1px solid #1e293b !important;
+    box-shadow: 0 24px 52px -12px rgba(0, 0, 0, 0.55) !important;
+  }
+  .stratum-hero-ai-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-top: 1.1rem !important;
+    padding: 0.42rem 0.9rem !important;
+    border-radius: 999px !important;
+    background: rgba(15, 23, 42, 0.06) !important;
+    border: 1px solid rgba(16, 185, 129, 0.45) !important;
+    color: #0f172a !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: transform 0.15s ease, border-color 0.15s ease !important;
+  }
+  .stratum-hero-ai-pill:hover {
+    transform: translateY(-1px) !important;
+    border-color: #10b981 !important;
+  }
+  .stratum-hero-ai-dot {
+    font-size: 0.68rem !important;
+    font-weight: 800 !important;
+    padding: 0.12rem 0.45rem !important;
+    border-radius: 999px !important;
+    background: #10b981 !important;
+    color: #052e16 !important;
+    letter-spacing: 0.05em !important;
+  }
+  @media (max-width: 991px) {
+    section.stratum-ai-band .stratum-ai-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+  <div class="stratum-ai-inner">
+    <div class="stratum-ai-grid">
+      <div>
+        <div class="stratum-ai-eyebrow">YENİ &bull; YERLEŞİK SALT OKUNUR YAPAY ZEKA ASİSTANI</div>
+        <h2 class="stratum-ai-title">Güvenlik duvarınıza doğal dilde sorun — sıfır değişiklik riskiyle</h2>
+        <p class="stratum-ai-lead">Son bir saatte nelerin engellendiğini, WAN2 hattının sağlığını veya iç ağda şüpheli bir cihaz olup olmadığını kendi cümlelerinizle sorun. 14 salt okunur MCP aracıyla çalışan asistan canlı durumu analiz eder, hiçbir ayarı değiştiremez.</p>
+        <ul class="stratum-ai-points">
+          <li><strong>Otomatik Genel IP Maskeleme (<code>PUB-1</code>):</strong> Gerçek genel IP adreslerini buluta göndermeden önce maskeler, yanıtta yerel olarak geri yazar.</li>
+          <li><strong>Gizli Anahtarlara Sıfır Erişim:</strong> Parolalar, <code>0600</code> anahtarlar ve VPN profilleri okunamaz; sohbet yalnızca 1 saat RAM'de tutulur, diske yazılmaz.</li>
+          <li><strong>Şeffaf Araç Etiketleri:</strong> Çalıştırdığı MCP araçlarını yanıtın altında gösterir ve değişiklik gerektiğinde ilgili panel ekranına yönlendirir.</li>
+        </ul>
+        <div class="stratum-ai-providers">
+          <span class="stratum-ai-chip">Claude</span>
+          <span class="stratum-ai-chip">OpenAI</span>
+          <span class="stratum-ai-chip">DeepSeek</span>
+          <span class="stratum-ai-chip">Gemini</span>
+          <span class="stratum-ai-chip ollama">Yerel Ollama (Veri Ağdan Çıkmaz)</span>
+        </div>
+        <div class="stratum-ai-actions">
+          <a href="/tr/product/ai-assistant/" class="stratum-ai-btn1">Yapay Zeka Mimarisini İncele &rarr;</a>
+          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-ai-btn2">Canlı Demoyu Aç</a>
+        </div>
+      </div>
+      <div class="stratum-ai-visual">
+        <img src="/images/ai-assistant-ui.jpg" alt="Stratum Firewall Yerlesik Salt Okunur Yapay Zeka Asistani" loading="eager" width="1376" height="768">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- STRATUM-AI-BAND-END -->
+
 <section class="section section-canvas" id="gallery">
   <div class="wrap">
     <div class="section-head">
