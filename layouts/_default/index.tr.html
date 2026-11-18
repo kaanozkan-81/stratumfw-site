@@ -39,18 +39,17 @@ section.hero h1, section.hero p {
 <style>
   section:has(.stratum-hero-v2) {
     position: relative !important;
-    padding: 0.9rem 0 1.6rem 0 !important;
-    min-height: 490px !important;
+    padding: 0.95rem 0 1.65rem 0 !important;
+    min-height: 485px !important;
     display: flex !important;
     align-items: stretch !important;
     background-color: #050a1c !important;
     background-image:
-      radial-gradient(ellipse 520px 230px at 50% 210px, rgba(5,10,28,0.0) 68%, #050a1c 100%),
-      linear-gradient(180deg, rgba(5,10,28,0.0) 0%, rgba(5,10,28,0.0) 66%, rgba(8,16,31,0.92) 86%, #08101f 100%),
-      url('/images/hero-stratum-chip.jpg') !important;
-    background-repeat: no-repeat, no-repeat, no-repeat !important;
-    background-position: center top, center top, center 16px !important;
-    background-size: 100% 100%, 100% 100%, auto 390px !important;
+      linear-gradient(180deg, rgba(5,10,28,0.0) 0%, rgba(5,10,28,0.0) 68%, rgba(8,16,31,0.92) 88%, #08101f 100%),
+      url('/images/hero-stratum-chip-v2.svg?v=2') !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-position: center top, center 6px !important;
+    background-size: 100% 100%, auto 455px !important;
     border-bottom: 1px solid #1e293b !important;
     overflow: hidden !important;
   }
@@ -75,7 +74,7 @@ section.hero h1, section.hero p {
   }
   .stratum-hero-v2 {
     width: 100% !important;
-    min-height: 450px !important;
+    min-height: 445px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
@@ -92,11 +91,11 @@ section.hero h1, section.hero p {
     gap: 0.45rem !important;
     padding: 0.32rem 0.46rem !important;
     border-radius: 999px !important;
-    background: rgba(8, 16, 31, 0.78) !important;
+    background: rgba(8, 16, 31, 0.82) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
     border: 1px solid rgba(56, 189, 248, 0.25) !important;
-    box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.65) !important;
   }
   .stratum-slim-btn {
     display: inline-flex !important;
@@ -108,7 +107,7 @@ section.hero h1, section.hero p {
     font-weight: 600 !important;
     line-height: 1.2 !important;
     color: #e2e8f0 !important;
-    background: rgba(15, 23, 42, 0.78) !important;
+    background: rgba(15, 23, 42, 0.82) !important;
     border: 1px solid rgba(148, 163, 184, 0.22) !important;
     text-decoration: none !important;
     transition: all 0.16s ease !important;
@@ -139,12 +138,11 @@ section.hero h1, section.hero p {
     background: #38bdf8 !important;
     box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.22) !important;
   }
-  /* Tam cipin yuksekligi kadar acik pencere (16px + 265px -> cip tam ortada parlar) */
   .stratum-hero-window {
-    height: 262px !important;
-    min-height: 262px !important;
-    max-height: 262px !important;
-    flex: 0 0 262px !important;
+    height: 252px !important;
+    min-height: 252px !important;
+    max-height: 252px !important;
+    flex: 0 0 252px !important;
     width: 100% !important;
     pointer-events: none !important;
   }
@@ -152,11 +150,11 @@ section.hero h1, section.hero p {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 0.5rem !important;
+    gap: 0.48rem !important;
     margin-top: 0 !important;
   }
   .stratum-hero-lower h1 {
-    font-size: clamp(1.75rem, 2.85vw, 2.35rem) !important;
+    font-size: clamp(1.75rem, 2.8vw, 2.32rem) !important;
     font-weight: 800 !important;
     letter-spacing: -0.025em !important;
     line-height: 1.15 !important;
@@ -175,9 +173,9 @@ section.hero h1, section.hero p {
     display: inline-block !important;
     padding: 0.32rem 0.98rem !important;
     border-radius: 10px !important;
-    background: rgba(15, 23, 42, 0.78) !important;
+    background: rgba(15, 23, 42, 0.82) !important;
     border: 1px solid rgba(148, 163, 184, 0.2) !important;
-    font-size: clamp(0.92rem, 1.25vw, 1.05rem) !important;
+    font-size: clamp(0.92rem, 1.25vw, 1.04rem) !important;
     font-weight: 600 !important;
     color: #e2e8f0 !important;
     margin: 0 !important;
@@ -190,7 +188,7 @@ section.hero h1, section.hero p {
     display: inline-flex !important;
     align-items: center !important;
     gap: 0.55rem !important;
-    margin-top: 0.2rem !important;
+    margin-top: 0.18rem !important;
     padding: 0.42rem 1.02rem 0.42rem 0.52rem !important;
     border-radius: 999px !important;
     background: #0f172a !important;
@@ -225,9 +223,9 @@ section.hero h1, section.hero p {
   }
   @media (max-width: 768px) {
     section:has(.stratum-hero-v2) {
-      min-height: 450px !important;
-      background-position: center top, center top, center 76px !important;
-      background-size: 100% 100%, 100% 100%, auto 270px !important;
+      min-height: 440px !important;
+      background-position: center top, center 58px !important;
+      background-size: 100% 100%, auto 330px !important;
     }
     .stratum-hero-window { height: 205px !important; min-height: 205px !important; max-height: 205px !important; flex: 0 0 205px !important; }
     .stratum-hero-slimbar { border-radius: 14px !important; padding: 0.4rem !important; }
