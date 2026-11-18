@@ -8,6 +8,15 @@ seoTitle: "FreeBSD 15.1 Firewall: pf, IPsec, WireGuard & Suricata 8 DPI"
 seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/IKEv1 & WireGuard S2S VPN, stateful pf separators, Suricata 8 DPI, Unbound DNSBL, Force DNS & 2FA."
 ---
 
+<div style="margin:1.5rem 0;padding:1.15rem 1.4rem;background:#08101f;border:1px solid #f59e0b;border-radius:14px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;">
+<div>
+<span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fbbf24;display:block;margin-bottom:0.2rem;">NEW DEEP-DIVE &bull; SECURITY GUARD</span>
+<strong style="color:#f8fafc;font-size:1rem;">See how Stratum's 5 threat-blocking layers stop attacks at $0/year without expiring subscriptions</strong>
+</div>
+<a href="/product/security-guard/" style="padding:0.58rem 1.1rem;background:#f59e0b;color:#0f172a;font-weight:700;font-size:0.84rem;border-radius:8px;text-decoration:none;white-space:nowrap;">Explore Security Guard &rarr;</a>
+</div>
+
+
 <!-- STRATUM-DPI-SHOWCASE-START -->
 <style>
 .stratum-dpi-showcase{position:relative;margin:2.5rem 0;border-radius:20px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#101f3c 0%,#08101f 52%,#060b16 100%) !important;border:1px solid rgba(245,158,11,0.24);box-shadow:0 24px 60px rgba(2,6,23,0.55),inset 0 1px 0 rgba(255,255,255,0.06);}

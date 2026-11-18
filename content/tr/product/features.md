@@ -8,6 +8,15 @@ seoTitle: "Özellikler: FreeBSD pf, IPsec, WireGuard ve Suricata 8 DPI"
 seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, durum korumalı pf ayırıcıları, Suricata 8 DPI, Web Filtresi, AD istisnalı Zorunlu DNS ve TOTP 2FA."
 ---
 
+<div style="margin:1.5rem 0;padding:1.15rem 1.4rem;background:#08101f;border:1px solid #f59e0b;border-radius:14px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;">
+<div>
+<span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fbbf24;display:block;margin-bottom:0.2rem;">DETAYLI İNCELEME &bull; SECURITY GUARD</span>
+<strong style="color:#f8fafc;font-size:1rem;">5 katmanlı tehdit savunma mimarisinin nasıl çalıştığını ve neden süresiz ücretsiz olduğunu inceleyin</strong>
+</div>
+<a href="/tr/product/security-guard/" style="padding:0.58rem 1.1rem;background:#f59e0b;color:#0f172a;font-weight:700;font-size:0.84rem;border-radius:8px;text-decoration:none;white-space:nowrap;">Security Guard'ı Aç &rarr;</a>
+</div>
+
+
 <!-- STRATUM-DPI-SHOWCASE-START -->
 <style>
 .stratum-dpi-showcase{position:relative;margin:2.5rem 0;border-radius:20px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#101f3c 0%,#08101f 52%,#060b16 100%) !important;border:1px solid rgba(245,158,11,0.24);box-shadow:0 24px 60px rgba(2,6,23,0.55),inset 0 1px 0 rgba(255,255,255,0.06);}
