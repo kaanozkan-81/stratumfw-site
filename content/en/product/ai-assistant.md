@@ -50,7 +50,7 @@ aliases: ["/ai-assistant/"]
 <h2>Ask Your Firewall in Your Own Words — Zero Write Risk</h2>
 <p class="ai-lead">Under Diagnostics &rarr; AI Assistant, administrators can query live firewall telemetry in plain natural language ("What was blocked in the last hour and from where?", "Is WAN2 healthy?", "Is any inside device suspicious?"). The assistant answers in the language of your question using 14 deterministic read-only MCP tools, shows every tool executed beneath its answer, and guides you to the exact panel page whenever a configuration change is needed.</p>
 <div class="ai-kpis">
-<div class="ai-kpi"><strong>14 Tools</strong><span>Read-Only Live MCP Telemetry</span></div>
+<div class="ai-kpi"><strong>15 Tools</strong><span>Read-Only Live MCP Telemetry</span></div>
 <div class="ai-kpi"><strong>0 Write Risk</strong><span>Cannot Alter pf, NAT or System Config</span></div>
 <div class="ai-kpi"><strong>PUB-1 Mask</strong><span>Public IPs Aliased Before Cloud Calls</span></div>
 <div class="ai-kpi"><strong>5 Engines</strong><span>Claude, OpenAI, DeepSeek, Gemini &amp; Ollama</span></div>

@@ -50,7 +50,7 @@ aliases: ["/tr/ai-assistant/"]
 <h2>Güvenlik Duvarınızla Kendi Dilinizde Konuşun — Sıfır Değişiklik Riskiyle</h2>
 <p class="ai-lead">Tanılama &rarr; Yapay Zeka Asistanı ekranından sistem yöneticileri güvenlik duvarının canlı durumunu doğal dilde sorgulayabilir ("Son bir saatte nereden gelen neler engellendi?", "WAN2 hattı sağlıklı mı?", "İç ağda şüpheli davranan bir cihaz var mı?"). Asistan sorulan dilde yanıt verir, verileri 15 salt okunur MCP aracından çeker, kullandığı araçları her yanıtın altında listeler ve bir kural değişikliği gerektiğinde doğrudan ilgili panel sayfasını tarif eder.</p>
 <div class="ai-kpis">
-<div class="ai-kpi"><strong>14 Araç</strong><span>Salt Okunur Canlı MCP Telemetrisi</span></div>
+<div class="ai-kpi"><strong>15 Araç</strong><span>Salt Okunur Canlı MCP Telemetrisi</span></div>
 <div class="ai-kpi"><strong>0 Yazma Riski</strong><span>pf, NAT veya Sistem Ayarlarını Değiştiremez</span></div>
 <div class="ai-kpi"><strong>PUB-1 Maske</strong><span>Genel IP'ler Bulut Öncesi Maskelenir</span></div>
 <div class="ai-kpi"><strong>5 Sağlayıcı</strong><span>Claude, OpenAI, DeepSeek, Gemini ve Ollama</span></div>

@@ -25,7 +25,7 @@ What does this mean? You can connect AI assistants like Claude, ChatGPT, or Deep
 * *"Which devices are active on the guest network?"*
 * *"Which service is causing the highest CPU usage?"*
 
-Your AI can answer these questions in seconds by securely reading the firewall state on your behalf. Plus, MCP is strictly **read-only**—meaning the AI can never accidentally modify or break your system. It only uses 14 tools to monitor and analyze.
+Your AI can answer these questions in seconds by securely reading the firewall state on your behalf. Plus, MCP is strictly **read-only**—meaning the AI can never accidentally modify or break your system. It only uses 15 tools to monitor and analyze.
 
 ## Security and Performance Combined
 *   **Suricata 8 IDS:** The Intrusion Detection System introduced in 0.15.0 instantly detects suspicious activity (malware, scans, coin miners) on your network.
