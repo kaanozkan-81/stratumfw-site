@@ -8,6 +8,9 @@ hide_pages: true
 
 <div class="docs-layout">
 
+<div class="manual-doc-callout" style="margin:0 0 28px 0;padding:18px 22px;background:#FFFBEB;border:1px solid #FDE68A;border-left:4px solid #D97706;border-radius:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;"><div style="color:#1E293B;font-size:15px;line-height:1.55;"><strong style="color:#0F172A;">Looking for the step-by-step book guide?</strong> Read the new <strong style="color:#0F172A;">Stratum FW User Manual</strong> starting from Chapter 00 (Introduction).</div><a href="/manual/introduction/" style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:8px;background:#D97706;color:#FFFFFF;font-weight:700;font-size:13.5px;text-decoration:none;">Open User Manual &rarr;</a></div>
+
+
 <div class="docs-intro">
   <p>Stratum Firewall ships as a turnkey FreeBSD 15.1 appliance OS with ZFS Boot Environments, TOTP two-factor sign-in, a declarative configuration engine, and a 120-second Safe-Apply rollback workflow. Grab the <a href="/download/">VGA ISO or Serial IMG installer</a>, or explore the interface first in our <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Live Browser Demo</a>.</p>
 </div>

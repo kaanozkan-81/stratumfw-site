@@ -1,0 +1,133 @@
+{{ define "main" }}
+{{- $isTR := eq .Site.Language.Lang "tr" -}}
+{{- $pages := .RegularPages.ByWeight -}}
+{{- $firstURL := cond $isTR "/tr/manual/introduction/" "/manual/introduction/" -}}
+{{- if gt (len $pages) 0 -}}
+  {{- $firstURL = (index $pages 0).RelPermalink -}}
+{{- end -}}
+
+{{- $publishedNums := slice -}}
+{{- range $pages -}}
+  {{- $n := "" -}}
+  {{- with .Params.chapter_num -}}{{- $n = printf "%v" . -}}{{- else -}}{{- with .File -}}{{- $mm := findRE "^[0-9]+" .ContentBaseName -}}{{- if gt (len $mm) 0 -}}{{- $n = index $mm 0 -}}{{- end -}}{{- end -}}{{- end -}}
+  {{- if eq $n "" -}}{{- $n = printf "%02d" .Weight -}}{{- end -}}
+  {{- $publishedNums = $publishedNums | append $n -}}
+{{- end -}}
+
+<div class="manual-page-bg">
+  <div class="manual-shell">
+
+    <section class="manual-hub-hero">
+      <div>
+        <div class="manual-head-badge">
+          {{ if $isTR }}Stratum FW · Resmî Kullanım Kılavuzu{{ else }}Stratum FW · Official User Manual{{ end }}
+        </div>
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Description }}</p>
+        <div class="manual-hub-actions">
+          <a href="{{ $firstURL }}" class="manual-btn-primary">
+            {{ if $isTR }}Okumaya Başla: 00 · Giriş &rarr;{{ else }}Start Reading: 00 · Introduction &rarr;{{ end }}
+          </a>
+          <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="manual-btn-secondary">
+            {{ if $isTR }}Canlı Paneli İncele{{ else }}Open Live Demo{{ end }}
+          </a>
+          {{- range .Translations -}}
+            <a href="{{ .RelPermalink }}" class="manual-btn-secondary">
+              {{- if eq .Language.Lang "tr" -}}Türkçe Kılavuz{{- else -}}English Manual{{- end -}}
+            </a>
+          {{- end -}}
+        </div>
+      </div>
+
+      <div class="manual-hub-meta-card">
+        <div class="manual-hub-meta-row">
+          <span>{{ if $isTR }}Hedef Kitle{{ else }}Audience{{ end }}</span>
+          <strong>{{ if $isTR }}Ağ ve Sistem Yöneticileri{{ else }}Network &amp; System Admins{{ end }}</strong>
+        </div>
+        <div class="manual-hub-meta-row">
+          <span>{{ if $isTR }}FreeBSD Ön Bilgisi{{ else }}FreeBSD Prerequisite{{ end }}</span>
+          <strong>{{ if $isTR }}Gerekmez (Web Panel Odaklı){{ else }}Not Required{{ end }}</strong>
+        </div>
+        <div class="manual-hub-meta-row">
+          <span>{{ if $isTR }}Temel İşletim Sistemi{{ else }}Base Platform{{ end }}</span>
+          <strong>FreeBSD 15.1 · pf · OpenZFS</strong>
+        </div>
+        <div class="manual-hub-meta-row">
+          <span>{{ if $isTR }}Güvenli Uygulama{{ else }}Safe-Apply Timer{{ end }}</span>
+          <strong>{{ if $isTR }}120 sn (Panel) / 180 sn (CLI){{ else }}120 s (Panel) / 180 s (CLI){{ end }}</strong>
+        </div>
+        <div class="manual-hub-meta-row">
+          <span>{{ if $isTR }}Yayınlanan Bölüm{{ else }}Published Chapters{{ end }}</span>
+          <strong>{{ len $pages }} {{ if $isTR }}aktif bölüm{{ else }}live{{ end }}</strong>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 40px;">
+      <div class="manual-sec-head">
+        <h2>{{ if $isTR }}Yayınlanan Bölümler{{ else }}Published Chapters{{ end }}</h2>
+        <span>{{ if $isTR }}Kılavuz adım adım yeni bölümlerle güncellenmektedir.{{ else }}Updated step by step as each chapter is published.{{ end }}</span>
+      </div>
+
+      <div class="manual-ch-grid">
+        {{- range $pages -}}
+          {{- $n := "" -}}
+          {{- with .Params.chapter_num -}}{{- $n = printf "%v" . -}}{{- else -}}{{- with .File -}}{{- $mm := findRE "^[0-9]+" .ContentBaseName -}}{{- if gt (len $mm) 0 -}}{{- $n = index $mm 0 -}}{{- end -}}{{- end -}}{{- end -}}
+          {{- if eq $n "" -}}{{- $n = printf "%02d" .Weight -}}{{- end -}}
+          <a href="{{ .RelPermalink }}" class="manual-ch-card">
+            <div>
+              <div class="manual-ch-card-top">
+                <span class="manual-ch-pill">{{ if $isTR }}Bölüm {{ $n }}{{ else }}Chapter {{ $n }}{{ end }}</span>
+                <span class="manual-ch-status">{{ if $isTR }}Yayında{{ else }}Available{{ end }}</span>
+              </div>
+              <h3>{{ .Title }}</h3>
+              <p>{{ .Description }}</p>
+            </div>
+            <span class="manual-ch-cta">{{ if $isTR }}Bölümü Oku &rarr;{{ else }}Read Chapter &rarr;{{ end }}</span>
+          </a>
+        {{- end -}}
+      </div>
+    </section>
+
+    {{- $roadmap := slice
+      (dict "num" "01" "en_t" "Installation" "tr_t" "Kurulum (Installation)" "en_d" "Writing VGA ISO or Serial IMG media, ZFS installation, console first boot, and reaching the HTTPS panel." "tr_d" "VGA ISO veya Seri IMG kurulum medyası hazırlama, ZFS kurulumu, ilk açılış ve HTTPS panele erişim.")
+      (dict "num" "02" "en_t" "Migrating from OPNsense" "tr_t" "OPNsense'ten Geçiş" "en_d" "Importing OPNsense config.xml interfaces, VLANs, aliases, NAT, firewall rules, DHCP reservations, and OpenVPN." "tr_d" "OPNsense config.xml arayüzlerini, VLAN'ları, takma adları, NAT ve güvenlik duvarı kurallarını ve OpenVPN yapılandırmasını içe aktarma.")
+      (dict "num" "03" "en_t" "Interfaces, VLANs & Multi-WAN" "tr_t" "Arayüzler, VLAN ve Çoklu WAN" "en_d" "Interface roles and descriptions, 802.1Q VLANs, interface groups, gateway monitoring, failover, Virtual IPs, and routes." "tr_d" "Arayüz rolleri ve açıklamaları, 802.1Q VLAN'lar, arayüz grupları, ağ geçidi izleme, yedeklilik, Sanal IP'ler ve statik rotalar.")
+      (dict "num" "04" "en_t" "Firewall Rules, NAT & Shaper" "tr_t" "Güvenlik Duvarı Kuralları, NAT ve Bant Genişliği" "en_d" "Stateful pf rule evaluation, aliases, schedules, port forwarding, outbound NAT, blocklists, Web Filter, and dummynet queues." "tr_d" "Durum bilgili pf kuralları, takma adlar, zamanlamalar, port yönlendirme, giden NAT, engelleme listeleri, Web Filtresi ve dummynet kuyrukları.")
+      (dict "num" "05" "en_t" "Services & Captive Portal" "tr_t" "Servisler ve Captive Portal" "en_d" "DHCP server, Unbound DNS resolver, NTP, Suricata IDS/IPS, and privilege-separated Captive Portal with RADIUS accounting." "tr_d" "DHCP sunucusu, Unbound DNS çözümleyici, NTP, Suricata IDS/IPS ve RADIUS muhasebeli yetki ayrıştırılmış Captive Portal.")
+      (dict "num" "06" "en_t" "VPN: OpenVPN, WireGuard & IPsec" "tr_t" "VPN: OpenVPN, WireGuard ve IPsec" "en_d" "Remote-access OpenVPN and kernel WireGuard servers, WireGuard site-to-site tunnels, and strongSwan IKEv2 IPsec." "tr_d" "Uzaktan erişim OpenVPN ve çekirdek WireGuard sunucuları, noktadan noktaya WireGuard tünelleri ve strongSwan IKEv2 IPsec.")
+      (dict "num" "07" "en_t" "System, Users, Backup & Updates" "tr_t" "Sistem, Kullanıcılar, Yedekleme ve Güncelleme" "en_d" "Admin access hardening, TOTP 2FA, RBAC roles, certificates, encrypted remote backups, and ZFS Boot Environment updates." "tr_d" "Yönetici erişimi sıkılaştırma, TOTP 2FA, RBAC rolleri, sertifikalar, şifreli uzak yedeklemeler ve ZFS Önyükleme Ortamı güncellemeleri.")
+      (dict "num" "08" "en_t" "Diagnostics, AI Assistant & CLI" "tr_t" "Tanılama, Yapay Zeka Asistanı ve Komut Satırı" "en_d" "System and firewall logs, states, packet capture, 15-tool read-only MCP AI Assistant, console menu, and stratum-config CLI." "tr_d" "Sistem ve güvenlik duvarı günlükleri, durum tablosu, paket yakalama, 15 araçlı salt okunur Yapay Zeka Asistanı ve konsol/CLI araçları.")
+    -}}
+
+    {{- $pending := slice -}}
+    {{- range $roadmap -}}
+      {{- if not (in $publishedNums .num) -}}
+        {{- $pending = $pending | append . -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if gt (len $pending) 0 -}}
+    <section>
+      <div class="manual-sec-head">
+        <h2>{{ if $isTR }}Planlanan Sonraki Bölümler{{ else }}Upcoming Chapters in This Manual{{ end }}</h2>
+        <span>{{ if $isTR }}Sırasıyla eklenecek bölümler{{ else }}Chapters scheduled next in sequence{{ end }}</span>
+      </div>
+      <div class="manual-roadmap-grid">
+        {{- range $pending -}}
+          <div class="manual-roadmap-item">
+            <div class="manual-roadmap-top">
+              <span class="manual-roadmap-num">{{ .num }}</span>
+              <span class="manual-roadmap-tag">{{ if $isTR }}Sırada{{ else }}Planned{{ end }}</span>
+            </div>
+            <h4>{{ if $isTR }}{{ .tr_t }}{{ else }}{{ .en_t }}{{ end }}</h4>
+            <p>{{ if $isTR }}{{ .tr_d }}{{ else }}{{ .en_d }}{{ end }}</p>
+          </div>
+        {{- end -}}
+      </div>
+    </section>
+    {{- end -}}
+
+  </div>
+</div>
+{{ end }}

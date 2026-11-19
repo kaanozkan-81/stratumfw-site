@@ -8,6 +8,9 @@ hide_pages: true
 
 <div class="docs-layout">
 
+<div class="manual-doc-callout" style="margin:0 0 28px 0;padding:18px 22px;background:#FFFBEB;border:1px solid #FDE68A;border-left:4px solid #D97706;border-radius:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;"><div style="color:#1E293B;font-size:15px;line-height:1.55;"><strong style="color:#0F172A;">Adım adım kullanım rehberini mi arıyorsunuz?</strong> Bölüm 00 (Giriş) ile başlayan yeni <strong style="color:#0F172A;">Stratum FW Kullanım Kılavuzu</strong> bölümünü inceleyin.</div><a href="/tr/manual/introduction/" style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:8px;background:#D97706;color:#FFFFFF;font-weight:700;font-size:13.5px;text-decoration:none;">Kullanım Kılavuzunu Aç &rarr;</a></div>
+
+
 <div class="docs-intro">
   <p>Stratum Firewall; ZFS Önyükleme Ortamları (Boot Environments), yerleşik iki aşamalı giriş (TOTP 2FA), bildirimsel yapılandırma motoru ve 120 saniyelik Güvenli Uygulama (Safe-Apply) geri alma mimarisiyle anahtar teslim bir FreeBSD 15.1 güvenlik duvarı işletim sistemi olarak sunulur. Kuruluma başlamak için <a href="/tr/download/">VGA ISO veya Serial IMG imajını indirin</a> ya da önce <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Canlı Tarayıcı Demosu</a> üzerinden arayüzü inceleyin.</p>
 </div>
