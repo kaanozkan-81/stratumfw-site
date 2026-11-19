@@ -4,7 +4,6 @@ description: "Full feature matrix of Stratum Firewall v0.30.0: stateful pf rules
 lead: "Stratum Firewall combines the battle-tested pf packet filter with a lightning-fast FastAPI management panel. Zero proprietary dependencies, absolute control, and a security-first architecture built for modern infrastructure."
 full_width: true
 seo_title: "Firewall Features — pf, Suricata 8 IPS, 55-Category Web Filter & Multi-WAN VPN"
-seoTitle: "FreeBSD 15.1 Firewall: pf, IPsec, WireGuard & Suricata 8 DPI"
 seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/IKEv1 & WireGuard S2S VPN, stateful pf separators, Suricata 8 DPI, Unbound DNSBL, Force DNS & 2FA."
 ---
 
@@ -116,8 +115,8 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
       <p>Migrates <code>dnsmasq</code> and <code>ISC dhcpd</code> ranges, static MAC leases, Unbound host/domain overrides, <code>dummynet</code> bandwidth limits, and converts DNS redirect port forwards (with exception aliases) into native <strong>Force DNS</strong>.</p>
     </div>
     <div class="opn-mig-card">
-      <h3>6. Privacy-Safe Audit &amp; 60s Safe-Apply</h3>
-      <p>Your uploaded XML is parsed in memory and never stored on disk. A detailed pre-apply report flags translated items, LAN/WAN subnet conflicts, and unsupported objects—backed by Stratum's 60-second automatic rollback timer.</p>
+      <h3>6. Privacy-Safe Audit &amp; 120s Safe-Apply</h3>
+      <p>Your uploaded XML is parsed in memory and never stored on disk. A detailed pre-apply report flags translated items, LAN/WAN subnet conflicts, and unsupported objects—backed by Stratum's 120-second automatic rollback timer.</p>
     </div>
   </div>
 

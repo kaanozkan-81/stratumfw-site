@@ -2,10 +2,9 @@
 title: "System Architecture"
 seo_title: "Stratum Firewall v0.30.0 Architecture — FreeBSD 15.1, pf, FastAPI, TOTP 2FA & ZFS"
 description: "Inside Stratum Firewall v0.30.3 — FreeBSD 15.1-RELEASE kernel pf & 1:1 binat data plane, dual-engine Suricata 8 IPS, Force DNS with AD exceptions, Python 3.12 FastAPI control plane with TOTP 2FA, and ZFS Boot Environments."
-lead: "Zero PHP overhead, a single declarative source of truth, a 60-second Safe-Apply rollback guarantee, and a pure FreeBSD 15.1 kernel data plane."
+lead: "Zero PHP overhead, a single declarative source of truth, a 120-second Safe-Apply rollback guarantee, and a pure FreeBSD 15.1 kernel data plane."
 full_width: true
-seoTitle: "FreeBSD 15.1, OpenZFS & FastAPI Architecture | Stratum FW"
-seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 kernel pf & netmap data plane, declarative config.json, 60s Safe-Apply, and ZFS boot rollback."
+seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 kernel pf & netmap data plane, declarative config.json, 120s Safe-Apply, and ZFS boot rollback."
 ---
 
 <div class="solutions-layout">
@@ -37,7 +36,7 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 <h3>Declarative Compiler &amp; Zero-Apply Refresh</h3>
 </div>
 <div class="arch-layer-body">
-<p>All network intent lives in one versioned, diff-auditable <code>config.json</code> file, while passwords, <strong>TOTP 2FA secrets</strong>, and VPN/TLS private keys remain isolated in root-only (<code>0600</code>) files. <code>stratum-config</code> pre-validates every generated daemon file before starting the <strong>60s Safe-Apply</strong> rollback timer, while <code>stratum-pfrefresh</code> updates scheduled rules and dynamic DHCP WAN gateways live without an Apply.</p>
+<p>All network intent lives in one versioned, diff-auditable <code>config.json</code> file, while passwords, <strong>TOTP 2FA secrets</strong>, and VPN/TLS private keys remain isolated in root-only (<code>0600</code>) files. <code>stratum-config</code> pre-validates every generated daemon file before starting the <strong>120s Safe-Apply</strong> rollback timer, while <code>stratum-pfrefresh</code> updates scheduled rules and dynamic DHCP WAN gateways live without an Apply.</p>
 <div class="arch-pills">
 <span class="arch-pill"><b>State:</b> config.json + SQLite WAL</span>
 <span class="arch-pill"><b>Compiler:</b> stratum-config (Pre-Checked)</span>

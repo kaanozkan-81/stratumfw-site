@@ -1,26 +1,29 @@
 ---
 title: "Sürüm Notları"
-seo_title: "Stratum Firewall Sürüm Notları (v0.30.3) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.30.3 sürümüne kadar tüm yenilikler, değişiklikler ve düzeltmeler — OPNsense Unbound DNSBL geçişi, bölünmeyen DHCP havuzları, dummynet hız sınırı koruması, TOTP 2FA, Zorunlu DNS ve DHCP Çoklu WAN."
-seoTitle: "Stratum Firewall Sürüm Notları ve Değişiklik Geçmişi"
-seoDescription: "FreeBSD 15.1 tabanlı Stratum Firewall işletim sisteminin tüm sürümlerindeki yeni özellikler, güvenlik iyileştirmeleri ve çekirdek düzeltmelerinin tam listesi."
+seo_title: "Stratum Firewall Sürüm Notları (v0.35.2) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.35.2 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
 ---
 
-Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**Sistem > Güncelleme**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**System > Update**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## v0.35.2 — 2026-11-19
+
+* **Yalnızca Erişilebilir Saldırı Uyarıları İçin Bildirim Gönderimi:** Suricata bir WAN arayüzünü `pf` filtrelemeden önce izlediği için, güvenlik duvarının dışarıya açmadığı bir porta yönelik saldırılar (örneğin UDP `9034` üzerindeki Realtek SDK istismarı, CVE-2021-35394) paketler `pf` tarafından düşürüldüğü halde yüksek önem dereceli uyarı ve Telegram / e-posta bildirimi üretiyordu. Stratum FW artık WAN adreslerinde gerçekte neyin açık olduğunu (kaynak adres ve port takma adlarıyla birlikte port yönlendirmeleri, arayüz grupları dahil WAN geçiş kuralları, WAN yönetim erişimi, OpenVPN, WireGuard ve IPsec) hesaplar; yalnızca içeriden çıkan, içerideki istemcilere yönelen veya ilgili kaynak için gerçekten açık olan bir porta gelen uyarılar için bildirim gönderir. Kesin hesaplanamayan durumlar (GeoIP kaynağı veya portsuz protokoller) bildirilmeye devam eder.
+* **Hiçbir Kayıt Gizlenmez (`Port closed` İşareti):** Kapalı portlara gelen bu uyarılar günlüklerde ve IDS sayfasında **Port closed** (`Port kapalı`) işaretiyle tutulmaya devam eder; MCP araçları ve Yapay Zeka Asistanı da aynı işareti görür. Tümünü bildirim olarak almak isteyenler için `System > Settings > Notifications` altına varsayılan olarak kapalı yeni bir anahtar eklendi.
 
 ## v0.35.1 — 2026-11-18
 
-* **Deterministik MCP Kural ve Sayaç Hesabı:** Güvenlik duvarı ve NAT kuralı MCP araçları artık toplam, etkin ve devre dışı kural sayılarını modele saydırmak yerine kesin olarak hesaplayıp döndürür; ayrıca `0` paket sayacının *"hiç kullanılmadı"* değil *"son Apply/yenilemeden beri eşleşmedi"* anlamına geldiğini açıklar. Üretim ortamındaki bir güvenlik duvarında DeepSeek ile doğrulandı.
+* **Deterministik MCP Kural ve Sayaç Matematiği:** Güvenlik duvarı ve NAT kuralı MCP araçları artık sayım işlemini dil modeline bırakmak yerine önceden hesaplanmış kesin kural sayılarını (`all`, `enabled`, `disabled`) döndürür ve `0` paket sayaçlarını açıkça `"son Apply/yeniden yükleme işleminden bu yana eşleşmedi"` olarak işaretler. DeepSeek ile yapılan üretim testlerinde soru dilinde yanıt, genel IP maskeleme ve hedef panel sayfasına doğru yönlendirme doğrulandı.
 
 ## v0.35.0 — 2026-11-18
 
-* **Yerleşik `Tanılama > Yapay Zeka Asistanı`:** Güvenlik duvarının canlı durumunu doğal dilde sorgulayın (*"son bir saatte nereden gelen neler engellendi?"*, *"WAN2 sağlıklı mı?"*, *"iç ağda şüpheli cihaz var mı?"*). 14 salt okunur MCP aracıyla çalışır, hiçbir ayarı değiştiremez, kullandığı araçları her yanıtın altında gösterir ve değişiklik için ilgili panel ekranını tarif eder.
-* **Yerel `Ollama` Dahil 5 Sağlayıcı Desteği:** Anthropic Claude, OpenAI, DeepSeek, Google Gemini ve hiçbir sorunun veya verinin ağ dışına çıkmadığı yerel **Ollama** sunucusu desteği.
-* **Otomatik Genel IP Maskeleme ve 1 Saatlik Bellek İçi Sohbet:** Genel IP adresleri bulut sağlayıcılara gönderilmeden önce varsayılan olarak takma adlarla (`PUB-1`, `PUB-2`...) değiştirilir ve yanıtta gerçek adresleriyle gösterilir; parolalar, `0600` gizli anahtarlar ve VPN profilleri asla döndürülmez; API anahtarları `0600` dosyalarda tutulur (şifreli yedeklere dahildir); yalnızca yöneticilere açıktır ve soru/yanıtlar diske yazılmadan 1 saat bellekte tutulur.
+* **Yerleşik `Diagnostics > AI Assistant` (`Tanılama > Yapay Zeka Asistanı`):** 15 salt okunur MCP aracı üzerinden canlı güvenlik duvarı durumunu doğal dilde (*"son bir saatte neler engellendi?"*, *"WAN2 sağlıklı mı?"*, *"iç ağda şüpheli bir cihaz var mı?"*) sorgulayın. Yapılandırmayı değiştiremez; her yanıtın altında kullanılan araçları gösterir ve değişiklik için panelde hangi sayfaya gidileceğini açıklar.
+* **Yerel `Ollama` Dahil 5 Yapay Zeka Sağlayıcısı:** Anthropic Claude, OpenAI, DeepSeek, Google Gemini ve hiçbir sorunun veya verinin ağ dışına çıkmadığı yerel LAN **Ollama** sunucularını destekler.
+* **Gizlilik Odaklı IP Maskeleme ve Geçici RAM Bellek:** Genel IP adresleri bulut isteklerinden önce varsayılan olarak takma adlarla (`PUB-1`, `PUB-2`...) değiştirilir ve ekranda gerçek değerlerine döndürülür; hiçbir araç parola, anahtar veya VPN yapılandırması döndürmez; API anahtarları `0600` izinli root dosyalarında tutulur (şifreli yedeklere dahildir) ve **Test** düğmesi içerir; yalnızca Yöneticilere açıktır ve sohbetler diske yazılmadan 1 saat RAM üzerinde tutulur.
 
 ## v0.34.2 — 2026-11-17
 
-* **OpenSSL Anahtar Üretimi (`cryptography`):** Yönetim katmanındaki WireGuard / X25519 anahtar üretim yardımcıları denetlenmiş Python `cryptography` (OpenSSL) kütüphanesine taşındı; böylece Stratum FW kendi özel kriptografik algoritmasını barındırmaz.
+* **OpenSSL Anahtar Üretimi (`cryptography`):** Python kontrol katmanındaki X25519 / WireGuard yardımcı anahtar üretimi, denetlenmiş `cryptography` kütüphanesi üzerinden OpenSSL altyapısına taşındı; böylece Stratum FW kendi özel kriptografik ilkelini barındırmaz.
 
 ## 0.34.1 - 2026-11-17
 

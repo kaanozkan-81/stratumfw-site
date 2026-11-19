@@ -6,7 +6,7 @@ aliases:
   - /tr/resources/documentation/firewall-rules/
 ---
 
-Stratum Firewall, tanımladığınız kuralları doğrudan FreeBSD çekirdeğindeki **pf (Packet Filter)** ve **dummynet** trafik şekillendiricisine derler; canlı paket/bayt sayaçları, sürükle-bırak sıralama ve 60 saniyelik Safe-Apply güvencesi sunar.
+Stratum Firewall, tanımladığınız kuralları doğrudan FreeBSD çekirdeğindeki **pf (Packet Filter)** ve **dummynet** trafik şekillendiricisine derler; canlı paket/bayt sayaçları, sürükle-bırak sıralama ve 120 saniyelik Safe-Apply güvencesi sunar.
 
 ## 1. Kural Değerlendirme Sırası, WAN Günlük Gürültüsü ve Arayüz Grupları (`v0.17.0`, `v0.28.4`)
 

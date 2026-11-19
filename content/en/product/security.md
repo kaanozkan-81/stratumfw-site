@@ -1,6 +1,6 @@
 ---
 title: "Security & Verification"
-seoTitle: "Stratum Firewall Security Model, Cryptography & Signed Updates"
+seo_title: "Stratum Firewall Security Model, Cryptography & Signed Updates"
 description: "How Stratum Firewall verifies signed updates, isolates root-only secrets, relies on FreeBSD kernel & OpenSSL cryptography, and handles vulnerability disclosure."
 seoDescription: "Verify Stratum Firewall security: signed FreeBSD packages & offline .sfu updates, 0600 isolated secrets, OpenSSL/kernel crypto, ZFS rollback & security@stratumfw.com."
 translationKey: "product-security"

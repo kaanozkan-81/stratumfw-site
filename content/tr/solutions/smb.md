@@ -101,7 +101,7 @@ full_width: true
         <tr>
           <td><strong>Uzak Şubede Hatalı Kural Koruması</strong></td>
           <td>Yanlış WAN/güvenlik kuralında şubeye yerinde müdahale gerekebilir</td>
-          <td><strong>60 saniyelik Safe-Apply</strong> otomatik geri alma + önyüklenebilir ZFS anlık görüntüleri</td>
+          <td><strong>120 saniyelik Safe-Apply</strong> otomatik geri alma + önyüklenebilir ZFS anlık görüntüleri</td>
         </tr>
         <tr>
           <td><strong>Donanım ve Sanallaştırma Özgürlüğü</strong></td>

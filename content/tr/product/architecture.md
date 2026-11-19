@@ -2,10 +2,9 @@
 title: "Sistem Mimarisi"
 seo_title: "Stratum Firewall v0.30.0 Mimarisi — FreeBSD 15.1, pf, FastAPI, TOTP 2FA ve ZFS"
 description: "Stratum Firewall v0.30.0 teknik mimarisi — FreeBSD 15.1-RELEASE çekirdeği, pf ve 1:1 binat veri düzlemi, çift motorlu Suricata 8 IPS, AD istisnalı Zorunlu DNS, TOTP 2FA destekli FastAPI kontrol düzlemi ve ZFS Önyükleme Ortamları."
-lead: "Sıfır PHP yükü, tekil bildirimsel yapılandırma kaynağı, 60 saniyelik Safe-Apply geri alma güvencesi ve saf FreeBSD 15.1 çekirdek veri düzlemi üzerine inşa edilen v0.30.0 sistem mimarisi."
+lead: "Sıfır PHP yükü, tekil bildirimsel yapılandırma kaynağı, 120 saniyelik Safe-Apply geri alma güvencesi ve saf FreeBSD 15.1 çekirdek veri düzlemi üzerine inşa edilen v0.30.0 sistem mimarisi."
 full_width: true
-seoTitle: "FreeBSD 15.1, OpenZFS ve FastAPI Sistem Mimarisi | Stratum FW"
-seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf ve netmap veri düzlemi, tekil config.json, 60 sn Safe-Apply ve ZFS önyükleme ortamı koruması."
+seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf ve netmap veri düzlemi, tekil config.json, 120 sn Safe-Apply ve ZFS önyükleme ortamı koruması."
 ---
 
 <div class="solutions-layout">
@@ -37,7 +36,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 <h3>Bildirimsel Motor ve Canlı Yenileme</h3>
 </div>
 <div class="arch-layer-body">
-<p>Tüm ağ niyeti tek bir denetlenebilir <code>config.json</code> dosyasında tutulur; parolalar, <strong>TOTP 2FA gizli anahtarları</strong> ve VPN/TLS özel anahtarları ise <code>0600</code> izinli <code>root</code> dosyalarında ayrı saklanır. <code>stratum-config</code> her değişikliği uygulamadan önce sözdizimi testlerinden geçirip <strong>60 sn Safe-Apply</strong> sayacını başlatır; <code>stratum-pfrefresh</code> ise kural zamanlamalarını ve dinamik DHCP WAN ağ geçidi değişimlerini Apply gerektirmeden canlı işler.</p>
+<p>Tüm ağ niyeti tek bir denetlenebilir <code>config.json</code> dosyasında tutulur; parolalar, <strong>TOTP 2FA gizli anahtarları</strong> ve VPN/TLS özel anahtarları ise <code>0600</code> izinli <code>root</code> dosyalarında ayrı saklanır. <code>stratum-config</code> her değişikliği uygulamadan önce sözdizimi testlerinden geçirip <strong>120 sn Safe-Apply</strong> sayacını başlatır; <code>stratum-pfrefresh</code> ise kural zamanlamalarını ve dinamik DHCP WAN ağ geçidi değişimlerini Apply gerektirmeden canlı işler.</p>
 <div class="arch-pills">
 <span class="arch-pill"><b>Durum:</b> config.json + SQLite WAL</span>
 <span class="arch-pill"><b>Derleyici:</b> stratum-config (Ön Doğrulamalı)</span>

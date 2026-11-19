@@ -1,6 +1,6 @@
 ---
 title: "Security Guard"
-seoTitle: "Stratum Security Guard: Ücretsiz 5 Katmanlı Tehdit Savunması"
+seo_title: "Stratum Security Guard: Ücretsiz 5 Katmanlı Tehdit Savunması"
 description: "Stratum FW içine yerleşik katmanlı tehdit savunması: 63 IP listesi, 5-RIR GeoIP, 93 DNSBL, 56 kategorili Web Filtresi ve Suricata IPS. Aboneliksiz ve ücretsiz."
 seoDescription: "Stratum Security Guard: 63 çekirdek pf IP listesi, 5-RIR GeoIP, 93 Unbound DNSBL, 56 UT1 Web Filtresi kategorisi ve fail-open Suricata IPS ile yıllık 0 $ koruma."
 date: 2026-11-18
@@ -163,7 +163,7 @@ aliases: ["/tr/security-guard/"]
 <span class="sg-badge">ÖZ KORUMA MİMARİSİ</span>
 <h3>Kendini Koruyan Kontrol Katmanı</h3>
 <ul>
-<li><strong>Yerel TOTP 2FA ve Giriş Koruması:</strong> Cihaz üzerinde üretilen QR kodlu 2FA ve 5 dakikada 5 hatalı denemede 5 dakikalık otomatik IP engeli.</li>
+<li><strong>Yerel TOTP 2FA ve Giriş Koruması:</strong> Cihaz üzerinde üretilen QR kodlu 2FA ve 15 dakikada 5 hatalı denemede 5 dakikalık otomatik IP engeli.</li>
 <li><strong>Kapalı WAN Erişimi ve İzole Anahtarlar:</strong> Panel ve SSH varsayılan olarak WAN'a kapalıdır; parolalar ve VPN anahtarları <code>0600</code> izinli dosyalarda tutulur ve tarayıcıya gönderilmez.</li>
 <li><strong>Safe-Apply ve İmzalı Güncellemeler:</strong> Onaylanmazsa otomatik geri alınan değişiklikler ve ZFS önyükleme ortamı korumalı imzalı paketler.</li>
 </ul>
@@ -186,3 +186,8 @@ if(lb&&target){ target.src=img.src; target.alt=img.alt; lb.classList.add('open')
 });
 document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ var lb=document.getElementById('sg-lb'); if(lb) lb.classList.remove('open'); }});
 </script>
+
+<div style="background:#0f172a !important;border:1px solid rgba(245,158,11,0.35) !important;border-radius:14px;padding:20px 24px;margin:24px 0;">
+<div style="color:#fbbf24 !important;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">YENİ (v0.35.2) • AKILLI ERİŞİLEBİLİRLİK FİLTRELİ IDS BİLDİRİMLERİ</div>
+<p style="color:#cbd5e1 !important;margin:0;line-height:1.65;font-size:0.96rem;">Suricata WAN trafiğini <code style="color:#7dd3fc !important;">pf</code> öncesinde izlediği için, güvenlik duvarında kapalı olan portlara yönelik rastgele internet taramaları artık gereksiz Telegram veya e-posta alarmı üretmez. Stratum FW; port yönlendirmeleri, WAN geçiş kuralları, yönetim erişimi ve VPN dinleyicileri üzerinden gerçekten açık olan portları hesaplar; kapalı portlara düşen paketleri gizlemeden IDS ekranında ve Yapay Zeka Asistanında <strong style="color:#f8fafc !important;">Port closed</strong> olarak işaretler (hatalı panel girişlerinde varsayılan engel süresi de <strong style="color:#f8fafc !important;">15 dakikadır</strong>).</p>
+</div>

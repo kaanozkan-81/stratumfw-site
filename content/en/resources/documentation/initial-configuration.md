@@ -23,7 +23,7 @@ Navigate to **System → Settings** and **My Account**:
 2. Configure your **WAN** (and any optional `WAN2` / `WAN3`) under **Interfaces**:
    * **DHCP (`v0.29.1`):** Supported on both primary `WAN` and additional WANs (such as cable, 4G/5G LTE, or Starlink modems—secondary DHCP WANs never hijack your default route or system DNS on their own).
    * **Static IPv4** or **PPPoE (`mpd5`):** Enter your ISP gateway/MTU or fiber/DSL credentials (passwords are stored in root-only `0600` files).
-3. Click **Save**, then click **Apply changes** right beside Save. Stratum validates generated configs (`pfctl -n`, `nginx -t`, `unbound-checkconf`) and starts the **60-second Safe-Apply timer**—click **Keep changes** to commit permanently, or let it roll back automatically if connectivity was interrupted.
+3. Click **Save**, then click **Apply changes** right beside Save. Stratum validates generated configs (`pfctl -n`, `nginx -t`, `unbound-checkconf`) and starts the **120-second Safe-Apply timer**—click **Keep changes** to commit permanently, or let it roll back automatically if connectivity was interrupted.
 
 ## 3. DHCP, Validating DNS &amp; Force DNS (`v0.29.2`)
 

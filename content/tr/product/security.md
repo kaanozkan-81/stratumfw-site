@@ -1,6 +1,6 @@
 ---
 title: "Güvenlik ve Doğrulama"
-seoTitle: "Stratum Firewall Güvenlik Mimarisi, Kriptografi ve İmzalı Güncelleme"
+seo_title: "Stratum Firewall Güvenlik Mimarisi, Kriptografi ve İmzalı Güncelleme"
 description: "Stratum Firewall imzalı paket doğrulaması, 0600 izole gizli anahtar koruması, OpenSSL/çekirdek kriptografisi, ZFS geri dönüş mimarisi ve güvenlik bildirimi."
 seoDescription: "Stratum Firewall güvenlik modeli: imzalı paketler ve .sfu güncellemeleri, 0600 izole anahtarlar, OpenSSL/FreeBSD çekirdek kriptografisi ve security@stratumfw.com."
 translationKey: "product-security"

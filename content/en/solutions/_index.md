@@ -114,7 +114,7 @@ hide_pages: true
         </tr>
         <tr>
           <td><strong>Operations &amp; Compliance</strong></td>
-          <td>60s Safe-Apply, Telegram &amp; SMTP Alerts</td>
+          <td>120s Safe-Apply, Telegram &amp; SMTP Alerts</td>
           <td>REST API, 4-Role RBAC, SNMP, Remote Syslog, SFTP <code>.stbk</code></td>
           <td>Unified Blocklist Reports, Audited Web Activity &amp; DHCP CSV</td>
         </tr>

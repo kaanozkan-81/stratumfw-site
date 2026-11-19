@@ -114,7 +114,7 @@ hide_pages: true
         </tr>
         <tr>
           <td><strong>Yönetim &amp; Denetim</strong></td>
-          <td>60 sn Safe-Apply, Telegram/E-posta Uyarıları</td>
+          <td>120 sn Safe-Apply, Telegram/E-posta Uyarıları</td>
           <td>REST API, 4 Rol RBAC, SNMP, Uzak Syslog, Şifreli SFTP</td>
           <td>Birleşik Engelleme Raporları, Web Etkinliği &amp; DHCP Geçmişi</td>
         </tr>

@@ -406,7 +406,7 @@ section.hero h1, section.hero p {
     </div>
     <div class="stratum-ai-grid">
       <div>
-        <p class="stratum-ai-lead">Son bir saatte nelerin engellendiğini, WAN2 hattının sağlığını veya iç ağda şüpheli bir cihaz olup olmadığını kendi cümlelerinizle sorun. 14 salt okunur MCP aracıyla çalışan asistan canlı durumu analiz eder, hiçbir ayarı değiştiremez.</p>
+        <p class="stratum-ai-lead">Son bir saatte nelerin engellendiğini, WAN2 hattının sağlığını veya iç ağda şüpheli bir cihaz olup olmadığını kendi cümlelerinizle sorun. 15 salt okunur MCP aracıyla çalışan asistan canlı durumu analiz eder, hiçbir ayarı değiştiremez.</p>
         <ul class="stratum-ai-points">
           <li><strong>Otomatik Genel IP Maskeleme (<code>PUB-1</code>):</strong> Gerçek genel IP adreslerini buluta göndermeden önce maskeler, yanıtta yerel olarak geri yazar.</li>
           <li><strong>Gizli Anahtarlara Sıfır Erişim:</strong> Parolalar, <code>0600</code> anahtarlar ve VPN profilleri okunamaz; sohbet yalnızca 1 saat RAM'de tutulur, diske yazılmaz.</li>
@@ -448,7 +448,7 @@ section.hero h1, section.hero p {
         <div class="stratum-gallery-featured-bar">
           <div class="stratum-gallery-featured-meta">
             <strong>Stratum Firewall &middot; FreeBSD 15.1 &amp; Çekirdek pf Güvenlik Duvarı İS</strong>
-            <span>Bildirimsel JSON motoru, atomik ZFS Önyükleme Ortamları, 60 saniyelik Safe-Apply geri alma koruması ve sıfır yıllık abonelik.</span>
+            <span>Bildirimsel JSON motoru, atomik ZFS Önyükleme Ortamları, 120 saniyelik Safe-Apply geri alma koruması ve sıfır yıllık abonelik.</span>
           </div>
           <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-gallery-demo-cta" onclick="event.stopPropagation()">Canlı FreeBSD 15.1 Demoyu Aç &rarr;</a>
         </div>
@@ -496,14 +496,14 @@ section.hero h1, section.hero p {
 
         <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-totp-wireguard-v0303.webp')">
           <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Tarayıcıda Yerel QR TOTP 2FA, 60sn Safe-Apply ve Çekirdek WireGuard VPN" loading="lazy">
+            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Tarayıcıda Yerel QR TOTP 2FA, 120 sn Safe-Apply ve Çekirdek WireGuard VPN" loading="lazy">
           </div>
           <div class="stratum-panel-shot-cap">
             <div class="stratum-panel-shot-head">
               <strong>Yerel QR TOTP 2FA &amp; Çekirdek WireGuard</strong>
               <span class="stratum-panel-shot-tag">FreeBSD 15.1</span>
             </div>
-            <p>Tarayıcıda yerel çizilen QR kodlu iki aşamalı giriş, 10 kurtarma kodu, 60 sn Safe-Apply güvencesi ve yerleşik if_wg VPN.</p>
+            <p>Tarayıcıda yerel çizilen QR kodlu iki aşamalı giriş, 10 kurtarma kodu, 120 sn Safe-Apply güvencesi ve yerleşik if_wg VPN.</p>
           </div>
         </div>
       </div>
@@ -600,7 +600,7 @@ section.hero h1, section.hero p {
           <div class="home-compare-pills">
             <span>Sıfır PHP / XML</span>
             <span>Ücretsiz ZFS Geri Alma</span>
-            <span>60 sn Safe-Apply Koruması</span>
+            <span>120 sn Safe-Apply Koruması</span>
             <span>Tek Tık OPNsense Geçişi</span>
           </div>
         </div>
@@ -639,7 +639,7 @@ section.hero h1, section.hero p {
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="9" rx="1.5"/><path d="M6 8V6a4 4 0 0 1 8 0v2"/></svg></div>
         <h3>Çoklu Üretici S2S ve Uzak VPN</h3>
-        <p>FortiGate, MikroTik RouterOS 7, pfSense/OPNsense, Cisco ve bulut ağ geçitlerine IPsec (IKEv2/IKEv1, strongSwan) ve FreeBSD çekirdek WireGuard tünelleri. Anahtarlar OpenSSL (Python cryptography) ile üretilir; Stratum kendi özel kriptografisini yazmaz.</p>
+        <p>FortiGate, MikroTik RouterOS 7, pfSense/OPNsense, Cisco ve bulut ağ geçitlerine IPsec (IKEv2/IKEv1, strongSwan) ve FreeBSD çekirdek WireGuard tünelleri. Anahtarlar OpenSSL (openssl aracı ve Python cryptography) ile üretilir; Stratum kendi özel kriptografisini yazmaz.</p>
       </div>
 
       <div class="card">
@@ -877,7 +877,7 @@ section.hero h1, section.hero p {
         <p class="stratum-lifecycle-lead">Stratum Firewall; x86_64 donanımlar, Proxmox VE, VMware ESXi ve KVM/QEMU için çevrimdışı VGA ISO ve ekransız seri konsol (115200 8N1) IMG imajlarıyla bağımsız bir FreeBSD 15.1-RELEASE güvenlik duvarı işletim sistemi olarak kurulur.</p>
         <ul class="stratum-lifecycle-list">
           <li><span class="stratum-lifecycle-check">✓</span><span><strong>Çevrimdışı OpenZFS ve Önyükleme Koruması:</strong> Rehberli ZFS kök kurulumu ve her güncelleme öncesi anlık <code>bectl</code> geri dönüş noktaları.</span></li>
-          <li><span class="stratum-lifecycle-check">✓</span><span><strong>Bildirimsel JSON ve 60 sn Safe-Apply:</strong> Erişim kaybında otomatik geri alma ve <code>0600</code> izole anahtar korumalı Python 3.12 / FastAPI kontrol katmanı.</span></li>
+          <li><span class="stratum-lifecycle-check">✓</span><span><strong>Bildirimsel JSON ve 120 sn Safe-Apply:</strong> Erişim kaybında otomatik geri alma ve <code>0600</code> izole anahtar korumalı Python 3.12 / FastAPI kontrol katmanı.</span></li>
           <li><span class="stratum-lifecycle-check">✓</span><span><strong>Çekirdek Yönlendirme, Çoklu VPN ve DPI:</strong> Durum bilgili <code>pf</code>, Multi-WAN yedeklilik, IKEv2/IKEv1 IPsec, izole WireGuard S2S, Unbound RPZ ve Suricata 8 IPS.</span></li>
           <li><span class="stratum-lifecycle-check">✓</span><span><strong>OPNsense Geçişi, Şifreli Yedek ve MCP:</strong> Doğrudan <code>config.xml</code> + PKI geçiş aracı, zamanlanmış <code>.stbk</code> SFTP yedekleme ve 14 araçlı salt okunur MCP sunucusu.</span></li>
         </ul>

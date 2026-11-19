@@ -1,8 +1,8 @@
 ---
 title: "AI Assistant & MCP"
-seoTitle: "Stratum Firewall AI Assistant: Read-Only MCP & Local Ollama"
-description: "Ask Stratum Firewall in plain language with Diagnostics > AI Assistant. 14 read-only MCP tools, automatic public IP masking, Claude, OpenAI, DeepSeek, Gemini, and local Ollama."
-seoDescription: "Natural-language FreeBSD firewall diagnostics via 14 read-only MCP tools, PUB-1 public IP masking, zero write risk, and 100% local Ollama or cloud AI support."
+seo_title: "Stratum Firewall AI Assistant: Read-Only MCP & Local Ollama"
+description: "Ask Stratum Firewall in plain language with Diagnostics > AI Assistant. 15 read-only MCP tools, automatic public IP masking, Claude, OpenAI, DeepSeek, Gemini, and local Ollama."
+seoDescription: "Natural-language FreeBSD firewall diagnostics via 15 read-only MCP tools, PUB-1 public IP masking, zero write risk, and 100% local Ollama or cloud AI support."
 date: 2026-11-18
 translationKey: "product-ai-assistant"
 aliases: ["/ai-assistant/"]
@@ -46,7 +46,7 @@ aliases: ["/ai-assistant/"]
 </style>
 <div class="ai-wrap">
 <section class="ai-dark">
-<span class="ai-eyebrow">DIAGNOSTICS &rarr; AI ASSISTANT &bull; v0.35.1</span>
+<span class="ai-eyebrow">DIAGNOSTICS &rarr; AI ASSISTANT &bull; v0.35.2</span>
 <h2>Ask Your Firewall in Your Own Words — Zero Write Risk</h2>
 <p class="ai-lead">Under Diagnostics &rarr; AI Assistant, administrators can query live firewall telemetry in plain natural language ("What was blocked in the last hour and from where?", "Is WAN2 healthy?", "Is any inside device suspicious?"). The assistant answers in the language of your question using 14 deterministic read-only MCP tools, shows every tool executed beneath its answer, and guides you to the exact panel page whenever a configuration change is needed.</p>
 <div class="ai-kpis">
@@ -79,7 +79,7 @@ aliases: ["/ai-assistant/"]
 </ul>
 </div>
 <div class="ai-card">
-<span class="ai-badge">DETERMINISTIC ACCURACY &bull; v0.35.1</span>
+<span class="ai-badge">DETERMINISTIC ACCURACY &bull; v0.35.2</span>
 <h3>Exact Rule Counts &amp; External MCP Clients</h3>
 <ul>
 <li><strong>Pre-computed rule &amp; NAT math:</strong> Instead of letting an LLM miscount long port-forward or rule tables, Stratum's MCP tools compute exact totals (<code>all</code>, <code>enabled</code>, <code>disabled</code>) deterministically.</li>
@@ -112,7 +112,7 @@ aliases: ["/ai-assistant/"]
 <div class="ai-cta-row">
 <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="ai-btn-pri">Inspect Diagnostics in Live Demo &rarr;</a>
 <a href="/download/" class="ai-btn-sec">Download Stratum FW</a>
-<a href="/resources/changelog/" class="ai-btn-sec">Read v0.35.1 Changelog</a>
+<a href="/resources/changelog/" class="ai-btn-sec">Read v0.35.2 Changelog</a>
 </div>
 </section>
 </div>

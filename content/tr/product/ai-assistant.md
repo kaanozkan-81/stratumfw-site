@@ -1,8 +1,8 @@
 ---
 title: "Yapay Zeka Asistanı ve MCP"
-seoTitle: "Stratum Firewall Yapay Zeka Asistanı: Salt Okunur MCP ve Ollama"
-description: "Tanılama > Yapay Zeka Asistanı ile güvenlik duvarınıza doğal dilde sorular sorun. 14 salt okunur MCP aracı, genel IP maskeleme ve yerel Ollama desteği."
-seoDescription: "14 salt okunur MCP aracı, otomatik PUB-1 IP maskeleme, sıfır kural bozma riski ve %100 yerel Ollama veya Claude/OpenAI/DeepSeek/Gemini desteği."
+seo_title: "Stratum Firewall Yapay Zeka Asistanı: Salt Okunur MCP ve Ollama"
+description: "Tanılama > Yapay Zeka Asistanı ile güvenlik duvarınıza doğal dilde sorular sorun. 15 salt okunur MCP aracı, genel IP maskeleme ve yerel Ollama desteği."
+seoDescription: "15 salt okunur MCP aracı, otomatik PUB-1 IP maskeleme, sıfır kural bozma riski ve %100 yerel Ollama veya Claude/OpenAI/DeepSeek/Gemini desteği."
 date: 2026-11-18
 translationKey: "product-ai-assistant"
 aliases: ["/tr/ai-assistant/"]
@@ -46,9 +46,9 @@ aliases: ["/tr/ai-assistant/"]
 </style>
 <div class="ai-wrap">
 <section class="ai-dark">
-<span class="ai-eyebrow">TANILAMA &rarr; YAPAY ZEKA ASİSTANI &bull; v0.35.1</span>
+<span class="ai-eyebrow">TANILAMA &rarr; YAPAY ZEKA ASİSTANI &bull; v0.35.2</span>
 <h2>Güvenlik Duvarınızla Kendi Dilinizde Konuşun — Sıfır Değişiklik Riskiyle</h2>
-<p class="ai-lead">Tanılama &rarr; Yapay Zeka Asistanı ekranından sistem yöneticileri güvenlik duvarının canlı durumunu doğal dilde sorgulayabilir ("Son bir saatte nereden gelen neler engellendi?", "WAN2 hattı sağlıklı mı?", "İç ağda şüpheli davranan bir cihaz var mı?"). Asistan sorulan dilde yanıt verir, verileri 14 salt okunur MCP aracından çeker, kullandığı araçları her yanıtın altında listeler ve bir kural değişikliği gerektiğinde doğrudan ilgili panel sayfasını tarif eder.</p>
+<p class="ai-lead">Tanılama &rarr; Yapay Zeka Asistanı ekranından sistem yöneticileri güvenlik duvarının canlı durumunu doğal dilde sorgulayabilir ("Son bir saatte nereden gelen neler engellendi?", "WAN2 hattı sağlıklı mı?", "İç ağda şüpheli davranan bir cihaz var mı?"). Asistan sorulan dilde yanıt verir, verileri 15 salt okunur MCP aracından çeker, kullandığı araçları her yanıtın altında listeler ve bir kural değişikliği gerektiğinde doğrudan ilgili panel sayfasını tarif eder.</p>
 <div class="ai-kpis">
 <div class="ai-kpi"><strong>14 Araç</strong><span>Salt Okunur Canlı MCP Telemetrisi</span></div>
 <div class="ai-kpi"><strong>0 Yazma Riski</strong><span>pf, NAT veya Sistem Ayarlarını Değiştiremez</span></div>
@@ -79,7 +79,7 @@ aliases: ["/tr/ai-assistant/"]
 </ul>
 </div>
 <div class="ai-card">
-<span class="ai-badge">KESİN DOĞRULUK &bull; v0.35.1</span>
+<span class="ai-badge">KESİN DOĞRULUK &bull; v0.35.2</span>
 <h3>Deterministik Kural Sayımı ve Harici MCP Desteği</h3>
 <ul>
 <li><strong>Hazır kural ve NAT toplamları:</strong> Uzun port yönlendirme veya güvenlik kuralı listelerinde modelin yanlış saymasını önlemek için MCP araçları toplam, etkin ve devre dışı kural sayılarını kesin olarak hesaplayıp modele verir.</li>
@@ -112,7 +112,7 @@ aliases: ["/tr/ai-assistant/"]
 <div class="ai-cta-row">
 <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="ai-btn-pri">Canlı Demoda Tanılama Ekranlarını İncele &rarr;</a>
 <a href="/tr/download/" class="ai-btn-sec">Stratum FW İndir</a>
-<a href="/tr/resources/changelog/" class="ai-btn-sec">v0.35.1 Sürüm Notları</a>
+<a href="/tr/resources/changelog/" class="ai-btn-sec">v0.35.2 Sürüm Notları</a>
 </div>
 </section>
 </div>

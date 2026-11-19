@@ -1,6 +1,6 @@
 ---
 title: "Security Guard"
-seoTitle: "Stratum Security Guard: Free 5-Layer Firewall Threat Defense"
+seo_title: "Stratum Security Guard: Free 5-Layer Firewall Threat Defense"
 description: "The threat-blocking layers built into Stratum FW - 63 IP blocklists, 5-RIR GeoIP, 93 DNSBL feeds, 56-category Web Filter, and Suricata IPS. Included free, zero subscriptions."
 seoDescription: "Explore Stratum Security Guard: 63 pf IP blocklists, 5-RIR GeoIP, 93 Unbound DNSBL lists, 56 UT1 Web Filter categories, and fail-open Suricata IPS at $0/year."
 date: 2026-11-18
@@ -163,7 +163,7 @@ aliases: ["/security-guard/"]
 <span class="sg-badge">APPLIANCE HARDENING</span>
 <h3>Self-Protecting Control Plane</h3>
 <ul>
-<li><strong>Local TOTP 2FA & Brute-Force Lock:</strong> On-box QR generation plus automatic 5-minute IP block after 5 failed sign-ins in 5 minutes.</li>
+<li><strong>Local TOTP 2FA & Brute-Force Lock:</strong> On-box QR generation plus automatic 5-minute IP block after 5 failed sign-ins in 15 minutes.</li>
 <li><strong>Locked-Down Access & Secrets:</strong> WAN panel/SSH closed by default (key-only SSH supported), 3 RBAC roles, and <code>0600</code> root-only secret files never sent to the browser.</li>
 <li><strong>Safe-Apply & Signed Updates:</strong> Pre-checked changes with auto-rollback and signed updates backed by ZFS Boot Environments.</li>
 </ul>
@@ -186,3 +186,8 @@ if(lb&&target){ target.src=img.src; target.alt=img.alt; lb.classList.add('open')
 });
 document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ var lb=document.getElementById('sg-lb'); if(lb) lb.classList.remove('open'); }});
 </script>
+
+<div style="background:#0f172a !important;border:1px solid rgba(245,158,11,0.35) !important;border-radius:14px;padding:20px 24px;margin:24px 0;">
+<div style="color:#fbbf24 !important;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">NEW IN v0.35.2 • REACHABILITY-AWARE SURICATA IDS NOTIFICATIONS</div>
+<p style="color:#cbd5e1 !important;margin:0;line-height:1.65;font-size:0.96rem;">Because Suricata inspects WAN interfaces before <code style="color:#7dd3fc !important;">pf</code> filters packets, internet scans aimed at closed WAN ports no longer spam Telegram or e-mail alerts. Stratum FW resolves what is genuinely open on WAN addresses (port forwards with source aliases, WAN pass rules, management, OpenVPN, WireGuard, and IPsec) and notifies only on reachable or internal alerts while keeping dropped hits visible as <strong style="color:#f8fafc !important;">Port closed</strong> in logs and MCP tools (with brute-force sign-in protection defaulting to a <strong style="color:#f8fafc !important;">15-minute</strong> block).</p>
+</div>

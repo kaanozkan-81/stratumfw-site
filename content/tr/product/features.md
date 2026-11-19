@@ -4,7 +4,6 @@ description: "Stratum Firewall v0.30.0 tüm özellikleri: durum bilgili pf kural
 lead: "Stratum Firewall, kendini kanıtlamış pf paket filtresini şimşek hızındaki bir FastAPI yönetim paneliyle birleştirir. Tescilli bağımlılıklar yok, mutlak kontrol var. Modern altyapılar için güvenlik odaklı bir mimariyle inşa edildi."
 full_width: true
 seo_title: "Özellikler — pf, Suricata 8 IPS, 55 Kategorili Web Filtresi ve Çoklu WAN VPN"
-seoTitle: "Özellikler: FreeBSD pf, IPsec, WireGuard ve Suricata 8 DPI"
 seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, durum korumalı pf ayırıcıları, Suricata 8 DPI, Web Filtresi, AD istisnalı Zorunlu DNS ve TOTP 2FA."
 ---
 
@@ -116,8 +115,8 @@ seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, 
       <p><code>dnsmasq</code> ve <code>ISC dhcpd</code> havuzlarını, sabit MAC eşleşmelerini, Unbound kayıtlarını ve <code>dummynet</code> hız limitlerini taşır; DNS yönlendirme port kurallarını istisna takma adlarıyla birlikte doğrudan <strong>Zorunlu DNS</strong> ayarına çevirir.</p>
     </div>
     <div class="opn-mig-card">
-      <h3>6. Gizlilik Korumalı Rapor ve 60 sn Safe-Apply</h3>
-      <p>Yüklenen XML dosyası yalnızca bellekte okunur, diske kaydedilmez ve raporda hiçbir gizli anahtar gösterilmez. Uygulama öncesi tüm çakışmalar raporlanır ve geçiş 60 saniyelik otomatik geri alma sayacıyla korunur.</p>
+      <h3>6. Gizlilik Korumalı Rapor ve 120 sn Safe-Apply</h3>
+      <p>Yüklenen XML dosyası yalnızca bellekte okunur, diske kaydedilmez ve raporda hiçbir gizli anahtar gösterilmez. Uygulama öncesi tüm çakışmalar raporlanır ve geçiş 120 saniyelik otomatik geri alma sayacıyla korunur.</p>
     </div>
   </div>
 

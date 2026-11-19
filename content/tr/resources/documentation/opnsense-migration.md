@@ -2,7 +2,7 @@
 title: "OPNsense'den Geçiş Rehberi"
 description: "OPNsense config.xml dosyasını Stratum Firewall v0.30.3 sürümüne aktarın — arayüzler, DHCP WAN2, Zorunlu DNS, URL tablo IP engelleme listeleri, kurallar, NAT, Sanal IP ve sıfır kesintili OpenVPN devralma."
 lead: "OPNsense yapılandırmanızı dakikalar içinde Stratum Firewall'a taşıyın — güvenlik duvarı kurallarınızı, DHCP ikincil WAN hatlarını, Zorunlu DNS kurallarını, URL tablo tehdit listelerini ve tüm OpenVPN sunucunuzu kullanıcı bilgisayarlarına dokunmadan devralın."
-seoTitle: "OPNsense config.xml, OpenVPN ve DNSBL Geçiş Rehberi | Stratum"
+seo_title: "OPNsense config.xml, OpenVPN ve DNSBL Geçiş Rehberi | Stratum"
 seoDescription: "OPNsense config.xml yedeğinizi, VLAN yapılarını, pf kurallarını, OpenVPN sertifika ve kullanıcılarını, Unbound DNSBL listelerini ve DHCP havuzlarını kesintisiz taşıyın."
 ---
 

@@ -101,7 +101,7 @@ full_width: true
         <tr>
           <td><strong>Remote Branch Mistake Recovery</strong></td>
           <td>Bad WAN/firewall rule can require an onsite console visit</td>
-          <td><strong>60-second Safe-Apply</strong> automatic rollback + bootable ZFS snapshots</td>
+          <td><strong>120-second Safe-Apply</strong> automatic rollback + bootable ZFS snapshots</td>
         </tr>
         <tr>
           <td><strong>Hardware &amp; Virtualization Freedom</strong></td>

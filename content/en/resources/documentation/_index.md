@@ -9,7 +9,7 @@ hide_pages: true
 <div class="docs-layout">
 
 <div class="docs-intro">
-  <p>Stratum Firewall ships as a turnkey FreeBSD 15.1 appliance OS with ZFS Boot Environments, TOTP two-factor sign-in, a declarative configuration engine, and a 60-second Safe-Apply rollback workflow. Grab the <a href="/download/">VGA ISO or Serial IMG installer</a>, or explore the interface first in our <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Live Browser Demo</a>.</p>
+  <p>Stratum Firewall ships as a turnkey FreeBSD 15.1 appliance OS with ZFS Boot Environments, TOTP two-factor sign-in, a declarative configuration engine, and a 120-second Safe-Apply rollback workflow. Grab the <a href="/download/">VGA ISO or Serial IMG installer</a>, or explore the interface first in our <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Live Browser Demo</a>.</p>
 </div>
 
 <section id="getting-started" class="docs-section">

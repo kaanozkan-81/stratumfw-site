@@ -406,7 +406,7 @@ section.hero h1, section.hero p {
     </div>
     <div class="stratum-ai-grid">
       <div>
-        <p class="stratum-ai-lead">Ask what was blocked in the last hour, whether WAN2 is healthy, or if any internal device looks suspicious. Powered by 14 read-only MCP tools, the assistant inspects live state without ever modifying your configuration.</p>
+        <p class="stratum-ai-lead">Ask what was blocked in the last hour, whether WAN2 is healthy, or if any internal device looks suspicious. Powered by 15 read-only MCP tools, the assistant inspects live state without ever modifying your configuration.</p>
         <ul class="stratum-ai-points">
           <li><strong>Public IP Masking (<code>PUB-1</code>):</strong> Replaces real public IPs with aliases before cloud queries and restores them locally in your answer.</li>
           <li><strong>Zero Secret Exposure:</strong> Never accesses passwords, <code>0600</code> keys, or VPN configs; chats stay in RAM for 1 hour and are never logged to disk.</li>
@@ -448,7 +448,7 @@ section.hero h1, section.hero p {
         <div class="stratum-gallery-featured-bar">
           <div class="stratum-gallery-featured-meta">
             <strong>Stratum Firewall &middot; FreeBSD 15.1 &amp; Kernel pf Appliance OS</strong>
-            <span>Declarative JSON engine, atomic ZFS Boot Environments, 60-second Safe-Apply rollback, and zero annual subscriptions.</span>
+            <span>Declarative JSON engine, atomic ZFS Boot Environments, 120-second Safe-Apply rollback, and zero annual subscriptions.</span>
           </div>
           <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="stratum-gallery-demo-cta" onclick="event.stopPropagation()">Launch Live FreeBSD 15.1 Demo &rarr;</a>
         </div>
@@ -496,14 +496,14 @@ section.hero h1, section.hero p {
 
         <div class="stratum-panel-shot" onclick="openLightbox('/images/gallery/panel-totp-wireguard-v0303.webp')">
           <div class="stratum-panel-shot-img">
-            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Browser-Local QR TOTP 2FA, 60s Safe-Apply and Kernel WireGuard VPN" loading="lazy">
+            <img src="/images/gallery/panel-totp-wireguard-v0303.webp" alt="Browser-Local QR TOTP 2FA, 120s Safe-Apply and Kernel WireGuard VPN" loading="lazy">
           </div>
           <div class="stratum-panel-shot-cap">
             <div class="stratum-panel-shot-head">
               <strong>Local-QR TOTP 2FA &amp; Kernel WireGuard</strong>
               <span class="stratum-panel-shot-tag">FreeBSD 15.1</span>
             </div>
-            <p>Two-factor sign-in with browser-drawn QR codes &amp; 10 recovery codes, 60s Safe-Apply protection, and native FreeBSD if_wg VPN.</p>
+            <p>Two-factor sign-in with browser-drawn QR codes &amp; 10 recovery codes, 120s Safe-Apply protection, and native FreeBSD if_wg VPN.</p>
           </div>
         </div>
       </div>
@@ -600,7 +600,7 @@ section.hero h1, section.hero p {
           <div class="home-compare-pills">
             <span>Zero PHP / XML</span>
             <span>Free ZFS Boot Environments</span>
-            <span>60s Safe-Apply Rollback</span>
+            <span>120s Safe-Apply Rollback</span>
             <span>1-Click OPNsense Migration</span>
           </div>
         </div>
@@ -639,7 +639,7 @@ section.hero h1, section.hero p {
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="9" rx="1.5"/><path d="M6 8V6a4 4 0 0 1 8 0v2"/></svg></div>
         <h3>Multi-Vendor S2S & Remote VPN</h3>
-        <p>Site-to-Site IPsec (IKEv2/IKEv1, strongSwan) and FreeBSD kernel WireGuard tunnels to FortiGate, MikroTik RouterOS 7, pfSense/OPNsense, Cisco, and cloud gateways. Keys are generated with OpenSSL (Python cryptography); Stratum implements no custom cryptography.</p>
+        <p>Site-to-Site IPsec (IKEv2/IKEv1, strongSwan) and FreeBSD kernel WireGuard tunnels to FortiGate, MikroTik RouterOS 7, pfSense/OPNsense, Cisco, and cloud gateways. Keys are generated with OpenSSL (the openssl tool and Python cryptography); Stratum implements no custom cryptography.</p>
       </div>
 
       <div class="card">
@@ -877,7 +877,7 @@ section.hero h1, section.hero p {
         <p class="stratum-lifecycle-lead">Stratum Firewall ships as a self-contained FreeBSD 15.1-RELEASE appliance OS with offline VGA ISO and headless serial (115200 8N1) IMG installers for x86_64 appliances, Proxmox VE, VMware ESXi, and KVM/QEMU.</p>
         <ul class="stratum-lifecycle-list">
           <li><span class="stratum-lifecycle-check">✓</span><span><strong>Offline OpenZFS & Boot Environments:</strong> Guided ZFS root setup with instant <code>bectl</code> rollback snapshots before system updates.</span></li>
-          <li><span class="stratum-lifecycle-check">✓</span><span><strong>Declarative JSON & 60s Safe-Apply:</strong> Asynchronous Python 3.12 / FastAPI control plane with lockout rollback and <code>0600</code> isolated secrets.</span></li>
+          <li><span class="stratum-lifecycle-check">✓</span><span><strong>Declarative JSON & 120s Safe-Apply:</strong> Asynchronous Python 3.12 / FastAPI control plane with lockout rollback and <code>0600</code> isolated secrets.</span></li>
           <li><span class="stratum-lifecycle-check">✓</span><span><strong>Enterprise Routing, Multi-Vendor VPN & DPI:</strong> Kernel <code>pf</code>, Multi-WAN failover, IKEv2/IKEv1 IPsec, dedicated WireGuard S2S, Unbound RPZ, and Suricata 8 IPS.</span></li>
           <li><span class="stratum-lifecycle-check">✓</span><span><strong>OPNsense Import, Encrypted Backups & MCP:</strong> Direct <code>config.xml</code> + PKI migration, scheduled <code>.stbk</code> SFTP backups, and a 14-tool read-only MCP server.</span></li>
         </ul>

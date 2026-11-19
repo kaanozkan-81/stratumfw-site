@@ -17,7 +17,7 @@
 
 </div>
 
-## Built-In AI Diagnostics & 5-Layer Security Guard (`v0.35.1`)
+## Built-In AI Diagnostics & 5-Layer Security Guard (`v0.35.2`)
 
 | Built-In Read-Only AI Assistant (`MCP` + `Ollama`) | 5-Layer Security Guard (`$0/Year` Threat Defense) |
 | :---: | :---: |
@@ -25,7 +25,7 @@
 
 ## Key Portal Pages
 
-* **AI Assistant & MCP (`v0.35.1`):** [https://stratumfw.com/product/ai-assistant/](https://stratumfw.com/product/ai-assistant/)
+* **AI Assistant & MCP (`v0.35.2`):** [https://stratumfw.com/product/ai-assistant/](https://stratumfw.com/product/ai-assistant/)
 * **Security Guard (5-Layer Threat Defense):** [https://stratumfw.com/product/security-guard/](https://stratumfw.com/product/security-guard/)
 * **Security & Cryptographic Verification:** [https://stratumfw.com/product/security/](https://stratumfw.com/product/security/)
 * **Interactive Browser Live Demo:** [https://demo.stratumfw.com](https://demo.stratumfw.com)

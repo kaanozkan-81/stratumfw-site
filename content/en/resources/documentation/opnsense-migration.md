@@ -2,7 +2,7 @@
 title: "Migrating from OPNsense"
 description: "Import an OPNsense config.xml into Stratum Firewall v0.30.3 — interfaces, DHCP Multi-WAN, Force DNS, URL-table IP blocklists, pf rules, NAT, Virtual IPs, GeoIP/Hostname aliases, and zero-touch OpenVPN takeover."
 lead: "Move from OPNsense to Stratum Firewall in minutes — including your firewall rules, DHCP secondary WANs, Force DNS redirects, URL-table blocklists, Virtual IPs, and your entire OpenVPN server without touching a single client laptop."
-seoTitle: "OPNsense config.xml, OpenVPN & DNSBL Migration | Stratum FW"
+seo_title: "OPNsense config.xml, OpenVPN & DNSBL Migration | Stratum FW"
 seoDescription: "Step-by-step guide to migrating OPNsense config.xml, VLANs, pf rules, OpenVPN CA/certs/users, Unbound DNSBL feeds, and DHCP pools directly into Stratum FW."
 ---
 
