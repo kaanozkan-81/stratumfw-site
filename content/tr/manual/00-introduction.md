@@ -46,6 +46,7 @@ Panelin altında iyi bilinen, kendini kanıtlamış bileşenleriyle **FreeBSD 15
 
 Sistem **ZFS** üzerine kurulur. Her güncelleme bir *önyükleme ortamı* (boot environment) - yani istediğiniz zaman geri dönebileceğiniz tam bir sistem anlık görüntüsü - oluşturur; bu sayede her güncelleme geri alınabilir.
 
+<span id="how-a-change-reaches-the-system"></span>
 ## Bir değişiklik sisteme nasıl ulaşır
 
 Bu, Stratum FW'deki en önemli temel ilkedir ve herhangi bir ayarı değiştirmeden önce anlaşılması gerekir.
@@ -154,6 +155,6 @@ Stratum FW, olası bir hatanın kolayca geri alınabilmesi için tasarlanmışt�
 
 ## Sıradaki adımlar
 
-- Yeni kurulum yapıyorsanız: **1 Installation** (Kurulum) bölümüyle devam edin.
+- Yeni kurulum yapıyorsanız: [**1 Kurulum (Installation)**](/tr/manual/installation/) bölümüyle devam edin.
 - OPNsense'ten geçiş yapıyorsanız: **Migrating from OPNsense** bölümü mevcut yapılandırmanızı içe aktarır.
 - Sisteminiz zaten çalışıyorsa: içindekiler menüsünden ihtiyaç duyduğunuz bölüme doğrudan geçebilirsiniz.

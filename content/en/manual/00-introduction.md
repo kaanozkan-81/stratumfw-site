@@ -196,6 +196,6 @@ Stratum FW is built so that a mistake is easy to undo:
 
 ## Where to go next
 
-- New installation: continue with **1 Installation**.
+- New installation: continue with [**1 Installation**](/manual/installation/).
 - Moving from OPNsense: the chapter **Migrating from OPNsense** imports your existing configuration.
 - Already running: jump to the chapter of the menu you need from the contents.
