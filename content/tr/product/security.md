@@ -33,7 +33,7 @@ Stratum Firewall **kendi özel kriptografisini yazmaz veya uygulamaz**:
 
 * **Yerel QR Kodlu TOTP İki Aşamalı Giriş:** TOTP doğrulama kodları ve QR görseli üçüncü taraf bir servise istek atılmadan tamamen yerel olarak üretilir; 10 adet tek kullanımlık kurtarma kodu ve HTTPS `Secure` çerez korumasıyla desteklenir.
 * **Rol Tabanlı Erişim (RBAC) ve Denetim Günlüğü:** `Yönetici`, `Operatör` ve `Salt Okunur` rolleri birbirinden ayrılmıştır; hassas günlükler (web aktivite kayıtları, paket yakalamaları) yalnızca yöneticilere açıktır ve erişimler kayıt altına alınır.
-Telemetri yoktur: cihaz hiçbir kullanım istatistiği veya yapılandırma verisi göndermez. Dış ağa yalnızca yöneticinin etkinleştirdiği özellikler için bağlanır: imzalı güncelleme kontrolleri, IP engelleme listesi, GeoIP, Web Filtresi ve Suricata kural indirmeleri, DNS ve NTP, bildirimler (Telegram, e-posta), uzak sunucu yedeklemeleri (SFTP) ve yapılandırılmışsa Yapay Zeka Asistanı sağlayıcısı.
+Telemetri yoktur: cihaz hiçbir kullanım istatistiği veya yapılandırma verisi göndermez.Telemetri yoktur: cihaz hiçbir kullanım istatistiği veya yapılandırma verisi göndermez. Dış ağa yalnızca yöneticinin etkinleştirdiği özellikler için bağlanır: imzalı güncelleme kontrolleri, IP engelleme listesi, GeoIP, Web Filtresi ve Suricata kural indirmeleri, DNS ve NTP, bildirimler (Telegram, e-posta), uzak sunucu yedeklemeleri (SFTP) ve yapılandırılmışsa Yapay Zeka Asistanı sağlayıcısı.
 
 ## 5. Güvenlik Açığı Bildirimi
 
