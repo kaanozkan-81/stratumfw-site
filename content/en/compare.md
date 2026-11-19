@@ -131,10 +131,10 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
           <td><span class="cmp-badge-no">None Built-in</span></td>
         </tr>
         <tr>
-          <td><strong>Guest Captive Portal</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in (v0.36.0)</span><br>Privilege-separated zones, terms or local accounts, MAC check &amp; hitless reloads</td>
-          <td>Built-in Captive Portal</td>
-          <td>Built-in Captive Portal</td>
+          <td><strong>Guest Captive Portal &amp; RADIUS</strong></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in (v0.36.1)</span><br>Zones, terms/local/RADIUS + Accounting, <code>Mikrotik-Rate-Limit</code> &amp; per-device <code>dummynet</code></td>
+          <td>Built-in Captive Portal + RADIUS</td>
+          <td>Built-in Captive Portal + RADIUS</td>
           <td>Captive Portal add-on</td>
         </tr>
         <tr>

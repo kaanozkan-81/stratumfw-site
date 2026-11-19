@@ -131,10 +131,10 @@ seoDescription: "Stratum Firewall ile OPNsense, pfSense CE ve IPFire dağıtıml
           <td><span class="cmp-badge-no">Yok</span></td>
         </tr>
         <tr>
-          <td><strong>Misafir Captive Portal</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik (v0.36.0)</span><br>Yetki ayrıştırılmış bölgeler, koşul onayı/yerel hesap, MAC kontrolü ve kesintisiz yenileme</td>
-          <td>Yerleşik Captive Portal</td>
-          <td>Yerleşik Captive Portal</td>
+          <td><strong>Misafir Captive Portal ve RADIUS</strong></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik (v0.36.1)</span><br>Bölgeler, koşul/yerel/RADIUS + Accounting, <code>Mikrotik-Rate-Limit</code> ve cihaz başı <code>dummynet</code></td>
+          <td>Yerleşik Captive Portal + RADIUS</td>
+          <td>Yerleşik Captive Portal + RADIUS</td>
           <td>Eklenti ile Captive Portal</td>
         </tr>
         <tr>

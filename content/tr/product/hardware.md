@@ -402,7 +402,7 @@ display: inline-block;
 <p>Dört adet SFP+ fiber yuvası (<code>1 – 4</code>), sekiz adet bakır RJ45 portu (<code>5 – 12</code>) ve ön panel RJ45 seri konsoluyla kampüsler, oteller ve merkez ofisler için yüksek port yoğunluğu.</p>
 <ul class="hw-list">
 <li><strong>Merkez Yönlendirme:</strong> Çoklu fiber WAN, <code>/29</code> Sanal IP, <code>1:1 NAT</code> ve 30 günlük VLAN matrisi</li>
-<li><strong>Kampüs ve Konaklama:</strong> Çok bölgeli Misafir Captive Portal ve 56 kategorili UT1 Web Filtresi</li>
+<li><strong>Kampüs ve Konaklama:</strong> Çok bölgeli Captive Portal + RADIUS (<code>Mikrotik-Rate-Limit</code>) ve 56 kategorili Web Filtresi</li>
 <li><strong>Yapay Zeka Tanılama:</strong> Yerel LAN <code>Ollama</code> ve <code>PUB-1</code> maskelemeli 15 araçlı salt okunur AI Asistanı</li>
 </ul>
 </div>

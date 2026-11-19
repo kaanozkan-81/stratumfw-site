@@ -402,7 +402,7 @@ display: inline-block;
 <p>High-density 1U rack appliance combining four SFP+ fiber cages (<code>1 – 4</code>), eight copper RJ45 ports (<code>5 – 12</code>), and front RJ45 serial console for campuses, hotels, and headquarters.</p>
 <ul class="hw-list">
 <li><strong>Core Routing:</strong> Multi-ISP fiber WANs, <code>/29</code> Virtual IPs, <code>1:1 NAT</code> &amp; 30-day VLAN flow matrix</li>
-<li><strong>Campus &amp; Guest Wi-Fi:</strong> Multi-zone Captive Portal + 56-category UT1 Web Filter</li>
+<li><strong>Campus &amp; Guest Wi-Fi:</strong> Multi-zone Captive Portal + RADIUS (<code>Mikrotik-Rate-Limit</code>) &amp; 56-category Web Filter</li>
 <li><strong>AI Diagnostics:</strong> Read-only 15-tool MCP AI Assistant with LAN <code>Ollama</code> or <code>PUB-1</code> masking</li>
 </ul>
 </div>

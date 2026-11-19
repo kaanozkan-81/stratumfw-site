@@ -1,81 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540" role="img" aria-label="Stratum Firewall v0.36.0 Privilege-Separated Captive Portal Architecture">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-label="Stratum Firewall v0.36.1 Captive Portal, RADIUS Accounting, and Per-Device dummynet Architecture">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#060d1a"/>
       <stop offset="55%" stop-color="#0b1629"/>
       <stop offset="100%" stop-color="#08101f"/>
     </linearGradient>
-    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f59e0b"/>
-      <stop offset="100%" stop-color="#fbbf24"/>
-    </linearGradient>
-    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0284c7"/>
-      <stop offset="100%" stop-color="#38bdf8"/>
-    </linearGradient>
   </defs>
 
-  <rect width="1200" height="540" rx="18" fill="url(#bgGrad)"/>
-  <rect x="12" y="12" width="1176" height="516" rx="14" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+  <rect width="1200" height="560" rx="18" fill="url(#bgGrad)"/>
+  <rect x="12" y="12" width="1176" height="536" rx="14" fill="none" stroke="#1e293b" stroke-width="1.5"/>
 
-  <!-- Header -->
-  <text x="48" y="56" fill="#fbbf24" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">STRATUM FIREWALL v0.36.0 • SERVICES &gt; CAPTIVE PORTAL</text>
-  <text x="48" y="88" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="700">Privilege-Separated Guest Captive Portal &amp; Hitless pf Sessions</text>
-  <line x1="48" y1="108" x2="1152" y2="108" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="48" y="54" fill="#fbbf24" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">STRATUM FIREWALL v0.36.0 – v0.36.1 • SERVICES &gt; CAPTIVE PORTAL + RADIUS NAS</text>
+  <text x="48" y="86" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700">Privilege-Separated Portal, FreeRADIUS Accounting &amp; MikroTik-Compatible Queues</text>
+  <line x1="48" y1="106" x2="1152" y2="106" stroke="#1e293b" stroke-width="1.5"/>
 
-  <!-- Stage 1: Guest Zone -->
-  <rect x="48" y="136" width="328" height="310" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.5"/>
-  <rect x="68" y="156" width="118" height="24" rx="12" fill="#0c2a42"/>
-  <text x="127" y="172" text-anchor="middle" fill="#7dd3fc" font-family="system-ui, sans-serif" font-size="11" font-weight="700">1 • GUEST ZONE</text>
-  <text x="68" y="206" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Multi-Interface Zones</text>
-  <text x="68" y="232" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Pre-auth devices reach only firewall DNS,</text>
-  <text x="78" y="252" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">portal page &amp; allowed destinations</text>
-  <text x="68" y="280" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• HTTP redirect triggers native OS captive</text>
-  <text x="78" y="300" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">sign-in popup on phones &amp; laptops</text>
-  <text x="68" y="328" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Exceptions for printers &amp; TV boxes</text>
-  <rect x="68" y="356" width="288" height="68" rx="10" fill="#08101f" stroke="#1e293b"/>
-  <text x="84" y="382" fill="#7dd3fc" font-family="monospace" font-size="12.5" font-weight="700">EN / TR Responsive Portal UI</text>
-  <text x="84" y="404" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Custom logo, colour, terms &amp; dark mode</text>
+  <!-- Box 1: Guest Zone & Unprivileged Web -->
+  <rect x="48" y="132" width="332" height="334" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.48" stroke-width="1.5"/>
+  <rect x="68" y="152" width="194" height="24" rx="12" fill="#0c2a42"/>
+  <text x="165" y="168" text-anchor="middle" fill="#7dd3fc" font-family="system-ui, sans-serif" font-size="11" font-weight="700">1 • GUEST ZONE &amp; PORTAL UI</text>
+  <text x="68" y="202" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Unprivileged Guest Web</text>
+  <text x="68" y="228" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Runs as unprivileged user; holds zero</text>
+  <text x="78" y="248" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">passwords, RADIUS secrets, or keys</text>
+  <text x="68" y="276" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Automatic OS connectivity popup on</text>
+  <text x="78" y="296" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">phones &amp; laptops (EN/TR + Dark Mode)</text>
+  <text x="68" y="324" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Exceptions for printers &amp; TV boxes</text>
+  <rect x="68" y="352" width="292" height="92" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="84" y="376" fill="#7dd3fc" font-family="monospace" font-size="12.5" font-weight="700">3 Sign-In Modes per Zone</text>
+  <text x="84" y="398" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">1. Passwordless terms acceptance</text>
+  <text x="84" y="416" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">2. Local bcrypt accounts (cap &amp; expiry)</text>
+  <text x="84" y="434" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3. RADIUS server + secondary failover</text>
 
   <!-- Arrow 1 -> 2 -->
-  <line x1="376" y1="290" x2="426" y2="290" stroke="#38bdf8" stroke-width="2.5"/>
-  <polygon points="426,284 438,290 426,296" fill="#38bdf8"/>
-  <text x="407" y="276" text-anchor="middle" fill="#7dd3fc" font-family="monospace" font-size="11">HTTP</text>
+  <line x1="380" y1="298" x2="426" y2="298" stroke="#f59e0b" stroke-width="2.5"/>
+  <polygon points="426,292 438,298 426,304" fill="#f59e0b"/>
+  <text x="409" y="284" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="11">socket</text>
 
-  <!-- Stage 2: Unprivileged Portal Process -->
-  <rect x="438" y="136" width="324" height="310" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.6" stroke-width="1.5"/>
-  <rect x="458" y="156" width="176" height="24" rx="12" fill="#2b1d07"/>
-  <text x="546" y="172" text-anchor="middle" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="700">2 • UNPRIVILEGED DAEMON</text>
-  <text x="458" y="206" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Zero Secrets in Guest Web</text>
-  <text x="458" y="232" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Runs as unprivileged user; holds zero</text>
-  <text x="468" y="252" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">password hashes or firewall keys</text>
-  <text x="458" y="280" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Mode A: Passwordless terms acceptance</text>
-  <text x="458" y="306" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Mode B: Local accounts with expiry,</text>
-  <text x="468" y="326" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">device cap &amp; brute-force IP lockout</text>
-  <rect x="458" y="356" width="284" height="68" rx="10" fill="#08101f" stroke="#1e293b"/>
-  <text x="474" y="382" fill="#fbbf24" font-family="monospace" font-size="12.5" font-weight="700">Operator &amp; Admin RBAC</text>
-  <text x="474" y="404" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Operators manage users &amp; live sessions</text>
+  <!-- Box 2: Root Verifier & RADIUS NAS -->
+  <rect x="438" y="132" width="336" height="334" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.62" stroke-width="1.5"/>
+  <rect x="458" y="152" width="206" height="24" rx="12" fill="#2b1d07"/>
+  <text x="561" y="168" text-anchor="middle" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="700">2 • ROOT AUTH &amp; RADIUS NAS</text>
+  <text x="458" y="202" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Verified RADIUS &amp; Accounting</text>
+  <text x="458" y="228" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• PAP + Message-Authenticator on every</text>
+  <text x="468" y="248" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">request; every reply secret-verified</text>
+  <text x="458" y="276" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Accounting Start, Interim &amp; Stop with</text>
+  <text x="468" y="296" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">traffic, duration, Class &amp; disconnect reason</text>
+  <text x="458" y="324" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Dashboard alert on unconfirmed Acct</text>
+  <rect x="458" y="352" width="296" height="92" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="474" y="376" fill="#fbbf24" font-family="monospace" font-size="12.5" font-weight="700">Dynamic RADIUS Attributes</text>
+  <text x="474" y="398" fill="#cbd5e1" font-family="monospace" font-size="11.5">Session-Timeout • Idle-Timeout</text>
+  <text x="474" y="416" fill="#7dd3fc" font-family="monospace" font-size="11.5">WISPr-Bandwidth-Max-Up/Down</text>
+  <text x="474" y="434" fill="#34d399" font-family="monospace" font-size="11.5" font-weight="700">Mikrotik-Rate-Limit (drop-in!)</text>
 
-  <!-- Arrow 2 -> 3 (Unix Socket) -->
-  <line x1="762" y1="290" x2="812" y2="290" stroke="#f59e0b" stroke-width="2.5"/>
-  <polygon points="812,284 824,290 812,296" fill="#f59e0b"/>
-  <text x="793" y="276" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="11">socket</text>
+  <!-- Arrow 2 -> 3 -->
+  <line x1="774" y1="298" x2="820" y2="298" stroke="#34d399" stroke-width="2.5"/>
+  <polygon points="820,292 832,298 820,304" fill="#34d399"/>
+  <text x="803" y="284" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="11">pf/dnctl</text>
 
-  <!-- Stage 3: Root Verifier & Kernel pf -->
-  <rect x="824" y="136" width="328" height="310" rx="14" fill="#0f172a" stroke="#10b981" stroke-opacity="0.45" stroke-width="1.5"/>
-  <rect x="844" y="156" width="174" height="24" rx="12" fill="#082c24"/>
-  <text x="931" y="172" text-anchor="middle" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700">3 • ROOT VERIFIER &amp; PF</text>
-  <text x="844" y="206" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Isolated Auth &amp; Persistence</text>
-  <text x="844" y="232" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Separate root service checks bcrypt</text>
-  <text x="854" y="252" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">hashes stored in root-only file</text>
-  <text x="844" y="280" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Session duration, idle timeout &amp; live</text>
-  <text x="854" y="300" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">MAC check against IP takeover</text>
-  <rect x="844" y="340" width="288" height="84" rx="10" fill="#08101f" stroke="#1e293b"/>
-  <text x="860" y="366" fill="#34d399" font-family="monospace" font-size="12.5" font-weight="700">Hitless Session Continuity</text>
-  <text x="860" y="388" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Signed-in guests stay connected across</text>
-  <text x="860" y="406" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">pf reloads, Apply &amp; service restarts</text>
+  <!-- Box 3: Kernel pf + Per-Device dummynet -->
+  <rect x="832" y="132" width="320" height="334" rx="14" fill="#0f172a" stroke="#10b981" stroke-opacity="0.48" stroke-width="1.5"/>
+  <rect x="852" y="152" width="198" height="24" rx="12" fill="#082c24"/>
+  <text x="951" y="168" text-anchor="middle" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700">3 • PER-DEVICE DUMMYNET &amp; PF</text>
+  <text x="852" y="202" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Isolated Queues &amp; Continuity</text>
+  <text x="852" y="228" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Dedicated dummynet Mbit/s queue per</text>
+  <text x="862" y="248" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">device (RADIUS rate overrides zone)</text>
+  <text x="852" y="276" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Live per-client RX/TX &amp; active limit view</text>
+  <text x="852" y="304" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Live MAC check signs out IP takeovers</text>
+  <rect x="852" y="352" width="280" height="92" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="868" y="376" fill="#34d399" font-family="monospace" font-size="12.5" font-weight="700">Hitless Session Persistence</text>
+  <text x="868" y="398" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Guests stay connected across pf reloads,</text>
+  <text x="868" y="416" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">120s Safe-Apply &amp; service restarts; live</text>
+  <text x="868" y="434" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Dashboard widget monitors every zone.</text>
 
-  <!-- Footer Strip -->
-  <rect x="48" y="468" width="1104" height="40" rx="10" fill="#0f172a" stroke="#1e293b"/>
-  <text x="600" y="493" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">After sign-in, the interface's normal stateful <tspan fill="#fbbf24" font-weight="700">pf</tspan> rules, <tspan fill="#7dd3fc" font-weight="700">dummynet</tspan> per-device limits &amp; 5-layer <tspan fill="#fbbf24" font-weight="700">Security Guard</tspan> policies apply automatically.</text>
+  <rect x="48" y="488" width="1104" height="40" rx="10" fill="#0f172a" stroke="#1e293b"/>
+  <text x="600" y="513" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">Existing <tspan fill="#34d399" font-weight="700">FreeRADIUS / MikroTik</tspan> hotspot backends connect unchanged via <tspan fill="#7dd3fc" font-weight="700">Mikrotik-Rate-Limit</tspan> &amp; <tspan fill="#fbbf24" font-weight="700">WISPr</tspan> attributes.</text>
 </svg>

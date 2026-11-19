@@ -1,10 +1,20 @@
 ---
 title: "Sürüm Notları"
-seo_title: "Stratum Firewall Sürüm Notları (v0.36.0) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.36.0 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
+seo_title: "Stratum Firewall Sürüm Notları (v0.36.1) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.36.1 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
 ---
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**System > Update**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## 0.36.1 - 2026-11-19
+
+### Eklendi
+- **Captive Portal: RADIUS Sunucusu ile Giriş** (`FreeRADIUS` ve diğer standart sunucular): Her istekte `Message-Authenticator` içeren `PAP` doğrulaması; gelen her yanıt kabul edilmeden önce paylaşılan gizli anahtara (`shared secret`) karşı doğrulanır. Birincil sunucu yanıt vermezse ikincil sunucu devreye girer. Paylaşılan gizli anahtar yalnızca `root` erişimli bir dosyada saklanır ve bir daha gösterilmez.
+  - **Muhasebeleştirme (`Accounting`):** Oturum süresi, trafik miktarı ve sonlanma nedeni (çıkış yapıldı, boşta kalma, süre sınırı, yönetici müdahalesi vb.) ile birlikte `Start`, periyodik ara güncellemeler (`Interim-Update`) ve `Stop` kayıtları gönderilir; böylece RADIUS sunucusunun oturum tabloları ve bunlara dayalı yasal/kurumsal günlükler diğer tüm ağ erişim sunucularında (`NAS`) olduğu gibi Stratum FW arkasındaki cihazları da eksiksiz kapsar. Sunucunun gönderdiği `Class` özelliği geri iletilir.
+  - Sunucudan dönen **`Session-Timeout`**, **`Idle-Timeout`**, **`Acct-Interim-Interval`** ve bant genişliği öznitelikleri (**`WISPr-Bandwidth-Max-Up/Down`** veya **`Mikrotik-Rate-Limit`** — böylece mevcut bir MikroTik RADIUS kurulumu hiçbir değişiklik gerektirmeden çalışır) doğrudan cihaza uygulanır.
+- **Her Bölge İçin Cihaz Başı Bant Genişliği Sınırları:** Hangi giriş yöntemi seçilirse seçilsin her bölge için indirme / yükleme (`Mbit/s`) hız sınırı tanımlanabilir. Her cihaza kendi `dummynet` kuyruğu açılır; RADIUS sunucusundan hız değeri gelirse bölge varsayılanının önüne geçer.
+- Giriş yapmış cihazlar listesinde her cihazın anlık/toplam trafiği ve etkin hız sınırları gösterilir.
+- **Kontrol Paneli (`Dashboard`): Captive Portal Kartı:** Bölge başına bağlı cihaz sayısı, son girişler, servis durumu ve RADIUS sunucusu muhasebe (`accounting`) paketlerini onaylamadığında beliren uyarı.
 
 ## 0.36.0 - 2026-11-19
 

@@ -1,12 +1,30 @@
 ---
 title: "Changelog"
-seo_title: "Stratum Firewall Changelog (v0.36.0) — FreeBSD 15.1 Release Notes"
-description: "Complete release history of Stratum Firewall through v0.36.0 — Built-in Read-Only AI Assistant (15 MCP tools & local Ollama), reachability-aware IDS notifications, Multi-Vendor IPsec/WireGuard S2S VPN, and 5-layer Security Guard."
+seo_title: "Stratum Firewall Changelog (v0.36.1) — FreeBSD 15.1 Release Notes"
+description: "Complete release history of Stratum Firewall through v0.36.1 — Built-in Read-Only AI Assistant (15 MCP tools & local Ollama), reachability-aware IDS notifications, Multi-Vendor IPsec/WireGuard S2S VPN, and 5-layer Security Guard."
 ---
 
 All notable changes to Stratum FW are listed here, newest first. Stratum FW updates itself from the signed
 update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot
 environment, so the previous version can be booted again at any time.
+
+## 0.36.1 - 2026-11-19
+
+### Added
+- **Captive portal: sign-in with a RADIUS server** (FreeRADIUS and others). PAP with Message-Authenticator on every
+  request; every answer is checked against the shared secret before it is believed. A second server is used when
+  the first does not answer. The shared secret is kept in a root-only file and never shown again.
+  - **Accounting**: Start, periodic updates and Stop with session time, traffic and the reason (signed out, idle,
+    time limit, administrator...), so the RADIUS server's session records - and logs built on them - cover devices
+    behind Stratum FW as they do for any other NAS. The server's Class is sent back.
+  - The server's **Session-Timeout**, **Idle-Timeout**, **Acct-Interim-Interval** and bandwidth
+    (**WISPr-Bandwidth-Max-Up/Down** or **Mikrotik-Rate-Limit**, so an existing MikroTik setup works unchanged) are
+    applied to the device.
+- **Per-device bandwidth limits** for every zone (download / upload in Mbit/s), with any sign-in method. Each device
+  gets its own dummynet queue; a RADIUS server's values win over the zone's.
+- Signed-in devices show their traffic and limits.
+- **Dashboard: Captive portal panel** - devices signed in per zone, the latest sign-ins, the service state and a
+  warning when the RADIUS server does not confirm accounting.
 
 ## 0.36.0 - 2026-11-19
 
