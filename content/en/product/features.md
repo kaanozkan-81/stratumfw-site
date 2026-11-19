@@ -460,3 +460,10 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 @media (max-width:680px){.stratum-s2s-showcase .stratum-subgrid,.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{grid-template-columns:1fr !important;gap:0.75rem !important;}}
 </style>
 <!-- STRATUM-UNIFIED-DARK-STYLE-END -->
+
+<div id="captive-portal" style="background:#0f172a !important;border:1px solid rgba(245,158,11,0.35) !important;border-radius:16px;padding:28px;margin:32px 0;">
+<div style="color:#fbbf24 !important;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">NEW IN v0.36.0 • SERVICES &gt; CAPTIVE PORTAL</div>
+<h3 style="color:#f8fafc !important;margin:0 0 12px 0;font-size:1.45rem;">Privilege-Separated Guest Captive Portal</h3>
+<p style="color:#cbd5e1 !important;margin:0 0 18px 0;line-height:1.65;">Onboard guest Wi-Fi and visitor VLANs in the manner of pfSense without exposing secrets to untrusted clients: the customizable English/Turkish mobile &amp; dark-mode portal runs as an <strong style="color:#f8fafc !important;">unprivileged user</strong> and verifies sign-ins over a local socket via a separate root service (<code style="color:#7dd3fc !important;">bcrypt</code> root-only hashes). Supports passwordless terms acceptance or local user accounts (expiry dates, device limits, brute-force lockouts), session/idle timeouts, MAC takeover checks, printer/TV bypasses, Operator session management, and hitless guest persistence across <code style="color:#7dd3fc !important;">pf</code> reloads and <code style="color:#7dd3fc !important;">Apply</code>.</p>
+<img src="/images/captive-portal-architecture.svg" alt="Stratum Firewall v0.36.0 Privilege-Separated Captive Portal Architecture" style="width:100%;border-radius:12px;border:1px solid #1e293b;display:block;">
+</div>

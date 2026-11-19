@@ -1,12 +1,34 @@
 ---
 title: "Changelog"
-seo_title: "Stratum Firewall Changelog (v0.35.2) — FreeBSD 15.1 Release Notes"
-description: "Complete release history of Stratum Firewall through v0.35.2 — Built-in Read-Only AI Assistant (15 MCP tools & local Ollama), reachability-aware IDS notifications, Multi-Vendor IPsec/WireGuard S2S VPN, and 5-layer Security Guard."
+seo_title: "Stratum Firewall Changelog (v0.36.0) — FreeBSD 15.1 Release Notes"
+description: "Complete release history of Stratum Firewall through v0.36.0 — Built-in Read-Only AI Assistant (15 MCP tools & local Ollama), reachability-aware IDS notifications, Multi-Vendor IPsec/WireGuard S2S VPN, and 5-layer Security Guard."
 ---
 
 All notable changes to Stratum FW are listed here, newest first. Stratum FW updates itself from the signed
 update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot
 environment, so the previous version can be booted again at any time.
+
+## 0.36.0 - 2026-11-19
+
+### Added
+- **Captive portal** (Services > Captive Portal): a sign-in page for guest networks, in the manner of pfSense.
+  - Zones: one or more internal interfaces per zone. A device that has not signed in reaches only DNS on the
+    firewall, the sign-in page and the zone's allowed destinations; its http:// requests are sent to the page, and
+    phones and laptops open it by themselves through their own connectivity checks. After sign-in the interface's
+    own firewall rules apply, as for any other device.
+  - Sign-in without a password (accept the terms and connect) or with local user accounts: optional expiry date,
+    a limit on devices per user, wrong passwords lock the address out for a few minutes.
+  - Time limit, idle time (no new traffic) and sign-out when another device takes the address (MAC check);
+    when a zone's sign-in method changes, its devices sign in again the new way.
+  - The page: title, message, terms of use, button text, colour, logo, English or Turkish; it adapts to phones and
+    to dark mode.
+  - Exceptions: devices that never sign in (printers, TV boxes) and destinations allowed before sign-in.
+  - Signed-in devices are listed live and can be disconnected; operators can manage the user accounts and
+    disconnect devices, zones are for administrators. Every sign-in and sign-out goes to the system log.
+- Built to keep the guest side small: the page runs as an unprivileged user and knows nothing secret; sign-ins are
+  checked by a separate root service over a local socket. Passwords are stored as bcrypt hashes in a root-only
+  file and never sent to the browser. Signed-in devices stay connected across pf reloads, Apply and a restart of
+  the service.
 
 ## v0.35.2 — 2026-11-19
 

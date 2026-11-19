@@ -460,3 +460,10 @@ seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, 
 @media (max-width:680px){.stratum-s2s-showcase .stratum-subgrid,.stratum-dark-module .stratum-subgrid,.stratum-dark-pillar .stratum-subgrid{grid-template-columns:1fr !important;gap:0.75rem !important;}}
 </style>
 <!-- STRATUM-UNIFIED-DARK-STYLE-END -->
+
+<div id="captive-portal" style="background:#0f172a !important;border:1px solid rgba(245,158,11,0.35) !important;border-radius:16px;padding:28px;margin:32px 0;">
+<div style="color:#fbbf24 !important;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">YENİ (v0.36.0) • SERVICES &gt; CAPTIVE PORTAL</div>
+<h3 style="color:#f8fafc !important;margin:0 0 12px 0;font-size:1.45rem;">Yetki Ayrıştırılmış Misafir Captive Portal</h3>
+<p style="color:#cbd5e1 !important;margin:0 0 18px 0;line-height:1.65;">Misafir Wi-Fi ve ziyaretçi VLAN ağlarını pfSense alışkanlığıyla güvenle yönetin: Türkçe/İngilizce mobil ve koyu tema uyumlu giriş sayfası <strong style="color:#f8fafc !important;">yetkisiz (unprivileged) kullanıcı</strong> altında çalışır, hiçbir gizli bilgi tutmaz ve kimlik doğrulamayı yerel soket üzerinden ayrı bir root servisiyle (<code style="color:#7dd3fc !important;">bcrypt</code> özetleri) gerçekleştirir. Parolasız koşul onayı veya yerel hesaplar (son kullanma tarihi, kullanıcı başı cihaz sınırı, hatalı parola kilidi), süre/boşta kalma sınırı, MAC kontrolü, yazıcı/TV istisnaları, Operatör yetki ayrımı ve <code style="color:#7dd3fc !important;">pf</code> yenilemeleri ile <code style="color:#7dd3fc !important;">Apply</code> sırasında kopmayan oturum sürekliliği sunar.</p>
+<img src="/images/captive-portal-architecture.svg" alt="Stratum Firewall v0.36.0 Yetki Ayrıştırılmış Captive Portal Mimarisi" style="width:100%;border-radius:12px;border:1px solid #1e293b;display:block;">
+</div>

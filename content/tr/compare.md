@@ -124,11 +124,18 @@ seoDescription: "Stratum Firewall ile OPNsense, pfSense CE ve IPFire dağıtıml
           <td>Sıfırdan kurulum gerekir</td>
         </tr>
         <tr>
-          <td><strong>Yapay Zeka Tanılama (MCP Sunucusu)</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik</span><br>Salt okunur Model Context Protocol (MCP) telemetrisi</td>
+          <td><strong>Yerleşik Yapay Zeka Asistanı ve MCP</strong></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">15 Salt Okunur Araç</span><br>Yerleşik arayüz (<a href="/tr/product/ai-assistant/">Yerel Ollama ve PUB-1 IP maskeleme</a>)</td>
           <td><span class="cmp-badge-no">Yok</span></td>
           <td><span class="cmp-badge-no">Yok</span></td>
           <td><span class="cmp-badge-no">Yok</span></td>
+        </tr>
+        <tr>
+          <td><strong>Misafir Captive Portal</strong></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik (v0.36.0)</span><br>Yetki ayrıştırılmış bölgeler, koşul onayı/yerel hesap, MAC kontrolü ve kesintisiz yenileme</td>
+          <td>Yerleşik Captive Portal</td>
+          <td>Yerleşik Captive Portal</td>
+          <td>Eklenti ile Captive Portal</td>
         </tr>
         <tr>
           <td><strong>Tarayıcıda Kurulumsuz Canlı Demo</strong></td>

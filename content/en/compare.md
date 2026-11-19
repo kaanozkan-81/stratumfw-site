@@ -124,11 +124,18 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
           <td>Manual rebuild required</td>
         </tr>
         <tr>
-          <td><strong>AI Diagnostics (MCP Server)</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in</span><br>Read-only Model Context Protocol (MCP) telemetry</td>
+          <td><strong>Built-In AI Assistant &amp; MCP</strong></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">15 Read-Only Tools</span><br>Built-in UI (<a href="/product/ai-assistant/">Ollama LAN &amp; PUB-1 IP masking</a>)</td>
           <td><span class="cmp-badge-no">None Built-in</span></td>
           <td><span class="cmp-badge-no">None Built-in</span></td>
           <td><span class="cmp-badge-no">None Built-in</span></td>
+        </tr>
+        <tr>
+          <td><strong>Guest Captive Portal</strong></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in (v0.36.0)</span><br>Privilege-separated zones, terms or local accounts, MAC check &amp; hitless reloads</td>
+          <td>Built-in Captive Portal</td>
+          <td>Built-in Captive Portal</td>
+          <td>Captive Portal add-on</td>
         </tr>
         <tr>
           <td><strong>Interactive Browser Live Demo</strong></td>

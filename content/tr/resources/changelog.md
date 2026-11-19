@@ -1,10 +1,22 @@
 ---
 title: "Sürüm Notları"
-seo_title: "Stratum Firewall Sürüm Notları (v0.35.2) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.35.2 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
+seo_title: "Stratum Firewall Sürüm Notları (v0.36.0) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.36.0 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
 ---
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**System > Update**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## 0.36.0 - 2026-11-19
+
+### Eklendi
+- **Captive Portal / Misafir Giriş Portalı** (`Services > Captive Portal`): Misafir ağları için pfSense tarzında oturum açma sayfası.
+  - **Bölgeler (`Zones`):** Her bölgeye bir veya birden fazla iç ağ arayüzü atanabilir. Henüz giriş yapmamış bir cihaz yalnızca güvenlik duvarındaki DNS servisine, giriş sayfasına ve bölgenin izin verilen hedeflerine ulaşabilir; `http://` istekleri giriş sayfasına yönlendirilir ve telefonlar ile dizüstü bilgisayarlar kendi bağlantı kontrolleri sayesinde sayfayı kendiliğinden açar. Giriş yapıldıktan sonra ilgili arayüzün kendi güvenlik duvarı kuralları diğer tüm cihazlarda olduğu gibi uygulanır.
+  - **Parolasız (Koşulları Kabul Et ve Bağlan) veya Yerel Kullanıcı Hesaplarıyla Giriş:** İsteğe bağlı son kullanma tarihi, kullanıcı başına cihaz sınırı ve hatalı parolalarda adresi birkaç dakikalığına kilitleyen koruma.
+  - **Oturum Süresi, Boşta Kalma Süresi ve MAC Kontrolü:** Toplam süre sınırı, boşta kalma zaman aşımı (yeni trafik yoksa) ve adresi başka bir cihaz aldığında otomatik çıkış (`MAC` kontrolü); bir bölgenin giriş yöntemi değiştiğinde cihazlar yeni yöntemle tekrar giriş yapar.
+  - **Özelleştirilebilir Giriş Sayfası:** Başlık, karşılama mesajı, kullanım koşulları, düğme metni, renk, logo, İngilizce veya Türkçe dil seçimi; telefon ekranlarına ve koyu temaya otomatik uyum sağlar.
+  - **İstisnalar:** Hiç giriş yapması gerekmeyen cihazlar (yazıcılar, TV kutuları) ve giriş öncesinde erişime izin verilen hedefler.
+  - **Canlı Oturum Yönetimi ve Rol Ayrımı:** Giriş yapmış cihazlar canlı olarak listelenir ve bağlantıları kesilebilir; **Operatörler** kullanıcı hesaplarını yönetebilir ve cihaz bağlantılarını kesebilir, bölge ayarları ise **Yöneticilere** açıktır. Her giriş ve çıkış sistem günlüğüne yazılır.
+- **Yetki Ayrıştırılmış Güvenli Mimari:** Misafir tarafını olabildiğince küçük ve güvenli tutmak için giriş sayfası yetkisiz (unprivileged) bir kullanıcı altında çalışır ve hiçbir gizli bilgi barındırmaz; giriş doğrulamaları yerel bir soket üzerinden ayrı bir `root` servisi tarafından denetlenir. Parolalar yalnızca `root` erişimli bir dosyada `bcrypt` özeti olarak saklanır ve tarayıcıya asla gönderilmez. Giriş yapmış cihazların bağlantısı `pf` yeniden yüklemelerinde, `Apply` işlemlerinde ve servis yeniden başlatıldığında kesilmeden korunur.
 
 ## v0.35.2 — 2026-11-19
 

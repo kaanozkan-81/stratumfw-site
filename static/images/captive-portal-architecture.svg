@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540" role="img" aria-label="Stratum Firewall v0.36.0 Privilege-Separated Captive Portal Architecture">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060d1a"/>
+      <stop offset="55%" stop-color="#0b1629"/>
+      <stop offset="100%" stop-color="#08101f"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="540" rx="18" fill="url(#bgGrad)"/>
+  <rect x="12" y="12" width="1176" height="516" rx="14" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Header -->
+  <text x="48" y="56" fill="#fbbf24" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">STRATUM FIREWALL v0.36.0 • SERVICES &gt; CAPTIVE PORTAL</text>
+  <text x="48" y="88" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="700">Privilege-Separated Guest Captive Portal &amp; Hitless pf Sessions</text>
+  <line x1="48" y1="108" x2="1152" y2="108" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Stage 1: Guest Zone -->
+  <rect x="48" y="136" width="328" height="310" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="68" y="156" width="118" height="24" rx="12" fill="#0c2a42"/>
+  <text x="127" y="172" text-anchor="middle" fill="#7dd3fc" font-family="system-ui, sans-serif" font-size="11" font-weight="700">1 • GUEST ZONE</text>
+  <text x="68" y="206" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Multi-Interface Zones</text>
+  <text x="68" y="232" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Pre-auth devices reach only firewall DNS,</text>
+  <text x="78" y="252" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">portal page &amp; allowed destinations</text>
+  <text x="68" y="280" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• HTTP redirect triggers native OS captive</text>
+  <text x="78" y="300" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">sign-in popup on phones &amp; laptops</text>
+  <text x="68" y="328" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Exceptions for printers &amp; TV boxes</text>
+  <rect x="68" y="356" width="288" height="68" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="84" y="382" fill="#7dd3fc" font-family="monospace" font-size="12.5" font-weight="700">EN / TR Responsive Portal UI</text>
+  <text x="84" y="404" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Custom logo, colour, terms &amp; dark mode</text>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="376" y1="290" x2="426" y2="290" stroke="#38bdf8" stroke-width="2.5"/>
+  <polygon points="426,284 438,290 426,296" fill="#38bdf8"/>
+  <text x="407" y="276" text-anchor="middle" fill="#7dd3fc" font-family="monospace" font-size="11">HTTP</text>
+
+  <!-- Stage 2: Unprivileged Portal Process -->
+  <rect x="438" y="136" width="324" height="310" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.6" stroke-width="1.5"/>
+  <rect x="458" y="156" width="176" height="24" rx="12" fill="#2b1d07"/>
+  <text x="546" y="172" text-anchor="middle" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="700">2 • UNPRIVILEGED DAEMON</text>
+  <text x="458" y="206" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Zero Secrets in Guest Web</text>
+  <text x="458" y="232" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Runs as unprivileged user; holds zero</text>
+  <text x="468" y="252" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">password hashes or firewall keys</text>
+  <text x="458" y="280" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Mode A: Passwordless terms acceptance</text>
+  <text x="458" y="306" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Mode B: Local accounts with expiry,</text>
+  <text x="468" y="326" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">device cap &amp; brute-force IP lockout</text>
+  <rect x="458" y="356" width="284" height="68" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="474" y="382" fill="#fbbf24" font-family="monospace" font-size="12.5" font-weight="700">Operator &amp; Admin RBAC</text>
+  <text x="474" y="404" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Operators manage users &amp; live sessions</text>
+
+  <!-- Arrow 2 -> 3 (Unix Socket) -->
+  <line x1="762" y1="290" x2="812" y2="290" stroke="#f59e0b" stroke-width="2.5"/>
+  <polygon points="812,284 824,290 812,296" fill="#f59e0b"/>
+  <text x="793" y="276" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="11">socket</text>
+
+  <!-- Stage 3: Root Verifier & Kernel pf -->
+  <rect x="824" y="136" width="328" height="310" rx="14" fill="#0f172a" stroke="#10b981" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="844" y="156" width="174" height="24" rx="12" fill="#082c24"/>
+  <text x="931" y="172" text-anchor="middle" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700">3 • ROOT VERIFIER &amp; PF</text>
+  <text x="844" y="206" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Isolated Auth &amp; Persistence</text>
+  <text x="844" y="232" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Separate root service checks bcrypt</text>
+  <text x="854" y="252" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">hashes stored in root-only file</text>
+  <text x="844" y="280" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Session duration, idle timeout &amp; live</text>
+  <text x="854" y="300" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">MAC check against IP takeover</text>
+  <rect x="844" y="340" width="288" height="84" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="860" y="366" fill="#34d399" font-family="monospace" font-size="12.5" font-weight="700">Hitless Session Continuity</text>
+  <text x="860" y="388" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Signed-in guests stay connected across</text>
+  <text x="860" y="406" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">pf reloads, Apply &amp; service restarts</text>
+
+  <!-- Footer Strip -->
+  <rect x="48" y="468" width="1104" height="40" rx="10" fill="#0f172a" stroke="#1e293b"/>
+  <text x="600" y="493" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">After sign-in, the interface's normal stateful <tspan fill="#fbbf24" font-weight="700">pf</tspan> rules, <tspan fill="#7dd3fc" font-weight="700">dummynet</tspan> per-device limits &amp; 5-layer <tspan fill="#fbbf24" font-weight="700">Security Guard</tspan> policies apply automatically.</text>
+</svg>

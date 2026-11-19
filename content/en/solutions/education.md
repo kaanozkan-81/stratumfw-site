@@ -92,7 +92,7 @@ full_width: true
           <td><strong>VLAN 50 · Campus Visitors</strong></td>
           <td>Adult, Malware &amp; Proxy-Bypass Blocked</td>
           <td><code>10 Mbit/s</code> per Device</td>
-          <td>Secondary ISP (<code>WAN2</code>) · Internet-Only Access</td>
+          <td><code>Services &gt; Captive Portal</code> + Secondary ISP (<code>WAN2</code>) · Isolated</td>
         </tr>
       </tbody>
     </table>
