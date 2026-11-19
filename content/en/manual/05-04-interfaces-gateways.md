@@ -2,7 +2,7 @@
 title: "Interfaces > Gateways"
 seo_title: "05.4 Interfaces > Gateways — Stratum FW User Manual"
 description: "Gateways and multi-WAN: monitoring every internet connection, WAN failover with priorities and failback, replies on the right WAN, and sending chosen traffic through a chosen WAN (policy routing)."
-weight: 404
+weight: 504
 chapter_num: "05.4"
 url: "/manual/interfaces-gateways/"
 aliases:

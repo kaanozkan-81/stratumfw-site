@@ -2,7 +2,7 @@
 title: "Arayüzler > Atamalar"
 seo_title: "05.1 Arayüzler > Atamalar (Interfaces > Assignments) — Stratum FW Kullanım Kılavuzu"
 description: "Ağ portları ve rolleri: WAN ve LAN'ı başka bir porta taşıma, iç ağ veya ek internet hattı olarak OPT arayüzleri ekleme, IP adresleri, PPPoE, MTU ve arayüz kaldırma."
-weight: 401
+weight: 501
 chapter_num: "05.1"
 url: "/tr/manual/interfaces-assignments/"
 aliases:

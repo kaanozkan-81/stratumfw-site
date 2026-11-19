@@ -2,7 +2,7 @@
 title: "Interfaces > Assignments"
 seo_title: "05.1 Interfaces > Assignments — Stratum FW User Manual"
 description: "Network ports and their roles: moving WAN and LAN to another port, adding OPT interfaces as internal networks or extra internet connections, addresses, PPPoE, MTU and removing interfaces."
-weight: 401
+weight: 501
 chapter_num: "05.1"
 url: "/manual/interfaces-assignments/"
 aliases:

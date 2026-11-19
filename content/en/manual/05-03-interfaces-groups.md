@@ -2,7 +2,7 @@
 title: "Interfaces > Groups"
 seo_title: "05.3 Interfaces > Groups — Stratum FW User Manual"
 description: "Interface groups: one set of firewall rules shared by several interfaces, evaluated before each member's own rules."
-weight: 403
+weight: 503
 chapter_num: "05.3"
 url: "/manual/interfaces-groups/"
 aliases:

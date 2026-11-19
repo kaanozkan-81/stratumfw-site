@@ -2,7 +2,7 @@
 title: "Arayüzler > Gruplar"
 seo_title: "05.3 Arayüzler > Gruplar (Interfaces > Groups) — Stratum FW Kullanım Kılavuzu"
 description: "Arayüz grupları: birden fazla arayüzün ortak kullandığı ve her üyenin kendi kurallarından önce değerlendirilen güvenlik duvarı kuralları."
-weight: 403
+weight: 503
 chapter_num: "05.3"
 url: "/tr/manual/interfaces-groups/"
 aliases:

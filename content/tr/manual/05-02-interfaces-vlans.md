@@ -2,7 +2,7 @@
 title: "Arayüzler > VLAN'lar"
 seo_title: "05.2 Arayüzler > VLAN'lar (Interfaces > VLANs) — Stratum FW Kullanım Kılavuzu"
 description: "802.1Q VLAN yapıları: tek bir kablo üzerinden birden fazla yalıtılmış ağ - VLAN oluşturma, arayüz olarak atama, anahtar (switch) tarafı ayarları ve VLAN güncelleme veya silme."
-weight: 402
+weight: 502
 chapter_num: "05.2"
 url: "/tr/manual/interfaces-vlans/"
 aliases:

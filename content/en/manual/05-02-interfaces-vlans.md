@@ -2,7 +2,7 @@
 title: "Interfaces > VLANs"
 seo_title: "05.2 Interfaces > VLANs — Stratum FW User Manual"
 description: "802.1Q VLANs: several separate networks on one cable - creating a VLAN, assigning it as an interface, the switch side, and changing or deleting VLANs."
-weight: 402
+weight: 502
 chapter_num: "05.2"
 url: "/manual/interfaces-vlans/"
 aliases:

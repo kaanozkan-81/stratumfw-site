@@ -2,7 +2,7 @@
 title: "Arayüzler > Ağ Geçitleri"
 seo_title: "05.4 Arayüzler > Ağ Geçitleri (Interfaces > Gateways) — Stratum FW Kullanım Kılavuzu"
 description: "Ağ geçitleri ve çoklu WAN: her internet bağlantısını izleme, öncelik ve geri dönüş süreli WAN yedekliliği (failover), doğru WAN üzerinden yanıt dönme ve seçilen trafiği istenen WAN hattından gönderme (policy routing)."
-weight: 404
+weight: 504
 chapter_num: "05.4"
 url: "/tr/manual/interfaces-gateways/"
 aliases:
