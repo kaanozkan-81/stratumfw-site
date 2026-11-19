@@ -29,6 +29,10 @@ Connect via SSH or choose **`8) Shell`** from the console menu (`stratum-menu`):
 | `stratum-netextra` | Reconcile active Virtual IPs (VIPs) and static routes with the applied configuration. |
 | `stratum-cert` | Inspect, generate self-signed, install, or restore the previous web panel TLS certificate (`show`, `selfsigned`, `install`, `restore`). |
 | `stratum-ipbl` / `stratum-dnsbl` | Refresh IP threat feeds (`pf` tables) or Unbound RPZ DNS blocklists on demand. |
+| `stratum-ipsec status` | Inspect live `strongSwan` IKEv2/IKEv1 Site-to-Site IPsec tunnel states and security associations. |
+| `stratum-wgs2s status` | Inspect dedicated Site-to-Site kernel WireGuard (`wg1+`) interfaces, peers, and latest handshakes. |
+| `stratum-ids` | Manage Suricata IDS/IPS rule updates, engine checks, and live rule reloads. |
+| `stratum-notify` | Dispatch or test configured Telegram and SMTP system notifications from the CLI. |
 
 ## 3. Essential FreeBSD 15.1 Commands (`pfctl` &amp; `bectl`)
 

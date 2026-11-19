@@ -1,5 +1,5 @@
 ---
-title: "Stratum Firewall v0.35.2: Built-In Read-Only AI Assistant, PUB-1 IP Masking, Local Ollama, and Smarter IDS Alerts"
+title: "Stratum Firewall v0.35.0 – v0.35.2: Built-In Read-Only AI Assistant, PUB-1 IP Masking, Local Ollama, and Smarter IDS Alerts"
 date: 2026-11-19
 author: "Stratum Security"
 translationKey: "v0-35-2-ai-assistant"

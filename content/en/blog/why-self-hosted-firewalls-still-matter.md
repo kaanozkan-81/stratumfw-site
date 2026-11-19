@@ -6,6 +6,8 @@ description: "Cloud-managed firewalls promise convenience, but they come with hi
 tags: ["self-hosted", "firewall", "network-security", "cloud"]
 ---
 
+> **Historical Note:** This article was written for the first, Debian-based Stratum prototype. Stratum FW now runs on **FreeBSD 15.1-RELEASE** with `pf` and OpenZFS — see [Why We Rewrote Stratum on FreeBSD](/blog/why-we-rewrote-stratum-on-freebsd/).
+
 Every few years, someone declares the death of on-premise infrastructure. The cloud is cheaper, they say. It's more scalable. It's where everything is going. And for a lot of workloads, they're right. But network security — specifically the firewall at the edge of your network — is a different story. It's one of the last places where "self-hosted" isn't just a valid choice; for many organizations, it's still the best one.
 
 This isn't nostalgia. It isn't ideology. It's a practical assessment of what cloud-managed firewalls actually cost, what they actually deliver, and where the trade-offs land.
@@ -101,7 +103,7 @@ We built Stratum Firewall for exactly this audience: teams who want the operatio
 
 Stratum is 100% self-hosted. It runs on your hardware, on your network, on a Debian base you already understand. The panel is modern, the modules are integrated, and updates are delivered through a signed channel — but nothing about your traffic, your logs, or your configuration ever leaves your premises.
 
-It's open source. There's no per-user licensing and no recurring fee for the platform itself. What you pay for is the hardware and your own time. The total cost of ownership is yours to control.
+It is provided free of charge. There's no per-user licensing and no recurring fee for the platform itself. What you pay for is the hardware and your own time. The total cost of ownership is yours to control.
 
 If you've been assuming that self-hosted means hard, we'd encourage you to take another look. The tools are better than they've ever been — and the reasons to keep your network under your own control haven't gone anywhere.
 

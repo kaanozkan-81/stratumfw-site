@@ -28,7 +28,7 @@ Switching firewall platforms normally requires days of rewriting rules and re-is
    * Every rule, alias, Force DNS rule, activated URL-table IP blocklist, NAT entry, VIP, route, and OpenVPN user carried over,
    * Scheduled rules imported safely switched off so you can attach native [Firewall Schedules](/resources/documentation/pf-rules/) before enabling them, plus any `1:1 NAT` entries to recreate under **Firewall → NAT → 1:1**,
    * Warnings if the LAN IP changes or if an imported subnet overlaps with your current WAN address.
-5. **Apply &amp; Confirm with Safe-Apply:** Saving loads the imported setup as **pending changes**. Click **Apply changes** and verify connectivity within the 60-second **Safe-Apply** window before clicking **Keep changes**.
+5. **Apply &amp; Confirm with Safe-Apply:** Saving loads the imported setup as **pending changes**. Click **Apply changes** and verify connectivity within the 120-second **Safe-Apply** window before clicking **Keep changes**.
 
 ## 3. Zero-Touch OpenVPN Client Continuity
 

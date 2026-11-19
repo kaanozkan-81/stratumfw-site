@@ -2,8 +2,8 @@
 translationKey: "what-is-stratum-fw"
 title: "What is Stratum Firewall (Stratum FW)? The Next-Gen FreeBSD Firewall"
 date: 2026-11-06
-description: "What is Stratum Firewall (Stratum FW)? Discover the features of this open-source, AI-powered FreeBSD firewall with a modern API architecture."
-tags: ["Stratum Firewall", "Stratum FW", "FreeBSD", "Firewall", "Open Source", "AI"]
+description: "What is Stratum Firewall (Stratum FW)? Discover the features of this free, AI-powered FreeBSD firewall with a modern API architecture."
+tags: ["Stratum Firewall", "Stratum FW", "FreeBSD", "Firewall", "free", "AI"]
 categories: ["Security", "Product"]
 author: "Stratum Security"
 ---
@@ -13,7 +13,7 @@ A new name is quickly making waves in the network security world: **Stratum Fire
 So, what makes Stratum Firewall so special? Why are IT professionals and homelab enthusiasts starting to choose **Stratum FW** over pfSense or OPNsense? Here is the answer:
 
 ## What is Stratum Firewall (Stratum FW)?
-**Stratum Firewall** is an **open-source FreeBSD-based firewall operating system** built from scratch, offering enterprise-grade security.
+**Stratum Firewall** is an **free FreeBSD-based firewall operating system** built from scratch, offering enterprise-grade security.
 
 Unlike traditional firewalls, Stratum FW is built on a modern Python (FastAPI) API and the ZFS file system, rather than legacy PHP-based architectures. Its goal is to protect your network while giving you flexibility, speed, and most importantly, **the technologies of the future** (like Artificial Intelligence).
 

@@ -9,7 +9,7 @@ hide_pages: true
 <div class="docs-layout">
 
 <div class="docs-intro">
-  <p>Stratum Firewall; ZFS Önyükleme Ortamları (Boot Environments), yerleşik iki aşamalı giriş (TOTP 2FA), bildirimsel yapılandırma motoru ve 60 saniyelik Güvenli Uygulama (Safe-Apply) geri alma mimarisiyle anahtar teslim bir FreeBSD 15.1 güvenlik duvarı işletim sistemi olarak sunulur. Kuruluma başlamak için <a href="/tr/download/">VGA ISO veya Serial IMG imajını indirin</a> ya da önce <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Canlı Tarayıcı Demosu</a> üzerinden arayüzü inceleyin.</p>
+  <p>Stratum Firewall; ZFS Önyükleme Ortamları (Boot Environments), yerleşik iki aşamalı giriş (TOTP 2FA), bildirimsel yapılandırma motoru ve 120 saniyelik Güvenli Uygulama (Safe-Apply) geri alma mimarisiyle anahtar teslim bir FreeBSD 15.1 güvenlik duvarı işletim sistemi olarak sunulur. Kuruluma başlamak için <a href="/tr/download/">VGA ISO veya Serial IMG imajını indirin</a> ya da önce <a href="https://demo.stratumfw.com" target="_blank" rel="noopener">Canlı Tarayıcı Demosu</a> üzerinden arayüzü inceleyin.</p>
 </div>
 
 <section id="getting-started" class="docs-section">

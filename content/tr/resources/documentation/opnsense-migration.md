@@ -25,7 +25,7 @@ Güvenlik duvarı değiştirmek normalde yüzlerce kuralı baştan yazmayı ve t
 2. **Stratum FW Üzerine Yükleyin:** **Sistem → Yedekleme → OPNsense'den İçe Aktar** ekranını açın, `config.xml` dosyasını seçin ve OpenVPN sunucunuzu da taşımak istiyorsanız **"OpenVPN'i de içe aktar"** kutucuğunu işaretleyin.
 3. **Etkileşimli Port Eşleştirme:** OPNsense cihazındaki ağ portlarını (`igb0`, `igb1`, VLAN'lar vb.) yeni Stratum donanımınızdaki fiziksel portlarla eşleştirin.
 4. **Uyumluluk ve Önizleme Raporunu İnceleyin:** Hiçbir ayar diske yazılmadan önce Stratum aktarılan kuralları, otomatik etkinleştirilen Zorunlu DNS ve URL-tablo IP engelleme listelerini, devre dışı alınan zamanlamalı kuralları ve `1:1 NAT` satırlarını şeffaf biçimde raporlar.
-5. **Safe-Apply ile Güvenle Uygulayın:** İçe aktarma işlemi bekleyen değişiklik olarak kaydedilir; **Değişiklikleri uygula** düğmesine basıp 60 saniyelik **Safe-Apply** süresi içinde bağlantınızı doğrulayarak **Değişiklikleri koru** ile geçişi tamamlayın.
+5. **Safe-Apply ile Güvenle Uygulayın:** İçe aktarma işlemi bekleyen değişiklik olarak kaydedilir; **Değişiklikleri uygula** düğmesine basıp 120 saniyelik **Safe-Apply** süresi içinde bağlantınızı doğrulayarak **Değişiklikleri koru** ile geçişi tamamlayın.
 
 ## 3. Kullanıcı Bilgisayarlarına Dokunmadan OpenVPN Devamlılığı
 

@@ -23,7 +23,7 @@ curl -k -X GET https://192.168.1.1/api/status \
 ```
 
 * **RBAC Yetkileri:** **Yönetici** tüm uç noktalarda tam yetkiye sahiptir; **Operatör** okuma ve `/api/diag/*` tanılama işlemlerini çalıştırabilir; **Salt Okunur** hesaplarda yazma istekleri `403 Forbidden` döndürür.
-* **Safe-Apply Onayı:** Yapılandırma değişiklikleri uygulandığında bağlantıyı korumak için **120 saniye** içinde `/api/apply/confirm` çağrılmalıdır; aksi halde sistem otomatik geri döner.
+* **Safe-Apply Onayı:** Yapılandırma değişiklikleri kaydedildikten sonra `POST /api/config/apply` ile uygulanır ve kalıcı hale getirmek için **120 saniye** içinde `POST /api/config/confirm` çağrılır (geri almak için `POST /api/config/rollback`). İki istekte de oturum çerezi ve `X-Requested-With: stratum` başlığı gereklidir.
 
 ## 2. Yapay Zeka Tanılama — MCP Sunucusu (`Sistem → Ayarlar → MCP`, `v0.14.0`)
 

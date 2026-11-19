@@ -23,7 +23,7 @@ lead: "Yeni kurduğunuz Stratum Firewall cihazını güvenli şekilde devreye al
 2. **Arayüzler** altından ana ve yedek internet hatlarınızı ayarlayın:
    * **DHCP (`v0.29.1`):** Hem birincil `WAN` hem de ikincil/üçüncül WAN hatlarında (kablo modem, 4G/5G LTE veya Starlink) desteklenir; ek DHCP WAN hatları varsayılan rotayı veya sistem DNS sunucularını tek başına devralmaz.
    * **Statik IPv4** veya **PPPoE (`mpd5`):** Sabit IP/ağ geçidi bilgilerinizi ya da fiber/DSL parolanızı girin.
-3. **Kaydet (`Save`)** ve hemen yanındaki **Değişiklikleri uygula (`Apply changes`)** düğmesine tıklayın; **60 saniyelik Güvenli Uygulama (Safe-Apply)** süresi içinde **Değişiklikleri koru** ile onaylayın.
+3. **Kaydet (`Save`)** ve hemen yanındaki **Değişiklikleri uygula (`Apply changes`)** düğmesine tıklayın; **120 saniyelik Güvenli Uygulama (Safe-Apply)** süresi içinde **Değişiklikleri koru** ile onaylayın.
 
 ## 3. DHCP, DNS Çözümleyici ve Zorunlu DNS (`v0.29.2`)
 

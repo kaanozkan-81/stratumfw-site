@@ -18,7 +18,7 @@ Every administrator and operator has their own personal dashboard layout saved i
 ## 2. Inline &amp; Sticky Safe-Apply Workflow (`v0.28.0`, `v0.28.7`)
 
 * Whenever you save an actual configuration change, an **Apply changes** button appears right beside the page's **Save** button (non-config actions like Wake-on-LAN or packet capture never trigger unnecessary applies, and FreeBSD `/etc/defaults/rc.conf` defaults never clutter Apply diffs).
-* The **Apply changes / Keep changes** banner stays pinned below the top bar while scrolling long pages. Once applied, confirm connectivity within **60 seconds** or Stratum automatically reverts to the last confirmed `config.json` snapshot.
+* The **Apply changes / Keep changes** banner stays pinned below the top bar while scrolling long pages. Once applied, confirm connectivity within **120 seconds** or Stratum automatically reverts to the last confirmed `config.json` snapshot.
 
 ## 3. Per-User Notifications &amp; External Alerts (`v0.12.4`, `v0.28.0`, `v0.30.0`)
 

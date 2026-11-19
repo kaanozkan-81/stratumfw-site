@@ -90,9 +90,9 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 <p>Arriving frames pass inline <code>netmap</code> Suricata IPS rings (when enabled on that interface), kernel <code>pf</code> IP blocklist radix tables, <strong>Force DNS</strong> / Port Forward / <strong>1:1 NAT</strong> translation, interface-group &amp; scheduled rules, and <code>dummynet</code> bandwidth pipes before exiting the selected WAN gateway.</p>
 </div>
 <div class="sol-step">
-<span class="sol-step-num">PIPELINE 02 · 60S SAFE-APPLY</span>
+<span class="sol-step-num">PIPELINE 02 · 120 S SAFE-APPLY</span>
 <h3>Pre-Flight Check &rarr; Atomic Load &rarr; Auto-Rollback</h3>
-<p>On Apply, <code>stratum-config</code> renders native daemon files and verifies syntax via <code>pfctl -n</code>, <code>nginx -t</code>, <code>sshd -t</code>, and <code>unbound-checkconf</code>. Unless the administrator clicks <strong>Keep changes</strong> within <strong>60 seconds</strong>, Stratum automatically reverts to the last confirmed snapshot.</p>
+<p>On Apply, <code>stratum-config</code> renders native daemon files and verifies syntax via <code>pfctl -n</code>, <code>nginx -t</code>, <code>sshd -t</code>, and <code>unbound-checkconf</code>. Unless the administrator clicks <strong>Keep changes</strong> within <strong>120 seconds</strong>, Stratum automatically reverts to the last confirmed snapshot.</p>
 </div>
 <div class="sol-step">
 <span class="sol-step-num">PIPELINE 03 · LIVE REFRESH</span>

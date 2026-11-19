@@ -26,14 +26,14 @@ Stratum Firewall **kendi özel kriptografisini yazmaz veya uygulamaz**:
 ## 3. Gizli Anahtar İzolasyonu ve Safe-Apply Geri Alma
 
 * **Yalnızca `root` Erişimli Gizli Dosyalar (`0600`):** Hassas veriler (VPN özel anahtarları, parola özetleri, IPsec paylaşımlı anahtarları, SFTP yedekleme anahtarları) `config.json` dışında, yalnızca `root` kullanıcısının okuyabildiği `0600` izinli dosyalarda tutulur ve **asla** tarayıcıya gönderilmez.
-* **Ön Kontrollü Safe-Apply ve Otomatik Geri Alma:** Her değişiklik uygulanmadan önce sözdizimi ve servis testlerinden (`pfctl -n`, `nginx -t`, `unbound-checkconf`, `dnsmasq --test`, `sshd -t`) geçirilir. 60 saniye içinde onaylanmayan değişiklikler kendiliğinden geri alınarak erişim kaybı önlenir.
+* **Ön Kontrollü Safe-Apply ve Otomatik Geri Alma:** Her değişiklik uygulanmadan önce sözdizimi ve servis testlerinden (`pfctl -n`, `nginx -t`, `unbound-checkconf`, `dnsmasq --test`, `sshd -t`) geçirilir. 120 saniye içinde onaylanmayan değişiklikler kendiliğinden geri alınarak erişim kaybı önlenir.
 * **Tasarımdan Şeffaf Yapı (`Open by Design`):** Üretilen tüm servis dosyaları (`config.json`, `pf.conf`, `swanctl.conf`, `wg*.conf`, `unbound.conf`) okunabilir düz metin halindedir. FastAPI panel kaynak kodu `v1.0` öncesi geliştirme sürecinde özel depoda tutulmakta olup GitHub üzerinde yayınlanacaktır.
 
 ## 4. Erişim Kontrolü, Yerel 2FA ve Sıfır Dış Telemetri
 
 * **Yerel QR Kodlu TOTP İki Aşamalı Giriş:** TOTP doğrulama kodları ve QR görseli üçüncü taraf bir servise istek atılmadan tamamen yerel olarak üretilir; 10 adet tek kullanımlık kurtarma kodu ve HTTPS `Secure` çerez korumasıyla desteklenir.
 * **Rol Tabanlı Erişim (RBAC) ve Denetim Günlüğü:** `Yönetici`, `Operatör` ve `Salt Okunur` rolleri birbirinden ayrılmıştır; hassas günlükler (web aktivite kayıtları, paket yakalamaları) yalnızca yöneticilere açıktır ve erişimler kayıt altına alınır.
-* **Telemetri Yok:** Cihaz dışarıya kullanım istatistiği veya yapılandırma verisi göndermez; dış ağ istekleri yalnızca yöneticinin etkinleştirdiği imzalı güncelleme kontrolleri ve tehdit engelleme listesi indirmelerinden ibarettir.
+Telemetri yoktur: cihaz hiçbir kullanım istatistiği veya yapılandırma verisi göndermez. Dış ağa yalnızca yöneticinin etkinleştirdiği özellikler için bağlanır: imzalı güncelleme kontrolleri, IP engelleme listesi, GeoIP, Web Filtresi ve Suricata kural indirmeleri, DNS ve NTP, bildirimler (Telegram, e-posta), uzak sunucu yedeklemeleri (SFTP) ve yapılandırılmışsa Yapay Zeka Asistanı sağlayıcısı.
 
 ## 5. Güvenlik Açığı Bildirimi
 

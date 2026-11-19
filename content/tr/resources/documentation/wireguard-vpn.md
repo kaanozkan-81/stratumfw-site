@@ -1,10 +1,10 @@
 ---
 title: "WireGuard VPN Kurulumu"
-description: "Stratum Firewall üzerinde FreeBSD çekirdek tabanlı WireGuard (if_wg) kurulumu — sıfır bağımlılıklı X25519 anahtar üretimi, QR kod, VLAN erişim kontrolü ve kesintisiz eş yönetimi."
-lead: "FreeBSD çekirdeğinde çalışan WireGuard tünellerini dahili X25519 kriptografisi ve anında QR kod kurulumuyla saniyeler içinde devreye alın."
+description: "Stratum Firewall üzerinde FreeBSD çekirdek tabanlı WireGuard (if_wg) kurulumu — OpenSSL tabanlı anahtar üretimi, QR kod, VLAN erişim kontrolü ve kesintisiz eş yönetimi."
+lead: "FreeBSD çekirdeğinde çalışan WireGuard tünellerini güvenlik duvarında üretilen anahtarlar (OpenSSL) ve anında QR kod kurulumuyla saniyeler içinde devreye alın."
 ---
 
-Stratum Firewall, FreeBSD 15.1 çekirdeğindeki yerel **WireGuard (`if_wg`)** sürücüsünü kullanır ve **RFC 7748 X25519** anahtar üretimini harici paket bağımlılığı olmadan doğrudan kendi içinde gerçekleştirir.
+Stratum Firewall, FreeBSD 15.1 çekirdeğindeki yerel **WireGuard (`if_wg`)** sürücüsünü kullanır ve anahtarları Python `cryptography` paketi üzerinden **OpenSSL** ile üretir; Stratum FW kendi özel kriptografisini barındırmaz.
 
 ## 1. WireGuard Sunucusunu Etkinleştirme
 

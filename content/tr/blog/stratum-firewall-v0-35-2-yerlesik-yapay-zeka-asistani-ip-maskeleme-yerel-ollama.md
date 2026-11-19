@@ -1,5 +1,5 @@
 ---
-title: "Stratum Firewall v0.35.2: Yerleşik Salt Okunur Yapay Zeka Asistanı, PUB-1 IP Maskeleme, Yerel Ollama ve Akıllı IDS Bildirimleri"
+title: "Stratum Firewall v0.35.0 – v0.35.2: Yerleşik Salt Okunur Yapay Zeka Asistanı, PUB-1 IP Maskeleme, Yerel Ollama ve Akıllı IDS Bildirimleri"
 date: 2026-11-19
 author: "Stratum Security"
 translationKey: "v0-35-2-ai-assistant"
@@ -49,7 +49,7 @@ Gerçek WAN IP adreslerini, uzak şube IPsec uç noktalarını veya kimlik bilgi
 | **Sohbet Saklama Süresi** | Yalnızca RAM üzerinde (1 saat ömür, diske veya loga yazılmaz) | Yalnızca RAM üzerinde (1 saat ömür, diske veya loga yazılmaz) |
 | **Yetki Kapsamı** | Yalnızca `Administrators` (Yönetici) rolü | Yalnızca `Administrators` (Yönetici) rolü |
 
-Bulut sağlayıcılarında varsayılan olarak açık gelen `PUB-1` maskeleme katmanı, tüm genel IPv4/IPv6 adreslerini buluta çıkmadan önce `PUB-1`, `PUB-2` gibi anonim takma adlara dönüştürür; yanıt döndüğünde ise panel belleğinde gerçek IP adreslerini tekrar yerine koyar. OpenSSL (`openssl` aracı ve Python `cryptography` paketi) ile üretilen anahtar ve sertifikalar, parolalar, `0600` izinli root dosyaları ve VPN yapılandırmaları MCP katmanına hiçbir koşulda açılmaz.
+Bulut sağlayıcılarında varsayılan olarak açık gelen `PUB-1` maskeleme katmanı, tüm genel IPv4 adreslerini buluta çıkmadan önce `PUB-1`, `PUB-2` gibi anonim takma adlara dönüştürür; yanıt döndüğünde ise panel belleğinde gerçek IP adreslerini tekrar yerine koyar. OpenSSL (`openssl` aracı ve Python `cryptography` paketi) ile üretilen anahtar ve sertifikalar, parolalar, `0600` izinli root dosyaları ve VPN yapılandırmaları MCP katmanına hiçbir koşulda açılmaz.
 
 ### 4. %100 Yerel `Ollama` Dahil Beş Sağlayıcı Seçeneği
 

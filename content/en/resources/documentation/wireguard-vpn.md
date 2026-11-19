@@ -1,10 +1,10 @@
 ---
 title: "WireGuard VPN Setup"
-description: "Configure FreeBSD kernel WireGuard (if_wg) on Stratum Firewall — zero-dependency X25519 key generation, QR codes, per-VLAN access control, and zero-downtime peer updates."
-lead: "Deploy wire-speed, kernel-resident WireGuard remote access in seconds with on-box X25519 cryptography and instant QR provisioning."
+description: "Configure FreeBSD kernel WireGuard (if_wg) on Stratum Firewall — OpenSSL-based key generation, QR codes, per-VLAN access control, and zero-downtime peer updates."
+lead: "Deploy wire-speed, kernel-resident WireGuard remote access in seconds with keys generated on the firewall (OpenSSL) and instant QR provisioning."
 ---
 
-Stratum Firewall integrates directly with FreeBSD 15.1's native kernel **WireGuard (`if_wg`)** driver and implements **RFC 7748 X25519** key generation internally with zero external package bloat.
+Stratum Firewall integrates directly with FreeBSD 15.1's native kernel **WireGuard (`if_wg`)** driver and generates keys with **OpenSSL** through the Python `cryptography` package; Stratum FW implements no cryptography of its own.
 
 ## 1. Enable the WireGuard Server
 

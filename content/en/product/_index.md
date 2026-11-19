@@ -50,7 +50,7 @@ Stratum is not a collection of 30 loosely integrated scripts. It is a cohesive, 
   </div>
   <div class="card">
     <h3>Threat Intelligence &amp; Blocklists</h3>
-    <p>Protect at all layers. Block malicious IPs at the firewall level (IPv4/IPv6) and filter malicious domains at the DNS level (DNSBL) with automated feed updates.</p>
+    <p>Protect at all layers. Block malicious IPs at the firewall level (IPv4) and filter malicious domains at the DNS level (DNSBL) with automated feed updates.</p>
     <a href="/product/features/" class="card-link">Learn more →</a>
   </div>
   <div class="card">

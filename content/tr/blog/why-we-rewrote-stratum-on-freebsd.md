@@ -29,7 +29,7 @@ OpenBSD'den gelen `pf`, durum bilgili paket denetimi için dünya çapında alt�
 FreeBSD eksiksiz bir işletim sistemidir. Çekirdek, ağ araçları (`ifconfig`, `pfctl`) ve kullanıcı alanı birlikte geliştirilir. Artık bir Linux dağıtım güncellemesinin ağ yığınımızı bir gecede bozması konusunda endişelenmiyoruz. Öngörülebilir, kararlı ve güvenlidir.
 
 ### 3. Çekirdek İçi (In-Kernel) Performans
-WireGuard'ın çekirdekte yerel olarak çalışmasından `ALTQ` trafik şekillendirmeye kadar FreeBSD, mütevazı donanımlarda bile ağ iş yüklerini hat hızında (wire speed) yönetir.
+WireGuard'ın çekirdekte yerel olarak çalışmasından `dummynet` trafik şekillendirmeye kadar FreeBSD, mütevazı donanımlarda bile ağ iş yüklerini hat hızında (wire speed) yönetir.
 
 ## Bildirimsel Yapılandırmanın Gücü
 
@@ -47,7 +47,7 @@ Niyetinizi web arayüzünde yapılandırırsınız. Biz bu niyeti tek bir, insan
 
 ## Sıfır Bağımlılıklı WireGuard
 
-Minimal bir saldırı yüzeyine olan bağlılığımızı kanıtlamak için, sadece harici bir VPN kütüphanesini sarmalamadık. X25519 kriptografisini kendimiz uyguladık. Bu, Stratum FW'deki WireGuard'ın harici bağımlılıklarının olmadığı ve maksimum verimlilikle çalıştığı anlamına gelir.
+Minimal bir saldırı yüzeyine olan bağlılığımızı kanıtlamak için, sadece harici bir VPN kütüphanesini sarmalamadık. X25519 kriptografisini kendimiz uyguladık. Bu, Stratum FW'deki WireGuard'ın harici bağımlılıklarının olmadığı ve maksimum verimlilikle çalıştığı anlamına gelir. *(Güncelleme — v0.34.2: Anahtar üretimi artık denetlenmiş Python `cryptography` paketi üzerinden OpenSSL kullanmaktadır; kriptografi denetlenmiş kütüphanelere bırakılmalıdır.)*
 
 ## İleriye Bakış
 

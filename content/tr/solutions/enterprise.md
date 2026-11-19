@@ -71,7 +71,7 @@ full_width: true
         <tr>
           <td><strong>Değişiklik ve Bakım Güvenliği</strong></td>
           <td>Uzak şubede hatalı kural sonrası erişim kaybı ve yerinde müdahale maliyeti</td>
-          <td><code>pfctl -n</code> ön kontrolü + 60 sn otomatik Safe-Apply geri alma + ZFS Boot Environments</td>
+          <td><code>pfctl -n</code> ön kontrolü + 120 sn otomatik Safe-Apply geri alma + ZFS Boot Environments</td>
         </tr>
         <tr>
           <td><strong>Veri Gizliliği &amp; Hava Boşluğu</strong></td>

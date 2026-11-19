@@ -26,14 +26,14 @@ Stratum Firewall **does not implement cryptography of its own**:
 ## 3. Secret Isolation & Safe-Apply Rollback
 
 * **Root-Only Secret Files (`0600`):** Sensitive credentials (VPN private keys, user password hashes, IPsec pre-shared keys, SFTP backup keys) live in root-only `0600` files outside `config.json` and are **never** sent back to the browser.
-* **Pre-Checked Safe-Apply with Auto-Rollback:** Every configuration change is validated before activation (`pfctl -n`, `nginx -t`, `unbound-checkconf`, `dnsmasq --test`, `sshd -t`). If the administrator does not confirm reachability within the 60-second timeout, the previous state is restored automatically.
+* **Pre-Checked Safe-Apply with Auto-Rollback:** Every configuration change is validated before activation (`pfctl -n`, `nginx -t`, `unbound-checkconf`, `dnsmasq --test`, `sshd -t`). If the administrator does not confirm reachability within the 120-second timeout, the previous state is restored automatically.
 * **Open by Design:** Every generated daemon configuration (`config.json`, `pf.conf`, `swanctl.conf`, `wg*.conf`, `unbound.conf`) sits in plain, auditable text on your disk. Core FastAPI panel sources are currently maintained in a private repository during pre-`v1.0` iteration and will be published on GitHub.
 
 ## 4. Access Control, Local 2FA & Zero Outbound Telemetry
 
 * **Local TOTP Two-Factor Authentication:** Administrator TOTP secrets and QR codes are generated locally on the appliance without calling external QR rendering services, paired with 10 single-use recovery codes and HTTPS `Secure` cookies.
 * **Role-Based Access & Audit Logging:** Granular roles separate `Administrator`, `Operator`, and `Read-Only` accounts; sensitive logs (web filter activity, packet captures) are restricted strictly to administrators, and administrative access events are logged.
-* **No Telemetry:** The appliance sends zero usage analytics or configuration telemetry externally; outbound appliance traffic consists solely of administrator-configured signed update checks and threat blocklist downloads.
+No telemetry: the appliance sends no usage analytics or configuration data. It connects out only for features an administrator turns on: signed update checks, IP blocklist, GeoIP, Web Filter, and Suricata rule downloads, DNS and NTP, notifications (Telegram, e-mail), remote backups (SFTP), and, if configured, the AI Assistant's chosen provider.
 
 ## 5. Reporting a Security Vulnerability
 

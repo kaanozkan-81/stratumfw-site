@@ -5,7 +5,7 @@ lead: "Whether you're evaluating Stratum Firewall, need support, or want to part
 
 ## General inquiries
 
-For anything related to evaluation, deployment questions, pricing (there is none — it's open source), or a general introduction:
+For anything related to evaluation, deployment questions, pricing (there is none — it's free), or a general introduction:
 
 <div class="contact-card">
   <div class="contact-card-label">Email</div>

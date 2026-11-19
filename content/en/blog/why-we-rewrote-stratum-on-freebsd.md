@@ -29,7 +29,7 @@ Originating from OpenBSD, `pf` is universally recognized as the gold standard fo
 FreeBSD is a complete operating system. The kernel, the networking tools (`ifconfig`, `pfctl`), and the userland are developed together. We no longer worry about an upstream Linux distribution update breaking our networking stack overnight. It is predictable, stable, and secure.
 
 ### 3. In-Kernel Performance
-From WireGuard running natively in the kernel to `ALTQ` traffic shaping, FreeBSD handles network workloads at wire speed, even on modest hardware.
+From WireGuard running natively in the kernel to `dummynet` traffic shaping, FreeBSD handles network workloads at wire speed, even on modest hardware.
 
 ## The Power of Declarative Configuration
 
@@ -47,7 +47,7 @@ You configure your intent in the web UI. We save that intent to a single, human-
 
 ## Zero-Dependency WireGuard
 
-To prove our commitment to a minimal attack surface, we didn't just wrap an external VPN library. We implemented the X25519 cryptography ourselves (following RFC 7748). This means WireGuard in Stratum FW has zero external dependencies, reducing the attack surface and ensuring it runs with maximum efficiency.
+To prove our commitment to a minimal attack surface, we didn't just wrap an external VPN library. We implemented the X25519 cryptography ourselves (following RFC 7748). This means WireGuard in Stratum FW has zero external dependencies, reducing the attack surface and ensuring it runs with maximum efficiency. *(Update in v0.34.2: Key generation now uses OpenSSL through the audited Python `cryptography` package — cryptography is best left to audited libraries.)*
 
 ## The Road Ahead
 

@@ -38,7 +38,7 @@ full_width: true
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
       <h3>Zero-Lockout Administration (Safe-Apply)</h3>
-      <p>Manage remote branch offices without fear: every firewall or interface change is pre-checked and guarded by a 60-second confirmation timer that rolls back automatically if connectivity drops.</p>
+      <p>Manage remote branch offices without fear: every firewall or interface change is pre-checked and guarded by a 120-second confirmation timer that rolls back automatically if connectivity drops.</p>
     </div>
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></div>

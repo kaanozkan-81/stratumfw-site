@@ -344,7 +344,7 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 <div class="card-grid grid-3 stratum-subgrid">
 <div class="card stratum-subcard">
 <h3>Multi-Interface &amp; WAN Mapping</h3>
-<p>Configure dedicated WAN, LAN, and optional (<code>OPT1</code>/<code>OPT2</code>) physical interfaces with native PPPoE, static IPv4/IPv6, and dynamic DHCP client support.</p>
+<p>Configure dedicated WAN, LAN, and optional (<code>OPT1</code>/<code>OPT2</code>) physical interfaces with native PPPoE, static IPv4, and dynamic DHCP client support.</p>
 </div>
 <div class="card stratum-subcard">
 <h3>Granular VLAN Segmentation</h3>
@@ -414,7 +414,7 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 <p class="feature-module-desc">Engineered from the ground up to replace bloated legacy PHP/XML firewall interfaces, Stratum Firewall pairs raw FreeBSD kernel performance with a clean, developer-first control plane. Its asynchronous <strong>Python 3.12</strong> and <strong>FastAPI</strong> backend serves both a responsive web UI and a comprehensive <strong>REST API</strong> while maintaining an ultra-low memory footprint. The entire system state lives in a single human-readable, declarative <code>config.json</code> file that dynamically compiles into native <code>pf.conf</code>, DHCP, and DNS files. Combined with zero-dependency X25519 (RFC 7748) <strong>WireGuard VPN</strong> and <strong>OpenVPN</strong> support, Role-Based Access Control (RBAC), and live hardware/log telemetry, Stratum brings true Infrastructure-as-Code simplicity to network security.</p>
 </div>
 <div class="feature-visual-box stratum-pillar-media">
-<img src="/images/features/api-architecture.jpg" alt="Stratum Firewall Python FastAPI REST API control plane, WireGuard X25519 encryption, and live telemetry architecture" loading="lazy">
+<img src="/images/features/api-architecture.jpg" alt="Stratum Firewall Python FastAPI REST API control plane, kernel WireGuard, and live telemetry architecture" loading="lazy">
 </div>
 <div class="card-grid grid-3 stratum-subgrid">
 <div class="card stratum-subcard">
@@ -422,7 +422,7 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 <p>Control the entire appliance state through a single auditable JSON source of truth and automate every firewall operation via an asynchronous REST API.</p>
 </div>
 <div class="card stratum-subcard">
-<h3>Zero-Dependency WireGuard &amp; OpenVPN</h3>
+<h3>Kernel WireGuard & OpenVPN</h3>
 <p>WireGuard runs in the FreeBSD kernel (if_wg) and IPsec uses strongSwan + kernel ESP (enc0); keys are generated with OpenSSL (via Python cryptography). Stratum FW implements no cryptography of its own.</p>
 </div>
 <div class="card stratum-subcard">

@@ -74,7 +74,7 @@ seoDescription: "Stratum Firewall ile OPNsense, pfSense CE ve IPFire dağıtıml
         </tr>
         <tr>
           <td><strong>120 sn Safe-Apply Otomatik Geri Alma</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik</span><br>Bağlantı koparsa 60 sn sonunda otomatik geri alır</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik</span><br>Bağlantı koparsa 120 sn sonunda otomatik geri alır</td>
           <td><span class="cmp-badge-partial">Manuel</span><br>Manuel geri alma / konsol müdahalesi</td>
           <td><span class="cmp-badge-partial">Manuel</span><br>Manuel geri alma / konsol müdahalesi</td>
           <td><span class="cmp-badge-partial">Manuel</span><br>Manuel geri alma</td>
@@ -255,8 +255,8 @@ seoDescription: "Stratum Firewall ile OPNsense, pfSense CE ve IPFire dağıtıml
     </div>
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
-      <h3>60 Saniyelik Safe-Apply ve Ücretsiz ZFS Geri Alma</h3>
-      <p>Uzaktaki bir şube cihazında yanlış kural yüzünden erişimi kaybetme riski ortadan kalkar. Her kritik değişiklik 60 saniyelik onay penceresiyle uygulanır; bağlantı kesilirse sistem otomatik olarak önceki çalışan duruma döner.</p>
+      <h3>120 Saniyelik Safe-Apply ve Ücretsiz ZFS Geri Alma</h3>
+      <p>Uzaktaki bir şube cihazında yanlış kural yüzünden erişimi kaybetme riski ortadan kalkar. Her kritik değişiklik 120 saniyelik onay penceresiyle uygulanır; bağlantı kesilirse sistem otomatik olarak önceki çalışan duruma döner.</p>
     </div>
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></div>

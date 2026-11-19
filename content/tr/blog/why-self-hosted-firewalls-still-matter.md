@@ -6,6 +6,8 @@ description: "Bulut tabanlı güvenlik duvarları kolaylık sunar, ancak çoğu 
 tags: ["self-hosted", "firewall", "network-security", "cloud", "kendi-sunucu"]
 ---
 
+> **Tarihsel Not:** Bu erken dönem yazı, ilk Debian tabanlı Stratum prototipi döneminde kaleme alınmıştı. Stratum FW artık `pf` ve OpenZFS ile doğrudan **FreeBSD 15.1-RELEASE** üzerinde çalışmaktadır — bkz. [Stratum'u Neden FreeBSD Üzerinde Yeniden Yazdık?](/tr/blog/why-we-rewrote-stratum-on-freebsd/).
+
 Her birkaç yılda bir, biri şirket içi (on-premise) altyapının öldüğünü ilan eder. Bulut daha ucuzdur, daha ölçeklenebilirdir, her şeyin gittiği yerdir. Ve birçok iş yükü için haklılar. Ancak ağ güvenliği — özellikle ağınızın kenarındaki güvenlik duvarı — farklı bir hikaye. "Kendi sunucunuzda barındırmanın" sadece geçerli bir seçenek olmadığı; birçok kuruluş için hala en iyi seçenek olduğu son yerlerden biridir.
 
 Bu bir nostalji değil. Bir ideoloji değil. Bulut tabanlı güvenlik duvarlarının gerçekte ne kadara mal olduğunun, ne sunduğunun ve ödünleşimlerin nereye düştüğünün pratik bir değerlendirmesidir.

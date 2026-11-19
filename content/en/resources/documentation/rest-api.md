@@ -23,7 +23,7 @@ curl -k -X GET https://192.168.1.1/api/status \
 ```
 
 * **RBAC Enforcement:** **Administrator** accounts have full CRUD access; **Operator** accounts can read state and trigger `/api/diag/*` actions; **Read-Only** accounts receive `403 Forbidden` on write methods.
-* **Safe-Apply Confirmation:** Configuration writes validate syntax and return `apply_needed: true`. Trigger apply and call `/api/apply/confirm` within **60 seconds** to commit changes permanently.
+* **Safe-Apply Confirmation:** Configuration writes validate syntax and return `apply_needed: true`. Trigger `POST /api/config/apply` and then call `POST /api/config/confirm` within **120 seconds** to commit changes permanently (or `POST /api/config/rollback` to revert immediately); both requests require the session cookie and `X-Requested-With: stratum` header.
 
 ## 2. AI Diagnostics via Model Context Protocol (`System → Settings → MCP`, `v0.14.0`)
 

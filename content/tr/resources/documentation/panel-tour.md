@@ -18,7 +18,7 @@ Her kullanıcı kendi kontrol paneli düzenini Uygula (Apply) gerektirmeden anı
 ## 2. Kaydet Yanında Uygula ve Sabit Safe-Apply Çubuğu (`v0.28.0`, `v0.28.7`)
 
 * Yapılandırmayı değiştiren bir ayar kaydedildiğinde **Kaydet** düğmesinin hemen yanında **Değişiklikleri uygula (`Apply changes`)** düğmesi belirir (FreeBSD `/etc/defaults/rc.conf` varsayılanları gereksiz fark satırı üretmez).
-* **Değişiklikleri uygula / Değişiklikleri koru** çubuğu uzun kural tablolarında aşağı kaydırırken üst barın altında sabit kalır. Uygulama sonrasında **60 saniye** içinde onay verilmezse sistem önceki çalışan `config.json` durumuna otomatik geri döner.
+* **Değişiklikleri uygula / Değişiklikleri koru** çubuğu uzun kural tablolarında aşağı kaydırırken üst barın altında sabit kalır. Uygulama sonrasında **120 saniye** içinde onay verilmezse sistem önceki çalışan `config.json` durumuna otomatik geri döner.
 
 ## 3. Kişisel Bildirim Merkezi ve Telegram / E-posta Uyarıları (`v0.28.0`, `v0.30.0`)
 

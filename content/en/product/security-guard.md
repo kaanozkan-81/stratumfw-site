@@ -163,7 +163,7 @@ aliases: ["/security-guard/"]
 <span class="sg-badge">APPLIANCE HARDENING</span>
 <h3>Self-Protecting Control Plane</h3>
 <ul>
-<li><strong>Local TOTP 2FA & Brute-Force Lock:</strong> On-box QR generation plus automatic 5-minute IP block after 5 failed sign-ins in 15 minutes.</li>
+<li><strong>Local TOTP 2FA & Brute-Force Lock:</strong> On-box QR generation plus automatic 15-minute IP block after 5 failed sign-ins in 5 minutes (adjustable).</li>
 <li><strong>Locked-Down Access & Secrets:</strong> WAN panel/SSH closed by default (key-only SSH supported), 3 RBAC roles, and <code>0600</code> root-only secret files never sent to the browser.</li>
 <li><strong>Safe-Apply & Signed Updates:</strong> Pre-checked changes with auto-rollback and signed updates backed by ZFS Boot Environments.</li>
 </ul>

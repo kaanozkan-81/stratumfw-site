@@ -50,7 +50,7 @@ Stratum, gelişigüzel entegre edilmiş 30 betik koleksiyonu değildir. Derin en
   </div>
   <div class="card">
     <h3>Tehdit İstihbaratı ve Karalisteler</h3>
-    <p>Tüm katmanlarda koruma. Kötü amaçlı IP'leri güvenlik duvarı düzeyinde (IPv4/IPv6) engelleyin ve otomatik akış güncellemeleriyle kötü amaçlı alan adlarını DNS düzeyinde (DNSBL) filtreleyin.</p>
+    <p>Tüm katmanlarda koruma. Kötü amaçlı IP'leri güvenlik duvarı düzeyinde (IPv4) engelleyin ve otomatik akış güncellemeleriyle kötü amaçlı alan adlarını DNS düzeyinde (DNSBL) filtreleyin.</p>
     <a href="/tr/product/features/" class="card-link">Daha fazla bilgi →</a>
   </div>
   <div class="card">

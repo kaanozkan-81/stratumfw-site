@@ -74,7 +74,7 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
         </tr>
         <tr>
           <td><strong>120s Safe-Apply Auto-Rollback</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in</span><br>Automatic 60s timer prevents remote lockouts</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in</span><br>Automatic 120 s timer prevents remote lockouts</td>
           <td><span class="cmp-badge-partial">Manual</span><br>Manual revert / console recovery</td>
           <td><span class="cmp-badge-partial">Manual</span><br>Manual revert / console recovery</td>
           <td><span class="cmp-badge-partial">Manual</span><br>Manual revert</td>
@@ -256,7 +256,7 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
       <h3>120-Second Safe-Apply + Free ZFS Boot Environments</h3>
-      <p>Remote branch changes shouldn't require an onsite visit. Every risky rule or interface change runs inside a 60-second confirmation window that automatically reverts if connectivity drops, backed by full ZFS Boot Environments at zero cost.</p>
+      <p>Remote branch changes shouldn't require an onsite visit. Every risky rule or interface change runs inside a 120-second confirmation window that automatically reverts if connectivity drops, backed by full ZFS Boot Environments at zero cost.</p>
     </div>
     <div class="card">
       <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></div>

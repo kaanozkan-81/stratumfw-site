@@ -29,6 +29,10 @@ SSH üzerinden veya konsol menüsündeki **`8) Shell`** seçeneğinden erişebil
 | `stratum-netextra` | Sanal IP'leri (VIP) ve statik rotaları çekirdek durumuyla senkronize eder. |
 | `stratum-cert` | Web paneli TLS sertifikasını görüntüler, yeniler, yükler veya bir önceki sertifikayı geri yükler (`restore`). |
 | `stratum-ipbl` / `stratum-dnsbl` | IP engelleme tablolarını ve Unbound RPZ DNS listelerini anında günceller. |
+| `stratum-ipsec status` | Canlı `strongSwan` IKEv2/IKEv1 Site-to-Site IPsec tünel ve güvenlik ilişkilendirme durumlarını gösterir. |
+| `stratum-wgs2s status` | Adanmış Site-to-Site çekirdek WireGuard (`wg1+`) arayüzlerini, eşleri ve son el sıkışmaları listeler. |
+| `stratum-ids` | Suricata IDS/IPS kural güncellemelerini, yapılandırma testlerini ve canlı kural yüklemelerini yönetir. |
+| `stratum-notify` | Yapılandırılmış Telegram ve SMTP bildirim kanallarını komut satırından test eder veya tetikler. |
 
 ## 3. Temel FreeBSD 15.1 Komutları (`pfctl` ve `bectl`)
 
