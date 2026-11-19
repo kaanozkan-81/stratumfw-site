@@ -41,7 +41,7 @@ You configure your intent in the web UI. We save that intent to a single, human-
 
 **Why is this a game-changer?**
 
-- **Zero Lockouts (Safe-Apply):** Before any configuration is applied to the kernel, our engine tests it using `pfctl -nf`. If you make a typo that would cut your connection, the system prevents you from applying it. If you accidentally block your WAN IP, a countdown gives you 60 seconds to confirm connectivity before it automatically rolls back.
+- **Zero Lockouts (Safe-Apply):** Before any configuration is applied to the kernel, our engine tests it using `pfctl -nf`. If you make a typo that would cut your connection, the system prevents you from applying it. If you accidentally block your WAN IP, a countdown gives you 120 seconds to confirm connectivity before it automatically rolls back.
 - **Infrastructure-as-Code:** Because everything is driven by a single JSON file and a REST API, you can version-control your firewall. You can deploy a new branch office in seconds using Ansible or Terraform.
 - **Absolute Transparency:** We don't hide our configurations in an SQLite database or a proprietary binary blob. You can SSH into the box, open `/etc/pf.conf`, and see exactly what the kernel is executing.
 

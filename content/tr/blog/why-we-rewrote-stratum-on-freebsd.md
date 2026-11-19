@@ -41,7 +41,7 @@ Niyetinizi web arayüzünde yapılandırırsınız. Biz bu niyeti tek bir, insan
 
 **Bu neden oyunun kurallarını değiştirir?**
 
-- **Sıfır Kilitlenme (Safe-Apply):** Herhangi bir yapılandırma çekirdeğe uygulanmadan önce, motorumuz `pfctl -nf` kullanarak test eder. Bağlantınızı kesecek bir yazım hatası yaparsanız, sistem bunu uygulamanızı engeller. Yanlışlıkla WAN IP'nizi engellerseniz, otomatik olarak geri alınmadan önce bağlantıyı onaylamanız için 60 saniyelik bir geri sayım başlar.
+- **Sıfır Kilitlenme (Safe-Apply):** Herhangi bir yapılandırma çekirdeğe uygulanmadan önce, motorumuz `pfctl -nf` kullanarak test eder. Bağlantınızı kesecek bir yazım hatası yaparsanız, sistem bunu uygulamanızı engeller. Yanlışlıkla WAN IP'nizi engellerseniz, otomatik olarak geri alınmadan önce bağlantıyı onaylamanız için 120 saniyelik bir geri sayım başlar.
 - **Altyapı-Kod-Olarak (IaC):** Her şey tek bir JSON dosyası ve bir REST API tarafından yönetildiğinden, güvenlik duvarınızı sürüm kontrolüne alabilirsiniz. Ansible veya Terraform kullanarak saniyeler içinde yeni bir şube ofisi kurabilirsiniz.
 - **Mutlak Şeffaflık:** Yapılandırmalarımızı bir SQLite veritabanında veya tescilli bir ikili dosyada saklamıyoruz. Sunucuya SSH ile bağlanabilir, `/etc/pf.conf` dosyasını açabilir ve çekirdeğin tam olarak ne çalıştırdığını görebilirsiniz.
 
