@@ -51,7 +51,7 @@ The type decides how the firewall treats the network:
   firewall rules** - nothing from it passes until you add rules on **Firewall > Rules**.
 - **WAN** (additional internet connection): it gets outbound NAT and the same protection as the WAN - incoming
   traffic is blocked unless a rule allows it. The default route stays on the main WAN; traffic is sent through
-  an additional WAN by failover, load sharing or policy routing (**Interfaces > Gateways**, **Firewall > Rules**).
+  an additional WAN by failover or by policy routing ([**Interfaces > Gateways**](/manual/interfaces-gateways/), **Firewall > Rules**).
 
 ## Add an interface
 

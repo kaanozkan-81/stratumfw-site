@@ -140,8 +140,8 @@ Click **Save**, **Apply changes** and - once the connection works - **Keep chang
 > LAN side. Choose **DHCP** for the WAN, and make sure the firewall's LAN uses a different network from the
 > modem's - for example `10.10.10.0/24` when the modem uses `192.168.1.0/24`.
 
-A second internet line is added as another interface of type WAN; failover and load sharing between lines are
-described in the chapter on **Interfaces > Gateways**.
+A second internet line is added as another interface of type WAN; failover between lines and sending chosen traffic over the second line are
+described in the chapter on [**Interfaces > Gateways**](/manual/interfaces-gateways/).
 
 ## DNS
 

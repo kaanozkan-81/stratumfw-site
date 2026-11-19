@@ -42,7 +42,7 @@ Bir *arayüz* (interface), güvenlik duvarının parçası olduğu bir ağdır. 
 Seçilen tür güvenlik duvarının o ağa nasıl davranacağını belirler:
 
 - **LAN** (iç ağ): kendi güvenlik duvarı kurallarına sahiptir, DHCP sunucusu çalıştırabilir, DNS çözümleyici tarafından yanıtlanır ve internete çıkan trafiği çevrilir (giden NAT). Yeni eklenen LAN tipindeki bir OPT arayüzü **güvenlik duvarı kuralı olmadan** başlar - **Firewall > Rules** altından kural ekleyene kadar bu ağdan hiçbir trafik geçmez.
-- **WAN** (ek internet bağlantısı): giden NAT alır ve ana WAN ile aynı korumaya sahiptir - bir kural izin vermedikçe dışarıdan gelen trafik engellenir. Varsayılan rota ana WAN üzerinde kalır; trafik yedeklilik (failover), yük paylaşımı veya politika tabanlı yönlendirme (**Interfaces > Gateways**, **Firewall > Rules**) ile ek WAN üzerinden gönderilir.
+- **WAN** (ek internet bağlantısı): giden NAT alır ve ana WAN ile aynı korumaya sahiptir - bir kural izin vermedikçe dışarıdan gelen trafik engellenir. Varsayılan rota ana WAN üzerinde kalır; trafik yedeklilik (failover) veya politika tabanlı yönlendirme ([**Interfaces > Gateways**](/tr/manual/interfaces-gateways/), **Firewall > Rules**) ile ek WAN üzerinden gönderilir.
 
 ## Yeni arayüz ekleme
 

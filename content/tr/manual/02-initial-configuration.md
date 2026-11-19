@@ -113,7 +113,7 @@ Panele düzenlemekte olduğunuz arayüz üzerinden bağlıysanız sayfa, bağlan
 
 > **İpucu:** Köprü kipinde olmayan (kendisi de yönlendirme yapan) bir servis sağlayıcı modemi genellikle kendi LAN tarafında DHCP ile IP dağıtır. Bu durumda WAN için **DHCP** seçin ve güvenlik duvarının LAN ağının modemin ağından farklı olduğundan emin olun - örneğin modem `192.168.1.0/24` kullanıyorsa güvenlik duvarı LAN tarafında `10.10.10.0/24` kullanın.
 
-İkinci bir internet hattı, WAN tipinde ek bir arayüz olarak eklenir; hatlar arasında yedeklilik (failover) ve yük paylaşımı **Interfaces > Gateways** bölümünde anlatılmaktadır.
+İkinci bir internet hattı, WAN tipinde ek bir arayüz olarak eklenir; hatlar arasında yedeklilik (failover) ve seçilen trafiği ikinci hat üzerinden gönderme [**Interfaces > Gateways**](/tr/manual/interfaces-gateways/) bölümünde anlatılmaktadır.
 
 ## DNS
 
