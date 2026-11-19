@@ -1,12 +1,13 @@
 ---
 title: "Kurulum"
-seo_title: "01. Kurulum — Stratum FW Kullanım Kılavuzu"
+seo_title: "03. Kurulum — Stratum FW Kullanım Kılavuzu"
 description: "Donanım ve sanal makine gereksinimleri, kurulum imajını indirme ve doğrulama, diske kurulum, ilk açılış kurulum sihirbazı ve konsol menüsü."
-weight: 1
-chapter_num: "01"
+weight: 3
+chapter_num: "03"
 url: "/tr/manual/installation/"
 aliases:
   - "/tr/manual/01-installation/"
+  - "/tr/manual/03-installation/"
 translationKey: "manual-01-installation"
 ---
 
@@ -334,4 +335,4 @@ Konsol menüsünden yapılan değişiklikler de sihirbazda olduğu gibi önce de
 
 LAN üzerindeki bir bilgisayardan **Web panel** satırında gösterilen adresi (örneğin `https://192.168.1.1/`) açın ve `admin` olarak giriş yapın. Sertifika güvenlik duvarının kendisi tarafından oluşturulduğu için tarayıcı ilk açılışta bir kez güvenlik uyarısı gösterir; yeni kurulumda bu beklenen bir durumdur.
 
-[**2 İlk yapılandırma (Initial Configuration)**](/tr/manual/initial-configuration/) bölümüyle devam edin: ilk oturum açma, internet bağlantısı, DNS ve ilk güvenlik duvarı kuralları.
+[**02 İlk Yapılandırma**](/tr/manual/initial-configuration/) bölümüyle devam edin: ilk oturum açma, internet bağlantısı, DNS ve ilk güvenlik duvarı kuralları.

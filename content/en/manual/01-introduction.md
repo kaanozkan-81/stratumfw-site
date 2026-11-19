@@ -1,12 +1,13 @@
 ---
 title: "Introduction"
-seo_title: "00. Introduction — Stratum FW User Manual"
+seo_title: "01. Introduction — Stratum FW User Manual"
 description: "What Stratum FW is, how its configuration works, the panel at a glance, users and roles, and the conventions of this manual."
-weight: 0
-chapter_num: "00"
+weight: 1
+chapter_num: "01"
 url: "/manual/introduction/"
 aliases:
   - "/manual/00-introduction/"
+  - "/manual/01-introduction/"
 translationKey: "manual-00-introduction"
 ---
 
@@ -196,6 +197,7 @@ Stratum FW is built so that a mistake is easy to undo:
 
 ## Where to go next
 
-- New installation: continue with [**1 Installation**](/manual/installation/).
+- First sign-in and setup: continue with [**02 Initial Configuration**](/manual/initial-configuration/).
+- Installing onto a new machine: see [**03 Installation**](/manual/installation/).
 - Moving from OPNsense: the chapter **Migrating from OPNsense** imports your existing configuration.
 - Already running: jump to the chapter of the menu you need from the contents.

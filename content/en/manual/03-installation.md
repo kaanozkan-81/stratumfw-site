@@ -1,12 +1,13 @@
 ---
 title: "Installation"
-seo_title: "01. Installation — Stratum FW User Manual"
+seo_title: "03. Installation — Stratum FW User Manual"
 description: "Hardware and virtual machine requirements, downloading and verifying the installer, installing to disk, the first-boot setup wizard and the console menu."
-weight: 1
-chapter_num: "01"
+weight: 3
+chapter_num: "03"
 url: "/manual/installation/"
 aliases:
   - "/manual/01-installation/"
+  - "/manual/03-installation/"
 translationKey: "manual-01-installation"
 ---
 
@@ -383,5 +384,5 @@ Open the address shown as **Web panel** from a computer in the LAN - for example
 sign in as `admin`. The browser warns once about the certificate, because it was created by the firewall itself;
 this is expected on a new installation.
 
-Continue with [**2 Initial configuration**](/manual/initial-configuration/): the first sign-in, the internet connection, DNS, and the first rules.
+Continue with [**02 Initial Configuration**](/manual/initial-configuration/): the first sign-in, the internet connection, DNS, and the first rules.
 

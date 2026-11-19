@@ -1,12 +1,13 @@
 ---
 title: "Giriş"
-seo_title: "00. Giriş — Stratum FW Kullanım Kılavuzu"
+seo_title: "01. Giriş — Stratum FW Kullanım Kılavuzu"
 description: "Stratum FW nedir, yapılandırma sistemi nasıl çalışır, bir bakışta yönetim paneli, kullanıcılar ve roller ile bu kılavuzun yazım kuralları."
-weight: 0
-chapter_num: "00"
+weight: 1
+chapter_num: "01"
 url: "/tr/manual/introduction/"
 aliases:
   - "/tr/manual/00-introduction/"
+  - "/tr/manual/01-introduction/"
 translationKey: "manual-00-introduction"
 ---
 
@@ -155,6 +156,7 @@ Stratum FW, olası bir hatanın kolayca geri alınabilmesi için tasarlanmışt�
 
 ## Sıradaki adımlar
 
-- Yeni kurulum yapıyorsanız: [**1 Kurulum (Installation)**](/tr/manual/installation/) bölümüyle devam edin.
+- İlk panel ayarları için: [**02 İlk Yapılandırma**](/tr/manual/initial-configuration/) bölümüyle devam edin.
+- Sıfırdan kurulum yapıyorsanız: [**03 Kurulum**](/tr/manual/installation/) bölümüne geçin.
 - OPNsense'ten geçiş yapıyorsanız: **Migrating from OPNsense** bölümü mevcut yapılandırmanızı içe aktarır.
 - Sisteminiz zaten çalışıyorsa: içindekiler menüsünden ihtiyaç duyduğunuz bölüme doğrudan geçebilirsiniz.
