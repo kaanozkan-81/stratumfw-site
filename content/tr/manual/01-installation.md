@@ -334,4 +334,4 @@ Konsol menüsünden yapılan değişiklikler de sihirbazda olduğu gibi önce de
 
 LAN üzerindeki bir bilgisayardan **Web panel** satırında gösterilen adresi (örneğin `https://192.168.1.1/`) açın ve `admin` olarak giriş yapın. Sertifika güvenlik duvarının kendisi tarafından oluşturulduğu için tarayıcı ilk açılışta bir kez güvenlik uyarısı gösterir; yeni kurulumda bu beklenen bir durumdur.
 
-**2 Initial configuration** (İlk yapılandırma) bölümüyle devam edin: ilk oturum açma, internet bağlantısı, DNS ve ilk güvenlik duvarı kuralları.
+[**2 İlk yapılandırma (Initial Configuration)**](/tr/manual/initial-configuration/) bölümüyle devam edin: ilk oturum açma, internet bağlantısı, DNS ve ilk güvenlik duvarı kuralları.

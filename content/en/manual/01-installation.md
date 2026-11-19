@@ -383,5 +383,5 @@ Open the address shown as **Web panel** from a computer in the LAN - for example
 sign in as `admin`. The browser warns once about the certificate, because it was created by the firewall itself;
 this is expected on a new installation.
 
-Continue with **2 Initial configuration**: the first sign-in, the internet connection, DNS, and the first rules.
+Continue with [**2 Initial configuration**](/manual/initial-configuration/): the first sign-in, the internet connection, DNS, and the first rules.
 
