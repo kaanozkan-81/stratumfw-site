@@ -90,7 +90,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 <p>Arayüze giren paket önce etkinse satır içi <code>netmap</code> Suricata IPS denetiminden, ardından <code>pf</code> bellek içi IP engelleme tablolarından, <strong>Zorunlu DNS</strong> / Port Yönlendirme / <strong>1:1 NAT</strong> dönüşümünden, arayüz grubu ve zamanlamalı kurallardan geçerek <code>dummynet</code> hız borularına ve seçili WAN ağ geçidine iletilir.</p>
 </div>
 <div class="sol-step">
-<span class="sol-step-num">AKIŞ 02 · 60 SN SAFE-APPLY</span>
+<span class="sol-step-num">AKIŞ 02 · 120 SN SAFE-APPLY</span>
 <h3>Ön Doğrulama &rarr; Atomik Yükleme &rarr; Otomatik Geri Alma</h3>
 <p>Değişiklik uygulandığında <code>stratum-config</code> tüm servis dosyalarını üretip <code>pfctl -n</code>, <code>nginx -t</code>, <code>sshd -t</code> ve <code>unbound-checkconf</code> ile doğrular. Yönetici <strong>120 saniye</strong> içinde bağlantısını onaylamazsa sistem bir önceki çalışan <code>config.json</code> durumuna otomatik döner.</p>
 </div>

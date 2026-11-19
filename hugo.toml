@@ -13,7 +13,7 @@ disableKinds = ["taxonomy", "term"]
     title = 'Stratum Firewall (FW)'
     [languages.en.params]
       tagline = 'Free FreeBSD Network Firewall & pfSense Alternative'
-      description = 'Stratum Firewall is an open-source, AI-powered FreeBSD firewall OS. It combines the raw power of pf packet filtering with a modern FastAPI management panel and zero-dependency WireGuard support.'
+      description = 'Stratum Firewall is a free, subscription-free FreeBSD firewall OS. It combines pf packet filtering with a modern FastAPI management panel, kernel WireGuard and IPsec VPNs, layered threat blocking and a read-only AI assistant.'
       companyName = 'Stratum Security'
       contactEmail = 'info@stratumfw.com'
       docsURL = '/resources/documentation/'
