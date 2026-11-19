@@ -265,38 +265,16 @@ disableKinds = ["taxonomy", "term"]
 
 # === STRATUM-USER-MANUAL-MENU-START ===
 [[languages.en.menu.main]]
-  name = 'User Manual'
-  identifier = 'en-manual-top'
-  url = '/manual/'
-  weight = 28
-
-[[languages.en.menu.main]]
-  name = 'User Manual'
-  identifier = 'en-manual-top'
-  url = '/manual/'
-  weight = 30
-
-[[languages.tr.menu.main]]
-  name = 'Kullanım Kılavuzu'
-  identifier = 'tr-manual-top'
-  url = '/tr/manual/'
-  weight = 28
-
-[[languages.tr.menu.main]]
-  name = 'Kullanım Kılavuzu'
-  identifier = 'tr-manual-top'
-  url = '/tr/manual/'
-  weight = 30
-
-[[languages.en.menu.main]]
         name = 'User Manual'
         url = '/manual/'
-        parent = 'resources'
-        weight = 26
+        parent = 'solutions'
+        weight = 33
+  identifier = 'en-solutions-manual'
 
 [[languages.tr.menu.main]]
         name = 'Kullanım Kılavuzu'
         url = '/tr/manual/'
-        parent = 'resources'
-        weight = 26
+        parent = 'solutions'
+        weight = 33
+  identifier = 'tr-solutions-manual'
 # === STRATUM-USER-MANUAL-MENU-END ===
