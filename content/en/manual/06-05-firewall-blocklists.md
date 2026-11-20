@@ -47,7 +47,7 @@ A third tab, **Blocked**, is the report of what both have stopped (administrator
 bypasses the firewall's resolver. To prevent that:
 
 - force the DNS of chosen networks to the firewall (**Services > DNS Resolver**, or *Send all DNS to the
-  firewall* on **Diagnostics > Web Activity**) - devices then cannot reach another DNS server on port 53;
+  firewall* on [**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/)) - devices then cannot reach another DNS server on port 53;
 - add the **DoH** category, which blocks the names of public DNS-over-HTTPS servers, so browsers fall back to
   normal DNS.
 
@@ -81,7 +81,7 @@ this site not open?"*. If a list blocks something it should not, add the name to
    - **Both directions (recommended)** - attackers from the internet are dropped on the WAN, and a device inside
      that tries to reach a listed address is stopped as well - often the first sign of an infected device.
    - **Incoming only (from the internet)** or **Outgoing only (from local devices)**.
-4. **Log blocked connections (Firewall Log)** - every block in **Diagnostics > Firewall Log** as well.
+4. **Log blocked connections (Firewall Log)** - every block in [**Diagnostics > Firewall Log**](/manual/diagnostics-firewall-log/) as well.
 5. Set **Automatic updates**, **Save**, **Apply changes**.
 
 The lists are loaded into the packet filter as tables: later updates take effect without a restart or an Apply.

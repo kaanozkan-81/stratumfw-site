@@ -101,7 +101,7 @@ Kapatılan kurallar **Settings** sekmesindeki **Disabled rules** altında listel
 - **Kaynak içeride, hedef dışarıda:** ağınızdaki bir cihaz bir saldırı kuralının tanımladığı davranışı sergiledi - örneğin bilinen bir komuta-kontrol sunucusuyla iletişim kurmaya çalıştı. İlk olarak bu iç cihazı inceleyin.
 - **Normal trafik üzerinde sürekli tekrarlayan aynı kural:** yanlış pozitif (false positive) - **Disable rule** ile kapatın.
 
-Yapay Zeka Asistanı (**Diagnostics > AI Assistant**) belirli bir dönemdeki uyarıları özetleyebilir ve açıklayabilir.
+Yapay Zeka Asistanı ([**Diagnostics > AI Assistant**](/tr/manual/diagnostics-ai-assistant/)) belirli bir dönemdeki uyarıları özetleyebilir ve açıklayabilir.
 
 ## Bildirimler
 

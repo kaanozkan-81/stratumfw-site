@@ -70,7 +70,7 @@ Birden fazla sayfada değişiklik yapıp hepsini tek seferde uygulayabilirsiniz.
 
 ### Apply: önce denetlenir, sonra etkinleştirilir
 
-**Apply changes** düğmesine tıkladığınızda Stratum FW çalışan sisteme dokunmadan önce yeni yapılandırmayı denetler: paket filtresi kuralları, web sunucusu, DNS ve DHCP yapılandırması, SSH ve saldırı tespit sistemi kendi doğrulama araçlarıyla test edilir; değişikliğin ihtiyaç duyduğu programların ve çekirdek modüllerinin (VPN, bant genişliği sınırları vb.) mevcut olduğu doğrulanır. Herhangi bir denetim başarısız olursa hiçbir şey değiştirilmez ve çubukta nedeni gösterilir; tam çıktı **Diagnostics > System Logs** altındaki *Configuration* sekmesinde yer alır.
+**Apply changes** düğmesine tıkladığınızda Stratum FW çalışan sisteme dokunmadan önce yeni yapılandırmayı denetler: paket filtresi kuralları, web sunucusu, DNS ve DHCP yapılandırması, SSH ve saldırı tespit sistemi kendi doğrulama araçlarıyla test edilir; değişikliğin ihtiyaç duyduğu programların ve çekirdek modüllerinin (VPN, bant genişliği sınırları vb.) mevcut olduğu doğrulanır. Herhangi bir denetim başarısız olursa hiçbir şey değiştirilmez ve çubukta nedeni gösterilir; tam çıktı [**Diagnostics > System Logs**](/tr/manual/diagnostics-system-logs/) altındaki *Configuration* sekmesinde yer alır.
 
 Denetimler başarılı olursa mevcut durum bir anlık görüntü olarak kaydedilir ve yeni yapılandırma etkinleştirilir. Yalnızca değişiklikten etkilenen servisler yeniden yüklenir veya yeniden başlatılır.
 

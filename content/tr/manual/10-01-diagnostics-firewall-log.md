@@ -57,7 +57,7 @@ Tüm arayüzlerde veya seçilen tek bir arayüzde **Last hour** ya da **Last 24 
 
 Bir IP adresine, porta veya kurala tıkladığınızda ilgili kayıtlar **Live** sekmesinde süzülmüş olarak açılır.
 
-Yapay Zeka Asistanı (**Diagnostics > AI Assistant**) özeti sizin için yorumlayabilir - *"son bir saatte neler engellendi, endişelenmem gereken bir şey var mı?"*
+Yapay Zeka Asistanı ([**Diagnostics > AI Assistant**](/tr/manual/diagnostics-ai-assistant/)) özeti sizin için yorumlayabilir - *"son bir saatte neler engellendi, endişelenmem gereken bir şey var mı?"*
 
 ## Ağlar Arası Trafik (Between networks)
 

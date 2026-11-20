@@ -59,7 +59,7 @@ Kendi kurallarınızın üzerinde gri satırlar halinde Stratum FW'nin diğer sa
 | Bogon (ayrılmış) ağları ve özel ağları engelleme | **System > Settings > Firewall** (WAN tipindeki arayüzler) |
 | Ping (echo request) yanıtı | **System > Settings > Firewall** (WAN tipindeki arayüzler) |
 | Port forward: ... | [**Firewall > NAT**](/tr/manual/firewall-nat/) - her port yönlendirme kendi izin kuralını otomatik alır |
-| VPN ve captive portal kuralları | İlgili VPN sayfaları ve **Services > Captive Portal** |
+| VPN ve captive portal kuralları | İlgili VPN sayfaları ve [**Services > Captive Portal**](/tr/manual/services-captive-portal/) |
 
 ## Kural ekleme veya düzenleme
 
@@ -77,7 +77,7 @@ Kendi kurallarınızın üzerinde gri satırlar halinde Stratum FW'nin diğer sa
 | **Schedule** | **Always** (her zaman) veya [**Firewall > Schedules**](/tr/manual/firewall-schedules/) altından bir zamanlama: kural yalnızca zamanlamanın aktif olduğu saatlerde devrededir; diğer saatlerde altındaki kurallar karar verir. |
 | **Gateway** | (Birden fazla WAN olduğunda iç arayüzlerdeki *Pass* kurallarında görünür.) Trafiği seçilen WAN hattı üzerinden çıkarır - bkz. [**Interfaces > Gateways**](/tr/manual/interfaces-gateways/). |
 | **Description** | En fazla 200 karakter. Kuralın *neden* var olduğunu yazın - bir yıl sonra kimse tek başına IP adresinden hatırlamayacaktır. |
-| **Log packets that match this rule** | Eşleşen paketler **Diagnostics > Firewall Log** sayfasında ve günlük raporlarında görünür. Her şeyi değil, incelemeniz gereken trafiği günlüğe yazdırın: yoğun trafikli bir *Pass* kuralını günlüğe yazdırmak diski hızla doldurur. |
+| **Log packets that match this rule** | Eşleşen paketler [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/) sayfasında ve günlük raporlarında görünür. Her şeyi değil, incelemeniz gereken trafiği günlüğe yazdırın: yoğun trafikli bir *Pass* kuralını günlüğe yazdırmak diski hızla doldurur. |
 | **Rule is enabled** | Devre dışı bırakılan kural listede kalır ancak hiçbir işlem yapmaz. |
 | **Position** | Yeni kural için: **At the bottom of the list** (listenin sonuna) veya **At the top of the list** (listenin başına). |
 
@@ -107,4 +107,4 @@ Kendi kurallarınızın üzerinde gri satırlar halinde Stratum FW'nin diğer sa
 - **"This firewall" hedefini unutmayın.** Hedefi *any* olan bir misafir izin kuralı güvenlik duvarının kendi adreslerine de geçiş izni verir - **Admin Access** altından hangi ağların panele ulaşabileceği sınırlandırılmamışsa buna web paneli de dahildir.
 - **Takma adlar (Aliases) kullanın:** birden fazla kuralda geçen adres ve portları alias olarak tanımlayın; değişiklik gerektiğinde her kuralı tek tek düzenlemek yerine yalnızca alias kaydını güncelleyin.
 - **Arayüz grupları kullanın:** birden fazla arayüzün paylaştığı ortak kuralları grup üzerinde toplayın ([**Interfaces > Groups**](/tr/manual/interfaces-groups/)).
-- **Eşleşme sayaçlarını (Hits) ve günlükleri kontrol edin:** sayacı hiç artmayan bir kural yanlış sırada duruyor veya yanlış kaynak/hedef içeriyor olabilir; **Diagnostics > Firewall Log** paketi hangi kuralın engellediğini gösterir.
+- **Eşleşme sayaçlarını (Hits) ve günlükleri kontrol edin:** sayacı hiç artmayan bir kural yanlış sırada duruyor veya yanlış kaynak/hedef içeriyor olabilir; [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/) paketi hangi kuralın engellediğini gösterir.

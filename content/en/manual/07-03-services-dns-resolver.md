@@ -62,7 +62,7 @@ the networks you select:
 **Except DNS servers:** an alias of servers the devices may still ask directly - for example the domain
 controllers of an Active Directory domain, which clients must reach as their DNS servers.
 
-If **Send all DNS to the firewall** is on under **Diagnostics > Web Activity**, the page says so: it then applies
+If **Send all DNS to the firewall** is on under [**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/), the page says so: it then applies
 to every internal network.
 
 DNS over HTTPS cannot be redirected, because it looks like any other HTTPS traffic. Block the public DoH servers

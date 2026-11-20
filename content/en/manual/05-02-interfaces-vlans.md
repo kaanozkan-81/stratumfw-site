@@ -106,6 +106,6 @@ VLAN.
 | :--- | :--- |
 | *State* is *down* | The parent port has no link: cable, switch port, speed. |
 | Devices in the VLAN get no address | The DHCP server is switched on for that interface (**Services > DHCP Server**); the switch port of the device is untagged in the right VLAN; the trunk to the firewall carries the tag. |
-| Devices get an address but reach nothing | A LAN-type interface added after the setup wizard has no rules until you add them (**Firewall > Rules**, its tab). **Diagnostics > Firewall Log** shows what is blocked. |
+| Devices get an address but reach nothing | A LAN-type interface added after the setup wizard has no rules until you add them (**Firewall > Rules**, its tab). [**Diagnostics > Firewall Log**](/manual/diagnostics-firewall-log/) shows what is blocked. |
 | Traffic arrives in the wrong network | The tags on the switch and on the firewall differ, or the switch's native VLAN on the trunk is wrong. **Diagnostics > Packet Capture** on the parent port shows the tags that arrive. |
 

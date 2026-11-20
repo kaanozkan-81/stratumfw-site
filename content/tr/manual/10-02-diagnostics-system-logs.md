@@ -10,7 +10,7 @@ aliases:
 translationKey: "manual-10-02-diagnostics-system-logs"
 ---
 
-**Diagnostics > System Logs** güvenlik duvarındaki işletim sistemi ve servislerin günlüklerini gösterir - bir şey beklendiği gibi çalışmadığında bakılacak ilk yerdir.
+[**Diagnostics > System Logs**](/tr/manual/diagnostics-system-logs/) güvenlik duvarındaki işletim sistemi ve servislerin günlüklerini gösterir - bir şey beklendiği gibi çalışmadığında bakılacak ilk yerdir.
 
 ![Diagnostics > System Logs](/images/manual/logs.png)
 
@@ -43,6 +43,6 @@ Hata içeren satırlar (*error*, *failed*, *denied*, *refused* ...) kırmızıyl
 | Bir VPN kullanıcısı neden bağlanamıyor? | **Authentication** (OpenVPN girişi) ve **System** (OpenVPN servisi) |
 | Captive Portal giriş ve çıkışları | **System**, program adı `stratum-captive` |
 
-Yapay Zeka Asistanı da bu günlükleri okuyup açıklayabilir (**Diagnostics > AI Assistant**).
+Yapay Zeka Asistanı da bu günlükleri okuyup açıklayabilir ([**Diagnostics > AI Assistant**](/tr/manual/diagnostics-ai-assistant/)).
 
 Uzun süreli saklama için günlükleri uzak bir syslog sunucusuna gönderin ([**System > Settings > Logging**](/tr/manual/system-settings-logging-notifications/)).

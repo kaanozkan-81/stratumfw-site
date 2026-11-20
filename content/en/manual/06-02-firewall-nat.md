@@ -56,7 +56,7 @@ Click **Save**, **Apply changes**, **Keep changes**.
 The first matching forward wins; move entries with their arrows or drag them by their handle. Separators group
 the list without changing anything. Grey entries at the top are redirects Stratum FW writes from other settings:
 *Force DNS* - the DNS queries of networks that must use the firewall's DNS (**Services > DNS Resolver**,
-**Diagnostics > Web Activity**).
+[**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/)).
 
 ### Restricting the source
 

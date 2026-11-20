@@ -51,7 +51,7 @@ backup do not exist on the new machine, the restore says which, and you reassign
 A backup without certificates and secrets cannot restore them, and a users restore is refused when it contains no
 enabled administrator with panel access.
 
-**Import from OPNsense** converts an OPNsense `config.xml` - see the chapter **Migrating from OPNsense**.
+**Import from OPNsense** converts an OPNsense `config.xml` - see the chapter [**Migrating from OPNsense**](/manual/migrating-from-opnsense/).
 
 ## Configuration history
 

@@ -68,7 +68,7 @@ Kategoriler günlük olarak güncellenen Université Toulouse Capitole UT1 kara 
 
 Filtre DNS üzerinden çalıştığı için başka bir DNS sunucusuna soru soran cihaz filtrelenmez. Bu açık kapıları kapatmak için:
 
-1. Filtrelenen ağların **DNS sorgularını güvenlik duvarına zorunlu yönlendirin** (**Services > DNS Resolver** veya **Diagnostics > Web Activity** altındaki *Send all DNS to the firewall*): dışarıdaki başka bir DNS sunucusuna giden sorgular şeffaf biçimde güvenlik duvarına çevrilir.
+1. Filtrelenen ağların **DNS sorgularını güvenlik duvarına zorunlu yönlendirin** (**Services > DNS Resolver** veya [**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/) altındaki *Send all DNS to the firewall*): dışarıdaki başka bir DNS sunucusuna giden sorgular şeffaf biçimde güvenlik duvarına çevrilir.
 2. **"Getting around the filter" kategorilerini engelleyin** - VPN servisleri, DNS over HTTPS sunucuları, vekil sunucular.
 3. İsteğe bağlı olarak DNS engelleme listelerindeki ([**Firewall > Blocklists**](/tr/manual/firewall-blocklists/)) **DoH** kategorisini de açarak tarayıcıların şifreli DNS kullanmasını önleyin.
 
@@ -93,4 +93,4 @@ DNS tabanlı hiçbir filtre listelerin henüz tanımadığı özel bir VPN sunuc
 
 ## Engellenenler görünümü (Blocked)
 
-Sayfadaki **Blocked** kartı Web Filtresinin **bugün**, **son 7 günde** veya **son 30 günde** hangi kategoriden ne kadar engelleme yaptığını ve en çok engellenen siteleri gösterir. **Web Activity** açık olduğunda (**Diagnostics > Web Activity**) engellemeler cihaz bazında da sayılır.
+Sayfadaki **Blocked** kartı Web Filtresinin **bugün**, **son 7 günde** veya **son 30 günde** hangi kategoriden ne kadar engelleme yaptığını ve en çok engellenen siteleri gösterir. **Web Activity** açık olduğunda ([**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/)) engellemeler cihaz bazında da sayılır.

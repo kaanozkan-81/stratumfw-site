@@ -28,7 +28,7 @@ Sayfa açık kaldığı sürece paneller kendiliğinden yenilenir; yenilenme sı
 | **Temperature** | En sıcak işlemci çekirdeği veya sensör değeri (sıcaklık raporlayan donanımlarda). |
 | **Connections** | Üst sınıra kıyasla kullanımda olan güvenlik duvarı bağlantı durumları (states). |
 | **Blocked** | Son bir saat içinde engellenen ve günlüğe kaydedilen paket sayısı. |
-| **Traffic** | Panelin başlık çubuğundan seçtiğiniz arayüzün son bir saatlik trafik grafiği - **Diagnostics > Traffic Graphs** sayfasındaki verinin aynısıdır. |
+| **Traffic** | Panelin başlık çubuğundan seçtiğiniz arayüzün son bir saatlik trafik grafiği - [**Diagnostics > Traffic Graphs**](/tr/manual/diagnostics-traffic-graphs/) sayfasındaki verinin aynısıdır. |
 | **Protection** | Engelleme listeleri, engellenen giriş denemeleri, saldırı tespit sistemi ve VPN durumunun tek bakışta özeti. |
 | **Interfaces** | Her arayüzün durumu, IP adresi ve anlık gelen/giden trafik hızı. |
 | **Services** | Çalışan ve durmuş servisler; başlıktaki sayı ilgilenilmesi gereken servis sayısını gösterir. |

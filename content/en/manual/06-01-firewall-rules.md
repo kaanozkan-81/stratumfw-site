@@ -68,7 +68,7 @@ the description says where they come from. Depending on the interface:
 | Block bogon (reserved) networks, Block private networks | **System > Settings > Firewall** (WAN-type interfaces) |
 | Ping (echo request) | **System > Settings > Firewall** (WAN-type interfaces) |
 | Port forward: ... | [**Firewall > NAT**](/manual/firewall-nat/) - every port forward gets its pass rule automatically |
-| VPN and captive portal rules | The VPN pages and **Services > Captive Portal** |
+| VPN and captive portal rules | The VPN pages and [**Services > Captive Portal**](/manual/services-captive-portal/) |
 
 ## Add or edit a rule
 
@@ -86,7 +86,7 @@ Click **Add rule** (or a rule's edit icon).
 | **Schedule** | **Always**, or a schedule from [**Firewall > Schedules**](/manual/firewall-schedules/): the rule exists only during the schedule's times; outside them the rules below decide. |
 | **Gateway** | (Pass rules on internal interfaces, with more than one WAN.) Send the traffic through a chosen WAN - see [**Interfaces > Gateways**](/manual/interfaces-gateways/). |
 | **Description** | Up to 200 characters. Write *why* the rule exists - in a year nobody will remember. |
-| **Log packets that match this rule** | Matching packets appear in **Diagnostics > Firewall Log** and in the firewall log reports. Log what you need, not everything: a logged *pass* rule for busy traffic fills the log quickly. |
+| **Log packets that match this rule** | Matching packets appear in [**Diagnostics > Firewall Log**](/manual/diagnostics-firewall-log/) and in the firewall log reports. Log what you need, not everything: a logged *pass* rule for busy traffic fills the log quickly. |
 | **Rule is enabled** | A disabled rule stays in the list but does nothing. |
 | **Position** | For a new rule: **At the bottom of the list** or **At the top of the list**. |
 
@@ -124,5 +124,5 @@ they do not change what the rules do.
   rule.
 - **Use groups** for rules that many interfaces share ([**Interfaces > Groups**](/manual/interfaces-groups/)).
 - **Check with the hit counters and the log.** A rule that never gets a hit may be in the wrong place or have
-  the wrong source; **Diagnostics > Firewall Log** shows which rule blocked a packet.
+  the wrong source; [**Diagnostics > Firewall Log**](/manual/diagnostics-firewall-log/) shows which rule blocked a packet.
 

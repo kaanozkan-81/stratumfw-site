@@ -52,7 +52,7 @@ A limit needs at least one direction. Click **Save**, then **Apply changes** and
 ## With the captive portal
 
 The captive portal can set its own per-device limits - the zone's download and upload limits, or the values a
-RADIUS server sends for a user (**Services > Captive Portal**). For a signed-in device, the portal's limit takes
+RADIUS server sends for a user ([**Services > Captive Portal**](/manual/services-captive-portal/)). For a signed-in device, the portal's limit takes
 the place of the Shaper limit of its network. Use one of the two for a given network to keep the behaviour easy
 to predict.
 

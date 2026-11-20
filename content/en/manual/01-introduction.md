@@ -86,7 +86,7 @@ When you click **Apply changes**, Stratum FW first checks the new configuration 
 system: the packet filter rules, the web server, the DNS and DHCP configuration, SSH and intrusion detection are
 tested with their own checkers, and the programs and kernel modules a change needs (VPN, bandwidth limits ...)
 must be present. If any check fails, nothing is changed and the bar shows why; the full output
-is under **Diagnostics > System Logs**, *Configuration* tab.
+is under [**Diagnostics > System Logs**](/manual/diagnostics-system-logs/), *Configuration* tab.
 
 If the checks pass, the current state is saved as a snapshot and the new configuration is activated. Only the
 services that are affected by the change are reloaded or restarted.
@@ -199,5 +199,5 @@ Stratum FW is built so that a mistake is easy to undo:
 
 - First sign-in and setup: continue with [**02 Initial Configuration**](/manual/initial-configuration/).
 - Installing onto a new machine: see [**03 Installation**](/manual/installation/).
-- Moving from OPNsense: the chapter **Migrating from OPNsense** imports your existing configuration.
+- Moving from OPNsense: the chapter [**Migrating from OPNsense**](/manual/migrating-from-opnsense/) imports your existing configuration.
 - Already running: jump to the chapter of the menu you need from the contents.

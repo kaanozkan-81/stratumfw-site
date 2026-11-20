@@ -38,7 +38,7 @@ Her iki koruma da ağlarınızdaki tüm cihazlar - telefonlar, televizyonlar, Io
 
 **DNS engellemelerinin aşılmasını önleme.** Kendi DNS sunucusunu kullanan bir cihaz (`8.8.8.8` veya tarayıcı içindeki şifreli DNS over HTTPS) güvenlik duvarının çözümleyicisini atlar. Bunu önlemek için:
 
-- seçilen ağların DNS sorgularını güvenlik duvarına zorunlu yönlendirin (**Services > DNS Resolver** veya **Diagnostics > Web Activity** altındaki *Send all DNS to the firewall*) - böylece cihazlar port 53 üzerinden başka bir DNS sunucusuna çıkamaz;
+- seçilen ağların DNS sorgularını güvenlik duvarına zorunlu yönlendirin (**Services > DNS Resolver** veya [**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/) altındaki *Send all DNS to the firewall*) - böylece cihazlar port 53 üzerinden başka bir DNS sunucusuna çıkamaz;
 - genel DNS-over-HTTPS sunucularının alan adlarını engelleyen **DoH** kategorisini etkinleştirin; böylece tarayıcılar otomatik olarak standart DNS'e geri döner.
 
 ### Kendi özel kayıtlarınız
@@ -64,7 +64,7 @@ Güvenlik duvarının kendi güncelleme sunucuları ve liste indirme kaynakları
 3. **Direction** (Yön):
    - **Both directions (recommended)** - internetten gelen saldırganlar WAN kapısında düşürülür; içerideki bir cihazın listedeki zararlı bir adrese bağlanma girişimi de durdurulur (bu durum çoğu zaman ağdaki enfekte bir cihazın ilk belirtisidir).
    - **Incoming only (from the internet)** veya **Outgoing only (from local devices)**.
-4. **Log blocked connections (Firewall Log)** - her engellemeyi **Diagnostics > Firewall Log** içine de yazar.
+4. **Log blocked connections (Firewall Log)** - her engellemeyi [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/) içine de yazar.
 5. **Automatic updates** ayarını seçin, **Save** ve **Apply changes** düğmelerine tıklayın.
 
 IP listeleri doğrudan paket filtresine (`pf` tablolarına) yüklenir: sonraki otomatik liste güncellemeleri servis yeniden başlatmaya veya Apply işlemine gerek kalmadan anında devreye girer.

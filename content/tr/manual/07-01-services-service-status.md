@@ -43,9 +43,9 @@ Ayarlarında kapatılmış olan servisler varsayılan olarak gizlenir; **Show sw
 | **Captive portal** | Karşılama/oturum açma sayfası ve aktif oturumlar. Yeniden başlatıldığında oturum açmış cihazların bağlantısı kopmaz. | Start, stop, restart |
 | **PPPoE** | `mpd5`. Durdurulduğunda PPPoE WAN bağlantısı kesilir. | Start, stop, restart |
 | **Gateway monitor** | Ağ geçidi durumu, yedekli hat devretme ve politika tabanlı yönlendirme ([**Interfaces > Gateways**](/tr/manual/interfaces-gateways/)). | Start, stop, restart |
-| **Firewall log collector** | **Diagnostics > Firewall Log** ekranını besler. | Start, stop, restart |
-| **Traffic collector** | **Diagnostics > Traffic Graphs** ekranını besler. | Start, stop, restart |
-| **Web Activity collector** | **Diagnostics > Web Activity** ekranını besler. | Start, stop, restart |
+| **Firewall log collector** | [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/) ekranını besler. | Start, stop, restart |
+| **Traffic collector** | [**Diagnostics > Traffic Graphs**](/tr/manual/diagnostics-traffic-graphs/) ekranını besler. | Start, stop, restart |
+| **Web Activity collector** | [**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/) ekranını besler. | Start, stop, restart |
 | **SNMP** | SNMP ajanı (`bsnmpd`). | Start, stop, restart |
 | **SSH** | Yeniden başlatıldığında açık SSH oturumları kopmadan bağlı kalır. | Restart |
 | **Web server** | `nginx`. Yeniden başlatma sonrasında tarayıcı sayfası kendiliğinden yenilenir. | Restart |
@@ -63,4 +63,4 @@ Mevcut yapılandırmanın kullanmadığı servisler - tünel tanımlanmamışsa 
 
 Yalnızca yöneticiler servisleri başlatabilir, durdurabilir ve yeniden başlatabilir; yapılan her işlem sistem günlüğüne kaydedilir.
 
-> **İpucu:** **Stopped** olarak görünen ve tekrar başlamayan bir servis neden başlamadığını genellikle **Diagnostics > System Logs** altında açıklar. Yapılandırma hataları ise çoğunlukla bu aşamaya gelmeden yakalanır: **Apply** işlemi önce servislerin yapılandırmasını denetler ve servisin kabul etmeyeceği bir değişikliği reddeder.
+> **İpucu:** **Stopped** olarak görünen ve tekrar başlamayan bir servis neden başlamadığını genellikle [**Diagnostics > System Logs**](/tr/manual/diagnostics-system-logs/) altında açıklar. Yapılandırma hataları ise çoğunlukla bu aşamaya gelmeden yakalanır: **Apply** işlemi önce servislerin yapılandırmasını denetler ve servisin kabul etmeyeceği bir değişikliği reddeder.

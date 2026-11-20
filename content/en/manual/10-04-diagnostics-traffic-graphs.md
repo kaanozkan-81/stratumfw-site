@@ -10,7 +10,7 @@ aliases:
 translationKey: "manual-10-04-diagnostics-traffic-graphs"
 ---
 
-**Diagnostics > Traffic Graphs** shows how much traffic each interface carries - incoming and outgoing - over the
+[**Diagnostics > Traffic Graphs**](/manual/diagnostics-traffic-graphs/) shows how much traffic each interface carries - incoming and outgoing - over the
 **last hour**, **24 hours** or **30 days**.
 
 ![Diagnostics > Traffic Graphs](/images/manual/traffic.png)
@@ -42,7 +42,7 @@ The [dashboard](/manual/dashboard/) shows the current rate of every interface; t
 The graphs are per interface. To see **which device** uses the bandwidth:
 
 - [**Diagnostics > States**](/manual/diagnostics-tools-states-arp/) - search for the network and look at the bytes of its connections;
-- **Diagnostics > Web Activity** - which devices visit which sites;
+- [**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/) - which devices visit which sites;
 - an SNMP monitoring system for long-term graphs ([**System > Settings > SNMP**](/manual/system-settings-snmp-mcp/)).
 
 To limit bandwidth, see [**Firewall > Shaper**](/manual/firewall-shaper/).

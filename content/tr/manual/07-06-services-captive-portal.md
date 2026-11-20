@@ -14,7 +14,7 @@ Captive Portal bir ağın önüne oturum açma sayfası yerleştirir: misafir Wi
 
 Tipik kullanım alanları: otel ve kafe misafir Wi-Fi ağları, personel lojmanları, toplantı ve konferans salonları, ağ erişim kaydı tutması gereken halka açık ağlar.
 
-**Services > Captive Portal** sayfasında üç sekme bulunur: **Zones**, **Signed-in devices** ve **Users**.
+[**Services > Captive Portal**](/tr/manual/services-captive-portal/) sayfasında üç sekme bulunur: **Zones**, **Signed-in devices** ve **Users**.
 
 ![Services > Captive Portal](/images/manual/cp-zones.png)
 
@@ -146,7 +146,7 @@ Bir cihazın oturumunu kapatmak internet bağlantılarını sonlandırır ancak 
 
 ## Günlükler ve kayıtlar
 
-Her başarılı giriş, başarısız deneme ve oturum kapanışı sistem günlüğüne (**Diagnostics > System Logs**, program `stratum-captive`) bölge, kullanıcı, IP ve MAC adresiyle, çıkışlarda ise kapanış nedeni ve oturum süresiyle birlikte yazılır:
+Her başarılı giriş, başarısız deneme ve oturum kapanışı sistem günlüğüne ([**Diagnostics > System Logs**](/tr/manual/diagnostics-system-logs/), program `stratum-captive`) bölge, kullanıcı, IP ve MAC adresiyle, çıkışlarda ise kapanış nedeni ve oturum süresiyle birlikte yazılır:
 
 ```
 captive: sign-in zone=Guests user=room214 ip=10.20.0.57 mac=7c:4d:8f:06:9b:c8

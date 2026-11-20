@@ -139,9 +139,9 @@ Aynı sayfa üzerinden seçilen ağların DNS sorgularını güvenlik duvarına 
 1. **LAN üzerindeki bir bilgisayardan:** bilgisayar DHCP aralığından bir IP adresi almalı, ağ geçidi ve DNS sunucusu olarak güvenlik duvarını görmelidir. Birkaç web sitesi açarak bağlantıyı deneyin.
 2. **Kontrol panelinde (Dashboard):** WAN kartı bir IP adresi, ağ geçidi ve gecikme (latency) değeri göstermelidir.
 3. **Güvenlik duvarı üzerinden:** **Diagnostics > Ping / Traceroute / DNS** sayfasından `1.1.1.1` adresine ping atın (hat erişimi) ve `stratumfw.com` gibi bir alan adını sorgulayın (DNS çözümleme).
-4. **Sistem saati:** **Diagnostics > System Logs** içindeki zaman damgalarının kendi saatinizle eşleştiğini doğrulayın. Yanlış sistem saati sertifikaları, iki aşamalı giriş kodlarını ve günlük kayıtlarını bozar.
+4. **Sistem saati:** [**Diagnostics > System Logs**](/tr/manual/diagnostics-system-logs/) içindeki zaman damgalarının kendi saatinizle eşleştiğini doğrulayın. Yanlış sistem saati sertifikaları, iki aşamalı giriş kodlarını ve günlük kayıtlarını bozar.
 
-LAN tarafında internet yoksa: önce **Interfaces > Assignments** sayfasından WAN adresini, ardından engellenen paketler için **Diagnostics > Firewall Log** kaydını ve son olarak tanılama sayfasındaki DNS sorgusunu kontrol edin. **Troubleshooting** (Sorun Giderme) bölümü bu adımları sırasıyla açıklar.
+LAN tarafında internet yoksa: önce **Interfaces > Assignments** sayfasından WAN adresini, ardından engellenen paketler için [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/) kaydını ve son olarak tanılama sayfasındaki DNS sorgusunu kontrol edin. **Troubleshooting** (Sorun Giderme) bölümü bu adımları sırasıyla açıklar.
 
 ## Güvenlik duvarını devreye almadan önce
 

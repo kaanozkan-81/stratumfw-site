@@ -53,7 +53,7 @@ Bir cihaz DHCP'den aldığı DNS sunucusunu yok sayıp doğrudan `8.8.8.8` adres
 
 **Except DNS servers:** cihazların doğrudan sorgulamasına izin verilen DNS sunucularını içeren bir takma ad (alias) - örneğin istemcilerin kendi DNS sunucusu olarak doğrudan erişmesi gereken Active Directory etki alanı denetleyicileri (domain controller).
 
-**Diagnostics > Web Activity** altında **Send all DNS to the firewall** etkinse sayfa bunu belirtir: bu durumda zorunlu yönlendirme tüm iç ağlara uygulanır.
+[**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/) altında **Send all DNS to the firewall** etkinse sayfa bunu belirtir: bu durumda zorunlu yönlendirme tüm iç ağlara uygulanır.
 
 DNS over HTTPS (DoH) normal HTTPS trafiğiyle aynı göründüğü için şeffaf yönlendirilemez. Genel DoH sunucularını DNS engelleme listelerindeki ([**Firewall > Blocklists**](/tr/manual/firewall-blocklists/)) **DoH** kategorisiyle veya Web Filtresindeki *DNS over HTTPS servers* kategorisiyle engelleyin.
 

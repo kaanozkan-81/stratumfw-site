@@ -65,8 +65,8 @@
 
     <section style="margin-bottom: 40px;">
       <div class="manual-sec-head">
-        <h2>{{ if $isTR }}Yayınlanan Bölümler{{ else }}Published Chapters{{ end }}</h2>
-        <span>{{ if $isTR }}Kılavuz adım adım yeni bölümlerle güncellenmektedir.{{ else }}Updated step by step as each chapter is published.{{ end }}</span>
+        <h2>{{ if $isTR }}Bölümler{{ else }}Chapters{{ end }}</h2>
+        <span>{{ if $isTR }}Kurulumdan ilk yapılandırmaya, VPN, Captive Portal, yapay zeka asistanı ve OPNsense geçişine kadar tam başvuru kılavuzu.{{ else }}Complete reference guide from installation and firewall rules to VPN, Captive Portal, AI Assistant, and OPNsense migration.{{ end }}</span>
       </div>
 
       <div class="manual-ch-grid">
@@ -89,9 +89,7 @@
       </div>
     </section>
 
-    {{- $roadmap := slice
-      (dict "num" "11+" "en_t" "Console, CLI & Migrating from OPNsense" "tr_t" "Konsol, Komut Satırı ve OPNsense'ten Geçiş" "en_d" "Console menu, stratum-config CLI, troubleshooting, and importing OPNsense config.xml interfaces, VLANs, aliases, NAT, rules, DHCP, and OpenVPN." "tr_d" "Konsol menüsü, stratum-config CLI, sorun giderme ve OPNsense config.xml yapılandırmasını içe aktarma.")
-    -}}
+    {{- $roadmap := slice -}}
 
     {{- $pending := slice -}}
     {{- range $roadmap -}}

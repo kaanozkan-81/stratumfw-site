@@ -173,11 +173,11 @@ in the chapter on **Services > DNS Resolver**.
 2. **On the dashboard:** the WAN shows an address, a gateway and a latency value.
 3. **From the firewall:** **Diagnostics > Ping / Traceroute / DNS** - ping `1.1.1.1` (the connection) and look up
    a name such as `stratumfw.com` (DNS).
-4. **The time:** the times in **Diagnostics > System Logs** match your clock. A wrong clock breaks certificates,
+4. **The time:** the times in [**Diagnostics > System Logs**](/manual/diagnostics-system-logs/) match your clock. A wrong clock breaks certificates,
    two-factor codes and logs.
 
 If the LAN has no internet: check the WAN address on **Interfaces > Assignments**, then
-**Diagnostics > Firewall Log** for blocked packets, then the DNS lookup on the diagnostics page. The chapter
+[**Diagnostics > Firewall Log**](/manual/diagnostics-firewall-log/) for blocked packets, then the DNS lookup on the diagnostics page. The chapter
 **Troubleshooting** goes through this step by step.
 
 ## Before the firewall goes into service

@@ -49,7 +49,7 @@ Port yönlendirme içerideki bir servisi dış dünyadan erişilebilir kılar: g
 
 ### Sıralama ve ayırıcılar
 
-İlk eşleşen yönlendirme kuralı uygulanır; kayıtları oklarla veya sürükleme tutamağından taşıyabilirsiniz. Ayırıcılar (separators) işleyişi değiştirmeden listeyi görsel olarak gruplar. En üstteki gri kayıtlar Stratum FW'nin diğer ayarlardan ürettiği yönlendirmelerdir: örneğin güvenlik duvarının kendi DNS servisini kullanması zorunlu tutulan ağlar için *Force DNS* (**Services > DNS Resolver**, **Diagnostics > Web Activity**).
+İlk eşleşen yönlendirme kuralı uygulanır; kayıtları oklarla veya sürükleme tutamağından taşıyabilirsiniz. Ayırıcılar (separators) işleyişi değiştirmeden listeyi görsel olarak gruplar. En üstteki gri kayıtlar Stratum FW'nin diğer ayarlardan ürettiği yönlendirmelerdir: örneğin güvenlik duvarının kendi DNS servisini kullanması zorunlu tutulan ağlar için *Force DNS* (**Services > DNS Resolver**, [**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/)).
 
 ### Kaynak adresini sınırlandırma
 

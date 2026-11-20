@@ -10,7 +10,7 @@ aliases:
 translationKey: "manual-10-02-diagnostics-system-logs"
 ---
 
-**Diagnostics > System Logs** shows the logs of the firewall's services - the first place to look when something
+[**Diagnostics > System Logs**](/manual/diagnostics-system-logs/) shows the logs of the firewall's services - the first place to look when something
 does not work as expected.
 
 ![Diagnostics > System Logs](/images/manual/logs.png)
@@ -46,6 +46,6 @@ Lines with errors (*error*, *failed*, *denied*, *refused* ...) are highlighted r
 | Why does a VPN user not connect? | **Authentication** (OpenVPN sign-in) and **System** (OpenVPN) |
 | Captive portal sign-ins | **System**, program `stratum-captive` |
 
-The AI Assistant can read these logs and explain them (**Diagnostics > AI Assistant**).
+The AI Assistant can read these logs and explain them ([**Diagnostics > AI Assistant**](/manual/diagnostics-ai-assistant/)).
 
 For long-term records, send the logs to a syslog server ([**System > Settings > Logging**](/manual/system-settings-logging-notifications/)).

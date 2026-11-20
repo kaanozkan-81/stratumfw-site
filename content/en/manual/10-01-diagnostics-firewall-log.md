@@ -69,7 +69,7 @@ interfaces or one:
 
 Click an address, port or rule to see its entries on the **Live** tab.
 
-The AI Assistant (**Diagnostics > AI Assistant**) can explain the summary - *"what was blocked in the last hour
+The AI Assistant ([**Diagnostics > AI Assistant**](/manual/diagnostics-ai-assistant/)) can explain the summary - *"what was blocked in the last hour
 and should I worry?"*
 
 ## Between networks

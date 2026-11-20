@@ -95,13 +95,13 @@ Yalnızca yöneticiler istemci profillerini indirebilir.
 
 ## OPNsense veya pfSense'ten geçiş
 
-Kullanıcılar bilgisayarlarında kurulu mevcut profillerini değiştirmeden kullanmaya devam edebilir: OPNsense içe aktarma aracı (**OPNsense'ten Geçiş** bölümüne bakınız) sertifika otoritesini, sunucu sertifikasını, kullanıcı sertifikalarını ve TLS anahtarını devralır; böylece Stratum FW eski güvenlik duvarının dış adresini devraldığında mevcut profiller kesintisiz çalışmayı sürdürür.
+Kullanıcılar bilgisayarlarında kurulu mevcut profillerini değiştirmeden kullanmaya devam edebilir: OPNsense içe aktarma aracı ([**OPNsense'ten Geçiş**](/tr/manual/migrating-from-opnsense/) bölümüne bakınız) sertifika otoritesini, sunucu sertifikasını, kullanıcı sertifikalarını ve TLS anahtarını devralır; böylece Stratum FW eski güvenlik duvarının dış adresini devraldığında mevcut profiller kesintisiz çalışmayı sürdürür.
 
 ## Sorun giderme
 
 | Belirti | Kontrol edilecek nokta |
 | :--- | :--- |
 | İstemci hiç bağlanamıyor | Profildeki **External address** ve **Port** değerlerinin doğru ve dışarıdan erişilebilir olduğunu kontrol edin; servis sağlayıcı modemi yönlendirici (router) modundaysa portu güvenlik duvarına yönlendirmelidir; kullanıcının bulunduğu ağ UDP'ye izin vermiyorsa TCP kullanın. |
-| *AUTH_FAILED* | Kullanıcı adı veya parola hatalıdır ya da kullanıcının VPN erişim yetkisi kapalıdır. **Diagnostics > System Logs** kesin nedeni gösterir. |
+| *AUTH_FAILED* | Kullanıcı adı veya parola hatalıdır ya da kullanıcının VPN erişim yetkisi kapalıdır. [**Diagnostics > System Logs**](/tr/manual/diagnostics-system-logs/) kesin nedeni gösterir. |
 | Bağlantı kuruluyor ama iç sunucular yanıt vermiyor | Sunucunun bulunduğu ağ **Local networks VPN clients may reach** altında işaretli olmalıdır; sunucunun kendi güvenlik duvarı (örneğin Windows Güvenlik Duvarı) VPN alt ağına izin vermelidir; VPN ağı kullanıcının ev ağıyla çakışmamalıdır. |
 | İç alan adları çözülmüyor | **DNS servers** boş (güvenlik duvarı) veya iç DNS sunucusu olmalı; **DNS domain** tanımlı olmalı; Windows istemcilerde **block-outside-dns** açık olmalıdır. |

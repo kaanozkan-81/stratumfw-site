@@ -121,7 +121,7 @@ Disabled rules are listed on the **Settings** tab under **Disabled rules**, each
   contacting a known command-and-control server. Look at that device first.
 - **The same rule again and again on normal traffic:** a false positive - disable the rule.
 
-The AI Assistant (**Diagnostics > AI Assistant**) can summarise and explain the alerts of a period.
+The AI Assistant ([**Diagnostics > AI Assistant**](/manual/diagnostics-ai-assistant/)) can summarise and explain the alerts of a period.
 
 ## Notifications
 

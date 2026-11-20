@@ -43,7 +43,7 @@ Yapılandırma **bekleyen değişiklikler (pending changes)** olarak yüklenir: 
 
 Sertifika ve gizli bilgileri içermeyen bir yedek bunları geri yükleyemez; ayrıca yönetim paneline erişebilen en az bir etkin yönetici içermeyen kullanıcı yedeği reddedilir.
 
-**Import from OPNsense** bir OPNsense `config.xml` dosyasını dönüştürür - ayrıntılar için **OPNsense'ten Geçiş** bölümüne bakınız.
+**Import from OPNsense** bir OPNsense `config.xml` dosyasını dönüştürür - ayrıntılar için [**OPNsense'ten Geçiş**](/tr/manual/migrating-from-opnsense/) bölümüne bakınız.
 
 ## Yapılandırma geçmişi (Configuration history)
 

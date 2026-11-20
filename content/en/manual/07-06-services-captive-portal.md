@@ -17,7 +17,7 @@ on your RADIUS server. After sign-in the network's normal firewall rules apply t
 Typical uses: hotel and café guest Wi-Fi, staff accommodation, conference rooms, public networks that must record
 who used them.
 
-**Services > Captive Portal** has three tabs: **Zones**, **Signed-in devices** and **Users**.
+[**Services > Captive Portal**](/manual/services-captive-portal/) has three tabs: **Zones**, **Signed-in devices** and **Users**.
 
 ![Services > Captive Portal](/images/manual/cp-zones.png)
 
@@ -170,7 +170,7 @@ service.
 
 ## Logs and records
 
-Every sign-in, failed sign-in and sign-out is written to the system log (**Diagnostics > System Logs**, program
+Every sign-in, failed sign-in and sign-out is written to the system log ([**Diagnostics > System Logs**](/manual/diagnostics-system-logs/), program
 `stratum-captive`), with the zone, user, IP and MAC address, and for sign-outs the reason and the duration:
 
 ```

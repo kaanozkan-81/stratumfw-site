@@ -86,5 +86,5 @@ Bir ağı ayarlarını kaybetmeden bir VLAN'dan diğerine taşımak için önce 
 | :--- | :--- |
 | *State* sütunu *down* görünüyor | Üst fiziksel portta bağlantı (link) yoktur: kabloyu, anahtar portunu ve bağlantı hızını kontrol edin. |
 | VLAN içindeki cihazlar IP adresi alamıyor | İlgili arayüz için DHCP sunucusunun açık olduğunu (**Services > DHCP Server**), uç cihazın bağlı olduğu anahtar portunun doğru VLAN'da etiketsiz (untagged) olduğunu ve güvenlik duvarına giden trunk hattının bu etiketi taşıdığını doğrulayın. |
-| Cihazlar IP alıyor ancak hiçbir yere erişemiyor | Kurulum sihirbazından sonra eklenen LAN tipindeki bir arayüzde siz ekleyene kadar hiçbir kural bulunmaz (**Firewall > Rules**, ilgili arayüz sekmesi). **Diagnostics > Firewall Log** neyin engellendiğini gösterir. |
+| Cihazlar IP alıyor ancak hiçbir yere erişemiyor | Kurulum sihirbazından sonra eklenen LAN tipindeki bir arayüzde siz ekleyene kadar hiçbir kural bulunmaz (**Firewall > Rules**, ilgili arayüz sekmesi). [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/) neyin engellendiğini gösterir. |
 | Trafik yanlış ağa düşüyor | Anahtar ile güvenlik duvarındaki etiket numaraları uyuşmuyordur veya trunk hattındaki native VLAN yanlıştır. Üst port üzerinde **Diagnostics > Packet Capture** çalıştırarak gelen paketlerin VLAN etiketlerini görebilirsiniz. |

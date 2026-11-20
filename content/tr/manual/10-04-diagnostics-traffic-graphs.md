@@ -10,7 +10,7 @@ aliases:
 translationKey: "manual-10-04-diagnostics-traffic-graphs"
 ---
 
-**Diagnostics > Traffic Graphs** her arayüzün ne kadar gelen ve giden trafik taşıdığını **son 1 saat**, **24 saat** veya **30 gün** için grafik olarak gösterir.
+[**Diagnostics > Traffic Graphs**](/tr/manual/diagnostics-traffic-graphs/) her arayüzün ne kadar gelen ve giden trafik taşıdığını **son 1 saat**, **24 saat** veya **30 gün** için grafik olarak gösterir.
 
 ![Diagnostics > Traffic Graphs](/images/manual/traffic.png)
 
@@ -37,7 +37,7 @@ Her arayüz için **In** ve **Out** eğrilerini içeren ayrı bir grafik yer al�
 Buradaki grafikler arayüz bazındadır. Bant genişliğini **hangi cihazın** kullandığını görmek için:
 
 - [**Diagnostics > States**](/tr/manual/diagnostics-tools-states-arp/) sayfasında ilgili ağı aratıp açık bağlantıların bayt sayaçlarına bakın;
-- **Diagnostics > Web Activity** sayfasından hangi cihazların hangi siteleri ziyaret ettiğini inceleyin;
+- [**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/) sayfasından hangi cihazların hangi siteleri ziyaret ettiğini inceleyin;
 - uzun dönemli kurumsal grafikler için bir SNMP izleme sistemi bağlayın ([**System > Settings > SNMP**](/tr/manual/system-settings-snmp-mcp/)).
 
 Bant genişliğini sınırlandırmak için [**Firewall > Shaper**](/tr/manual/firewall-shaper/) bölümüne bakınız.

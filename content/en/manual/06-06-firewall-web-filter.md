@@ -79,7 +79,7 @@ from the Block List Project.
 Because the filter works through DNS, a device that asks another DNS server is not filtered. Close those doors:
 
 1. **Force DNS to the firewall** for the filtered networks (**Services > DNS Resolver**, or *Send all DNS to the
-   firewall* on **Diagnostics > Web Activity**): DNS queries to any other server are redirected to the firewall.
+   firewall* on [**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/)): DNS queries to any other server are redirected to the firewall.
 2. **Block the "Getting around the filter" categories** - VPN services, DNS over HTTPS servers, proxies.
 3. Optionally add the **DoH** category of the DNS blocklists ([**Firewall > Blocklists**](/manual/firewall-blocklists/)), so browsers cannot use
    encrypted DNS.
@@ -110,6 +110,6 @@ answer to *"why does this site not open on the guest Wi-Fi?"*.
 ## The Blocked view
 
 The **Blocked** card shows what the Web Filter stopped **today**, in the **last 7 days** or the **last 30 days**,
-per category, with the most blocked sites. When **Web Activity** is on (**Diagnostics > Web Activity**), blocks are also counted
+per category, with the most blocked sites. When **Web Activity** is on ([**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/)), blocks are also counted
 per device.
 

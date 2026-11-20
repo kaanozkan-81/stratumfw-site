@@ -46,8 +46,8 @@ Bir sınır etkinleştirildiğinde en az bir yön (Download veya Upload) dolu ol
 
 ## Captive Portal ile birlikte kullanım
 
-Captive Portal kendi cihaz başına hız sınırlarını tanımlayabilir - bölgenin (zone) varsayılan indirme ve yükleme hız sınırları ya da bir RADIUS sunucusunun kullanıcı için gönderdiği hız değerleri (**Services > Captive Portal**). Oturum açmış bir cihaz için portalın belirlediği hız sınırı, o ağın Shaper sınırının yerini alır. Davranışın kolay öngörülebilir olması için belirli bir ağda iki yöntemden yalnızca birini tercih edin.
+Captive Portal kendi cihaz başına hız sınırlarını tanımlayabilir - bölgenin (zone) varsayılan indirme ve yükleme hız sınırları ya da bir RADIUS sunucusunun kullanıcı için gönderdiği hız değerleri ([**Services > Captive Portal**](/tr/manual/services-captive-portal/)). Oturum açmış bir cihaz için portalın belirlediği hız sınırı, o ağın Shaper sınırının yerini alır. Davranışın kolay öngörülebilir olması için belirli bir ağda iki yöntemden yalnızca birini tercih edin.
 
 ## Sınırları çalışırken izleme
 
-[Kontrol panelindeki](/tr/manual/dashboard/) **Bandwidth limits** kartı tanımlı her sınırı o ağın anlık kullanım hızıyla birlikte gösterir. **Diagnostics > Traffic Graphs** ise bir arayüzün zaman içindeki trafik grafiğini sunar.
+[Kontrol panelindeki](/tr/manual/dashboard/) **Bandwidth limits** kartı tanımlı her sınırı o ağın anlık kullanım hızıyla birlikte gösterir. [**Diagnostics > Traffic Graphs**](/tr/manual/diagnostics-traffic-graphs/) ise bir arayüzün zaman içindeki trafik grafiğini sunar.

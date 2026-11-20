@@ -32,7 +32,7 @@ panel's title bar opens it.
 | **Temperature** | The hottest processor core or sensor (on hardware that reports it). |
 | **Connections** | Firewall states in use, against the limit. |
 | **Blocked** | Packets blocked and logged in the last hour. |
-| **Traffic** | The traffic graph of the last hour for an interface you choose in the panel's title bar - the same data as **Diagnostics > Traffic Graphs**. |
+| **Traffic** | The traffic graph of the last hour for an interface you choose in the panel's title bar - the same data as [**Diagnostics > Traffic Graphs**](/manual/diagnostics-traffic-graphs/). |
 | **Protection** | Blocklists, blocked sign-ins, intrusion detection and VPN at a glance. |
 | **Interfaces** | Every interface: state, address, current rate in and out. |
 | **Services** | Running and stopped services; the count in the title shows how many need attention. |

@@ -45,9 +45,9 @@ Services that are switched off in their settings are hidden; **Show switched-off
 | **Captive portal** | The sign-in page and its sessions. Signed-in devices stay signed in across a restart. | Start, stop, restart |
 | **PPPoE** | mpd5. Stopping it disconnects the PPPoE WAN. | Start, stop, restart |
 | **Gateway monitor** | Gateway status, failover and policy routing ([**Interfaces > Gateways**](/manual/interfaces-gateways/)). | Start, stop, restart |
-| **Firewall log collector** | Feeds **Diagnostics > Firewall Log**. | Start, stop, restart |
-| **Traffic collector** | Feeds **Diagnostics > Traffic Graphs**. | Start, stop, restart |
-| **Web Activity collector** | Feeds **Diagnostics > Web Activity**. | Start, stop, restart |
+| **Firewall log collector** | Feeds [**Diagnostics > Firewall Log**](/manual/diagnostics-firewall-log/). | Start, stop, restart |
+| **Traffic collector** | Feeds [**Diagnostics > Traffic Graphs**](/manual/diagnostics-traffic-graphs/). | Start, stop, restart |
+| **Web Activity collector** | Feeds [**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/). | Start, stop, restart |
 | **SNMP** | The SNMP agent (bsnmpd). | Start, stop, restart |
 | **SSH** | Open sessions stay connected on a restart. | Restart |
 | **Web server** | nginx. The page reloads after a restart. | Restart |
@@ -71,5 +71,5 @@ Services that the current settings do not use - IPsec without tunnels, PPPoE wit
 Only administrators can start, stop and restart services; every action is logged.
 
 > **Tip:** A service shown as **stopped** that does not start again usually says why in
-> **Diagnostics > System Logs**. A configuration problem is normally caught before that: Apply checks the
+> [**Diagnostics > System Logs**](/manual/diagnostics-system-logs/). A configuration problem is normally caught before that: Apply checks the
 > configuration of the services first and refuses a change they would not accept.

@@ -111,7 +111,7 @@ same.
 
 ## Moving from OPNsense or pfSense
 
-Users can keep the profiles already on their computers: the OPNsense importer (see **Migrating from OPNsense**)
+Users can keep the profiles already on their computers: the OPNsense importer (see [**Migrating from OPNsense**](/manual/migrating-from-opnsense/))
 takes over the certificate authority, the server certificate, the users' certificates and the TLS key, so the
 existing profiles keep working when Stratum FW takes the address of the old firewall.
 
@@ -120,6 +120,6 @@ existing profiles keep working when Stratum FW takes the address of the old fire
 | Symptom | Check |
 | :--- | :--- |
 | The client cannot connect at all | **External address** and **Port** in the profile are right and reachable; the provider's modem forwards the port if it is in router mode; the user's network allows UDP (else use TCP). |
-| *AUTH_FAILED* | User name or password wrong, or the user has no VPN access. **Diagnostics > System Logs** shows the reason. |
+| *AUTH_FAILED* | User name or password wrong, or the user has no VPN access. [**Diagnostics > System Logs**](/manual/diagnostics-system-logs/) shows the reason. |
 | Connected, but internal servers do not answer | The server's network is ticked under **Local networks VPN clients may reach**; the server's own firewall (Windows firewall) allows the VPN network; the VPN network does not overlap the user's home network. |
 | Internal names do not resolve | **DNS servers** empty (the firewall) or the internal DNS server; **DNS domain** set; on Windows, **block-outside-dns**. |
