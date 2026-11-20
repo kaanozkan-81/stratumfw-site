@@ -141,7 +141,7 @@ Aynı sayfa üzerinden seçilen ağların DNS sorgularını güvenlik duvarına 
 3. **Güvenlik duvarı üzerinden:** **Diagnostics > Ping / Traceroute / DNS** sayfasından `1.1.1.1` adresine ping atın (hat erişimi) ve `stratumfw.com` gibi bir alan adını sorgulayın (DNS çözümleme).
 4. **Sistem saati:** [**Diagnostics > System Logs**](/tr/manual/diagnostics-system-logs/) içindeki zaman damgalarının kendi saatinizle eşleştiğini doğrulayın. Yanlış sistem saati sertifikaları, iki aşamalı giriş kodlarını ve günlük kayıtlarını bozar.
 
-LAN tarafında internet yoksa: önce **Interfaces > Assignments** sayfasından WAN adresini, ardından engellenen paketler için [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/) kaydını ve son olarak tanılama sayfasındaki DNS sorgusunu kontrol edin. **Troubleshooting** (Sorun Giderme) bölümü bu adımları sırasıyla açıklar.
+LAN tarafında internet yoksa: önce [**Interfaces > Assignments**](/tr/manual/interfaces-assignments/) sayfasından WAN adresini, ardından engellenen paketler için [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/) kaydını ve son olarak tanılama sayfasındaki DNS sorgusunu kontrol edin. [**13 Sorun Giderme**](/tr/manual/troubleshooting/) bölümü bu adımları sırasıyla açıklar.
 
 ## Güvenlik duvarını devreye almadan önce
 
@@ -149,11 +149,11 @@ Kısa bir kontrol listesi - her maddenin kendi ayrıntılı bölümü vardır:
 
 | | Madde | İlgili Sayfa |
 | :--- | :--- | :--- |
-| ☐ | Her yönetici için iki aşamalı giriş (2FA) | **Your account** |
-| ☐ | Güvenlik duvarını yöneten her kişi için ayrı kişisel hesap - ortak `admin` parolası kullanmama | **System > Users** |
-| ☐ | En güncel sürümü yükleme | **System > Update** |
-| ☐ | Manuel yedek indirme ve kendi sunucunuza otomatik şifreli yedekleme kurma | **System > Backup** |
-| ☐ | Telegram veya e-posta bildirimlerini ayarlama (WAN düşmesi, başarısız yedekleme, engellenen girişler vb.) | **System > Settings > Notifications** |
-| ☐ | Panele ve SSH'a kimlerin ulaşabileceğini sınırlandırma; SSH erişimini yalnızca anahtar tabanlı yapma | **System > Settings > Admin Access** |
-| ☐ | Her iç ağ için "her yere izin ver" yerine yalnızca ulaşması gereken hedeflere izin veren kurallar yazma | **Firewall > Rules** |
-| ☐ | Panel için kendi sertifikanızı yükleme (isteğe bağlı) | **System > Certificates** |
+| ☐ | Her yönetici için iki aşamalı giriş (2FA) | [**Your account**](/tr/manual/system-users/) |
+| ☐ | Güvenlik duvarını yöneten her kişi için ayrı kişisel hesap - ortak `admin` parolası kullanmama | [**System > Users**](/tr/manual/system-users/) |
+| ☐ | En güncel sürümü yükleme | [**System > Update**](/tr/manual/system-update-power/) |
+| ☐ | Manuel yedek indirme ve kendi sunucunuza otomatik şifreli yedekleme kurma | [**System > Backup**](/tr/manual/system-backup/) |
+| ☐ | Telegram veya e-posta bildirimlerini ayarlama (WAN düşmesi, başarısız yedekleme, engellenen girişler vb.) | [**System > Settings > Notifications**](/tr/manual/system-settings-logging-notifications/) |
+| ☐ | Panele ve SSH'a kimlerin ulaşabileceğini sınırlandırma; SSH erişimini yalnızca anahtar tabanlı yapma | [**System > Settings > Admin Access**](/tr/manual/system-settings-general-access/) |
+| ☐ | Her iç ağ için "her yere izin ver" yerine yalnızca ulaşması gereken hedeflere izin veren kurallar yazma | [**Firewall > Rules**](/tr/manual/firewall-rules/) |
+| ☐ | Panel için kendi sertifikanızı yükleme (isteğe bağlı) | [**System > Certificates**](/tr/manual/system-certificates/) |

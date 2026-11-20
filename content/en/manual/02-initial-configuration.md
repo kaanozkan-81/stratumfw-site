@@ -176,9 +176,9 @@ in the chapter on **Services > DNS Resolver**.
 4. **The time:** the times in [**Diagnostics > System Logs**](/manual/diagnostics-system-logs/) match your clock. A wrong clock breaks certificates,
    two-factor codes and logs.
 
-If the LAN has no internet: check the WAN address on **Interfaces > Assignments**, then
+If the LAN has no internet: check the WAN address on [**Interfaces > Assignments**](/manual/interfaces-assignments/), then
 [**Diagnostics > Firewall Log**](/manual/diagnostics-firewall-log/) for blocked packets, then the DNS lookup on the diagnostics page. The chapter
-**Troubleshooting** goes through this step by step.
+[**13 Troubleshooting**](/manual/troubleshooting/) goes through this step by step.
 
 ## Before the firewall goes into service
 
@@ -186,12 +186,12 @@ A short checklist - each item has its own chapter:
 
 | | Item | Where |
 | :--- | :--- | :--- |
-| ☐ | Two-factor sign-in for every administrator | **Your account** |
-| ☐ | A personal account for every person who manages the firewall - no shared `admin` password | **System > Users** |
-| ☐ | Install the latest version | **System > Update** |
-| ☐ | Download a backup, and set up automatic encrypted backups to your own server | **System > Backup** |
-| ☐ | Notifications by Telegram or e-mail (WAN down, failed backups, blocked sign-ins ...) | **System > Settings > Notifications** |
-| ☐ | Restrict who may reach the panel and SSH; SSH with keys only | **System > Settings > Admin Access** |
-| ☐ | Rules for each internal network: what it may reach, instead of "allow to any" | **Firewall > Rules** |
-| ☐ | A certificate of your own for the panel (optional) | **System > Certificates** |
+| ☐ | Two-factor sign-in for every administrator | [**Your account**](/manual/system-users/) |
+| ☐ | A personal account for every person who manages the firewall - no shared `admin` password | [**System > Users**](/manual/system-users/) |
+| ☐ | Install the latest version | [**System > Update**](/manual/system-update-power/) |
+| ☐ | Download a backup, and set up automatic encrypted backups to your own server | [**System > Backup**](/manual/system-backup/) |
+| ☐ | Notifications by Telegram or e-mail (WAN down, failed backups, blocked sign-ins ...) | [**System > Settings > Notifications**](/manual/system-settings-logging-notifications/) |
+| ☐ | Restrict who may reach the panel and SSH; SSH with keys only | [**System > Settings > Admin Access**](/manual/system-settings-general-access/) |
+| ☐ | Rules for each internal network: what it may reach, instead of "allow to any" | [**Firewall > Rules**](/manual/firewall-rules/) |
+| ☐ | A certificate of your own for the panel (optional) | [**System > Certificates**](/manual/system-certificates/) |
 

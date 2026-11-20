@@ -4643,4 +4643,26 @@ main:has(.manual-shell) .container {
   border-radius: 5px !important;
   box-shadow: inset 0 -1px 0 rgba(15, 23, 42, 0.06);
 }
+
+.manual-pager-card.is-complete {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 1.5px solid #F59E0B;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.10);
+}
+
+.manual-pager-card.is-complete .manual-pager-dir {
+  color: #B45309 !important;
+}
+
+.manual-pager-card.is-complete .manual-pager-title {
+  color: #0F172A !important;
+}
+
+.manual-pager-card.is-complete:hover {
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border-color: #D97706;
+  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.18);
+  transform: translateY(-2px);
+}
+
 /* === STRATUM-USER-MANUAL-STYLE-END === */

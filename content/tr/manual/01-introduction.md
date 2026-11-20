@@ -151,12 +151,12 @@ Stratum FW, olası bir hatanın kolayca geri alınabilmesi için tasarlanmışt�
 | bir değişiklik erişiminizi keserse | 120 saniye sonra otomatik olarak geri alınır (bkz. [Değişiklikleri koruma veya otomatik geri alma](#keep-changes-or-it-is-undone)). |
 | bir değişiklik ön denetimlerden geçmezse | hiç uygulanmaz ve üst çubukta nedeni gösterilir. |
 | bir güncelleme sorun çıkarırsa | açılış menüsünden bir önceki önyükleme ortamını (boot environment) seçerek sistemi başlatabilirsiniz. |
-| donanım arızalanırsa | **System > Backup** altından yedek geri yükleyebilirsiniz (manuel indirmeler veya kendi sunucunuzdaki zamanlanmış şifreli kopyalar). |
+| donanım arızalanırsa | [**System > Backup**](/tr/manual/system-backup/) altından yedek geri yükleyebilirsiniz (manuel indirmeler veya kendi sunucunuzdaki zamanlanmış şifreli kopyalar). |
 | yönetici parolasını unutursanız | konsol menüsünden sıfırlayabilirsiniz (**3) Reset admin password**). |
 
 ## Sıradaki adımlar
 
 - İlk panel ayarları için: [**02 İlk Yapılandırma**](/tr/manual/initial-configuration/) bölümüyle devam edin.
 - Sıfırdan kurulum yapıyorsanız: [**03 Kurulum**](/tr/manual/installation/) bölümüne geçin.
-- OPNsense'ten geçiş yapıyorsanız: **Migrating from OPNsense** bölümü mevcut yapılandırmanızı içe aktarır.
+- OPNsense'ten geçiş yapıyorsanız: [**12 OPNsense'ten Geçiş**](/tr/manual/migrating-from-opnsense/) bölümü mevcut yapılandırmanızı içe aktarır.
 - Sisteminiz zaten çalışıyorsa: içindekiler menüsünden ihtiyaç duyduğunuz bölüme doğrudan geçebilirsiniz.

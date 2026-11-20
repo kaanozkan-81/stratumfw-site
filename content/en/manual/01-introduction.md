@@ -192,12 +192,12 @@ Stratum FW is built so that a mistake is easy to undo:
 | a change cuts you off | it is reverted after 120 seconds (see [Keep changes, or it is undone](#keep-changes-or-it-is-undone)). |
 | a change does not pass the checks | it is not applied at all, and the bar says why. |
 | an update misbehaves | boot the previous boot environment from the boot menu. |
-| the hardware fails | restore a backup (**System > Backup**) - manual downloads or scheduled, encrypted copies on your own server. |
+| the hardware fails | restore a backup ([**System > Backup**](/manual/system-backup/)) - manual downloads or scheduled, encrypted copies on your own server. |
 | you forget the admin password | reset it from the console menu (**3) Reset admin password**). |
 
 ## Where to go next
 
 - First sign-in and setup: continue with [**02 Initial Configuration**](/manual/initial-configuration/).
 - Installing onto a new machine: see [**03 Installation**](/manual/installation/).
-- Moving from OPNsense: the chapter [**Migrating from OPNsense**](/manual/migrating-from-opnsense/) imports your existing configuration.
+- Moving from OPNsense: the chapter [**12 Migrating from OPNsense**](/manual/migrating-from-opnsense/) imports your existing configuration.
 - Already running: jump to the chapter of the menu you need from the contents.

@@ -131,7 +131,7 @@
           {{- else -}}
             <a href="{{ $manualRoot }}" class="manual-pager-card">
               <span class="manual-pager-dir">&larr; {{ if $isTR }}Kılavuz Ana Sayfası{{ else }}Manual Contents{{ end }}</span>
-              <span class="manual-pager-title">{{ if $isTR }}Tüm Bölümler ve Yol Haritası{{ else }}All Chapters &amp; Roadmap{{ end }}</span>
+              <span class="manual-pager-title">{{ if $isTR }}Tüm Bölümler ve İçindekiler{{ else }}All Chapters &amp; Contents{{ end }}</span>
             </a>
           {{- end -}}
 
@@ -144,10 +144,10 @@
               <span class="manual-pager-title">{{ $nn }} · {{ .Title }}</span>
             </a>
           {{- else -}}
-            <div class="manual-pager-card is-next is-upcoming">
-              <span class="manual-pager-dir">{{ if $isTR }}Sıradaki Bölüm (Hazırlanıyor){{ else }}Next Chapter (In Progress){{ end }}</span>
-              <span class="manual-pager-title">{{ if $isTR }}Sıradaki Bölüm Yakında Eklenecek{{ else }}Next Chapter Coming Soon{{ end }}</span>
-            </div>
+            <a href="{{ if $isTR }}https://stratumfw.com/tr/manual/{{ else }}https://stratumfw.com/manual/{{ end }}" class="manual-pager-card is-next is-complete">
+              <span class="manual-pager-dir">{{ if $isTR }}Kılavuz Tamamlandı{{ else }}Manual Complete{{ end }} &rarr;</span>
+              <span class="manual-pager-title">{{ if $isTR }}Kullanım Kılavuzu Ana Sayfası{{ else }}User Manual Overview{{ end }}</span>
+            </a>
           {{- end -}}
         </nav>
       </article>
