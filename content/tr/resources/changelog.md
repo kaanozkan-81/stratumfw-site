@@ -1,10 +1,17 @@
 ---
 title: "Sürüm Notları"
-seo_title: "Stratum Firewall Sürüm Notları (v0.36.1) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.36.1 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
+seo_title: "Stratum Firewall Sürüm Notları (v0.37.2) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.37.2 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
 ---
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**System > Update**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## 0.37.2 - 2026-11-22
+
+### Düzeltildi
+- **System > Backup > Automatic backup (Otomatik Yedekleme):** `0.37.1` sürümünde *Test connection* (Bağlantıyı test et)
+  düğmesi `"Request failed (422)"` yanıtı döndürdüğü için SMB veya SFTP sunucu bağlantısı sayfa üzerinden test
+  edilemiyordu. *Browse* (Göz at), *Back up now* (Şimdi yedekle) ve zamanlanmış otomatik yedeklemeler bu durumdan etkilenmedi.
 
 ## 0.36.1 - 2026-11-19
 
