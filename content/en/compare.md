@@ -132,8 +132,8 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
         </tr>
         <tr>
           <td><strong>Layer-7 Application Control</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in (v0.38.0)</span><br>Capsicum-sandboxed <code>stratum-dpi 1.2</code>, <a href="/manual/firewall-application-control/">Monitor-only &amp; shared-CDN-safe TLS/QUIC block</a></td>
-          <td>Zenarmor (paid tier for full policy) / scripts</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in (v0.39.0)</span><br>Capsicum <code>stratum-dpi 1.2</code>, <a href="/manual/firewall-application-control/">Monitor-only, branded HTTPS Block Page (<code>Block Page CA</code>) &amp; CDN-safe block</a></td>
+          <td>Zenarmor (paid tier for full policy/block page)</td>
           <td>pfBlockerNG / Snort OpenAppID</td>
           <td>Built-in Application Control (subscription)</td>
         </tr>

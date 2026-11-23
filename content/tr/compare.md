@@ -132,8 +132,8 @@ seoDescription: "Stratum Firewall ile OPNsense, pfSense CE ve IPFire dağıtıml
         </tr>
         <tr>
           <td><strong>Katman-7 Uygulama Kontrolü (DPI)</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik (v0.38.0)</span><br>Capsicum korumalı <code>stratum-dpi 1.2</code>, <a href="/tr/manual/firewall-application-control/">Monitor only ve paylaşımlı CDN dostu TLS/QUIC engelleme</a></td>
-          <td>Zenarmor (ücretli politika katmanı) / betikler</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Yerleşik (v0.39.0)</span><br>Capsicum <code>stratum-dpi 1.2</code>, <a href="/tr/manual/firewall-application-control/">Monitor only, özelleştirilebilir HTTPS Engelleme Sayfası (<code>Block Page CA</code>) ve CDN dostu kesme</a></td>
+          <td>Zenarmor (ücretli politika/engelleme sayfası katmanı)</td>
           <td>pfBlockerNG / Snort OpenAppID</td>
           <td>Yerleşik Application Control (abonelikli)</td>
         </tr>

@@ -1,7 +1,7 @@
 ---
 title: "Firewall > Application Control"
-seo_title: "06.8 Firewall > Application Control — Stratum FW User Manual"
-description: "Which applications the devices in your networks use and which they may not: identification per interface, the Applications and Devices reports, categories and custom applications, rules that block applications or only record what they would block, the dashboard panel, the AI Assistant and privacy."
+seo_title: "06.8 Firewall > Application Control & Block Page — Stratum FW User Manual"
+description: "Which applications the devices in your networks use and which they may not: identification per interface, Applications and Devices reports, categories and custom applications, Monitor-only and Block rules, customizable HTTPS Block Page with Block Page CA, Dashboard widget and AI Assistant."
 weight: 608
 chapter_num: "06.8"
 url: "/manual/firewall-application-control/"
@@ -18,7 +18,7 @@ remote access, games, AI assistants and others.
 With **rules** it also blocks them - per interface, per category or application, with exceptions for devices - and
 every rule can first run in **Monitor only**, which blocks nothing and records what it would have blocked.
 
-The page has six tabs: **Applications**, **Devices**, **Rules**, **Blocked**, **Categories** and **Settings**. Only
+The page has seven tabs: **Applications**, **Devices**, **Rules**, **Blocked**, **Block page**, **Categories** and **Settings**. Only
 administrators can open it.
 
 ## How it works
@@ -130,7 +130,7 @@ rule decides**. Click **Add rule**, or a rule's description to change it:
 | **Applications** | Names as on the Applications tab, separated by commas - also custom applications. |
 | **Encrypted connections without a server name** | HTTPS / QUIC to port 443 that does not say which site it wants. Browsers always say it; VPN and tunnel apps often do not. Some old apps and devices do not either. |
 | **Except these devices** | Addresses or networks the rule leaves alone, e.g. the IT laptops. |
-| **Mode** | **Monitor only** blocks nothing and records what would be blocked. **Block** blocks. |
+| **Mode** | **Monitor only** blocks nothing and records what would be blocked. **Block** blocks (and can optionally **show a block page** — see [Block page](#block-page)). |
 
 On the list, the arrow moves a rule up, the box switches it on or off; **Save order and on / off** keeps both.
 **Today** shows how often each rule blocked or would have blocked. Rules take effect after **Apply**; the engines keep
@@ -152,18 +152,30 @@ running.
   every site on that address, and those connections are checked by name one by one.
 - **Connections without a server name** (VPN tunnels, protocols found in the packets) also block that device from
   that server address for 10 minutes: there is no name to recognise the next try by.
-- The device sees **connection reset** at once. It does not see a "blocked by your administrator" page: for HTTPS
-  sites no firewall can show one without its own certificate installed on the devices.
+- Unless **Show block page** is switched on for the rule (see [Block page](#block-page)), the device sees **connection reset** at once. Showing a page for HTTPS sites requires the firewall's [**Block Page CA**](/manual/system-certificates/#block-page-ca) to be trusted on the devices.
 - When the collector stops or a rule is switched off, every block is lifted at once.
 
 ### Blocked
 
 ![Firewall > Application Control > Blocked](/images/manual/appctl-blocked.png)
 
-Per device, application and rule: when it was last and first blocked, how many connections, and whether it was
-**Blocked** or **Would block** (a rule in Monitor only). Filter by mode, network and period, or search. The line above
-the table shows how many connections were cut since the collector started, and how many devices are blocked from
+Per device, application and rule: when it was last and first blocked, how many connections or block pages shown, and whether it was
+**Page shown**, **Blocked** or **Would block** (a rule in Monitor only). Filter by mode, network and period, or search. The line above
+the table shows how many block pages were shown, how many connections were cut since the collector started, and how many devices are blocked from
 servers without a name right now.
+
+
+### Block page
+
+![Firewall > Application Control > Block page](/images/manual/appctl-blockpage.png)
+
+A rule in **Block** mode can show a customizable page in the browser instead of a connection error - naming the **site**, the **application**, the **rule**, the **device** and the **time**:
+
+- **How it is reached (`198.18.0.1` + Unbound DNS):** For the networks a rule covers (and never for its device exceptions), the firewall's [**Unbound DNS resolver**](/manual/services-dns-resolver/) answers the domain names of the blocked applications (~1 000 domains from nDPI's application lists plus your **Custom applications**) with `198.18.0.1`, and `pf` sends web traffic for that address to the isolated block page server (`_stratumbp`). QUIC to `198.18.0.1` is refused so browsers use HTTPS over TCP immediately, and Firefox is signalled not to switch to DNS over HTTPS while a rule shows the block page.
+- **HTTPS & Block Page CA:** For `https://` sites, the block page generates a certificate for the requested host name on the spot, signed by your [**Block Page CA**](/manual/system-certificates/#block-page-ca) (**System > Certificates > Block Page CA**). Create the CA once, download it as `.cer` or `.crt`, and deploy it to your managed devices (for example with an Active Directory Group Policy). Devices without the CA see a browser certificate warning instead of the page - the site stays blocked either way.
+- **Fallback when another DNS server is used:** Devices that bypass the firewall's DNS still have their matching connections cut by `stratum-dpi` and `pf` as above, without the page.
+- **Customise on the Block page tab:** Upload your own **logo** and a wide **top picture / banner** (PNG, JPEG or WebP), set the **organisation name**, **title**, **message texts**, **contact line**, **colour**, and choose which details (**Site**, **Application**, **Rule**, **Device**, **Time**) and labels appear - in any language, with a **live preview**. Saved changes take effect at once, without **Apply**.
+- **Privilege separation:** The block page web server runs as its own unprivileged user (`_stratumbp`), its listening ports cannot be reached directly from any network, and only `_stratumbp` and `root` can read the Block Page CA key.
 
 ## Dashboard and AI Assistant
 
