@@ -1,10 +1,27 @@
 ---
 title: "Sürüm Notları"
-seo_title: "Stratum Firewall Sürüm Notları (v0.37.2) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.37.2 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
+seo_title: "Stratum Firewall Sürüm Notları (v0.38.0) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.38.0 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
 ---
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**System > Update**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## 0.38.0 - 2026-11-23
+
+### Eklendi
+- **Firewall > Application Control > Rules: Uygulama Engelleme Kuralları.** Her kural seçili iç ağ arayüzlerini, Stratum kategorilerini (*VPN and proxies*, *Social media*, *Games* ...), isme göre uygulamaları (özel tanımlı uygulamalar dahil) ve isteğe bağlı olarak VPN/tünel uygulamalarının tipik davranışı olan *sunucu adı içermeyen şifreli bağlantıları* (*encrypted connections without a server name*) kapsar; belirli cihazlar istisna tutulabilir. Eşleşen ilk kural karar verir.
+  - **Monitor only** (her yeni kural için varsayılan mod): Hiçbir trafiği kesmez, yalnızca kural etkin olsaydı nelerin engelleneceğini kaydeder.
+  - **Block**: Sunucu adıyla (SNI) tanınan uygulamalar TLS / QUIC el sıkışması sırasında tekil bağlantı bazında ve her yeni denemede kesilir; aynı sunucu IP adresini paylaşan diğer sitelere dokunulmaz. İlgili sunucuya giden QUIC trafiği 10 dakika boyunca reddedilerek tarayıcıların TCP'ye dönmesi sağlanır ve her bağlantı sunucu adına göre tek tek denetlenir. Sunucu adı bulunmayan bağlantılar (VPN tünelleri) ise ilgili cihazı o sunucu adresinden 10 dakika boyunca engeller. Cihaz anında `"connection reset"` alır.
+  - Yalnızca motorun kesin olarak emin olduğu adlar üzerinde işlem yapılır; port veya IP tahminleriyle asla engelleme yapılmaz. Ağ servislerine (DNS, DHCP, NTP), özel IP adreslerine ve motor başladığında zaten açık olan bağlantılara dokunulmaz. Toplayıcı durduğunda veya kural kapatıldığında tüm engeller anında kaldırılır.
+- **Blocked Sekmesi:** Cihaz, uygulama ve kural bazında engellenen (*Blocked*) veya izleme modunda yakalanan (*Would block*) bağlantıların sayı ve zaman bilgileri.
+- Durum satırında aktif kurallar, kesilen bağlantılar, engellenen cihazlar ve olası `pf` hataları canlı gösterilir.
+- **Yapay Zeka Asistanı ve MCP:** *Application usage* aracı artık tanımlı kuralları ve neleri engellediklerini de (salt okunur olarak) listeler (toplam **16 salt okunur MCP aracı**).
+
+### Değiştirildi
+- **`stratum-dpi 1.2` Motoru:** Her uygulama adının güven düzeyini (sunucu adı / paket yükü, kısmi eşleşme, port veya adres tahmini) ve cihazın ilk ne gönderdiğini (`TLS ClientHello`, `QUIC Initial`, diğer, veri yok) raporlar; yeni bağlantıları tamponda bekletmek yerine anında iletir.
+- Sunucu adı bilinen bağlantılar nDPI paket sınırını beklemeden anında adlandırılır.
+- nDPI yalnızca port veya adresten tahminde bulunduğunda sunucu adı (SNI) öncelik kazanır.
+- `Apply` işlemi sonrasında `pf` yeniden yüklendiğinde toplayıcının aktif engelleri otomatik olarak geri yüklenir.
 
 ## 0.37.2 - 2026-11-22
 

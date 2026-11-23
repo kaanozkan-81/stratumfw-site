@@ -125,10 +125,17 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
         </tr>
         <tr>
           <td><strong>Built-In AI Assistant &amp; MCP</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">15 Read-Only Tools</span><br>Built-in UI (<a href="/product/ai-assistant/">Ollama LAN &amp; PUB-1 IP masking</a>)</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">16 Read-Only Tools</span><br>Built-in UI (<a href="/product/ai-assistant/">Ollama LAN &amp; PUB-1 IP masking</a>)</td>
           <td><span class="cmp-badge-no">None Built-in</span></td>
           <td><span class="cmp-badge-no">None Built-in</span></td>
           <td><span class="cmp-badge-no">None Built-in</span></td>
+        </tr>
+        <tr>
+          <td><strong>Layer-7 Application Control</strong></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in (v0.38.0)</span><br>Capsicum-sandboxed <code>stratum-dpi 1.2</code>, <a href="/manual/firewall-application-control/">Monitor-only &amp; shared-CDN-safe TLS/QUIC block</a></td>
+          <td>Zenarmor (paid tier for full policy) / scripts</td>
+          <td>pfBlockerNG / Snort OpenAppID</td>
+          <td>Built-in Application Control (subscription)</td>
         </tr>
         <tr>
           <td><strong>Guest Captive Portal &amp; RADIUS</strong></td>

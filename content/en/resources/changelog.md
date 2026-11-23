@@ -1,12 +1,40 @@
 ---
 title: "Changelog"
-seo_title: "Stratum Firewall Changelog (v0.37.2) — FreeBSD 15.1 Release Notes"
-description: "Complete release history of Stratum Firewall through v0.37.2 — Built-in Read-Only AI Assistant (15 MCP tools & local Ollama), reachability-aware IDS notifications, Multi-Vendor IPsec/WireGuard S2S VPN, and 5-layer Security Guard."
+seo_title: "Stratum Firewall Changelog (v0.38.0) — FreeBSD 15.1 Release Notes"
+description: "Complete release history of Stratum Firewall through v0.38.0 — Built-in Read-Only AI Assistant (15 MCP tools & local Ollama), reachability-aware IDS notifications, Multi-Vendor IPsec/WireGuard S2S VPN, and 5-layer Security Guard."
 ---
 
 All notable changes to Stratum FW are listed here, newest first. Stratum FW updates itself from the signed
 update server (System > Update) or from an offline update file (`.sfu`); every update creates a ZFS boot
 environment, so the previous version can be booted again at any time.
+
+## 0.38.0 - 2026-11-23
+
+### Added
+- **Firewall > Application Control > Rules: block applications.** A rule covers interfaces, Stratum categories
+  (VPN and proxies, Social media, Games ...), applications by name (also custom ones), and optionally *encrypted
+  connections without a server name* - typical of VPN and tunnel apps - with devices as exceptions. The first
+  matching rule decides.
+  - **Monitor only** (the default for every new rule) blocks nothing and records what would have been blocked.
+  - **Block**: applications named by their server name are cut one connection at a time, during the TLS / QUIC
+    handshake, and every new try again - nothing else on the same server address is touched. QUIC to that server is
+    refused for 10 minutes, so browsers fall back to TCP, where every connection is checked by name. Connections
+    without a server name (VPN tunnels) also block that device from that server for 10 minutes. The device sees
+    "connection reset" at once.
+  - Only names the engine is sure of are acted upon - never a guess from a port or an address. Network services
+    (DNS, DHCP, NTP), private addresses and connections already open when the engine started are never touched.
+    Every block is lifted when the collector stops or the rule is switched off.
+- **Blocked** tab: per device, application and rule, what was blocked or would have been, with counts and times.
+- The status line shows the active rules, connections cut and devices blocked; pf errors are shown too.
+- AI Assistant: the tool *Application usage* also lists the rules and what they blocked (read-only).
+
+### Changed
+- Engine stratum-dpi 1.2: says how far each name can be trusted (server name / payload, partial, port or address
+  guess), what the device sent first (TLS ClientHello, QUIC Initial, other, nothing), and hands every new connection
+  over at once (it waited in a buffer before).
+- A connection whose server name is known is named at once instead of after nDPI's packet limit.
+- When nDPI only guessed a name from the port or address, the server name wins.
+- Apply reloads the collector's blocks after a pf reload.
 
 ## 0.37.2 - 2026-11-22
 

@@ -1,8 +1,8 @@
 ---
 title: "Yapay Zeka Asistanı ve MCP"
 seo_title: "Stratum Firewall Yapay Zeka Asistanı: Salt Okunur MCP ve Ollama"
-description: "Tanılama > Yapay Zeka Asistanı ile güvenlik duvarınıza doğal dilde sorular sorun. 15 salt okunur MCP aracı, genel IP maskeleme ve yerel Ollama desteği."
-seoDescription: "15 salt okunur MCP aracı, otomatik PUB-1 IP maskeleme, sıfır kural bozma riski ve %100 yerel Ollama veya Claude/OpenAI/DeepSeek/Gemini desteği."
+description: "Tanılama > Yapay Zeka Asistanı ile güvenlik duvarınıza doğal dilde sorular sorun. 16 salt okunur MCP aracı, genel IP maskeleme ve yerel Ollama desteği."
+seoDescription: "16 salt okunur MCP aracı, otomatik PUB-1 IP maskeleme, sıfır kural bozma riski ve %100 yerel Ollama veya Claude/OpenAI/DeepSeek/Gemini desteği."
 date: 2026-11-18
 translationKey: "product-ai-assistant"
 aliases: ["/tr/ai-assistant/"]
@@ -48,7 +48,7 @@ aliases: ["/tr/ai-assistant/"]
 <section class="ai-dark">
 <span class="ai-eyebrow">TANILAMA &rarr; YAPAY ZEKA ASİSTANI &bull; v0.35.2</span>
 <h2>Güvenlik Duvarınızla Kendi Dilinizde Konuşun — Sıfır Değişiklik Riskiyle</h2>
-<p class="ai-lead">Tanılama &rarr; Yapay Zeka Asistanı ekranından sistem yöneticileri güvenlik duvarının canlı durumunu doğal dilde sorgulayabilir ("Son bir saatte nereden gelen neler engellendi?", "WAN2 hattı sağlıklı mı?", "İç ağda şüpheli davranan bir cihaz var mı?"). Asistan sorulan dilde yanıt verir, verileri 15 salt okunur MCP aracından çeker, kullandığı araçları her yanıtın altında listeler ve bir kural değişikliği gerektiğinde doğrudan ilgili panel sayfasını tarif eder.</p>
+<p class="ai-lead">Tanılama &rarr; Yapay Zeka Asistanı ekranından sistem yöneticileri güvenlik duvarının canlı durumunu doğal dilde sorgulayabilir ("Son bir saatte nereden gelen neler engellendi?", "WAN2 hattı sağlıklı mı?", "İç ağda şüpheli davranan bir cihaz var mı?"). Asistan sorulan dilde yanıt verir, verileri 16 salt okunur MCP aracından çeker, kullandığı araçları her yanıtın altında listeler ve bir kural değişikliği gerektiğinde doğrudan ilgili panel sayfasını tarif eder.</p>
 <div class="ai-kpis">
 <div class="ai-kpi"><strong>15 Araç</strong><span>Salt Okunur Canlı MCP Telemetrisi</span></div>
 <div class="ai-kpi"><strong>0 Yazma Riski</strong><span>pf, NAT veya Sistem Ayarlarını Değiştiremez</span></div>

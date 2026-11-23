@@ -1,8 +1,8 @@
 ---
 title: "AI Assistant & MCP"
 seo_title: "Stratum Firewall AI Assistant: Read-Only MCP & Local Ollama"
-description: "Ask Stratum Firewall in plain language with Diagnostics > AI Assistant. 15 read-only MCP tools, automatic public IP masking, Claude, OpenAI, DeepSeek, Gemini, and local Ollama."
-seoDescription: "Natural-language FreeBSD firewall diagnostics via 15 read-only MCP tools, PUB-1 public IP masking, zero write risk, and 100% local Ollama or cloud AI support."
+description: "Ask Stratum Firewall in plain language with Diagnostics > AI Assistant. 16 read-only MCP tools, automatic public IP masking, Claude, OpenAI, DeepSeek, Gemini, and local Ollama."
+seoDescription: "Natural-language FreeBSD firewall diagnostics via 16 read-only MCP tools, PUB-1 public IP masking, zero write risk, and 100% local Ollama or cloud AI support."
 date: 2026-11-18
 translationKey: "product-ai-assistant"
 aliases: ["/ai-assistant/"]
