@@ -21,7 +21,7 @@ Enterprise branch networks rarely run a single vendor end to end. Under **VPN ->
 
 <figure style="margin:1.75rem 0;background:#08101f;border:1px solid #1e293b;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -12px rgba(15,23,42,0.35);">
   <img src="/images/features/s2s-vpn-topology.jpg" alt="Stratum Firewall Multi-Vendor IPsec and WireGuard Site-to-Site Hub Architecture" loading="lazy" style="display:block;width:100%;height:auto;">
-  <figcaption style="padding:0.75rem 1rem;font-size:0.84rem;color:#cbd5e1;text-align:center;border-top:1px solid #1e293b;">Multi-vendor Site-to-Site hub interconnecting FortiGate, Cisco, cloud VPCs, MikroTik RouterOS 7, and remote Stratum / OPNsense gateways.</figcaption>
+  <figcaption style="padding:0.75rem 1rem;font-size:0.84rem;color:#1E293B !important;text-align:center;border-top:1px solid #1e293b;">Multi-vendor Site-to-Site hub interconnecting FortiGate, Cisco, cloud VPCs, MikroTik RouterOS 7, and remote Stratum / OPNsense gateways.</figcaption>
 </figure>
 
 ## 2. Dedicated Kernel WireGuard Site-to-Site (`wg1, wg2...`, `v0.34.0` to `v0.34.1`)
@@ -33,7 +33,7 @@ Prior to `v0.34.0`, remote road-warrior clients shared `wg0`. Branch-to-branch l
 
 <figure style="margin:1.75rem 0;background:#08101f;border:1px solid #1e293b;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -12px rgba(15,23,42,0.35);">
   <img src="/images/features/s2s-vpn-panel.jpg" alt="Stratum Firewall Live IPsec and WireGuard Site-to-Site Tunnel Status Panel" loading="lazy" style="display:block;width:100%;height:auto;">
-  <figcaption style="padding:0.75rem 1rem;font-size:0.84rem;color:#cbd5e1;text-align:center;border-top:1px solid #1e293b;">Unified tunnel telemetry displaying live IKEv2, IKEv1, and WireGuard S2S handshakes alongside kernel crypto status.</figcaption>
+  <figcaption style="padding:0.75rem 1rem;font-size:0.84rem;color:#1E293B !important;text-align:center;border-top:1px solid #1e293b;">Unified tunnel telemetry displaying live IKEv2, IKEv1, and WireGuard S2S handshakes alongside kernel crypto status.</figcaption>
 </figure>
 
 ## 3. 30-Day Inter-VLAN & VPN Traffic Matrix (`v0.32.0`)
