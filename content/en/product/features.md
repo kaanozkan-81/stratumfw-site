@@ -499,11 +499,6 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 </style>
 <!-- STRATUM-UNIFIED-DARK-STYLE-END -->
 
-<h3 style="color:#f8fafc !important;margin:0 0 12px 0;font-size:1.45rem;">Privilege-Separated Guest Captive Portal</h3>
-<p style="color:#cbd5e1 !important;margin:0 0 18px 0;line-height:1.65;">Onboard guest Wi-Fi and visitor VLANs in the manner of pfSense without exposing secrets to untrusted clients: the customizable English/Turkish mobile &amp; dark-mode portal runs as an <strong style="color:#f8fafc !important;">unprivileged user</strong> and verifies sign-ins over a local socket via a separate root service (<code style="color:#7dd3fc !important;">bcrypt</code> root-only hashes). Supports passwordless terms acceptance or local user accounts (expiry dates, device limits, brute-force lockouts), session/idle timeouts, MAC takeover checks, printer/TV bypasses, Operator session management, and hitless guest persistence across <code style="color:#7dd3fc !important;">pf</code> reloads and <code style="color:#7dd3fc !important;">Apply</code>.</p>
-<img src="/images/captive-portal-architecture.svg" alt="Stratum Firewall v0.36.0 Privilege-Separated Captive Portal Architecture" style="width:100%;border-radius:12px;border:1px solid #1e293b;display:block;">
-</div>
-
 <div id="application-control" style="background:#FFFFFF !important;border:1px solid #CBD5E1 !important;border-left:4px solid #F59E0B !important;border-radius:16px;padding:28px;margin:36px 0;box-shadow:0 8px 24px rgba(15,23,42,0.06);">
 <div style="color:#B45309 !important;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">NEW IN v0.38.0 – v0.39.0 • FIREWALL &gt; APPLICATION CONTROL &amp; CUSTOM HTTPS BLOCK PAGE</div>
 <h3 style="color:#0F172A !important;margin:0 0 10px 0 !important;font-size:22px !important;font-weight:700 !important;">Capsicum-Sandboxed Application Control, Branded HTTPS Block Page &amp; Shared-CDN-Safe Blocking</h3>

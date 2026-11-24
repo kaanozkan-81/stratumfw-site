@@ -499,11 +499,6 @@ seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, 
 </style>
 <!-- STRATUM-UNIFIED-DARK-STYLE-END -->
 
-<h3 style="color:#f8fafc !important;margin:0 0 12px 0;font-size:1.45rem;">Yetki Ayrıştırılmış Misafir Captive Portal</h3>
-<p style="color:#cbd5e1 !important;margin:0 0 18px 0;line-height:1.65;">Misafir Wi-Fi ve ziyaretçi VLAN ağlarını pfSense alışkanlığıyla güvenle yönetin: Türkçe/İngilizce mobil ve koyu tema uyumlu giriş sayfası <strong style="color:#f8fafc !important;">yetkisiz (unprivileged) kullanıcı</strong> altında çalışır, hiçbir gizli bilgi tutmaz ve kimlik doğrulamayı yerel soket üzerinden ayrı bir root servisiyle (<code style="color:#7dd3fc !important;">bcrypt</code> özetleri) gerçekleştirir. Parolasız koşul onayı veya yerel hesaplar (son kullanma tarihi, kullanıcı başı cihaz sınırı, hatalı parola kilidi), süre/boşta kalma sınırı, MAC kontrolü, yazıcı/TV istisnaları, Operatör yetki ayrımı ve <code style="color:#7dd3fc !important;">pf</code> yenilemeleri ile <code style="color:#7dd3fc !important;">Apply</code> sırasında kopmayan oturum sürekliliği sunar.</p>
-<img src="/images/captive-portal-architecture.svg" alt="Stratum Firewall v0.36.0 Yetki Ayrıştırılmış Captive Portal Mimarisi" style="width:100%;border-radius:12px;border:1px solid #1e293b;display:block;">
-</div>
-
 <div id="application-control" style="background:#FFFFFF !important;border:1px solid #CBD5E1 !important;border-left:4px solid #F59E0B !important;border-radius:16px;padding:28px;margin:36px 0;box-shadow:0 8px 24px rgba(15,23,42,0.06);">
 <div style="color:#B45309 !important;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">YENİ (v0.38.0 – v0.39.0) • UYGULAMA KONTROLÜ VE ÖZELLEŞTİRİLEBİLİR HTTPS ENGELLEME SAYFASI</div>
 <h3 style="color:#0F172A !important;margin:0 0 10px 0 !important;font-size:22px !important;font-weight:700 !important;">Capsicum Korumalı Uygulama Kontrolü, Kurumsal HTTPS Engelleme Sayfası ve Paylaşımlı CDN Dostu Engelleme</h3>
