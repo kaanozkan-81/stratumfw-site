@@ -291,7 +291,7 @@ font-weight: 700 !important;
 margin: 0 0 6px 0 !important;
 }
 .hw-cta-dark p {
-color:#1E293B !important;
+color: #CBD5E1 !important;
 font-size: 15px !important;
 line-height: 1.6 !important;
 margin: 0 !important;
