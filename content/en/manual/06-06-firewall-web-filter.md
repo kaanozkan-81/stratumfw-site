@@ -1,7 +1,7 @@
 ---
 title: "Firewall > Web Filter"
 seo_title: "06.6 Firewall > Web Filter — Stratum FW User Manual"
-description: "Blocking site categories per network with policies: the 56 categories, Safe Search, exceptions, list updates, the Blocked view and making the filter hard to bypass."
+description: "Blocking site categories per network with policies: the 56 categories, Safe Search, Keywords for catching rotating domains by name, exceptions, list updates, the Blocked view and making the filter hard to bypass."
 weight: 606
 chapter_num: "06.6"
 url: "/manual/firewall-web-filter/"
@@ -86,6 +86,20 @@ Because the filter works through DNS, a device that asks another DNS server is n
 
 No DNS-based filter stops a user who connects through a VPN the lists do not yet know - but together these steps
 stop almost everyone.
+
+## Keywords - new sites by their name
+
+![Firewall > Web Filter > Keywords](/images/manual/wf-keywords.png)
+
+Public category lists update once a day, while illegal betting, casino, and copycat sites often rotate numbered domains (`site1234.com`, `site1235.com` ...) several times an hour. **Keywords** catches those new domains by a brand name or word in their name (such as `bahis` or `casino`) the moment any device queries the firewall's Unbound DNS resolver:
+
+| Mode | What happens when a new domain matches a keyword |
+| :--- | :--- |
+| **List them only** *(default)* | Lists the newly discovered site together with the matching keyword, time, and first querying device. One click **blocks** it (moves to **Your own list**), **ignores** it, or adds it to **Exceptions**. |
+| **Block them at once** | Adds the domain straight into **Your own list** and blocks it within seconds across every Web Filter policy that selects **Your own list** (showing the block page where the policy enables it). |
+
+- **Domain-label precision:** Only the site's own registered name counts - neither its subdomains nor its top-level domain (`.com`, `.bet`, ...) trigger a match, and **Exceptions** always take precedence.
+- **Privacy without Web Activity:** Works even when [**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/) is switched off - the collector watches Unbound queries solely for your keywords and writes zero browsing history to disk.
 
 ## Exceptions
 

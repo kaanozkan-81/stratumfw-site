@@ -499,6 +499,16 @@ seoDescription: "Explore Stratum Firewall features on FreeBSD 15.1: IPsec IKEv2/
 </style>
 <!-- STRATUM-UNIFIED-DARK-STYLE-END -->
 
+<div id="web-filter-keywords" style="background:#FFFFFF !important;border:1px solid #CBD5E1 !important;border-left:4px solid #F59E0B !important;border-radius:16px;padding:28px;margin:36px 0;box-shadow:0 8px 24px rgba(15,23,42,0.06);">
+<div style="color:#B45309 !important;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">NEW IN v0.39.5 • FIREWALL &gt; WEB FILTER &gt; KEYWORDS</div>
+<h3 style="color:#0F172A !important;margin:0 0 10px 0 !important;font-size:22px !important;font-weight:700 !important;">Real-Time Domain Keyword Catching for Rotating &amp; Numbered Sites</h3>
+<p style="color:#1E293B !important;margin:0 0 18px 0 !important;line-height:1.68;font-size:15.5px;">Stop numbered, domain-hopping betting, casino, and copycat sites (<code style="background:#F1F5F9 !important;color:#0F172A !important;border:1px solid #CBD5E1 !important;padding:2px 6px;border-radius:4px;">site1234.com</code> &rarr; <code style="background:#F1F5F9 !important;color:#0F172A !important;border:1px solid #CBD5E1 !important;padding:2px 6px;border-radius:4px;">site1235.com</code>) on the very first Unbound DNS lookup without waiting for tomorrow's blocklist feed. Inspect only the domain's own label (ignoring subdomains and TLDs while honoring <strong style="color:#0F172A !important;">Exceptions</strong>), audit matches safely in <strong style="color:#0F172A !important;">List them only</strong> with one-click Block / Ignore / Exception actions, or switch to <strong style="color:#0F172A !important;">Block them at once</strong> to add new domains straight into <strong style="color:#0F172A !important;">Your own list</strong> within seconds — even with Web Activity switched off and zero query logging. <a href="/manual/firewall-web-filter/" style="color:#B45309 !important;font-weight:700;text-decoration:underline;">Read Chapter 06.6 &rarr;</a></p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:16px;align-items:stretch;">
+  <img src="/images/web-filter-keywords-hero.jpg" alt="Stratum Firewall v0.39.5 Real-Time Web Filter Domain Keyword Interception" style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid #CBD5E1;display:block;">
+  <img src="/images/manual/wf-keywords.png" alt="Firewall > Web Filter > Keywords Panel in Stratum Firewall v0.39.5" style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid #CBD5E1;display:block;">
+</div>
+</div>
+
 <div id="application-control" style="background:#FFFFFF !important;border:1px solid #CBD5E1 !important;border-left:4px solid #F59E0B !important;border-radius:16px;padding:28px;margin:36px 0;box-shadow:0 8px 24px rgba(15,23,42,0.06);">
 <div style="color:#B45309 !important;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">NEW IN v0.38.0 – v0.39.0 • FIREWALL &gt; APPLICATION CONTROL &amp; CUSTOM HTTPS BLOCK PAGE</div>
 <h3 style="color:#0F172A !important;margin:0 0 10px 0 !important;font-size:22px !important;font-weight:700 !important;">Capsicum-Sandboxed Application Control, Branded HTTPS Block Page &amp; Shared-CDN-Safe Blocking</h3>

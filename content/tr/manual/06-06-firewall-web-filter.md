@@ -1,7 +1,7 @@
 ---
 title: "Güvenlik Duvarı > Web Filtresi"
 seo_title: "06.6 Güvenlik Duvarı > Web Filtresi (Firewall > Web Filter) — Stratum FW Kullanım Kılavuzu"
-description: "Politikalarla ağ bazında web sitesi kategorilerini engelleme: 56 kategori, Güvenli Arama (Safe Search), istisnalar, kategori güncellemeleri, Blocked görünümü ve filtrenin aşılmasını zorlaştırma."
+description: "Politikalarla ağ bazında web sitesi kategorilerini engelleme: 56 kategori, Güvenli Arama (Safe Search), isim değiştiren yeni siteler için Anahtar Kelime (Keywords) tespiti, istisnalar ve Blocked görünümü."
 weight: 606
 chapter_num: "06.6"
 url: "/tr/manual/firewall-web-filter/"
@@ -73,6 +73,20 @@ Filtre DNS üzerinden çalıştığı için başka bir DNS sunucusuna soru soran
 3. İsteğe bağlı olarak DNS engelleme listelerindeki ([**Firewall > Blocklists**](/tr/manual/firewall-blocklists/)) **DoH** kategorisini de açarak tarayıcıların şifreli DNS kullanmasını önleyin.
 
 DNS tabanlı hiçbir filtre listelerin henüz tanımadığı özel bir VPN sunucusuna bağlanan kullanıcıyı tek başına durduramaz; ancak bu üç adım birlikte uygulandığında pratikte neredeyse tüm aşma girişimlerini engeller.
+
+## Anahtar Kelimeler — İsme Göre Yeni Siteler (Keywords)
+
+![Firewall > Web Filter > Keywords](/images/manual/wf-keywords.png)
+
+Genel kategori listeleri günde bir kez güncellenirken yasa dışı bahis, kumar ve taklit siteler çoğu zaman saat içinde bile yeni numaralı alan adlarına (`site1234.com`, `site1235.com` ...) geçer. **Keywords** sekmesi, ağdaki herhangi bir cihaz güvenlik duvarının Unbound DNS çözümleyicisine sorduğu anda bu yeni alan adlarını içlerindeki marka veya kelimeyle (örneğin `bahis` ya da `casino`) anında yakalar:
+
+| Çalışma Modu | Anahtar kelimeyle eşleşen yeni bir alan adı görüldüğünde ne olur? |
+| :--- | :--- |
+| **List them only** *(varsayılan)* | Yakalanan yeni siteyi eşleşen anahtar kelime, saat ve ilk sorgulayan cihazla birlikte listeler; tek tıkla **engelleyebilir** (**Your own list** içine ekler), **yok sayabilir** (*Ignore*) veya **İstisnalara** (*Exception*) ekleyebilirsiniz. |
+| **Block them at once** | Alan adını doğrudan **Your own list** (Kendi listeniz) kategorisine ekler ve bu kategoriyi seçen tüm Web Filtresi politikalarında saniyeler içinde engeller (politikada engelleme sayfası açıksa özel sayfayı da gösterir). |
+
+- **Yalnızca sitenin kendi adı sayılır:** Alt alan adları (*subdomains*) veya üst düzey alan adı uzantıları (`.com`, `.bet` vb.) eşleşme tetiklemez; **Exceptions** (İstisnalar) her zaman önceliklidir.
+- **Web Activity kapalıyken sıfır kayıtla çalışır:** [**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/) kapalı olsa bile çalışır; toplayıcı DNS sorgularını yalnızca anahtar kelimeler için izler ve diske hiçbir gezinme geçmişi kaydetmez.
 
 ## İstisnalar (Exceptions)
 

@@ -1,10 +1,19 @@
 ---
 title: "Sürüm Notları"
-seo_title: "Stratum Firewall Sürüm Notları (v0.39.0) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.39.0 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
+seo_title: "Stratum Firewall Sürüm Notları (v0.39.5) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.39.5 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
 ---
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**System > Update**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## 0.39.5 - 2026-11-24
+
+### Eklendi
+- **Firewall > Web Filter > Keywords — İsme Göre Yeni Site Tespiti.** Sürekli yeni numara veya adlarla geri dönen siteler (örneğin bahis siteleri: `site1234.com`, `site1235.com` ...), bir cihaz güvenlik duvarının DNS çözümleyicisine (Unbound) sorduğu anda alan adlarının içinde geçen bir kelimeyle — marka adı ya da *bahis* veya *casino* gibi bir ifadeyle — tespit edilir.
+  - **List them only** (Yalnızca listele — varsayılan): Yakalanan yeni siteler eşleşen anahtar kelime, saat ve ilk sorgulayan cihaz bilgisiyle listelenir; tek tıklamayla engellenebilir (*Block*), yok sayılabilir (*Ignore*) veya istisna (*Exception*) yapılabilir.
+  - **Block them at once** (Anında engelle): Eşleşen yeni alan adları doğrudan **Your own list** (Kendi listeniz) kategorisine eklenir ve bu kategoriyi seçen politikalarda saniyeler içinde engellenir (politikada açıksa özel engelleme sayfasıyla birlikte).
+  - Yalnızca sitenin kendi ana adı dikkate alınır (alt alan adları veya `.com`/`.bet` gibi üst düzey uzantılar sayılmaz); tanımlı istisnalar (*Exceptions*) her zaman önceliklidir.
+  - **Web Activity** kapalıyken de çalışır: toplayıcı bu durumda DNS sorgularını yalnızca anahtar kelimeler için izler ve hiçbir gezinme kaydı tutmaz.
 
 ## 0.39.0 - 2026-11-23
 

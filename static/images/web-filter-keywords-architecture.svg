@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-label="Stratum Firewall v0.39.5 Web Filter Keywords Architecture: Catching Rotating Domains by Name in Real Time">
+  <defs>
+    <linearGradient id="bgKw" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060d1a"/>
+      <stop offset="55%" stop-color="#0b1629"/>
+      <stop offset="100%" stop-color="#08101f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="560" rx="18" fill="url(#bgKw)"/>
+  <rect x="12" y="12" width="1176" height="536" rx="14" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+  <text x="48" y="54" fill="#fbbf24" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">STRATUM FIREWALL v0.39.5 • FIREWALL &gt; WEB FILTER &gt; KEYWORDS</text>
+  <text x="48" y="86" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700">Catching Rotating &amp; Numbered Domains by Name on First DNS Query</text>
+  <line x1="48" y1="106" x2="1152" y2="106" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Box 1 -->
+  <rect x="48" y="132" width="332" height="334" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.48" stroke-width="1.5"/>
+  <rect x="68" y="152" width="232" height="24" rx="12" fill="#0c2a42"/>
+  <text x="184" y="168" text-anchor="middle" fill="#7dd3fc" font-family="system-ui, sans-serif" font-size="11" font-weight="700">1 • FIRST UNBOUND DNS QUERY</text>
+  <text x="68" y="202" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Domain-Label Precision</text>
+  <text x="68" y="228" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Catches rotating domains (site1234.com -&gt;</text>
+  <text x="78" y="248" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">site1235.com) before daily lists update</text>
+  <text x="68" y="276" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Checks ONLY the domain's own label</text>
+  <text x="78" y="296" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">(ignores subdomains &amp; TLDs like .bet)</text>
+  <text x="68" y="324" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Web Filter Exceptions always win</text>
+  <rect x="68" y="352" width="292" height="92" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="84" y="376" fill="#7dd3fc" font-family="monospace" font-size="12.5" font-weight="700">Works Without Web Activity</text>
+  <text x="84" y="398" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">When Web Activity is off, the collector</text>
+  <text x="84" y="416" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">watches Unbound queries in memory for</text>
+  <text x="84" y="434" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="12" font-weight="700">keywords only — recording zero history</text>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="380" y1="298" x2="426" y2="298" stroke="#f59e0b" stroke-width="2.5"/>
+  <polygon points="426,292 438,298 426,304" fill="#f59e0b"/>
+  <text x="409" y="284" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="11">match</text>
+
+  <!-- Box 2 -->
+  <rect x="438" y="132" width="336" height="334" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.62" stroke-width="1.5"/>
+  <rect x="458" y="152" width="218" height="24" rx="12" fill="#2b1d07"/>
+  <text x="567" y="168" text-anchor="middle" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="700">2 • TWO OPERATING MODES</text>
+  <text x="458" y="202" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Review First or Auto-Block</text>
+  <text x="458" y="228" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• List them only (default): records matched</text>
+  <text x="468" y="248" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">site, keyword, time &amp; first querying device</text>
+  <text x="458" y="276" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• One-click triage: Block, Ignore, or add</text>
+  <text x="468" y="296" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">directly to Web Filter Exceptions</text>
+  <text x="458" y="324" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Block them at once: zero-touch enforcement</text>
+  <rect x="458" y="352" width="296" height="92" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="474" y="376" fill="#fbbf24" font-family="monospace" font-size="12.5" font-weight="700">Example Keyword Watchlist</text>
+  <text x="474" y="398" fill="#cbd5e1" font-family="monospace" font-size="11.5">bahis • casino • betpark • slotgiris</text>
+  <text x="474" y="416" fill="#7dd3fc" font-family="system-ui, sans-serif" font-size="12">kralbahis1284.com -&gt; caught immediately</text>
+  <text x="474" y="434" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="700">bahis.allowed-news.tr -&gt; subdomain ignored</text>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="774" y1="298" x2="820" y2="298" stroke="#34d399" stroke-width="2.5"/>
+  <polygon points="820,292 832,298 820,304" fill="#34d399"/>
+  <text x="803" y="284" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="11">RPZ</text>
+
+  <!-- Box 3 -->
+  <rect x="832" y="132" width="320" height="334" rx="14" fill="#0f172a" stroke="#10b981" stroke-opacity="0.48" stroke-width="1.5"/>
+  <rect x="852" y="152" width="224" height="24" rx="12" fill="#082c24"/>
+  <text x="964" y="168" text-anchor="middle" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700">3 • INSTANT POLICY ENFORCEMENT</text>
+  <text x="852" y="202" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Your Own List + Block Page</text>
+  <text x="852" y="228" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Blocked sites go straight into Your own</text>
+  <text x="862" y="248" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">list category within seconds</text>
+  <text x="852" y="276" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Active across every Web Filter policy</text>
+  <text x="862" y="296" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">that enables Your own list</text>
+  <text x="852" y="324" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Shows custom Block Page where configured</text>
+  <rect x="852" y="352" width="280" height="92" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="868" y="376" fill="#34d399" font-family="monospace" font-size="12.5" font-weight="700">Seconds, Not Tomorrow's Feed</text>
+  <text x="868" y="398" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Closes the 24h gap between a betting or</text>
+  <text x="868" y="416" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">phishing clone registering a new numbered</text>
+  <text x="868" y="434" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">domain and public blocklists catching up.</text>
+
+  <rect x="48" y="488" width="1104" height="40" rx="10" fill="#0f172a" stroke="#1e293b"/>
+  <text x="600" y="513" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">Start safely in <tspan fill="#fbbf24" font-weight="700">List them only</tspan> to audit matches, then switch high-confidence brand words to <tspan fill="#34d399" font-weight="700">Block them at once</tspan>.</text>
+</svg>

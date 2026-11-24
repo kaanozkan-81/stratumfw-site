@@ -499,6 +499,16 @@ seoDescription: "FreeBSD 15.1 üzerinde IPsec IKEv2/IKEv1 ve WireGuard S2S VPN, 
 </style>
 <!-- STRATUM-UNIFIED-DARK-STYLE-END -->
 
+<div id="web-filter-keywords" style="background:#FFFFFF !important;border:1px solid #CBD5E1 !important;border-left:4px solid #F59E0B !important;border-radius:16px;padding:28px;margin:36px 0;box-shadow:0 8px 24px rgba(15,23,42,0.06);">
+<div style="color:#B45309 !important;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">YENİ (v0.39.5) • FIREWALL &gt; WEB FILTER &gt; KEYWORDS</div>
+<h3 style="color:#0F172A !important;margin:0 0 10px 0 !important;font-size:22px !important;font-weight:700 !important;">Sürekli Adres Değiştiren Numaralı Siteler İçin Anlık Anahtar Kelime Tespiti</h3>
+<p style="color:#1E293B !important;margin:0 0 18px 0 !important;line-height:1.68;font-size:15.5px;">Her gün yeni numarayla açılan bahis, casino ve kopya siteleri (<code style="background:#F1F5F9 !important;color:#0F172A !important;border:1px solid #CBD5E1 !important;padding:2px 6px;border-radius:4px;">site1234.com</code> &rarr; <code style="background:#F1F5F9 !important;color:#0F172A !important;border:1px solid #CBD5E1 !important;padding:2px 6px;border-radius:4px;">site1235.com</code>) ertesi günün kara liste güncellemesini beklemeden ilk Unbound DNS sorgusunda yakalayın. Alt alan adlarını ve uzantıları hariç tutarak yalnızca sitenin kendi adını denetler (<strong style="color:#0F172A !important;">İstisnalar</strong> her zaman korunur); <strong style="color:#0F172A !important;">List them only</strong> modunda tek tıkla Engelle / Yoksay / İstisna yönetimi veya <strong style="color:#0F172A !important;">Block them at once</strong> ile saniyeler içinde <strong style="color:#0F172A !important;">Your own list</strong> üzerinden otomatik engelleme sunar — üstelik Web Activity kapalıyken sıfır gezinme kaydıyla çalışır. <a href="/tr/manual/firewall-web-filter/" style="color:#B45309 !important;font-weight:700;text-decoration:underline;">Bölüm 06.6'yı Oku &rarr;</a></p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:16px;align-items:stretch;">
+  <img src="/images/web-filter-keywords-hero.jpg" alt="Stratum Firewall v0.39.5 Web Filtresi Anlık Anahtar Kelime Tespiti" style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid #CBD5E1;display:block;">
+  <img src="/images/manual/wf-keywords.png" alt="Stratum Firewall v0.39.5 Firewall > Web Filter > Keywords Ekranı" style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid #CBD5E1;display:block;">
+</div>
+</div>
+
 <div id="application-control" style="background:#FFFFFF !important;border:1px solid #CBD5E1 !important;border-left:4px solid #F59E0B !important;border-radius:16px;padding:28px;margin:36px 0;box-shadow:0 8px 24px rgba(15,23,42,0.06);">
 <div style="color:#B45309 !important;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">YENİ (v0.38.0 – v0.39.0) • UYGULAMA KONTROLÜ VE ÖZELLEŞTİRİLEBİLİR HTTPS ENGELLEME SAYFASI</div>
 <h3 style="color:#0F172A !important;margin:0 0 10px 0 !important;font-size:22px !important;font-weight:700 !important;">Capsicum Korumalı Uygulama Kontrolü, Kurumsal HTTPS Engelleme Sayfası ve Paylaşımlı CDN Dostu Engelleme</h3>
