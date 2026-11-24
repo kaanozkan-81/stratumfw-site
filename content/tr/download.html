@@ -1,91 +1,804 @@
 ---
 title: "İndir"
-description: "Stratum Firewall v0.39.5 kurulum imajlarını indirin — VGA kurulumu için stratum-fw-0.39.5-amd64.iso ve Seri konsol kurulumu için stratum-fw-0.39.5-amd64.img."
-lead: "En güncel Stratum FW v0.39.5 kurulum medyasını (VGA için .iso, Seri konsol için .img) edinin ve yeni nesil güvenlik duvarını kendi donanımınıza veya sanal altyapınıza kurun."
+seo_title: "Stratum Firewall İndir — Ücretsiz FreeBSD 15.1 amd64 VGA ISO ve Seri IMG (v0.39.5)"
+description: "Stratum Firewall kurulum imajlarını (VGA ekranlar ve sanal makineler için .iso, başsız seri konsollar için .img) SHA-256 doğrulamasıyla ücretsiz indirin; tek tıkla v0.39.5 sürümüne yükseltin."
+lead: "Standart sunucu ve sanal makineler için VGA (.iso), başsız donanımlar için Seri Konsol (.img) kurulum imajlarını SHA-256 doğrulamasıyla indirin — yıllık 0 $ maliyet, sıfır kullanıcı ve tünel sınırı."
+url: "/tr/download/"
+translationKey: "download"
 full_width: true
-seoTitle: "Stratum Firewall İndir — Ücretsiz amd64 VGA ISO ve Seri IMG"
-seoDescription: "FreeBSD 15.1 ve OpenZFS tabanlı Stratum Firewall amd64 VGA ISO ve seri konsol IMG kurulum imajlarını SHA-256 doğrulama özetleriyle ücretsiz olarak indirin."
 ---
 
-<p style="color:#cbd5e1 !important;margin:0;line-height:1.6;font-size:0.95rem;">Aşağıdaki doğrulanmış <code style="color:#7dd3fc !important;">v0.39.5</code> kurulum medyasıyla sistemi kurduktan sonra <strong style="color:#f8fafc !important;">System &gt; Update</strong> (<code style="color:#7dd3fc !important;">stratum-update run</code>) üzerinden OpenZFS Önyükleme Ortamı güvencesiyle tek tıkla imzalı <strong style="color:#f8fafc !important;">v0.36.0</strong> sürümüne (Yerleşik Yapay Zeka Asistanı, yerel <code style="color:#7dd3fc !important;">Ollama</code> ve Misafir Captive Portal dahil) yükseltebilirsiniz.</p>
-</div>
-<div class="download-layout">
-<section class="download-hero">
-<div class="download-hero-left">
-<span class="eyebrow">Güncel Sürüm</span>
-<h2>Stratum FW v0.39.5</h2>
-<p>İki kurulum imajı mevcuttur — standart VGA konsolları için <code>stratum-fw-0.39.5-amd64.iso</code> ve başsız seri konsol ortamları için <code>stratum-fw-0.39.5-amd64.img</code>. Her ikisi de tam FreeBSD tabanlı ağ geçidini kurar; yalnızca konsol çıktı yöntemi ve imaj formatı farklıdır.</p>
-<div class="download-meta">
-<div class="download-meta-item"><span class="download-meta-label">Sürüm</span><span class="download-meta-value">v0.39.5</span></div>
-<div class="download-meta-item"><span class="download-meta-label">Dosya Boyutu</span><span class="download-meta-value">1.3 GB / 1.5 GB</span></div>
-<div class="download-meta-item"><span class="download-meta-label">Yayın Tarihi</span><span class="download-meta-value">2026-11-24</span></div>
-<div class="download-meta-item"><span class="download-meta-label">Platform</span><span class="download-meta-value">FreeBSD 15.1 · amd64</span></div>
-</div>
-</div>
-<div class="download-hero-right">
-<div class="download-verify">
-<h4>İndirmeden Önce</h4>
-<p>Dosyanın bütünlüğünü doğrulamak için indirdikten sonra SHA-256 hash değerini aşağıda her bir varyant için gösterilen değerle karşılaştırın.</p>
-<p class="download-verify-hint">Linux veya macOS:</p>
-<pre><code>sha256sum -c SHA256SUMS-0.39.5  # Linux   |   sha256 stratum-fw-0.39.5-amd64.iso  # FreeBSD</code></pre>
-<p class="download-verify-hint">Windows (PowerShell):</p>
-<pre><code>Get-FileHash .\stratum-fw-0.39.5-amd64.* -Algorithm SHA256</code></pre>
-</div>
-<!-- STRATUM-SHA256SUMS-START -->
-<div style="margin-top:0.9rem;padding:0.85rem 1rem;background:#0f172a;border:1px solid #1e293b;border-radius:10px;">
-  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem;margin-bottom:0.45rem;">
-    <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#f59e0b;">SHA256SUMS-0.39.5</span>
-    <a href="https://update.stratumfw.com/packages/SHA256SUMS-0.39.5" style="font-size:0.8rem;font-weight:600;color:#38bdf8;text-decoration:none;">SHA256SUMS-0.39.5 İndir &rarr;</a>
+<style>
+body:has(.dl-layout) .page-header .lead {
+  color: #E2E8F0 !important;
+}
+body:has(.dl-layout) .page-header .breadcrumbs,
+body:has(.dl-layout) .page-header .breadcrumbs a {
+  color: #CBD5E1 !important;
+}
+body:has(.dl-layout) .page-header .lead code {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #FDE68A !important;
+  border: 1px solid rgba(251, 191, 36, 0.35) !important;
+  padding: 2px 6px !important;
+  border-radius: 5px !important;
+}
+main:has(.dl-layout) .container,
+.container:has(.dl-layout),
+main:has(.dl-layout) .wrap,
+.wrap:has(.dl-layout) {
+  max-width: 1240px !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.container *:has(.dl-layout),
+.wrap *:has(.dl-layout),
+.prose:has(.dl-layout),
+article:has(.dl-layout),
+.single-content:has(.dl-layout),
+.page-content:has(.dl-layout) {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.dl-layout {
+  width: 100%;
+  font-family: var(--font-sans, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  color: #1E293B !important;
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+.dl-layout p,
+.dl-layout li {
+  color: #1E293B !important;
+}
+.dl-layout :not(pre) > code {
+  background: #F1F5F9 !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+  padding: 2px 7px !important;
+  border-radius: 5px !important;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+  font-size: 0.86em !important;
+  font-weight: 600 !important;
+}
+
+/* 1. High-Contrast Signed Release Callout */
+.dl-upgrade-banner {
+  background: #FFFBEB !important;
+  border: 1.5px solid #F59E0B !important;
+  border-left: 5px solid #D97706 !important;
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin: 0 0 24px 0;
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.08);
+}
+.dl-upgrade-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.dl-upgrade-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FEF3C7 !important;
+  color: #92400E !important;
+  border: 1px solid #F59E0B !important;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.dl-upgrade-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+}
+.dl-upgrade-link {
+  color: #92400E !important;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+.dl-upgrade-link:hover {
+  color: #78350F !important;
+}
+.dl-upgrade-banner h2 {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.3 !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.dl-upgrade-banner p {
+  color: #1E293B !important;
+  font-size: 15.25px !important;
+  line-height: 1.66 !important;
+  margin: 0 !important;
+}
+.dl-upgrade-banner strong {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+.dl-upgrade-banner :not(pre) > code {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #D97706 !important;
+}
+
+/* 2. Dark Telemetry Metadata Bar */
+.dl-meta-bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: #0F172A !important;
+  border: 1px solid #1E293B !important;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0 0 44px 0;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+}
+@media (max-width: 900px) {
+  .dl-meta-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .dl-meta-bar { grid-template-columns: 1fr; }
+}
+.dl-meta-cell {
+  padding: 18px 22px;
+  border-right: 1px solid #1E293B;
+}
+.dl-meta-cell:last-child {
+  border-right: none;
+}
+.dl-meta-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #FBBF24 !important;
+  margin-bottom: 5px;
+}
+.dl-meta-val {
+  display: block;
+  font-size: 14.25px;
+  font-weight: 700;
+  color: #F8FAFC !important;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  line-height: 1.35;
+}
+
+/* Section Headers */
+.dl-sec-head {
+  max-width: 860px;
+  margin: 0 0 24px 0;
+}
+.dl-eyebrow {
+  display: block;
+  color: #B45309 !important;
+  font-size: 12.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.dl-sec-head h2 {
+  font-size: 27px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  letter-spacing: -0.015em;
+  line-height: 1.24 !important;
+  margin: 0 0 8px 0 !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.dl-sec-head p {
+  font-size: 16px !important;
+  color: #334155 !important;
+  line-height: 1.62 !important;
+  margin: 0 !important;
+}
+
+/* 3. Installer Cards Grid */
+.dl-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  margin: 0 0 48px 0;
+}
+@media (max-width: 900px) {
+  .dl-cards-grid { grid-template-columns: 1fr; }
+}
+.dl-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+.dl-card-featured {
+  border: 2px solid #F59E0B !important;
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.10);
+}
+.dl-card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.dl-badge-rec {
+  background: #FEF3C7 !important;
+  color: #92400E !important;
+  border: 1px solid #F59E0B !important;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.dl-badge-ser {
+  background: #E0F2FE !important;
+  color: #075985 !important;
+  border: 1px solid #7DD3FC !important;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.dl-file-tag {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0F172A !important;
+  background: #F1F5F9 !important;
+  border: 1px solid #CBD5E1 !important;
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+.dl-card h3 {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  margin: 0 0 10px 0 !important;
+  line-height: 1.25 !important;
+}
+.dl-card-desc {
+  font-size: 15px !important;
+  line-height: 1.64 !important;
+  color: #1E293B !important;
+  margin: 0 0 18px 0 !important;
+}
+.dl-spec-box {
+  background: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 0 0 16px 0;
+}
+.dl-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid #E2E8F0;
+  font-size: 14px;
+}
+.dl-spec-row:last-child {
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+.dl-spec-row:first-child {
+  padding-top: 2px;
+}
+.dl-spec-key {
+  color: #334155 !important;
+  font-weight: 600;
+}
+.dl-spec-val {
+  color: #0F172A !important;
+  font-weight: 700;
+  text-align: right;
+}
+.dl-hash-panel {
+  background: #0F172A !important;
+  border: 1px solid #1E293B !important;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: auto 0 18px 0;
+}
+.dl-hash-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.dl-hash-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FBBF24 !important;
+}
+.dl-hash-sub {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #E2E8F0 !important;
+}
+.dl-layout .dl-hash-panel .dl-hash-hex {
+  display: block;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+  font-size: 11.6px !important;
+  line-height: 1.45 !important;
+  color: #F8FAFC !important;
+  word-break: break-all;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.dl-btn-iso {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 11px;
+  background: #D97706 !important;
+  color: #FFFFFF !important;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none !important;
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.28);
+  transition: background 0.16s ease, transform 0.16s ease;
+}
+.dl-btn-iso:hover {
+  background: #B45309 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+.dl-btn-img {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 11px;
+  background: #0F172A !important;
+  color: #F8FAFC !important;
+  border: 1.5px solid #0F172A !important;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none !important;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
+  transition: background 0.16s ease, transform 0.16s ease;
+}
+.dl-btn-img:hover {
+  background: #1E293B !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+/* 4. SHA-256 Verification Box */
+.dl-verify-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  border-radius: 18px;
+  padding: 28px;
+  margin: 0 0 48px 0;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+}
+.dl-verify-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.dl-verify-top h3 {
+  font-size: 21px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  margin: 0 0 6px 0 !important;
+}
+.dl-verify-top p {
+  font-size: 15px !important;
+  color: #334155 !important;
+  margin: 0 !important;
+  max-width: 740px;
+  line-height: 1.6 !important;
+}
+.dl-sums-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #FFFBEB !important;
+  border: 1.5px solid #D97706 !important;
+  color: #92400E !important;
+  font-size: 13.5px;
+  font-weight: 800;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+.dl-sums-btn:hover {
+  background: #FEF3C7 !important;
+  color: #78350F !important;
+}
+.dl-cmd-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+  align-items: stretch;
+}
+.dl-cmd-grid > div {
+  display: flex;
+  flex-direction: column;
+}
+.dl-cmd-grid .dl-pre {
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .dl-cmd-grid { grid-template-columns: 1fr; }
+}
+.dl-cmd-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A !important;
+  margin: 0 0 6px 0;
+}
+.dl-pre {
+  background: #0F172A !important;
+  color: #F8FAFC !important;
+  border: 1px solid #1E293B !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+  margin: 0 !important;
+  overflow-x: auto !important;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+.dl-pre .cm {
+  color: #94A3B8 !important;
+}
+.dl-pre .hl {
+  color: #FDE68A !important;
+}
+.dl-install-tip {
+  margin-top: 16px !important;
+  padding-top: 14px;
+  border-top: 1px solid #E2E8F0;
+  font-size: 14.5px !important;
+  color: #1E293B !important;
+  line-height: 1.6 !important;
+}
+.dl-install-tip a {
+  color: #B45309 !important;
+  font-weight: 700;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+/* 5. What's New Grid (Through v0.39.5) */
+.dl-news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0 0 48px 0;
+}
+@media (max-width: 900px) {
+  .dl-news-grid { grid-template-columns: 1fr; }
+}
+.dl-news-item {
+  background: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  border-left: 4px solid #F59E0B !important;
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+}
+.dl-news-ver {
+  display: inline-block;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #92400E !important;
+  background: #FEF3C7 !important;
+  border: 1px solid #FDE68A !important;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-bottom: 8px;
+}
+.dl-news-item h3 {
+  font-size: 17.5px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.32 !important;
+}
+.dl-news-item p {
+  font-size: 14.5px !important;
+  line-height: 1.62 !important;
+  color: #1E293B !important;
+  margin: 0 !important;
+}
+.dl-news-item a {
+  color: #B45309 !important;
+  font-weight: 700;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+/* 6. Source Availability & Licensing Card */
+.dl-license-card {
+  background: #F8FAFC !important;
+  border: 1.5px solid #CBD5E1 !important;
+  border-radius: 18px;
+  padding: 28px 30px;
+  margin: 0 0 12px 0;
+}
+.dl-license-card h2 {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  margin: 0 0 10px 0 !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.dl-license-card p {
+  font-size: 15.25px !important;
+  line-height: 1.66 !important;
+  color: #1E293B !important;
+  margin: 0 0 20px 0 !important;
+  max-width: 960px;
+}
+.dl-license-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.dl-link-btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 10px;
+  background: #0F172A !important;
+  color: #F8FAFC !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+.dl-link-btn-dark:hover {
+  background: #1E293B !important;
+  color: #FFFFFF !important;
+}
+.dl-link-btn-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 10px;
+  background: #FFFFFF !important;
+  border: 1.5px solid #94A3B8 !important;
+  color: #0F172A !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+.dl-link-btn-light:hover {
+  background: #FFFBEB !important;
+  border-color: #D97706 !important;
+  color: #92400E !important;
+}
+</style>
+
+<div class="dl-layout">
+<div id="v0395-online-upgrade-note" class="dl-upgrade-banner">
+  <div class="dl-upgrade-top">
+    <span class="dl-upgrade-pill"><span class="dl-upgrade-dot"></span>DOĞRUDAN KURULUM MEDYASI: v0.39.5 • 24 KASIM 2026</span>
+    <a href="/tr/resources/changelog/" class="dl-upgrade-link">v0.39.5 Sürüm Notlarını İncele &rarr;</a>
   </div>
-  <pre style="margin:0;font-size:0.78rem;line-height:1.5;color:#e2e8f0;overflow-x:auto;"><code>bdfb1f84411570c8ae527a86cb4ed8eb5130bc7a4880e8f1c261da46eb35c9a2  stratum-fw-0.39.5-amd64.iso
-6aa0531e087c31c780fd3f695c4b82302bc85a4a8da8432fee06a87243284b54  stratum-fw-0.39.5-amd64.img</code></pre>
+  <h2>Stratum Firewall v0.39.5 Kurulum İmajları Yayında</h2>
+  <p>Aşağıdaki <code>v0.39.5</code> VGA (<code>.iso</code>) ve Seri Konsol (<code>.img</code>) kurulum imajları; <strong>Web Filtresi Anahtar Kelime Tespiti</strong>, <strong>Capsicum Uygulama Kontrolü</strong> (<code>stratum-dpi 1.2</code>), <strong>Özel HTTPS Engelleme Sayfası</strong>, <strong>16 Araçlı Yapay Zeka Asistanı</strong> ve <strong>RADIUS Captive Portal</strong> dahil tüm güncel modülleri hazır barındırır; sonraki sürümlere <strong>System &gt; Update</strong> üzerinden OpenZFS Önyükleme Ortamı güvencesiyle tek tıkla güncellenir.</p>
 </div>
-<!-- STRATUM-SHA256SUMS-END -->
+
+<div class="dl-meta-bar">
+  <div class="dl-meta-cell">
+    <span class="dl-meta-label">KURULUM MEDYASI</span>
+    <span class="dl-meta-val">v0.39.5 · 2026-11-24</span>
+  </div>
+  <div class="dl-meta-cell">
+    <span class="dl-meta-label">GÜNCEL İMZALI SÜRÜM</span>
+    <span class="dl-meta-val">v0.39.5 · 2026-11-24</span>
+  </div>
+  <div class="dl-meta-cell">
+    <span class="dl-meta-label">İMAJ BOYUTLARI (.iso / .img)</span>
+    <span class="dl-meta-val">1.3 GB / 1.5 GB</span>
+  </div>
+  <div class="dl-meta-cell">
+    <span class="dl-meta-label">PLATFORM VE LİSANS</span>
+    <span class="dl-meta-val">FreeBSD 15.1 · amd64 · 0 $</span>
+  </div>
 </div>
-</section>
-<section class="download-section">
-<div class="download-section-head">
-<h2>Kurulum İmajınızı Seçin</h2>
-<p>Her iki imaj da aynı FreeBSD tabanlı ağ geçidini kurar. VGA ekranlı sunucular/sanal makineler için <strong>.iso</strong>, başsız seri konsol cihazları için <strong>.img</strong> dosyasını seçin.</p>
+
+<div class="dl-sec-head">
+  <span class="dl-eyebrow">Kurulum Medyası Seçimi</span>
+  <h2>Kurulum İmajınızı Seçin</h2>
+  <p>Her iki kurulum imajı da aynı FreeBSD 15.1 tabanlı Stratum Firewall işletim sistemini ve OpenZFS önyükleme yapısını kurar. Monitörlü sunucular ve sanal makineler için <code>.iso</code>, başsız seri konsol donanımları için <code>.img</code> dosyasını indirin.</p>
 </div>
-<div class="download-variants">
-<article class="download-variant">
-<div class="download-variant-head"><div><span class="download-variant-badge">Önerilen</span><h3>VGA Kurulumu (.iso)</h3></div></div>
-<p class="download-variant-desc">Monitör ve klavye bağlı standart kurulumlar için — fiziksel sunucular, masaüstleri ve çoğu sanal makine (<code>stratum-fw-0.39.5-amd64.iso</code>).</p>
-<div class="download-variant-meta"><span><strong>Konsol:</strong> VGA / fiziksel ekran</span><span><strong>Boyut:</strong> 1.3 GB</span></div>
-<div class="download-variant-hash"><span class="download-variant-hash-label">SHA-256</span><code>bdfb1f84411570c8ae527a86cb4ed8eb5130bc7a4880e8f1c261da46eb35c9a2</code></div>
-<a href="https://update.stratumfw.com/packages/stratum-fw-0.39.5-amd64.iso" class="btn btn-primary download-btn"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg> VGA ISO İndir (.iso)</a>
-</article>
-<article class="download-variant">
-<div class="download-variant-head"><div><span class="download-variant-badge download-variant-badge-alt">Başsız</span><h3>Seri Kurulum (.img)</h3></div></div>
-<p class="download-variant-desc">Başsız sunucular ve IPMI, iDRAC, iLO gibi seri-over-LAN konsolları üzerinden uzaktan konsol erişimi için kurulum imajı (<code>stratum-fw-0.39.5-amd64.img</code>).</p>
-<div class="download-variant-meta"><span><strong>Konsol:</strong> Seri / SOL</span><span><strong>Boyut:</strong> 1.5 GB</span></div>
-<div class="download-variant-hash"><span class="download-variant-hash-label">SHA-256</span><code>6aa0531e087c31c780fd3f695c4b82302bc85a4a8da8432fee06a87243284b54</code></div>
-<a href="https://update.stratumfw.com/packages/stratum-fw-0.39.5-amd64.img" class="btn btn-primary download-btn"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg> Seri IMG İndir (.img)</a>
-</article>
+
+<div class="dl-cards-grid">
+  <div class="dl-card dl-card-featured">
+    <div class="dl-card-top">
+      <span class="dl-badge-rec">ÖNERİLEN • VGA VE SANAL MAKİNE</span>
+      <span class="dl-file-tag">stratum-fw-0.39.5-amd64.iso</span>
+    </div>
+    <h3>VGA Kurulumu (.iso)</h3>
+    <p class="dl-card-desc">Monitör ve klavye bağlı fiziksel sunucular, mini-PC sistemler ve <strong>Proxmox VE, VMware ESXi, KVM/QEMU, Hyper-V</strong> sanal makineleri için standart önyüklenebilir kurulum imajı.</p>
+    <div class="dl-spec-box">
+      <div class="dl-spec-row">
+        <span class="dl-spec-key">Konsol Çıktısı</span>
+        <span class="dl-spec-val">VGA / HDMI / Sanal Ekran (UEFI &amp; BIOS)</span>
+      </div>
+      <div class="dl-spec-row">
+        <span class="dl-spec-key">Dosya Boyutu</span>
+        <span class="dl-spec-val">1.3 GB</span>
+      </div>
+      <div class="dl-spec-row">
+        <span class="dl-spec-key">Dosya Sistemi</span>
+        <span class="dl-spec-val">OpenZFS (Boot Environments)</span>
+      </div>
+    </div>
+    <div class="dl-hash-panel">
+      <div class="dl-hash-head">
+        <span class="dl-hash-title">SHA-256 Özeti</span>
+        <span class="dl-hash-sub">stratum-fw-0.39.5-amd64.iso</span>
+      </div>
+      <div class="dl-hash-hex">bdfb1f84411570c8ae527a86cb4ed8eb5130bc7a4880e8f1c261da46eb35c9a2</div>
+    </div>
+    <a href="https://update.stratumfw.com/packages/stratum-fw-0.39.5-amd64.iso" class="dl-btn-iso">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
+      VGA ISO İndir (.iso) — 1.3 GB
+    </a>
+  </div>
+
+  <div class="dl-card">
+    <div class="dl-card-top">
+      <span class="dl-badge-ser">BAŞSIZ CİHAZLAR • 115200 8N1</span>
+      <span class="dl-file-tag">stratum-fw-0.39.5-amd64.img</span>
+    </div>
+    <h3>Seri Konsol Kurulumu (.img)</h3>
+    <p class="dl-card-desc">Ekran çıkışı bulunmayan fansız ağ kutuları (USB-C / RJ45 konsol) ve <strong>IPMI, iDRAC, iLO</strong> seri-over-LAN ortamları üzerinden uzaktan kurulum için doğrudan USB belleğe yazdırılabilir imaj.</p>
+    <div class="dl-spec-box">
+      <div class="dl-spec-row">
+        <span class="dl-spec-key">Konsol Çıktısı</span>
+        <span class="dl-spec-val">Seri Konsol / SOL (115200 8N1)</span>
+      </div>
+      <div class="dl-spec-row">
+        <span class="dl-spec-key">Dosya Boyutu</span>
+        <span class="dl-spec-val">1.5 GB</span>
+      </div>
+      <div class="dl-spec-row">
+        <span class="dl-spec-key">Dosya Sistemi</span>
+        <span class="dl-spec-val">OpenZFS (Boot Environments)</span>
+      </div>
+    </div>
+    <div class="dl-hash-panel">
+      <div class="dl-hash-head">
+        <span class="dl-hash-title">SHA-256 Özeti</span>
+        <span class="dl-hash-sub">stratum-fw-0.39.5-amd64.img</span>
+      </div>
+      <div class="dl-hash-hex">6aa0531e087c31c780fd3f695c4b82302bc85a4a8da8432fee06a87243284b54</div>
+    </div>
+    <a href="https://update.stratumfw.com/packages/stratum-fw-0.39.5-amd64.img" class="dl-btn-img">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5 8l5 5 5-5M3 17h14"/></svg>
+      Seri IMG İndir (.img) — 1.5 GB
+    </a>
+  </div>
 </div>
-</section>
-<section class="download-section">
-<div class="download-section-head"><h2>Sürüm Notları</h2></div>
-<div class="card">
-<h3>v0.34.2 Sürümündeki Yenilikler</h3>
-<ul class="download-req-list" style="margin-top:16px">
-  <li><strong>OpenSSL Anahtar Üretimi (v0.34.2):</strong> Yönetim katmanındaki WireGuard / Curve25519 anahtar üretimi Python <code>cryptography</code> (OpenSSL) kütüphanesine taşındı; Stratum kendi özel kriptografisini barındırmaz.</li>
-<li>FortiGate, Cisco, MikroTik RouterOS 7 ve bulut ağ geçitleri için çekirdek ESP (enc0) tabanlı IPsec (IKEv2 ve IKEv1) ile adanmış WireGuard S2S (wg1+) tünelleri (v0.33.0 – v0.34.1).</li>
-  <li>IPsec ve WireGuard S2S akışlarını da kapsayan 30 günlük Ağlar Arası (Between networks) VLAN mikro-segmentasyon trafik matrisi (v0.32.0).</li>
-  <li>Suricata ve sistem güncellemelerinde sıfır igb/netmap WAN hat düşmesi, Uygula bekleyen güncelleme bildirimi ve göz yormayan Açık Tema (v0.31.2 – v0.31.6).</li>
-  <li>Kurallar ve NAT ekranlarında Tümü / Varsayılan / Özel görünümleri, renkli ayırıcılar, TOTP 2FA ve HTTPS Secure oturum çerezi (v0.30.0 – v0.31.3).</li>
-  <li>OPNsense config.xml, OpenVPN PKI, Unbound DNSBL ve tam aralıklı DHCP geçişi ile Active Directory istisnalı Zorunlu DNS (v0.27.1 – v0.30.5).</li>
-</ul>
+
+<div class="dl-verify-card">
+  <div class="dl-verify-top">
+    <div>
+      <h3>İndirme Sonrası SHA-256 Bütünlük Doğrulaması</h3>
+      <p>Kurulum medyasını USB belleğe yazdırmadan veya sanal makineye bağlamadan önce dosyanın eksiksiz indirildiğini <code>SHA256SUMS-0.39.5</code> özetiyle doğrulayın.</p>
+    </div>
+    <a href="https://update.stratumfw.com/packages/SHA256SUMS-0.39.5" class="dl-sums-btn">SHA256SUMS-0.39.5 İndir &rarr;</a>
+  </div>
+
+  <div class="dl-cmd-grid">
+    <div>
+      <span class="dl-cmd-label">Linux, FreeBSD veya macOS:</span>
+      <pre class="dl-pre">sha256sum -c <span class="hl">SHA256SUMS-0.39.5</span>          <span class="cm"># Linux</span>
+sha256 -c <span class="hl">SHA256SUMS-0.39.5</span>             <span class="cm"># FreeBSD</span>
+shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"># macOS</span></pre>
+    </div>
+    <div>
+      <span class="dl-cmd-label">Windows (PowerShell):</span>
+      <pre class="dl-pre">Get-FileHash .\<span class="hl">stratum-fw-0.39.5-amd64.*</span> -Algorithm SHA256</pre>
+    </div>
+  </div>
+
+  <span class="dl-cmd-label">Doğrulanmış SHA256SUMS-0.39.5 Özeti:</span>
+  <pre class="dl-pre">bdfb1f84411570c8ae527a86cb4ed8eb5130bc7a4880e8f1c261da46eb35c9a2  stratum-fw-0.39.5-amd64.iso
+6aa0531e087c31c780fd3f695c4b82302bc85a4a8da8432fee06a87243284b54  stratum-fw-0.39.5-amd64.img</pre>
+
+  <p class="dl-install-tip"><strong>USB Yazdırma ve VM Kurulum İpucu:</strong> Rufus kullanırken istendiğinde <strong>DD Image</strong> modunu seçin; Linux/macOS/FreeBSD üzerinde <code>dd bs=1M</code> veya balenaEtcher kullanabilirsiniz. Adım adım disk bölümlendirme, sanal makine ayarları ve ilk konsol sihirbazı için <a href="/tr/manual/installation/">Bölüm 03: Kurulum Kılavuzunu</a> inceleyin.</p>
 </div>
-</section>
-<section class="download-section download-support">
-<h3>Kaynak Kodu Durumu ve Lisanslama</h3>
-<p>Stratum Firewall; denetlenmiş açık kaynak temeller (FreeBSD 15.1, pf, OpenZFS, Suricata, Unbound, WireGuard, strongSwan) üzerinde çalışır ve yıllık 0 $ maliyetle, kullanıcı veya tünel sınırı olmadan ücretsiz dağıtılır. FastAPI yönetim paneli kaynak ağacı v1.0 öncesi geliştirme sürecinde özel (private) depoda tutulmakta olup dokümantasyon, sürüm notları ve hata bildirimleri GitHub üzerinde herkese açıktır.</p>
-<div>
-<a href="https://github.com/kaanozkan-81/stratum-panel" class="btn btn-primary" target="_blank" rel="noopener">GitHub'da İncele</a>
-<a href="/tr/resources/changelog/" class="btn btn-secondary">Sürüm Notları</a>
-<a href="/tr/resources/documentation/" class="btn btn-secondary">Dokümantasyonu Okuyun</a>
+
+<div class="dl-sec-head">
+  <span class="dl-eyebrow">Sürüm Öne Çıkanları</span>
+  <h2>v0.39.5 Sürümüne Kadar Öne Çıkan Yenilikler</h2>
+  <p>İmzalı çevrimiçi (<code>System &gt; Update</code>) veya çevrimdışı (<code>.sfu</code>) güncellemeyle kurulumunuza gelen başlıca kurumsal güvenlik ve ağ yetenekleri:</p>
 </div>
-</section>
+
+<div class="dl-news-grid">
+  <div class="dl-news-item">
+    <span class="dl-news-ver">v0.39.5 • YENİ</span>
+    <h3>Web Filtresinde Anahtar Kelime Tespiti</h3>
+    <p>Sürekli yeni numaralı alan adlarıyla dönen siteleri (<code>site1234.com</code>, <code>site1235.com</code>&hellip;) içerdikleri marka veya kelimeye (<em>bahis</em>, <em>casino</em> vb.) göre ilk Unbound DNS sorgusunda yakalar. <strong>Yalnızca listele</strong> veya <strong>Anında engelle</strong> modlarıyla <em>Web Etkinliği</em> kapalıyken bile sorgu kaydı tutmadan çalışır. <a href="/tr/manual/firewall-web-filter/">Bölüm 06.6 &rarr;</a></p>
+  </div>
+
+  <div class="dl-news-item">
+    <span class="dl-news-ver">v0.38.0 – v0.39.0</span>
+    <h3>Capsicum Korumalı Uygulama Kontrolü ve Engelleme Sayfası</h3>
+    <p>FreeBSD Capsicum kum havuzunda paket yolu dışında çalışan <code>stratum-dpi 1.2</code> (<code>nDPI</code> + TLS <code>ClientHello</code> / QUIC <code>Initial</code>) ile 430+ uygulamayı denetler; yalıtılmış <code>_stratumbp</code> servisi ve GPO uyumlu <code>Block Page CA</code> (<code>.cer</code> / <code>.crt</code>) ile kendi logonuzu taşıyan HTTPS engelleme sayfası sunar. <a href="/tr/manual/firewall-application-control/">Bölüm 06.8 &rarr;</a></p>
+  </div>
+
+  <div class="dl-news-item">
+    <span class="dl-news-ver">v0.36.0 – v0.36.1</span>
+    <h3>Yetki Ayrıştırılmış Captive Portal ve RADIUS</h3>
+    <p>Misafir Wi-Fi ve ziyaretçi VLAN ağları için ayrıcalıksız çift dilli giriş portalı, FreeRADIUS muhasebeleştirme (<code>Start</code>/<code>Interim</code>/<code>Stop</code>), <code>Mikrotik-Rate-Limit</code> desteği, cihaz başı <code>dummynet</code> hız sınırı ve kesintisiz <code>pf</code> oturum koruma. <a href="/tr/manual/services-captive-portal/">Bölüm 07.6 &rarr;</a></p>
+  </div>
+
+  <div class="dl-news-item">
+    <span class="dl-news-ver">v0.35.0 – v0.38.0</span>
+    <h3>Salt Okunur Yapay Zeka Asistanı ve 16 MCP Aracı</h3>
+    <p><em>Uygulama kullanımı</em> dahil 16 salt okunur tanılama aracı üzerinden doğal dilde canlı güvenlik duvarı analizi; verilerin ağ dışına çıkmadığı yerel LAN <strong>Ollama</strong> desteği ve bulut sorgularında otomatik <code>PUB-1</code> genel IPv4 maskeleme. <a href="/tr/manual/diagnostics-ai-assistant/">Bölüm 10.7 &rarr;</a></p>
+  </div>
+
+  <div class="dl-news-item">
+    <span class="dl-news-ver">v0.32.0 – v0.37.2</span>
+    <h3>Kurumsal S2S VPN, VLAN Matrisi ve Şifreli Yedekleme</h3>
+    <p>FortiGate, Cisco ve MikroTik uyumlu çekirdek ESP (<code>enc0</code>) IPsec (<code>IKEv2/IKEv1</code>), OpenSSL anahtar üretimli adanmış <code>wg1+</code> WireGuard S2S, 30 günlük Ağlar Arası VLAN matrisi ve zamanlanmış şifreli SFTP/SMB yedekleme (<code>AES-256-GCM</code>). <a href="/tr/manual/vpn-ipsec/">Bölüm 08.4 &rarr;</a></p>
+  </div>
+
+  <div class="dl-news-item">
+    <span class="dl-news-ver">v0.27.1 – v0.31.6</span>
+    <h3>120 sn Safe-Apply, TOTP 2FA ve OPNsense Geçişi</h3>
+    <p>Kilitlenme önleyici 120 saniyelik Safe-Apply otomatik geri alma (CLI üzerinde 180 sn), tarayıcı içi yerel QR kodlu TOTP 2FA, sıfır <code>igb/netmap</code> WAN hat düşmeli güncellemeler ve tek adımda OPNsense <code>config.xml</code> + OpenVPN PKI geçiş sihirbazı. <a href="/tr/manual/migrating-from-opnsense/">Bölüm 12.1 &rarr;</a></p>
+  </div>
+</div>
+
+<div class="dl-license-card">
+  <h2>Kaynak Kodu Durumu ve Lisanslama</h2>
+  <p>Stratum Firewall; denetlenmiş açık kaynak temeller (FreeBSD 15.1, <code>pf</code>, OpenZFS, Suricata, Unbound, WireGuard, strongSwan, <code>nDPI</code>) üzerinde çalışır ve <strong>yıllık 0 $ maliyetle</strong>, kullanıcı, cihaz veya tünel sınırı olmadan tamamen ücretsiz dağıtılır. Çekirdek FastAPI yönetim paneli kaynak ağacı <code>v1.0</code> öncesi geliştirme sürecinde özel depoda tutulmakta olup kullanım kılavuzu, sürüm notları ve hata bildirimleri GitHub üzerinde herkese açıktır.</p>
+  <div class="dl-license-actions">
+    <a href="https://github.com/kaanozkan-81/stratum-panel" target="_blank" rel="noopener" class="dl-link-btn-dark">GitHub'da İncele &rarr;</a>
+    <a href="/tr/manual/" class="dl-link-btn-light">Kullanım Kılavuzu (47 Bölüm)</a>
+    <a href="/tr/resources/changelog/" class="dl-link-btn-light">Tüm Sürüm Notları</a>
+    <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="dl-link-btn-light">Canlı Demo'yu Dene</a>
+  </div>
+</div>
 </div>
