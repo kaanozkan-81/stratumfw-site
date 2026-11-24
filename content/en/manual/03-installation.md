@@ -67,13 +67,13 @@ Always check that the download is complete and unmodified. Compare the result wi
 
 ```bash
 # Linux
-sha256sum stratum-fw-0.36.1-amd64.img
+sha256sum stratum-fw-0.39.5-amd64.img
 
 # macOS / FreeBSD
-shasum -a 256 stratum-fw-0.36.1-amd64.img
+shasum -a 256 stratum-fw-0.39.5-amd64.img
 
 # Windows (PowerShell)
-Get-FileHash .\stratum-fw-0.36.1-amd64.img -Algorithm SHA256
+Get-FileHash .\stratum-fw-0.39.5-amd64.img -Algorithm SHA256
 ```
 
 If the values differ, download the file again. Never install from an image whose checksum does not match.
@@ -87,14 +87,14 @@ Everything on the stick is erased.
   erases that disk):
 
 ```bash
-sudo dd if=stratum-fw-0.36.1-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
+sudo dd if=stratum-fw-0.39.5-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
 ```
 
 - **macOS command line** - find the stick with `diskutil list`, then:
 
 ```bash
 diskutil unmountDisk /dev/diskN
-sudo dd if=stratum-fw-0.36.1-amd64.img of=/dev/rdiskN bs=4m
+sudo dd if=stratum-fw-0.39.5-amd64.img of=/dev/rdiskN bs=4m
 ```
 
 ## Connect to the console

@@ -37,4 +37,4 @@ Yöneticiler anahtar kelime yakalama davranışını iki farklı modda çalışt
 
 ### `v0.39.5` Sürümüne Yükseltin
 
-Mevcut kurulumlarınızı **`System > Update`** (`stratum-update run`) üzerinden OpenZFS Önyükleme Ortamı güvencesiyle tek tıkla `v0.39.5` sürümüne yükseltebilir, güncellenen [Bölüm 06.6 Web Filtresi Kılavuzunu](/tr/manual/firewall-web-filter/) inceleyebilir, kurulum medyasını [İndir](/tr/download/) sayfasından çekebilir ve arayüzü [Canlı Demo](https://demo.stratumfw.com) üzerinde deneyebilirsiniz.
+Mevcut kurulumlarınızı **`System > Update`** (`stratum-update run`) üzerinden OpenZFS Önyükleme Ortamı güvencesiyle tek tıkla `v0.39.5` sürümüne yükseltebilir, güncellenen [Bölüm 06.6 Web Filtresi Kılavuzunu](/tr/manual/firewall-web-filter/) inceleyebilir, yeni `v0.39.5` kurulum imajlarını (`.iso` ve `.img`) [İndir](/tr/download/) sayfasından indirebilir ve arayüzü [Canlı Demo](https://demo.stratumfw.com) üzerinde deneyebilirsiniz.

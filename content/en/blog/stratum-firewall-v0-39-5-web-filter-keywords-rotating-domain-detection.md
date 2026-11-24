@@ -37,4 +37,4 @@ Administrators can tune keyword enforcement to match their confidence in each wo
 
 ### Upgrade to `v0.39.5`
 
-Upgrade any Stratum Firewall appliance in one click via **`System > Update`** (`stratum-update run`) with automatic OpenZFS Boot Environment rollback safety, explore [Chapter 06.6 in the User Manual](/manual/firewall-web-filter/), download installer images on [Download](/download/), or test the panel in the [Live Demo](https://demo.stratumfw.com).
+Upgrade any Stratum Firewall appliance in one click via **`System > Update`** (`stratum-update run`) with automatic OpenZFS Boot Environment rollback safety, explore [Chapter 06.6 in the User Manual](/manual/firewall-web-filter/), download the new `v0.39.5` installer images (`.iso` & `.img`) on [Download](/download/), or test the panel in the [Live Demo](https://demo.stratumfw.com).

@@ -51,13 +51,13 @@ Her iki imaj da aynı sistemi içerir ve hem ekran + klavye ile **hem de** seri 
 
 ```bash
 # Linux
-sha256sum stratum-fw-0.36.1-amd64.img
+sha256sum stratum-fw-0.39.5-amd64.img
 
 # macOS / FreeBSD
-shasum -a 256 stratum-fw-0.36.1-amd64.img
+shasum -a 256 stratum-fw-0.39.5-amd64.img
 
 # Windows (PowerShell)
-Get-FileHash .\stratum-fw-0.36.1-amd64.img -Algorithm SHA256
+Get-FileHash .\stratum-fw-0.39.5-amd64.img -Algorithm SHA256
 ```
 
 Değerler uyuşmuyorsa dosyayı yeniden indirin. Özeti (checksum) eşleşmeyen bir imajdan asla kurulum yapmayın.
@@ -70,14 +70,14 @@ Bellekteki tüm veriler silinir.
 - **Linux komut satırı** - `/dev/sdX` yerine kendi USB belleğinizin adını yazın (`lsblk` ile kontrol edin; yanlış aygıtı seçmek o diski siler):
 
 ```bash
-sudo dd if=stratum-fw-0.36.1-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
+sudo dd if=stratum-fw-0.39.5-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
 ```
 
 - **macOS komut satırı** - belleği `diskutil list` ile bulun, ardından:
 
 ```bash
 diskutil unmountDisk /dev/diskN
-sudo dd if=stratum-fw-0.36.1-amd64.img of=/dev/rdiskN bs=4m
+sudo dd if=stratum-fw-0.39.5-amd64.img of=/dev/rdiskN bs=4m
 ```
 
 ## Konsola bağlanma
