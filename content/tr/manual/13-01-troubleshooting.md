@@ -51,7 +51,7 @@ Güvenlik duvarından dışarıya ve istemciye doğru sırasıyla kontrol edin:
 | :--- | :--- |
 | Güvenlik duvarının kendisi dahil hiçbir ad çözülmüyor | [**Services > Service Status**](/tr/manual/services-service-status/): DNS çözümleyici çalışıyor mu? [**Services > DNS Resolver**](/tr/manual/services-dns-resolver/): üst DNS sunucuları erişilebilir mi (ping atın)? *Resolver* modunda WAN hattının internetteki kök DNS sunucularına çıkışına izin verilmelidir. |
 | Güvenlik duvarı çözüyor ama cihazlar çözemiyor | Cihazlar DNS sunucusu olarak güvenlik duvarını almalıdır ([**Services > DHCP Server**](/tr/manual/services-dhcp-server/): DNS servers alanı boş). Arayüz kuralları güvenlik duvarına DNS (port 53) izni vermelidir. Alt yönlendirici arkasındaki ağlara ([**Interfaces > Routes**](/tr/manual/interfaces-routes/)) Unbound henüz doğrudan yanıt vermez - bu ağlara şimdilik ayrı DNS sunucusu tanımlayın. |
-| Yalnızca tek bir site çözülmüyor | [**Firewall > Blocklists**](/tr/manual/firewall-blocklists/) ve [**Firewall > Web Filter**](/tr/manual/firewall-web-filter/) sayfalarındaki sorgulama araçlarıyla alan adının hangi liste veya kategori tarafından engellendiğini kontrol edin. |
+| Yalnızca tek bir site çözülmüyor | [**Firewall > Blocklists**](/tr/manual/firewall-blocklists/) ve [**Firewall > Web Filter**](/tr/manual/firewall-web-filter/) (**Keywords** / *Your own list* dahil) sayfalarındaki sorgulama araçlarıyla alan adının hangi liste veya kategori tarafından engellendiğini kontrol edin. Yanıt `198.18.0.1` dönüyorsa bir [**Uygulama Kontrolü**](/tr/manual/firewall-application-control/#engelleme-sayfası-block-page) kuralı engelleme sayfasını gösteriyordur. |
 | Yerel iç adlar çözülmüyor | [**Services > DNS Resolver**](/tr/manual/services-dns-resolver/): *host overrides* ve yerel alan adı (`Local domain`); Active Directory için etki alanı denetleyicisine *domain override* ekleyin. |
 | Değişiklikten sonra eski yanıt geliyor | Cihazlar yanıtları birkaç dakika önbellekte tutar - Windows'ta `ipconfig /flushdns` çalıştırın. |
 
@@ -80,9 +80,9 @@ Süresi içinde **Keep changes** düğmesine tıklanmamıştır - ya da yaptığ
 
 ## Bir web sitesi veya uygulama engelleniyor
 
-1. Sitenin alan adıyla **Firewall > Web Filter > Check a site** ve **Firewall > Blocklists > Check a domain** araçlarını çalıştırın: hangi kategori veya liste engelliyor?
-2. İlgili sayfadan istisna (*Exception* / *Allow list*) ekleyin ya da o kategoriyi/listeyi kapatın.
-3. **Firewall Log**: bağlantı bir IP engelleme listesi veya güvenlik duvarı kuralı tarafından mı durduruluyor?
+1. Sitenin alan adıyla [**Firewall > Web Filter**](/tr/manual/firewall-web-filter/) (**Check a site** ve **Keywords** sekmesi) ile [**Firewall > Blocklists**](/tr/manual/firewall-blocklists/) sorgulama araçlarını çalıştırın: hangi kategori, anahtar kelime eşleşmesi (*Your own list*) veya DNS listesi engelliyor? İlgili sayfadan istisna (*Exception* / *Allow list*) ekleyin ya da kategoriyi/listeyi kapatın.
+2. [**Firewall > Application Control > Blocked**](/tr/manual/firewall-application-control/): bir Uygulama Kontrolü kuralı uygulamanın TLS / QUIC el sıkışmasını mı kesiyor ya da `198.18.0.1` engelleme sayfasına mı yönlendiriyor? Kurala cihaz istisnası ekleyin veya kuralı **Monitor only** kipine alın. `https://` sitelerde engelleme sayfası yerine sertifika uyarısı çıkıyorsa istemciye **Block Page CA** sertifikasını yükleyin ([**System > Certificates**](/tr/manual/system-certificates/#block-page-ca)).
+3. [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/): bağlantı bir IP engelleme listesi veya güvenlik duvarı kuralı tarafından mı durduruluyor?
 4. [**Services > Intrusion Detection > Alerts**](/tr/manual/services-intrusion-detection/): engelleme modundaki bir arayüzde Suricata mı düşürüyor? Yanlış pozitifse ilgili kuralda **Disable rule** kullanın.
 
 ## Güvenlik duvarı veya internet yavaş

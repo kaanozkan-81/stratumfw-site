@@ -42,6 +42,7 @@ Panelin altında iyi bilinen, kendini kanıtlamış bileşenleriyle **FreeBSD 15
 | Uzaktan erişim VPN | **OpenVPN** ve çekirdek **WireGuard** |
 | Noktadan noktaya (Site-to-site) VPN | **IPsec** (strongSwan) ve **WireGuard** |
 | Saldırı tespit ve önleme | **Suricata** |
+| Uygulama kontrolü ve DPI | **stratum-dpi** (FreeBSD Capsicum kum havuzunda nDPI) |
 | PPPoE | **mpd5** |
 | Web paneli | Python (FastAPI) uygulamasının önünde **nginx** |
 
@@ -96,7 +97,7 @@ Konsoldan `stratum-config apply` komutuyla uygulama yaptığınızda süre 180 s
 
 Bazı ayarlar yalnızca panelin kendisini ilgilendirir veya zamanlanmış görev olarak çalışır; bunlar Apply gerektirmeden kaydedildiği anda devreye girer: oturum zaman aşımı ve giriş bildirimi, bildirim kanalları, otomatik yedeklemeler, MCP erişimi, engelleme listeleri ile Web Filtresi ve saldırı tespit sisteminin güncelleme zamanlamaları, ayrıca saldırı tespit kategorileri ve devre dışı bırakılan kurallar. **Discard** bu ayarlara dokunmaz.
 
-Aynı durum operasyonel işlemler ve hesap listeleri için de geçerlidir: açık bağlantıları sonlandırma, captive portal cihaz bağlantısını kesme, captive portal kullanıcı hesapları ve logoları. Bu şekilde çalışan sayfalar ilgili ayarın yanında bunu açıkça belirtir.
+Aynı durum operasyonel işlemler ve hesap listeleri için de geçerlidir: açık bağlantıları sonlandırma, captive portal cihaz bağlantısını kesme, captive portal kullanıcı hesapları ve logoları, Uygulama Kontrolü engelleme sayfası ayarları ile Web Filtresi istisnaları ve anahtar kelime aksiyonları. Bu şekilde çalışan sayfalar ilgili ayarın yanında bunu açıkça belirtir.
 
 <span id="the-panel-at-a-glance"></span>
 ## Bir bakışta panel
@@ -111,7 +112,7 @@ Soldaki **menü** yedi bölümden oluşur:
 | :--- | :--- |
 | **Overview** | **Dashboard**: kendi düzenlediğiniz panellerle güvenlik duvarının genel durumu. |
 | **Interfaces** | Ağ portları ve rolleri, VLAN'lar, arayüz grupları, ağ geçitleri ve çoklu WAN, sanal IP'ler, statik rotalar. |
-| **Firewall** | Kurallar, NAT, takma adlar (aliases), zamanlamalar, IP ve DNS engelleme listeleri, Web Filtresi, bant genişliği sınırları (Shaper). |
+| **Firewall** | Kurallar, NAT, takma adlar (aliases), zamanlamalar, IP ve DNS engelleme listeleri, Web Filtresi, bant genişliği sınırları (Shaper), Uygulama Kontrolü (Application Control). |
 | **Services** | Servis durumları, DHCP sunucusu, DNS çözümleyici, NTP, saldırı tespit sistemi, captive portal. |
 | **VPN** | OpenVPN, WireGuard, noktadan noktaya WireGuard, IPsec. |
 | **System** | Ayarlar, panel kullanıcıları, sertifikalar, yedekleme, güncelleme, güç yönetimi. |

@@ -47,6 +47,7 @@ Under the panel it is **FreeBSD 15.1** with well-known, proven components:
 | Remote-access VPN | **OpenVPN** and kernel **WireGuard** |
 | Site-to-site VPN | **IPsec** (strongSwan) and **WireGuard** |
 | Intrusion detection and prevention | **Suricata** |
+| Application control and DPI | **stratum-dpi** (nDPI in a FreeBSD Capsicum sandbox) |
 | PPPoE | **mpd5** |
 | The web panel | **nginx** in front of a Python (FastAPI) application |
 
@@ -123,7 +124,7 @@ update schedules of the blocklists, the Web Filter and intrusion detection, and 
 categories and switched-off rules. **Discard** leaves them as they are.
 
 The same goes for operational actions and account lists - closing connections, disconnecting a captive portal
-device, captive portal user accounts and logos. Pages that work this way say so next to the setting.
+device, captive portal user accounts and logos, Application Control block page settings, and Web Filter exceptions and keyword actions. Pages that work this way say so next to the setting.
 
 ## The panel at a glance
 
@@ -139,7 +140,7 @@ later under **System > Certificates**.
 | :--- | :--- |
 | **Overview** | The **Dashboard**: the state of the firewall in panels you arrange yourself. |
 | **Interfaces** | Network ports and their roles, VLANs, interface groups, gateways and multi-WAN, virtual IPs, static routes. |
-| **Firewall** | Rules, NAT, aliases, schedules, IP and DNS blocklists, Web Filter, bandwidth limits (Shaper). |
+| **Firewall** | Rules, NAT, aliases, schedules, IP and DNS blocklists, Web Filter, bandwidth limits (Shaper), Application Control. |
 | **Services** | Service status, DHCP server, DNS resolver, NTP, intrusion detection, captive portal. |
 | **VPN** | OpenVPN, WireGuard, WireGuard site-to-site, IPsec. |
 | **System** | Settings, panel users, certificates, backup, update, power. |

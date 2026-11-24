@@ -1,7 +1,7 @@
 ---
 title: "Sistem > Yedekleme"
 seo_title: "09.7 Sistem > Yedekleme (System > Backup) — Stratum FW Kullanım Kılavuzu"
-description: "Kullanıcılar ve gizli anahtarlarla birlikte yedek indirme, AES-256 şifreleme, geri yükleme, satır satır fark (diff) gösteren yapılandırma geçmişi, OPNsense'ten içe aktarma ve SFTP sunucusuna otomatik şifreli yedekleme."
+description: "Kullanıcılar ve gizli anahtarlarla birlikte yedek indirme, AES-256 şifreleme, geri yükleme, satır satır fark (diff) gösteren yapılandırma geçmişi, OPNsense'ten içe aktarma ve SFTP veya SMB sunucusuna otomatik şifreli yedekleme."
 weight: 907
 chapter_num: "09.7"
 url: "/tr/manual/system-backup/"
@@ -10,7 +10,7 @@ aliases:
 translationKey: "manual-09-07-system-backup"
 ---
 
-**System > Backup** yapılandırmanızı üç farklı yolla güvende tutar: bilgisayarınıza indirdiğiniz **yedek dosyası**, doğrudan güvenlik duvarı üzerindeki **yapılandırma geçmişi** ve **bir sunucuya otomatik şifreli yedekleme**.
+**System > Backup** yapılandırmanızı üç farklı yolla güvende tutar: bilgisayarınıza indirdiğiniz **yedek dosyası**, doğrudan güvenlik duvarı üzerindeki **yapılandırma geçmişi** ve **bir sunucuya (SFTP veya SMB) otomatik şifreli yedekleme**.
 
 ![System > Backup](/images/manual/backup.png)
 
@@ -22,7 +22,7 @@ Tüm yapılandırmayı tek bir dosyada toplar.
 | :--- | :--- |
 | **Include panel users** | Kullanıcı adları, roller ve parola özetleri. |
 | **Encrypt with a password (AES-256)** | Dosya yalnızca belirlediğiniz parolayla (en az 12 karakter) açılabilir. |
-| **Include certificates and secrets** | (Yalnızca şifreli yedeklerde.) OpenVPN CA ve kullanıcı sertifikaları, WireGuard anahtarları, bildirim, SNMP ve MCP gizli bilgileri ile panel sertifikası. Bu seçenekle alınan yedek sayesinde yeni bir güvenlik duvarı **VPN profillerini yeniden dağıtmaya gerek kalmadan** görevi devralır. |
+| **Include certificates and secrets** | (Yalnızca şifreli yedeklerde.) OpenVPN CA ve kullanıcı sertifikaları, WireGuard anahtarları, Block Page CA, bildirim, SNMP, Yapay Zeka Asistanı ve MCP gizli bilgileri ile panel sertifikası. Bu seçenekle alınan yedek sayesinde yeni bir güvenlik duvarı **VPN profillerini yeniden dağıtmaya gerek kalmadan** görevi devralır. |
 
 **Download** düğmesine tıklayın. Şifresiz yedek `.json`, şifreli yedek ise `.stbk` uzantılıdır.
 
@@ -47,7 +47,7 @@ Sertifika ve gizli bilgileri içermeyen bir yedek bunları geri yükleyemez; ayr
 
 ## Yapılandırma geçmişi (Configuration history)
 
-Yapılandırma her kaydedildiğinde bir kopyası saklanır (en yeni 30 kayıt). Her kayıt için **Saved** zamanı, **File**, **Size** ve şu işlemler sunulur:
+Yapılandırma her kaydedildiğinde bir kopyası saklanır (en yeni 30 kayıt; kural listesindeki ayırıcıları eklemek, yeniden adlandırmak veya taşımak bu 30 yedek hakkını tüketmez). Her kayıt için **Saved** zamanı, **File**, **Size** ve şu işlemler sunulur:
 
 - **Diff** mevcut yapılandırmayla arasındaki farkları satır satır gösterir;
 - **Download** o kopyayı dosya olarak indirir;
@@ -57,36 +57,36 @@ Günler sonra fark edilen hatalı bir değişiklikten geri dönmenin en hızlı 
 
 ## Bir sunucuya otomatik yedekleme (Automatic backup to a server)
 
-**Automatic backup to a server > Configure** belirlediğiniz takvimde **SFTP** üzerinden şifreli yedek yükler - bir NAS cihazına (Synology, QNAP, TrueNAS) ya da Linux veya Windows OpenSSH sunucusuna.
+**Automatic backup to a server > Configure** belirlediğiniz takvimde **SFTP** (Synology, QNAP, TrueNAS gibi NAS cihazlarına ya da Linux / Windows OpenSSH sunucularına) veya **SMB** (Windows Server, Samba ya da NAS dosya paylaşımlarına) üzerinden şifreli yedek yükler.
 
 ![Otomatik yedekleme](/images/manual/backup-auto.png)
 
-### 1. Güvenlik duvarının SSH anahtarı
+### 1. Sunucu protokolü ve kimlik doğrulama
 
-Güvenlik duvarı uzak sunucuya kendi SSH anahtarıyla bağlanır - sunucu parolası tutulmaz.
-
-1. **Create SSH key** düğmesine tıklayın.
-2. Gösterilen açık anahtar satırını **Copy** ile kopyalayın ve uzak sunucudaki yedekleme kullanıcısının `~/.ssh/authorized_keys` dosyasına ekleyin.
-
-İlk bağlantıda uzak sunucunun ana makine anahtarı (*host key*) kaydedilir; sonraki tüm bağlantılarda bu anahtarın eşleşmesi zorunludur - sunucunuzu taklit eden sahte hedeflere karşı koruma sağlar. Uzak sunucu yeniden kurulduysa **Forget the host key** ile eski kaydı sıfırlayın.
+- **SFTP (SSH anahtarı):** Güvenlik duvarı uzak sunucuya kendi SSH anahtarıyla bağlanır - sunucu parolası tutulmaz.
+  1. **Create SSH key** düğmesine tıklayın.
+  2. Gösterilen açık anahtar satırını **Copy** ile kopyalayın ve SFTP sunucusundaki yedekleme kullanıcısının `~/.ssh/authorized_keys` dosyasına ekleyin.
+  3. İlk bağlantıda uzak sunucunun ana makine anahtarı (*host key*) kaydedilir ve sonraki bağlantılarda doğrulanır. Uzak sunucu yeniden kurulduysa **Forget the host key** ile eski kaydı sıfırlayın.
+- **SMB (Windows / NAS paylaşımı):** Paylaşımın **User name**, **Password** (yalnızca `root` erişimli dosyada saklanır, tarayıcıya geri döndürülmez) ve isteğe bağlı **Domain / Workgroup** bilgileriyle doğrudan SMBv2/SMBv3 paylaşımına (`//sunucu/paylasim`) bağlanır.
 
 ### 2. Ayarlar
 
 | Alan | Anlamı |
 | :--- | :--- |
-| **Upload an encrypted backup to the server on a schedule** | Otomatik yedeklemeyi etkinleştirir. |
-| **Server (SFTP)**, **Port** | Sunucu IP adresi veya adı ve port (varsayılan `22`). |
-| **User name** | Uzak sunucudaki kullanıcı adı. |
-| **Folder** | Kullanıcının ev dizinine göreli veya tam dizin yolu. Klasör sunucuda mevcut olmalıdır. |
+| **Upload an encrypted backup to the server on a schedule** | Zamanlanmış otomatik yedeklemeyi etkinleştirir. |
+| **Protocol** | **SFTP** (SSH anahtarı) veya **SMB** (Windows / Samba / NAS dosya paylaşımı). |
+| **Server**, **Port / Share** | Sunucu IP adresi veya adı; SFTP için port (varsayılan `22`), SMB için paylaşım adı (*Share*). |
+| **User name** (ve SMB için **Password**) | SFTP sunucusundaki veya SMB paylaşımındaki kullanıcı hesabı. |
+| **Folder** ve **Browse…** | Hedef klasör yolu. **Browse…** düğmesiyle uzak SFTP veya SMB sunucusundaki dizinleri doğrudan sayfa içinden görüntüleyip klasör seçebilirsiniz. |
 | **Schedule**, **On**, **At** | Saatlik, 6 veya 12 saatte bir, günlük, haftalık veya **Off (manual only)**; gün ve saat. |
 | **Keep on the server** | Uzak sunucuda tutulacak en yeni yedek sayısı (`1`-`365`, varsayılan `30`); daha eski yedekler otomatik silinir. |
 | **Include panel users**, **Include certificates and secrets** | Manuel indirmedekiyle aynıdır; varsayılan olarak her ikisi de açıktır. |
-| **Encryption password** | En az 12 karakter. **Bu parolayı ayrıca güvenli bir yerde mutlaka saklayın.** |
+| **Encryption password** | En az 12 karakter (`AES-256-GCM`). **Bu parolayı ayrıca güvenli bir yerde mutlaka saklayın.** |
 
-**Test connection** sunucuya giriş yapıp hedef klasörü denetler. **Back up now** anında bir yedek yükler. **Save** anında devreye girer (Apply gerekmez).
+**Test connection** SFTP veya SMB sunucusuna giriş yapıp hedef klasöre yazma yetkisini doğrular. **Back up now** anında bir yedek yükler. **Save** anında devreye girer (Apply gerekmez).
 
 ### Nasıl çalışır?
 
 Uzak sunucu her zaman yalnızca `stratum-<hostname>-<tarih>.stbk` adında **AES-256-GCM** ile şifrelenmiş dosyalar görür. İhtiyaç halinde bu dosyalardan herhangi birini aynı parolayla **System > Backup** üzerinden - aynı cihaza veya yeni bir güvenlik duvarına - geri yükleyebilirsiniz.
 
-**Last backup** son yedeklemenin zamanını ve sonucunu gösterir. Başarısız olan bir yedekleme bir sonraki saat başında yeniden denenir ve [**System > Settings > Notifications**](/tr/manual/system-settings-logging-notifications/) üzerinden bildirilir.
+**Last backup** son yedeklemenin zamanını ve sonucunu gösterir ([kontrol panelindeki](/tr/manual/dashboard/) **Backup** kartında da yer alır). Başarısız olan bir yedekleme bir sonraki saat başında yeniden denenir ve [**System > Settings > Notifications**](/tr/manual/system-settings-logging-notifications/) üzerinden bildirilir.

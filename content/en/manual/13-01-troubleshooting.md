@@ -56,7 +56,7 @@ Work from the firewall outwards:
 | :--- | :--- |
 | No name resolves, from the firewall either | [**Services > Service Status**](/manual/services-service-status/): the resolver runs? [**Services > DNS Resolver**](/manual/services-dns-resolver/): upstream servers reachable (ping them)? With *Resolver* mode, the WAN must allow DNS to the internet's servers. |
 | The firewall resolves, devices do not | The devices use the firewall as DNS server ([**Services > DHCP Server**](/manual/services-dhcp-server/): DNS servers empty). The interface's rules allow DNS to the firewall. Networks behind a router ([**Interfaces > Routes**](/manual/interfaces-routes/)) are not answered by Unbound yet - give them another DNS server for now. |
-| One site does not resolve | [**Firewall > Blocklists**](/manual/firewall-blocklists/) and [**Firewall > Web Filter**](/manual/firewall-web-filter/) each have a check: is the name blocked, and by which list or category? |
+| One site does not resolve | [**Firewall > Blocklists**](/manual/firewall-blocklists/) and [**Firewall > Web Filter**](/manual/firewall-web-filter/) (including **Keywords** / *Your own list*) each have a check: is the name blocked, and by which list or category? If it resolves to `198.18.0.1`, an [**Application Control**](/manual/firewall-application-control/#block-page) rule is showing the block page. |
 | Internal names do not resolve | [**Services > DNS Resolver**](/manual/services-dns-resolver/): host overrides, the local domain; for Active Directory a domain override to the domain controller. |
 | Old answer after a change | Devices cache answers for minutes - `ipconfig /flushdns` on Windows. |
 
@@ -90,12 +90,10 @@ See the troubleshooting tables in [**VPN > OpenVPN**](/manual/vpn-openvpn/), [**
 
 ## A site or an app is blocked
 
-1. **Firewall > Web Filter > check** and **Firewall > Blocklists > check** with the site's name: which category or
-   list blocks it?
-2. Add an exception there, or switch off the category or list.
-3. **Firewall Log**: is the connection blocked by an IP blocklist or a rule?
-4. [**Services > Intrusion Detection > Alerts**](/manual/services-intrusion-detection/): blocked by Suricata on a blocking interface? Disable the rule if it is
-   a false positive.
+1. [**Firewall > Web Filter**](/manual/firewall-web-filter/) (**Check a site** and the **Keywords** tab) and [**Firewall > Blocklists**](/manual/firewall-blocklists/) (**Check**): which category, keyword match (*Your own list*) or DNS list blocks the domain? Add an **Exception** (or allow-list entry), or switch off the category or list.
+2. [**Firewall > Application Control > Blocked**](/manual/firewall-application-control/): is an Application Control rule cutting the application's TLS / QUIC handshake or showing the `198.18.0.1` block page? Add the device as an exception on the rule, or switch the rule to **Monitor only**. If `https://` shows a certificate warning instead of the block page, install the **Block Page CA** ([**System > Certificates**](/manual/system-certificates/#block-page-ca)).
+3. [**Diagnostics > Firewall Log**](/manual/diagnostics-firewall-log/): is the connection blocked by an IP blocklist or a firewall rule?
+4. [**Services > Intrusion Detection > Alerts**](/manual/services-intrusion-detection/): blocked by Suricata on a blocking interface? Disable the rule if it is a false positive.
 
 ## The firewall is slow
 

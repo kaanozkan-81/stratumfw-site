@@ -45,8 +45,9 @@ panel's title bar opens it.
 | **Gateways** | The gateway monitor: latency and loss of every gateway, and which one carries the default route when failover is set up. |
 | **Bandwidth limits** | The download and upload limits per network (Firewall > Shaper) with the current rate. |
 | **Blocklists** | DNS and IP blocks of the last 24 hours, per list; administrators also see the most blocked domains and addresses. |
+| **Applications** | The top applications and categories of the last hour ([**Firewall > Application Control**](/manual/firewall-application-control/)). |
 | **Captive portal** | Devices signed in per zone, the latest sign-ins and the service state; a warning when the RADIUS server does not confirm accounting. |
-| **Backup** | The last automatic backup to your server. *Administrators only.* |
+| **Backup** | The last automatic SFTP or SMB backup to your server. *Administrators only.* |
 | **Web Activity** | The most visited sites and the active devices of today. *Administrators only.* |
 
 A new account starts with the default layout: System, WAN, the six small gauges (CPU, Memory, Disk,

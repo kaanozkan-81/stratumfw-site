@@ -73,7 +73,7 @@ Each page that downloads lists or runs a service has a tool behind it. Their `st
 | `stratum-webfilter` | `update [--force]`, `check <domain>` - its categories and which policies block it, `status`. |
 | `stratum-ids` | `update [--force]` - download and load the ET Open rules, `build`, `status`. |
 | `stratum-openvpn` | `status` - connected clients; `profile <user>` - print a user's `.ovpn`; `revoke <user>`. |
-| `stratum-backup` | `run` - automatic backup now; `test` - test the SFTP connection; `list` - the backups on the server. |
+| `stratum-backup` | `run` - automatic backup now; `test` - test the SFTP or SMB connection; `list` - the backups on the server. |
 | `stratum-notify` | `test telegram` or `test email`. |
 | `stratum-gwmon status` | The gateway measurements (latency, loss, state). |
 | `stratum-menu` | The console menu; `--setup` runs the first-boot wizard again. |
@@ -101,6 +101,7 @@ Stratum's services are ordinary FreeBSD services:
 | `stratum_webact` | Web Activity collector |
 | `stratum_ipbl`, `stratum_ids` | IP blocklists, intrusion detection |
 | `stratum_wireguard`, `stratum_wgs2s`, `stratum_ipsec` | WireGuard and IPsec |
+| `stratum_appd` | Application Control collector (`stratum-dpi`) |
 | `stratum_captive` | Captive portal |
 | `stratum_netextra` | Virtual IPs and static routes |
 

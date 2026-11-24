@@ -12,7 +12,7 @@ translationKey: "manual-07-03-services-dns-resolver"
 
 Ağlarınızdaki cihazlar alan adlarını güvenlik duvarına sorar; güvenlik duvarı ise ya kendi yerel kayıtlarından yanıt verir ya da internete sorar. **Services > DNS Resolver** bu sürecin nasıl işleyeceğini yönetir.
 
-DNS yapılandırmasını doğru kurgulamak göründüğünden çok daha önemlidir: DNS engelleme listeleri, Web Filtresi ve Web Activity görünürlüğünün tamamı güvenlik duvarının çözümleyicisi üzerinden çalışır; başka bir DNS sunucusuna soru soran bir cihaz bu üç katmanın da dışında kalır.
+DNS yapılandırmasını doğru kurgulamak göründüğünden çok daha önemlidir: DNS engelleme listeleri, Web Filtresi (**Keywords** dahil), [**Uygulama Kontrolü**](/tr/manual/firewall-application-control/) engelleme sayfası ve Web Activity görünürlüğünün tamamı güvenlik duvarının çözümleyicisi üzerinden çalışır; başka bir DNS sunucusuna soru soran bir cihaz DNS tabanlı filtrelerin ve engelleme sayfasının dışında kalır.
 
 ![Services > DNS Resolver](/images/manual/dns.png)
 
@@ -32,7 +32,7 @@ DNS yapılandırmasını doğru kurgulamak göründüğünden çok daha önemlid
 | Özellik | dnsmasq | Unbound |
 | :--- | :--- | :--- |
 | İç ağlar için DNS ve yerel cihaz adları | evet | evet |
-| DNS engelleme listeleri, Web Filtresi, Web Activity | hayır | **evet** |
+| DNS engelleme listeleri, Web Filtresi ve Keywords, Uygulama Kontrolü engelleme sayfası, Web Activity | hayır | **evet** |
 | DNSSEC doğrulaması | hayır | evet |
 | Doğrudan kök sunuculardan çözümleme (aracı DNS sağlayıcısız) | hayır | evet |
 | Bellek kullanımı | çok düşük | daha yüksek (aktif engelleme listeleri ve Web Filtresi kategorileriyle artar) |

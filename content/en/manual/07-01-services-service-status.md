@@ -36,9 +36,10 @@ Services that are switched off in their settings are hidden; **Show switched-off
 | **Packet filter** | Firewall rules and NAT (pf). Restart reloads the rules. | Restart |
 | **Firewall logging** | pflogd - writes the packets that rules log. | Start, stop, restart |
 | **DHCP server** | dnsmasq - DHCP, and DNS when Unbound is not used. | Start, stop, restart |
-| **DNS resolver** | Unbound - DNS, DNS blocklists, Web Filter. | Start, stop, restart |
+| **DNS resolver** | Unbound - DNS, DNS blocklists, Web Filter, Keywords and Application Control block page redirects. | Start, stop, restart |
 | **Time server** | ntpd. | Start, stop, restart |
 | **Intrusion detection** | Suricata (one or two engines). | Start, stop, restart |
+| **Application Control** | `stratum-appd` (`stratum-dpi` in a Capsicum sandbox) and the unprivileged block page server (`_stratumbp`) ([**Firewall > Application Control**](/manual/firewall-application-control/)). | Start, stop, restart |
 | **OpenVPN** | The OpenVPN server. | Start, stop, restart |
 | **WireGuard** | The WireGuard remote-access interface `wg0`. | Start, stop, restart |
 | **IPsec** | strongSwan (charon) - site-to-site tunnels. | Start, stop, restart |
@@ -47,7 +48,7 @@ Services that are switched off in their settings are hidden; **Show switched-off
 | **Gateway monitor** | Gateway status, failover and policy routing ([**Interfaces > Gateways**](/manual/interfaces-gateways/)). | Start, stop, restart |
 | **Firewall log collector** | Feeds [**Diagnostics > Firewall Log**](/manual/diagnostics-firewall-log/). | Start, stop, restart |
 | **Traffic collector** | Feeds [**Diagnostics > Traffic Graphs**](/manual/diagnostics-traffic-graphs/). | Start, stop, restart |
-| **Web Activity collector** | Feeds [**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/). | Start, stop, restart |
+| **Web Activity collector** | Feeds [**Diagnostics > Web Activity**](/manual/diagnostics-web-activity/), or watches DNS queries for [**Web Filter > Keywords**](/manual/firewall-web-filter/) without recording history when Web Activity is off. | Start, stop, restart |
 | **SNMP** | The SNMP agent (bsnmpd). | Start, stop, restart |
 | **SSH** | Open sessions stay connected on a restart. | Restart |
 | **Web server** | nginx. The page reloads after a restart. | Restart |

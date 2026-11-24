@@ -42,7 +42,7 @@ The page follows the progress by itself - you may close it and come back. **Show
 
 **While an update runs, do not restart or power off the firewall.** Routing and filtering keep running during an
 update; the panel and the Stratum services restart for a moment. Suricata is restarted only when it changed,
-because a restart briefly interrupts the traffic of blocking ports.
+because a restart briefly interrupts the traffic of blocking ports. When a new version writes some generated service files differently, the update notes *Apply to activate the update's changes* in the log, on the dashboard and as a notification.
 
 > **Development deployment:** a system where Stratum FW was copied on rather than installed as a package says
 > so on this page; updates are disabled there, checking still works.
@@ -87,8 +87,8 @@ configuration cannot be repaired. **Download a backup first** if the configurati
 | Option | Meaning |
 | :--- | :--- |
 | **Keep the panel users** | On: all accounts stay. Off: all users except `admin` are removed, and you set a **new password for "admin"** (at least 12 characters). |
-| **Erase certificates, keys and secrets** | OpenVPN, WireGuard, notifications, SNMP, MCP tokens, backup password and key, panel certificate, configuration history, SSH keys. |
-| **Erase logs and statistics** | Web Activity, intrusion alerts, downloaded lists, traffic counters, firewall and DNS logs. |
+| **Erase certificates, keys and secrets** | OpenVPN, WireGuard, IPsec, RADIUS, AI Assistant, Block Page CA, notifications, SNMP, MCP tokens, backup credentials and SSH key, panel certificate, configuration history, SSH keys. |
+| **Erase logs and statistics** | Web Activity, Application Control usage and blocks, intrusion alerts, downloaded lists, traffic counters, firewall and DNS logs. |
 | **Type the host name to confirm** | The firewall's host name, to make sure you are on the right firewall. |
 
 **Reset and restart**.

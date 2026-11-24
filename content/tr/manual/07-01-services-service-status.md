@@ -34,9 +34,10 @@ Ayarlarında kapatılmış olan servisler varsayılan olarak gizlenir; **Show sw
 | **Packet filter** | Güvenlik duvarı kuralları ve NAT (`pf`). Yeniden başlatıldığında kuralları yeniden yükler. | Restart |
 | **Firewall logging** | `pflogd` - kuralların günlüklediği paketleri diske yazar. | Start, stop, restart |
 | **DHCP server** | `dnsmasq` - DHCP sunucusu ve Unbound kullanılmadığında DNS çözümleyici. | Start, stop, restart |
-| **DNS resolver** | `Unbound` - DNS çözümleme, DNS engelleme listeleri ve Web Filtresi. | Start, stop, restart |
+| **DNS resolver** | `Unbound` - DNS çözümleme, DNS engelleme listeleri, Web Filtresi, Anahtar Kelimeler ve Uygulama Kontrolü engelleme sayfası yönlendirmeleri. | Start, stop, restart |
 | **Time server** | `ntpd` zaman eşitleme servisi. | Start, stop, restart |
 | **Intrusion detection** | Suricata saldırı tespit/önleme motoru (bir veya iki motor). | Start, stop, restart |
+| **Application Control** | Capsicum kum havuzundaki `stratum-appd` (`stratum-dpi`) toplayıcısı ve yetkisiz engelleme sayfası sunucusu (`_stratumbp`) ([**Firewall > Application Control**](/tr/manual/firewall-application-control/)). | Start, stop, restart |
 | **OpenVPN** | OpenVPN sunucusu. | Start, stop, restart |
 | **WireGuard** | Çekirdek WireGuard uzaktan erişim arayüzü (`wg0`). | Start, stop, restart |
 | **IPsec** | `strongSwan` (`charon`) - noktadan noktaya IPsec tünelleri. | Start, stop, restart |
@@ -45,7 +46,7 @@ Ayarlarında kapatılmış olan servisler varsayılan olarak gizlenir; **Show sw
 | **Gateway monitor** | Ağ geçidi durumu, yedekli hat devretme ve politika tabanlı yönlendirme ([**Interfaces > Gateways**](/tr/manual/interfaces-gateways/)). | Start, stop, restart |
 | **Firewall log collector** | [**Diagnostics > Firewall Log**](/tr/manual/diagnostics-firewall-log/) ekranını besler. | Start, stop, restart |
 | **Traffic collector** | [**Diagnostics > Traffic Graphs**](/tr/manual/diagnostics-traffic-graphs/) ekranını besler. | Start, stop, restart |
-| **Web Activity collector** | [**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/) ekranını besler. | Start, stop, restart |
+| **Web Activity collector** | [**Diagnostics > Web Activity**](/tr/manual/diagnostics-web-activity/) ekranını besler; Web Activity kapalıyken yalnızca [**Web Filter > Keywords**](/tr/manual/firewall-web-filter/) eşleşmelerini hiçbir gezinme kaydı tutmadan izler. | Start, stop, restart |
 | **SNMP** | SNMP ajanı (`bsnmpd`). | Start, stop, restart |
 | **SSH** | Yeniden başlatıldığında açık SSH oturumları kopmadan bağlı kalır. | Restart |
 | **Web server** | `nginx`. Yeniden başlatma sonrasında tarayıcı sayfası kendiliğinden yenilenir. | Restart |

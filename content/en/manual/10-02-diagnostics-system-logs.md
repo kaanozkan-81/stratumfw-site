@@ -19,7 +19,7 @@ does not work as expected.
 
 | Tab | File | Contains |
 | :--- | :--- | :--- |
-| **System** | `/var/log/messages` | Everything the system and the services report: interfaces, gateways, VPNs, IPsec, the captive portal, intrusion detection, blocklists, updates ... |
+| **System** | `/var/log/messages` | Everything the system and the services report: interfaces, gateways, VPNs, IPsec, the captive portal, Application Control, intrusion detection, blocklists, updates ... |
 | **DHCP / DNS** | `/var/log/dnsmasq.log` | DHCP leases (which device got which address) and DNS messages. |
 | **PPPoE** | `/var/log/messages` (mpd5 only) | PPPoE connections: sign-in, address received, disconnects. |
 | **NTP** | `/var/log/messages` (ntpd only) | Time synchronisation. |
@@ -45,6 +45,7 @@ Lines with errors (*error*, *failed*, *denied*, *refused* ...) are highlighted r
 | Why is a WAN marked down? | **System** - lines of the gateway monitor |
 | Why does a VPN user not connect? | **Authentication** (OpenVPN sign-in) and **System** (OpenVPN) |
 | Captive portal sign-ins | **System**, program `stratum-captive` |
+| Application Control collector & rules | **System**, program `stratum-appd` |
 
 The AI Assistant can read these logs and explain them ([**Diagnostics > AI Assistant**](/manual/diagnostics-ai-assistant/)).
 

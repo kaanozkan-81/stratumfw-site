@@ -86,4 +86,4 @@ This is the record to answer *"who had 192.168.20.57 on 3 March at 21:15?"*.
 | Who had this address at that time? | **DHCP history**, then the device on **Devices** |
 | Which sites use most lookups in the guest network? | **Sites**, filtered by the network |
 
-To block sites, use [**Firewall > Web Filter**](/manual/firewall-web-filter/) (categories) or [**Firewall > Blocklists**](/manual/firewall-blocklists/) (DNS lists).
+To block sites or applications, use [**Firewall > Web Filter**](/manual/firewall-web-filter/) (categories and **Keywords** — note that **Keywords** works even when Web Activity is switched off, watching DNS queries for keywords without recording any browsing history), [**Firewall > Application Control**](/manual/firewall-application-control/) (per-application and category traffic inspection and blocking), or [**Firewall > Blocklists**](/manual/firewall-blocklists/) (DNS lists).

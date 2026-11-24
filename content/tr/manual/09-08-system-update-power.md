@@ -36,7 +36,7 @@ Güncellemeler hiçbir zaman kendiliğinden kurulmaz: ne zaman kurulacağına si
 
 Sayfa ilerlemeyi kendiliğinden takip eder - sayfayı kapatıp tekrar açsanız bile kaldığı yerden izlemeye devam eder. **Show the full log** tüm ayrıntılı çıktıyı gösterir.
 
-**Güncelleme çalışırken güvenlik duvarını yeniden başlatmayın veya gücünü kesmeyin.** Güncelleme sırasında paket yönlendirme ve filtreleme kesintisiz çalışmaya devam eder; yalnızca yönetim paneli ve Stratum servisleri kısa süreliğine yeniden başlar. Suricata ise engelleme portlarında birkaç saniyelik duraksama yaratmamak için yalnızca Suricata paketinin kendisi değiştiğinde yeniden başlatılır.
+**Güncelleme çalışırken güvenlik duvarını yeniden başlatmayın veya gücünü kesmeyin.** Güncelleme sırasında paket yönlendirme ve filtreleme kesintisiz çalışmaya devam eder; yalnızca yönetim paneli ve Stratum servisleri kısa süreliğine yeniden başlar. Suricata ise engelleme portlarında birkaç saniyelik duraksama yaratmamak için yalnızca Suricata paketinin kendisi değiştiğinde yeniden başlatılır. Yeni sürüm bazı servis yapılandırma dosyalarını farklı üretiyorsa, güncelleme tamamlandığında günlükte, kontrol panelinde ve bildirimlerde *Apply to activate the update's changes* uyarısı gösterilir.
 
 > **Geliştirme kurulumu:** paket olarak kurulmak yerine doğrudan dosya kopyalamayla kurulmuş bir geliştirme ortamında sayfa bunu belirtir; çevrimiçi kurulum orada kapalıdır ancak sürüm kontrolü çalışır.
 
@@ -73,8 +73,8 @@ Güvenlik duvarını yeni kurulmuş bir sistemin başlangıç ayarlarına dönd�
 | Seçenek | Anlamı |
 | :--- | :--- |
 | **Keep the panel users** | Açık: tüm kullanıcı hesapları korunur. Kapalı: `admin` dışındaki tüm hesaplar silinir ve `admin` için **yeni bir parola** (en az 12 karakter) belirlemeniz istenir. |
-| **Erase certificates, keys and secrets** | OpenVPN, WireGuard, bildirimler, SNMP, MCP jetonları, yedekleme parolası ve SSH anahtarı, panel sertifikası, yapılandırma geçmişi ve yetkili SSH anahtarlarını siler. |
-| **Erase logs and statistics** | Web Activity, saldırı tespit uyarıları, indirilmiş engelleme listeleri, trafik sayaçları, güvenlik duvarı ve DNS günlüklerini temizler. |
+| **Erase certificates, keys and secrets** | OpenVPN, WireGuard, IPsec, RADIUS, Yapay Zeka Asistanı, Block Page CA, bildirimler, SNMP, MCP jetonları, yedekleme kimlik bilgileri ve SSH anahtarı, panel sertifikası, yapılandırma geçmişi ve yetkili SSH anahtarlarını siler. |
+| **Erase logs and statistics** | Web Activity, Uygulama Kontrolü kullanım ve engelleme kayıtları, saldırı tespit uyarıları, indirilmiş engelleme listeleri, trafik sayaçları, güvenlik duvarı ve DNS günlüklerini temizler. |
 | **Type the host name to confirm** | Doğru cihazı sıfırladığınızdan emin olmak için güvenlik duvarının sistem adını (`hostname`) yazmanız gerekir. |
 
 **Reset and restart** düğmesine tıklayın.

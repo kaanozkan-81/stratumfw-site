@@ -12,7 +12,7 @@ translationKey: "manual-10-07-diagnostics-ai-assistant"
 
 The AI Assistant answers questions about **this firewall** in your own words - *"what was blocked in the last
 hour, and from where?"*, *"are both WAN connections healthy?"* - with its **real, live state**. It reads the
-firewall with the same read-only tools as the MCP server ([**System > Settings > MCP**](/manual/system-settings-snmp-mcp/)) and **cannot change
+firewall with the same 16 read-only tools as the MCP server ([**System > Settings > MCP**](/manual/system-settings-snmp-mcp/)) and **cannot change
 anything**: when a change is needed, it explains where in the panel and how to make it.
 
 It answers in the language of the question.
@@ -52,6 +52,7 @@ More examples:
 - *Which devices are on the guest network right now?*
 - *Who is connected to the VPN?*
 - *Why can't 192.168.1.50 reach the internet?*
+- *Which applications used the most bandwidth today, and what did Application Control block?*
 - *Which interface was busiest in the last 24 hours?*
 - *What changed in the configuration today?*
 - *How do I forward port 443 to my web server?*

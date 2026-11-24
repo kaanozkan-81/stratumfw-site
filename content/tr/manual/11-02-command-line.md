@@ -66,7 +66,7 @@ Liste indiren veya servis yöneten her sayfanın arkasında bir komut satırı a
 | `stratum-webfilter` | `update [--force]`, `check <alanadı>` - alan adının kategorilerini ve hangi politikaların engellediğini gösterir, `status`. |
 | `stratum-ids` | `update [--force]` - ET Open kurallarını indirip yükler, `build`, `status`. |
 | `stratum-openvpn` | `status` - bağlı istemciler; `profile <kullanıcı>` - kullanıcının `.ovpn` profilini yazdırır; `revoke <kullanıcı>`. |
-| `stratum-backup` | `run` - şimdi otomatik uzak yedek al; `test` - SFTP bağlantısını sına; `list` - sunucudaki yedekleri listele. |
+| `stratum-backup` | `run` - şimdi otomatik uzak yedek al; `test` - SFTP veya SMB bağlantısını sına; `list` - sunucudaki yedekleri listele. |
 | `stratum-notify` | `test telegram` veya `test email`. |
 | `stratum-gwmon status` | Ağ geçidi ölçümleri (gecikme, kayıp, durum). |
 | `stratum-menu` | Konsol menüsü; `--setup` ilk açılış sihirbazını yeniden çalıştırır. |
@@ -94,6 +94,7 @@ Stratum servisleri standart FreeBSD `rc.d` servisleridir:
 | `stratum_webact` | Web Etkinliği (Web Activity) toplayıcısı |
 | `stratum_ipbl`, `stratum_ids` | IP engelleme listeleri ve Suricata saldırı tespit servisi |
 | `stratum_wireguard`, `stratum_wgs2s`, `stratum_ipsec` | Çekirdek WireGuard ve IPsec servisleri |
+| `stratum_appd` | Uygulama Kontrolü toplayıcısı (`stratum-dpi`) |
 | `stratum_captive` | Captive Portal servisi |
 | `stratum_netextra` | Sanal IP'ler (VIP) ve statik rotalar |
 

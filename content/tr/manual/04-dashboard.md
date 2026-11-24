@@ -41,8 +41,9 @@ Sayfa açık kaldığı sürece paneller kendiliğinden yenilenir; yenilenme sı
 | **Gateways** | Ağ geçidi izleyicisi: her ağ geçidinin gecikme ve paket kaybı değerleri ile yedeklilik (failover) kurulduğunda varsayılan rotayı hangi hattın taşıdığı. |
 | **Bandwidth limits** | Ağ başına indirme ve yükleme sınırları (**Firewall > Shaper**) ve anlık kullanım hızı. |
 | **Blocklists** | Liste bazında son 24 saatin DNS ve IP engellemeleri; yöneticiler ayrıca en çok engellenen alan adlarını ve IP adreslerini de görür. |
+| **Applications** | Son bir saatin en çok veri kullanan uygulamaları ve kategorileri ([**Firewall > Application Control**](/tr/manual/firewall-application-control/)). |
 | **Captive portal** | Bölge (zone) başına oturum açmış cihazlar, son girişler ve servis durumu; RADIUS sunucusu muhasebe (accounting) onayı vermediğinde uyarı gösterir. |
-| **Backup** | Kendi sunucunuza yapılan son otomatik yedeklemenin durumu. *Yalnızca yöneticiler.* |
+| **Backup** | Kendi SFTP veya SMB sunucunuza yapılan son otomatik yedeklemenin durumu. *Yalnızca yöneticiler.* |
 | **Web Activity** | Bugün en çok ziyaret edilen siteler ve etkin cihazlar. *Yalnızca yöneticiler.* |
 
 Yeni bir kullanıcı hesabı varsayılan yerleşimle başlar: System, WAN, altı küçük gösterge (CPU, Memory, Disk, Temperature, Connections, Blocked), Traffic, Protection, Interfaces, Services, DHCP, VPN connections, Intrusion detection, Top blocked sources, Top blocked ports ve Recent changes. Diğer panelleri ihtiyaç duyduğunuzda ekleyebilirsiniz.

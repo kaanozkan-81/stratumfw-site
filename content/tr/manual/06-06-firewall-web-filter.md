@@ -1,7 +1,7 @@
 ---
 title: "Güvenlik Duvarı > Web Filtresi"
 seo_title: "06.6 Güvenlik Duvarı > Web Filtresi (Firewall > Web Filter) — Stratum FW Kullanım Kılavuzu"
-description: "Politikalarla ağ bazında web sitesi kategorilerini engelleme: 56 kategori, Güvenli Arama (Safe Search), isim değiştiren yeni siteler için Anahtar Kelime (Keywords) tespiti, istisnalar ve Blocked görünümü."
+description: "Politikalarla ağ bazında web sitesi kategorilerini engelleme: 56 kategori, Güvenli Arama (Safe Search), dönen/numaralı siteleri ismine göre yakalayan Anahtar Kelimeler (Keywords), istisnalar, güncellemeler ve Blocked görünümü."
 weight: 606
 chapter_num: "06.6"
 url: "/tr/manual/firewall-web-filter/"

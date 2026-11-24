@@ -59,7 +59,7 @@ New categories are downloaded when you apply. Large categories need memory: the 
 | **Entertainment** | Games, Audio and video, Radio, Sports, Manga, Celebrities, News, Astrology |
 | **Shopping and money** | Shopping, Banks, Finance, Cryptocurrency, Job search, Advertising |
 | **Downloads and hosting** | Downloads, File hosting, Warez, Web hosting |
-| **Other** | Artificial intelligence, Translation, Cheating, Mobile phones, Cooking, Educational games |
+| **Other** | Artificial intelligence, Translation, Cheating, Mobile phones, Cooking, Educational games, **Your own list** (custom domains and sites blocked via **Keywords**) |
 
 **Choosing categories.** Start with what everyone expects to be blocked on a guest network: **Adult**,
 **Gambling**, **Malware** and **Phishing**. Add more over time; the **Blocked** view on the page shows what the

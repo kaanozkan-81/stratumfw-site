@@ -10,7 +10,7 @@ aliases:
 translationKey: "manual-10-07-diagnostics-ai-assistant"
 ---
 
-Yapay Zeka Asistanı (**AI Assistant**), **bu güvenlik duvarı** hakkındaki sorularınızı kendi cümlelerinizle - *"son bir saatte neler engellendi ve nereden geldi?"*, *"her iki WAN bağlantısı da sağlıklı mı?"* - doğrudan sistemin **gerçek, canlı durumuna** bakarak yanıtlar. Güvenlik duvarını MCP sunucusuyla ([**System > Settings > MCP**](/tr/manual/system-settings-snmp-mcp/)) aynı salt okunur araçları kullanarak okur ve **hiçbir ayarı değiştiremez**: bir değişiklik gerektiğinde panelin hangi sayfasından ve nasıl yapılacağını adım adım açıklar.
+Yapay Zeka Asistanı (**AI Assistant**), **bu güvenlik duvarı** hakkındaki sorularınızı kendi cümlelerinizle - *"son bir saatte neler engellendi ve nereden geldi?"*, *"her iki WAN bağlantısı da sağlıklı mı?"* - doğrudan sistemin **gerçek, canlı durumuna** bakarak yanıtlar. Güvenlik duvarını MCP sunucusuyla ([**System > Settings > MCP**](/tr/manual/system-settings-snmp-mcp/)) aynı 16 salt okunur aracı kullanarak okur ve **hiçbir ayarı değiştiremez**: bir değişiklik gerektiğinde panelin hangi sayfasından ve nasıl yapılacağını adım adım açıklar.
 
 Soruyu hangi dilde sorarsanız o dilde yanıt verir.
 
@@ -48,6 +48,7 @@ Diğer örnek sorular:
 - *Şu anda misafir ağında hangi cihazlar bağlı?*
 - *VPN'e kimler bağlı?*
 - *`192.168.1.50` neden internete çıkamıyor?*
+- *Bugün en çok bant genişliği tüketen uygulamalar hangileri ve Uygulama Kontrolü neleri engelledi?*
 - *Son 24 saatte en yoğun arayüz hangisiydi?*
 - *Bugün yapılandırmada neler değişti?*
 - *Web sunucuma port 443 yönlendirmesini nasıl yaparım?*

@@ -18,7 +18,7 @@ translationKey: "manual-10-02-diagnostics-system-logs"
 
 | Sekme | Dosya | İçeriği |
 | :--- | :--- | :--- |
-| **System** | `/var/log/messages` | Sistem ve servislerin bildirdiği tüm olaylar: arayüzler, ağ geçitleri, VPN'ler, IPsec, Captive Portal, saldırı tespit, engelleme listeleri, güncellemeler ... |
+| **System** | `/var/log/messages` | Sistem ve servislerin bildirdiği tüm olaylar: arayüzler, ağ geçitleri, VPN'ler, IPsec, Captive Portal, Uygulama Kontrolü, saldırı tespit, engelleme listeleri, güncellemeler ... |
 | **DHCP / DNS** | `/var/log/dnsmasq.log` | DHCP kiralamaları (hangi cihazın hangi adresi aldığı) ve DNS iletileri. |
 | **PPPoE** | `/var/log/messages` (yalnızca `mpd5`) | PPPoE bağlantıları: kimlik doğrulama, alınan IP adresi, kopmalar. |
 | **NTP** | `/var/log/messages` (yalnızca `ntpd`) | Zaman eşitleme kayıtları. |
@@ -42,6 +42,7 @@ Hata içeren satırlar (*error*, *failed*, *denied*, *refused* ...) kırmızıyl
 | Bir WAN hattı neden *down* olarak işaretlendi? | **System** - ağ geçidi izleyicisinin (*gateway monitor*) satırları |
 | Bir VPN kullanıcısı neden bağlanamıyor? | **Authentication** (OpenVPN girişi) ve **System** (OpenVPN servisi) |
 | Captive Portal giriş ve çıkışları | **System**, program adı `stratum-captive` |
+| Uygulama Kontrolü toplayıcısı ve kuralları | **System**, program adı `stratum-appd` |
 
 Yapay Zeka Asistanı da bu günlükleri okuyup açıklayabilir ([**Diagnostics > AI Assistant**](/tr/manual/diagnostics-ai-assistant/)).
 

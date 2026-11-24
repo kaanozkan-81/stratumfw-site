@@ -72,4 +72,4 @@ DHCP kullanmayan sabit IP adresli cihazlar da kapsama dahildir: bu cihazlar ARP 
 | O tarihte ve saatte bu IP adresi kimdeydi? | **DHCP history**, ardından cihaz detayı için **Devices** |
 | Misafir ağında en çok hangi siteler sorgulanıyor? | Ağ süzgeciyle **Sites** |
 
-Siteleri engellemek için [**Firewall > Web Filter**](/tr/manual/firewall-web-filter/) (kategoriler) veya [**Firewall > Blocklists**](/tr/manual/firewall-blocklists/) (DNS engelleme listeleri) sayfalarını kullanın.
+Siteleri veya uygulamaları engellemek için [**Firewall > Web Filter**](/tr/manual/firewall-web-filter/) (kategoriler ve **Keywords** — **Keywords** özelliği Web Activity kapalıyken de hiçbir gezinme kaydı tutmadan çalışır), [**Firewall > Application Control**](/tr/manual/firewall-application-control/) (uygulama ve kategori bazında trafik görünürlüğü ve engelleme) veya [**Firewall > Blocklists**](/tr/manual/firewall-blocklists/) (DNS engelleme listeleri) sayfalarını kullanın.

@@ -13,8 +13,8 @@ translationKey: "manual-07-03-services-dns-resolver"
 The devices in your networks ask the firewall for names; the firewall answers from its own records or asks the
 internet. **Services > DNS Resolver** controls how.
 
-Getting DNS right matters more than it seems: the DNS blocklists, the Web Filter and Web Activity all work through
-the firewall's resolver, and a device that asks another server is outside all three.
+Getting DNS right matters more than it seems: the DNS blocklists, the Web Filter (including **Keywords**), the [**Application Control**](/manual/firewall-application-control/) block page and Web Activity all work through
+the firewall's resolver, and a device that asks another server bypasses DNS-based filtering and block pages.
 
 ![Services > DNS Resolver](/images/manual/dns.png)
 
@@ -34,7 +34,7 @@ the firewall's resolver, and a device that asks another server is outside all th
 | | dnsmasq | Unbound |
 | :--- | :--- | :--- |
 | DNS for the networks, local names | yes | yes |
-| DNS blocklists, Web Filter, Web Activity | no | **yes** |
+| DNS blocklists, Web Filter & Keywords, Application Control block page, Web Activity | no | **yes** |
 | DNSSEC validation | no | yes |
 | Resolving from the root servers (no DNS provider) | no | yes |
 | Memory | very little | more, growing with blocklists and Web Filter categories |
