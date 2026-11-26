@@ -1,7 +1,7 @@
 ---
 title: "Documentation"
-description: "Official Stratum Firewall v0.30.0 documentation — VGA ISO & Serial IMG installation, OPNsense migration, TOTP 2FA, Force DNS, 1:1 NAT, rule schedules, DHCP Multi-WAN, Suricata IPS, WireGuard, OpenVPN, and REST API."
-lead: "Everything you need to install, migrate, configure, and operate Stratum Firewall v0.30.0 on FreeBSD 15.1."
+description: "Official Stratum Firewall documentation — VGA ISO & Serial IMG installation, OPNsense migration, TOTP 2FA, Force DNS, 1:1 NAT, rule schedules, DHCP Multi-WAN, Suricata IPS, WireGuard, OpenVPN, and REST API."
+lead: "Everything you need to install, migrate, configure, and operate Stratum Firewall on FreeBSD 15.1."
 full_width: true
 hide_pages: true
 ---
@@ -117,7 +117,7 @@ hide_pages: true
 
 <section class="docs-contact">
   <h3>Need help with your deployment?</h3>
-  <p>Explore the <a href="/resources/faq/">FAQ</a>, check the <a href="/resources/changelog/">Changelog</a>, or reach out directly to our engineering team.</p>
+  <p>Explore the <a href="/resources/faq/">FAQ</a>, check the <a href="/download/#changelog">Changelog</a>, or reach out directly to our engineering team.</p>
   <a href="/company/contact/" class="btn btn-primary">Contact Us</a>
 </section>
 

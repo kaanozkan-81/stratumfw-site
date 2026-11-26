@@ -1,7 +1,7 @@
 ---
 title: "System Architecture"
-seo_title: "Stratum Firewall v0.30.0 Architecture — FreeBSD 15.1, pf, FastAPI, TOTP 2FA & ZFS"
-description: "Inside Stratum Firewall v0.30.3 — FreeBSD 15.1-RELEASE kernel pf & 1:1 binat data plane, dual-engine Suricata 8 IPS, Force DNS with AD exceptions, Python 3.12 FastAPI control plane with TOTP 2FA, and ZFS Boot Environments."
+seo_title: "Stratum Firewall Architecture — FreeBSD 15.1, pf, FastAPI, TOTP 2FA & ZFS"
+description: "Inside Stratum Firewall — FreeBSD 15.1-RELEASE kernel pf & 1:1 binat data plane, dual-engine Suricata 8 IPS, Force DNS with AD exceptions, Python 3.12 FastAPI control plane with TOTP 2FA, and ZFS Boot Environments."
 lead: "Zero PHP overhead, a single declarative source of truth, a 120-second Safe-Apply rollback guarantee, and a pure FreeBSD 15.1 kernel data plane."
 full_width: true
 seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 kernel pf & netmap data plane, declarative config.json, 120s Safe-Apply, and ZFS boot rollback."
@@ -10,7 +10,7 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 <div class="solutions-layout">
 <div class="sol-block">
 <div class="sol-head">
-<span class="eyebrow">01 · Four-Layer Appliance Stack (v0.30.0)</span>
+<span class="eyebrow">01 · Four-Layer Appliance Stack</span>
 <h2>Strict separation between control plane and kernel data plane</h2>
 <p>Legacy firewall distributions entangle web UI rendering, plugins, and system orchestration inside a monolithic PHP/XML runtime. Stratum Firewall keeps line-rate packet forwarding strictly inside the <strong>FreeBSD 15.1-RELEASE</strong> kernel while isolating management, validation, and telemetry inside an asynchronous <strong>Python 3.12 &amp; FastAPI</strong> control plane.</p>
 </div>
@@ -21,7 +21,7 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 <h3>Async Management &amp; Observability Plane</h3>
 </div>
 <div class="arch-layer-body">
-<p>Served behind an <strong>Nginx TLS</strong> reverse proxy, the <strong>Python 3.12 / FastAPI</strong> application powers the responsive web UI, REST API, customizable 12-column dashboard, and <strong>1h/24h Firewall Log Summary</strong> analytics. Accounts are protected by local-QR <strong>TOTP Two-Factor Sign-In</strong> (<code>v0.30.0</code>), 10 one-time recovery codes, brute-force sign-in protection, and 4-tier RBAC.</p>
+<p>Served behind an <strong>Nginx TLS</strong> reverse proxy, the <strong>Python 3.12 / FastAPI</strong> application powers the responsive web UI, REST API, customizable 12-column dashboard, and <strong>1h/24h Firewall Log Summary</strong> analytics. Accounts are protected by local-QR <strong>TOTP Two-Factor Sign-In</strong>, 10 one-time recovery codes, brute-force sign-in protection, and 4-tier RBAC.</p>
 <div class="arch-pills">
 <span class="arch-pill"><b>UI/API:</b> Python 3.12 + FastAPI</span>
 <span class="arch-pill"><b>Identity:</b> On-Box QR TOTP 2FA + RBAC</span>
@@ -51,7 +51,7 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 <h3>Deep Packet Inspection, Force DNS &amp; PKI</h3>
 </div>
 <div class="arch-layer-body">
-<p><strong>Suricata 8</strong> supervises simultaneous inline <code>netmap</code> IPS and passive <code>pcap</code> IDS processes per interface with hitless <code>SIGUSR2</code> rule reloads. <strong>Unbound 1.26 RPZ</strong> DNSBL and the 55-category Web Filter become unbypassable with <strong>Force DNS</strong> (<code>v0.29.2</code>) and DoT (<code>TCP 853</code>) blocking—complete with an Active Directory exception alias and zero browsing history logged. <strong>OpenVPN</strong> runs with a built-in EC CA and Multi-WAN <code>multihome</code>.</p>
+<p><strong>Suricata 8</strong> supervises simultaneous inline <code>netmap</code> IPS and passive <code>pcap</code> IDS processes per interface with hitless <code>SIGUSR2</code> rule reloads. <strong>Unbound 1.26 RPZ</strong> DNSBL and the 55-category Web Filter become unbypassable with <strong>Force DNS</strong> and DoT (<code>TCP 853</code>) blocking—complete with an Active Directory exception alias and zero browsing history logged. <strong>OpenVPN</strong> runs with a built-in EC CA and Multi-WAN <code>multihome</code>.</p>
 <div class="arch-pills">
 <span class="arch-pill"><b>IPS/IDS:</b> Suricata 8 (netmap + pcap)</span>
 <span class="arch-pill"><b>DNS:</b> Unbound 1.26 RPZ + Force DNS</span>
@@ -103,7 +103,7 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 </div>
 <div class="sol-block">
 <div class="sol-head">
-<span class="eyebrow">03 · Subsystem Reference Matrix (v0.30.0)</span>
+<span class="eyebrow">03 · Subsystem Reference Matrix</span>
 <h2>Kernel drivers, daemons, and isolation boundaries</h2>
 <p>Every subsystem maps cleanly onto native FreeBSD 15.1 primitives with zero proprietary cloud dependencies.</p>
 </div>
@@ -114,7 +114,7 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 <th>Subsystem</th>
 <th>Core Driver / Daemon</th>
 <th>State &amp; Security Boundary</th>
-<th>v0.30.0 Architectural Capabilities</th>
+<th>Architectural Capabilities</th>
 </tr>
 </thead>
 <tbody>
@@ -158,7 +158,7 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 <td><strong>Identity, 2FA &amp; Backups</strong></td>
 <td>FastAPI Auth · Local TOTP · OpenSSH SFTP</td>
 <td><code>0600 root</code> secret vault + <code>AES-256-GCM</code> (<code>scrypt</code>)</td>
-<td>Browser-local QR <strong>TOTP 2FA</strong> (<code>v0.30.0</code>), single-use replay protection, 10 recovery codes, console 2FA reset (<code>stratum-menu</code>), and scheduled encrypted <code>.stbk</code> SFTP backups.</td>
+<td>Browser-local QR <strong>TOTP 2FA</strong>, single-use replay protection, 10 recovery codes, console 2FA reset (<code>stratum-menu</code>), and scheduled encrypted <code>.stbk</code> SFTP backups.</td>
 </tr>
 <tr>
 <td><strong>OPNsense Migration Engine</strong></td>
@@ -211,13 +211,13 @@ seoDescription: "Inside Stratum Firewall's zero-PHP architecture: FreeBSD 15.1 k
 <div class="card">
 <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
 <h3>Clean Deterministic System Files</h3>
-<p>Generated <code>/etc/rc.conf</code> and <code>/etc/pf.conf</code> outputs never fight FreeBSD defaults (<code>v0.28.7</code>), and pre-existing <code>/etc/sysctl.conf.local</code> settings are backed up automatically.</p>
+<p>Generated <code>/etc/rc.conf</code> and <code>/etc/pf.conf</code> outputs never fight FreeBSD defaults, and pre-existing <code>/etc/sysctl.conf.local</code> settings are backed up automatically.</p>
 </div>
 </div>
 </div>
 <div class="sol-cta-box">
 <div>
-<h3>Inspect the v0.30.0 architecture live</h3>
+<h3>Inspect the Stratum architecture live</h3>
 <p>Explore a running FreeBSD 15.1 QEMU appliance right in your browser with zero registration, or download the offline ZFS installers.</p>
 </div>
 <div class="sol-cta-actions">

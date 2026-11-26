@@ -2,7 +2,7 @@
 title: "Beyond the Blinking Lights: True Network Visibility with Stratum FW"
 date: 2026-11-04
 author: "Stratum Security Team"
-description: "Traditional firewalls just blink when something goes wrong. With the new v0.13.1 dashboard update, Stratum FW gives you the context you actually need."
+description: "Traditional firewalls just blink when something goes wrong. With the new dashboard update, Stratum FW gives you the context you actually need."
 tags: ["dashboard", "monitoring", "wan", "vpn", "update"]
 ---
 
@@ -10,9 +10,9 @@ If you've ever managed a traditional enterprise firewall, you know the feeling. 
 
 Is the WAN link down? Is it just experiencing high packet loss? Is the VPN tunnel up, but nobody is actually connected to it? 
 
-We built **Stratum FW** because we believe that network security shouldn't be a guessing game. And with our latest updates (**v0.13.0** and **v0.13.1**), we are introducing a completely redesigned dashboard that replaces blinking lights with actionable intelligence.
+We built **Stratum FW** because we believe that network security shouldn't be a guessing game. And with our latest updates, we are introducing a completely redesigned dashboard that replaces blinking lights with actionable intelligence.
 
-## The New Dashboard (v0.13.0)
+## The New Dashboard
 
 When you log into Stratum FW now, you aren't just greeted with CPU and memory usage. The new dashboard is a mission control for your network.
 
@@ -21,9 +21,9 @@ When you log into Stratum FW now, you aren't just greeted with CPU and memory us
 - **Protection Metrics:** See exactly how many packets were blocked by your IP blocklists in the last hour, and which rules are doing the heavy lifting.
 - **Top Blocked Sources:** A live list of the IPs and ports that are trying to hit your network the most.
 
-## The v0.13.1 Update: WAN Health & VPN Context
+## The Update: WAN Health & VPN Context
 
-The v0.13.0 dashboard was a huge leap. But we immediately followed it up with **v0.13.1**, which adds the deep context that sysadmins crave.
+The dashboard was a huge leap. But we immediately followed it up with, which adds the deep context that sysadmins crave.
 
 ### WAN Health Panel
 Is your ISP actually providing the speed you pay for? The new WAN panel measures **latency and packet loss to your gateway every 30 seconds**, complete with a live curve. You can also see how long the connection has been up, today's total download/upload, and the live rate. 
@@ -64,12 +64,12 @@ Stratum runs only what it needs. No unnecessary daemons, no constant config-chec
 Yes, adding deep packet inspection (like Suricata) will always consume CPU on any platform. But because of our declarative architecture, Stratum FW will remain a fraction of the weight of traditional firewalls.
 
 ## Under the Hood: Fixing the FreeBSD 15 Log Bug
-This update wasn't just about new features. We also fixed a critical bug in **v0.13.1**. On FreeBSD 15, `pf` changed the way it writes rule numbers in its logs (e.g., "3..1/0"). This caused our firewall logs to show the wrong rule names. We completely rewrote our log parser to handle this. The Firewall Log, the dashboard, and remote syslog now show the exact right rule again.
+This update wasn't just about new features. We also fixed a critical bug in. On FreeBSD 15, `pf` changed the way it writes rule numbers in its logs (e.g., "3..1/0"). This caused our firewall logs to show the wrong rule names. We completely rewrote our log parser to handle this. The Firewall Log, the dashboard, and remote syslog now show the exact right rule again.
 
 ## Ready to see it for yourself?
 We are building the firewall we always wanted. The one that tells us exactly what is happening on the wire, without hiding behind proprietary CLIs or cloud dashboards.
 
-Download the latest v0.13.1 ISO and spin it up in a VM. Or simply explore the architecture on our website.
+Download the latest ISO and spin it up in a VM. Or simply explore the architecture on our website.
 
 ---
 

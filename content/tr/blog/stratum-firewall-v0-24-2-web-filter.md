@@ -1,13 +1,13 @@
 ---
-title: "Stratum Firewall v0.24.2: Yeni Nesil Web Filtreleme ve IPS Kararlılığı"
+title: "Stratum Firewall: Yeni Nesil Web Filtreleme ve IPS Kararlılığı"
 date: 2026-11-06
-description: "Stratum Firewall v0.24.2'nin yeni özelliklerini keşfedin: 55 kategorili DNS tabanlı Web Filtreleme (Unbound RPZ), Güvenli Arama zorunluluğu ve kritik IPS engelleme modu düzeltmeleri."
+description: "Stratum Firewall'ın öne çıkan özelliklerini keşfedin: 55 kategorili DNS tabanlı Web Filtreleme (Unbound RPZ), Güvenli Arama zorunluluğu ve kritik IPS engelleme modu düzeltmeleri."
 tags: ["Web Filtre", "IPS", "Suricata", "Güvenlik Duvarı", "Stratum FW"]
 categories: ["Güvenlik", "Güncellemeler"]
 author: "Stratum Security"
 ---
 
-**Stratum Firewall v0.24.2** sürümünü büyük bir heyecanla duyuruyoruz! Bu güncelleme, tam donanımlı yeni bir **Web Filtresi (Web Filter)** ve Saldırı Önleme Sistemimizdeki (IPS) kritik düzeltmelerle dolup taşıyor.
+**Stratum Firewall sürümünü büyük bir heyecanla duyuruyoruz! Bu güncelleme, tam donanımlı yeni bir **Web Filtresi (Web Filter)** ve Saldırı Önleme Sistemimizdeki (IPS) kritik düzeltmelerle dolup taşıyor.
 
 İşte en son güncellemeler hakkında bilmeniz gereken her şey.
 
@@ -21,15 +21,15 @@ Stratum Firewall artık Unbound RPZ altyapısıyla çalışan, son derece ayrın
 *   **Detaylı Raporlama:** Son 7 veya 30 gün içinde hangi kategori, site ve cihazların engellendiğini tam olarak görün.
 
 ## 2. Saldırı Tespiti (IPS) Kararlılık Düzeltmeleri
-v0.21.0 ile gelen satır içi engelleme (IPS) modunda **v0.24.2** ile kritik bir sorunu giderdik: Suricata, başlangıcını görmediği bağlantıları (örn. telefonların açık tuttuğu uzun süreli bağlantılar) düşürüyor ve cihazların Wi-Fi bağlantısının kopmasına neden oluyordu.
+ ile gelen satır içi engelleme (IPS) modunda ile kritik bir sorunu giderdik: Suricata, başlangıcını görmediği bağlantıları (örn. telefonların açık tuttuğu uzun süreli bağlantılar) düşürüyor ve cihazların Wi-Fi bağlantısının kopmasına neden oluyordu.
 
 *   **Akış Ortası Yakalama (Midstream):** Suricata artık kendisi başlamadan önce açılmış veya zaman aşımına uğramış bağlantıları doğru şekilde takip ediyor.
 *   **İstisnalarda Geçiş (Fail-Open):** `exception-policy: ignore` kuralını uyguladık. Artık Suricata bir istisnayla karşılaştığında, akışı tamamen düşürmek yerine trafiğin geçmesine izin veriyor. Yalnızca açıkça belirtilen engelleme kuralları paketleri düşürür, böylece ağınız yoğun denetim altında bile ayakta kalır.
 
-## 3. Diğer Düzeltmeler (v0.24.1)
+## 3. Diğer Düzeltmeler
 *   **Web Filtresi Listeleri:** İlk Apply'dan sonra kategori listelerinin indirilmemesi sorunu düzeltildi. Artık kaydedilen yapılandırmaya göre anında indiriliyorlar.
 
 ## Sonuç
-Stratum Firewall v0.24.2, hem ağ gizliliği hem de kurumsal düzeyde güvenlik açısından devasa bir sıçrama. 
+Stratum Firewall, hem ağ gizliliği hem de kurumsal düzeyde güvenlik açısından devasa bir sıçrama.
 
-[En son sürümü hemen indirin](/tr/download/) ve tüm teknik detayları [Sürüm Notları](/tr/resources/changelog/) sayfamızdan inceleyin.
+[En son sürümü hemen indirin](/tr/download/) ve tüm teknik detayları [Sürüm Notları](/tr/download/#changelog) sayfamızdan inceleyin.

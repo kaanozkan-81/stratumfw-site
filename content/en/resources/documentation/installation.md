@@ -22,10 +22,10 @@ Stratum Firewall ships as a self-contained **FreeBSD 15.1-RELEASE (`amd64`)** ap
 
 Two dedicated media types are published on the [Download](/download/) page:
 
-* **VGA ISO Installer (`stratum-fw-0.30.3-amd64.iso`):** Designed for physical servers with a monitor and keyboard attached, as well as virtual machines (**Proxmox VE**, **VMware ESXi**, **KVM / QEMU**, **Hyper-V**).
-* **Serial USB Disk Image (`stratum-fw-0.30.3-amd64.img`):** Raw disk image pre-configured for headless network appliances (`115200 baud, 8N1` on `COM1` / `ttyu0`, RJ45/USB console cables, IPMI Serial-over-LAN).
+* **VGA ISO Installer (`stratum-fw-amd64.iso`):** Designed for physical servers with a monitor and keyboard attached, as well as virtual machines (**Proxmox VE**, **VMware ESXi**, **KVM / QEMU**, **Hyper-V**).
+* **Serial USB Disk Image (`stratum-fw-amd64.img`):** Raw disk image pre-configured for headless network appliances (`115200 baud, 8N1` on `COM1` / `ttyu0`, RJ45/USB console cables, IPMI Serial-over-LAN).
 
-The installed OS automatically preserves the console mode (`VGA` or `Serial`) of the installer you booted from, and physical appliances equipped with a PC speaker play a short rising start-up tune once boot completes (`v0.28.5` – `v0.28.6`).
+The installed OS automatically preserves the console mode (`VGA` or `Serial`) of the installer you booted from, and physical appliances equipped with a PC speaker play a short rising start-up tune once boot completes.
 
 ## 3. Verify SHA-256 Checksum &amp; Write USB Media
 
@@ -45,7 +45,7 @@ To write the `.img` (or hybrid `.iso`) to a USB flash drive:
 * **Linux / FreeBSD / macOS CLI:**
   ```bash
   # Replace /dev/sdX with your actual USB block device!
-  sudo dd if=stratum-fw-0.30.3-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
+  sudo dd if=stratum-fw-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
   ```
 
 ## 4. Virtual Machine Tips (Proxmox / KVM / ESXi)
@@ -63,4 +63,4 @@ To write the `.img` (or hybrid `.iso`) to a USB flash drive:
    * Setting your `LAN` IPv4 subnet (default `192.168.1.1/24` with DHCP enabled) and `WAN` mode (`DHCP`, `Static`, or `PPPoE`),
    * Setting your time zone and initial `admin` password.
 
-Once booted, open `https://192.168.1.1/` from a machine on your LAN and continue with [Initial Configuration](/resources/documentation/initial-configuration/)—including updating to the latest release (**v0.30.3**) from **System → Update**.
+Once booted, open `https://192.168.1.1/` from a machine on your LAN and continue with [Initial Configuration](/resources/documentation/initial-configuration/)—including updating to the latest release from **System → Update**.

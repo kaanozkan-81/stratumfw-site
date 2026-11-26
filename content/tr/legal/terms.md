@@ -15,7 +15,7 @@ Stratum Firewall kurulum imajlarını ve imzalı güncellemelerini kişisel, eğ
 
 ## 3. Garanti Reddi ("Olduğu Gibi")
 
-Stratum Firewall aktif `v1.0` öncesi geliştirme aşamasındadır ve açık ya da zımni hiçbir garanti verilmeksizin **"OLDUĞU GİBİ" ("AS IS")** sunulur. Yapılandırma yedeklerinin (`.stbk`) alınması, kuralların doğrulanması ve kritik ortamlarda güncelleme öncesi testlerin yapılması ağ yöneticisinin sorumluluğundadır.
+Stratum Firewall aktif geliştirme aşamasındadır ve açık ya da zımni hiçbir garanti verilmeksizin **"OLDUĞU GİBİ" ("AS IS")** sunulur. Yapılandırma yedeklerinin (`.stbk`) alınması, kuralların doğrulanması ve kritik ortamlarda güncelleme öncesi testlerin yapılması ağ yöneticisinin sorumluluğundadır.
 
 ## 4. Sorumluluk Sınırı
 

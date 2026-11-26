@@ -2,7 +2,7 @@
 title: "Yanıp Sönen Işıkların Ötesinde: Stratum FW ile Gerçek Ağ Görünürlüğü"
 date: 2026-11-04
 author: "Stratum Security Team"
-description: "Geleneksel güvenlik duvarları sadece bir şeyler ters gittiğinde yanıp söner. Yeni v0.13.1 panel güncellemesiyle Stratum FW, gerçekten ihtiyacınız olan bağlamı sunar."
+description: "Geleneksel güvenlik duvarları sadece bir şeyler ters gittiğinde yanıp söner. Yeni panel güncellemesiyle Stratum FW, gerçekten ihtiyacınız olan bağlamı sunar."
 tags: ["panel", "izleme", "wan", "vpn", "guncelleme"]
 ---
 
@@ -10,9 +10,9 @@ Eğer daha önce geleneksel bir kurumsal güvenlik duvarı yönettiyseniz, o his
 
 WAN bağlantısı mı koptu? Sadece yüksek paket kaybı mı yaşıyor? VPN tüneli açık ama aslında kimse bağlı değil mi?
 
-**Stratum FW**'yi inşa ettik çünkü ağ güvenliğinin bir tahmin oyunu olmaması gerektiğine inanıyoruz. Ve en son güncellemelerimizle (**v0.13.0** ve **v0.13.1**), yanıp sönen ışıkların yerini eyleme dönüştürülebilir zekayla değiştiren tamamen yenilenmiş bir pano sunuyoruz.
+**Stratum FW**'yi inşa ettik çünkü ağ güvenliğinin bir tahmin oyunu olmaması gerektiğine inanıyoruz. Ve en son güncellemelerimizle, yanıp sönen ışıkların yerini eyleme dönüştürülebilir zekayla değiştiren tamamen yenilenmiş bir pano sunuyoruz.
 
-## Yeni Pano (v0.13.0)
+## Yeni Pano
 
 Stratum FW'ye giriş yaptığınızda artık sadece CPU ve bellek kullanımıyla karşılaşmıyorsunuz. Yeni pano, ağınız için bir komuta merkezi.
 
@@ -21,9 +21,9 @@ Stratum FW'ye giriş yaptığınızda artık sadece CPU ve bellek kullanımıyla
 - **Koruma Metrikleri:** IP karalisteleriniz tarafından son bir saatte tam olarak kaç paketin engellendiğini ve hangi kuralların işin ağır kısmını yaptığını görün.
 - **En Çok Engellenen Kaynaklar:** Ağınıza en çok vurmaya çalışan IP'lerin ve portların canlı bir listesi.
 
-## v0.13.1 Güncellemesi: WAN Sağlığı ve VPN Bağlamı
+## Güncellemesi: WAN Sağlığı ve VPN Bağlamı
 
-v0.13.0 panosu devasa bir sıçramaydı. Ancak hemen ardından, sistem yöneticilerinin özlemini çektiği derin bağlamı ekleyen **v0.13.1** ile geldik.
+ panosu devasa bir sıçramaydı. Ancak hemen ardından, sistem yöneticilerinin özlemini çektiği derin bağlamı ekleyen ile geldik.
 
 ### WAN Sağlık Paneli
 ISS'niz gerçekten ödediğiniz hızı sağlıyor mu? Yeni WAN paneli, **her 30 saniyede bir ağ geçidinize gecikme ve paket kaybını** canlı bir eğriyle ölçer. Ayrıca bağlantının ne kadar süredir açık olduğunu, bugünkü toplam indirme/yükleme miktarını ve canlı hızı görebilirsiniz.
@@ -64,12 +64,12 @@ Stratum sadece ihtiyacı olanı çalıştırır. Gereksiz arka plan servisleri, 
 Evet, tıpkı Suricata gibi derin paket incelemesi (DPI) eklemek her platformda CPU tüketir. Ancak bildirimsel mimarimiz sayesinde Stratum FW, geleneksel güvenlik duvarlarının ağırlığının çok küçük bir kısmında kalmaya devam edecek.
 
 ## Kaputun Altında: FreeBSD 15 Log Hatasının Düzeltilmesi
-Bu güncelleme sadece yeni özelliklerle ilgili değildi. **v0.13.1**'de kritik bir hatayı da düzelttik. FreeBSD 15'te `pf`, günlüklerine kural numaralarını yazma şeklini değiştirdi (örn. "3..1/0"). Bu, güvenlik duvarı günlüklerimizin yanlış kural adları göstermesine neden oluyordu. Bu durumu çözmek için günlük ayrıştırıcımızı tamamen yeniden yazdık. Güvenlik Duvarı Günlüğü, pano ve uzak syslog artık tekrar tam doğru kuralı gösteriyor.
+Bu güncelleme sadece yeni özelliklerle ilgili değildi. 'de kritik bir hatayı da düzelttik. FreeBSD 15'te `pf`, günlüklerine kural numaralarını yazma şeklini değiştirdi (örn. "3..1/0"). Bu, güvenlik duvarı günlüklerimizin yanlış kural adları göstermesine neden oluyordu. Bu durumu çözmek için günlük ayrıştırıcımızı tamamen yeniden yazdık. Güvenlik Duvarı Günlüğü, pano ve uzak syslog artık tekrar tam doğru kuralı gösteriyor.
 
 ## Kendiniz görmeye hazır mısınız?
 Her zaman istediğimiz güvenlik duvarını inşa ediyoruz. Hattın üzerinde tam olarak ne olduğunu bize söyleyen, tescilli CLI'ler veya bulut panoları arkasına saklanmayan güvenlik duvarı.
 
-En son v0.13.1 ISO'yu indirin ve bir sanal makinede çalıştırın. Veya web sitemizdeki mimariyi inceleyin.
+En son ISO'yu indirin ve bir sanal makinede çalıştırın. Veya web sitemizdeki mimariyi inceleyin.
 
 ---
 

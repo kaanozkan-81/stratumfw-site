@@ -13,7 +13,7 @@ Stratum Firewall, kapalı kutu servisler yerine doğrudan denetlenebilir işleti
 
 Stratum Firewall **kendi özel kriptografisini yazmaz veya uygulamaz**:
 
-* **WireGuard (`if_wg`):** Veri düzlemi tünel şifrelemesi doğrudan **FreeBSD 15.1 çekirdeğindeki `if_wg`** sürücüsünde çalışır; Curve25519 anahtar çiftleri **OpenSSL** (Python `cryptography` kütüphanesi üzerinden, `v0.34.2+`) ile üretilir.
+* **WireGuard (`if_wg`):** Veri düzlemi tünel şifrelemesi doğrudan **FreeBSD 15.1 çekirdeğindeki `if_wg`** sürücüsünde çalışır; Curve25519 anahtar çiftleri **OpenSSL** (Python `cryptography` kütüphanesi üzerinden) ile üretilir.
 * **Merkezden Şubeye IPsec (`enc0`):** IKEv2 ve IKEv1 anahtar müzakeresi **`strongSwan`** (`swanctl`) tarafından yürütülür; paket şifrelemesi (`AES-GCM`, `AES-CBC`, `SHA-2`, `DH 14-21`, `Curve25519`) FreeBSD çekirdek ESP katmanında (`enc0`) gerçekleşir.
 * **OpenVPN ve TLS:** Sertifika otoritesi (CA), EC sunucu/istemci sertifikaları, `tls-crypt` anahtarları ve HTTPS oturum güvenliği doğrudan sistem **OpenSSL** altyapısını kullanır.
 
@@ -27,7 +27,7 @@ Stratum Firewall **kendi özel kriptografisini yazmaz veya uygulamaz**:
 
 * **Yalnızca `root` Erişimli Gizli Dosyalar (`0600`):** Hassas veriler (VPN özel anahtarları, parola özetleri, IPsec paylaşımlı anahtarları, SFTP yedekleme anahtarları) `config.json` dışında, yalnızca `root` kullanıcısının okuyabildiği `0600` izinli dosyalarda tutulur ve **asla** tarayıcıya gönderilmez.
 * **Ön Kontrollü Safe-Apply ve Otomatik Geri Alma:** Her değişiklik uygulanmadan önce sözdizimi ve servis testlerinden (`pfctl -n`, `nginx -t`, `unbound-checkconf`, `dnsmasq --test`, `sshd -t`) geçirilir. 120 saniye içinde onaylanmayan değişiklikler kendiliğinden geri alınarak erişim kaybı önlenir.
-* **Tasarımdan Şeffaf Yapı (`Open by Design`):** Üretilen tüm servis dosyaları (`config.json`, `pf.conf`, `swanctl.conf`, `wg*.conf`, `unbound.conf`) okunabilir düz metin halindedir. FastAPI panel kaynak kodu `v1.0` öncesi geliştirme sürecinde özel depoda tutulmakta olup GitHub üzerinde yayınlanacaktır.
+* **Tasarımdan Şeffaf Yapı (`Open by Design`):** Üretilen tüm servis dosyaları (`config.json`, `pf.conf`, `swanctl.conf`, `wg*.conf`, `unbound.conf`) okunabilir düz metin halindedir. FastAPI panel kaynak kodu aktif geliştirme sürecinde özel depoda tutulmakta olup GitHub üzerinde yayınlanacaktır.
 
 ## 4. Erişim Kontrolü, Yerel 2FA ve Sıfır Dış Telemetri
 
@@ -42,4 +42,4 @@ Stratum Firewall, kurulum imajları veya `stratumfw.com` üzerinde bir güvenlik
 * **E-posta:** [security@stratumfw.com](mailto:security@stratumfw.com)
 * **RFC 9116 Güvenlik Politikası:** [`https://stratumfw.com/.well-known/security.txt`](/.well-known/security.txt)
 
-Bildiriminizde etkilenen sürüm numarasını ve tekrarlama adımlarını paylaşmanız yeterlidir; doğrulanan bildirimler düzeltme yayınıyla birlikte [Resmi Sürüm Notları](/tr/resources/changelog/) sayfasında teşekkür notuyla paylaşılır.
+Bildiriminizde etkilenen sürüm numarasını ve tekrarlama adımlarını paylaşmanız yeterlidir; doğrulanan bildirimler düzeltme yayınıyla birlikte [Resmi Sürüm Notları](/tr/download/#changelog) sayfasında teşekkür notuyla paylaşılır.

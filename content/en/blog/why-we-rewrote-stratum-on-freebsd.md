@@ -47,11 +47,11 @@ You configure your intent in the web UI. We save that intent to a single, human-
 
 ## Zero-Dependency WireGuard
 
-To prove our commitment to a minimal attack surface, we didn't just wrap an external VPN library. We implemented the X25519 cryptography ourselves (following RFC 7748). This means WireGuard in Stratum FW has zero external dependencies, reducing the attack surface and ensuring it runs with maximum efficiency. *(Update in v0.34.2: Key generation now uses OpenSSL through the audited Python `cryptography` package — cryptography is best left to audited libraries.)*
+To prove our commitment to a minimal attack surface, we didn't just wrap an external VPN library. We implemented the X25519 cryptography ourselves (following RFC 7748). This means WireGuard in Stratum FW has zero external dependencies, reducing the attack surface and ensuring it runs with maximum efficiency. *(Note: Key generation now uses OpenSSL through the audited Python `cryptography` package — cryptography is best left to audited libraries.)*
 
 ## The Road Ahead
 
-We are currently at **v0.16.0 (Developer Preview)**. The core engine is running, the API is stable, and the FreeBSD foundation is rock solid. 
+We are currently at (Developer Preview)**. The core engine is running, the API is stable, and the FreeBSD foundation is rock solid.
 
 Over the coming months, we will release our pre-built ISO installer, finalize the IP/DNS Blocklists (for layer 3 and layer 7 threat protection), and introduce Multi-WAN failover logic.
 

@@ -37,4 +37,4 @@ Eğer `open source firewall` veya `FreeBSD firewall` arıyorsanız, Stratum Fire
 ## Sonuç
 Stratum Firewall (Stratum FW), sadece bir güvenlik duvarı değil; aynı zamanda geleceğin ağ güvenliği vizyonudur. İster bir kurumsal ağ yöneticisi olun, ister ev laboratuvarınızı (homelab) koruyun, Stratum FW ihtiyacınız olan tüm gücü ve modernliği size sunar.
 
-Hemen [indirme sayfamızdan](/tr/download/) Stratum Firewall'u indirin ve [sürüm notlarımızdan](/tr/resources/changelog/) en son özellikleri takip edin!
+Hemen [indirme sayfamızdan](/tr/download/) Stratum Firewall'u indirin ve [sürüm notlarımızdan](/tr/download/#changelog) en son özellikleri takip edin!

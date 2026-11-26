@@ -171,7 +171,7 @@ aliases: ["/security-guard/"]
 </div>
 <div class="sg-cta-row">
 <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="sg-btn-pri">Explore Security Guard in Live Demo →</a>
-<a href="/download/" class="sg-btn-sec">Download Free v0.34.2 ISO / IMG</a>
+<a href="/download/" class="sg-btn-sec">Download Free ISO / IMG</a>
 <a href="/product/security/" class="sg-btn-sec">Cryptographic & Update Verification</a>
 </div>
 </section>
@@ -188,6 +188,6 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ var lb=do
 </script>
 
 <div style="background:#0f172a !important;border:1px solid rgba(245,158,11,0.35) !important;border-radius:14px;padding:20px 24px;margin:24px 0;">
-<div style="color:#fbbf24 !important;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">NEW IN v0.35.2 • REACHABILITY-AWARE SURICATA IDS NOTIFICATIONS</div>
+<div style="color:#fbbf24 !important;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">NEW • REACHABILITY-AWARE SURICATA IDS NOTIFICATIONS</div>
 <p style="color:#cbd5e1 !important;margin:0;line-height:1.65;font-size:0.96rem;">Because Suricata inspects WAN interfaces before <code style="color:#7dd3fc !important;">pf</code> filters packets, internet scans aimed at closed WAN ports no longer spam Telegram or e-mail alerts. Stratum FW resolves what is genuinely open on WAN addresses (port forwards with source aliases, WAN pass rules, management, OpenVPN, WireGuard, and IPsec) and notifies only on reachable or internal alerts while keeping dropped hits visible as <strong style="color:#f8fafc !important;">Port closed</strong> in logs and MCP tools (with brute-force sign-in protection defaulting to a <strong style="color:#f8fafc !important;">15-minute</strong> block).</p>
 </div>

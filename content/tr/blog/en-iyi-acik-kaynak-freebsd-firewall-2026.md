@@ -28,4 +28,4 @@ Peki ya hem pfSense/OPNsense'in sunduğu kararlılığı hem de **modern bir yaz
 *   **Yapay Zeka Desteği (MCP):** MCP (Model Context Protocol) sayesinde, güvenlik duvarınızı ChatGPT veya Claude gibi yapay zeka asistanlarına bağlayarak doğal dil ile yönetebilirsiniz. *(Örn: "Son 1 saatte neler engellendi?")*
 *   **Yerleşik WireGuard ve Suricata:** Ekstra paket kurmadan yüksek hızlı VPN ve IDS desteği.
 
-Kendi ev laboratuvarınız veya kurumsal ağınız için bir **açık kaynak firewall** arıyorsanız, Stratum FW'nin sunduğu geleceğe bir göz atın. Hemen [indirme sayfamızdan](/tr/download/) en son sürümü deneyebilir ve [sürüm notlarımızdan](/tr/resources/changelog/) tüm yenilikleri takip edebilirsiniz.
+Kendi ev laboratuvarınız veya kurumsal ağınız için bir **açık kaynak firewall** arıyorsanız, Stratum FW'nin sunduğu geleceğe bir göz atın. Hemen [indirme sayfamızdan](/tr/download/) en son sürümü deneyebilir ve [sürüm notlarımızdan](/tr/download/#changelog) tüm yenilikleri takip edebilirsiniz.

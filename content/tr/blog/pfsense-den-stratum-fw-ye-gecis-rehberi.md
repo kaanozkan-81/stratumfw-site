@@ -18,7 +18,7 @@ Geçişe başlamadan önce, mevcut pfSense kurulumunuzun yedeğini aldığınız
 *(Not: Stratum FW, pfSense XML formatını doğrudan içe aktaramaz, ancak yapılandırma ayarlarınızı manuel olarak taşıyabilir veya sıfırdan daha temiz bir kurulum yapabilirsiniz.)*
 
 ## 2. Adım: Stratum FW'yi İndirin ve Kurun
-Stratum FW, hafif bir FreeBSD imajı olarak sunulur. [İndirme sayfamızdan](/tr/download/) en son sürümü (v0.16.0) indirin. Kurulum adımları, pfSense kurulumuna oldukça benzerdir:
+Stratum FW, hafif bir FreeBSD imajı olarak sunulur. [İndirme sayfamızdan](/tr/download/) en son sürümü indirin. Kurulum adımları, pfSense kurulumuna oldukça benzerdir:
 *   ISO dosyasını USB'ye yazdırın (VGA veya Serial sürüm).
 *   Sunucunuzu USB'den başlatın.
 *   Konsol sihirbazını takip ederek WAN ve LAN arayüzlerinizi atayın.
@@ -40,4 +40,4 @@ Yeni sisteminizden memnun kalmazsanız, pfSense yedeğinizi geri yükleyerek esk
 ## Sonuç
 pfSense, yıllardır ağları koruyan saygın bir araçtır. Ancak **Stratum FW**, geleceğin güvenlik ihtiyaçlarına (yapay zeka, API, modern arayüz) cevap veren yeni nesil bir alternatiftir. 
 
-Geçiş sürecinde aklınıza takılan bir şey olursa, [dokümantasyon sayfamızdan](/tr/resources/documentation/) veya [GitHub sayfamızdan](https://github.com/kaanozkan-81/stratum-panel) bize ulaşabilirsiniz. Tüm yenilikleri takip etmek için [Sürüm Notları](/tr/resources/changelog/) sayfamıza göz atmayı unutmayın.
+Geçiş sürecinde aklınıza takılan bir şey olursa, [dokümantasyon sayfamızdan](/tr/resources/documentation/) veya [GitHub sayfamızdan](https://github.com/kaanozkan-81/stratum-panel) bize ulaşabilirsiniz. Tüm yenilikleri takip etmek için [Sürüm Notları](/tr/download/#changelog) sayfamıza göz atmayı unutmayın.

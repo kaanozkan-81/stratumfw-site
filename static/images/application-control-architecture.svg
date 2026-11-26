@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-label="Stratum Firewall v0.39.0 Application Control, Custom Block Page, Block Page CA and stratum-dpi 1.2 Architecture">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-label="Stratum Firewall Application Control, Custom Block Page, Block Page CA and stratum-dpi Architecture">
   <defs>
     <linearGradient id="bgApp39" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#060d1a"/>
@@ -10,7 +10,7 @@
   <rect width="1200" height="560" rx="18" fill="url(#bgApp39)"/>
   <rect x="12" y="12" width="1176" height="536" rx="14" fill="none" stroke="#1e293b" stroke-width="1.5"/>
 
-  <text x="48" y="54" fill="#fbbf24" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">STRATUM FIREWALL v0.39.0 • APPLICATION CONTROL, CUSTOM HTTPS BLOCK PAGE &amp; BLOCK PAGE CA</text>
+  <text x="48" y="54" fill="#fbbf24" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">STRATUM FIREWALL • APPLICATION CONTROL, CUSTOM HTTPS BLOCK PAGE &amp; BLOCK PAGE CA</text>
   <text x="48" y="86" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700">Capsicum-Sandboxed DPI, Unbound 198.18.0.1 Block Page &amp; _stratumbp Isolation</text>
   <line x1="48" y1="106" x2="1152" y2="106" stroke="#1e293b" stroke-width="1.5"/>
 
@@ -18,7 +18,7 @@
   <rect x="48" y="132" width="332" height="334" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.48" stroke-width="1.5"/>
   <rect x="68" y="152" width="222" height="24" rx="12" fill="#0c2a42"/>
   <text x="179" y="168" text-anchor="middle" fill="#7dd3fc" font-family="system-ui, sans-serif" font-size="11" font-weight="700">1 • OUT-OF-PATH DPI &amp; CAPSICUM</text>
-  <text x="68" y="202" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">stratum-dpi 1.2 Engine</text>
+  <text x="68" y="202" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">stratum-dpi Engine</text>
   <text x="68" y="228" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Passive packet copy per LAN/VLAN; never</text>
   <text x="78" y="248" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">inline — forwarding unaffected if stopped</text>
   <text x="68" y="276" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.5">• Unprivileged process locked in FreeBSD</text>

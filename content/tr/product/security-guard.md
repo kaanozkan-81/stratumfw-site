@@ -171,7 +171,7 @@ aliases: ["/tr/security-guard/"]
 </div>
 <div class="sg-cta-row">
 <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="sg-btn-pri">Canlı Demoda Security Guard'ı İncele →</a>
-<a href="/tr/download/" class="sg-btn-sec">Ücretsiz v0.34.2 ISO / IMG İndir</a>
+<a href="/tr/download/" class="sg-btn-sec">Ücretsiz ISO / IMG İndir</a>
 <a href="/tr/product/security/" class="sg-btn-sec">Kriptografi ve Güncelleme Doğrulaması</a>
 </div>
 </section>
@@ -188,6 +188,6 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ var lb=do
 </script>
 
 <div style="background:#0f172a !important;border:1px solid rgba(245,158,11,0.35) !important;border-radius:14px;padding:20px 24px;margin:24px 0;">
-<div style="color:#fbbf24 !important;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">YENİ (v0.35.2) • AKILLI ERİŞİLEBİLİRLİK FİLTRELİ IDS BİLDİRİMLERİ</div>
+<div style="color:#fbbf24 !important;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">YENİ • AKILLI ERİŞİLEBİLİRLİK FİLTRELİ IDS BİLDİRİMLERİ</div>
 <p style="color:#cbd5e1 !important;margin:0;line-height:1.65;font-size:0.96rem;">Suricata WAN trafiğini <code style="color:#7dd3fc !important;">pf</code> öncesinde izlediği için, güvenlik duvarında kapalı olan portlara yönelik rastgele internet taramaları artık gereksiz Telegram veya e-posta alarmı üretmez. Stratum FW; port yönlendirmeleri, WAN geçiş kuralları, yönetim erişimi ve VPN dinleyicileri üzerinden gerçekten açık olan portları hesaplar; kapalı portlara düşen paketleri gizlemeden IDS ekranında ve Yapay Zeka Asistanında <strong style="color:#f8fafc !important;">Port closed</strong> olarak işaretler (hatalı panel girişlerinde varsayılan engel süresi de <strong style="color:#f8fafc !important;">15 dakikadır</strong>).</p>
 </div>

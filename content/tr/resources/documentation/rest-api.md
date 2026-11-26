@@ -25,13 +25,13 @@ curl -k -X GET https://192.168.1.1/api/status \
 * **RBAC Yetkileri:** **Yönetici** tüm uç noktalarda tam yetkiye sahiptir; **Operatör** okuma ve `/api/diag/*` tanılama işlemlerini çalıştırabilir; **Salt Okunur** hesaplarda yazma istekleri `403 Forbidden` döndürür.
 * **Safe-Apply Onayı:** Yapılandırma değişiklikleri kaydedildikten sonra `POST /api/config/apply` ile uygulanır ve kalıcı hale getirmek için **120 saniye** içinde `POST /api/config/confirm` çağrılır (geri almak için `POST /api/config/rollback`). İki istekte de oturum çerezi ve `X-Requested-With: stratum` başlığı gereklidir.
 
-## 2. Yapay Zeka Tanılama — MCP Sunucusu (`Sistem → Ayarlar → MCP`, `v0.14.0`)
+## 2. Yapay Zeka Tanılama — MCP Sunucusu (`Sistem → Ayarlar → MCP`)
 
 **Claude, ChatGPT, Gemini veya DeepSeek** gibi MCP destekli yapay zeka istemcilerini güvenlik duvarınıza tam kontrollü şekilde bağlayarak *"son 1 saatte hangi port taramaları engellendi?"* veya *"misafir ağında hangi cihazlar var?"* gibi sorular sorabilirsiniz:
 
 * **%100 Salt Okunur (15+ Araç):** Sistem durumu, arayüzler, WAN gecikme/failover durumu, servisler, güvenlik duvarı ve NAT kuralları, Suricata IPS uyarıları (`ids_alerts`), engelleme özetleri, DHCP kiralamaları ve aktif VPN oturumlarını okur — **MCP üzerinden hiçbir ayar değiştirilemez**.
 * **IP Kısıtlamalı Token ve Gizlilik:** Her asistan için ayrı erişim anahtarı (yalnızca özet/hash olarak saklanır) üretebilir ve istediğiniz aracı tek tek kapatabilirsiniz. Parolalar, özel anahtarlar ve VPN profilleri asla paylaşılmaz.
 
-## 3. SNMP İzleme (`Sistem → Ayarlar → SNMP`, `v0.19.0`)
+## 3. SNMP İzleme (`Sistem → Ayarlar → SNMP`)
 
 FreeBSD'nin yerel `bsnmpd` servisiyle (**Zabbix, LibreNMS, PRTG, Cacti** uyumlu, salt-okunur `SNMP v1 / v2c`) 64-bit arayüz sayaçlarını (`IF-MIB`), CPU/bellek/disk metriklerini ve `pf` istatistiklerini izleyebilirsiniz. Yalnızca seçilen iç arayüzlerden ve izin verilen IP adreslerinden gelen sorgulara yanıt verir; WAN üzerinde asla açılmaz.

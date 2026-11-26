@@ -94,7 +94,7 @@ disableKinds = ["taxonomy", "term"]
         weight = 31
       [[languages.en.menu.main]]
         name = 'Changelog'
-        url = '/resources/changelog/'
+        url = '/download/#changelog'
         parent = 'resources'
         weight = 32
       [[languages.en.menu.main]]
@@ -221,7 +221,7 @@ disableKinds = ["taxonomy", "term"]
         weight = 31
       [[languages.tr.menu.main]]
         name = 'Sürüm Notları'
-        url = '/tr/resources/changelog/'
+        url = '/tr/download/#changelog'
         parent = 'resources'
         weight = 32
       [[languages.tr.menu.main]]

@@ -1,6 +1,6 @@
 ---
 title: "File & Path Reference"
-description: "Reference guide to Stratum Firewall v0.30.0 configuration files, isolated TOTP 2FA & VPN secret storage, generated FreeBSD daemon configs, logs, and ZFS boot environments."
+description: "Reference guide to Stratum Firewall configuration files, isolated TOTP 2FA & VPN secret storage, generated FreeBSD daemon configs, logs, and ZFS boot environments."
 lead: "Transparent by design — see where Stratum stores its single declarative configuration, cryptographic secrets, generated service files, and logs."
 ---
 
@@ -11,7 +11,7 @@ Stratum Firewall never locks your settings inside opaque binary databases. All c
 | Path / Location | Purpose |
 | :--- | :--- |
 | `config.json` | Single declarative source of truth for interfaces, rules, schedules, 1:1 NAT, Force DNS, aliases, services, and system settings, versioned with configuration history and diffs. |
-| **Root-Only Secret Files** (`0600`) | Kept strictly outside `config.json`: panel user password hashes, **TOTP 2FA secret keys &amp; hashed one-time recovery codes (`v0.30.0`)**, WireGuard private/preshared keys, OpenVPN CA/server/user keys &amp; `tls-crypt`, PPPoE passwords, SMTP/Telegram tokens, SNMP community, SFTP backup password, and hashed MCP tokens. Included when exporting an encrypted `.stbk` backup with secrets enabled. |
+| **Root-Only Secret Files** (`0600`) | Kept strictly outside `config.json`: panel user password hashes, **TOTP 2FA secret keys &amp; hashed one-time recovery codes**, WireGuard private/preshared keys, OpenVPN CA/server/user keys &amp; `tls-crypt`, PPPoE passwords, SMTP/Telegram tokens, SNMP community, SFTP backup password, and hashed MCP tokens. Included when exporting an encrypted `.stbk` backup with secrets enabled. |
 
 ## 2. Generated System Configurations (`stratum-config` &amp; `stratum-pfrefresh`)
 
@@ -20,8 +20,8 @@ Every **Apply** validates and regenerates native FreeBSD configuration files fro
 | Generated Target | Daemon / Subsystem | Notes |
 | :--- | :--- | :--- |
 | `/etc/pf.conf` &amp; `pf` table files | FreeBSD `pf` &amp; `dummynet` | Filter rules, time-based schedules, 1:1 `binat`, Force DNS redirects, policy routing, shaper pipes, IP blocklists, and Hostname/Country (GeoIP) tables. |
-| `/etc/rc.conf` | FreeBSD `rc(8)` | Interface addresses, VLANs, and daemons—removing only variables genuinely set in `rc.conf` (`v0.28.7`), while VIPs and static routes are reconciled cleanly by `stratum-netextra`. |
-| `/etc/sysctl.conf.local` | Kernel Tunables (`v0.12.6`) | Managed from **System → Settings → Tunables**; any pre-existing file is preserved as `/etc/sysctl.conf.local.stratum-orig`. |
+| `/etc/rc.conf` | FreeBSD `rc(8)` | Interface addresses, VLANs, and daemons—removing only variables genuinely set in `rc.conf`, while VIPs and static routes are reconciled cleanly by `stratum-netextra`. |
+| `/etc/sysctl.conf.local` | Kernel Tunables | Managed from **System → Settings → Tunables**; any pre-existing file is preserved as `/etc/sysctl.conf.local.stratum-orig`. |
 | Unbound &amp; `dnsmasq` configs | DNS, DNSBL &amp; DHCP | DNSSEC trust anchor, RPZ DNSBL zones, 55-category Web Filter zones, and DHCP static mappings. |
 | Suricata (`netmap` / `pcap`) | Intrusion Detection / IPS | Supervised per-engine configs and ET Open ruleset categories. |
 | OpenVPN &amp; `wg0` | Remote Access VPNs | Server configs, CRL, `multihome` flags, and kernel `if_wg` peer definitions. |

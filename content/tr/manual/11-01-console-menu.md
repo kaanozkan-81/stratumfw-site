@@ -21,7 +21,7 @@ Yerel konsolda (VGA ve seri port) menü kendiliğinden açılır. SSH üzerinden
 Menünün en üstünde güvenlik duvarının anlık özeti gösterilir:
 
 ```
-Stratum FW 0.36.1  -  fw-belek  -  FreeBSD 15.1-RELEASE
+Stratum FW  -  fw-belek  -  FreeBSD 15.1-RELEASE
 
  WAN   igb0     203.0.113.10/29        static  up
  LAN   igb1     192.168.1.1/24         static  up

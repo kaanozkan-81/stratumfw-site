@@ -674,7 +674,7 @@ body .dl-layout a.dl-link-btn-light:hover {
 <div id="v0400-online-upgrade-note" class="dl-upgrade-banner">
   <div class="dl-upgrade-top">
     <span class="dl-upgrade-pill"><span class="dl-upgrade-dot"></span>GÜNCEL İMZALI SÜRÜM: v0.40.0 • 26 KASIM 2026</span>
-    <a href="/tr/resources/changelog/" class="dl-upgrade-link">v0.40.0 Sürüm Notlarını İncele &rarr;</a>
+    <a href="#changelog" class="dl-upgrade-link">v0.40.0 Sürüm Notlarını İncele &rarr;</a>
   </div>
   <h2>Doğrulanmış v0.39.5 Medyasıyla Kurun, Tek Tıkla v0.40.0 Sürümüne Yükseltin</h2>
   <p>Aşağıdaki doğrulanmış <code>v0.39.5</code> kurulum imajıyla sistemi kurduktan sonra <strong>System &gt; Update</strong> (<code>stratum-update run</code>) üzerinden <strong>OpenZFS Önyükleme Ortamı</strong> geri dönüş güvencesiyle tek tıkla imzalı <strong>v0.40.0</strong> sürümüne yükseltebilirsiniz — <strong>HTTP/HTTPS İndirme Kontrolü ve Gizlenmiş Program Tespiti</strong> (<code>Inspection CA</code>), <strong>Kapalı Başlayan Sıfır-Güven Arayüzler</strong> (<code>Allow internet access</code>), <strong>Web Filtresi Anahtar Kelimeler</strong>, <strong>Capsicum Uygulama Kontrolü</strong> ve <strong>16 Araçlı Yapay Zeka Asistanı</strong> dahil tüm yenilikler otomatik kurulur.</p>
@@ -847,13 +847,1247 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
   </div>
 </div>
 
+<!-- STRATUM-DL-CHANGELOG-START -->
+<details id="changelog" class="dl-changelog-details">
+  <summary class="dl-changelog-summary">Tüm Sürüm Notları ve Değişiklik Geçmişini Göster (Tam Arşiv)</summary>
+  <div class="dl-changelog-body">
+<p class="dl-cl-p">Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (<strong>System &gt; Update</strong>) veya çevrimdışı güncelleme dosyasından (<code>.sfu</code>) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.</p>
+<h3 class="dl-cl-ver">0.40.0 - 2026-11-26</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Firewall &gt; Download Control — Cihazların İndirdiği Dosyaları Denetleme.</strong> Programlar, betikler (<em>scripts</em>) ve diğer dosya türleri HTTP ve HTTPS üzerinden indirilirken kaydedilebilir veya engellenebilir.</li>
+<li><strong>Web vekil sunucusu (Web proxy):</strong> Güvenlik duvarı, seçtiğiniz iç ağlarda kendi adresi üzerinde (<strong>port 3128</strong>) bir web vekil sunucusu çalıştırır. Cihazlar bu vekil sunucuyu kullanacak şekilde ayarlandığında (örneğin bir Windows etki alanında Group Policy ile; adımlar panelde listelenir) denetime girer. Vekil sunucuya yönlendirilmeyen cihazlar denetlenmez.</li>
+<li><strong>Dosyanın gerçekte ne olduğu (İçerik tespiti):</strong> Karar verilirken yalnızca dosya adına ve sitenin bildirdiği türe değil, <strong>dosyanın kendi ilk baytlarına</strong> da bakılır. Tanınan biçimler: Windows, Linux ve macOS programları, <code>MSI</code>, <code>APK</code>, <code>JAR</code>, <code>MSIX</code>, <code>ZIP</code>, <code>RAR</code>, <code>7z</code>, <code>CAB</code>, <code>PDF</code> ve Office dosyaları. Bir web sayfasının kendi parçaları (sayfa içi betikler, görseller, sıkıştırılmış sayfalar) indirme olarak sayılmaz.</li>
+<li><strong>Gizlenmiş programlar (Disguised programs):</strong> Örneğin adı <code>.jpg</code> veya <code>.pdf</code> olarak değiştirilmiş bir <code>.exe</code> dosyası içeriğinden tanınır ve hangi dosya türleri seçili olursa olsun engellenebilir.</li>
+<li><strong>Dosya türleri:</strong> Programlar ve yükleyiciler (<em>programs and installers</em>), betikler ve kısayollar (<em>scripts and shortcuts</em>), arşivler (<em>archives</em>), disk kalıpları (<em>disk images</em>), belgeler (<em>documents</em>), video ve ses (<em>video and audio</em>). Varsayılan olarak programlar ve betikler seçilidir.</li>
+<li><strong>Monitor veya Block modu:</strong></li>
+<li><strong>Monitor (İzle):</strong> Nelerin engelleneceğini kaydeder, hiçbir dosyayı engellemez. İlk birkaç gün <strong>Monitor</strong> moduyla başlamanız önerilir.</li>
+<li><strong>Block (Engelle):</strong> İndirilen dosyayı indirmenin engellendiğini bildiren sayfayla değiştirir. Bu sayfa engelleme sayfasının (<em>Block page</em>) tasarımını taşır.</li>
+<li><strong>Bypass listesi (Bypass list):</strong> Bu sitelerin bağlantısı hiç açılmaz ve dosyaları denetlenmez. Bankalar, kamu kurumları (<code>gov.tr</code>), işletim sistemi güncellemeleri, güvenlik yazılımları ve yalnızca kendi sertifikasını kabul eden uygulamalar için kullanın. Varsayılan liste tek tıklamayla eklenebilir.</li>
+<li><strong>Her zaman izinli (Always allowed):</strong> Bu sitelerden indirilen dosyalar denetlenir ve kaydedilir ancak hiçbir zaman engellenmez.</li>
+<li><strong>Downloads sekmesi:</strong></li>
+<li>Saati, cihazı, siteyi, dosya adını, gerçek dosya türünü, boyutu ve sonucu gösterir;</li>
+<li>Aranabilir ve filtrelenebilir;</li>
+<li>Kayıtları <strong>1 ila 365 gün</strong> boyunca saklar (varsayılan <strong>30 gün</strong>).</li>
+<li>Yalnızca yöneticilere (<em>Administrators</em>) açıktır ve kayıtlara yapılan her bakış sistem günlüğüne yazılır.</li>
+<li><strong>Denetleyici durursa indirmeler devam eder (Fail-open):</strong> Bilgisayarlardaki antivirüs yazılımları kendi denetimlerini sürdürmeye devam eder.</li>
+<li><strong>System &gt; Certificates &gt; Inspection CA.</strong> İndirme Kontrolü (<strong>Download Control</strong>) için <strong>Block Page CA</strong>'dan ayrı, kendine ait sertifika otoritesi. Vekil sunucu HTTPS bağlantıları açmak için bu sertifikayı kullanır.</li>
+<li>Vekil sunucuyu kullanan cihazlara yükleyin: Windows ve Group Policy için <strong><code>.cer</code></strong>, diğer sistemler için <strong><code>.crt</code></strong> (PEM) olarak indirin.</li>
+<li>Cihazlardaki sertifikayla karşılaştırabilmeniz için <strong>SHA-256 parmak izi</strong> ekranda gösterilir.</li>
+<li>Özel anahtarı güvenlik duvarından asla dışarı çıkmaz.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><strong>Yarıda kalan bir Apply işlemi anında geri alınır.</strong> Mevcut durum kaydedildikten sonra beklenmedik bir hata Apply işlemini durdurursa, güvenlik duvarı onay süresini beklemek yerine derhal önceki duruma geri döner ve mesajda bunu bildirir. Geri alma işlemi de başarısız olursa ne çalıştırılması gerektiği mesajda açıkça yazılır. Günlük kaydı artık hatanın tam olarak hangi adımda gerçekleştiğini gösterir.</li>
+<li><strong>Squid</strong> (web vekil sunucusu) artık kurulumun bir parçasıdır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.39.6 - 2026-11-25</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><strong>Her arayüz kapalı başlar.</strong> Yeni kurulum (ve fabrika ayarlarına sıfırlama) artık LAN ve VLAN ağlarının birbirleri dahil her yere erişmesine izin vermez. Bölge tabanlı (<em>zone-based</em>) güvenlik duvarlarında olduğu gibi, bir kural izin verene kadar hiçbir trafik geçmez; web paneline LAN üzerinden erişim (<em>anti-lockout</em>) korunur ve DHCP çalışmaya devam eder. Mevcut kurulumlar kendi kurallarını korur.</li>
+</ul>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Güvenlik duvarı kurallarında <code>"Internet (not private networks)"</code> hedefi:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code> ve <code>100.64.0.0/10</code> dışındaki her yer. (<em>"WAN net"</em> interneti değil, yalnızca WAN bağlantısının kendi alt ağını ifade eder.)</li>
+<li><strong><code>Allow internet access</code> düğmesi:</strong> Kuralı bulunmayan bir arayüzde bilgi notu ve tek tıklamayla iki kural ekleyen bir düğme gösterilir — biri bu güvenlik duvarına (DNS, NTP, ping), diğeri ise diğer iç ağlara değil yalnızca internete izin verir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.39.5 - 2026-11-24</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Firewall &gt; Web Filter &gt; Keywords — İsme Göre Yeni Site Tespiti.</strong> Sürekli yeni numara veya adlarla geri dönen siteler (örneğin bahis siteleri: <code>site1234.com</code>, <code>site1235.com</code> ...), bir cihaz güvenlik duvarının DNS çözümleyicisine (Unbound) sorduğu anda alan adlarının içinde geçen bir kelimeyle — marka adı ya da <em>bahis</em> veya <em>casino</em> gibi bir ifadeyle — tespit edilir.</li>
+<li><strong>List them only</strong> (Yalnızca listele — varsayılan): Yakalanan yeni siteler eşleşen anahtar kelime, saat ve ilk sorgulayan cihaz bilgisiyle listelenir; tek tıklamayla engellenebilir (<em>Block</em>), yok sayılabilir (<em>Ignore</em>) veya istisna (<em>Exception</em>) yapılabilir.</li>
+<li><strong>Block them at once</strong> (Anında engelle): Eşleşen yeni alan adları doğrudan <strong>Your own list</strong> (Kendi listeniz) kategorisine eklenir ve bu kategoriyi seçen politikalarda saniyeler içinde engellenir (politikada açıksa özel engelleme sayfasıyla birlikte).</li>
+<li>Yalnızca sitenin kendi ana adı dikkate alınır (alt alan adları veya <code>.com</code>/<code>.bet</code> gibi üst düzey uzantılar sayılmaz); tanımlı istisnalar (<em>Exceptions</em>) her zaman önceliklidir.</li>
+<li><strong>Web Activity</strong> kapalıyken de çalışır: toplayıcı bu durumda DNS sorgularını yalnızca anahtar kelimeler için izler ve hiçbir gezinme kaydı tutmaz.</li>
+</ul>
+<h3 class="dl-cl-ver">0.39.0 - 2026-11-23</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Firewall &gt; Application Control &gt; Rules: Uygulama Engelleme Kuralları.</strong> Her kural seçili iç ağ arayüzlerini, Stratum kategorilerini (<em>VPN and proxies</em>, <em>Social media</em>, <em>Games</em> ...), isme göre uygulamaları (özel tanımlı uygulamalar dahil) ve isteğe bağlı olarak VPN/tünel uygulamalarının tipik davranışı olan <em>sunucu adı içermeyen şifreli bağlantıları</em> (<em>encrypted connections without a server name</em>) kapsar; belirli cihazlar istisna tutulabilir. Eşleşen ilk kural karar verir.</li>
+<li><strong>Monitor only</strong> (her yeni kural için varsayılan mod): Hiçbir trafiği kesmez, yalnızca kural etkin olsaydı nelerin engelleneceğini kaydeder.</li>
+<li><strong>Block</strong>: Sunucu adıyla (SNI) tanınan uygulamalar TLS / QUIC el sıkışması sırasında tekil bağlantı bazında ve her yeni denemede kesilir; aynı sunucu IP adresini paylaşan diğer sitelere dokunulmaz. İlgili sunucuya giden QUIC trafiği 10 dakika boyunca reddedilerek tarayıcıların TCP'ye dönmesi sağlanır ve her bağlantı sunucu adına göre tek tek denetlenir. Sunucu adı bulunmayan bağlantılar (VPN tünelleri) ise ilgili cihazı o sunucu adresinden 10 dakika boyunca engeller. Cihaz anında <code>"connection reset"</code> alır.</li>
+<li>Yalnızca motorun kesin olarak emin olduğu adlar üzerinde işlem yapılır; port veya IP tahminleriyle asla engelleme yapılmaz. Ağ servislerine (DNS, DHCP, NTP), özel IP adreslerine ve motor başladığında zaten açık olan bağlantılara dokunulmaz. Toplayıcı durduğunda veya kural kapatıldığında tüm engeller anında kaldırılır.</li>
+<li><strong>Blocked Sekmesi:</strong> Cihaz, uygulama ve kural bazında engellenen (<em>Blocked</em>), engelleme sayfası gösterilen (<em>Page shown</em>) veya izleme modunda yakalanan (<em>Would block</em>) bağlantıların sayı ve zaman bilgileri.</li>
+<li>Durum satırında aktif kurallar, gösterilen engelleme sayfaları, kesilen bağlantılar, engellenen cihazlar ve olası <code>pf</code> hataları canlı gösterilir.</li>
+<li><strong>Yapay Zeka Asistanı ve MCP:</strong> <em>Application usage</em> aracı artık tanımlı kuralları ve neleri engellediklerini de (salt okunur olarak) listeler (toplam <strong>16 salt okunur MCP aracı</strong>).</li>
+<li><strong>Application Control: Özelleştirilebilir Engelleme Sayfası (<code>Block page</code>).</strong> <strong>Block</strong> modundaki bir kural artık bağlantı hatası yerine sitenin engellendiğini açıklayan bir sayfa gösterebilir; sayfada site, uygulama, kural, cihaz ve zaman bilgileri yer alır.</li>
+<li>Güvenlik duvarının DNS çözümleyicisi (Unbound), kuralın engellediği uygulamalara ait alan adlarını kuralın ağları için (istisna cihazlar hariç) <code>198.18.0.1</code> adresiyle yanıtlar; güvenlik duvarı bu adrese giden web trafiğini engelleme sayfasına yönlendirir. QUIC reddedildiği için tarayıcılar anında TCP üzerinden HTTPS kullanır.</li>
+<li><strong>HTTPS:</strong> İstenen alan adı için o anda yeni <strong>Block Page CA</strong> tarafından imzalanmış bir sertifika üretilir. Bu CA'ya güvenen cihazlar doğrudan engelleme sayfasını, diğerleri ise sertifika uyarısını görür — her iki durumda da erişim engellenir.</li>
+<li>Alan adları nDPI'ın uygulama başına kendi alan adı listelerinden (yaklaşık 1.000 alan adı) ve özel tanımlı uygulamalardan alınır.</li>
+<li>Başka bir DNS sunucusu kullanan cihazlar da önceki gibi bağlantıları kesilerek engellenmeye devam eder.</li>
+<li>Gösterilen sayfalar <strong>Blocked</strong> sekmesinde sayılır.</li>
+<li><strong>Application Control &gt; Block page:</strong> Kendi logonuz ve sayfa üstü geniş görseliniz (<code>PNG</code> / <code>JPEG</code> / <code>WebP</code>), kurum adı, başlık, metinler, iletişim satırı, renk, gösterilecek detay alanları ve etiketleri — dilediğiniz dilde ve canlı önizlemeyle. Kaydedilen değişiklikler <strong>Apply</strong> gerektirmeden anında devreye girer.</li>
+<li><strong>System &gt; Certificates &gt; Block Page CA:</strong> Oluşturma, yenileme, silme; Group Policy adımlarıyla birlikte <code>.cer</code> (Windows / GPO) veya <code>.crt</code> (PEM) olarak indirme. Özel anahtar yalnızca güvenlik duvarında kalır; kullanımda olan bir CA silinemez.</li>
+<li><strong>System &gt; Certificates:</strong> Web yönetim paneli sertifikasını doğrudan sayfadan indirme seçeneği.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><strong><code>stratum-dpi 1.2</code> Motoru:</strong> Her uygulama adının güven düzeyini (sunucu adı / paket yükü, kısmi eşleşme, port veya adres tahmini) ve cihazın ilk ne gönderdiğini (<code>TLS ClientHello</code>, <code>QUIC Initial</code>, diğer, veri yok) raporlar; yeni bağlantıları tamponda bekletmek yerine anında iletir.</li>
+<li>Sunucu adı bilinen bağlantılar nDPI paket sınırını beklemeden anında adlandırılır; nDPI yalnızca port veya adresten tahminde bulunduğunda sunucu adı öncelik kazanır.</li>
+<li><code>Apply</code> işlemi sonrasında <code>pf</code> yeniden yüklendiğinde toplayıcının aktif engelleri otomatik geri yüklenir.</li>
+<li><strong>Unbound:</strong> Web Filter ve Application Control ağ etiketleri her ağ için tek listede birleştirildi.</li>
+<li>Bir kural engelleme sayfası gösterirken Firefox'a DNS over HTTPS (DoH) moduna geçmemesi bildirilir.</li>
+</ul>
+<h4 class="dl-cl-sub">Güvenlik</h4>
+<ul class="dl-cl-list">
+<li>Engelleme sayfası sunucusu kendi yetkisiz kullanıcısı (<code>_stratumbp</code>) altında çalışır; CA özel anahtarını yalnızca bu servis ve <code>root</code> okuyabilir ve servisin portlarına hiçbir ağdan doğrudan erişilemez.</li>
+</ul>
+<h3 class="dl-cl-ver">0.38.0 - 2026-11-23</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Firewall &gt; Application Control &gt; Rules: Uygulama Engelleme Kuralları.</strong> Her kural seçili iç ağ arayüzlerini, Stratum kategorilerini (<em>VPN and proxies</em>, <em>Social media</em>, <em>Games</em> ...), isme göre uygulamaları (özel tanımlı uygulamalar dahil) ve isteğe bağlı olarak VPN/tünel uygulamalarının tipik davranışı olan <em>sunucu adı içermeyen şifreli bağlantıları</em> (<em>encrypted connections without a server name</em>) kapsar; belirli cihazlar istisna tutulabilir. Eşleşen ilk kural karar verir.</li>
+<li><strong>Monitor only</strong> (her yeni kural için varsayılan mod): Hiçbir trafiği kesmez, yalnızca kural etkin olsaydı nelerin engelleneceğini kaydeder.</li>
+<li><strong>Block</strong>: Sunucu adıyla (SNI) tanınan uygulamalar TLS / QUIC el sıkışması sırasında tekil bağlantı bazında ve her yeni denemede kesilir; aynı sunucu IP adresini paylaşan diğer sitelere dokunulmaz. İlgili sunucuya giden QUIC trafiği 10 dakika boyunca reddedilerek tarayıcıların TCP'ye dönmesi sağlanır ve her bağlantı sunucu adına göre tek tek denetlenir. Sunucu adı bulunmayan bağlantılar (VPN tünelleri) ise ilgili cihazı o sunucu adresinden 10 dakika boyunca engeller. Cihaz anında <code>"connection reset"</code> alır.</li>
+<li>Yalnızca motorun kesin olarak emin olduğu adlar üzerinde işlem yapılır; port veya IP tahminleriyle asla engelleme yapılmaz. Ağ servislerine (DNS, DHCP, NTP), özel IP adreslerine ve motor başladığında zaten açık olan bağlantılara dokunulmaz. Toplayıcı durduğunda veya kural kapatıldığında tüm engeller anında kaldırılır.</li>
+<li><strong>Blocked Sekmesi:</strong> Cihaz, uygulama ve kural bazında engellenen (<em>Blocked</em>) veya izleme modunda yakalanan (<em>Would block</em>) bağlantıların sayı ve zaman bilgileri.</li>
+<li>Durum satırında aktif kurallar, kesilen bağlantılar, engellenen cihazlar ve olası <code>pf</code> hataları canlı gösterilir.</li>
+<li><strong>Yapay Zeka Asistanı ve MCP:</strong> <em>Application usage</em> aracı artık tanımlı kuralları ve neleri engellediklerini de (salt okunur olarak) listeler (toplam <strong>16 salt okunur MCP aracı</strong>).</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><strong><code>stratum-dpi 1.2</code> Motoru:</strong> Her uygulama adının güven düzeyini (sunucu adı / paket yükü, kısmi eşleşme, port veya adres tahmini) ve cihazın ilk ne gönderdiğini (<code>TLS ClientHello</code>, <code>QUIC Initial</code>, diğer, veri yok) raporlar; yeni bağlantıları tamponda bekletmek yerine anında iletir.</li>
+<li>Sunucu adı bilinen bağlantılar nDPI paket sınırını beklemeden anında adlandırılır.</li>
+<li>nDPI yalnızca port veya adresten tahminde bulunduğunda sunucu adı (SNI) öncelik kazanır.</li>
+<li><code>Apply</code> işlemi sonrasında <code>pf</code> yeniden yüklendiğinde toplayıcının aktif engelleri otomatik olarak geri yüklenir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.37.2 - 2026-11-22</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li><strong>System &gt; Backup &gt; Automatic backup (Otomatik Yedekleme):</strong> <code>0.37.1</code> sürümünde <em>Test connection</em> (Bağlantıyı test et)</li>
+</ul>
+<p class="dl-cl-p">düğmesi <code>"Request failed (422)"</code> yanıtı döndürdüğü için SMB veya SFTP sunucu bağlantısı sayfa üzerinden test</p>
+<p class="dl-cl-p">edilemiyordu. *Browse* (Göz at), *Back up now* (Şimdi yedekle) ve zamanlanmış otomatik yedeklemeler bu durumdan etkilenmedi.</p>
+<h3 class="dl-cl-ver">0.36.1 - 2026-11-19</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Captive Portal: RADIUS Sunucusu ile Giriş</strong> (<code>FreeRADIUS</code> ve diğer standart sunucular): Her istekte <code>Message-Authenticator</code> içeren <code>PAP</code> doğrulaması; gelen her yanıt kabul edilmeden önce paylaşılan gizli anahtara (<code>shared secret</code>) karşı doğrulanır. Birincil sunucu yanıt vermezse ikincil sunucu devreye girer. Paylaşılan gizli anahtar yalnızca <code>root</code> erişimli bir dosyada saklanır ve bir daha gösterilmez.</li>
+<li><strong>Muhasebeleştirme (<code>Accounting</code>):</strong> Oturum süresi, trafik miktarı ve sonlanma nedeni (çıkış yapıldı, boşta kalma, süre sınırı, yönetici müdahalesi vb.) ile birlikte <code>Start</code>, periyodik ara güncellemeler (<code>Interim-Update</code>) ve <code>Stop</code> kayıtları gönderilir; böylece RADIUS sunucusunun oturum tabloları ve bunlara dayalı yasal/kurumsal günlükler diğer tüm ağ erişim sunucularında (<code>NAS</code>) olduğu gibi Stratum FW arkasındaki cihazları da eksiksiz kapsar. Sunucunun gönderdiği <code>Class</code> özelliği geri iletilir.</li>
+<li>Sunucudan dönen <strong><code>Session-Timeout</code></strong>, <strong><code>Idle-Timeout</code></strong>, <strong><code>Acct-Interim-Interval</code></strong> ve bant genişliği öznitelikleri (<strong><code>WISPr-Bandwidth-Max-Up/Down</code></strong> veya <strong><code>Mikrotik-Rate-Limit</code></strong> — böylece mevcut bir MikroTik RADIUS kurulumu hiçbir değişiklik gerektirmeden çalışır) doğrudan cihaza uygulanır.</li>
+<li><strong>Her Bölge İçin Cihaz Başı Bant Genişliği Sınırları:</strong> Hangi giriş yöntemi seçilirse seçilsin her bölge için indirme / yükleme (<code>Mbit/s</code>) hız sınırı tanımlanabilir. Her cihaza kendi <code>dummynet</code> kuyruğu açılır; RADIUS sunucusundan hız değeri gelirse bölge varsayılanının önüne geçer.</li>
+<li>Giriş yapmış cihazlar listesinde her cihazın anlık/toplam trafiği ve etkin hız sınırları gösterilir.</li>
+<li><strong>Kontrol Paneli (<code>Dashboard</code>): Captive Portal Kartı:</strong> Bölge başına bağlı cihaz sayısı, son girişler, servis durumu ve RADIUS sunucusu muhasebe (<code>accounting</code>) paketlerini onaylamadığında beliren uyarı.</li>
+</ul>
+<h3 class="dl-cl-ver">0.36.0 - 2026-11-19</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Captive Portal / Misafir Giriş Portalı</strong> (<code>Services &gt; Captive Portal</code>): Misafir ağları için pfSense tarzında oturum açma sayfası.</li>
+<li><strong>Bölgeler (<code>Zones</code>):</strong> Her bölgeye bir veya birden fazla iç ağ arayüzü atanabilir. Henüz giriş yapmamış bir cihaz yalnızca güvenlik duvarındaki DNS servisine, giriş sayfasına ve bölgenin izin verilen hedeflerine ulaşabilir; <code>http://</code> istekleri giriş sayfasına yönlendirilir ve telefonlar ile dizüstü bilgisayarlar kendi bağlantı kontrolleri sayesinde sayfayı kendiliğinden açar. Giriş yapıldıktan sonra ilgili arayüzün kendi güvenlik duvarı kuralları diğer tüm cihazlarda olduğu gibi uygulanır.</li>
+<li><strong>Parolasız (Koşulları Kabul Et ve Bağlan) veya Yerel Kullanıcı Hesaplarıyla Giriş:</strong> İsteğe bağlı son kullanma tarihi, kullanıcı başına cihaz sınırı ve hatalı parolalarda adresi birkaç dakikalığına kilitleyen koruma.</li>
+<li><strong>Oturum Süresi, Boşta Kalma Süresi ve MAC Kontrolü:</strong> Toplam süre sınırı, boşta kalma zaman aşımı (yeni trafik yoksa) ve adresi başka bir cihaz aldığında otomatik çıkış (<code>MAC</code> kontrolü); bir bölgenin giriş yöntemi değiştiğinde cihazlar yeni yöntemle tekrar giriş yapar.</li>
+<li><strong>Özelleştirilebilir Giriş Sayfası:</strong> Başlık, karşılama mesajı, kullanım koşulları, düğme metni, renk, logo, İngilizce veya Türkçe dil seçimi; telefon ekranlarına ve koyu temaya otomatik uyum sağlar.</li>
+<li><strong>İstisnalar:</strong> Hiç giriş yapması gerekmeyen cihazlar (yazıcılar, TV kutuları) ve giriş öncesinde erişime izin verilen hedefler.</li>
+<li><strong>Canlı Oturum Yönetimi ve Rol Ayrımı:</strong> Giriş yapmış cihazlar canlı olarak listelenir ve bağlantıları kesilebilir; <strong>Operatörler</strong> kullanıcı hesaplarını yönetebilir ve cihaz bağlantılarını kesebilir, bölge ayarları ise <strong>Yöneticilere</strong> açıktır. Her giriş ve çıkış sistem günlüğüne yazılır.</li>
+<li><strong>Yetki Ayrıştırılmış Güvenli Mimari:</strong> Misafir tarafını olabildiğince küçük ve güvenli tutmak için giriş sayfası yetkisiz (unprivileged) bir kullanıcı altında çalışır ve hiçbir gizli bilgi barındırmaz; giriş doğrulamaları yerel bir soket üzerinden ayrı bir <code>root</code> servisi tarafından denetlenir. Parolalar yalnızca <code>root</code> erişimli bir dosyada <code>bcrypt</code> özeti olarak saklanır ve tarayıcıya asla gönderilmez. Giriş yapmış cihazların bağlantısı <code>pf</code> yeniden yüklemelerinde, <code>Apply</code> işlemlerinde ve servis yeniden başlatıldığında kesilmeden korunur.</li>
+</ul>
+<h3 class="dl-cl-ver">v0.35.2 — 2026-11-19</h3>
+<ul class="dl-cl-list">
+<li><strong>Yalnızca Erişilebilir Saldırı Uyarıları İçin Bildirim Gönderimi:</strong> Suricata bir WAN arayüzünü <code>pf</code> filtrelemeden önce izlediği için, güvenlik duvarının dışarıya açmadığı bir porta yönelik saldırılar (örneğin UDP <code>9034</code> üzerindeki Realtek SDK istismarı, CVE-2021-35394) paketler <code>pf</code> tarafından düşürüldüğü halde yüksek önem dereceli uyarı ve Telegram / e-posta bildirimi üretiyordu. Stratum FW artık WAN adreslerinde gerçekte neyin açık olduğunu (kaynak adres ve port takma adlarıyla birlikte port yönlendirmeleri, arayüz grupları dahil WAN geçiş kuralları, WAN yönetim erişimi, OpenVPN, WireGuard ve IPsec) hesaplar; yalnızca içeriden çıkan, içerideki istemcilere yönelen veya ilgili kaynak için gerçekten açık olan bir porta gelen uyarılar için bildirim gönderir. Kesin hesaplanamayan durumlar (GeoIP kaynağı veya portsuz protokoller) bildirilmeye devam eder.</li>
+<li><strong>Hiçbir Kayıt Gizlenmez (<code>Port closed</code> İşareti):</strong> Kapalı portlara gelen bu uyarılar günlüklerde ve IDS sayfasında <strong>Port closed</strong> (<code>Port kapalı</code>) işaretiyle tutulmaya devam eder; MCP araçları ve Yapay Zeka Asistanı da aynı işareti görür. Tümünü bildirim olarak almak isteyenler için <code>System &gt; Settings &gt; Notifications</code> altına varsayılan olarak kapalı yeni bir anahtar eklendi.</li>
+</ul>
+<h3 class="dl-cl-ver">v0.35.1 — 2026-11-18</h3>
+<ul class="dl-cl-list">
+<li><strong>Deterministik MCP Kural ve Sayaç Matematiği:</strong> Güvenlik duvarı ve NAT kuralı MCP araçları artık sayım işlemini dil modeline bırakmak yerine önceden hesaplanmış kesin kural sayılarını (<code>all</code>, <code>enabled</code>, <code>disabled</code>) döndürür ve <code>0</code> paket sayaçlarını açıkça <code>"son Apply/yeniden yükleme işleminden bu yana eşleşmedi"</code> olarak işaretler. DeepSeek ile yapılan üretim testlerinde soru dilinde yanıt, genel IP maskeleme ve hedef panel sayfasına doğru yönlendirme doğrulandı.</li>
+</ul>
+<h3 class="dl-cl-ver">v0.35.0 — 2026-11-18</h3>
+<ul class="dl-cl-list">
+<li><strong>Yerleşik <code>Diagnostics &gt; AI Assistant</code> (<code>Tanılama &gt; Yapay Zeka Asistanı</code>):</strong> 15 salt okunur MCP aracı üzerinden canlı güvenlik duvarı durumunu doğal dilde (<em>"son bir saatte neler engellendi?"</em>, <em>"WAN2 sağlıklı mı?"</em>, <em>"iç ağda şüpheli bir cihaz var mı?"</em>) sorgulayın. Yapılandırmayı değiştiremez; her yanıtın altında kullanılan araçları gösterir ve değişiklik için panelde hangi sayfaya gidileceğini açıklar.</li>
+<li><strong>Yerel <code>Ollama</code> Dahil 5 Yapay Zeka Sağlayıcısı:</strong> Anthropic Claude, OpenAI, DeepSeek, Google Gemini ve hiçbir sorunun veya verinin ağ dışına çıkmadığı yerel LAN <strong>Ollama</strong> sunucularını destekler.</li>
+<li><strong>Gizlilik Odaklı IP Maskeleme ve Geçici RAM Bellek:</strong> Genel IP adresleri bulut isteklerinden önce varsayılan olarak takma adlarla (<code>PUB-1</code>, <code>PUB-2</code>...) değiştirilir ve ekranda gerçek değerlerine döndürülür; hiçbir araç parola, anahtar veya VPN yapılandırması döndürmez; API anahtarları <code>0600</code> izinli root dosyalarında tutulur (şifreli yedeklere dahildir) ve <strong>Test</strong> düğmesi içerir; yalnızca Yöneticilere açıktır ve sohbetler diske yazılmadan 1 saat RAM üzerinde tutulur.</li>
+</ul>
+<h3 class="dl-cl-ver">v0.34.2 — 2026-11-17</h3>
+<ul class="dl-cl-list">
+<li><strong>OpenSSL Anahtar Üretimi (<code>cryptography</code>):</strong> Python kontrol katmanındaki X25519 / WireGuard yardımcı anahtar üretimi, denetlenmiş <code>cryptography</code> kütüphanesi üzerinden OpenSSL altyapısına taşındı; böylece Stratum FW kendi özel kriptografik ilkelini barındırmaz.</li>
+</ul>
+<h3 class="dl-cl-ver">0.34.1 - 2026-11-17</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>WireGuard S2S: bir tünelin ön paylaşımlı anahtarı (PSK) kaldırıldığında artık çalışan arayüzden de temizleniyor.</li>
+</ul>
+<p class="dl-cl-p">Tüneller kesinti olmaması için <code>wg syncconf</code> ile güncellenir; bu komut kendisine verilmeyen anahtarı koruduğu için</p>
+<p class="dl-cl-p">yapılandırma artık anahtarı her zaman açıkça yazar ("yok" anlamında tamamı sıfır anahtar). Öncesinde eski anahtar</p>
+<p class="dl-cl-p">aktif kalıyor ve el sıkışma başarısız oluyordu.</p>
+<h4 class="dl-cl-sub">Notlar</h4>
+<ul class="dl-cl-list">
+<li>WireGuard S2S, NAT arkasından bağlanan bir Stratum FW ile MikroTik RouterOS 7 (RB4011) arasında canlı olarak test</li>
+</ul>
+<p class="dl-cl-p">edildi.</p>
+<h3 class="dl-cl-ver">0.34.0 - 2026-11-16</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>VPN &gt; <strong>WireGuard S2S</strong>: başka bir Stratum FW, OPNsense, pfSense, MikroTik RouterOS 7 veya Linux geçidine merkezden</li>
+</ul>
+<p class="dl-cl-p">şubeye (site-to-site) WireGuard tünelleri eklendi. Her tünel kendi anahtarlarına ve portuna sahip bağımsız bir</p>
+<p class="dl-cl-p">arayüzdür (<code>wg1</code>, <code>wg2</code> ...); uzak ağlar bu arayüze yönlendirilir ve WireGuard karşı taraftan yalnızca bu ağlara ait</p>
+<p class="dl-cl-p">adresleri kabul eder.</p>
+<ul class="dl-cl-list">
+<li>Bu tarafın anahtar çifti tünel eklendiğinde üretilir; karşı tarafa verilmek üzere yalnızca açık anahtar gösterilir.</li>
+</ul>
+<p class="dl-cl-p">İsteğe bağlı ön paylaşımlı anahtar ("Üret" düğmesi tarayıcıda oluşturur) yalnızca <code>root</code> erişimli dosyada saklanır</p>
+<p class="dl-cl-p">ve hiçbir zaman dışarı döndürülmez.</p>
+<ul class="dl-cl-list">
+<li>Her iki taraf da bağlantıyı başlatabilir: erişilebilir olan karşı tarafın adresini girmeniz yeterlidir; NAT</li>
+</ul>
+<p class="dl-cl-p">arkasındaki taraf <code>keepalive</code> seçeneğini açık tutar. İsteğe bağlı tünel adresi (ör. <code>10.203.0.1/30</code>) tünelin</p>
+<p class="dl-cl-p">kendisine ping atılabilmesini sağlar.</p>
+<ul class="dl-cl-list">
+<li>Güvenlik Duvarı: tünelin UDP portu WAN üzerinde açılır (karşı tarafın adresi biliniyorsa yalnızca o adrese); "izin</li>
+</ul>
+<p class="dl-cl-p">ver" açıkken uzak ağlardan yerel ağlara gelen trafik geçer, kapalıyken yalnızca yanıt paketlerine izin verilir; TCP</p>
+<p class="dl-cl-p">MSS tünel MTU değerine kenetlenir; politika yönlendirmeli kurallar uzak ağ trafiğini yerel tutar.</p>
+<ul class="dl-cl-list">
+<li>Tünel durumu (bağlı, son el sıkışma, trafik miktarı) hem kendi sayfasında hem de Gösterge Paneli VPN kartında</li>
+</ul>
+<p class="dl-cl-p">izlenir.</p>
+<ul class="dl-cl-list">
+<li>Uzak ağlar yerel, OpenVPN, WireGuard ve IPsec ağlarına karşı çakışma denetiminden geçirilir ve Güvenlik Duvarı</li>
+</ul>
+<p class="dl-cl-p">Günlüğü &gt; Ağlar arası matrisinde "WireGuard S2S" olarak görünür.</p>
+<ul class="dl-cl-list">
+<li>Karşı tarafın açık anahtarı henüz bilinmiyorsa önce bu tarafın anahtarını almak için tünel devre dışı olarak</li>
+</ul>
+<p class="dl-cl-p">kaydedilebilir.</p>
+<ul class="dl-cl-list">
+<li>Uzaktan erişim sunucusu (<code>wg0</code>, VPN &gt; WireGuard) değişmedi.</li>
+</ul>
+<h3 class="dl-cl-ver">0.33.2 - 2026-11-16</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Gösterge Paneli: VPN bağlantıları kartına IPsec tünelleri (durum, uzak ağ geçidi ve ağlar, çalışma süresi, trafik) ve</li>
+</ul>
+<p class="dl-cl-p">güvenlik özetine "Açık IPsec tünelleri: n / m" satırı eklendi (herhangi bir tünel düştüğünde kırmızı görünür).</p>
+<h4 class="dl-cl-sub">Notlar</h4>
+<ul class="dl-cl-list">
+<li>Bir Stratum FW arkasındaki dizüstü bilgisayarın IKEv2 tüneli üzerinden başka bir Stratum FW arkasındaki dosya</li>
+</ul>
+<p class="dl-cl-p">paylaşımlarına ve web sayfalarına erişimiyle uçtan uca doğrulandı.</p>
+<h3 class="dl-cl-ver">0.33.1 - 2026-11-16</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>VPN &gt; IPsec: IKEv2'nin yanına <strong>IKEv1</strong> desteği eklendi (FortiGate IPsec sihirbazının varsayılanı, eski Cisco/ASA</li>
+</ul>
+<p class="dl-cl-p">cihazları ve IKEv2 konuşmayan yönlendiriciler için). Varsayılan olarak Ana mod (Main mode) kullanılır; Agresif mod</p>
+<p class="dl-cl-p">yalnızca karşı taraf zorunlu kıldığında seçilir (değişken IP adresli IKEv1 uçları için gereklidir). IKEv1'de her</p>
+<p class="dl-cl-p">yerel/uzak ağ çifti kendi ayrı Faz 2 kaydını alır ve Faz 1 yeniden kimlik doğrulamayla yenilenir.</p>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>IPsec: bir tünelin uzak ağı artık OpenVPN veya WireGuard tünel ağıyla ya da yönlendirilmiş bir iç ağla çakışamaz.</li>
+</ul>
+<p class="dl-cl-p">Uzak ağa giden trafik çekirdek tarafından şifrelendiği için böyle bir çakışmada VPN istemcilerine dönen yanıtlar</p>
+<p class="dl-cl-p">istemci yerine IPsec tüneline giriyordu.</p>
+<h4 class="dl-cl-sub">Notlar</h4>
+<ul class="dl-cl-list">
+<li>0.33.0 sürümü biri NAT arkasında, diğeri PPPoE hattında çalışan iki Stratum FW arasında test edildi: NAT geçişli</li>
+</ul>
+<p class="dl-cl-p">(NAT-T) IKEv2, tünel içi trafik akışı ve "izin ver" kapalıyken ters yön trafiğinin <code>enc0</code> üzerinde engellenip</p>
+<p class="dl-cl-p">günlüğe yazılması doğrulandı.</p>
+<h3 class="dl-cl-ver">0.33.0 - 2026-11-16</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>VPN &gt; <strong>IPsec</strong>: diğer güvenlik duvarlarına ve yönlendiricilere (FortiGate, MikroTik, pfSense/OPNsense, Cisco, bulut</li>
+</ul>
+<p class="dl-cl-p">VPN geçitleri) merkezden şubeye (site-to-site) tüneller eklendi. Ön paylaşımlı anahtarlı IKEv2 ve politika tabanlı</p>
+<p class="dl-cl-p">mimari: bir tünel seçilen yerel ağları karşı tarafın arkasındaki ağlarla birleştirir. Anahtar değişimini <code>strongSwan</code></p>
+<p class="dl-cl-p">yapar; şifrelemeyi doğrudan FreeBSD çekirdeği yürütür.</p>
+<ul class="dl-cl-list">
+<li>Tünel bazlı Faz 1 ve Faz 2 ayarları: <code>AES-GCM</code> veya <code>AES-CBC</code>, <code>SHA-2</code> (eski cihazlar için <code>SHA-1</code>), DH grupları</li>
+</ul>
+<p class="dl-cl-p"><code>14-21</code> ve <code>Curve25519</code> (<code>2</code> ve <code>5</code> zayıf olarak işaretlidir), PFS, yaşam süreleri ve ölü uç tespiti (DPD).</p>
+<p class="dl-cl-p">Gönderilen teklif dizileri seçim yaptıkça ekranda gösterilir.</p>
+<ul class="dl-cl-list">
+<li>Alt ağ başına tek seçici tutan cihazlar (FortiGate, Cisco) için "Her ağ çifti için ayrı Faz 2 kaydı" seçeneği.</li>
+<li>Başlangıçta bağlanıp tüneli ayakta tutma veya karşı tarafı bekleme (değişken IP'li uçlar dahil). NAT geçişi (NAT-T)</li>
+</ul>
+<p class="dl-cl-p">otomatiktir.</p>
+<ul class="dl-cl-list">
+<li>Tünel bazlı durum (bağlı, yalnızca Faz 1, bağlanıyor, bağlı değil), çalışma süresi, NAT-T, trafik sayaçları,</li>
+</ul>
+<p class="dl-cl-p">Bağlan / Kes düğmeleri ve yöneticiler için aynı sayfada IPsec günlüğü.</p>
+<ul class="dl-cl-list">
+<li>Güvenlik Duvarı: IKE ve ESP paketlerine yalnızca eş (peer) adresinden izin verilir; şifresi çözülen trafik kendi</li>
+</ul>
+<p class="dl-cl-p">arayüzünde (<code>enc0</code>) görünür ve tünelin "izin ver" seçeneği yalnızca uzak ağlardan yerel ağlara gelen trafiği</p>
+<p class="dl-cl-p">geçirir; tünelden gelen diğer her şey bilinmeyen trafik gibi engellenir ve günlüğe yazılır. Tünel trafiğine asla</p>
+<p class="dl-cl-p">NAT uygulanmaz (NAT muafiyeti), TCP MSS tünel içinde kenetlenir (varsayılan <code>1350</code>) ve politika yönlendirmeli</p>
+<p class="dl-cl-p">kurallar tünel trafiğini yerel tutar.</p>
+<ul class="dl-cl-list">
+<li>Ön paylaşımlı anahtar yalnızca <code>root</code> erişimli ayrı bir dosyada tutulur; <code>config.json</code> içine yazılmaz, bir daha</li>
+</ul>
+<p class="dl-cl-p">gösterilmez ve API tarafından döndürülmez; "Üret" düğmesi tarayıcıda güçlü anahtar oluşturur. Anahtarlar şifreli</p>
+<p class="dl-cl-p">yedeklere (<code>.stbk</code>) dahil edilir.</p>
+<ul class="dl-cl-list">
+<li>Tünellerin uzak ağları Güvenlik Duvarı Günlüğü &gt; Ağlar arası matrisinde "IPsec" olarak görünür.</li>
+<li>Yeni paket bağımlılığı: <code>strongSwan</code>.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><code>stratum-config diff</code> komutu artık WireGuard ve IPsec anahtarlarını açık metin olarak göstermez.</li>
+</ul>
+<h3 class="dl-cl-ver">0.32.0 - 2026-11-14</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Tanılama &gt; Güvenlik Duvarı Günlüğü &gt; <strong>Ağlar arası (Between networks)</strong>: güvenlik duvarının kaydettiği iç ağlar</li>
+</ul>
+<p class="dl-cl-p">arası trafik matrisi eklendi. Hangi iç ağın hangisine ulaştığını (izin verilen ve engellenen), her hedef adres ve</p>
+<p class="dl-cl-p">port için kaç farklı cihazdan kaç bağlantı kurulduğunu, ilk ve son görülme zamanlarıyla birlikte gösterir. Güvenlik</p>
+<p class="dl-cl-p">duvarı günlüğünün döngü süresinden bağımsız olarak son görülmeden itibaren 30 gün boyunca saklanır ve karaliste</p>
+<p class="dl-cl-p">raporuyla birlikte dakikada bir güncellenir; güvenlik duvarının kendi adresleri ayrı bir hedef olarak izlenir. VLAN</p>
+<p class="dl-cl-p">bölütlemesi (mikro-segmentasyon) için doğrudan karar verisi sunar: önce bir ağın diğerlerine ne gönderdiğini</p>
+<p class="dl-cl-p">kaydedin, gerçekten kullanılan trafiğe izin verip kalanını kapatın ve sonrasında engelleme kurallarının neyi</p>
+<p class="dl-cl-p">durdurduğunu izleyin.</p>
+<h3 class="dl-cl-ver">0.31.6 - 2026-11-13</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Güncellemeler artık Suricata'nın kendisi, kullandığı bir kütüphane veya başlatma betiği güncellenmediği sürece</li>
+</ul>
+<p class="dl-cl-p">saldırı tespit servisini yeniden başlatmaz. Suricata herhangi bir Stratum kodu çalıştırmaz: ayarları Uygula (Apply)</p>
+<p class="dl-cl-p">ile değişir ve kuralları yeniden başlatma gerekmeden yüklenir. Satır içi engelleme (Block, netmap) motoru her açılış</p>
+<p class="dl-cl-p">ve kapanışta portları sıfırladığı için öncesinde her güncelleme engelleme modundaki bir WAN hattını birkaç</p>
+<p class="dl-cl-p">saniyeliğine düşürüyordu.</p>
+<h3 class="dl-cl-ver">0.31.5 - 2026-11-13</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Güncellemeler: yeni sürüm bazı ayar dosyalarını (Suricata, pf veya servis ayarları) farklı üretiyorsa güncelleme</li>
+</ul>
+<p class="dl-cl-p">tamamlandığında bunu açıkça bildirir; güncelleme günlüğünde, Gösterge Paneli Uyarılar kartında ve bildirimlerde</p>
+<p class="dl-cl-p">ilgili dosyalarla birlikte "Güncelleme değişikliklerini etkinleştirmek için Uygula'ya basın" uyarısı gösterilir.</p>
+<p class="dl-cl-p">Öncesinde bu tür değişiklikler bir sonraki Uygula işlemine kadar sessizce bekliyordu.</p>
+<h3 class="dl-cl-ver">0.31.4 - 2026-11-13</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Saldırı tespiti: Suricata izlediği portların donanım hızlandırma bayraklarını (checksum, TSO, LRO) başlarken kapatıp</li>
+</ul>
+<p class="dl-cl-p">dururken tekrar açıyordu. Intel <code>igb</code> portlarında bu bayrakların her değişimi portu yeniden başlattığı için her</p>
+<p class="dl-cl-p">Suricata yeniden başlatması (sistem güncellemesi, IDS ayar uygulaması veya WAN üzerinde yeni DHCP adresi alınması)</p>
+<p class="dl-cl-p">izlenen WAN hatlarını birkaç saniyeliğine iki kez düşürüyor ve ağ geçidi izleyicisinin varsayılan rotayı</p>
+<p class="dl-cl-p">değiştirmesine yol açıyordu. Suricata artık port bayraklarına dokunmaz (<code>capture.disable-offloading: false</code>); donanım</p>
+<p class="dl-cl-p">hızlandırma yalnızca Stratum tarafından yönetilir (Sistem &gt; Ayarlar &gt; İnce Ayarlar ve kapalı olması gereken Engelleme</p>
+<p class="dl-cl-p">portları için).</p>
+<ul class="dl-cl-list">
+<li>Yükseltme notu: yeni Suricata ayarı bir sonraki Uygula (<code>stratum-config apply</code>) işleminde devreye girer. Bu ilk</li>
+</ul>
+<p class="dl-cl-p">Uygula sırasında eski motor dururken bayrakları geri yüklediği için izlenen portlar son bir kez sıfırlanır;</p>
+<p class="dl-cl-p">sonrasında Suricata portlara dokunmadan yeniden başlar.</p>
+<h3 class="dl-cl-ver">0.31.3 - 2026-11-13</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Yapılandırma yedekleri: yalnızca ayırıcı başlık ekleyen, adını değiştiren veya yerini kaydıran işlemler artık</li>
+</ul>
+<p class="dl-cl-p">saklanan 30 yedek hakkından birini tüketmez; böylece kural listesini görsel olarak düzenlemek gerçek yapılandırma</p>
+<p class="dl-cl-p">değişikliklerine ait yedekleri listeden dışarı itmez. Bir kuralın sırasını değiştirmek <code>pf</code> değerlendirme sırasını</p>
+<p class="dl-cl-p">etkilediği için yedek oluşturmaya devam eder.</p>
+<h3 class="dl-cl-ver">0.31.2 - 2026-11-13</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Açık tema (Light theme) gözü yormayacak şekilde yenilendi: saf beyaz yüzeyler yerine açık gri zemin üzerinde kırık</li>
+</ul>
+<p class="dl-cl-p">beyaz paneller, yumuşak gri yan menü ve daha belirgin çerçeve çizgileri kullanıldı. Vurgu rengi sarı-kahverengi</p>
+<p class="dl-cl-p">tondan OPNsense tarzı canlı turuncuya (butonlarda beyaz metinle) geçirildi. Koyu tema değişmedi.</p>
+<h3 class="dl-cl-ver">0.31.1 - 2026-11-13</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>NAT &gt; Port Yönlendirme: <strong>Tümü / Varsayılan / Özel</strong> görünümleri eklendi. Varsayılan kayıtlar Stratum'un kendi</li>
+</ul>
+<p class="dl-cl-p">oluşturduğu yönlendirmeleri (istisnalarıyla birlikte Zorunlu DNS), özel kayıtlar ise tanımladığınız port</p>
+<p class="dl-cl-p">yönlendirmelerini gösterir.</p>
+<ul class="dl-cl-list">
+<li>NAT &gt; Port Yönlendirme ve NAT &gt; Giden (manuel kurallar): Güvenlik Duvarı &gt; Kurallar sayfasındaki gibi **ayırıcı</li>
+</ul>
+<p class="dl-cl-p">başlıklar (separators)<strong> ve </strong>yukarı / aşağı taşıma** okları eklendi.</p>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>NAT &gt; Giden: bölüm başlıkları "Özel kurallar (manuel)" ve "Varsayılan kurallar (otomatik)" olarak adlandırıldı.</li>
+<li>Güvenlik Duvarı &gt; Kurallar ve NAT: uzun açıklamalar alt satıra sarılarak işlem sütununun her zaman görünür kalması</li>
+</ul>
+<p class="dl-cl-p">sağlandı.</p>
+<h3 class="dl-cl-ver">0.31.0 - 2026-11-13</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Güvenlik Duvarı &gt; Kurallar: <strong>Tüm kurallar / Varsayılan / Özel</strong> görünümleri eklendi. Varsayılan kurallar Stratum'un</li>
+</ul>
+<p class="dl-cl-p">diğer ayarlardan otomatik ürettiği kuralları (kilitlenme koruması, DHCP, yönetim erişimi, varsayılan engelleme), özel</p>
+<p class="dl-cl-p">kurallar ise kendi kurallarınızı gösterir. Son seçilen görünüm tarayıcıda hatırlanır.</p>
+<ul class="dl-cl-list">
+<li>Güvenlik Duvarı &gt; Kurallar: pfSense'teki gibi kuralları gruplamak için isimlendirilebilir ve renklendirilebilir</li>
+</ul>
+<p class="dl-cl-p"><strong>ayırıcı başlıklar (separators)</strong> eklendi ("QR yazıcı", "Elka otomasyon" vb.). Liste içinde eklenebilir, yeniden</p>
+<p class="dl-cl-p">adlandırılabilir, rengi değiştirilebilir, taşınabilir ve silinebilir; yalnızca görsel listeyi düzenler, <code>pf.conf</code></p>
+<p class="dl-cl-p">dosyasını değiştirmez.</p>
+<ul class="dl-cl-list">
+<li>Güvenlik Duvarı &gt; Kurallar: sürükleme tutamacının yanına her kural ve ayırıcı için <strong>yukarı / aşağı taşıma</strong> okları</li>
+</ul>
+<p class="dl-cl-p">eklendi. Bir ayırıcının üzerinden taşınan kural üstteki veya alttaki gruba katılır.</p>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Bir kural silindiğinde altındaki ayırıcılar aynı kuralların üzerinde kalacak şekilde korunur. Bir arayüz grubunun adı</li>
+</ul>
+<p class="dl-cl-p">değiştirildiğinde ayırıcıları taşınır; grup silindiğinde kaldırılır. OPNsense üzerinden geçiş işlemi ayırıcısız başlar.</p>
+<h3 class="dl-cl-ver">0.30.5 - 2026-11-13</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>OpenVPN: birden fazla dış adres ("a, b") tanımlıyken indirilen istemci profilinde tüm adreslerin tek bir <code>remote</code></li>
+</ul>
+<p class="dl-cl-p">satırına yazılması ve istemcilerin bunu çözümleyemeyip bağlanamaması düzeltildi. Artık her adres sırayla denenmek</p>
+<p class="dl-cl-p">üzere kendi ayrı <code>remote</code> satırına yazılır.</p>
+<h3 class="dl-cl-ver">0.30.4 - 2026-11-12</h3>
+<h4 class="dl-cl-sub">Güvenlik</h4>
+<ul class="dl-cl-list">
+<li>Yönetim paneli oturum çerezi (cookie) artık <code>Secure</code> olarak işaretleniyor; tarayıcılar çerezi yalnızca HTTPS</li>
+</ul>
+<p class="dl-cl-p">üzerinden gönderiyor. Öncesinde panele <code>http://</code> ile girildiğinde HTTPS yönlendirmesinden önce çerez port 80</p>
+<p class="dl-cl-p">üzerinden şifresiz iletilebiliyor ve aynı ağdaki biri tarafından okunabiliyordu.</p>
+<h3 class="dl-cl-ver">0.30.3 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li><strong>Kurulum İmajından Kurulan Sistemlerde Bant Genişliği Sınırları (<code>Güvenlik Duvarı &gt; Hız Sınırlayıcı</code>):</strong> İmajdan kurulan sistemlerde <code>dnctl</code> aracı ve <code>dummynet</code> başlangıç betikleri (<code>FreeBSD-ipfw</code>) eksikti; <code>pf</code> hız sınırı tanımlı ağların trafiğini <code>dummynet</code>'e yönlendirmeye devam ettiği için bu ağlarda DHCP dışındaki trafik düşüyordu. <code>FreeBSD-ipfw</code> artık hem kurulum imajına dahil edildi hem de paket bağımlılığı olarak eklendi (güncelleme yapan sistemlere otomatik kurulur).</li>
+<li><code>dnctl</code> aracı veya <code>dummynet</code> çekirdek modülü eksik olduğunda, bant genişliği sınırı içeren bir yapılandırmanın uygulanması trafiği düşürecek <code>pf</code> kuralları yüklemek yerine açık gerekçesiyle reddedilir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.30.2 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>OPNsense'den İçe Aktarma (<code>Unbound DNS Engelleme Listeleri</code>):</strong> OPNsense üzerindeki Unbound DNS engelleme listeleri (hem eski biçim hem de birden fazla liste içeren yeni biçim) artık otomatik olarak taşınır ve güvenlik duvarının DNS engelleme listesi ayarlarının yerini alır.</li>
+<li>Katalogda aynı kaynağa sahip olan listeler (URL adresine göre, ayrıca <em>Steven Black</em> ve <em>AdGuard</em> kendi OPNsense kodlarıyla) otomatik etkinleştirilir; diğer <code>https://</code> listeleri özel liste (<code>custom list</code>) olarak eklenir.</li>
+<li>İzin listesi (<code>allow list</code>), engelleme listesi (<code>block list</code>) ve joker (<code>wildcard</code>) alan adları olduğu gibi aktarılır.</li>
+<li>Karşılığı bulunmayan OPNsense liste kodları, şifresiz <code>http://</code> listeleri ve düzenli ifade (<code>pattern</code>) kuralları önizleme raporunda listelenir.</li>
+<li>OPNsense'de yalnızca belirli ağlar için seçilmiş bir liste varsa raporda belirtilir (Stratum'un DNS engelleme listeleri tüm ağları kapsar).</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li><strong>OPNsense'den İçe Aktarma:</strong> Yeni OPNsense biçimindeki DNS engelleme listelerinin ne içe aktarılması ne de raporda gösterilmesi sorunu giderildi.</li>
+</ul>
+<h3 class="dl-cl-ver">0.30.1 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><strong>DHCP:</strong> Bir IP dağıtım aralığı artık OPNsense'de olduğu gibi arayüzün kendi IP adresini (ve istemcilere verilen ağ geçidi adresini) kapsayabilir; bu adresler hiçbir istemciye dağıtılmaz. Aralık, bu adreslerin etrafında iki ayrı havuz olarak yazıldığı için hiçbir IP bloğu kaybedilmez ve kontrol paneli havuz boyutunu bu adresleri düşerek hesaplar.</li>
+<li><strong>OPNsense'den İçe Aktarma:</strong> Arayüz adresini kapsayan DHCP aralıkları artık yalnızca büyük parçasına kesilmek yerine tam kapsamıyla korunur; ağ adresinden (<code>network address</code>) başlayan veya yayın adresinde (<code>broadcast</code>) biten aralıklar ise otomatik olarak geçerli sınıra kaydırılır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.30.0 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Hesabım (<code>My Account</code>) altında İki Aşamalı Giriş (<code>TOTP 2FA</code>):</strong> Parola doğrulamasının ardından yönetim paneli kimlik doğrulama uygulamasındaki (<code>Google Authenticator</code>, <code>Microsoft Authenticator</code>, <code>1Password</code>, <code>Bitwarden</code> vb.) 6 haneli kodu ister.</li>
+<li>Karekod (QR kod) okutarak veya gizli anahtarı elle girerek kurulur. Karekod yerleşik kütüphaneyle doğrudan tarayıcı içinde çizilir; gizli anahtar güvenlik duvarı dışına asla çıkmaz ve kurulum tamamlandıktan sonra bir daha gösterilmez.</li>
+<li>Her kod yalnızca bir kez geçerlidir (tekrar kullanımı engellenir); ileri veya geri 30 saniyelik saat farkı kabul edilir.</li>
+<li>Telefon kaybına karşı tek seferlik gösterilen <strong>10 adet kurtarma kodu</strong> üretilir; istenildiği zaman yeni kurtarma kodları oluşturulabilir. Kurtarma koduyla yapılan her giriş sistem bildirimi üretir.</li>
+<li>İki aşamalı giriş etkinleştirildiğinde kullanıcının açık olan diğer tüm oturumları sonlandırılır.</li>
+<li>Hatalı kod denemeleri giriş koruması (<code>sign-in protection</code>) sayacına dahil edilir; kod doğrulama ekranı 5 dakika sonunda zaman aşımına uğrar.</li>
+<li><strong>Kullanıcılar (<code>Users</code>):</strong> Kullanıcı listesinde <code>2FA</code> rozeti gösterilir; yöneticiler telefonunu kaybeden bir kullanıcının iki aşamalı girişini kapatabilir.</li>
+<li><strong>Konsol Menüsü:</strong> Parola sıfırlama adımı artık iki aşamalı girişi kapatma seçeneğini de sunar.</li>
+</ul>
+<h3 class="dl-cl-ver">0.29.2 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Servisler &gt; DNS Çözümleyici &gt; DNS'i Güvenlik Duvarından Zorla (<code>Force DNS through the firewall</code>):</strong> Seçilen dahili ağlardaki cihazlar hangi DNS sunucusunu sorgularsa sorgulasın (örneğin elle girilmiş <code>8.8.8.8</code>), tüm DNS sorguları güvenlik duvarının kendi çözümleyicisine yönlendirilir; böylece DNS engelleme listeleri (DNSBL) ve Web Filtresi aşılması imkansız hale gelir. Bu ağlarda şifreli DNS over TLS (<code>DoT</code>) de otomatik engellenir.</li>
+<li><strong>İstisna Takma Adı (<code>Exception alias</code>):</strong> Örneğin bir Active Directory etki alanı denetleyicisi (Domain Controller) gibi belirli sunuculara doğrudan erişimin açık kalmasını sağlar.</li>
+<li><strong>Web Etkinliği (<code>Web Activity</code>) özelliğinden bağımsızdır:</strong> Hiçbir gezinme kaydı tutulmaz.</li>
+<li><strong>OPNsense'den İçe Aktarma:</strong></li>
+<li>Dahili ağların DNS trafiğini güvenlik duvarına yönlendiren port yönlendirme kuralları, ters çevrilmiş (<code>negated</code>) hedef takma adı istisna listesi olacak şekilde otomatik olarak <strong>Zorunlu DNS (<code>Force DNS</code>)</strong> ayarına dönüştürülür.</li>
+<li>IP engelleme kataloğundaki listelerden birini indiren URL tablosu takma adları (örneğin <code>CINS Army</code> veya <code>blocklist.de</code>, eski alan adlarıyla tanımlanmış olsalar bile) artık boş aktarılmak yerine ilgili IP engelleme listesini gelen ve giden yönlerde otomatik etkinleştirir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.29.1 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Ek WAN Arayüzlerinde DHCP Desteği:</strong> İkinci (veya üçüncü) internet bağlantısı artık kablo modem veya 4G/5G LTE yönlendirici gibi cihazlardan <strong>DHCP</strong> ile dinamik IP adresi alabilir.</li>
+<li>Ek bir DHCP WAN hattı varsayılan rotayı veya sistem DNS sunucularını tek başına üzerine almaz; varsayılan rotayı hangi hattın taşıyacağına her zaman ağ geçidi izleyicisi (<strong>Arayüzler &gt; Ağ Geçitleri</strong>, yedeklilik/failover) karar verir.</li>
+<li>DHCP kiralamasıyla alınan ağ geçidi; hat yedekleme (<code>failover</code>), o hattan gelen bağlantılara dönüş (<code>reply-to</code>) ve politika tabanlı yönlendirme (<code>policy routing</code>) için kullanılır. Servis sağlayıcı farklı bir ağ geçidi verdiğinde güvenlik duvarı kuralları <strong>Uygula (<code>Apply</code>)</strong> gerektirmeden saniyeler içinde yeni adresi takip eder.</li>
+<li><strong>Politika Yönlendirmesi (<code>Policy routing</code>):</strong> Bir kuralın çıkış ağ geçidi olarak DHCP tabanlı ek WAN seçilebilir; hat IP kiralayana kadar kural normal yönlendirmeyi kullanır.</li>
+<li><strong>OPNsense'den İçe Aktarma:</strong> DHCP kullanan <code>WAN2</code> arayüzleri artık uyarı üretmeden doğrudan içe aktarılır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.29.0 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Güvenlik Duvarı &gt; Zamanlamalar (<code>Firewall &gt; Schedules</code>):</strong> Güvenlik duvarı kurallarında kullanılabilen <code>"Pzt-Cum 08:00-18:00; Cmt 09:00-13:00"</code> gibi adlandırılmış zaman aralıkları. pfSense'de olduğu gibi zamanlamaya bağlı bir kural yalnızca tanımlı saat dilimleri içinde geçerlidir.</li>
+<li>Tanımlı saatlerin dışında izin (<code>pass</code>) kuralı artık trafiğe izin vermez, engelleme (<code>block</code>) kuralı ise engellemez; kararı alt sıradaki kurallar verir.</li>
+<li>Bir zamanlama süresi sona erdiğinde, ilgili izin kurallarının açtığı mevcut bağlantılar kapatılır.</li>
+<li>Kurallar <strong>Uygula (<code>Apply</code>)</strong> işlemine gerek kalmadan saat dilimine göre bir dakika içinde otomatik devreye girer veya çıkar. Saatler güvenlik duvarının yerel saat dilimini kullanır; gece yarısını aşan aralıklar iki parça halinde yazılır.</li>
+<li>Zamanlama listesinde her planın şu an aktif olup olmadığı, bir sonraki başlangıç veya bitiş zamanı ve kaç kural tarafından kullanıldığı gösterilir. Zamanlamanın adını değiştirmek bağlı kuralları korur; kullanımda olan bir zamanlama silinemez.</li>
+<li>Kural sayfalarında her kural için <strong>Zamanlama (<code>Schedule</code>)</strong> seçimi ve kural listesinde durum rozeti (aktifken yeşil) yer alır.</li>
+<li><strong>OPNsense'den İçe Aktarma:</strong> Zamanlamaya sahip kurallar gün boyu yanlışlıkla açık kalmaması için kapalı (<code>disabled</code>) olarak içe aktarılır ve aktarım raporunda listelenir.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Politika yönlendirmesi (Policy Routing) ve zamanlamalar; çalışan <code>pf.conf</code> dosyası yalnızca yapılandırmanın ürettiği çıktıyla birebir aynı olduğunda <code>pf.conf</code> dosyasını <strong>Uygula</strong> gerektirmeden yenileyen tek bir ortak mekanizmayı (<code>stratum-pfrefresh</code>, dakikada bir çalışır; bir ağ geçidi düştüğünde ağ geçidi izleyicisi anında tetikler) paylaşır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.9 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Güvenlik Duvarı &gt; NAT &gt; 1:1:</strong> Dahili bir sunucuya (veya alt ağa) çift yönlü olarak kendine ait bir genel (public) IP adresi (veya aynı boyutta genel ağ bloğu) tahsis eder. İçerideki sunucu internete bu genel adresle çıkar ve bu genel adrese gelen trafik doğrudan o sunucuya ulaşır.</li>
+<li>Tekil bir genel IP adresi WAN üzerinde tanımlı bir Sanal IP (Virtual IP) olmalıdır; bir ağ bloğu ise servis sağlayıcı tarafından güvenlik duvarına yönlendirilmiş olmalıdır. Güvenlik duvarına erişimin kaybedilmemesi için WAN arayüzünün kendi ana IP adresi 1:1 NAT için reddedilir.</li>
+<li>pfSense'de olduğu gibi 1:1 NAT tek başına dışarıdan port açmaz: gelen trafik için WAN üzerinde dahili adrese izin veren bir <code>pass</code> kuralı tanımlanmalıdır. Liste ekranı her sunucuya kaç WAN kuralının izin verdiğini (hiç yoksa <code>"kapalı / closed"</code>) gösterir.</li>
+<li>İlgili portlarda Port Yönlendirme (<code>Port Forward</code>) kuralları önceliklidir; 1:1 NAT ise giden NAT (<code>Outbound NAT</code>) kurallarından önce değerlendirilir.</li>
+<li><strong>OPNsense'den İçe Aktarma:</strong> 1:1 NAT kayıtları içe aktarım raporunda bilgi amaçlı listelenir (otomatik taşınmaz).</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.8 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Tanılama &gt; Güvenlik Duvarı Günlüğü &gt; Özet (<code>Diagnostics &gt; Firewall Log &gt; Summary</code>):</strong> Canlı günlük sekmesinin yanında yeni analiz sekmesi.</li>
+<li>Son 1 saati veya 24 saati kapsar; en çok trafik üreten kaynak IP'leri (ülke bilgisiyle), en çok hedeflenen portları (<code>SSH</code> veya <code>RDP</code> gibi servis adlarıyla), ilk sıradaki ülkeleri, en çok eşleşen kuralları, hedef adresleri ve arayüz bazlı paket sayılarını 5 dakikalık veya saatlik grafiklerle gösterir.</li>
+<li>Engellenen veya izin verilen (günlüğe kaydedilen) paketlere ve arayüze göre filtrelenebilir. Herhangi bir IP adresine veya porta tıklandığında o değere filtrelenmiş canlı günlük ekranı açılır.</li>
+<li>Seçilen zaman aralığı gerektirdiğinde döndürülmüş (rotated) eski günlük dosyaları da otomatik okunur; günlük geçmişi seçilen sürenin tamamını kapsamıyorsa sayfada belirtilir.</li>
+<li>Ülke eşleştirmesi ülke takma adlarının (GeoIP) verisini kullanır; bu veri henüz indirilmemişse özet ekranı ülke sütunu olmadan çalışmaya devam eder.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><strong>Güvenlik Duvarı Günlüğü:</strong> Sistemin kendi dahili kuralları artık iç etiketler yerine okunabilir adlarla (<code>"IP blocklist: inbound (WAN)"</code>, <code>"Block bogon networks"</code>, <code>"Broadcast and multicast"</code>) gösterilir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.7 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li><strong>Uygula (<code>Apply</code>):</strong> Her değişiklik uygulandığında görünen gereksiz <code>"rc.conf remove dummynet_enable"</code>, <code>"dnctl_<em>"</code> ve <code>"bsnmpd_</em>"</code> satırları giderildi. Bu değişkenler FreeBSD'nin <code>/etc/defaults/rc.conf</code> dosyasında varsayılan değere sahip olduğu için sistem bunları kaldırılacak ayar sanıyordu; artık yalnızca <code>/etc/rc.conf</code> içinde gerçekten tanımlı olan değişkenler temizlenir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.6 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Açılış ve Kapanış Melodileri:</strong> <strong>Sistem &gt; Ayarlar &gt; Genel (<code>System &gt; Settings &gt; General</code>)</strong> altında her birinin kendine özgü kapanış versiyonu bulunan melodi seçenekleri eklendi: <code>Stratum</code> (varsayılan), <code>Klasik bip (Classic beep)</code>, <code>Çan (Westminster)</code>, <code>Neşeye Övgü (Ode to Joy)</code>, <code>Für Elise (Beethoven)</code> ve <code>Arcade</code>. Kaydetmeden önce <strong>Test</strong> düğmesiyle seçilen melodi güvenlik duvarı üzerinde dinlenebilir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.5 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>pfSense ve OPNsense'de olduğu gibi donanım hoparlörü (PC speaker) üzerinden <strong>açılış ve kapanış sesi</strong>: güvenlik duvarı tamamen açıldığında yükselen kısa bir melodi, kapatılırken veya yeniden başlatılırken (<code>Sistem &gt; Güç</code> dahil) alçalan bir melodi çalar.</li>
+<li><strong>Sistem &gt; Ayarlar &gt; Genel:</strong> <code>"Açılış ve kapanışta ses çal"</code> seçeneği (varsayılan açık) ve <strong>Test</strong> düğmesi eklendi.</li>
+<li>Sanal makineler gibi dahili hoparlörü bulunmayan sistemler sessiz kalır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.4 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Sistem &gt; Ayarlar &gt; Güvenlik Duvarı ve NAT:</strong> Varsayılan engelleme günlüğü seçeneğinin altına <strong>"WAN üzerinde de (<code>Also on the WAN</code>)"</strong> ayarı eklendi. Kapatıldığında WAN arayüzlerindeki varsayılan kurala takılan paketler (internet taramaları ve kapanmış bağlantıların gecikmiş yanıtları) artık günlüğü şişirmez; yerel ağ ve VPN arayüzlerindeki engellemeler kaydedilmeye devam eder. Mevcut davranışı koruma amacıyla varsayılan olarak açıktır.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><strong>Engelleme Listesi Raporu:</strong> Engelleme anından sonra güncellenen listelerden çıkmış olan adreslere ait eski kayıtlar artık <code>"Artık listede değil (No longer in a list)"</code> olarak işaretlenir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.3 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Engelleme listesi (Blocklist) raporu: sorgulanan alan adından önce eşleşen kuralı (<code>*.example.com.</code>) ve <code>rpz-nxdomain</code> eylemini kaydeden Unbound 1.26 ile engellenen DNS sorguları sayılmıyordu. Sorgulanan alan adı artık doğru şekilde okunuyor. Güncellemeden sonra DNS günlüğü baştan bir kez daha okunarak son günlerdeki engellemelerin raporda görünmesi sağlanır; IP engellemeleri iki kez sayılmaz.</li>
+<li>Web Etkinliği (Web Activity): aynı nedenle cihaz başına engellenen sorgular sayılmıyordu; düzeltildi.</li>
+<li>Yalnızca engelleme eylemleri engelleme olarak sayılır; izin verilen bir alan adı (<code>rpz-passthru</code>) engelleme olarak değerlendirilmez.</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.2 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Güvenlik Duvarı &gt; Engelleme Listeleri &gt; Engellenenler (Firewall &gt; Blocklists &gt; Blocked): pfBlockerNG raporlarına benzer şekilde, engelleme listelerinin neleri durdurduğunu gösteren kapsamlı rapor.</li>
+<li>DNS engelleme listelerini, Web Filtresini ve IP engelleme listelerini kapsar.</li>
+<li>Kaç adet DNS sorgusunun ve IP paketinin (gelen ve giden) engellendiğini ve saatlik veya günlük engelleme grafiğini gösterir.</li>
+<li>Engellemeyi hangi listenin yaptığını, en çok engellenen alan adlarını ve IP adreslerini ve en fazla engelleme yaşanan cihazları listeler.</li>
+<li>Engellenen her sorgu ve paket; türe, listeye, alan adına, IP adresine veya cihaza göre aranabilir ve filtrelenebilir.</li>
+<li>Zaman aralıkları: son 1 saat, 24 saat veya 7 gün. Kayıtlar 7 gün boyunca saklanır.</li>
+<li>Yalnızca yöneticiler erişebilir; Web Etkinliği'nde olduğu gibi her görüntüleme sistem günlüğüne kaydedilir. Rapor temizlenebilir.</li>
+<li>Kontrol Paneli (Dashboard) "Engelleme Listeleri (Blocklists)" paneli: son 24 saatteki DNS ve IP engellemelerini ve liste bazlı sayıları gösterir. Yöneticiler en çok engellenen alan adlarını ve adresleri de görür. Kontrol Paneli &gt; Paneller menüsünden eklenebilir.</li>
+<li>Rapor verileri her dakika Unbound günlüğünden ve güvenlik duvarı günlüğünden toplanır. Her engelleme, önce kendi özel engelleme listenizden başlayarak ilgili alan adını veya adresi içeren listeyle eşleştirilir.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Unbound artık yalnızca Web Etkinliği açıkken değil, herhangi bir DNS engelleme listesi veya Web Filtresi etkin olduğunda da engellenen sorguları kendi dosyasına yazar. Web Etkinliği kapalıysa bu dosyaya yalnızca engellenen sorgular kaydedilir. Güncellemeden sonra bir sonraki Uygula (Apply) işleminde devreye girer.</li>
+<li>IP engellemeleri yalnızca IP engelleme listelerinde "Engellenen paketleri günlüğe kaydet" seçeneği açıkken sayılır (varsayılan olarak açıktır).</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.1 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Servisler &gt; Servis Durumu (Services &gt; Service Status): güvenlik duvarındaki tüm servisler; durumu (çalışıyor, durduruldu, kapalı), çalışma süresi, bellek kullanımı ve süreç kimliği (PID) ile tek listede görüntülenir. Yöneticiler servisleri doğrudan buradan başlatabilir, durdurabilir ve yeniden başlatabilir.</li>
+<li>Durdurma işlemi onay için ikinci bir tıklama ister. Durdurulan bir servis tekrar başlatılana, kendisini değiştiren bir sonraki Uygula (Apply) işlemine veya sistem yeniden başlatılana kadar durdurulmuş kalır.</li>
+<li>Kendi ayarlarında kapalı olan bir servis buradan başlatılamaz; bunun yerine doğrudan ilgili ayar sayfasına bağlantı verilir.</li>
+<li>Paket filtresi (<code>pf</code>), web sunucusu, web paneli, SSH, sistem günlüğü ve zamanlayıcı yalnızca yeniden başlatılabilir. Paket filtresi yeniden başlatıldığında kurallar yeniden yüklenir ve IP engelleme listesi tablosu tekrar doldurulur.</li>
+<li>Diğer kullanıcı rolleri listeyi görebilir ancak değişiklik yapamaz.</li>
+</ul>
+<h3 class="dl-cl-ver">0.28.0 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Bildirimler (sağ üstteki zil simgesi): her kullanıcı tek bir bildirimi veya tümünü okundu olarak işaretleyebilir, tek tek silebilir ya da listeyi tamamen temizleyebilir. Bu işlemler kullanıcıya özeldir; diğer kullanıcıların bildirim listeleri ve olay geçmişi etkilenmez. Temizleme sonrasında gelen yeni olaylar tekrar görünür.</li>
+<li>Bir değişiklik kaydedildikten sonra OPNsense ve pfSense'de olduğu gibi sayfadaki Kaydet (Save) düğmesinin yanında doğrudan bir "Değişiklikleri uygula (Apply changes)" düğmesi belirir. Yalnızca yapılandırma gerçekten değiştiğinde görünür; Wake-on-LAN veya paket yakalama gibi anlık eylemlerden sonra çıkmaz.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Değişiklikleri uygula / Değişiklikleri koru çubuğu sayfa aşağı kaydırılırken üst çubuğun altında görünür kalmaya devam eder ve kaydetme sonrasında kısaca parlayarak dikkat çeker. Dar ekranlarda sayfanın üstünde sabit kalır.</li>
+<li>Bildirim listesini açmak artık tüm bildirimleri otomatik olarak okundu işaretlemez; bunun için "Tümünü okundu işaretle" düğmesini kullanabilir veya bildirimin üzerine tıklayabilirsiniz.</li>
+</ul>
+<h3 class="dl-cl-ver">0.27.2 - 2026-11-11</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Güvenlik duvarı kuralları, politika tabanlı yönlendirme (Policy Routing): dahili bir arayüzdeki (veya dahili arayüz grubundaki) bir izin (pass) kuralı, trafiğini seçilen belirli bir WAN üzerinden gönderebilir (örneğin misafir ağını ikinci internet sağlayıcısı üzerinden çıkarmak).</li>
+<li>Statik ağ geçidine sahip veya PPPoE kullanan WAN bağlantılarıyla çalışır.</li>
+<li>Kural kapsamındaki trafiğin kendi ağlarınıza (yerel ağlar, VPN ağları, statik rotalı ağlar) ve doğrudan güvenlik duvarının kendisine giden kısmı normal yönlendirmeyi korur; böylece yerel erişim yanlışlıkla internet sağlayıcısına gönderilmez.</li>
+<li>Seçilen ağ geçidi çökerse (down): trafik, ağ geçidi geri gelene kadar varsayılan rotayı (yedek hat / failover dahil) kullanır veya tercih edilirse yalnızca o ağ geçidinde kalır. Ağ geçidi izleyicisi kuralları saniyeler içinde yeni hatta geçirir; açık bağlantılar korunur.</li>
+<li>Kural listesinde her kuralın kullandığı ağ geçidi doğrudan gösterilir.</li>
+<li>OPNsense'den içe aktarma: kural ağ geçitleri eşleşen WAN arayüzüne taşınır. Ağ geçidi grupları ve WAN kurallarındaki ağ geçitleri uyumluluk raporunda belirtilir ve varsayılan rotayı kullanır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.27.1 - 2026-11-07</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>OPNsense'den içe aktarma, "OpenVPN'i de içe aktar" seçeneği: OpenVPN sunucusu eksiksiz olarak devralınır; böylece kullanıcıların bilgisayarlarındaki mevcut profiller hiçbir değişiklik gerektirmeden bağlanmaya devam eder. OPNsense tarzı bir profille gerçek bağlantı üzerinden test edildi.</li>
+<li>Devralınan öğeler: özel anahtarıyla birlikte sertifika otoritesi (CA), sunucu sertifikası, <code>tls-crypt</code> veya <code>tls-auth</code> anahtarı, her kullanıcının sertifikası ve OPNsense parolalarıyla birlikte VPN kullanıcıları.</li>
+<li>VPN kullanıcıları yalnızca VPN erişimine sahip (VPN-only) hesaplara dönüştürülür.</li>
+<li>Ayarlar da eksiksiz taşınır: port, protokol, tünel ağı, şifreleme algoritmaları (ciphers), özet (digest), DNS, tam tünel (full tunnel) ve <code>block-outside-dns</code>.</li>
+<li>Bu güvenlik duvarının önceki OpenVPN sertifikaları ayrı bir klasörde saklanır.</li>
+<li>Sistemde zaten mevcut olan bir kullanıcı, burada ayarlanmış olan parolasını korur.</li>
+<li>OpenVPN kullanıcıları diğer sistemlerden gelen parola özetleriyle (hash) oturum açabilir: PHP'nin yazdığı biçimiyle bcrypt (<code>$2y$</code>) ve argon2id. Bir argon2id parolası ilk oturum açmada bcrypt olarak kaydedilir.</li>
+<li>OpenVPN, istemciler için birden fazla adres desteği: yeni profiller her adres için sırayla denenen bir <code>remote</code> satırı alır.</li>
+<li>OpenVPN, Windows istemcileri yalnızca VPN'in DNS sunucularını kullanacak şekilde sınırlandırılabilir (<code>block-outside-dns</code>).</li>
+<li>OpenVPN, başka sistemler tarafından üretilmiş sertifikalar için kullanıcı sertifikalarındaki "TLS client" denetimi kapatılabilir.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>İki WAN bağlantılı OpenVPN: ikinci WAN adresine bağlanan bir istemci yanıtlarını birinci WAN üzerinden alıyor ve bağlantı kuramıyordu. Sunucu artık istemcinin kullandığı adresten yanıt veriyor (<code>multihome</code>) ve <code>pf</code> yanıtları geldikleri WAN üzerinden geri gönderiyor.</li>
+<li>OpenVPN profilleri sabit bir isim yerine sunucunun gerçek sertifika adını denetler; bu durum başka bir sistemden devralınan sunucu sertifikalarında kritik önem taşır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.27.0 - 2026-11-07</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Arayüzler &gt; Sanal IP'ler (Virtual IPs): bir arayüz üzerinde ek adresler; örneğin bir WAN bloğundaki (<code>/29</code>) ek genel (public) IP adresleri.</li>
+<li>Bir port yönlendirme kuralı hedef adres olarak sanal IP seçebilir; böylece her genel adres farklı bir sunucuya yönlendirilebilir. NAT yansıması (NAT reflection) da bunu takip eder.</li>
+<li>Giden NAT (Outbound NAT) trafiği bir sanal IP adresine dönüştürebilir.</li>
+<li>Arayüzün kendi ağı içindeki bir adres, FreeBSD'nin gerektirdiği şekilde <code>/32</code> olarak eklenir.</li>
+<li>Arayüzler &gt; Rotalar (Routes): doğrudan bağlı bir ağ üzerindeki ağ geçidi (gateway) aracılığıyla başka bir yönlendiricinin arkasındaki ağlara statik rotalar.</li>
+<li>Dahili bir arayüzdeki yönlendirici üzerinden ulaşılan ağlar, tıpkı arayüz ağları gibi internete otomatik olarak NAT'lanır.</li>
+<li>Sanal IP'ler ve rotalar <code>rc.conf</code> dosyasına yazılmaz. <code>stratum-netextra</code> sistemi uygulanan listeyle uyumlu tutar: eksik olanları ekler ve yalnızca kendi eklediklerini kaldırır.</li>
+<li>Sistem açılışında, her Uygulama (Apply) ve geri alma (rollback) sonrasında ve ayrıca takma adları (alias) ile rotaları düşüren arayüz ve yönlendirme yeniden başlatmalarından sonra çalışır.</li>
+<li>Her kayıt güvenlik duvarı üzerinde aktif olup olmadığını gösterir.</li>
+<li>OPNsense'den içe aktarma: IP takma adı (IP alias) sanal IP'leri, statik rotalar (isimle çözümlenen ağ geçitleri) ve sanal IP'ye yapılan port yönlendirmeleri taşınır. CARP sanal IP'leri desteklenmiyor olarak listelenir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.26.1 - 2026-11-07</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Ana bilgisayar adı (host name) ve ülke takma adları (aliases): Uygula (Apply) veya "Şimdi güncelle" (Update now) ile başlatılan güncelleme, o anda 5 dakikalık ana bilgisayar adı güncellemesi çalışıyorsa iz bırakmadan atlanabiliyordu ve yeni bir ülke takma adı bir sonraki günlük çalışmaya kadar boş kalıyordu. Bu güncellemeler artık çalışan işlemin bitmesini bekliyor. Yalnızca 5 dakikalık periyodik çalışma başka bir güncelleme meşgulken atlamaya devam eder.</li>
+</ul>
+<h3 class="dl-cl-ver">0.26.0 - 2026-11-07</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Güvenlik Duvarı &gt; Takma Adlar (Aliases), Ana bilgisayar adları (Host names): <code>update.example.com</code> gibi ana bilgisayar adlarından oluşan ve aynı zamanda IP adresleri ile ağları da barındırabilen takma adlar.</li>
+<li>Güvenlik duvarı isimleri her 5 dakikada bir kendi DNS'i üzerinden çözümler; böylece istemcilerle aynı adresleri görür.</li>
+<li>CDN'ler adreslerini döndürdüğü için bir adres son görüldüğü andan itibaren bir saat boyunca takma ad içinde kalır.</li>
+<li>Çözümlenemeyen bir isim son adreslerini korur ve sayfa bu durumu gösterir.</li>
+<li>Güvenlik Duvarı &gt; Takma Adlar (Aliases), Ülkeler (Countries): aranabilir bir listeden seçilen ülkelerin tüm adres blokları. Tipik kullanım: "bu port yönlendirmeye yalnızca Türkiye erişebilsin" veya "şu ülkeleri engelle".</li>
+<li>Veriler beş bölgesel internet kayıt kuruluşundan (ARIN, RIPE NCC, APNIC, LACNIC, AFRINIC) alınır. Ücretsizdir ve lisans anahtarı gerektirmez.</li>
+<li>Haftalık olarak indirilir. Başarısız bir indirme önceki verileri korur.</li>
+<li>Her iki takma ad türü de dosyadan yüklenen <code>pf</code> tablolarıdır. Her <code>pf</code> yeniden yüklemesi son adresleri okur ve güncellemeler <code>pf</code> çalışırken Uygula (Apply) gerektirmeden tabloyu canlı olarak değiştirir.</li>
+<li>Takma ad listesi bu takma adların her birinin kaç adres tuttuğunu ve en son ne zaman güncellendiğini gösterir. "Şimdi güncelle" (Update now) düğmesi hepsini tek seferde yeniler.</li>
+<li>OPNsense'den içe aktarma: ana bilgisayar adları içeren takma adlar ana bilgisayar adı takma adına, GeoIP takma adları ise ülke takma adına dönüştürülür. Artık boş olarak içe aktarılmazlar.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Takma ad sayfası sekmeleri artık telefon ekranlarında taşma yapmıyor.</li>
+</ul>
+<h3 class="dl-cl-ver">0.25.1 - 2026-11-07</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Sistem &gt; Güç (Power):</li>
+<li>Onay adımıyla birlikte yeniden başlatma ve kapatma. Yeniden başlatma sonrasında sayfa kendiliğinden tekrar bağlanır.</li>
+<li>Fabrika ayarlarına sıfırlama. Sıfırlama işlemi o anda kullanımda olan portları korur; böylece uzaktaki bir güvenlik duvarı erişilebilir şekilde geri döner: WAN DHCP ile, LAN <code>192.168.1.1/24</code> DHCP açık olarak, yönetim paneli yalnızca dahili ağlardan erişilebilir biçimde.</li>
+<li>Sıfırlama seçenekleri: panel kullanıcılarını koru veya yeni bir "admin" parolasıyla sıfırdan başla; sertifikaları, anahtarları ve gizli bilgileri sil; günlükleri ve istatistikleri sil.</li>
+<li>Sıfırlama işlemi ana bilgisayar adı (hostname) yazılarak onaylanır. Geri alma zamanlayıcısı olmadan uygulanır ve güvenlik duvarı yeniden başlar.</li>
+<li>Yalnızca yöneticiler kullanabilir; her işlem günlüğe kaydedilir.</li>
+<li>Tanılama &gt; ARP Tablosu (ARP Table):</li>
+<li>Güvenlik duvarının bildiği her adres; MAC adresi, arayüz, geçerlilik süresi ve ismiyle (DHCP rezervasyonları, kiralamaları ve DNS geçersiz kılmalarından) listelenir.</li>
+<li>Telefonların ve dizüstü bilgisayarların özel (rastgele) MAC adresleri işaretlenir.</li>
+<li>Bir kayıt silinebilir.</li>
+<li>ARP Tablosu sayfasında Wake-on-LAN: bir cihazı MAC adresiyle veya DHCP rezervasyonu olan cihazlar arasından tek tıkla uyandırın. Operatörler de kullanabilir.</li>
+<li>Tanılama &gt; Paket Yakalama (Packet Capture): bir arayüzü Wireshark için <code>.pcap</code> dosyasına kaydedin.</li>
+<li>Filtre serbest metin yerine alanlardan (protokol, ana bilgisayar veya ağ, port) oluşturulur.</li>
+<li>Süre, boyut ve paket sayısı sınırları; aynı anda tek bir yakalama işlemi.</li>
+<li>Yöneticinin kendi panel ve SSH trafiği varsayılan olarak hariç tutulur.</li>
+<li>Dosya yalnızca root erişimine açık bir klasörde en fazla 24 saat saklanır.</li>
+<li>Yalnızca yöneticiler kullanabilir; başlatma, durdurma ve indirme işlemleri günlüğe kaydedilir.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Durumlar (States) ve ARP Tablosu sayfalarındaki arama kutularında stil eksikliği giderildi.</li>
+</ul>
+<h3 class="dl-cl-ver">0.25.0 - 2026-11-07</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Sistem &gt; Yedekleme &gt; OPNsense'den İçe Aktar: bir OPNsense <code>config.xml</code> dosyası bekleyen yapılandırma haline gelir. İçe aktarma işlemi arayüzleri, VLAN'ları, ağ geçitlerini ve varsayılan ağ geçidini, arayüz gruplarını, takma adları (iç içe takma adlar çözümlenerek), güvenlik duvarı kurallarını (güncel ve eski kural biçimi), port yönlendirmeleri, giden NAT kurallarını, DHCP aralıklarını ve rezervasyonlarını (<code>dnsmasq</code> ve <code>ISC dhcpd</code>), DNS ana bilgisayar ve alan adı geçersiz kılmalarını, bant genişliği sınırlarını, ana bilgisayar adını, alan adını, saat dilimini ve DNS ile zaman sunucularını taşır.</li>
+<li>Herhangi bir şey kaydedilmeden önce içe aktarma bir önizleme gösterir:</li>
+<li>OPNsense cihazının ağ portları bu sistemin portlarıyla eşleştirilir ve istenen port dışarıda bırakılabilir;</li>
+<li>Bir rapor nelerin içe aktarıldığını, aktarım sırasında nelerin değiştiğini ve nelerin hangi nedenle içe aktarılamadığını listeler.</li>
+<li>Port yönlendirmeleri erişim sınırlarını korur. OPNsense'de bir port yönlendirme genellikle ayrı WAN kurallarıyla izinlendirilir. Stratum'da port yönlendirme kendi trafiğine doğrudan izin verdiği için kaynak sınırı bu WAN kurallarından alınır ve birden fazla kural izin veriyorsa birleşik bir takma ad oluşturulur. Hiçbir kuralın izin vermediği bir yönlendirme kapalı olarak içe aktarılır ve asla herkese açılmaz.</li>
+<li>Taşınamayan takma adlar (URL tabloları) boş olarak içe aktarılır; böylece bunları kullanan engelleme kuralları hiçbir şeyi engellemez ve izin kuralları hiçbir şeye izin vermez. Bunlar raporda listelenir.</li>
+<li>İçe aktarma işlemi LAN adresi değiştiğinde ve içe aktarılan bir ağ güvenlik duvarının mevcut WAN adresini içerdiğinde (uygulandığında bağlantıyı keseceği için) uyarı verir.</li>
+<li>Dosya yalnızca okunur; asla saklanmaz ve raporda hiçbir gizli bilgi yer almaz. Kullanıcılar, sertifikalar, IPsec, WireGuard ve eklentiler içe aktarılmadı olarak listelenir. İşlem yalnızca yöneticilere açıktır ve günlüğe kaydedilir.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Geniş tablolara sahip form sayfaları artık telefonlarda yana doğru kaymıyor.</li>
+</ul>
+<h3 class="dl-cl-ver">0.24.4 - 2026-11-07</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Saldırı Tespit Sistemi (Intrusion Detection): İzleme (Watch) ve Engelleme (Block) modları artık pfSense'de olduğu gibi arayüz bazında ayrı ayrı ayarlanabilir. Örneğin WAN yalnızca izlenirken yerel ağlar engelleme yapabilir. İkisini birlikte kullanmak iki Suricata motoru çalıştırır: engelleme yapılan arayüzler için <code>netmap</code> üzerinde çalışan bir motor ve yalnızca izlenen arayüzler için kopyaları (<code>pcap</code>) okuyan bir motor. Suricata süreç başına tek bir yakalama yöntemine izin verir. Her iki motor da aynı kuralları yükler ve her biri bağımsız olarak denetlenip yeniden başlatılır. İkisinin uyarıları ve istatistikleri birlikte gösterilir; günlük döndürme ve WAN adresi güncellemesi her ikisini de kapsar.</li>
+<li>İki motor kullanıldığında kurallar iki kez yüklendiği için bellek kullanımı yaklaşık iki katına çıkar. Her motora daha küçük bellek sınırları verilir ve ayarlar sayfası bunu belirtir. Uygula (Apply) işlemi her iki yapılandırmayı da kullanmadan önce Suricata ile denetler.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Yapay zeka asistanı (MCP): saldırı tespit aracı her zaman "yalnızca tespit" (detection only) bildiriyordu. Artık engelleme yapan arayüzleri ve kategorileri de listeliyor.</li>
+</ul>
+<h3 class="dl-cl-ver">0.24.3 - 2026-11-07</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Saldırı Tespit Sistemi: kural kategorilerinde yapılan değişiklikler (açık, kapalı, Engelle) çalışan Suricata'ya yeniden başlatılana kadar ulaşmıyordu. Canlı kural yenileme işlemi Linux'ta <code>SIGUSR2</code> olan ancak FreeBSD'de <code>SIGSYS</code> anlamına gelen 12 sinyalini gönderiyordu. Artık doğrudan <code>SIGUSR2</code> kullanıyor.</li>
+<li>Saldırı Tespit Sistemi: bazı arayüzlerde Engelle (Block) ile diğerlerinde İzle (Watch) seçilmesi net bir mesajla reddediliyordu. Suricata tek bir <code>netmap</code> sürecinde engelleme ve yalnızca izleme portlarına birlikte izin vermediği için başlatılamıyor ve trafik akmaya devam ederken hiçbir denetim yapılmıyordu.</li>
+<li>Kontrol Paneli (Dashboard): kablosu takılı olmayan bir arayüz "Açık" (Up) olarak görünüyordu; artık "Kablo yok" (No cable) olarak gösteriliyor.</li>
+</ul>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Saldırı Tespit Sistemi: ET Open "Policy" (bir ağın izin vermeyebileceği yazılım, araç ve servisler) kategorisi varsayılan olarak kapalı biçimde eklendi.</li>
+</ul>
+<h3 class="dl-cl-ver">0.24.2 - 2026-11-06</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Saldırı Tespiti, engelleme modu (IPS): Suricata, başlangıcını görmediği her bağlantıyı düşürüyordu. Bunlar,</li>
+</ul>
+<p class="dl-cl-p">kendisi başlamadan önce açılmış bağlantılar ve telefonların açık tuttuğu anlık bildirim kanalları gibi akış</p>
+<p class="dl-cl-p">zaman aşımından daha uzun süre boşta kalan uzun ömürlü bağlantılardı. Engelleme ağındaki telefonlar</p>
+<p class="dl-cl-p">bağlantılarını kaybetti ve Wi-Fi'den düştü. Suricata artık bu tür bağlantıları (akış ortasında) yakalıyor</p>
+<p class="dl-cl-p">ve herhangi bir istisnada (<code>exception-policy: ignore</code>) akışı düşürmek yerine trafiğin geçmesine izin</p>
+<p class="dl-cl-p">veriyor. Yalnızca engelleme kurallarıyla eşleşenler düşürülür.</p>
+<h3 class="dl-cl-ver">0.24.1 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Web Filtresi: kategori listeleri ilk Apply'dan sonra indirilmiyordu, bu yüzden politikalar bir sonraki</li>
+</ul>
+<p class="dl-cl-p">zamanlanmış güncellemeye kadar hiçbir şeyi engellemiyordu. İndirme artık DNS engelleme listelerinde olduğu</p>
+<p class="dl-cl-p">gibi kaydedilen yapılandırmayı takip ediyor ve Unbound yalnızca yüklediği bölgeleri yeniden yüklüyor.</p>
+<h3 class="dl-cl-ver">0.24.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Web Filtresi</strong> (Firewall &gt; Web Filter), güvenlik duvarının DNS çözümleyicisi (Unbound RPZ) üzerinden site</li>
+</ul>
+<p class="dl-cl-p">kategorilerini engeller ve ağ başına farklı kurallar uygular.</p>
+<ul class="dl-cl-list">
+<li><strong>Politikalar:</strong> Bir politika, bir veya daha fazla ağa engellenen kategorilerden oluşan bir set atar. VPN</li>
+</ul>
+<p class="dl-cl-p">istemci ağları da politika ağı olabilir ve her ağ yalnızca bir politikaya bağlıdır.</p>
+<ul class="dl-cl-list">
+<li><strong>Kategoriler:</strong> Université Toulouse Capitole'ün UT1 kara listelerinden (CC BY-SA 4.0, günlük güncellenir)</li>
+</ul>
+<p class="dl-cl-p">ve Block List Project'ten alınan gruplar halinde 55 kategori (yetişkin içerik, güvenlik tehditleri,</p>
+<p class="dl-cl-p">filtreyi atlatma yolları, sosyal ağlar, eğlence, alışveriş ve para, indirmeler ve daha fazlası).</p>
+<p class="dl-cl-p">Yetişkin içerik kompakt ve çok büyük tam liste olarak gelir; politika sayfası seçilen kategorilerin</p>
+<p class="dl-cl-p">çözümleyici belleğinde ne kadar yer kaplayacağını tahmin eder.</p>
+<ul class="dl-cl-list">
+<li><strong>Güvenli Arama (Safe Search):</strong> Her politika, Google (google.com.tr ve diğer ülke alan adları dahil),</li>
+</ul>
+<p class="dl-cl-p">Bing ve DuckDuckGo üzerinde güvenli sonuçları ve YouTube'da kısıtlı modu zorunlu kılabilir.</p>
+<ul class="dl-cl-list">
+<li><strong>İstisnalar:</strong> Listelenen siteler web filtresi tarafından asla engellenmez ve Apply gerektirmeden anında</li>
+</ul>
+<p class="dl-cl-p">etkili olur. DNS kara listeleri onlar için hâlâ geçerlidir.</p>
+<ul class="dl-cl-list">
+<li><strong>Bir siteyi kontrol et:</strong> Bir adın hangi kategorilerde olduğunu ve hangi politikaların onu engellediğini</li>
+</ul>
+<p class="dl-cl-p">gösterir.</p>
+<ul class="dl-cl-list">
+<li><strong>Engelleme raporu:</strong> Bugün, 7 veya 30 gün için kategori, site ve cihaz başına engellemeler. Web Etkinliği</li>
+</ul>
+<p class="dl-cl-p">gerektirir; toplayıcısı artık web filtresi ve DNS kara liste engellemelerini de sayar. Raporu yalnızca</p>
+<p class="dl-cl-p">yöneticiler görür ve görüntüleme günlüğe kaydedilir.</p>
+<ul class="dl-cl-list">
+<li><strong>Güncellemeler:</strong> Kategori listeleri zamanlamaya göre (varsayılan olarak günlük) ve talep üzerine</li>
+</ul>
+<p class="dl-cl-p">güncellenir; başarısız bir indirme önceki listeyi korur.</p>
+<h3 class="dl-cl-ver">0.23.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><strong>Yeni kontrol paneli:</strong> Her panel taşınabilir ve yeniden boyutlandırılabilir. Özelleştir, bir paneli başlığından sürükleyip 12 sütunlu bir ızgarada kenarlarından veya köşesinden boyutlandırmanıza olanak tanır. Her kullanıcının kendi düzeni vardır, Apply olmadan anında kaydedilir ve Düzeni sıfırla varsayılana döndürür.</li>
+<li><strong>Kontrol Paneli &gt; Panel ekle</strong> (tam sayfa) her paneli listeler, eklemek veya kaldırmak için. Paneller:</li>
+<li>Sistem, WAN, CPU, Bellek, Disk, Sıcaklık, Bağlantılar, Engellenenler</li>
+<li>Trafik, Koruma, Arayüzler, Servisler, DHCP, VPN bağlantıları</li>
+<li>En çok engellenen kaynaklar, En çok engellenen portlar, Son değişiklikler</li>
+<li>Yeni: Saldırı tespiti, Ağ geçitleri (gecikme, kayıp, yedekleme), Bant genişliği sınırları (sınır ve mevcut hız), Yedekleme ve Web Etkinliği. Yedekleme ve Web Etkinliği yalnızca yöneticiler içindir ve kontrol panelinde Web Etkinliğini görüntülemek günlüğe kaydedilir.</li>
+<li>Panel içerikleri panel boyutuna uyum sağlar: VPN bağlantıları gibi uzun listeler panel içinde kaydırılır ve trafik grafiği panelini doldurur.</li>
+<li><strong>Her sayfanın sağ üst köşesinde bildirimler:</strong> okunmamış sayısını gösteren bir zil, açılır menüde en son olaylar ve yeni bir olay geldiğinde kısa bir açılır pencere. Uyarılar panelinin yerini alırlar.</li>
+<li>Kontrol panelinde <strong>Güncelleme kontrolü simgesi</strong>: kontrol ederken döner, tıklama hemen kontrol eder ve sonucu gösterir.</li>
+<li>DHCP ve VPN panelleri ayrıdır. Telefonlarda kontrol paneli tek sütun gösterir.</li>
+<li>gridstack 12.6.0 (MIT) panel ile birlikte gelir. İnternetten hiçbir şey yüklenmez.</li>
+</ul>
+<h3 class="dl-cl-ver">0.22.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Şifrelenmiş yedekler:</strong> System &gt; Backup, indirilen yedeği bir parola ile şifreleyebilir (AES-256-GCM, anahtar scrypt'ten). Şifrelenmiş bir yedek (.stbk), yapılandırma dışında tutulan <strong>sertifikaları ve sırları</strong> da taşıyabilir: OpenVPN CA ve kullanıcı sertifikaları, WireGuard anahtarları, bildirim sırları, SNMP topluluğu, MCP belirteçleri ve panel sertifikası. Yeni bir güvenlik duvarında geri yüklemek, çalışan VPN profillerini geri getirir.</li>
+<li>Geri yükleme, şifrelenmiş bir dosyanın parolasını ister ve sertifikaları ve sırları geri koyabilir. Dosyalar yalnızca bilinen yerlerine yazılır.</li>
+<li><strong>Sunucuya otomatik yedekleme:</strong> şifrelenmiş bir yedek, SFTP (NAS, Linux veya Windows OpenSSH sunucusu) üzerinden zamanlamaya göre yüklenir.</li>
+<li>Güvenlik duvarı kendi SSH anahtarını kullanır ve sunucunun ana makine anahtarı ilk bağlantıda kaydedilir.</li>
+<li>Sunucuda bu güvenlik duvarının yalnızca en yeni N yedeği tutulur.</li>
+<li>Bağlantıyı test et ve Şimdi yedekle düğmeleri ve son yedekleme durumu.</li>
+<li>Başarısız bir yedekleme bir sonraki saatte yeniden denenir ve Bildirimler aracılığıyla raporlanır.</li>
+<li>Apply olmadan etkili olur. Parola yalnızca root tarafından okunabilen bir dosyada kalır ve bir daha asla gösterilmez.</li>
+<li>stratum-fw paketi artık py312-cryptography'ye bağımlıdır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.21.1 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Saldırı Tespiti: her arayüz artık pfSense'te olduğu gibi kendi başına <strong>Kapalı</strong>, <strong>İzle</strong> veya <strong>Engelle</strong> şeklindedir. Örneğin, WAN yalnızca uyarı verebilirken yerel ağlar engelleyebilir.</li>
+<li>En az bir engelleme arayüzü ile, bir Suricata süreci tüm izlenen portları netmap üzerinden denetler, böylece kurallar yalnızca bir kez yüklenir: IPS modunda portları engelleme, tap modunda yalnızca izleme portları (her paket geçer). Aynı porttaki VLAN'lar modunu paylaşır.</li>
+<li>Uyarı listesi, bir paketi yalnızca bir engelleme arayüzünde Engellendi olarak işaretler ve netmap portlarını arayüzlerine göre adlandırır.</li>
+<li>0.21.0 ile kaydedilen ayarlar devralınır: "Algıla ve engelle", izlenen her arayüzde Engelle olur.</li>
+</ul>
+<h3 class="dl-cl-ver">0.21.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Services &gt; Intrusion Detection'da <strong>Satır içi engelleme (IPS):</strong> "Algıla ve engelle" modu, Suricata'yı paketlerin yoluna koyar (OPNsense'te olduğu gibi ana bilgisayar yığını ile netmap). <strong>Engelle</strong> olarak işaretlenen kategorilerin kuralları, eşleştikleri şeyleri düşürür; diğer tüm kategoriler hâlâ yalnızca uyarı verir. Engellenen paketler, uyarı listesinde bir "Engellendi" rozeti gösterir.</li>
+<li>Engelleme kategorileri yeniden başlatma olmadan anında etkili olur. Modu değiştirmek Apply gerektirir ve güvenlik duvarına erişilemez hale gelirse olağan otomatik geri alma ile birlikte.</li>
+<li>Engelleme modunda, VLAN ve PPPoE arayüzleri fiziksel portlarında denetlenir ve donanım hızlandırma (TSO, LRO, sağlama toplamları) kapatılır. Suricata durursa, portlar normal iletmeye geri döner (fail open).</li>
+<li>Apply, herhangi bir şey değişmeden önce netmap'in mevcut olduğunu kontrol eder.</li>
+</ul>
+<h3 class="dl-cl-ver">0.20.3 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Web Etkinliği: bir cihaz satırında herhangi bir yere tıklamak, o cihazın kullandığı siteleri açar ve bir site satırına tıklamak, onu kullanan cihazları açar. Ctrl / Cmd + tıklama sayfayı yeni bir sekmede açar.</li>
+</ul>
+<h3 class="dl-cl-ver">0.20.2 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Web Etkinliği VPN istemcilerini adlandırır: bir OpenVPN adresi kullanıcıyı ("OpenVPN: ad") ve bir WireGuard adresi eşi ("WireGuard: ad") gösterir. Her ikisi de DHCP geçmişinde tutulur, böylece zaman içinde farklı kullanıcılar tarafından kullanılan bir VPN adresi ayrı kalır.</li>
+<li>Cihaz sayısı başlığın yanındadır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.20.1 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Web Etkinliği hiçbir şey kaydetmiyordu: syslogd yalnızca zaten var olan günlük dosyalarına yazar, bu yüzden DNS sorgu günlüğü hiç başlatılmadı. Apply ve toplayıcı artık syslogd yeniden yüklenmeden önce dosyayı (yalnızca root) oluşturur.</li>
+</ul>
+<h3 class="dl-cl-ver">0.20.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Web Etkinliği</strong> (Diagnostics &gt; Web Activity), güvenlik duvarının Unbound çözümleyicisinin yanıtladığı DNS sorgularından hangi cihazın hangi sitelere baktığını gösterir. Her cihaz, gün ve ad, bir sayı ve ilk ve son zaman ile tutulur.</li>
+<li>Cihazlar sekmesi her adresi ana bilgisayar adı ve MAC adresiyle listeler ve cihazın kullandığı sitelerle bir cihaz sayfası açar. Siteler sekmesi her siteyi onu kullanan cihazlarla listeler. Her iki sekme de döneme (bugünden bir yıla kadar), ağa ve arama metnine göre filtreler.</li>
+<li><strong>DHCP geçmişi</strong>, hangi cihazın (MAC adresi, ana bilgisayar adı) her adresi ne zaman tuttuğunu kaydeder. DHCP kiralamalarını ve ARP tablosunu okur, böylece sabit adresli cihazlar da dahil edilir. Geçmiş CSV olarak dışa aktarılabilir.</li>
+<li><strong>Tüm DNS'i güvenlik duvarına gönder</strong> (isteğe bağlı): pf, DNS'i iç ağlardan güvenlik duvarına yönlendirir, 8.8.8.8 ve benzerlerine yönelik sorgular dahil. Ayrıca DNS over TLS'i (port 853) engeller ve Firefox'a kendi DNS over HTTPS'ini kullanmamasını söyler.</li>
+<li>Kayıtlar güvenlik duvarında yalnızca root tarafından okunabilen bir veritabanında 1 ila 730 gün (varsayılan olarak 30) tutulur. Sayfalar yalnızca yöneticilere açıktır ve verilere her bakış sistem günlüğüne yazılır.</li>
+<li>stratum-fw paketi artık py312-sqlite3'e bağımlıdır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.19.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>LibreNMS, Zabbix, PRTG, Observium veya Cacti gibi izleme sistemleri için <strong>SNMP aracısı</strong> (System &gt; Settings &gt; SNMP): SNMP v1 / v2c, salt okunur, arayüzler ve 64-bit trafik sayaçları (IF-MIB), CPU, bellek, diskler ve işlemler (HOST-RESOURCES) ve pf istatistikleri ile. FreeBSD'nin kendi bsnmpd'sini kullanır.</li>
+<li>Yalnızca seçilen iç arayüzlerin adreslerinde yanıt verir, asla bir WAN'da yanıt vermez ve pf sorguların yalnızca izin verilen adreslerden girmesine izin verir. Topluluk yalnızca root tarafından saklanır ve bir daha asla gösterilmez; SNMP üzerinden hiçbir şey değiştirilemez.</li>
+<li>stratum-fw paketi artık FreeBSD-bsnmp'ye bağımlıdır, böylece güncelleme aracıyı yükler.</li>
+</ul>
+<h3 class="dl-cl-ver">0.18.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Bant genişliği sınırları</strong> (Firewall &gt; Shaper): her iç ağ için bir indirme ve bir yükleme sınırı; tüm ağ tarafından paylaşılır (örneğin ofis VLAN'ı için 255 Mbit/s) veya her cihaz için ayrı ayrı (örneğin misafir telefonu başına 20 Mbit/s). Ondalık değerlere izin verilir; boş bir alan o yönde sınır olmadığı anlamına gelir.</li>
+<li>Sınırlar, pf'den doğrudan FreeBSD'nin dummynet'ini kullanır (ikinci bir güvenlik duvarı yok). Borular her Apply'da pf'den önce ve önyüklemede FreeBSD tarafından yüklenir; korunmayan bir Apply bunları tekrar kaldırır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.17.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Arayüz grupları</strong> (Interfaces &gt; Groups): örneğin tüm VLAN'lar veya tüm WAN'lar gibi bir arayüz grubu, Firewall &gt; Rules'ta kendi sekmesini alır. Kuralları her üye arayüze uygulanır ve pfSense ve OPNsense'te olduğu gibi her arayüzün kendi kurallarından önce değerlendirilir. WAN üyeleri reply-to'larını korur.</li>
+<li>Gruplar yeniden adlandırılabilir (kuralları onlarla birlikte taşınır) ve kuralları kalmadığında silinebilir. Bir arayüz kaldırıldığında, gruplarından ayrılır.</li>
+<li>MCP aracı firewall_rules, grup kurallarını ve uygulandıkları arayüzleri listeler.</li>
+</ul>
+<h3 class="dl-cl-ver">0.16.1 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>WAN yedeklemesi (Failover)</strong> (Interfaces &gt; Gateways, iki veya daha fazla WAN ile gösterilir): varsayılan rotayı taşıyan ağ geçidi düştüğünde, varsayılan rota anında açık olan en iyi ağ geçidine (en düşük öncelik numarası) taşınır. Tercih edilen ağ geçidi, yalnızca belirli bir süre (varsayılan olarak 60 sn) çevrimiçi olduktan sonra tekrar devralır, böylece dalgalanan bir hat ileri geri geçiş yapmaz. Başarısız ağ geçidinin bağlantıları, yenisinden hemen yeniden açılmaları için kapatılabilir. Her geçiş günlüğe kaydedilir ve raporlanır.</li>
+<li>İki veya daha fazla WAN ile, bir WAN'a gelen bağlantılara verilen yanıtlar (port yönlendirmeleri, yönetim, geçiş kuralları), varsayılan rota ne olursa olsun o aynı WAN'dan çıkar (reply-to). Statik WAN'lar ağ geçitlerini, PPPoE WAN'lar bağlantılarını kullanır. Tek WAN'lı sistemler tamamen aynı güvenlik duvarı kurallarını korur.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>0.16.0'a güncellemeden sonra ağ geçidi izleyicisi yalnızca bir sonraki Apply veya yeniden başlatma ile başladı, çünkü önceki sürümün güncelleme aracı onu bilmiyordu. Panel artık etkinleştirildiğinde ancak çalışmadığında onu başlatır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.16.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Ağ geçitleri</strong> (Interfaces &gt; Gateways): her WAN tipi arayüzün canlı durumu (çevrimiçi, uyarı, kapalı),</li>
+</ul>
+<p class="dl-cl-p">gecikme, paket kaybı ve son bir saati küçük bir grafik olarak gösteren bir ağ geçidi vardır.</p>
+<ul class="dl-cl-list">
+<li>Yeni bir ağ geçidi izleme servisi, kimse paneli açık tutmasa bile her ağ geçidini WAN'ın kendi adresinden</li>
+</ul>
+<p class="dl-cl-p">saniyede bir yoklar. Son 30 saniyedeki paket kaybı veya gecikme sınırlarına ulaştığında (varsayılan olarak</p>
+<p class="dl-cl-p">%20 ve 500 ms, ağ geçidi başına ayarlanır) ya da arayüzünde bağlantı veya adres olmadığında bir ağ geçidi</p>
+<p class="dl-cl-p">kapalı sayılır; sınırın yarısı uyarı gösterir.</p>
+<ul class="dl-cl-list">
+<li>Ağ geçidi başına: bir açıklama, bir izleme adresi (ağ geçidi ping'lere yanıt vermeyen sağlayıcılar için;</li>
+</ul>
+<p class="dl-cl-p">her zaman o ağ geçidi üzerinden erişilir), sınırlar ve 0.16.1'de gelecek WAN yedeklemesi için bir öncelik.</p>
+<ul class="dl-cl-list">
+<li>Bağlantısı açıkken kapanan bir ağ geçidi ve geri dönüşü bildirimlerle raporlanır.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Kontrol panelinin WAN paneli ve MCP aracı wan_status artık ağ geçidi izleyicisini kullanır (panelden her 30</li>
+</ul>
+<p class="dl-cl-p">saniyede üç kez yerine saniyede bir yoklama).</p>
+<h3 class="dl-cl-ver">0.15.3 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Bir WAN arayüzünde saldırı tespiti neredeyse hiç uyarı vermiyordu: güvenlik duvarının genel adresi korunan</li>
+</ul>
+<p class="dl-cl-p">ağların (HOME_NET) bir parçası değildi, bu yüzden internetten ona gelen trafik çoğu kuralla eşleşmiyordu.</p>
+<p class="dl-cl-p">WAN adresleri artık dahil edildi. Bir PPPoE veya DHCP adresi değiştiğinde, yeni adres beş dakika içinde</p>
+<p class="dl-cl-p">devralınır ve Suricata yeniden başlar; bir WAN yeniden bağlanırken hiçbir şey değişmez.</p>
+<h3 class="dl-cl-ver">0.15.2 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Kontrol paneli: Koruma kartı son 24 saatteki saldırı uyarılarını (yüksek önem dereceliler kırmızı) ve en sık</li>
+</ul>
+<p class="dl-cl-p">görülen üç kuralı gösterir, Uyarılar sayfasına bağlantı verir.</p>
+<ul class="dl-cl-list">
+<li>Bildirimler: yüksek önem dereceli saldırı uyarıları için e-posta veya Telegram ile yeni bir olay. Her kural</li>
+</ul>
+<p class="dl-cl-p">en fazla 6 saatte bir raporlanır, devre dışı kurallar asla. Diğer olaylar gibi System &gt; Settings &gt;</p>
+<p class="dl-cl-p">Notifications'tan kapatılabilir ve uyarılar kontrol panelinin Uyarılar kartında görünür.</p>
+<ul class="dl-cl-list">
+<li>MCP: yeni bir araç olan ids_alerts, yapay zeka asistanlarına saldırı tespiti durumunu, son 24 saati sayılarla,</li>
+</ul>
+<p class="dl-cl-p">en sık görülen kuralları ve en son uyarıları önem derecesine veya metne göre filtreleyerek sunar.</p>
+<h3 class="dl-cl-ver">0.15.1 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Saldırı tespiti, imajdan kurulan sistemlerde başlatılamıyordu: Suricata, minimal temel sistemde bulunmayan</li>
+</ul>
+<p class="dl-cl-p">netmap kütüphanesine ihtiyaç duyar. Paket artık buna (FreeBSD-netmap) bağımlıdır, böylece güncelleme onu</p>
+<p class="dl-cl-p">kurar ve yeni kurulumlar onu içerir. Ön kontrol Apply'ı durdurmuştu, bu yüzden hiçbir sistem değiştirilmedi.</p>
+<h3 class="dl-cl-ver">0.15.0 - 2026-11-05</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Saldırı tespiti</strong> (Services &gt; Intrusion Detection) IDS modunda Suricata 8 ile: seçilen arayüzlerin trafiği</li>
+</ul>
+<p class="dl-cl-p">ET Open kurallarıyla karşılaştırılır ve eve bağlanan kötü amaçlı yazılımlar, istismarlar, taramalar, kimlik</p>
+<p class="dl-cl-p">avı, kripto madencileri ve daha fazlası için uyarılar oluşturulur. Henüz hiçbir şey engellenmez; engelleme</p>
+<p class="dl-cl-p">(IPS), uyarılar ağa hangi kuralların uyduğunu gösterdikten sonra gelir.</p>
+<ul class="dl-cl-list">
+<li>Üç grupta kural kategorileri, önerilen bir seçimle (tehditler açık, gürültülü politika ve bilgi kuralları</li>
+</ul>
+<p class="dl-cl-p">kapalı) ve her kategorideki kural sayısı.</p>
+<ul class="dl-cl-list">
+<li>Engelleme listeleri gibi, zamanlamaya göre otomatik kural güncellemeleri (varsayılan olarak günlük). Yeni bir</li>
+</ul>
+<p class="dl-cl-p">kural kümesi yalnızca değiştiğinde indirilir ve kullanılmadan önce Suricata ile test edilir. Başarısız bir</p>
+<p class="dl-cl-p">indirme veya test önceki kuralları korur.</p>
+<ul class="dl-cl-list">
+<li>Uyarılar sayfası: en yeniden eskiye, önem derecesi, kural, kaynak, hedef ve arayüz ile, bir arama ve bir önem</li>
+</ul>
+<p class="dl-cl-p">filtresiyle. Normal trafikte uyarı veren bir kural tek tıkla devre dışı bırakılabilir ve Ayarlar sekmesinde</p>
+<p class="dl-cl-p">yeniden etkinleştirilebilir; değişiklik hemen, Apply olmadan ve tespitte bir boşluk olmadan yürürlüğe girer.</p>
+<ul class="dl-cl-list">
+<li>Suricata denetimli çalışır ve durursa yeniden başlatılır. Bellek sınırları kurulu belleği izler. Günlükleri</li>
+</ul>
+<p class="dl-cl-p">diğer günlüklerle birlikte döndürülür ve başarısız kural indirmeleri bildirimlerle raporlanır.</p>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>MCP adresini bir web tarayıcısında açmak artık boş bir hata sayfası yerine kısa bir açıklama gösterir.</li>
+<li>stratum-fw paketi artık Suricata'ya bağımlıdır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.14.0 - 2026-11-04</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>MCP sunucusu</strong> (Model Context Protocol, System &gt; Settings &gt; MCP): Claude, ChatGPT, Gemini veya DeepSeek gibi yapay zeka asistanları (bir MCP istemcisi aracılığıyla) güvenlik duvarının canlı durumunu okuyabilir ve "son bir saatte neler engellendi?" veya "misafir ağında hangi cihazlar var?" gibi soruları yanıtlayabilir. 14 salt okunur araç: sistem durumu, arayüzler, WAN durumu, servisler, güvenlik duvarı günlüğü, engellenen trafik özeti, güvenlik duvarı kuralları, NAT kuralları, DHCP kiralamaları, VPN oturumları, uyarılar, yapılandırma değişiklikleri, engelleme listeleri ve trafik istatistikleri. MCP üzerinden hiçbir şey değiştirilemez.</li>
+<li>MCP için erişim belirteçleri; her asistan veya bilgisayar için bir tane, isteğe bağlı olarak belirli adreslerle sınırlandırılabilir. Bir belirteç yalnızca bir kez gösterilir ve yalnızca karma olarak saklanır; son kullanım, adres ve çağrı sayısı gösterilir ve belirteç herhangi bir zamanda iptal edilebilir. Yanlış belirteçler başarısız oturum açma olarak sayılır ve adresi engeller.</li>
+<li>Her araç kapatılabilir, böylece verileri hiçbir zaman bir yapay zeka sağlayıcısına gönderilmez. Parolalar, anahtarlar, belirteçler ve VPN yapılandırmaları asla döndürülmez.</li>
+<li>Panel sertifikası, ona güvenmesi gereken MCP istemcileri için indirilebilir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.13.2 - 2026-11-04</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Kontrol paneli <strong>Uyarılar</strong>: en son olaylar (WAN bağlantısı kesildi veya yeniden kuruldu, yeni WAN adresi, engellenen oturum açmalar, başarısız uygulamalar, otomatik geri almalar, mevcut güncellemeler, disk dolu, yüksek sıcaklık, sertifika ve engelleme listesi sorunları) zamanıyla ve her birinin e-posta veya Telegram ile gönderilip gönderilmediğiyle birlikte. Olaylar artık bir bildirim kanalı ayarlanmamış olsa bile kaydedilir; son 100 olay tutulur.</li>
+<li>Kontrol paneli <strong>DHCP</strong>: ağ başına, etkin kiralaması olan cihazlar, adres havuzunun ne kadarının kullanımda olduğu (%75'ten itibaren sarı, %90'dan itibaren kırmızı) ve statik eşleme sayısı.</li>
+</ul>
+<h3 class="dl-cl-ver">0.13.1 - 2026-11-04</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Kontrol paneli <strong>WAN paneli</strong>: bağlantı türü, ağ geçidi, ağ geçidine gecikme ve paket kaybı (her 30 saniyede ölçülür, eğri ile), bağlantının ne kadar süredir açık olduğu, bugünkü indirme ve yükleme ve canlı hız; durum şeridinde internete (1.1.1.1) gecikme.</li>
+<li>Kontrol paneli <strong>VPN bağlantıları</strong>: bağlı her OpenVPN kullanıcısı ve etkin WireGuard eşi, bağlandığı adres, VPN adresi, bağlantı süresi veya son el sıkışma ve alınan/gönderilen verilerle birlikte.</li>
+<li>Kontrol panelini açmak, pfSense gibi yazılım güncellemelerini denetler (en fazla 5 dakikada bir) ve sonucu hazır olur olmaz gösterir.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Güvenlik duvarı günlüğü: FreeBSD 15'te günlüğe kaydedilen her pakete yanlış kuralın adı veriliyordu (çoğunlukla "ipv6-off"), çünkü pf artık kural numaralarını "3..1/0" olarak yazıyor. Güvenlik Duvarı Günlüğü sayfası, kontrol paneli ve uzak syslog artık doğru kuralı gösteriyor; güncellemeden önce kaydedilen girişler eski adlarını koruyor.</li>
+<li>Kontrol paneli: CPU kutucuğu artık trafik grafiklerini açmıyor; grafiğin altındaki canlı trafik, arayüz listesiyle aynı ölçümü kullanıyor.</li>
+</ul>
+<h3 class="dl-cl-ver">0.13.0 - 2026-11-04</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li><strong>Yeni kontrol paneli</strong>:</li>
+<li>Durum şeridi: ana bilgisayar adı, sürüm ve güncelleme durumu, adresi ve canlı indirme/yükleme ile birlikte her WAN bağlantısı, çalışma süresi, son yapılandırma değişikliğinin zamanı, güvenlik duvarı durumu.</li>
+<li>Temel göstergeler: 5 dakikalık eğri ile CPU, bellek, disk, sıcaklık, durum tablosu sınırına göre bağlantılar ve eğri ile son bir saatte engellenen paketler; renkler uyarı seviyelerinde değişir.</li>
+<li>Arayüz başına son bir saatteki trafik, ortalama ve tepe değerlerle.</li>
+<li>Koruma: IP ve DNS engelleme listeleri, IP engelleme listeleri tarafından durdurulan paketler, başarısız oturum açmalardan sonra engellenen adresler, çevrimiçi OpenVPN kullanıcıları ve WireGuard eşleri, son bir saatte en çok engelleyen kurallar.</li>
+<li>Adı olarak açıklamasıyla birlikte arayüzler, durum, bağlantı hızı, adres ve canlı trafik; çalışıyor/durdu özetiyle servisler.</li>
+<li>Son bir saatteki en çok engellenen kaynaklar ve portlar ile en son yapılandırma değişiklikleri (uygulandı, korundu, geri alındı, başarısız).</li>
+<li>Koyu ve açık temalarda ve telefonlarda çalışır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.12.6 - 2026-11-04</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>System &gt; Settings &gt; Networking</strong>: her fiziksel portta donanım hızlandırmayı (LRO, TSO, sağlama toplamı) kapatın - portları yeniden başlatmadan canlı olarak ayarlanır ve yeniden başlatmadan sonra korunur - port başına mevcut durum ile; CPU güç yönetimi (uyarlanabilir, maksimum performans, ekonomi); ARP günlüğü ve ARP girişi ömrü; IPv6 durumu.</li>
+<li><strong>System &gt; Settings &gt; Tunables</strong>: bir güvenlik duvarında önemli olan çalışma zamanı sistem değerleri (sysctl), pfSense'in öneri olarak kullandığı değerler ve her birinin mevcut değeri ile birlikte, ayrıca kendi çalışma zamanı tunable'larınız. Değerler Apply ile ayarlanır ve yeniden başlatmadan sonra korunur (/etc/sysctl.conf.local); varsayılana geri ayarlanan bir değer önceki değerini alır. Stratum FW'nin kendi yönettiği değerler burada değiştirilemez.</li>
+<li>Tüm System &gt; Settings sekmeleri artık kullanılabilir.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Mevcut bir /etc/sysctl.conf.local, /etc/sysctl.conf.local.stratum-orig olarak korunur; dosya artık Settings &gt; Tunables'tan yazılır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.12.5 - 2026-11-04</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Zamanlamaya göre otomatik engelleme listesi güncellemeleri</strong> (Firewall &gt; Blocklists, IP ve DNSBL): her saat, her 6 veya 12 saatte bir, seçilen saatte günlük, seçilen günde haftalık veya kapalı. Sayfa bir sonraki otomatik güncellemeyi gösterir. Kaçırılan bir güncelleme (güvenlik duvarı kapalıyken) bir sonraki saatte çalışır ve başarısız bir güncellemeden sonra bir sonraki saat yeniden dener. Zamanlama değişiklikleri hemen, Apply olmadan yürürlüğe girer. Varsayılanlar önceki ritmi korur (IP listeleri saatlik, DNS listeleri günlük 03:00'te).</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>IP engelleme listelerinin güncelleme günlüğü, bir güncelleme çalışırken gizli kalıyordu (sayfadaki iki öğe aynı kimliği paylaşıyordu).</li>
+</ul>
+<h3 class="dl-cl-ver">0.12.4 - 2026-11-04</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>System &gt; Settings &gt; Notifications</strong>: güvenlik duvarından <strong>Telegram</strong> (bot) ve <strong>e-posta</strong> (STARTTLS veya TLS ile SMTP) ile mesajlar, her biri sayfadaki değerleri kullanan bir test düğmesiyle.</li>
+<li>Her biri kapatılabilen olaylar: yazılım güncellemesi mevcut, yapılandırma uygulanamadı, zamanında korunmadığı için değişiklikler otomatik olarak geri alındı, WAN bağlantısı kesildi / yeniden kuruldu / yeni adres, başarısız oturum açmalardan sonra bir adres engellendi, panel sertifikası sona eriyor, IP veya DNS engelleme listesi indirmeleri başarısız, disk neredeyse dolu ve CPU sıcaklığı yüksek (ayarlanabilir eşikler).</li>
+<li>Başarısız uygulamalar, otomatik geri almalar ve engellenen oturum açmalar hemen bildirilir; geri kalanı her 5 dakikada bir denetlenir. Aynı sorun yalnızca bir aradan sonra yinelenir.</li>
+<li>Bot belirteci ve posta parolası yalnızca güvenlik duvarında saklanır (yalnızca root tarafından okunabilen dosyalar) ve bir daha asla gösterilmez. Bildirim ayarları hemen, Apply olmadan yürürlüğe girer.</li>
+</ul>
+<h3 class="dl-cl-ver">0.12.3 - 2026-11-04</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>System &gt; Settings &gt; Logging</strong>:</li>
+<li>Güvenlik duvarı günlüğü rotasyonu: dosya boyutu ve tutulan eski dosya sayısı; güvenlik duvarı, sistem, DHCP/DNS ve oturum açma günlüklerinin mevcut boyutu ve günlükler için boş alan.</li>
+<li><strong>Uzak syslog</strong>: en fazla iki sunucu (örneğin bir NAS), her biri kendi günlük seçimiyle: sistem, oturum açmalar (panel, SSH, VPN), güvenlik duvarı günlüğü (paket başına bir okunabilir satır, <code>filterlog</code> etiketi) ve DHCP/DNS. Sistemin syslogd'si tarafından UDP üzerinden gönderilir; yerel günlükler olduğu gibi kalır.</li>
+<li><strong>Test mesajı gönder</strong>, herhangi bir şey uygulanmadan önce bir sunucunun syslog aldığını doğrular.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Güvenlik duvarı ve DHCP/DNS günlüklerinin rotasyonu ayarlardan üretilir (varsayılanlar değişmemiştir).</li>
+<li>Yazılım güncellemeleri güvenlik duvarı günlüğünü ve trafik toplayıcılarını yeniden başlatır, böylece yeni sürümü hemen çalıştırırlar.</li>
+</ul>
+<h3 class="dl-cl-ver">0.12.2 - 2026-11-03</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>System &gt; Settings &gt; Firewall &amp; NAT</strong>:</li>
+<li>Engellenen bağlantılar sessizce düşürülür veya reddedilir; varsayılan bloğun ve yayın gürültüsünün günlüğe kaydedilmesi.</li>
+<li>Bogon ve özel ağ engelleme ve WAN adresinde ping (şimdiye kadar yalnızca yapılandırma dosyasında).</li>
+<li>Durum tablosu boyutu, kurulu bellek ve mevcut kullanım için bir öneriyle, boşta bağlantı zaman aşımları (normal, yüksek gecikme, muhafazakar, agresif), SYN sel koruması.</li>
+<li>Paket normalleştirme: rastgele IP kimliği, parçalama-bayrak temizleme.</li>
+<li><strong>NAT yansıması</strong>: yerel cihazlar genel adres üzerinden bir port yönlendirmesine ulaşır. Yönlendirilen trafik hâlâ cihazın kendi arayüzünün kuralları tarafından filtrelenir.</li>
+<li>Otomatik giden NAT için statik kaynak portları.</li>
+<li>Varsayılanlar, önceki sürümlerin üretilen pf yapılandırmasını değiştirmeden korur.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Panelin kendi başına kullandığı ayarlar (oturum zaman aşımı, oturum açma bildirimi, oturum açma koruması) artık "Apply changes" çubuğunu göstermiyor ve Discard bunları korur.</li>
+</ul>
+<h3 class="dl-cl-ver">0.12.1 - 2026-11-03</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Apply'a tıklamak aynı uygulamayı iki kez başlatabiliyordu: apply çubuğunun periyodik yenilemesi, ilk uygulama hâlâ çalışırken etkin bir Apply düğmesini yeniden çiziyordu ve ikincisi Keep'ten hemen sonra tekrar çalışıyor, aynı değişiklikleri ikinci kez korumayı istiyordu. Çubuk artık işlem bitene kadar meşgul kalır ve aynı anda yalnızca bir apply, onaylama veya geri alma çalışabilir (panel, konsol ve geri alma zamanlayıcısı).</li>
+<li>Yönetim portunda (örneğin 443) bir WAN port yönlendirmesi artık herhangi bir yapılandırmanın kaydedilmesini engellemez. Yönlendirilen port WAN yönetim kuralından çıkarılır (pf onu zaten yönlendirilen ana bilgisayara gönderir) ve Admin Access bir bildirim gösterir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.12.0 - 2026-11-03</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>System &gt; Settings</strong> sekmelerle, System &gt; General'in yerini alır. Daha fazla sekme (Firewall &amp; NAT, Logging, Notifications, Networking, Tunables) sonraki sürümlerde gelir.</li>
+<li><strong>General</strong>: ana bilgisayar adı, yerel etki alanı, saat dilimi ve oturum açma sayfasında gösterilen bir oturum açma bildirimi (örneğin bir yasal bildirim).</li>
+<li><strong>Admin Access</strong>:</li>
+<li>Web panel portu ve HTTP'den HTTPS'ye yönlendirme, oturum zaman aşımı.</li>
+<li>Güvenlik duvarını kimlerin yönetebileceği: tüm iç ağlar (güvenlik duvarı kuralları karar verir) veya yalnızca seçili arayüzler; LAN'da kilitlenme önleyici kural.</li>
+<li>WAN'dan erişim (şimdiye kadar yalnızca konsol menüsünde), izin verilen kaynak adreslerinin listesiyle.</li>
+<li>Ayarlanabilir denemeler, süre ve engelleme süresiyle oturum açma koruması, engellenen adreslerin listesi ve bir Unblock düğmesi.</li>
+<li>SSH: açık veya kapalı, port, parola veya yalnızca anahtarla oturum açma, root'un yetkili ortak anahtarları.</li>
+<li>Yeni ayarlar bağlı olduğunuz adresi kilitleyecekse kaydetme reddedilir. nginx ve sshd, Apply'dan önce yeni ayarları kontrol eder; panel başka bir porta taşındığında, apply çubuğu yeni adrese bağlantı verir.</li>
+<li>Konsol menüsü 6) <strong>Management access</strong>: mevcut ayarları gösterir, WAN erişimini açar veya kapatır ve yönetim erişimini varsayılanlara sıfırlar.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Kilitlenme önleyici ve WAN yönetim kuralları, yapılandırılmış panel ve SSH portlarını izler.</li>
+<li>Root'un mevcut SSH anahtarları, güncellemeden sonraki ilk kaydetmede panel tarafından devralınır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.11.0 - 2026-11-03</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Sertifikalar</strong> (System &gt; Certificates): web panelinin TLS sertifikasını yönetin.</li>
+<li>Etkin sertifikayı görüntüleyin: adlar, veren, kalan gün sayısıyla sona erme tarihi, anahtar türü ve tarayıcıyla karşılaştırmak için SHA-256 parmak izi.</li>
+<li>Kendi sertifikanızı yükleyin (örneğin bir şirket CA'sından), ara sertifikalarla birlikte aynı dosyada. Kullanımdan önce kontrol edilir: anahtar eşleşmeli ve parola içermemeli, sertifika şu anda geçerli olmalı ve nginx onu kabul etmeli.</li>
+<li>Panelin açıldığı ana bilgisayar adları ve adresler için yeni bir kendinden imzalı sertifika oluşturun.</li>
+<li>Önceki sertifika saklanır ve sayfadan veya konsolda <code>stratum-cert restore</code> ile geri yüklenebilir. Yeni bir sertifika hemen, Apply olmadan ve açık bağlantıları düşürmeden yürürlüğe girer.</li>
+<li>Bir CA tarafından verilen panel sertifikasının 21 gün içinde sona ermesi durumunda yöneticiler için uyarı.</li>
+<li><code>stratum-cert</code> komutu: <code>show</code>, <code>selfsigned</code>, <code>install</code>, <code>restore</code>.</li>
+</ul>
+<h3 class="dl-cl-ver">0.10.0 - 2026-11-03</h3>
+<h4 class="dl-cl-sub">Güvenlik</h4>
+<ul class="dl-cl-list">
+<li><strong>IPv6 güvenlik temeli</strong>: IPv6 henüz desteklenmiyor ve artık kapalı kalması garanti altına alındı - her IPv6 paketi herhangi bir pass kuralından önce düşürülür (giriş ve çıkış, günlüğe kaydedilmez), IPv6 tüm arayüzlerde devre dışı kalır ve asla iletilmez. IPv6 sunmaya başlayan bir ISS artık IPv4 kuralları etrafında bir yol açamaz.</li>
+</ul>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>IPv6 tasarımı ve sürüm planı (<code>docs/ipv6.md</code>): önce DHCPv6 önek delegasyonu ile WAN IPv6, ardından iç ağlar ve güvenlik duvarı kuralları, servisler ve VPN'ler için IPv6.</li>
+</ul>
+<h3 class="dl-cl-ver">0.9.1 - 2026-11-03</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Bir Apply başarısız olduğunda, apply çubuğu artık nedenini söyler: her başarısız kontrol mesajıyla birlikte (örneğin bir pf sözdizimi hatası), System Logs &gt; Configuration altındaki tam çıktıya bir bağlantı ile. Başarısızlıklar sistem günlüğüne de yazılır.</li>
+<li>Güncel bir sistemde <code>stratum-update run</code> bir hata yerine "nothing to install" bildirir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.9.0 - 2026-11-03</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>IP engelleme listeleri</strong> (Firewall &gt; Blocklists &gt; IP): pf ile bilinen-kötü adresleri engelleyin.</li>
+<li>pfBlockerNG'den türetilen 63 bakımlı IPv4 beslemesi kataloğu (PRI1-PRI5, Scanners, TOR, Mail, DoH, VPN, Proxy ve daha fazlası); Spamhaus DROP, Abuse.ch Feodo Tracker ve Emerging Threats önerilir ve önceden seçilidir.</li>
+<li>Yön: internetten gelen, yerel ağlardan giden veya her ikisi. Gelen bağlantılar düşürülür; gidenler reddedilir, böylece cihazlar hızla başarısız olur.</li>
+<li>Kendi izin ve engelleme listeleriniz ve özel liste URL'leri. Engellenen bir ağ içindeki izin verilen bir adres erişilebilir kalır.</li>
+<li>Apply olmadan saatlik güncellemeler (pf tablosu canlı olarak değiştirilir), canlı ilerleme çubuğu ve güncelleme günlüğü, engellenen paket sayaçları ve bir IP'nin hangi listede olduğunu görmek için "Check an address".</li>
+<li>Güvenlik: özel ve ayrılmış aralıklar ve /8'den büyük ağlar, bir liste ne içerirse içersin asla engellenmez; güvenlik duvarının DNS, güncelleme ve paket sunucularına her zaman izin verilir.</li>
+<li><strong>İki varyantta kurulum ortamı</strong>: <code>stratum-fw-v0.9.0-vga.iso</code> (monitör ve klavye) ve <code>stratum-fw-v0.9.0-serial.iso</code> (seri konsol, 115200 8N1). Her ikisi de CD ve USB çubukları için hibrit görüntülerdir ve kurulu sistem, kurulduğu ortamın konsolunu korur.</li>
+</ul>
+<h3 class="dl-cl-ver">0.8.0 - 2026-11-03</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>WireGuard</strong> (VPN &gt; WireGuard): FreeBSD'ye yerleşik WireGuard ile uzaktan erişim - ekstra paket yok.</li>
+<li>Sunucu ayarları: port, dinleme WAN'ı, tünel ağı, MTU, harici adres (otomatik algılanır).</li>
+<li>Eşlerin hangi LAN'lara ve VLAN'lara ulaşabileceğini tam olarak seçin, ayrıca ekstra ağlar; isteğe bağlı tam tünel ve eşler arası trafik.</li>
+<li>Güvenlik duvarında oluşturulan anahtar çiftleri ve ön paylaşımlı anahtarlarla eşler (cihaz başına bir tane): yapılandırma WireGuard uygulaması için QR kodu olarak gösterilir veya <code>.conf</code> dosyası olarak indirilir. Kendi anahtarlarına sahip cihazlar da desteklenir.</li>
+<li>Eş başına canlı durum: bağlı, uç nokta, son el sıkışma, alınan ve gönderilen veriler.</li>
+<li>Bir eş eklemek veya kaldırmak diğerlerinin bağlantısını kesmez.</li>
+<li>Özel anahtarlar yapılandırma dosyasının dışında tutulur (yalnızca root tarafından okunabilen dosyalar); eş yapılandırmaları yalnızca yöneticilere gösterilir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.7.3 - 2026-11-02</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>OpenVPN gelişmiş ayarları</strong>: UDP veya TCP, dinleme WAN'ı, VPN istemcilerinin hangi LAN'lara ve VLAN'lara ulaşabileceği (arayüz başına) ve ekstra ağlar, istemciden istemciye trafik, kullanıcı başına birkaç cihaz, maksimum bağlantılar, istemciler için DNS sunucuları ve etki alanları, veri şifreleri, kimlik doğrulama özeti, minimum TLS sürümü, anahtar yeniden anlaşması, keepalive, MTU/MSS, günlük düzeyi ve yalnızca sertifikayla oturum açma.</li>
+<li><strong>Kullanıcı başına sabit VPN adresi</strong> (System &gt; Users).</li>
+<li>Panel, bağlantı ayarları değiştiğinde ve kullanıcıların profillerinin yeniden indirilmesi gerektiğinde sizi bilgilendirir.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>OpenVPN sayfasındaki VPN erişim onay kutuları hemen etkili olur; Kaydet düğmesi ayarların altındadır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.7.2 - 2026-11-01</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>System &gt; Users: OpenVPN erişimi kendi VPN sütununda gösterilir.</li>
+</ul>
+<h3 class="dl-cl-ver">0.7.1 - 2026-11-01</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Yalnızca VPN hesapları</strong>: web paneline oturum açma olmadan OpenVPN erişimi olan kullanıcılar, System &gt; Users'ta yönetilir.</li>
+<li>Kullanıcı listesi: son VPN oturum açması ve başarısız VPN parola denemeleri; <code>.ovpn</code> profilini listeden indirin.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>VPN erişimini kaldırmak, bir kullanıcıyı devre dışı bırakmak veya silmek kullanıcının sertifikasını hemen iptal eder.</li>
+<li>OpenVPN profilleri artık kullanımdan kaldırılan <code>persist-key</code> seçeneğini kullanmıyor (OpenVPN 2.7).</li>
+</ul>
+<h3 class="dl-cl-ver">0.7.0 - 2026-11-01</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>OpenVPN uzaktan erişim</strong> (VPN &gt; OpenVPN).</li>
+<li>Yerleşik sertifika yetkilisi (eliptik eğri anahtarları, iptal listesi, tls-crypt).</li>
+<li>Kullanıcının sertifikası ve parolasıyla oturum açma; sertifika aynı kullanıcıya ait olmalı.</li>
+<li>Her şeyin gömülü olduğu kullanıcı başına <code>.ovpn</code> profilleri (yalnızca yöneticiler), sertifika iptali, bağlı istemcilerin listesi.</li>
+<li>VPN istemcileri için güvenlik duvarı ve NAT kuralları ve DNS otomatik olarak oluşturulur.</li>
+</ul>
+<h3 class="dl-cl-ver">0.6.13 - 0.6.19 - 2026-10-31</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Unbound DNS çözümleyici</strong> (Services &gt; DNS): DNSSEC ile doğrulayıcı çözümleyici, yönlendirici veya tam özyineleme modu; DHCP istemci adları çözülmeye devam eder. dnsmasq kullanılabilir kalır ve aralarındaki geçiş her iki yönde de güvenlidir.</li>
+<li><strong>DNS engelleme listeleri</strong> (Firewall &gt; Blocklists &gt; DNSBL), pfBlockerNG tarzı: pfBlockerNG'den türetilen katalog artı HaGeZi listeleri, önerilen varsayılanlar, kendi izin ve engelleme listeleriniz, özel listeler, "Check a domain", gece güncellemeleri ve yüzde çubuğu, mevcut adım ve canlı günlük içeren bir güncelleme ekranı.</li>
+<li><strong>Kontrol paneli</strong>: sürümün yanında güncelleme rozeti, canlı çalışma süresi, CPU sıcaklığı, PPPoE oturum adresi ve son bir saat için bir trafik grafiği.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>DNS engelleme listeleri: liste yorumlarındaki bağlantılar artık giriş olarak değerlendirilmiyor (github.com gibi popüler siteler bazı listeler tarafından engelleniyordu); liste kaynakları, güncelleme sunucusu ve paylaşımlı barındırma platformları asla engellenmez.</li>
+<li>DNS engelleme listeleri etkinleştirilmiş yapılandırmanın uygulanması 0.6.15'te başarısız oldu.</li>
+<li>DNSSEC kök güven çapası, Unbound yapılandırması kontrol edilmeden önce oluşturulur.</li>
+</ul>
+<h3 class="dl-cl-ver">0.6.6 - 0.6.12 - 2026-10-31</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Çevrimdışı güncellemeler</strong>: imzalı bir güncelleme dosyası (<code>.sfu</code>) indirin ve System &gt; Update'te yükleyin - ilerleme çubuğuyla imza ve sağlama toplamı doğrulaması, ardından çevrimiçi güncellemeyle aynı kurulum adımları.</li>
+<li>Her güncellemeden sonra en yeni 5 önyükleme ortamı tutulur; daha eskileri otomatik olarak kaldırılır.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>Daha önceki bir önyükleme ortamını başlatmak çalışır (yükleyici ve güncelleyici doğru ZFS özelliklerini ayarlar; mevcut kurulumlar otomatik olarak onarılır).</li>
+<li>Yeni kurulumlar sürümlerini doğru bildirir (paket veritabanı şeması), böylece güncellemeler sunulur.</li>
+<li>Çevrimiçi denetim internet olmadan hızlı başarısız olur ve kesintiye uğramış bir paket indirmesi artık güncellemeyi askıda bırakamaz.</li>
+</ul>
+<h3 class="dl-cl-ver">0.6.1 - 0.6.5 - 2026-10-31</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Güncelleme ilerlemesi: yüzde çubuğu, zamanlarla adım kontrol listesi, devam eden başlık ve panel yeniden başlarken bir "restarting" sayfası.</li>
+<li>Sistem uyarıları (IP yönlendirme kapalı, güncelleme mevcut) ve parola değişikliğiyle kendi hesap sayfanız.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>IP yönlendirme, uygulama, geri alma ve servis başlatmalarından sonra her zaman yapılandırmayı izler.</li>
+<li>Web paneli bir güncellemeden sonra kendiliğinden yeniden başlar.</li>
+</ul>
+<h3 class="dl-cl-ver">0.6.0 - 2026-10-31</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Kullanıcılar ve roller</strong> (System &gt; Users): birden çok hesap, yönetici / operatör / salt okunur rolleri, etkinleştirme ve devre dışı bırakma, son oturum açma ve başarısız denemeler; bir parola değiştiğinde veya bir hesap devre dışı bırakıldığında oturumlar sona erer.</li>
+<li><strong>Genel ayarlar</strong> (System &gt; General): ana bilgisayar adı, yerel etki alanı, boşta oturum zaman aşımı.</li>
+<li><strong>Açık tema</strong> ve sistemi takip et modu, kullanıcı başına seçilir.</li>
+<li><strong>Yedekleme ve geri yükleme</strong> (System &gt; Backup): yapılandırmayı indirin (isteğe bağlı olarak kullanıcılarla birlikte), bekleyen değişiklikler olarak doğrulanmış geri yükleme, farklılıklarla yapılandırma geçmişi.</li>
+<li><strong>İmzalı yazılım güncellemeleri</strong> (System &gt; Update) update.stratumfw.com'dan: imza denetimli depo, her güncellemeden önce bir yedek ve yeni bir ZFS önyükleme ortamı, canlı ilerleme, önceki önyükleme ortamına geri alma, günlük güncelleme denetimi.</li>
+<li>Markalı önyükleme menüsü.</li>
+</ul>
+<h3 class="dl-cl-ver">0.5.0 - 2026-10-30</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Güvenlik Duvarı Günlüğü</strong>: filtreler ve kural adlarıyla canlı görünüm.</li>
+<li><strong>Sistem Günlükleri</strong>: sistem, DHCP/DNS, PPPoE, NTP, kimlik doğrulama, panel ve yapılandırma günlükleri.</li>
+<li><strong>Ping, Traceroute ve DNS araması</strong> ve durumları sonlandırma seçeneğiyle <strong>pf durum tablosu</strong>.</li>
+<li>Her arayüz için <strong>Trafik Grafikleri</strong> (son bir saat, 24 saat, 30 gün).</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Yayın ve çoklu yayın gürültüsü, günlüğü doldurmadan engellenir (günlüğe kaydetme açılabilir).</li>
+</ul>
+<h3 class="dl-cl-ver">0.4.0 - 2026-10-30</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>DHCP Sunucusu</strong>: arayüz başına ayarlar, statik eşlemeler, "statik yap" ile etkin kiralamalar.</li>
+<li><strong>DNS Çözümleyici</strong>: yerel etki alanı, üst akış sunucuları, ana bilgisayar ve etki alanı geçersiz kılmaları.</li>
+<li><strong>NTP</strong>: zaman sunucuları, saat dilimi, iç ağlar için isteğe bağlı zaman servisi.</li>
+<li>Konsol kurulum sihirbazında saat dilimi sorusu.</li>
+</ul>
+<h3 class="dl-cl-ver">0.3.0 - 2026-10-30</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li><strong>Arayüz atamaları</strong>: portları WAN, LAN ve ek (OPT) arayüzlere eşleyin; OPT arayüzleri WAN veya LAN türü olabilir.</li>
+<li>Arayüz ayarları: statik, DHCP veya hiçbiri, ağ geçidi, MTU.</li>
+<li>Her WAN tipi arayüzde <strong>PPPoE</strong> (parola bir daha asla gösterilmez).</li>
+<li><strong>VLAN'lar</strong> (802.1Q), WAN veya LAN olarak atanabilir.</li>
+</ul>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>Bir arayüzün açıklaması her yerde adı olarak gösterilir, rolü altında.</li>
+</ul>
+<h3 class="dl-cl-ver">0.2.0 - 2026-10-30</h3>
+<h4 class="dl-cl-sub">Eklendi</h4>
+<ul class="dl-cl-list">
+<li>Sistem kuralları gösterilen, isabet sayaçları, sürükle-bırak sırası, açma/kapama anahtarıyla arayüz başına <strong>güvenlik duvarı kuralları</strong>.</li>
+<li>Ana bilgisayarlar, ağlar ve portlar için <strong>takma adlar</strong>.</li>
+<li><strong>NAT</strong>: port yönlendirmeleri (otomatik pass kuralları ve isabet sayaçlarıyla) ve manuel kurallarla giden NAT modları.</li>
+<li>WAN'da kilitlenme önleyici kural, bogon ve özel ağ engelleme.</li>
+<li><strong>Güvenli uygulama</strong>: her değişiklik, zamanında onaylanmadıkça otomatik geri almayla uygulanır.</li>
+</ul>
+<h3 class="dl-cl-ver">0.1.1 - 2026-10-30</h3>
+<h4 class="dl-cl-sub">Değiştirildi</h4>
+<ul class="dl-cl-list">
+<li>WAN'dan yönetim erişimi varsayılan olarak kapalıdır (kurulum sihirbazında veya konsol menüsünde açılabilir).</li>
+<li>Çakışan arayüz ağları reddedilir.</li>
+</ul>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li>UEFI sistemlerde konsol seçimi; hem UEFI hem de BIOS ile seri konsol.</li>
+</ul>
+<h3 class="dl-cl-ver">0.1.0 - 2026-10-29</h3>
+<p class="dl-cl-p">İlk sürüm.</p>
+<ul class="dl-cl-list">
+<li>Web paneli (HTTPS) ve kontrol paneli ile FreeBSD tabanlı güvenlik duvarı.</li>
+<li>Otomatik geri almayla uygulanan tek merkezi yapılandırma dosyası.</li>
+<li>Konsol menüsü ve ilk önyükleme kurulum sihirbazı.</li>
+<li>Yükleyici ISO'su: BIOS ve UEFI için GPT, ZFS, tamamen çevrimdışı kurulum.</li>
+</ul>
+  </div>
+</details>
+<script>if(window.location.hash==="#changelog"){var d=document.getElementById("changelog");if(d)d.open=true;}window.addEventListener("hashchange",function(){if(window.location.hash==="#changelog"){var d=document.getElementById("changelog");if(d)d.open=true;}});</script>
+<!-- STRATUM-DL-CHANGELOG-END -->
+
 <div class="dl-license-card">
   <h2>Kaynak Kodu Durumu ve Lisanslama</h2>
-  <p>Stratum Firewall; denetlenmiş açık kaynak temeller (FreeBSD 15.1, <code>pf</code>, OpenZFS, Suricata, Unbound, WireGuard, strongSwan, <code>nDPI</code>) üzerinde çalışır ve <strong>yıllık 0 $ maliyetle</strong>, kullanıcı, cihaz veya tünel sınırı olmadan tamamen ücretsiz dağıtılır. Çekirdek FastAPI yönetim paneli kaynak ağacı <code>v1.0</code> öncesi geliştirme sürecinde özel depoda tutulmakta olup kullanım kılavuzu, sürüm notları ve hata bildirimleri GitHub üzerinde herkese açıktır.</p>
+  <p>Stratum Firewall; denetlenmiş açık kaynak temeller (FreeBSD 15.1, <code>pf</code>, OpenZFS, Suricata, Unbound, WireGuard, strongSwan, <code>nDPI</code>) üzerinde çalışır ve <strong>yıllık 0 $ maliyetle</strong>, kullanıcı, cihaz veya tünel sınırı olmadan tamamen ücretsiz dağıtılır. Çekirdek FastAPI yönetim paneli kaynak ağacı aktif geliştirme sürecinde özel depoda tutulmakta olup kullanım kılavuzu, sürüm notları ve hata bildirimleri GitHub üzerinde herkese açıktır.</p>
   <div class="dl-license-actions">
     <a href="https://github.com/kaanozkan-81/stratum-panel" target="_blank" rel="noopener" class="dl-link-btn-dark">GitHub'da İncele &rarr;</a>
     <a href="/tr/manual/" class="dl-link-btn-light">Kullanım Kılavuzu (48 Bölüm)</a>
-    <a href="/tr/resources/changelog/" class="dl-link-btn-light">Tüm Sürüm Notları</a>
+    <a href="#changelog" class="dl-link-btn-light">Tüm Sürüm Notları</a>
     <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="dl-link-btn-light">Canlı Demo'yu Dene</a>
   </div>
 </div>

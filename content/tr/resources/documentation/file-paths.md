@@ -1,6 +1,6 @@
 ---
 title: "Dosya ve Yol Referansı"
-description: "Stratum Firewall v0.30.0 yapılandırma dosyaları, izole TOTP 2FA ve VPN gizli anahtarları, üretilen FreeBSD servis dosyaları, günlükler ve ZFS önyükleme ortamları referansı."
+description: "Stratum Firewall yapılandırma dosyaları, izole TOTP 2FA ve VPN gizli anahtarları, üretilen FreeBSD servis dosyaları, günlükler ve ZFS önyükleme ortamları referansı."
 lead: "Şeffaf mimari — tekil yapılandırma dosyasının, kriptografik anahtarların, üretilen FreeBSD servis ayarlarının ve günlüklerin nasıl organize edildiğini inceleyin."
 ---
 
@@ -11,7 +11,7 @@ Stratum Firewall ayarlarınızı kapalı ikili (binary) veritabanlarına hapsetm
 | Konum / Bileşen | Açıklama |
 | :--- | :--- |
 | `config.json` | Arayüzler, kurallar, zamanlamalar, 1:1 NAT, Zorunlu DNS, takma adlar, servisler ve sistem ayarları için tek doğruluk kaynağıdır; değişiklik geçmişi ve fark (diff) karşılaştırmasıyla saklanır. |
-| **`root`-Özel Gizli Dosyalar (`0600`)** | Güvenlik gereği `config.json` dışında tutulur: kullanıcı parola özetleri, **TOTP 2FA gizli anahtarları ve özetlenmiş kurtarma kodları (`v0.30.0`)**, WireGuard özel/PSK anahtarları, OpenVPN CA/sunucu/kullanıcı anahtarları, PPPoE şifreleri, Telegram/SMTP parolaları, SNMP topluluk adı, SFTP yedek şifresi ve özetlenmiş MCP anahtarları. Şifreli `.stbk` yedeği alındığında pakete dahil edilebilir. |
+| **`root`-Özel Gizli Dosyalar (`0600`)** | Güvenlik gereği `config.json` dışında tutulur: kullanıcı parola özetleri, **TOTP 2FA gizli anahtarları ve özetlenmiş kurtarma kodları**, WireGuard özel/PSK anahtarları, OpenVPN CA/sunucu/kullanıcı anahtarları, PPPoE şifreleri, Telegram/SMTP parolaları, SNMP topluluk adı, SFTP yedek şifresi ve özetlenmiş MCP anahtarları. Şifreli `.stbk` yedeği alındığında pakete dahil edilebilir. |
 
 ## 2. Üretilen FreeBSD Yapılandırma Dosyaları (`stratum-config` ve `stratum-pfrefresh`)
 
@@ -20,7 +20,7 @@ Panelde **Uygula (Apply)** tıklandığında sistem dosyaları `config.json` üz
 | Hedef Yapılandırma | Alt Sistem / Servis | Notlar |
 | :--- | :--- | :--- |
 | `/etc/pf.conf` ve tablo dosyaları | FreeBSD `pf` &amp; `dummynet` | Güvenlik duvarı kuralları, saat zamanlamaları, çift yönlü 1:1 `binat`, Zorunlu DNS yönlendirmeleri, politika yönlendirme, hız sınırı boruları ve IP/GeoIP/Hostname tabloları. |
-| `/etc/rc.conf` | FreeBSD `rc(8)` | Arayüzler, VLAN'lar ve servis başlangıçları — yalnızca gerçekten `rc.conf` içinde tanımlı değişkenler temizlenir (`v0.28.7`), Sanal IP ve statik rotalar `stratum-netextra` tarafından yönetilir. |
+| `/etc/rc.conf` | FreeBSD `rc(8)` | Arayüzler, VLAN'lar ve servis başlangıçları — yalnızca gerçekten `rc.conf` içinde tanımlı değişkenler temizlenir, Sanal IP ve statik rotalar `stratum-netextra` tarafından yönetilir. |
 | `/etc/sysctl.conf.local` | Çekirdek Ayarları (`Tunables`) | **Sistem → Ayarlar → Tunables** ekranından yönetilir; önceki dosya `.stratum-orig` olarak korunur. |
 | Unbound &amp; `dnsmasq` | DNS, DNSBL &amp; DHCP | DNSSEC kök çapası, RPZ DNSBL bölgeleri, 55 kategorili Web Filtresi ve DHCP rezervasyonları. |
 | Suricata (`netmap` / `pcap`) | Saldırı Tespit / IPS | İzleme ve engelleme süreçleri ile ET Open kural kategorileri. |

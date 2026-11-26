@@ -51,13 +51,13 @@ Her iki imaj da aynı sistemi içerir ve hem ekran + klavye ile **hem de** seri 
 
 ```bash
 # Linux
-sha256sum stratum-fw-0.39.5-amd64.img
+sha256sum stratum-fw-amd64.img
 
 # macOS / FreeBSD
-shasum -a 256 stratum-fw-0.39.5-amd64.img
+shasum -a 256 stratum-fw-amd64.img
 
 # Windows (PowerShell)
-Get-FileHash .\stratum-fw-0.39.5-amd64.img -Algorithm SHA256
+Get-FileHash .\stratum-fw-amd64.img -Algorithm SHA256
 ```
 
 Değerler uyuşmuyorsa dosyayı yeniden indirin. Özeti (checksum) eşleşmeyen bir imajdan asla kurulum yapmayın.
@@ -70,14 +70,14 @@ Bellekteki tüm veriler silinir.
 - **Linux komut satırı** - `/dev/sdX` yerine kendi USB belleğinizin adını yazın (`lsblk` ile kontrol edin; yanlış aygıtı seçmek o diski siler):
 
 ```bash
-sudo dd if=stratum-fw-0.39.5-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
+sudo dd if=stratum-fw-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
 ```
 
 - **macOS komut satırı** - belleği `diskutil list` ile bulun, ardından:
 
 ```bash
 diskutil unmountDisk /dev/diskN
-sudo dd if=stratum-fw-0.39.5-amd64.img of=/dev/rdiskN bs=4m
+sudo dd if=stratum-fw-amd64.img of=/dev/rdiskN bs=4m
 ```
 
 ## Konsola bağlanma
@@ -98,7 +98,7 @@ Makine **Welcome to Stratum FW** önyükleme menüsüyle açılır, birkaç sani
 
 ```
 ==============================================================
-  Stratum FW 0.36.1 - Installer
+  Stratum FW - Installer
 ==============================================================
 
   1) Install Stratum FW
@@ -148,7 +148,7 @@ Bu parola sistemin SSH üzerinden oturum açmak için kullanılan `root` hesabı
 Kurulum aracı bu aşamada kendi başına çalışır; internetten hiçbir şey indirilmez, tüm bileşenler doğrudan kurulum medyasından yüklenir:
 
 ```
-Installing Stratum FW 0.36.1 to ada0 (log: /tmp/stratum-install.log)
+Installing Stratum FW to ada0 (log: /tmp/stratum-install.log)
 
   Partitioning ada0                              ok
   Creating ZFS pool                              ok
@@ -184,7 +184,7 @@ Disk hem BIOS hem de UEFI makinelerde önyükleme yapabilir. Sistem `zroot/ROOT/
 İlk açılışta tüm konsollarda şu ekran görünür:
 
 ```
-Welcome to Stratum FW 0.36.1
+Welcome to Stratum FW
 
 This wizard assigns network ports, sets IP addresses, WAN access
 and the web panel administrator password.
@@ -293,7 +293,7 @@ Ayarları korumak için <kbd>Enter</kbd> tuşuna basın. Ön denetim başarısı
 Kurulum sihirbazı tamamlandıktan sonra - ve o andan itibaren konsol her açıldığında - ekranda güvenlik duvarının özeti ve konsol menüsü gösterilir:
 
 ```
-Stratum FW 0.36.1  -  stratum  -  FreeBSD 15.1-RELEASE
+Stratum FW  -  stratum  -  FreeBSD 15.1-RELEASE
 
  WAN   igb0     203.0.113.10/29        static  up
  LAN   igb1     192.168.1.1/24         static  up

@@ -15,7 +15,7 @@ You may download, install, and operate Stratum Firewall installer images and sig
 
 ## 3. No Warranty ("As-Is")
 
-Stratum Firewall is under active pre-`v1.0` engineering development and is provided **"AS IS"**, without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or uninterrupted operation. Network administrators remain responsible for maintaining configuration backups (`.stbk`), verifying firewall rules, and testing updates prior to deployment in critical environments.
+Stratum Firewall is under active engineering development and is provided **"AS IS"**, without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or uninterrupted operation. Network administrators remain responsible for maintaining configuration backups (`.stbk`), verifying firewall rules, and testing updates prior to deployment in critical environments.
 
 ## 4. Limitation of Liability
 

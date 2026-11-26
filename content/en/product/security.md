@@ -13,7 +13,7 @@ Stratum Firewall is engineered around verifiable operating-system primitives rat
 
 Stratum Firewall **does not implement cryptography of its own**:
 
-* **WireGuard (`if_wg`):** Data-plane tunnel encryption runs inside the audited **FreeBSD 15.1 kernel `if_wg`** driver; Curve25519 keys are generated with **OpenSSL** (via the Python `cryptography` package, `v0.34.2+`).
+* **WireGuard (`if_wg`):** Data-plane tunnel encryption runs inside the audited **FreeBSD 15.1 kernel `if_wg`** driver; Curve25519 keys are generated with **OpenSSL** (via the Python `cryptography` package).
 * **Site-to-Site IPsec (`enc0`):** IKEv2 and IKEv1 key negotiation is handled by **`strongSwan`** (`swanctl`), while packet encryption (`AES-GCM`, `AES-CBC`, `SHA-2`, `DH 14-21`, `Curve25519`) executes in the FreeBSD kernel ESP stack (`enc0`).
 * **OpenVPN & TLS:** Certificate authorities, EC server/client certificates, `tls-crypt` keys, and HTTPS session transport rely directly on system **OpenSSL**.
 
@@ -27,7 +27,7 @@ Stratum Firewall **does not implement cryptography of its own**:
 
 * **Root-Only Secret Files (`0600`):** Sensitive credentials (VPN private keys, user password hashes, IPsec pre-shared keys, SFTP backup keys) live in root-only `0600` files outside `config.json` and are **never** sent back to the browser.
 * **Pre-Checked Safe-Apply with Auto-Rollback:** Every configuration change is validated before activation (`pfctl -n`, `nginx -t`, `unbound-checkconf`, `dnsmasq --test`, `sshd -t`). If the administrator does not confirm reachability within the 120-second timeout, the previous state is restored automatically.
-* **Open by Design:** Every generated daemon configuration (`config.json`, `pf.conf`, `swanctl.conf`, `wg*.conf`, `unbound.conf`) sits in plain, auditable text on your disk. Core FastAPI panel sources are currently maintained in a private repository during pre-`v1.0` iteration and will be published on GitHub.
+* **Open by Design:** Every generated daemon configuration (`config.json`, `pf.conf`, `swanctl.conf`, `wg*.conf`, `unbound.conf`) sits in plain, auditable text on your disk. Core FastAPI panel sources are currently maintained in a private repository during active iteration and will be published on GitHub.
 
 ## 4. Access Control, Local 2FA & Zero Outbound Telemetry
 
@@ -42,4 +42,4 @@ If you discover a security issue in Stratum Firewall, the installer media, or `s
 * **Email:** [security@stratumfw.com](mailto:security@stratumfw.com)
 * **RFC 9116 Policy File:** [`https://stratumfw.com/.well-known/security.txt`](/.well-known/security.txt)
 
-Please include the affected Stratum FW version, reproduction steps, and impact assessment. We acknowledge vulnerability reports promptly and credit reporters in the [Official Changelog](/resources/changelog/) upon coordinated disclosure.
+Please include the affected Stratum FW version, reproduction steps, and impact assessment. We acknowledge vulnerability reports promptly and credit reporters in the [Official Changelog](/download/#changelog) upon coordinated disclosure.

@@ -1,38 +1,38 @@
 ---
 title: "Panel Tour & Operations"
-description: "Explore the Stratum Firewall v0.30.0 web interface — customizable 12-column dashboard, TOTP two-factor sign-in, per-user notifications, sticky Safe-Apply, Service Status, RBAC, and encrypted SFTP backups."
+description: "Explore the Stratum Firewall web interface — customizable 12-column dashboard, TOTP two-factor sign-in, per-user notifications, sticky Safe-Apply, Service Status, RBAC, and encrypted SFTP backups."
 lead: "Navigate the Stratum web panel — customize your dashboard, enforce TOTP 2FA, supervise daemons, assign user roles, and automate encrypted off-site backups."
 ---
 
 The Stratum management panel is built with Python 3.12, FastAPI, server-rendered templates, and lightweight vanilla JavaScript modules (supporting both **Dark** and **Light** themes, mobile screens, and seamless **EN / TR** switching).
 
-## 1. Customizable 12-Column Dashboard (`v0.23.0` – `v0.28.2`)
+## 1. Customizable 12-Column Dashboard
 
 ![Stratum Dashboard](/images/docs/dashboard.png)
 
 Every administrator and operator has their own personal dashboard layout saved immediately without needing an Apply:
 
 * **Drag &amp; Resize (`gridstack`):** Click **Customize** to drag widgets by their header or resize them across the 12-column grid; click **Reset layout** anytime to restore defaults.
-* **Dashboard → Panels:** Add or remove live widgets including *System*, *WAN*, *CPU*, *Memory*, *Disk*, *Temperature*, *Connections*, *Traffic*, *Gateways*, *Bandwidth Limits*, *Intrusion Detection*, *Blocklists (`v0.28.2`)*, *DHCP*, *VPN Connections*, *Backup*, and *Web Activity*.
+* **Dashboard → Panels:** Add or remove live widgets including *System*, *WAN*, *CPU*, *Memory*, *Disk*, *Temperature*, *Connections*, *Traffic*, *Gateways*, *Bandwidth Limits*, *Intrusion Detection*, *Blocklists*, *DHCP*, *VPN Connections*, *Backup*, and *Web Activity*.
 
-## 2. Inline &amp; Sticky Safe-Apply Workflow (`v0.28.0`, `v0.28.7`)
+## 2. Inline &amp; Sticky Safe-Apply Workflow
 
 * Whenever you save an actual configuration change, an **Apply changes** button appears right beside the page's **Save** button (non-config actions like Wake-on-LAN or packet capture never trigger unnecessary applies, and FreeBSD `/etc/defaults/rc.conf` defaults never clutter Apply diffs).
 * The **Apply changes / Keep changes** banner stays pinned below the top bar while scrolling long pages. Once applied, confirm connectivity within **120 seconds** or Stratum automatically reverts to the last confirmed `config.json` snapshot.
 
-## 3. Per-User Notifications &amp; External Alerts (`v0.12.4`, `v0.28.0`, `v0.30.0`)
+## 3. Per-User Notifications &amp; External Alerts
 
 * **Top-Right Notification Bell:** Displays unread system events (WAN failover/recovery, blocked brute-force logins, one-time 2FA recovery code sign-ins, high-severity Suricata IPS alerts, certificate expiry, SFTP backup status, available updates). Clearing or marking read is personal per user.
 * **Telegram &amp; SMTP Alerts (`System → Settings → Notifications`):** Forward critical alerts in real time to a Telegram bot or STARTTLS/TLS SMTP server with built-in test buttons.
 
-## 4. Service Supervision (`Services → Service Status`, `v0.28.1`)
+## 4. Service Supervision (`Services → Service Status`)
 
 Inspect every firewall service in one table showing its status (`running`, `stopped`, `switched off`), uptime, RAM usage, and `PID`:
 * Administrators can **Start**, **Stop** (with two-click confirmation), and **Restart** services directly.
 * Core services (`pf`, Nginx, web panel, SSH, syslogd, scheduler) safely allow **Restart** only; restarting `pf` reloads `/etc/pf.conf` and repopulates IP blocklist tables cleanly.
 
-## 5. TOTP Two-Factor Sign-In, RBAC &amp; Encrypted SFTP Backups (`v0.22.0`, `v0.30.0`)
+## 5. TOTP Two-Factor Sign-In, RBAC &amp; Encrypted SFTP Backups
 
-* **Two-Factor Sign-In (`My Account`, `v0.30.0`):** Protect accounts with 6-digit **TOTP** authenticator codes (local browser QR rendering so the secret never leaves the firewall, single-use replay protection, `10` one-time recovery codes, automatic termination of other sessions on activation, a `2FA` badge in **System → Users**, and administrator/console lost-phone 2FA reset).
+* **Two-Factor Sign-In (`My Account`):** Protect accounts with 6-digit **TOTP** authenticator codes (local browser QR rendering so the secret never leaves the firewall, single-use replay protection, `10` one-time recovery codes, automatic termination of other sessions on activation, a `2FA` badge in **System → Users**, and administrator/console lost-phone 2FA reset).
 * **Users &amp; Roles (`System → Users`):** Assign **Administrator** (full read/write), **Operator** (view state + run diagnostics &amp; Wake-on-LAN), **Read-Only** (inspection only, used in our [Live Demo](https://demo.stratumfw.com)), or **VPN-only** (OpenVPN access with zero web UI login).
 * **Encrypted Backups (`.stbk`) &amp; Scheduled SFTP (`System → Backup`):** Export password-encrypted (`AES-256-GCM` + `scrypt`) `.stbk` archives bundling private keys, 2FA secrets, OpenVPN/TLS certificates, WireGuard keys, and tokens—and schedule automatic SFTP uploads to a remote NAS or OpenSSH server.

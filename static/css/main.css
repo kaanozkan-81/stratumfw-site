@@ -4666,3 +4666,86 @@ main:has(.manual-shell) .container {
 }
 
 /* === STRATUM-USER-MANUAL-STYLE-END === */
+
+/* === STRATUM-DL-CHANGELOG-CSS-START === */
+body .dl-layout details.dl-changelog-details {
+  background: #FFFFFF !important;
+  border: 1.5px solid #94A3B8 !important;
+  border-radius: 18px;
+  margin: 0 0 40px 0;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+}
+body .dl-layout summary.dl-changelog-summary {
+  cursor: pointer;
+  padding: 20px 26px;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  background: #F8FAFC !important;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body .dl-layout summary.dl-changelog-summary::-webkit-details-marker { display: none; }
+body .dl-layout summary.dl-changelog-summary::after {
+  content: "+";
+  font-size: 22px;
+  font-weight: 800;
+  color: #B45309;
+}
+body .dl-layout details.dl-changelog-details[open] summary.dl-changelog-summary {
+  border-bottom: 1.5px solid #CBD5E1;
+}
+body .dl-layout details.dl-changelog-details[open] summary.dl-changelog-summary::after {
+  content: "−";
+}
+body .dl-layout .dl-changelog-body {
+  padding: 24px 28px;
+  max-height: 680px;
+  overflow-y: auto;
+  background: #FFFFFF !important;
+}
+body .dl-layout .dl-changelog-body h3.dl-cl-ver {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  margin: 22px 0 8px 0 !important;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #E2E8F0;
+}
+body .dl-layout .dl-changelog-body h3.dl-cl-ver:first-child { margin-top: 0 !important; }
+body .dl-layout .dl-changelog-body h4.dl-cl-sub {
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #78350F !important;
+  margin: 12px 0 6px 0 !important;
+}
+body .dl-layout .dl-changelog-body ul.dl-cl-list {
+  margin: 0 0 12px 18px !important;
+  padding: 0 !important;
+}
+body .dl-layout .dl-changelog-body ul.dl-cl-list li {
+  font-size: 14.5px !important;
+  line-height: 1.62 !important;
+  color: #1E293B !important;
+  margin-bottom: 6px !important;
+}
+body .dl-layout .dl-changelog-body p.dl-cl-p {
+  font-size: 14.5px !important;
+  line-height: 1.62 !important;
+  color: #1E293B !important;
+  margin: 0 0 10px 0 !important;
+}
+body .dl-layout .dl-changelog-body code {
+  color: #0F172A !important;
+  background: #F1F5F9 !important;
+  border: 1px solid #CBD5E1 !important;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 12.8px;
+}
+/* === STRATUM-DL-CHANGELOG-CSS-END === */

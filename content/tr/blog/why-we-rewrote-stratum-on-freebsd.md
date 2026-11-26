@@ -47,11 +47,11 @@ Niyetinizi web arayüzünde yapılandırırsınız. Biz bu niyeti tek bir, insan
 
 ## Sıfır Bağımlılıklı WireGuard
 
-Minimal bir saldırı yüzeyine olan bağlılığımızı kanıtlamak için, sadece harici bir VPN kütüphanesini sarmalamadık. X25519 kriptografisini kendimiz uyguladık. Bu, Stratum FW'deki WireGuard'ın harici bağımlılıklarının olmadığı ve maksimum verimlilikle çalıştığı anlamına gelir. *(Güncelleme — v0.34.2: Anahtar üretimi artık denetlenmiş Python `cryptography` paketi üzerinden OpenSSL kullanmaktadır; kriptografi denetlenmiş kütüphanelere bırakılmalıdır.)*
+Minimal bir saldırı yüzeyine olan bağlılığımızı kanıtlamak için, sadece harici bir VPN kütüphanesini sarmalamadık. X25519 kriptografisini kendimiz uyguladık. Bu, Stratum FW'deki WireGuard'ın harici bağımlılıklarının olmadığı ve maksimum verimlilikle çalıştığı anlamına gelir. *(Not: Anahtar üretimi artık denetlenmiş Python `cryptography` paketi üzerinden OpenSSL kullanmaktadır; kriptografi denetlenmiş kütüphanelere bırakılmalıdır.)*
 
 ## İleriye Bakış
 
-Şu anda **v0.12.2 (Geliştirici Önizlemesi)** aşamasındayız. Çekirdek motor çalışıyor, API kararlı ve FreeBSD temeli kaya gibi sağlam.
+Şu anda (Geliştirici Önizlemesi)** aşamasındayız. Çekirdek motor çalışıyor, API kararlı ve FreeBSD temeli kaya gibi sağlam.
 
 Önümüzdeki aylarda, önceden oluşturulmuş ISO kurulum medyamızı yayınlayacağız, L3 ve L7 tehdit koruması için IP/DNS Karalistelerini tamamlayacağız ve Çoklu WAN yedeklilik mantığını tanıtacağız.
 

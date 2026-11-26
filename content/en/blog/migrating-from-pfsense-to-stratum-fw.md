@@ -18,7 +18,7 @@ Before starting the migration, make sure you have a backup of your current pfSen
 *(Note: Stratum FW cannot directly import the pfSense XML format, but you can manually transfer your configuration settings or perform a clean installation for a more streamlined setup.)*
 
 ## Step 2: Download and Install Stratum FW
-Stratum FW is distributed as a lightweight FreeBSD image. Download the latest version (v0.16.0) from our [Download page](/download/). The installation steps are quite similar to pfSense:
+Stratum FW is distributed as a lightweight FreeBSD image. Download the latest version from our [Download page](/download/). The installation steps are quite similar to pfSense:
 *   Burn the ISO file to a USB drive (VGA or Serial version).
 *   Boot your server from the USB.
 *   Follow the console wizard to assign your WAN and LAN interfaces.
@@ -40,4 +40,4 @@ If you are not satisfied with your new system, you can revert to your old system
 ## Conclusion
 pfSense is a respectable tool that has been protecting networks for years. However, **Stratum FW** is a next-generation alternative that answers the security needs of the future (AI, API, modern interface).
 
-If you have any questions during the migration process, you can reach us via our [documentation page](/resources/documentation/) or our [GitHub page](https://github.com/kaanozkan-81/stratum-panel). Don't forget to check our [Changelog](/resources/changelog/) page to follow all the latest updates.
+If you have any questions during the migration process, you can reach us via our [documentation page](/resources/documentation/) or our [GitHub page](https://github.com/kaanozkan-81/stratum-panel). Don't forget to check our [Changelog](/download/#changelog) page to follow all the latest updates.

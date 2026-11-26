@@ -67,13 +67,13 @@ Always check that the download is complete and unmodified. Compare the result wi
 
 ```bash
 # Linux
-sha256sum stratum-fw-0.39.5-amd64.img
+sha256sum stratum-fw-amd64.img
 
 # macOS / FreeBSD
-shasum -a 256 stratum-fw-0.39.5-amd64.img
+shasum -a 256 stratum-fw-amd64.img
 
 # Windows (PowerShell)
-Get-FileHash .\stratum-fw-0.39.5-amd64.img -Algorithm SHA256
+Get-FileHash .\stratum-fw-amd64.img -Algorithm SHA256
 ```
 
 If the values differ, download the file again. Never install from an image whose checksum does not match.
@@ -87,14 +87,14 @@ Everything on the stick is erased.
   erases that disk):
 
 ```bash
-sudo dd if=stratum-fw-0.39.5-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
+sudo dd if=stratum-fw-amd64.img of=/dev/sdX bs=4M status=progress conv=fsync
 ```
 
 - **macOS command line** - find the stick with `diskutil list`, then:
 
 ```bash
 diskutil unmountDisk /dev/diskN
-sudo dd if=stratum-fw-0.39.5-amd64.img of=/dev/rdiskN bs=4m
+sudo dd if=stratum-fw-amd64.img of=/dev/rdiskN bs=4m
 ```
 
 ## Connect to the console
@@ -118,7 +118,7 @@ and then into the installer:
 
 ```
 ==============================================================
-  Stratum FW 0.36.1 - Installer
+  Stratum FW - Installer
 ==============================================================
 
   1) Install Stratum FW
@@ -171,7 +171,7 @@ wizard on the first boot. Use a long, unique password and keep it safe.
 The installer now works on its own; nothing is downloaded, everything comes from the installation media:
 
 ```
-Installing Stratum FW 0.36.1 to ada0 (log: /tmp/stratum-install.log)
+Installing Stratum FW to ada0 (log: /tmp/stratum-install.log)
 
   Partitioning ada0                              ok
   Creating ZFS pool                              ok
@@ -212,7 +212,7 @@ The disk boots on both BIOS and UEFI machines. The system lives in the boot envi
 On the first start, every console shows:
 
 ```
-Welcome to Stratum FW 0.36.1
+Welcome to Stratum FW
 
 This wizard assigns network ports, sets IP addresses, WAN access
 and the web panel administrator password.
@@ -337,7 +337,7 @@ After the wizard - and from then on, every time the console is used - the screen
 and the console menu:
 
 ```
-Stratum FW 0.36.1  -  stratum  -  FreeBSD 15.1-RELEASE
+Stratum FW  -  stratum  -  FreeBSD 15.1-RELEASE
 
  WAN   igb0     203.0.113.10/29        static  up
  LAN   igb1     192.168.1.1/24         static  up

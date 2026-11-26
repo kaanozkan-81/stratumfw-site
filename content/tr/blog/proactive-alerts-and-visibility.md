@@ -1,5 +1,5 @@
 ---
-title: "Temel Engellemenin Ötesinde: v0.13.2 ile Proaktif Uyarılar ve Derin Görünürlük"
+title: "Temel Engellemenin Ötesinde: ile Proaktif Uyarılar ve Derin Görünürlük"
 date: 2026-11-04
 author: "Stratum Security Team"
 description: "Bir güvenlik duvarı sadece paketleri engellememeli; neler olup bittiğini de size söylemelidir. En son Stratum FW güncellemesindeki yeni WAN sağlığı, VPN görünürlüğü ve proaktif uyarı özelliklerini keşfedin."
@@ -10,16 +10,16 @@ On yıllardır geleneksel güvenlik duvarları reaktiftir. Ağınızın kenarın
 
 Eğer İnternet Servis Sağlayıcınız (ISS) korkunç bir gecikme (latency) sağlıyorsa veya bir WireGuard eşi günlerce sessizce bağlantıdan düşmüşse, bir kullanıcı şikayet edene kadar bunu bilemezdiniz.
 
-En son güncellemelerle (**v0.13.1** ve **v0.13.2**), bunu değiştiriyoruz. Stratum FW panelini proaktif bir ağ komuta merkezine dönüştürüyoruz.
+En son güncellemelerle, bunu değiştiriyoruz. Stratum FW panelini proaktif bir ağ komuta merkezine dönüştürüyoruz.
 
-![Stratum FW v0.13.2 Paneli](/images/docs/dashboard.png)
+![Stratum FW Paneli](/images/docs/dashboard.png)
 *WAN sağlığını, trafiği ve koruma istatistiklerini gösteren yeni Stratum FW paneli.*
 
 
 ## 1. WAN Sağlığı: ISS'niz Gerçekten Sözünü Tutuyor mu?
 Belirli bir internet hızı ve güvenilirliği için para ödüyorsunuz. Peki ISS'nin üzerine düşeni yapıp yapmadığını nasıl bileceksiniz?
 
-v0.13.1'deki yeni **WAN Paneli**, **her 30 saniyede bir ağ geçidinize gecikme ve paket kaybını** ölçer ve canlı bir eğriyle görselleştirir. Ayrıca bağlantının ne kadar süredir açık olduğunu, bugünkü toplam indirme/yükleme miktarını ve canlı hızı görebilirsiniz. Eğer birincil fiber hattınız %10 paket kaybıyla bozulmaya başlarsa, bunu panoda anında görürsünüz.
+'deki yeni **WAN Paneli**, **her 30 saniyede bir ağ geçidinize gecikme ve paket kaybını** ölçer ve canlı bir eğriyle görselleştirir. Ayrıca bağlantının ne kadar süredir açık olduğunu, bugünkü toplam indirme/yükleme miktarını ve canlı hızı görebilirsiniz. Eğer birincil fiber hattınız %10 paket kaybıyla bozulmaya başlarsa, bunu panoda anında görürsünüz.
 
 ## 2. VPN Görünürlüğü: Aslında Kim Bağlı?
 WireGuard ve OpenVPN'i kurmak kolaydır. Ancak düzinelerce uzaktan çalışanınız olduğunda onları yönetmek başka bir hikayedir.
@@ -32,8 +32,8 @@ Güncellenen pano artık **bağlı olan her OpenVPN kullanıcısını ve aktif W
 
 Artık bir kullanıcının bağlı olup olmadığını veya ele geçirilmiş bir cihazın arka planda sessizce veri indirip indirmediğini tahmin etmeye gerek yok.
 
-## 3. Proaktif Uyarılar: Kırılmadan Önce Bana Söyle (v0.13.2)
-v0.13.2'nin en önemli özelliği yeni **Pano Uyarıları (Alerts)** sistemidir.
+## 3. Proaktif Uyarılar: Kırılmadan Önce Bana Söyle
+'nin en önemli özelliği yeni **Pano Uyarıları (Alerts)** sistemidir.
 
 Artık Stratum FW'yi kritik olaylar için **Telegram veya E-posta** (SMTP) yoluyla uyarı gönderecek şekilde yapılandırabilirsiniz:
 - WAN bağlantısı kesildi veya geri geldi (ve yeni WAN IP adresleri).
@@ -45,7 +45,7 @@ Artık Stratum FW'yi kritik olaylar için **Telegram veya E-posta** (SMTP) yoluy
 Olaylar panoda bir listede kaydedilir (son 100 tanesi tutulur); zamanını ve e-posta veya Telegram ile gönderilip gönderilmediğini gösterir. İnternet kesilirse, Stratum yedek WAN devreye girdiği anda size uyarı göndermeye çalışacaktır.
 
 ## 4. DHCP ve IP Yönetimi
-Yine v0.13.2'de pano artık bir DHCP paneli içeriyor. Şunları izleyebilirsiniz:
+Yine 'de pano artık bir DHCP paneli içeriyor. Şunları izleyebilirsiniz:
 - Ağ başına aktif kiralamalar.
 - Adres havuzunun ne kadarının kullanıldığı (%75'te turuncuya, %90'da kırmızıya döner).
 - Statik eşlemelerin sayısı.

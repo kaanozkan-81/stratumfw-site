@@ -1,7 +1,7 @@
 ---
 title: "Firewall OS & UTM Comparison"
 seo_title: "Stratum FW vs OPNsense, pfSense, FortiGate, Sophos & WatchGuard — Free Firewall OS"
-description: "Compare Stratum Firewall v0.30.0 against OPNsense, pfSense, IPFire, and subscription UTM appliances (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) — FreeBSD 15.1 pf, FastAPI, ZFS rollback, Suricata IPS & 56-category Web Filter + live Keywords (<code>v0.39.5</code>) + HTTP/HTTPS Download Control (<code>v0.40.0</code>) + live Keywords (<code>v0.39.5</code>) at $0/year."
+description: "Compare Stratum Firewall against OPNsense, pfSense, IPFire, and subscription UTM appliances (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) — FreeBSD 15.1 pf, FastAPI, ZFS rollback, Suricata IPS & 56-category Web Filter + live Keywords + HTTP/HTTPS Download Control + live Keywords at $0/year."
 lead: "An engineering-first comparison of Stratum Firewall against open-source distributions (OPNsense, pfSense, IPFire) and recurring-subscription commercial UTM appliances (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox)."
 translationKey: "firewall-comparison"
 aliases:
@@ -82,7 +82,7 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
         <!-- STRATUM-CMP-2FA-START -->
         <tr>
           <td><strong>Admin Two-Factor Auth (2FA) &amp; RBAC</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in Local TOTP</span><br>On-box QR TOTP (<code>v0.30.0</code>), 10 recovery codes, 4 RBAC roles &amp; console reset</td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in Local TOTP</span><br>On-box QR TOTP, 10 recovery codes, 4 RBAC roles &amp; console reset</td>
           <td><span class="cmp-badge-yes">Built-in</span><br>TOTP + ACL groups</td>
           <td><span class="cmp-badge-partial">Add-on Package</span><br>Requires FreeRADIUS / external package</td>
           <td><span class="cmp-badge-no">Basic Auth</span><br>HTTP admin password</td>
@@ -132,14 +132,14 @@ seoDescription: "Technical 14-point comparison of Stratum Firewall against OPNse
         </tr>
         <tr>
           <td><strong>Layer-7 Application Control</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in (v0.39.0)</span><br>Capsicum <code>stratum-dpi 1.2</code>, <a href="/manual/firewall-application-control/">Monitor-only, branded HTTPS Block Page (<code>Block Page CA</code>) &amp; CDN-safe block</a></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in</span><br>Capsicum <code>stratum-dpi</code>, <a href="/manual/firewall-application-control/">Monitor-only, branded HTTPS Block Page (<code>Block Page CA</code>) &amp; CDN-safe block</a></td>
           <td>Zenarmor (paid tier for full policy/block page)</td>
           <td>pfBlockerNG / Snort OpenAppID</td>
           <td>Built-in Application Control (subscription)</td>
         </tr>
         <tr>
           <td><strong>Guest Captive Portal &amp; RADIUS</strong></td>
-          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in (v0.36.1)</span><br>Zones, terms/local/RADIUS + Accounting, <code>Mikrotik-Rate-Limit</code> &amp; per-device <code>dummynet</code></td>
+          <td class="cmp-highlight"><span class="cmp-badge-yes">Built-in</span><br>Zones, terms/local/RADIUS + Accounting, <code>Mikrotik-Rate-Limit</code> &amp; per-device <code>dummynet</code></td>
           <td>Built-in Captive Portal + RADIUS</td>
           <td>Built-in Captive Portal + RADIUS</td>
           <td>Captive Portal add-on</td>

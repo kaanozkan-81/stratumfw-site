@@ -28,4 +28,4 @@ What if there was a solution that offered both the stability of pfSense/OPNsense
 *   **AI Support (MCP):** With MCP (Model Context Protocol), you can connect your firewall to AI assistants like ChatGPT or Claude and manage it using natural language. *(Example: "What was blocked in the last hour?")*
 *   **Built-in WireGuard and Suricata:** High-speed VPN and IDS support without installing extra packages.
 
-If you are looking for an **free firewall** for your homelab or enterprise network, take a look at the future offered by Stratum FW. You can try the latest version immediately on our [download page](/download/) and follow all the updates on our [changelog](/resources/changelog/).
+If you are looking for an **free firewall** for your homelab or enterprise network, take a look at the future offered by Stratum FW. You can try the latest version immediately on our [download page](/download/) and follow all the updates on our [changelog](/download/#changelog).

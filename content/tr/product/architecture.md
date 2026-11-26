@@ -1,8 +1,8 @@
 ---
 title: "Sistem Mimarisi"
-seo_title: "Stratum Firewall v0.30.0 Mimarisi — FreeBSD 15.1, pf, FastAPI, TOTP 2FA ve ZFS"
-description: "Stratum Firewall v0.30.0 teknik mimarisi — FreeBSD 15.1-RELEASE çekirdeği, pf ve 1:1 binat veri düzlemi, çift motorlu Suricata 8 IPS, AD istisnalı Zorunlu DNS, TOTP 2FA destekli FastAPI kontrol düzlemi ve ZFS Önyükleme Ortamları."
-lead: "Sıfır PHP yükü, tekil bildirimsel yapılandırma kaynağı, 120 saniyelik Safe-Apply geri alma güvencesi ve saf FreeBSD 15.1 çekirdek veri düzlemi üzerine inşa edilen v0.30.0 sistem mimarisi."
+seo_title: "Stratum Firewall Mimarisi — FreeBSD 15.1, pf, FastAPI, TOTP 2FA ve ZFS"
+description: "Stratum Firewall teknik mimarisi — FreeBSD 15.1-RELEASE çekirdeği, pf ve 1:1 binat veri düzlemi, çift motorlu Suricata 8 IPS, AD istisnalı Zorunlu DNS, TOTP 2FA destekli FastAPI kontrol düzlemi ve ZFS Önyükleme Ortamları."
+lead: "Sıfır PHP yükü, tekil bildirimsel yapılandırma kaynağı, 120 saniyelik Safe-Apply geri alma güvencesi ve saf FreeBSD 15.1 çekirdek veri düzlemi üzerine inşa edilen sistem mimarisi."
 full_width: true
 seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf ve netmap veri düzlemi, tekil config.json, 120 sn Safe-Apply ve ZFS önyükleme ortamı koruması."
 ---
@@ -10,7 +10,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 <div class="solutions-layout">
 <div class="sol-block">
 <div class="sol-head">
-<span class="eyebrow">01 · Dört Katmanlı Yığın (v0.30.0)</span>
+<span class="eyebrow">01 · Dört Katmanlı Yığın</span>
 <h2>Kontrol düzlemi ile çekirdek veri düzlemi arasında kesin ayrım</h2>
 <p>Geleneksel güvenlik duvarı dağıtımlarında yönetim arayüzü, eklentiler ve sistem betikleri aynı monolitik PHP/XML katmanında iç içe geçer. Stratum Firewall ise yüksek hızlı paket işlemeyi tamamen <strong>FreeBSD 15.1-RELEASE</strong> çekirdeğine bırakırken, yönetim ve doğrulama katmanını asenkron <strong>Python 3.12 &amp; FastAPI</strong> mimarisiyle izole eder.</p>
 </div>
@@ -21,7 +21,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 <h3>Asenkron Kontrol ve Gözlemlenebilirlik</h3>
 </div>
 <div class="arch-layer-body">
-<p><strong>Nginx TLS</strong> ters vekili arkasında çalışan <strong>Python 3.12 / FastAPI</strong> uygulaması; web arayüzünü, REST API uç noktalarını, 12 sütunlu özelleştirilebilir kontrol panelini ve <strong>1s/24s Güvenlik Duvarı Günlük Özeti</strong> analizlerini sunar. Hesaplar tarayıcıda yerel çizilen QR kodlu <strong>TOTP İki Aşamalı Giriş</strong> (<code>v0.30.0</code>), 10 kurtarma kodu, giriş koruması ve 4 kademeli RBAC ile korunur.</p>
+<p><strong>Nginx TLS</strong> ters vekili arkasında çalışan <strong>Python 3.12 / FastAPI</strong> uygulaması; web arayüzünü, REST API uç noktalarını, 12 sütunlu özelleştirilebilir kontrol panelini ve <strong>1s/24s Güvenlik Duvarı Günlük Özeti</strong> analizlerini sunar. Hesaplar tarayıcıda yerel çizilen QR kodlu <strong>TOTP İki Aşamalı Giriş</strong>, 10 kurtarma kodu, giriş koruması ve 4 kademeli RBAC ile korunur.</p>
 <div class="arch-pills">
 <span class="arch-pill"><b>UI/API:</b> Python 3.12 + FastAPI</span>
 <span class="arch-pill"><b>Kimlik:</b> Yerel QR TOTP 2FA + RBAC</span>
@@ -51,7 +51,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 <h3>Derin Paket Denetimi, Zorunlu DNS ve PKI</h3>
 </div>
 <div class="arch-layer-body">
-<p><strong>Suricata 8</strong> arayüz bazında satır içi <code>netmap</code> IPS ve pasif <code>pcap</code> IDS süreçlerini paralel çalıştırır ve <code>SIGUSR2</code> ile kesintisiz kural yeniler. <strong>Unbound 1.26 RPZ</strong> DNSBL ve 55 kategorili Web Filtresi; <strong>Zorunlu DNS</strong> (<code>v0.29.2</code>) ve DoT (<code>TCP 853</code>) engeliyle aşılması imkansız hale getirilir (Active Directory istisna takma adı destekli, sıfır gezinme kaydı). <strong>OpenVPN</strong> yerleşik EC CA ve çift WAN <code>multihome</code> desteğiyle çalışır.</p>
+<p><strong>Suricata 8</strong> arayüz bazında satır içi <code>netmap</code> IPS ve pasif <code>pcap</code> IDS süreçlerini paralel çalıştırır ve <code>SIGUSR2</code> ile kesintisiz kural yeniler. <strong>Unbound 1.26 RPZ</strong> DNSBL ve 55 kategorili Web Filtresi; <strong>Zorunlu DNS</strong> ve DoT (<code>TCP 853</code>) engeliyle aşılması imkansız hale getirilir (Active Directory istisna takma adı destekli, sıfır gezinme kaydı). <strong>OpenVPN</strong> yerleşik EC CA ve çift WAN <code>multihome</code> desteğiyle çalışır.</p>
 <div class="arch-pills">
 <span class="arch-pill"><b>IPS/IDS:</b> Suricata 8 (netmap + pcap)</span>
 <span class="arch-pill"><b>DNS:</b> Unbound 1.26 RPZ + Force DNS</span>
@@ -103,7 +103,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 </div>
 <div class="sol-block">
 <div class="sol-head">
-<span class="eyebrow">03 · Alt Sistem Matrisi (v0.30.0)</span>
+<span class="eyebrow">03 · Alt Sistem Matrisi</span>
 <h2>Teknik bileşen ve izolasyon referansı</h2>
 <p>Her modül, gereksiz üçüncü parti bağımlılıklar olmadan doğrudan FreeBSD 15.1 yerli araçları ve denetlenebilir servis yapılandırmaları üzerinde çalışır.</p>
 </div>
@@ -114,7 +114,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 <th>Alt Sistem</th>
 <th>Çekirdek Servis / Sürücü</th>
 <th>Veri &amp; Güvenlik Sınırı</th>
-<th>v0.30.0 Mimari Yetenekleri</th>
+<th>Mimari Yetenekler</th>
 </tr>
 </thead>
 <tbody>
@@ -158,7 +158,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 <td><strong>Kimlik, 2FA &amp; Yedekleme</strong></td>
 <td>FastAPI Auth · Yerel TOTP · OpenSSH SFTP</td>
 <td><code>0600 root</code> gizli dosyalar + <code>AES-256-GCM</code> (<code>scrypt</code>)</td>
-<td>Tarayıcıda yerel çizilen QR kodlu <strong>TOTP 2FA</strong> (<code>v0.30.0</code>), tek kullanımlık kod koruması, 10 kurtarma kodu, konsol 2FA sıfırlama (<code>stratum-menu</code>) ve zamanlanmış şifreli <code>.stbk</code> SFTP yedekleme.</td>
+<td>Tarayıcıda yerel çizilen QR kodlu <strong>TOTP 2FA</strong>, tek kullanımlık kod koruması, 10 kurtarma kodu, konsol 2FA sıfırlama (<code>stratum-menu</code>) ve zamanlanmış şifreli <code>.stbk</code> SFTP yedekleme.</td>
 </tr>
 <tr>
 <td><strong>OPNsense Geçiş Motoru</strong></td>
@@ -217,7 +217,7 @@ seoDescription: "Klasik PHP/XML karmaşası olmayan mimari: saf FreeBSD 15.1 pf 
 </div>
 <div class="sol-cta-box">
 <div>
-<h3>v0.30.0 mimarisini canlı ortamda test edin</h3>
+<h3>Stratum mimarisini canlı ortamda test edin</h3>
 <p>Kayıt olmadan tarayıcınızda çalışan gerçek FreeBSD 15.1 QEMU sanal makinesine bağlanın veya doğrudan ZFS kurulum imajlarını indirin.</p>
 </div>
 <div class="sol-cta-actions">
