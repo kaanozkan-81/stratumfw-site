@@ -47,6 +47,7 @@ Under the panel it is **FreeBSD 15.1** with well-known, proven components:
 | Remote-access VPN | **OpenVPN** and kernel **WireGuard** |
 | Site-to-site VPN | **IPsec** (strongSwan) and **WireGuard** |
 | Intrusion detection and prevention | **Suricata** |
+| Download Control web proxy | **Squid** (port `3128` + magic-byte file checker) |
 | Application control and DPI | **stratum-dpi** (nDPI in a FreeBSD Capsicum sandbox) |
 | PPPoE | **mpd5** |
 | The web panel | **nginx** in front of a Python (FastAPI) application |
@@ -90,7 +91,7 @@ must be present. If any check fails, nothing is changed and the bar shows why; t
 is under [**Diagnostics > System Logs**](/manual/diagnostics-system-logs/), *Configuration* tab.
 
 If the checks pass, the current state is saved as a snapshot and the new configuration is activated. Only the
-services that are affected by the change are reloaded or restarted.
+services that are affected by the change are reloaded or restarted. If an unexpected error stops an Apply half way after the snapshot was saved, the firewall goes back to that saved state right away instead of waiting for the confirmation timer, tells you so in the message, and logs where the error happened.
 
 ### Keep changes, or it is undone
 
@@ -140,7 +141,7 @@ later under **System > Certificates**.
 | :--- | :--- |
 | **Overview** | The **Dashboard**: the state of the firewall in panels you arrange yourself. |
 | **Interfaces** | Network ports and their roles, VLANs, interface groups, gateways and multi-WAN, virtual IPs, static routes. |
-| **Firewall** | Rules, NAT, aliases, schedules, IP and DNS blocklists, Web Filter, bandwidth limits (Shaper), Application Control. |
+| **Firewall** | Rules, NAT, aliases, schedules, IP and DNS blocklists, Web Filter, bandwidth limits (Shaper), Application Control, Download Control. |
 | **Services** | Service status, DHCP server, DNS resolver, NTP, intrusion detection, captive portal. |
 | **VPN** | OpenVPN, WireGuard, WireGuard site-to-site, IPsec. |
 | **System** | Settings, panel users, certificates, backup, update, power. |

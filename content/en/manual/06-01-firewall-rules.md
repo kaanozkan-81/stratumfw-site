@@ -81,7 +81,7 @@ Click **Add rule** (or a rule's edit icon).
 | **Action** | **Pass** - allow the traffic. **Block** - drop it silently. **Reject** - drop it and tell the sender (a TCP reset or an ICMP message), so connections fail at once instead of timing out. |
 | **Protocol** | **Any**, **TCP**, **UDP**, **TCP/UDP** or **ICMP** (all ICMP, including ping). A destination port needs TCP, UDP or TCP/UDP. |
 | **Interface** | The tab the rule belongs to. |
-| **Source**, **Destination** | **Any**; **Single host or network** (`192.168.1.10`, `10.0.0.0/8`); **Alias** - a host or network alias ([**Firewall > Aliases**](/manual/firewall-aliases/)); **Interface network** - the network of an interface, for example *LAN net* (all LAN clients; it follows the interface when its address changes); **This firewall** - every address of the firewall itself, virtual IPs included. **Invert match** means everything except what is chosen. |
+| **Source**, **Destination** | **Any**; **Single host or network** (`192.168.1.10`, `10.0.0.0/8`); **Alias** - a host or network alias ([**Firewall > Aliases**](/manual/firewall-aliases/)); **Interface network** - the network of an interface, for example *LAN net* (all LAN clients; it follows the interface when its address changes); **This firewall** - every address of the firewall itself, virtual IPs included; **Internet (not private networks)** *(Destination)* - anything except `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` and `100.64.0.0/10` (*WAN net* is only the WAN link's own subnet, not the internet). **Invert match** means everything except what is chosen. |
 | **Destination port** | **Any**, **Port or range** (`443`, `8000:8100`) or **Port alias**. Source ports are rarely useful and are not offered. |
 | **Schedule** | **Always**, or a schedule from [**Firewall > Schedules**](/manual/firewall-schedules/): the rule exists only during the schedule's times; outside them the rules below decide. |
 | **Gateway** | (Pass rules on internal interfaces, with more than one WAN.) Send the traffic through a chosen WAN - see [**Interfaces > Gateways**](/manual/interfaces-gateways/). |
@@ -97,6 +97,17 @@ Click **Save**, then **Apply changes** and **Keep changes**.
 - On **internal networks** use **Reject**: devices and users get an immediate error instead of waiting for a
   timeout.
 - On the **WAN** use **Block**: a scanner gets no answer and learns nothing about the firewall.
+
+## Starting closed and "Allow internet access"
+
+On a new installation (or after a factory reset), **every interface starts closed**: like zone-based firewalls, neither LAN nor any VLAN can reach the internet or another internal network until a rule allows it (the web panel stays reachable from LAN via the anti-lockout rule and DHCP keeps working; existing installations keep their rules).
+
+![Firewall > Rules — closed interface note and Allow internet access](/images/manual/fw-rules-allow-internet.png)
+
+When you open the tab of an interface that has no custom rules yet, Stratum FW shows a note and an **Allow internet access** button that adds two rules in one click:
+
+1. **This firewall** — allows DNS, NTP and ping to the firewall itself.
+2. **Internet (not private networks)** — allows traffic to the public internet while keeping `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` and `100.64.0.0/10` (all other internal VLANs) unreachable.
 
 ## Separators
 

@@ -1,10 +1,47 @@
 ---
 title: "Sürüm Notları"
-seo_title: "Stratum Firewall Sürüm Notları (v0.39.5) — Tüm Yenilikler ve Değişiklik Geçmişi"
-description: "Stratum Firewall v0.39.5 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
+seo_title: "Stratum Firewall Sürüm Notları (v0.40.0) — Tüm Yenilikler ve Değişiklik Geçmişi"
+description: "Stratum Firewall v0.40.0 sürümüne kadar tüm yenilikler ve düzeltmeler — Yerleşik Salt Okunur Yapay Zeka Asistanı (15 MCP aracı ve yerel Ollama), yalnızca açık portlar için akıllı IDS bildirimleri, IPsec/WireGuard S2S VPN ve Security Guard."
 ---
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**System > Update**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
+
+## 0.40.0 - 2026-11-26
+
+### Eklendi
+- **Firewall > Download Control — Cihazların İndirdiği Dosyaları Denetleme.** Programlar, betikler (*scripts*) ve diğer dosya türleri HTTP ve HTTPS üzerinden indirilirken kaydedilebilir veya engellenebilir.
+  - **Web vekil sunucusu (Web proxy):** Güvenlik duvarı, seçtiğiniz iç ağlarda kendi adresi üzerinde (**port 3128**) bir web vekil sunucusu çalıştırır. Cihazlar bu vekil sunucuyu kullanacak şekilde ayarlandığında (örneğin bir Windows etki alanında Group Policy ile; adımlar panelde listelenir) denetime girer. Vekil sunucuya yönlendirilmeyen cihazlar denetlenmez.
+  - **Dosyanın gerçekte ne olduğu (İçerik tespiti):** Karar verilirken yalnızca dosya adına ve sitenin bildirdiği türe değil, **dosyanın kendi ilk baytlarına** da bakılır. Tanınan biçimler: Windows, Linux ve macOS programları, `MSI`, `APK`, `JAR`, `MSIX`, `ZIP`, `RAR`, `7z`, `CAB`, `PDF` ve Office dosyaları. Bir web sayfasının kendi parçaları (sayfa içi betikler, görseller, sıkıştırılmış sayfalar) indirme olarak sayılmaz.
+  - **Gizlenmiş programlar (Disguised programs):** Örneğin adı `.jpg` veya `.pdf` olarak değiştirilmiş bir `.exe` dosyası içeriğinden tanınır ve hangi dosya türleri seçili olursa olsun engellenebilir.
+  - **Dosya türleri:** Programlar ve yükleyiciler (*programs and installers*), betikler ve kısayollar (*scripts and shortcuts*), arşivler (*archives*), disk kalıpları (*disk images*), belgeler (*documents*), video ve ses (*video and audio*). Varsayılan olarak programlar ve betikler seçilidir.
+  - **Monitor veya Block modu:**
+    - **Monitor (İzle):** Nelerin engelleneceğini kaydeder, hiçbir dosyayı engellemez. İlk birkaç gün **Monitor** moduyla başlamanız önerilir.
+    - **Block (Engelle):** İndirilen dosyayı indirmenin engellendiğini bildiren sayfayla değiştirir. Bu sayfa engelleme sayfasının (*Block page*) tasarımını taşır.
+  - **Bypass listesi (Bypass list):** Bu sitelerin bağlantısı hiç açılmaz ve dosyaları denetlenmez. Bankalar, kamu kurumları (`gov.tr`), işletim sistemi güncellemeleri, güvenlik yazılımları ve yalnızca kendi sertifikasını kabul eden uygulamalar için kullanın. Varsayılan liste tek tıklamayla eklenebilir.
+  - **Her zaman izinli (Always allowed):** Bu sitelerden indirilen dosyalar denetlenir ve kaydedilir ancak hiçbir zaman engellenmez.
+  - **Downloads sekmesi:**
+    - Saati, cihazı, siteyi, dosya adını, gerçek dosya türünü, boyutu ve sonucu gösterir;
+    - Aranabilir ve filtrelenebilir;
+    - Kayıtları **1 ila 365 gün** boyunca saklar (varsayılan **30 gün**).
+  - Yalnızca yöneticilere (*Administrators*) açıktır ve kayıtlara yapılan her bakış sistem günlüğüne yazılır.
+  - **Denetleyici durursa indirmeler devam eder (Fail-open):** Bilgisayarlardaki antivirüs yazılımları kendi denetimlerini sürdürmeye devam eder.
+- **System > Certificates > Inspection CA.** İndirme Kontrolü (**Download Control**) için **Block Page CA**'dan ayrı, kendine ait sertifika otoritesi. Vekil sunucu HTTPS bağlantıları açmak için bu sertifikayı kullanır.
+  - Vekil sunucuyu kullanan cihazlara yükleyin: Windows ve Group Policy için **`.cer`**, diğer sistemler için **`.crt`** (PEM) olarak indirin.
+  - Cihazlardaki sertifikayla karşılaştırabilmeniz için **SHA-256 parmak izi** ekranda gösterilir.
+  - Özel anahtarı güvenlik duvarından asla dışarı çıkmaz.
+
+### Değiştirildi
+- **Yarıda kalan bir Apply işlemi anında geri alınır.** Mevcut durum kaydedildikten sonra beklenmedik bir hata Apply işlemini durdurursa, güvenlik duvarı onay süresini beklemek yerine derhal önceki duruma geri döner ve mesajda bunu bildirir. Geri alma işlemi de başarısız olursa ne çalıştırılması gerektiği mesajda açıkça yazılır. Günlük kaydı artık hatanın tam olarak hangi adımda gerçekleştiğini gösterir.
+- **Squid** (web vekil sunucusu) artık kurulumun bir parçasıdır.
+
+## 0.39.6 - 2026-11-25
+
+### Değiştirildi
+- **Her arayüz kapalı başlar.** Yeni kurulum (ve fabrika ayarlarına sıfırlama) artık LAN ve VLAN ağlarının birbirleri dahil her yere erişmesine izin vermez. Bölge tabanlı (*zone-based*) güvenlik duvarlarında olduğu gibi, bir kural izin verene kadar hiçbir trafik geçmez; web paneline LAN üzerinden erişim (*anti-lockout*) korunur ve DHCP çalışmaya devam eder. Mevcut kurulumlar kendi kurallarını korur.
+
+### Eklendi
+- **Güvenlik duvarı kurallarında `"Internet (not private networks)"` hedefi:** `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` ve `100.64.0.0/10` dışındaki her yer. (*"WAN net"* interneti değil, yalnızca WAN bağlantısının kendi alt ağını ifade eder.)
+- **`Allow internet access` düğmesi:** Kuralı bulunmayan bir arayüzde bilgi notu ve tek tıklamayla iki kural ekleyen bir düğme gösterilir — biri bu güvenlik duvarına (DNS, NTP, ping), diğeri ise diğer iç ağlara değil yalnızca internete izin verir.
 
 ## 0.39.5 - 2026-11-24
 

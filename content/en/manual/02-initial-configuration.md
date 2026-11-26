@@ -10,8 +10,7 @@ aliases:
 translationKey: "manual-02-initial-configuration"
 ---
 
-The setup wizard leaves you with a working firewall: the LAN reaches the internet and nothing reaches the LAN
-from outside. This chapter walks through the first visit to the panel - signing in, securing your account,
+The setup wizard leaves you with a reachable, locked-down firewall: every interface starts closed (nothing reaches the LAN from outside, and internal networks do not reach each other or the internet until you allow it — click **Allow internet access** on [**Firewall > Rules**](/manual/firewall-rules/) when you are ready to open internet access for LAN, while the web panel and DHCP work right away). This chapter walks through the first visit to the panel - signing in, securing your account,
 the basic system settings, the internet connection and DNS - and ends with a checklist of the things worth
 setting before the firewall goes into service.
 

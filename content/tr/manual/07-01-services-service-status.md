@@ -41,6 +41,7 @@ Ayarlarında kapatılmış olan servisler varsayılan olarak gizlenir; **Show sw
 | **OpenVPN** | OpenVPN sunucusu. | Start, stop, restart |
 | **WireGuard** | Çekirdek WireGuard uzaktan erişim arayüzü (`wg0`). | Start, stop, restart |
 | **IPsec** | `strongSwan` (`charon`) - noktadan noktaya IPsec tünelleri. | Start, stop, restart |
+| **Download Control** | Squid web vekil sunucusu (`:3128`) ve dosya denetleyicisi ([**Firewall > Download Control**](/tr/manual/firewall-download-control/)). Denetleyici durursa indirmeler kesilmeden devam eder. | Start, stop, restart |
 | **Captive portal** | Karşılama/oturum açma sayfası ve aktif oturumlar. Yeniden başlatıldığında oturum açmış cihazların bağlantısı kopmaz. | Start, stop, restart |
 | **PPPoE** | `mpd5`. Durdurulduğunda PPPoE WAN bağlantısı kesilir. | Start, stop, restart |
 | **Gateway monitor** | Ağ geçidi durumu, yedekli hat devretme ve politika tabanlı yönlendirme ([**Interfaces > Gateways**](/tr/manual/interfaces-gateways/)). | Start, stop, restart |

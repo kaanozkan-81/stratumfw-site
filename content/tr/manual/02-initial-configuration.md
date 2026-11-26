@@ -10,7 +10,7 @@ aliases:
 translationKey: "manual-02-initial-configuration"
 ---
 
-Kurulum sihirbazı size çalışan bir güvenlik duvarı bırakır: LAN internete çıkar ve dışarıdan gelen hiçbir bağlantı LAN tarafına ulaşamaz. Bu bölüm web paneline yapılan ilk ziyareti - oturum açma, hesabınızı güvenceye alma, temel sistem ayarları, internet bağlantısı ve DNS yapılandırmasını - adım adım ele alır ve güvenlik duvarını canlı hizmete almadan önce yapılması önerilen kısa bir kontrol listesiyle tamamlanır.
+Kurulum sihirbazı size erişilebilir ve güvenli biçimde kapatılmış bir güvenlik duvarı bırakır: yeni kurulumda her arayüz kapalı başlar (web paneline LAN üzerinden erişim ve DHCP hemen çalışır; LAN veya bir VLAN'ı diğer iç ağlara açmadan internete çıkarmak istediğinizde [**Firewall > Rules**](/tr/manual/firewall-rules/) sekmesindeki **Allow internet access** düğmesine tıklamanız yeterlidir). Bu bölüm web paneline yapılan ilk ziyareti - oturum açma, hesabınızı güvenceye alma, temel sistem ayarları, internet bağlantısı ve DNS yapılandırmasını - adım adım ele alır ve güvenlik duvarını canlı hizmete almadan önce yapılması önerilen kısa bir kontrol listesiyle tamamlanır.
 
 ## Oturum açma
 

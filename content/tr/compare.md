@@ -1,7 +1,7 @@
 ---
 title: "Güvenlik Duvarı ve UTM Karşılaştırması"
 seo_title: "Stratum FW vs OPNsense, pfSense, FortiGate, Sophos ve WatchGuard — Ücretsiz Firewall"
-description: "Stratum Firewall v0.30.0 ile OPNsense, pfSense, IPFire ve yıllık abonelikli ticari UTM cihazlarının (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) teknik ve maliyet karşılaştırması — FreeBSD 15.1 pf, FastAPI, ZFS geri alma ve 55 kategorili Web Filtresi + anlık Anahtar Kelime tespiti (<code>v0.39.5</code>)."
+description: "Stratum Firewall v0.30.0 ile OPNsense, pfSense, IPFire ve yıllık abonelikli ticari UTM cihazlarının (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) teknik ve maliyet karşılaştırması — FreeBSD 15.1 pf, FastAPI, ZFS geri alma ve 55 kategorili Web Filtresi + anlık Anahtar Kelime tespiti (<code>v0.39.5</code>) + HTTP/HTTPS İndirme Kontrolü (<code>v0.40.0</code>)."
 lead: "Stratum Firewall'ı hem açık kaynak dağıtımlarla (OPNsense, pfSense, IPFire) hem de her yıl döviz bazlı lisans yenilemesi gerektiren ticari UTM cihazlarıyla (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) mühendislik ve toplam sahip olma maliyeti açısından karşılaştırın."
 translationKey: "firewall-comparison"
 aliases:

@@ -1,7 +1,7 @@
 ---
 title: "System > Certificates"
-seo_title: "09.6 System > Certificates & Block Page CA — Stratum FW User Manual"
-description: "The web panel's TLS certificate (downloading, creating self-signed, installing your own certificate, restoring) and the Block Page CA for Application Control HTTPS block pages (.cer for Group Policy and .crt PEM)."
+seo_title: "09.6 System > Certificates, Block Page CA & Inspection CA — Stratum FW User Manual"
+description: "The web panel's TLS certificate, the Block Page CA for Application Control HTTPS block pages, and the dedicated Inspection CA (.cer GPO / .crt PEM) for Download Control."
 weight: 906
 chapter_num: "09.6"
 url: "/manual/system-certificates/"
@@ -10,7 +10,7 @@ aliases:
 translationKey: "manual-09-06-system-certificates"
 ---
 
-The web panel is always served over HTTPS. **System > Certificates** controls the certificate the browser sees for the panel and manages the **Block Page CA** used by [**Firewall > Application Control**](/manual/firewall-application-control/#block-page).
+The web panel is always served over HTTPS. **System > Certificates** controls the certificate the browser sees for the panel and manages both the **Block Page CA** ([**Firewall > Application Control**](/manual/firewall-application-control/#block-page)) and the **Inspection CA** ([**Firewall > Download Control**](/manual/firewall-download-control/)).
 
 ![System > Certificates](/images/manual/certs.png)
 
@@ -72,6 +72,15 @@ When a rule in [**Firewall > Application Control**](/manual/firewall-application
 3. Without the CA installed, browsers still cannot reach the blocked site - they show a certificate warning instead of the custom block page.
 
 You can **replace** or **delete** the Block Page CA here at any time; a CA that is currently in use by an active Application Control rule cannot be deleted until no rule uses it.
+
+## Inspection CA
+
+[**Firewall > Download Control**](/manual/firewall-download-control/) uses its own dedicated certificate authority — the **Inspection CA** — so the Squid web proxy on port `3128` can inspect HTTPS downloads:
+
+- **Separate from the Block Page CA:** Creating or replacing one never affects the other, and you can deploy the Block Page CA everywhere while installing the Inspection CA only on devices configured to use the Download Control proxy.
+- **Deploy to proxied devices:** Download the certificate as **`.cer`** (for Windows and Active Directory **Group Policy**) or as **`.crt`** (PEM for macOS, Linux and browsers).
+- **Verify the SHA-256 fingerprint:** The page displays the **SHA-256 fingerprint** so you can compare it directly on client computers.
+- **Key stays on the firewall:** The Inspection CA private key never leaves the firewall.
 
 ## If the browser can no longer connect
 

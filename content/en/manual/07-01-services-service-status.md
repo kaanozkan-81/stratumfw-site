@@ -43,6 +43,7 @@ Services that are switched off in their settings are hidden; **Show switched-off
 | **OpenVPN** | The OpenVPN server. | Start, stop, restart |
 | **WireGuard** | The WireGuard remote-access interface `wg0`. | Start, stop, restart |
 | **IPsec** | strongSwan (charon) - site-to-site tunnels. | Start, stop, restart |
+| **Download Control** | Squid web proxy (`:3128`) and file checker ([**Firewall > Download Control**](/manual/firewall-download-control/)). If the checker stops, downloads go through. | Start, stop, restart |
 | **Captive portal** | The sign-in page and its sessions. Signed-in devices stay signed in across a restart. | Start, stop, restart |
 | **PPPoE** | mpd5. Stopping it disconnects the PPPoE WAN. | Start, stop, restart |
 | **Gateway monitor** | Gateway status, failover and policy routing ([**Interfaces > Gateways**](/manual/interfaces-gateways/)). | Start, stop, restart |

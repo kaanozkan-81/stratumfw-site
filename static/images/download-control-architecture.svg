@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" width="1200" height="580" role="img" aria-label="Stratum Firewall v0.40.0 Download Control, Disguised Executable Inspection &amp; v0.39.6 Zero-Trust Interfaces Architecture">
+  <defs>
+    <linearGradient id="bgDc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060d1a"/>
+      <stop offset="55%" stop-color="#0b1629"/>
+      <stop offset="100%" stop-color="#08101f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="580" rx="18" fill="url(#bgDc)"/>
+  <rect x="12" y="12" width="1176" height="556" rx="14" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+  <text x="48" y="52" fill="#fbbf24" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">STRATUM FIREWALL v0.39.6 – v0.40.0 • DOWNLOAD CONTROL &amp; ZERO-TRUST INTERFACES</text>
+  <text x="48" y="84" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="23.5" font-weight="700">Magic-Byte File Inspection Over HTTP/HTTPS &amp; Closed-by-Default Network Zones</text>
+  <line x1="48" y1="104" x2="1152" y2="104" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Box 1: Explicit Squid Proxy + Inspection CA -->
+  <rect x="48" y="128" width="334" height="340" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="1.5"/>
+  <rect x="68" y="148" width="246" height="24" rx="12" fill="#0c2a42"/>
+  <text x="191" y="164" text-anchor="middle" fill="#7dd3fc" font-family="system-ui, sans-serif" font-size="11" font-weight="700">1 • EXPLICIT PROXY (:3128) &amp; CA</text>
+  <text x="68" y="198" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Squid Proxy + Inspection CA</text>
+  <text x="68" y="224" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">• Runs on firewall IP (:3128) on chosen</text>
+  <text x="78" y="243" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">internal VLANs (deploy via GPO / MDM)</text>
+  <text x="68" y="269" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">• Dedicated Inspection CA (.cer / .crt),</text>
+  <text x="78" y="288" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">separate from Block Page CA</text>
+  <text x="68" y="314" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">• Private key never leaves the firewall</text>
+  <rect x="68" y="340" width="294" height="108" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="84" y="363" fill="#7dd3fc" font-family="monospace" font-size="12.2" font-weight="700">1-Click Default Bypass List</text>
+  <text x="84" y="384" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Banks, gov.tr, OS updates, security</text>
+  <text x="84" y="402" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">software &amp; cert-pinned apps are never</text>
+  <text x="84" y="420" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="700">opened; non-proxy devices stay untouched</text>
+  <text x="84" y="438" fill="#94a3b8" font-family="monospace" font-size="11">SHA-256 fingerprint verified on clients</text>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="382" y1="298" x2="426" y2="298" stroke="#f59e0b" stroke-width="2.5"/>
+  <polygon points="426,292 438,298 426,304" fill="#f59e0b"/>
+  <text x="410" y="284" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="10.5">bytes</text>
+
+  <!-- Box 2: True Content & Disguised Executable Engine -->
+  <rect x="438" y="128" width="336" height="340" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.65" stroke-width="1.5"/>
+  <rect x="458" y="148" width="248" height="24" rx="12" fill="#2b1d07"/>
+  <text x="582" y="164" text-anchor="middle" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="700">2 • WHAT THE FILE REALLY IS</text>
+  <text x="458" y="198" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Magic-Byte Content Check</text>
+  <text x="458" y="224" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">• Checks filename + claimed MIME + first</text>
+  <text x="468" y="243" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">bytes (PE, ELF, Mach-O, MSI, APK, JAR,</text>
+  <text x="468" y="262" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">MSIX, ZIP, RAR, 7z, CAB, PDF, Office)</text>
+  <text x="458" y="288" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">• Normal web page parts (JS/CSS/images)</text>
+  <text x="468" y="307" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">do not count as file downloads</text>
+  <rect x="458" y="340" width="296" height="108" rx="10" fill="#08101f" stroke="#7f1d1d"/>
+  <text x="474" y="363" fill="#f87171" font-family="monospace" font-size="12.2" font-weight="700">Disguised Programs Caught</text>
+  <text x="474" y="384" fill="#cbd5e1" font-family="monospace" font-size="11.5">efatura_kasim.pdf  [4D 5A = Win PE .exe]</text>
+  <text x="474" y="402" fill="#cbd5e1" font-family="monospace" font-size="11.5">photo_scan_09.jpg  [4D 5A = Win PE .exe]</text>
+  <text x="474" y="422" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Blocked whatever file types are chosen</text>
+  <text x="474" y="439" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.3">Fail-open: if checker stops, downloads pass</text>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="774" y1="298" x2="818" y2="298" stroke="#34d399" stroke-width="2.5"/>
+  <polygon points="818,292 830,298 818,304" fill="#34d399"/>
+  <text x="802" y="284" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="10.5">policy</text>
+
+  <!-- Box 3: Monitor / Block + Downloads Audit -->
+  <rect x="830" y="128" width="322" height="340" rx="14" fill="#0f172a" stroke="#10b981" stroke-opacity="0.5" stroke-width="1.5"/>
+  <rect x="850" y="148" width="236" height="24" rx="12" fill="#082c24"/>
+  <text x="968" y="164" text-anchor="middle" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700">3 • MONITOR, BLOCK &amp; AUDIT</text>
+  <text x="850" y="198" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Safe Rollout &amp; Audit Log</text>
+  <text x="850" y="224" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">• Monitor: records what would be blocked</text>
+  <text x="850" y="249" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">• Block: serves branded block page</text>
+  <text x="850" y="274" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">• Always allowed: checked &amp; recorded,</text>
+  <text x="860" y="293" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">never blocked</text>
+  <text x="850" y="318" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">• Downloads tab: 1–365d (30d default),</text>
+  <text x="860" y="336" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13.2">admin-only &amp; every view logged</text>
+  <rect x="850" y="352" width="282" height="96" rx="10" fill="#08101f" stroke="#1e293b"/>
+  <text x="866" y="374" fill="#34d399" font-family="monospace" font-size="12" font-weight="700">+ Safe-Apply Instant Undo (v0.40.0)</text>
+  <text x="866" y="394" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11.8">An Apply that fails halfway rolls back</text>
+  <text x="866" y="412" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11.8">immediately without waiting 120s, and</text>
+  <text x="866" y="430" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11.8">logs the exact step where it failed.</text>
+
+  <!-- Bottom Strip: v0.39.6 Zero-Trust Closed Interfaces -->
+  <rect x="48" y="488" width="1104" height="58" rx="12" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.45"/>
+  <text x="68" y="512" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="12.5" font-weight="700">ALSO IN v0.39.6 • EVERY INTERFACE STARTS CLOSED (ZONE-BASED ZERO-TRUST DEFAULT)</text>
+  <text x="68" y="533" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12.5">Fresh installs &amp; resets keep LAN/VLANs isolated (anti-lockout + DHCP stay active) • New rule destination <tspan fill="#7dd3fc" font-family="monospace" font-weight="700">Internet (not private networks)</tspan> &amp; 1-click <tspan fill="#34d399" font-family="monospace" font-weight="700">Allow internet access</tspan>.</text>
+</svg>

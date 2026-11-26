@@ -1,7 +1,7 @@
 ---
 title: "Firewall OS & UTM Comparison"
 seo_title: "Stratum FW vs OPNsense, pfSense, FortiGate, Sophos & WatchGuard — Free Firewall OS"
-description: "Compare Stratum Firewall v0.30.0 against OPNsense, pfSense, IPFire, and subscription UTM appliances (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) — FreeBSD 15.1 pf, FastAPI, ZFS rollback, Suricata IPS & 56-category Web Filter + live Keywords (<code>v0.39.5</code>) + live Keywords (<code>v0.39.5</code>) at $0/year."
+description: "Compare Stratum Firewall v0.30.0 against OPNsense, pfSense, IPFire, and subscription UTM appliances (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox) — FreeBSD 15.1 pf, FastAPI, ZFS rollback, Suricata IPS & 56-category Web Filter + live Keywords (<code>v0.39.5</code>) + HTTP/HTTPS Download Control (<code>v0.40.0</code>) + live Keywords (<code>v0.39.5</code>) at $0/year."
 lead: "An engineering-first comparison of Stratum Firewall against open-source distributions (OPNsense, pfSense, IPFire) and recurring-subscription commercial UTM appliances (Fortinet FortiGate, Sophos UTM/XGS, WatchGuard Firebox)."
 translationKey: "firewall-comparison"
 aliases:

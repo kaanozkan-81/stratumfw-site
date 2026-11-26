@@ -1,7 +1,7 @@
 ---
 title: "İndir"
-seo_title: "Stratum Firewall İndir — Ücretsiz FreeBSD 15.1 amd64 VGA ISO ve Seri IMG (v0.39.5)"
-description: "Stratum Firewall kurulum imajlarını (VGA ekranlar ve sanal makineler için .iso, başsız seri konsollar için .img) SHA-256 doğrulamasıyla ücretsiz indirin; tek tıkla v0.39.5 sürümüne yükseltin."
+seo_title: "Stratum Firewall İndir — Ücretsiz FreeBSD 15.1 amd64 VGA ISO ve Seri IMG (v0.40.0)"
+description: "Stratum Firewall kurulum imajlarını (VGA ekranlar ve sanal makineler için .iso, başsız seri konsollar için .img) SHA-256 doğrulamasıyla ücretsiz indirin; tek tıkla v0.40.0 sürümüne yükseltin."
 lead: "Standart sunucu ve sanal makineler için VGA (.iso), başsız donanımlar için Seri Konsol (.img) kurulum imajlarını SHA-256 doğrulamasıyla indirin — yıllık 0 $ maliyet, sıfır kullanıcı ve tünel sınırı."
 url: "/tr/download/"
 translationKey: "download"
@@ -671,13 +671,13 @@ body .dl-layout a.dl-link-btn-light:hover {
 </style>
 
 <div class="dl-layout">
-<div id="v0395-online-upgrade-note" class="dl-upgrade-banner">
+<div id="v0400-online-upgrade-note" class="dl-upgrade-banner">
   <div class="dl-upgrade-top">
-    <span class="dl-upgrade-pill"><span class="dl-upgrade-dot"></span>DOĞRUDAN KURULUM MEDYASI: v0.39.5 • 24 KASIM 2026</span>
-    <a href="/tr/resources/changelog/" class="dl-upgrade-link">v0.39.5 Sürüm Notlarını İncele &rarr;</a>
+    <span class="dl-upgrade-pill"><span class="dl-upgrade-dot"></span>GÜNCEL İMZALI SÜRÜM: v0.40.0 • 26 KASIM 2026</span>
+    <a href="/tr/resources/changelog/" class="dl-upgrade-link">v0.40.0 Sürüm Notlarını İncele &rarr;</a>
   </div>
-  <h2>Stratum Firewall v0.39.5 Kurulum İmajları Yayında</h2>
-  <p>Aşağıdaki <code>v0.39.5</code> VGA (<code>.iso</code>) ve Seri Konsol (<code>.img</code>) kurulum imajları; <strong>Web Filtresi Anahtar Kelime Tespiti</strong>, <strong>Capsicum Uygulama Kontrolü</strong> (<code>stratum-dpi 1.2</code>), <strong>Özel HTTPS Engelleme Sayfası</strong>, <strong>16 Araçlı Yapay Zeka Asistanı</strong> ve <strong>RADIUS Captive Portal</strong> dahil tüm güncel modülleri hazır barındırır; sonraki sürümlere <strong>System &gt; Update</strong> üzerinden OpenZFS Önyükleme Ortamı güvencesiyle tek tıkla güncellenir.</p>
+  <h2>Doğrulanmış v0.39.5 Medyasıyla Kurun, Tek Tıkla v0.40.0 Sürümüne Yükseltin</h2>
+  <p>Aşağıdaki doğrulanmış <code>v0.39.5</code> kurulum imajıyla sistemi kurduktan sonra <strong>System &gt; Update</strong> (<code>stratum-update run</code>) üzerinden <strong>OpenZFS Önyükleme Ortamı</strong> geri dönüş güvencesiyle tek tıkla imzalı <strong>v0.40.0</strong> sürümüne yükseltebilirsiniz — <strong>HTTP/HTTPS İndirme Kontrolü ve Gizlenmiş Program Tespiti</strong> (<code>Inspection CA</code>), <strong>Kapalı Başlayan Sıfır-Güven Arayüzler</strong> (<code>Allow internet access</code>), <strong>Web Filtresi Anahtar Kelimeler</strong>, <strong>Capsicum Uygulama Kontrolü</strong> ve <strong>16 Araçlı Yapay Zeka Asistanı</strong> dahil tüm yenilikler otomatik kurulur.</p>
 </div>
 
 <div class="dl-meta-bar">
@@ -687,7 +687,7 @@ body .dl-layout a.dl-link-btn-light:hover {
   </div>
   <div class="dl-meta-cell">
     <span class="dl-meta-label">GÜNCEL İMZALI SÜRÜM</span>
-    <span class="dl-meta-val">v0.39.5 · 2026-11-24</span>
+    <span class="dl-meta-val">v0.40.0 · 2026-11-26</span>
   </div>
   <div class="dl-meta-cell">
     <span class="dl-meta-label">İMAJ BOYUTLARI (.iso / .img)</span>
@@ -806,21 +806,20 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 
 <div class="dl-sec-head">
   <span class="dl-eyebrow">Sürüm Öne Çıkanları</span>
-  <h2>v0.39.5 Sürümüne Kadar Öne Çıkan Yenilikler</h2>
+  <h2>v0.40.0 Sürümüne Kadar Öne Çıkan Yenilikler</h2>
   <p>İmzalı çevrimiçi (<code>System &gt; Update</code>) veya çevrimdışı (<code>.sfu</code>) güncellemeyle kurulumunuza gelen başlıca kurumsal güvenlik ve ağ yetenekleri:</p>
 </div>
 
 <div class="dl-news-grid">
   <div class="dl-news-item">
-    <span class="dl-news-ver">v0.39.5 • YENİ</span>
-    <h3>Web Filtresinde Anahtar Kelime Tespiti</h3>
-    <p>Sürekli yeni numaralı alan adlarıyla dönen siteleri (<code>site1234.com</code>, <code>site1235.com</code>&hellip;) içerdikleri marka veya kelimeye (<em>bahis</em>, <em>casino</em> vb.) göre ilk Unbound DNS sorgusunda yakalar. <strong>Yalnızca listele</strong> veya <strong>Anında engelle</strong> modlarıyla <em>Web Etkinliği</em> kapalıyken bile sorgu kaydı tutmadan çalışır. <a href="/tr/manual/firewall-web-filter/">Bölüm 06.6 &rarr;</a></p>
+    <span class="dl-news-ver">v0.39.6 – v0.40.0 • YENİ</span>
+    <h3>İndirme Kontrolü, Gizlenmiş Program Tespiti ve Kapalı Arayüzler</h3>
+    <p>HTTP/HTTPS indirmelerini ilk baytlarından inceleyerek <code>.pdf</code>/<code>.jpg</code> kılıflı gizlenmiş <code>.exe</code> programlarını yakalar (Squid <code>:3128</code> + <code>Inspection CA</code>, <em>Monitor</em>/<em>Block</em> ve tek tık <em>Bypass</em> listesi); yeni kurulumlarda her arayüz kapalı başlar ve <code>Allow internet access</code> ile diğer VLAN'lara açılmadan internete çıkar. <a href="/tr/manual/firewall-download-control/">Bölüm 06.9 &rarr;</a></p>
   </div>
-
   <div class="dl-news-item">
-    <span class="dl-news-ver">v0.38.0 – v0.39.0</span>
-    <h3>Capsicum Korumalı Uygulama Kontrolü ve Engelleme Sayfası</h3>
-    <p>FreeBSD Capsicum kum havuzunda paket yolu dışında çalışan <code>stratum-dpi 1.2</code> (<code>nDPI</code> + TLS <code>ClientHello</code> / QUIC <code>Initial</code>) ile 430+ uygulamayı denetler; yalıtılmış <code>_stratumbp</code> servisi ve GPO uyumlu <code>Block Page CA</code> (<code>.cer</code> / <code>.crt</code>) ile kendi logonuzu taşıyan HTTPS engelleme sayfası sunar. <a href="/tr/manual/firewall-application-control/">Bölüm 06.8 &rarr;</a></p>
+    <span class="dl-news-ver">v0.38.0 – v0.39.5</span>
+    <h3>Capsicum Uygulama Kontrolü, HTTPS Engelleme Sayfası ve Kelime Tespiti</h3>
+    <p>FreeBSD Capsicum kum havuzundaki <code>stratum-dpi 1.2</code> ile 430+ uygulamayı denetler, yalıtılmış <code>_stratumbp</code> + <code>Block Page CA</code> ile logolu HTTPS engelleme sayfası sunar ve <strong>Web Filter &gt; Keywords</strong> ile numara değiştiren bahis/kopya alan adlarını ilk Unbound DNS sorgusunda yakalar. <a href="/tr/manual/firewall-application-control/">Bölüm 06.8 &rarr;</a></p>
   </div>
 
   <div class="dl-news-item">
@@ -853,7 +852,7 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
   <p>Stratum Firewall; denetlenmiş açık kaynak temeller (FreeBSD 15.1, <code>pf</code>, OpenZFS, Suricata, Unbound, WireGuard, strongSwan, <code>nDPI</code>) üzerinde çalışır ve <strong>yıllık 0 $ maliyetle</strong>, kullanıcı, cihaz veya tünel sınırı olmadan tamamen ücretsiz dağıtılır. Çekirdek FastAPI yönetim paneli kaynak ağacı <code>v1.0</code> öncesi geliştirme sürecinde özel depoda tutulmakta olup kullanım kılavuzu, sürüm notları ve hata bildirimleri GitHub üzerinde herkese açıktır.</p>
   <div class="dl-license-actions">
     <a href="https://github.com/kaanozkan-81/stratum-panel" target="_blank" rel="noopener" class="dl-link-btn-dark">GitHub'da İncele &rarr;</a>
-    <a href="/tr/manual/" class="dl-link-btn-light">Kullanım Kılavuzu (47 Bölüm)</a>
+    <a href="/tr/manual/" class="dl-link-btn-light">Kullanım Kılavuzu (48 Bölüm)</a>
     <a href="/tr/resources/changelog/" class="dl-link-btn-light">Tüm Sürüm Notları</a>
     <a href="https://demo.stratumfw.com" target="_blank" rel="noopener" class="dl-link-btn-light">Canlı Demo'yu Dene</a>
   </div>

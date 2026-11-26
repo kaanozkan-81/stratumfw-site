@@ -1,7 +1,7 @@
 ---
 title: "Sistem > Sertifikalar"
-seo_title: "09.6 Sistem > Sertifikalar ve Block Page CA (System > Certificates) — Stratum FW Kullanım Kılavuzu"
-description: "Web panelinin TLS sertifikasını indirme, kendinden imzalı veya kurumsal/ticari sertifika yükleme, önceki sertifikaya dönme ve Uygulama Kontrolü HTTPS engelleme sayfası için Block Page CA (.cer GPO / .crt PEM) yönetimi."
+seo_title: "09.6 Sistem > Sertifikalar, Block Page CA ve Inspection CA — Stratum FW Kullanım Kılavuzu"
+description: "Web panelinin TLS sertifikası, Uygulama Kontrolü için Block Page CA ve İndirme Kontrolü (Download Control) için adanmış Inspection CA (.cer GPO / .crt PEM) yönetimi."
 weight: 906
 chapter_num: "09.6"
 url: "/tr/manual/system-certificates/"
@@ -10,7 +10,7 @@ aliases:
 translationKey: "manual-09-06-system-certificates"
 ---
 
-Web yönetim paneli her zaman HTTPS üzerinden sunulur. **System > Certificates**, hem tarayıcının yönetim paneli için gördüğü TLS sertifikasını hem de [**Firewall > Application Control**](/tr/manual/firewall-application-control/#engelleme-sayfası-block-page) HTTPS engelleme sayfalarında kullanılan **Block Page CA** sertifika otoritesini yönetir.
+Web yönetim paneli her zaman HTTPS üzerinden sunulur. **System > Certificates**, hem tarayıcının yönetim paneli için gördüğü TLS sertifikasını hem de [**Firewall > Application Control**](/tr/manual/firewall-application-control/#engelleme-sayfası-block-page) HTTPS engelleme sayfalarında kullanılan **Block Page CA** ile [**Firewall > Download Control**](/tr/manual/firewall-download-control/) vekil sunucusunun kullandığı **Inspection CA** sertifika otoritelerini yönetir.
 
 ![System > Certificates](/images/manual/certs.png)
 
@@ -63,6 +63,15 @@ Yeni sertifika **Apply** gerekmeden anında devreye girer.
 3. Sertifikanın yüklü olmadığı cihazlarda engellenen siteye yine ulaşılamaz; yalnızca özel sayfa yerine tarayıcı sertifika uyarısı görünür.
 
 **Block Page CA** buradan yenilenebilir veya silinebilir; aktif bir Uygulama Kontrolü kuralı tarafından kullanımda olan bir CA silinemez.
+
+## Inspection CA (İndirme Kontrolü Sertifika Otoritesi)
+
+[**Firewall > Download Control**](/tr/manual/firewall-download-control/) (port `3128` üzerindeki Squid vekil sunucu), HTTPS üzerinden indirilen dosyaları denetleyebilmek için **Block Page CA**'dan tamamen ayrı olan kendi **Inspection CA** sertifika otoritesini kullanır:
+
+- **Block Page CA'dan bağımsızdır:** Birini oluşturmak veya yenilemek diğerini etkilemez; yalnızca vekil sunucuyu kullanan cihazlara yüklenir.
+- **İstemci cihazlara dağıtım:** Sertifikayı Windows ve Active Directory **Group Policy** için **`.cer`** veya diğer sistemler için **`.crt`** (PEM) biçiminde indirip vekil sunucuyu kullanan cihazlara yükleyin.
+- **SHA-256 parmak izi doğrulaması:** İstemci cihazlarda gördüğünüz sertifikayla birebir karşılaştırabilmeniz için **SHA-256 parmak izi** sayfada açıkça gösterilir.
+- **Özel anahtar cihazdan çıkmaz:** Inspection CA özel anahtarı güvenlik duvarından asla dışarı çıkmaz.
 
 ## Tarayıcı artık bağlanamıyorsa
 

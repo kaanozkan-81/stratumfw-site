@@ -42,6 +42,7 @@ Panelin altında iyi bilinen, kendini kanıtlamış bileşenleriyle **FreeBSD 15
 | Uzaktan erişim VPN | **OpenVPN** ve çekirdek **WireGuard** |
 | Noktadan noktaya (Site-to-site) VPN | **IPsec** (strongSwan) ve **WireGuard** |
 | Saldırı tespit ve önleme | **Suricata** |
+| İndirme Kontrolü (Download Control) vekil sunucu | **Squid** (port `3128` + ilk bayt dosya denetimi) |
 | Uygulama kontrolü ve DPI | **stratum-dpi** (FreeBSD Capsicum kum havuzunda nDPI) |
 | PPPoE | **mpd5** |
 | Web paneli | Python (FastAPI) uygulamasının önünde **nginx** |
@@ -73,7 +74,7 @@ Birden fazla sayfada değişiklik yapıp hepsini tek seferde uygulayabilirsiniz.
 
 **Apply changes** düğmesine tıkladığınızda Stratum FW çalışan sisteme dokunmadan önce yeni yapılandırmayı denetler: paket filtresi kuralları, web sunucusu, DNS ve DHCP yapılandırması, SSH ve saldırı tespit sistemi kendi doğrulama araçlarıyla test edilir; değişikliğin ihtiyaç duyduğu programların ve çekirdek modüllerinin (VPN, bant genişliği sınırları vb.) mevcut olduğu doğrulanır. Herhangi bir denetim başarısız olursa hiçbir şey değiştirilmez ve çubukta nedeni gösterilir; tam çıktı [**Diagnostics > System Logs**](/tr/manual/diagnostics-system-logs/) altındaki *Configuration* sekmesinde yer alır.
 
-Denetimler başarılı olursa mevcut durum bir anlık görüntü olarak kaydedilir ve yeni yapılandırma etkinleştirilir. Yalnızca değişiklikten etkilenen servisler yeniden yüklenir veya yeniden başlatılır.
+Denetimler başarılı olursa mevcut durum bir anlık görüntü olarak kaydedilir ve yeni yapılandırma etkinleştirilir. Yalnızca değişiklikten etkilenen servisler yeniden yüklenir veya yeniden başlatılır. Mevcut durum kaydedildikten sonra beklenmedik bir hata Apply işlemini yarıda keserse, güvenlik duvarı onay süresini beklemek yerine derhal önceki duruma geri döner, mesajda bunu bildirir ve hatanın hangi adımda gerçekleştiğini günlüğe yazar.
 
 <span id="keep-changes-or-it-is-undone"></span>
 ### Değişiklikleri koruma veya otomatik geri alma
@@ -112,7 +113,7 @@ Soldaki **menü** yedi bölümden oluşur:
 | :--- | :--- |
 | **Overview** | **Dashboard**: kendi düzenlediğiniz panellerle güvenlik duvarının genel durumu. |
 | **Interfaces** | Ağ portları ve rolleri, VLAN'lar, arayüz grupları, ağ geçitleri ve çoklu WAN, sanal IP'ler, statik rotalar. |
-| **Firewall** | Kurallar, NAT, takma adlar (aliases), zamanlamalar, IP ve DNS engelleme listeleri, Web Filtresi, bant genişliği sınırları (Shaper), Uygulama Kontrolü (Application Control). |
+| **Firewall** | Kurallar, NAT, takma adlar (aliases), zamanlamalar, IP ve DNS engelleme listeleri, Web Filtresi, bant genişliği sınırları (Shaper), Uygulama Kontrolü (Application Control), İndirme Kontrolü (Download Control). |
 | **Services** | Servis durumları, DHCP sunucusu, DNS çözümleyici, NTP, saldırı tespit sistemi, captive portal. |
 | **VPN** | OpenVPN, WireGuard, noktadan noktaya WireGuard, IPsec. |
 | **System** | Ayarlar, panel kullanıcıları, sertifikalar, yedekleme, güncelleme, güç yönetimi. |

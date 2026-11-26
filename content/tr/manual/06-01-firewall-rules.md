@@ -72,7 +72,7 @@ Kendi kurallarınızın üzerinde gri satırlar halinde Stratum FW'nin diğer sa
 | **Action** | **Pass** - trafiğe izin ver. **Block** - paketi sessizce düşür. **Reject** - paketi düşür ve gönderene bildir (TCP reset veya ICMP mesajı ile); böylece bağlantılar zaman aşımı beklemek yerine anında hata döndürür. |
 | **Protocol** | **Any**, **TCP**, **UDP**, **TCP/UDP** veya **ICMP** (ping dahil tüm ICMP türleri). Hedef port belirtmek için TCP, UDP veya TCP/UDP seçilmelidir. |
 | **Interface** | Kuralın ait olduğu arayüz veya grup sekmesi. |
-| **Source**, **Destination** | **Any** (herhangi biri); **Single host or network** (`192.168.1.10`, `10.0.0.0/8`); **Alias** - tanımlı bir IP/ağ takma adı ([**Firewall > Aliases**](/tr/manual/firewall-aliases/)); **Interface network** - bir arayüzün kendi ağı, örneğin *LAN net* (tüm LAN istemcileri; arayüz adresi değişirse otomatik güncellenir); **This firewall** - sanal IP'ler dahil güvenlik duvarının üzerindeki tüm adresler. **Invert match** seçilenin dışındaki her şey anlamına gelir. |
+| **Source**, **Destination** | **Any** (herhangi biri); **Single host or network** (`192.168.1.10`, `10.0.0.0/8`); **Alias** - tanımlı bir IP/ağ takma adı ([**Firewall > Aliases**](/tr/manual/firewall-aliases/)); **Interface network** - bir arayüzün kendi ağı, örneğin *LAN net* (tüm LAN istemcileri; arayüz adresi değişirse otomatik güncellenir); **This firewall** - sanal IP'ler dahil güvenlik duvarının üzerindeki tüm adresler; **Internet (not private networks)** *(Destination)* - `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` ve `100.64.0.0/10` dışındaki tüm genel adresler (*WAN net* interneti değil, yalnızca WAN bağlantısının kendi alt ağını ifade eder). **Invert match** seçilenin dışındaki her şey anlamına gelir. |
 | **Destination port** | **Any**, **Port or range** (`443`, `8000:8100`) veya **Port alias**. Kaynak port filtrelemesi nadiren yararlı olduğu için sunulmaz. |
 | **Schedule** | **Always** (her zaman) veya [**Firewall > Schedules**](/tr/manual/firewall-schedules/) altından bir zamanlama: kural yalnızca zamanlamanın aktif olduğu saatlerde devrededir; diğer saatlerde altındaki kurallar karar verir. |
 | **Gateway** | (Birden fazla WAN olduğunda iç arayüzlerdeki *Pass* kurallarında görünür.) Trafiği seçilen WAN hattı üzerinden çıkarır - bkz. [**Interfaces > Gateways**](/tr/manual/interfaces-gateways/). |
@@ -87,6 +87,17 @@ Kendi kurallarınızın üzerinde gri satırlar halinde Stratum FW'nin diğer sa
 
 - **İç ağlarda** **Reject** kullanın: cihazlar ve kullanıcılar uzun süre zaman aşımı beklemek yerine anında bağlantı reddi yanıtı alır.
 - **WAN tarafında** **Block** kullanın: dışarıdan tarama yapan botlar hiçbir yanıt alamaz ve güvenlik duvarı hakkında bilgi edinemez.
+
+## Kapalı başlayan arayüzler ve "Allow internet access"
+
+Yeni bir kurulumda (veya fabrika ayarlarına sıfırlama sonrasında) **her arayüz kapalı başlar**: bölge tabanlı (*zone-based*) güvenlik duvarlarında olduğu gibi, bir kural izin verene kadar ne LAN ne de VLAN ağları internete veya birbirlerine ulaşabilir (LAN üzerinden web paneline *anti-lockout* erişimi ve DHCP çalışmaya devam eder; mevcut kurulumlar kendi kurallarını korur).
+
+![Firewall > Rules — kapalı başlayan arayüz notu ve Allow internet access](/images/manual/fw-rules-allow-internet.png)
+
+Henüz özel kuralı bulunmayan bir arayüz sekmesini açtığınızda bilgi notu ve tek tıklamayla iki kural ekleyen **Allow internet access** düğmesi görünür:
+
+1. **This firewall** — güvenlik duvarının kendisine DNS, NTP ve ping erişimine izin verir.
+2. **Internet (not private networks)** — `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` ve `100.64.0.0/10` özel ağlarını (diğer tüm iç VLAN'ları) kapalı tutarak yalnızca internete çıkış izni verir.
 
 ## Ayırıcılar (Separators)
 
