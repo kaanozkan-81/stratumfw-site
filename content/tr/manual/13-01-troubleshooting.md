@@ -105,3 +105,9 @@ Bir sorunu bildirirken (GitHub üzerinde veya iş arkadaşınıza) şunları ekl
 - **System Logs** veya **Firewall Log** içindeki ilgili satırlar - konu Apply ile ilgiliyse `stratum-config diff` çıktısı.
 
 **Paylaşmadan önce genel IP adreslerini, alan adlarını ve kullanıcı adlarını maskeleyin.** Parolaları, özel anahtarları, jetonları, OPNsense `config.xml` dosyasını veya yedek dosyalarını kesinlikle herkese açık paylaşmayın.
+
+### İndirme Kontrolü (Download Control) açıkken bir site veya indirme çalışmıyor
+
+- **Vekil sunucuyu kullanan bilgisayarlarda HTTPS sertifika uyarısı:** Port `3128` vekil sunucusuna yönlendirilen cihazlara [**Inspection CA**](/tr/manual/system-certificates/#inspection-ca) sertifikasının (`System > Certificates > Inspection CA`, Block Page CA'dan ayrıdır) yüklendiğini doğrulayın.
+- **Bankacılık, `gov.tr` veya sertifika sabitleme kullanan uygulamalar bağlanamıyor:** İlgili alan adını [**Firewall > Download Control**](/tr/manual/firewall-download-control/) altındaki **Bypass list** bölümüne ekleyin (veya varsayılan bypass listesini tek tıkla yükleyin); bu sitelerin bağlantısı vekil sunucu tarafından açılmaz.
+- **Güvenilir bir iş ortağından indirilen yükleyici engelleniyor:** Alan adını **Always allowed** listesine ekleyin; indirmeler denetlenip **Downloads** sekmesine kaydedilmeye devam eder ancak engellenmez. Adı ikili dosya gibi görünen düz metin veriler (Google servislerinin `response.bin` JSON ekleri gibi) otomatik olarak metin kabul edilip geçirilir.

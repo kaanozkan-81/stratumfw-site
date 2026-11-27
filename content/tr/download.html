@@ -1,7 +1,7 @@
 ---
 title: "İndir"
-seo_title: "Stratum Firewall İndir — Ücretsiz FreeBSD 15.1 amd64 VGA ISO ve Seri IMG (v0.40.0)"
-description: "Stratum Firewall kurulum imajlarını (VGA ekranlar ve sanal makineler için .iso, başsız seri konsollar için .img) SHA-256 doğrulamasıyla ücretsiz indirin; tek tıkla v0.40.0 sürümüne yükseltin."
+seo_title: "Stratum Firewall İndir — Ücretsiz FreeBSD 15.1 amd64 VGA ISO ve Seri IMG (v0.40.1)"
+description: "Stratum Firewall kurulum imajlarını (VGA ekranlar ve sanal makineler için .iso, başsız seri konsollar için .img) SHA-256 doğrulamasıyla ücretsiz indirin; tek tıkla v0.40.1 sürümüne yükseltin."
 lead: "Standart sunucu ve sanal makineler için VGA (.iso), başsız donanımlar için Seri Konsol (.img) kurulum imajlarını SHA-256 doğrulamasıyla indirin — yıllık 0 $ maliyet, sıfır kullanıcı ve tünel sınırı."
 url: "/tr/download/"
 translationKey: "download"
@@ -671,23 +671,23 @@ body .dl-layout a.dl-link-btn-light:hover {
 </style>
 
 <div class="dl-layout">
-<div id="v0400-online-upgrade-note" class="dl-upgrade-banner">
+<div id="v0401-online-upgrade-note" class="dl-upgrade-banner">
   <div class="dl-upgrade-top">
-    <span class="dl-upgrade-pill"><span class="dl-upgrade-dot"></span>GÜNCEL İMZALI SÜRÜM: v0.40.0 • 26 KASIM 2026</span>
-    <a href="#changelog" class="dl-upgrade-link">v0.40.0 Sürüm Notlarını İncele &rarr;</a>
+    <span class="dl-upgrade-pill"><span class="dl-upgrade-dot"></span>GÜNCEL İMZALI SÜRÜM: v0.40.1 • 26 KASIM 2026</span>
+    <a href="#changelog" class="dl-upgrade-link">v0.40.1 Sürüm Notlarını İncele &rarr;</a>
   </div>
-  <h2>Doğrulanmış v0.39.5 Medyasıyla Kurun, Tek Tıkla v0.40.0 Sürümüne Yükseltin</h2>
-  <p>Aşağıdaki doğrulanmış <code>v0.39.5</code> kurulum imajıyla sistemi kurduktan sonra <strong>System &gt; Update</strong> (<code>stratum-update run</code>) üzerinden <strong>OpenZFS Önyükleme Ortamı</strong> geri dönüş güvencesiyle tek tıkla imzalı <strong>v0.40.0</strong> sürümüne yükseltebilirsiniz — <strong>HTTP/HTTPS İndirme Kontrolü ve Gizlenmiş Program Tespiti</strong> (<code>Inspection CA</code>), <strong>Kapalı Başlayan Sıfır-Güven Arayüzler</strong> (<code>Allow internet access</code>), <strong>Web Filtresi Anahtar Kelimeler</strong>, <strong>Capsicum Uygulama Kontrolü</strong> ve <strong>16 Araçlı Yapay Zeka Asistanı</strong> dahil tüm yenilikler otomatik kurulur.</p>
+  <h2>Doğrulanmış v0.39.5 Medyasıyla Kurun, Tek Tıkla v0.40.1 Sürümüne Yükseltin</h2>
+  <p>Aşağıdaki doğrulanmış <code>v0.39.5</code> kurulum imajıyla sistemi kurduktan sonra <strong>System &gt; Update</strong> (<code>stratum-update run</code>) üzerinden <strong>OpenZFS Önyükleme Ortamı</strong> geri dönüş güvencesiyle tek tıkla imzalı <strong>v0.40.1</strong> sürümüne yükseltebilirsiniz — <strong>HTTP/HTTPS İndirme Kontrolü ve Gizlenmiş Program Tespiti</strong> (<code>Inspection CA</code>), <strong>Kapalı Başlayan Sıfır-Güven Arayüzler</strong> (<code>Allow internet access</code>), <strong>Web Filtresi Anahtar Kelimeler</strong>, <strong>Capsicum Uygulama Kontrolü</strong> ve <strong>16 Araçlı Yapay Zeka Asistanı</strong> dahil tüm yenilikler otomatik kurulur.</p>
 </div>
 
 <div class="dl-meta-bar">
   <div class="dl-meta-cell">
     <span class="dl-meta-label">KURULUM MEDYASI</span>
-    <span class="dl-meta-val">v0.39.5 · 2026-11-24</span>
+    <span class="dl-meta-val">v0.40.1 · 2026-11-26</span>
   </div>
   <div class="dl-meta-cell">
     <span class="dl-meta-label">GÜNCEL İMZALI SÜRÜM</span>
-    <span class="dl-meta-val">v0.40.0 · 2026-11-26</span>
+    <span class="dl-meta-val">v0.40.1 · 2026-11-26</span>
   </div>
   <div class="dl-meta-cell">
     <span class="dl-meta-label">İMAJ BOYUTLARI (.iso / .img)</span>
@@ -812,9 +812,9 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 
 <div class="dl-news-grid">
   <div class="dl-news-item">
-    <span class="dl-news-ver">v0.39.6 – v0.40.0 • YENİ</span>
+    <span class="dl-news-ver">v0.39.6 – v0.40.1 • YENİ</span>
     <h3>İndirme Kontrolü, Gizlenmiş Program Tespiti ve Kapalı Arayüzler</h3>
-    <p>HTTP/HTTPS indirmelerini ilk baytlarından inceleyerek <code>.pdf</code>/<code>.jpg</code> kılıflı gizlenmiş <code>.exe</code> programlarını yakalar (Squid <code>:3128</code> + <code>Inspection CA</code>, <em>Monitor</em>/<em>Block</em> ve tek tık <em>Bypass</em> listesi); yeni kurulumlarda her arayüz kapalı başlar ve <code>Allow internet access</code> ile diğer VLAN'lara açılmadan internete çıkar. <a href="/tr/manual/firewall-download-control/">Bölüm 06.9 &rarr;</a></p>
+    <p>HTTP/HTTPS indirmelerini (<code>gzip</code>/<code>deflate</code> sıkıştırmalı aktarımlar dahil) ilk baytlarından inceleyerek <code>.pdf</code>/<code>.jpg</code> kılıflı gizlenmiş <code>.exe</code> programlarını yakalar; içeriği düz metin olan verileri (Google <code>response.bin</code> JSON yanıtları gibi) engellemez ve kapalı başlayan arayüzleri <code>Allow internet access</code> ile internete açar. <a href="/tr/manual/firewall-download-control/">Bölüm 06.9 &rarr;</a></p>
   </div>
   <div class="dl-news-item">
     <span class="dl-news-ver">v0.38.0 – v0.39.5</span>
@@ -852,6 +852,12 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
   <summary class="dl-changelog-summary">Tüm Sürüm Notları ve Değişiklik Geçmişini Göster (Tam Arşiv)</summary>
   <div class="dl-changelog-body">
 <p class="dl-cl-p">Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (<strong>System &gt; Update</strong>) veya çevrimdışı güncelleme dosyasından (<code>.sfu</code>) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.</p>
+<h3 class="dl-cl-ver">0.40.1 - 2026-11-26</h3>
+<h4 class="dl-cl-sub">Düzeltildi</h4>
+<ul class="dl-cl-list">
+<li><strong>Download Control: Google'ın kendi verilerinin program sanılması.</strong> Google web servisleri bazı verilerini (JSON) <code>response.bin</code> adlı bir ek olarak gönderiyor; <strong>Block</strong> modunda bu veri program sayılarak engelleniyor ve Google sayfalarının bazı bölümleri çalışmıyordu. Artık bir dosyanın adı program, arşiv veya disk kalıbı gibi görünse bile içeriği açıkça düz metinse <strong>içerik esas alınır</strong>. Tek başına <code>.bin</code> uzantısı artık program anlamına gelmez; gerçek bir program yine ilk baytlarından tanınır.</li>
+<li><strong>Download Control: sıkıştırılmış aktarımlar.</strong> <code>gzip</code> veya <code>deflate</code> ile sıkıştırılmış olarak gönderilen bir dosya artık ilk baytları görülecek kadar açılır; böylece sıkıştırılmış bir program da program olarak tanınır.</li>
+</ul>
 <h3 class="dl-cl-ver">0.40.0 - 2026-11-26</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
@@ -953,10 +959,8 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.37.2 - 2026-11-22</h3>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
-<li><strong>System &gt; Backup &gt; Automatic backup (Otomatik Yedekleme):</strong> <code>0.37.1</code> sürümünde <em>Test connection</em> (Bağlantıyı test et)</li>
+<li><strong>System &gt; Backup &gt; Automatic backup (Otomatik Yedekleme):</strong> <code>0.37.1</code> sürümünde <em>Test connection</em> (Bağlantıyı test et) düğmesi <code>"Request failed (422)"</code> yanıtı döndürdüğü için SMB veya SFTP sunucu bağlantısı sayfa üzerinden test edilemiyordu. <em>Browse</em> (Göz at), <em>Back up now</em> (Şimdi yedekle) ve zamanlanmış otomatik yedeklemeler bu durumdan etkilenmedi.</li>
 </ul>
-<p class="dl-cl-p">düğmesi <code>"Request failed (422)"</code> yanıtı döndürdüğü için SMB veya SFTP sunucu bağlantısı sayfa üzerinden test</p>
-<p class="dl-cl-p">edilemiyordu. *Browse* (Göz at), *Back up now* (Şimdi yedekle) ve zamanlanmış otomatik yedeklemeler bu durumdan etkilenmedi.</p>
 <h3 class="dl-cl-ver">0.36.1 - 2026-11-19</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
@@ -1001,120 +1005,56 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.34.1 - 2026-11-17</h3>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
-<li>WireGuard S2S: bir tünelin ön paylaşımlı anahtarı (PSK) kaldırıldığında artık çalışan arayüzden de temizleniyor.</li>
+<li>WireGuard S2S: bir tünelin ön paylaşımlı anahtarı (PSK) kaldırıldığında artık çalışan arayüzden de temizleniyor. Tüneller kesinti olmaması için <code>wg syncconf</code> ile güncellenir; bu komut kendisine verilmeyen anahtarı koruduğu için yapılandırma artık anahtarı her zaman açıkça yazar ("yok" anlamında tamamı sıfır anahtar). Öncesinde eski anahtar aktif kalıyor ve el sıkışma başarısız oluyordu.</li>
 </ul>
-<p class="dl-cl-p">Tüneller kesinti olmaması için <code>wg syncconf</code> ile güncellenir; bu komut kendisine verilmeyen anahtarı koruduğu için</p>
-<p class="dl-cl-p">yapılandırma artık anahtarı her zaman açıkça yazar ("yok" anlamında tamamı sıfır anahtar). Öncesinde eski anahtar</p>
-<p class="dl-cl-p">aktif kalıyor ve el sıkışma başarısız oluyordu.</p>
 <h4 class="dl-cl-sub">Notlar</h4>
 <ul class="dl-cl-list">
-<li>WireGuard S2S, NAT arkasından bağlanan bir Stratum FW ile MikroTik RouterOS 7 (RB4011) arasında canlı olarak test</li>
+<li>WireGuard S2S, NAT arkasından bağlanan bir Stratum FW ile MikroTik RouterOS 7 (RB4011) arasında canlı olarak test edildi.</li>
 </ul>
-<p class="dl-cl-p">edildi.</p>
 <h3 class="dl-cl-ver">0.34.0 - 2026-11-16</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li>VPN &gt; <strong>WireGuard S2S</strong>: başka bir Stratum FW, OPNsense, pfSense, MikroTik RouterOS 7 veya Linux geçidine merkezden</li>
-</ul>
-<p class="dl-cl-p">şubeye (site-to-site) WireGuard tünelleri eklendi. Her tünel kendi anahtarlarına ve portuna sahip bağımsız bir</p>
-<p class="dl-cl-p">arayüzdür (<code>wg1</code>, <code>wg2</code> ...); uzak ağlar bu arayüze yönlendirilir ve WireGuard karşı taraftan yalnızca bu ağlara ait</p>
-<p class="dl-cl-p">adresleri kabul eder.</p>
-<ul class="dl-cl-list">
-<li>Bu tarafın anahtar çifti tünel eklendiğinde üretilir; karşı tarafa verilmek üzere yalnızca açık anahtar gösterilir.</li>
-</ul>
-<p class="dl-cl-p">İsteğe bağlı ön paylaşımlı anahtar ("Üret" düğmesi tarayıcıda oluşturur) yalnızca <code>root</code> erişimli dosyada saklanır</p>
-<p class="dl-cl-p">ve hiçbir zaman dışarı döndürülmez.</p>
-<ul class="dl-cl-list">
-<li>Her iki taraf da bağlantıyı başlatabilir: erişilebilir olan karşı tarafın adresini girmeniz yeterlidir; NAT</li>
-</ul>
-<p class="dl-cl-p">arkasındaki taraf <code>keepalive</code> seçeneğini açık tutar. İsteğe bağlı tünel adresi (ör. <code>10.203.0.1/30</code>) tünelin</p>
-<p class="dl-cl-p">kendisine ping atılabilmesini sağlar.</p>
-<ul class="dl-cl-list">
-<li>Güvenlik Duvarı: tünelin UDP portu WAN üzerinde açılır (karşı tarafın adresi biliniyorsa yalnızca o adrese); "izin</li>
-</ul>
-<p class="dl-cl-p">ver" açıkken uzak ağlardan yerel ağlara gelen trafik geçer, kapalıyken yalnızca yanıt paketlerine izin verilir; TCP</p>
-<p class="dl-cl-p">MSS tünel MTU değerine kenetlenir; politika yönlendirmeli kurallar uzak ağ trafiğini yerel tutar.</p>
-<ul class="dl-cl-list">
-<li>Tünel durumu (bağlı, son el sıkışma, trafik miktarı) hem kendi sayfasında hem de Gösterge Paneli VPN kartında</li>
-</ul>
-<p class="dl-cl-p">izlenir.</p>
-<ul class="dl-cl-list">
-<li>Uzak ağlar yerel, OpenVPN, WireGuard ve IPsec ağlarına karşı çakışma denetiminden geçirilir ve Güvenlik Duvarı</li>
-</ul>
-<p class="dl-cl-p">Günlüğü &gt; Ağlar arası matrisinde "WireGuard S2S" olarak görünür.</p>
-<ul class="dl-cl-list">
-<li>Karşı tarafın açık anahtarı henüz bilinmiyorsa önce bu tarafın anahtarını almak için tünel devre dışı olarak</li>
-</ul>
-<p class="dl-cl-p">kaydedilebilir.</p>
-<ul class="dl-cl-list">
+<li>VPN &gt; <strong>WireGuard S2S</strong>: başka bir Stratum FW, OPNsense, pfSense, MikroTik RouterOS 7 veya Linux geçidine merkezden şubeye (site-to-site) WireGuard tünelleri eklendi. Her tünel kendi anahtarlarına ve portuna sahip bağımsız bir arayüzdür (<code>wg1</code>, <code>wg2</code> ...); uzak ağlar bu arayüze yönlendirilir ve WireGuard karşı taraftan yalnızca bu ağlara ait adresleri kabul eder.</li>
+<li>Bu tarafın anahtar çifti tünel eklendiğinde üretilir; karşı tarafa verilmek üzere yalnızca açık anahtar gösterilir. İsteğe bağlı ön paylaşımlı anahtar ("Üret" düğmesi tarayıcıda oluşturur) yalnızca <code>root</code> erişimli dosyada saklanır ve hiçbir zaman dışarı döndürülmez.</li>
+<li>Her iki taraf da bağlantıyı başlatabilir: erişilebilir olan karşı tarafın adresini girmeniz yeterlidir; NAT arkasındaki taraf <code>keepalive</code> seçeneğini açık tutar. İsteğe bağlı tünel adresi (ör. <code>10.203.0.1/30</code>) tünelin kendisine ping atılabilmesini sağlar.</li>
+<li>Güvenlik Duvarı: tünelin UDP portu WAN üzerinde açılır (karşı tarafın adresi biliniyorsa yalnızca o adrese); "izin ver" açıkken uzak ağlardan yerel ağlara gelen trafik geçer, kapalıyken yalnızca yanıt paketlerine izin verilir; TCP MSS tünel MTU değerine kenetlenir; politika yönlendirmeli kurallar uzak ağ trafiğini yerel tutar.</li>
+<li>Tünel durumu (bağlı, son el sıkışma, trafik miktarı) hem kendi sayfasında hem de Gösterge Paneli VPN kartında izlenir.</li>
+<li>Uzak ağlar yerel, OpenVPN, WireGuard ve IPsec ağlarına karşı çakışma denetiminden geçirilir ve Güvenlik Duvarı Günlüğü &gt; Ağlar arası matrisinde "WireGuard S2S" olarak görünür.</li>
+<li>Karşı tarafın açık anahtarı henüz bilinmiyorsa önce bu tarafın anahtarını almak için tünel devre dışı olarak kaydedilebilir.</li>
 <li>Uzaktan erişim sunucusu (<code>wg0</code>, VPN &gt; WireGuard) değişmedi.</li>
 </ul>
 <h3 class="dl-cl-ver">0.33.2 - 2026-11-16</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li>Gösterge Paneli: VPN bağlantıları kartına IPsec tünelleri (durum, uzak ağ geçidi ve ağlar, çalışma süresi, trafik) ve</li>
+<li>Gösterge Paneli: VPN bağlantıları kartına IPsec tünelleri (durum, uzak ağ geçidi ve ağlar, çalışma süresi, trafik) ve güvenlik özetine "Açık IPsec tünelleri: n / m" satırı eklendi (herhangi bir tünel düştüğünde kırmızı görünür).</li>
 </ul>
-<p class="dl-cl-p">güvenlik özetine "Açık IPsec tünelleri: n / m" satırı eklendi (herhangi bir tünel düştüğünde kırmızı görünür).</p>
 <h4 class="dl-cl-sub">Notlar</h4>
 <ul class="dl-cl-list">
-<li>Bir Stratum FW arkasındaki dizüstü bilgisayarın IKEv2 tüneli üzerinden başka bir Stratum FW arkasındaki dosya</li>
+<li>Bir Stratum FW arkasındaki dizüstü bilgisayarın IKEv2 tüneli üzerinden başka bir Stratum FW arkasındaki dosya paylaşımlarına ve web sayfalarına erişimiyle uçtan uca doğrulandı.</li>
 </ul>
-<p class="dl-cl-p">paylaşımlarına ve web sayfalarına erişimiyle uçtan uca doğrulandı.</p>
 <h3 class="dl-cl-ver">0.33.1 - 2026-11-16</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li>VPN &gt; IPsec: IKEv2'nin yanına <strong>IKEv1</strong> desteği eklendi (FortiGate IPsec sihirbazının varsayılanı, eski Cisco/ASA</li>
+<li>VPN &gt; IPsec: IKEv2'nin yanına <strong>IKEv1</strong> desteği eklendi (FortiGate IPsec sihirbazının varsayılanı, eski Cisco/ASA cihazları ve IKEv2 konuşmayan yönlendiriciler için). Varsayılan olarak Ana mod (Main mode) kullanılır; Agresif mod yalnızca karşı taraf zorunlu kıldığında seçilir (değişken IP adresli IKEv1 uçları için gereklidir). IKEv1'de her yerel/uzak ağ çifti kendi ayrı Faz 2 kaydını alır ve Faz 1 yeniden kimlik doğrulamayla yenilenir.</li>
 </ul>
-<p class="dl-cl-p">cihazları ve IKEv2 konuşmayan yönlendiriciler için). Varsayılan olarak Ana mod (Main mode) kullanılır; Agresif mod</p>
-<p class="dl-cl-p">yalnızca karşı taraf zorunlu kıldığında seçilir (değişken IP adresli IKEv1 uçları için gereklidir). IKEv1'de her</p>
-<p class="dl-cl-p">yerel/uzak ağ çifti kendi ayrı Faz 2 kaydını alır ve Faz 1 yeniden kimlik doğrulamayla yenilenir.</p>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
-<li>IPsec: bir tünelin uzak ağı artık OpenVPN veya WireGuard tünel ağıyla ya da yönlendirilmiş bir iç ağla çakışamaz.</li>
+<li>IPsec: bir tünelin uzak ağı artık OpenVPN veya WireGuard tünel ağıyla ya da yönlendirilmiş bir iç ağla çakışamaz. Uzak ağa giden trafik çekirdek tarafından şifrelendiği için böyle bir çakışmada VPN istemcilerine dönen yanıtlar istemci yerine IPsec tüneline giriyordu.</li>
 </ul>
-<p class="dl-cl-p">Uzak ağa giden trafik çekirdek tarafından şifrelendiği için böyle bir çakışmada VPN istemcilerine dönen yanıtlar</p>
-<p class="dl-cl-p">istemci yerine IPsec tüneline giriyordu.</p>
 <h4 class="dl-cl-sub">Notlar</h4>
 <ul class="dl-cl-list">
-<li>0.33.0 sürümü biri NAT arkasında, diğeri PPPoE hattında çalışan iki Stratum FW arasında test edildi: NAT geçişli</li>
+<li>0.33.0 sürümü biri NAT arkasında, diğeri PPPoE hattında çalışan iki Stratum FW arasında test edildi: NAT geçişli (NAT-T) IKEv2, tünel içi trafik akışı ve "izin ver" kapalıyken ters yön trafiğinin <code>enc0</code> üzerinde engellenip günlüğe yazılması doğrulandı.</li>
 </ul>
-<p class="dl-cl-p">(NAT-T) IKEv2, tünel içi trafik akışı ve "izin ver" kapalıyken ters yön trafiğinin <code>enc0</code> üzerinde engellenip</p>
-<p class="dl-cl-p">günlüğe yazılması doğrulandı.</p>
 <h3 class="dl-cl-ver">0.33.0 - 2026-11-16</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li>VPN &gt; <strong>IPsec</strong>: diğer güvenlik duvarlarına ve yönlendiricilere (FortiGate, MikroTik, pfSense/OPNsense, Cisco, bulut</li>
-</ul>
-<p class="dl-cl-p">VPN geçitleri) merkezden şubeye (site-to-site) tüneller eklendi. Ön paylaşımlı anahtarlı IKEv2 ve politika tabanlı</p>
-<p class="dl-cl-p">mimari: bir tünel seçilen yerel ağları karşı tarafın arkasındaki ağlarla birleştirir. Anahtar değişimini <code>strongSwan</code></p>
-<p class="dl-cl-p">yapar; şifrelemeyi doğrudan FreeBSD çekirdeği yürütür.</p>
-<ul class="dl-cl-list">
-<li>Tünel bazlı Faz 1 ve Faz 2 ayarları: <code>AES-GCM</code> veya <code>AES-CBC</code>, <code>SHA-2</code> (eski cihazlar için <code>SHA-1</code>), DH grupları</li>
-</ul>
-<p class="dl-cl-p"><code>14-21</code> ve <code>Curve25519</code> (<code>2</code> ve <code>5</code> zayıf olarak işaretlidir), PFS, yaşam süreleri ve ölü uç tespiti (DPD).</p>
-<p class="dl-cl-p">Gönderilen teklif dizileri seçim yaptıkça ekranda gösterilir.</p>
-<ul class="dl-cl-list">
+<li>VPN &gt; <strong>IPsec</strong>: diğer güvenlik duvarlarına ve yönlendiricilere (FortiGate, MikroTik, pfSense/OPNsense, Cisco, bulut VPN geçitleri) merkezden şubeye (site-to-site) tüneller eklendi. Ön paylaşımlı anahtarlı IKEv2 ve politika tabanlı mimari: bir tünel seçilen yerel ağları karşı tarafın arkasındaki ağlarla birleştirir. Anahtar değişimini <code>strongSwan</code> yapar; şifrelemeyi doğrudan FreeBSD çekirdeği yürütür.</li>
+<li>Tünel bazlı Faz 1 ve Faz 2 ayarları: <code>AES-GCM</code> veya <code>AES-CBC</code>, <code>SHA-2</code> (eski cihazlar için <code>SHA-1</code>), DH grupları <code>14-21</code> ve <code>Curve25519</code> (<code>2</code> ve <code>5</code> zayıf olarak işaretlidir), PFS, yaşam süreleri ve ölü uç tespiti (DPD). Gönderilen teklif dizileri seçim yaptıkça ekranda gösterilir.</li>
 <li>Alt ağ başına tek seçici tutan cihazlar (FortiGate, Cisco) için "Her ağ çifti için ayrı Faz 2 kaydı" seçeneği.</li>
-<li>Başlangıçta bağlanıp tüneli ayakta tutma veya karşı tarafı bekleme (değişken IP'li uçlar dahil). NAT geçişi (NAT-T)</li>
-</ul>
-<p class="dl-cl-p">otomatiktir.</p>
-<ul class="dl-cl-list">
-<li>Tünel bazlı durum (bağlı, yalnızca Faz 1, bağlanıyor, bağlı değil), çalışma süresi, NAT-T, trafik sayaçları,</li>
-</ul>
-<p class="dl-cl-p">Bağlan / Kes düğmeleri ve yöneticiler için aynı sayfada IPsec günlüğü.</p>
-<ul class="dl-cl-list">
-<li>Güvenlik Duvarı: IKE ve ESP paketlerine yalnızca eş (peer) adresinden izin verilir; şifresi çözülen trafik kendi</li>
-</ul>
-<p class="dl-cl-p">arayüzünde (<code>enc0</code>) görünür ve tünelin "izin ver" seçeneği yalnızca uzak ağlardan yerel ağlara gelen trafiği</p>
-<p class="dl-cl-p">geçirir; tünelden gelen diğer her şey bilinmeyen trafik gibi engellenir ve günlüğe yazılır. Tünel trafiğine asla</p>
-<p class="dl-cl-p">NAT uygulanmaz (NAT muafiyeti), TCP MSS tünel içinde kenetlenir (varsayılan <code>1350</code>) ve politika yönlendirmeli</p>
-<p class="dl-cl-p">kurallar tünel trafiğini yerel tutar.</p>
-<ul class="dl-cl-list">
-<li>Ön paylaşımlı anahtar yalnızca <code>root</code> erişimli ayrı bir dosyada tutulur; <code>config.json</code> içine yazılmaz, bir daha</li>
-</ul>
-<p class="dl-cl-p">gösterilmez ve API tarafından döndürülmez; "Üret" düğmesi tarayıcıda güçlü anahtar oluşturur. Anahtarlar şifreli</p>
-<p class="dl-cl-p">yedeklere (<code>.stbk</code>) dahil edilir.</p>
-<ul class="dl-cl-list">
+<li>Başlangıçta bağlanıp tüneli ayakta tutma veya karşı tarafı bekleme (değişken IP'li uçlar dahil). NAT geçişi (NAT-T) otomatiktir.</li>
+<li>Tünel bazlı durum (bağlı, yalnızca Faz 1, bağlanıyor, bağlı değil), çalışma süresi, NAT-T, trafik sayaçları, Bağlan / Kes düğmeleri ve yöneticiler için aynı sayfada IPsec günlüğü.</li>
+<li>Güvenlik Duvarı: IKE ve ESP paketlerine yalnızca eş (peer) adresinden izin verilir; şifresi çözülen trafik kendi arayüzünde (<code>enc0</code>) görünür ve tünelin "izin ver" seçeneği yalnızca uzak ağlardan yerel ağlara gelen trafiği geçirir; tünelden gelen diğer her şey bilinmeyen trafik gibi engellenir ve günlüğe yazılır. Tünel trafiğine asla NAT uygulanmaz (NAT muafiyeti), TCP MSS tünel içinde kenetlenir (varsayılan <code>1350</code>) ve politika yönlendirmeli kurallar tünel trafiğini yerel tutar.</li>
+<li>Ön paylaşımlı anahtar yalnızca <code>root</code> erişimli ayrı bir dosyada tutulur; <code>config.json</code> içine yazılmaz, bir daha gösterilmez ve API tarafından döndürülmez; "Üret" düğmesi tarayıcıda güçlü anahtar oluşturur. Anahtarlar şifreli yedeklere (<code>.stbk</code>) dahil edilir.</li>
 <li>Tünellerin uzak ağları Güvenlik Duvarı Günlüğü &gt; Ağlar arası matrisinde "IPsec" olarak görünür.</li>
 <li>Yeni paket bağımlılığı: <code>strongSwan</code>.</li>
 </ul>
@@ -1125,116 +1065,66 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.32.0 - 2026-11-14</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li>Tanılama &gt; Güvenlik Duvarı Günlüğü &gt; <strong>Ağlar arası (Between networks)</strong>: güvenlik duvarının kaydettiği iç ağlar</li>
+<li>Tanılama &gt; Güvenlik Duvarı Günlüğü &gt; <strong>Ağlar arası (Between networks)</strong>: güvenlik duvarının kaydettiği iç ağlar arası trafik matrisi eklendi. Hangi iç ağın hangisine ulaştığını (izin verilen ve engellenen), her hedef adres ve port için kaç farklı cihazdan kaç bağlantı kurulduğunu, ilk ve son görülme zamanlarıyla birlikte gösterir. Güvenlik duvarı günlüğünün döngü süresinden bağımsız olarak son görülmeden itibaren 30 gün boyunca saklanır ve karaliste raporuyla birlikte dakikada bir güncellenir; güvenlik duvarının kendi adresleri ayrı bir hedef olarak izlenir. VLAN bölütlemesi (mikro-segmentasyon) için doğrudan karar verisi sunar: önce bir ağın diğerlerine ne gönderdiğini kaydedin, gerçekten kullanılan trafiğe izin verip kalanını kapatın ve sonrasında engelleme kurallarının neyi durdurduğunu izleyin.</li>
 </ul>
-<p class="dl-cl-p">arası trafik matrisi eklendi. Hangi iç ağın hangisine ulaştığını (izin verilen ve engellenen), her hedef adres ve</p>
-<p class="dl-cl-p">port için kaç farklı cihazdan kaç bağlantı kurulduğunu, ilk ve son görülme zamanlarıyla birlikte gösterir. Güvenlik</p>
-<p class="dl-cl-p">duvarı günlüğünün döngü süresinden bağımsız olarak son görülmeden itibaren 30 gün boyunca saklanır ve karaliste</p>
-<p class="dl-cl-p">raporuyla birlikte dakikada bir güncellenir; güvenlik duvarının kendi adresleri ayrı bir hedef olarak izlenir. VLAN</p>
-<p class="dl-cl-p">bölütlemesi (mikro-segmentasyon) için doğrudan karar verisi sunar: önce bir ağın diğerlerine ne gönderdiğini</p>
-<p class="dl-cl-p">kaydedin, gerçekten kullanılan trafiğe izin verip kalanını kapatın ve sonrasında engelleme kurallarının neyi</p>
-<p class="dl-cl-p">durdurduğunu izleyin.</p>
 <h3 class="dl-cl-ver">0.31.6 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Değiştirildi</h4>
 <ul class="dl-cl-list">
-<li>Güncellemeler artık Suricata'nın kendisi, kullandığı bir kütüphane veya başlatma betiği güncellenmediği sürece</li>
+<li>Güncellemeler artık Suricata'nın kendisi, kullandığı bir kütüphane veya başlatma betiği güncellenmediği sürece saldırı tespit servisini yeniden başlatmaz. Suricata herhangi bir Stratum kodu çalıştırmaz: ayarları Uygula (Apply) ile değişir ve kuralları yeniden başlatma gerekmeden yüklenir. Satır içi engelleme (Block, netmap) motoru her açılış ve kapanışta portları sıfırladığı için öncesinde her güncelleme engelleme modundaki bir WAN hattını birkaç saniyeliğine düşürüyordu.</li>
 </ul>
-<p class="dl-cl-p">saldırı tespit servisini yeniden başlatmaz. Suricata herhangi bir Stratum kodu çalıştırmaz: ayarları Uygula (Apply)</p>
-<p class="dl-cl-p">ile değişir ve kuralları yeniden başlatma gerekmeden yüklenir. Satır içi engelleme (Block, netmap) motoru her açılış</p>
-<p class="dl-cl-p">ve kapanışta portları sıfırladığı için öncesinde her güncelleme engelleme modundaki bir WAN hattını birkaç</p>
-<p class="dl-cl-p">saniyeliğine düşürüyordu.</p>
 <h3 class="dl-cl-ver">0.31.5 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li>Güncellemeler: yeni sürüm bazı ayar dosyalarını (Suricata, pf veya servis ayarları) farklı üretiyorsa güncelleme</li>
+<li>Güncellemeler: yeni sürüm bazı ayar dosyalarını (Suricata, pf veya servis ayarları) farklı üretiyorsa güncelleme tamamlandığında bunu açıkça bildirir; güncelleme günlüğünde, Gösterge Paneli Uyarılar kartında ve bildirimlerde ilgili dosyalarla birlikte "Güncelleme değişikliklerini etkinleştirmek için Uygula'ya basın" uyarısı gösterilir. Öncesinde bu tür değişiklikler bir sonraki Uygula işlemine kadar sessizce bekliyordu.</li>
 </ul>
-<p class="dl-cl-p">tamamlandığında bunu açıkça bildirir; güncelleme günlüğünde, Gösterge Paneli Uyarılar kartında ve bildirimlerde</p>
-<p class="dl-cl-p">ilgili dosyalarla birlikte "Güncelleme değişikliklerini etkinleştirmek için Uygula'ya basın" uyarısı gösterilir.</p>
-<p class="dl-cl-p">Öncesinde bu tür değişiklikler bir sonraki Uygula işlemine kadar sessizce bekliyordu.</p>
 <h3 class="dl-cl-ver">0.31.4 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
-<li>Saldırı tespiti: Suricata izlediği portların donanım hızlandırma bayraklarını (checksum, TSO, LRO) başlarken kapatıp</li>
+<li>Saldırı tespiti: Suricata izlediği portların donanım hızlandırma bayraklarını (checksum, TSO, LRO) başlarken kapatıp dururken tekrar açıyordu. Intel <code>igb</code> portlarında bu bayrakların her değişimi portu yeniden başlattığı için her Suricata yeniden başlatması (sistem güncellemesi, IDS ayar uygulaması veya WAN üzerinde yeni DHCP adresi alınması) izlenen WAN hatlarını birkaç saniyeliğine iki kez düşürüyor ve ağ geçidi izleyicisinin varsayılan rotayı değiştirmesine yol açıyordu. Suricata artık port bayraklarına dokunmaz (<code>capture.disable-offloading: false</code>); donanım hızlandırma yalnızca Stratum tarafından yönetilir (Sistem &gt; Ayarlar &gt; İnce Ayarlar ve kapalı olması gereken Engelleme portları için).</li>
+<li>Yükseltme notu: yeni Suricata ayarı bir sonraki Uygula (<code>stratum-config apply</code>) işleminde devreye girer. Bu ilk Uygula sırasında eski motor dururken bayrakları geri yüklediği için izlenen portlar son bir kez sıfırlanır; sonrasında Suricata portlara dokunmadan yeniden başlar.</li>
 </ul>
-<p class="dl-cl-p">dururken tekrar açıyordu. Intel <code>igb</code> portlarında bu bayrakların her değişimi portu yeniden başlattığı için her</p>
-<p class="dl-cl-p">Suricata yeniden başlatması (sistem güncellemesi, IDS ayar uygulaması veya WAN üzerinde yeni DHCP adresi alınması)</p>
-<p class="dl-cl-p">izlenen WAN hatlarını birkaç saniyeliğine iki kez düşürüyor ve ağ geçidi izleyicisinin varsayılan rotayı</p>
-<p class="dl-cl-p">değiştirmesine yol açıyordu. Suricata artık port bayraklarına dokunmaz (<code>capture.disable-offloading: false</code>); donanım</p>
-<p class="dl-cl-p">hızlandırma yalnızca Stratum tarafından yönetilir (Sistem &gt; Ayarlar &gt; İnce Ayarlar ve kapalı olması gereken Engelleme</p>
-<p class="dl-cl-p">portları için).</p>
-<ul class="dl-cl-list">
-<li>Yükseltme notu: yeni Suricata ayarı bir sonraki Uygula (<code>stratum-config apply</code>) işleminde devreye girer. Bu ilk</li>
-</ul>
-<p class="dl-cl-p">Uygula sırasında eski motor dururken bayrakları geri yüklediği için izlenen portlar son bir kez sıfırlanır;</p>
-<p class="dl-cl-p">sonrasında Suricata portlara dokunmadan yeniden başlar.</p>
 <h3 class="dl-cl-ver">0.31.3 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Değiştirildi</h4>
 <ul class="dl-cl-list">
-<li>Yapılandırma yedekleri: yalnızca ayırıcı başlık ekleyen, adını değiştiren veya yerini kaydıran işlemler artık</li>
+<li>Yapılandırma yedekleri: yalnızca ayırıcı başlık ekleyen, adını değiştiren veya yerini kaydıran işlemler artık saklanan 30 yedek hakkından birini tüketmez; böylece kural listesini görsel olarak düzenlemek gerçek yapılandırma değişikliklerine ait yedekleri listeden dışarı itmez. Bir kuralın sırasını değiştirmek <code>pf</code> değerlendirme sırasını etkilediği için yedek oluşturmaya devam eder.</li>
 </ul>
-<p class="dl-cl-p">saklanan 30 yedek hakkından birini tüketmez; böylece kural listesini görsel olarak düzenlemek gerçek yapılandırma</p>
-<p class="dl-cl-p">değişikliklerine ait yedekleri listeden dışarı itmez. Bir kuralın sırasını değiştirmek <code>pf</code> değerlendirme sırasını</p>
-<p class="dl-cl-p">etkilediği için yedek oluşturmaya devam eder.</p>
 <h3 class="dl-cl-ver">0.31.2 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Değiştirildi</h4>
 <ul class="dl-cl-list">
-<li>Açık tema (Light theme) gözü yormayacak şekilde yenilendi: saf beyaz yüzeyler yerine açık gri zemin üzerinde kırık</li>
+<li>Açık tema (Light theme) gözü yormayacak şekilde yenilendi: saf beyaz yüzeyler yerine açık gri zemin üzerinde kırık beyaz paneller, yumuşak gri yan menü ve daha belirgin çerçeve çizgileri kullanıldı. Vurgu rengi sarı-kahverengi tondan OPNsense tarzı canlı turuncuya (butonlarda beyaz metinle) geçirildi. Koyu tema değişmedi.</li>
 </ul>
-<p class="dl-cl-p">beyaz paneller, yumuşak gri yan menü ve daha belirgin çerçeve çizgileri kullanıldı. Vurgu rengi sarı-kahverengi</p>
-<p class="dl-cl-p">tondan OPNsense tarzı canlı turuncuya (butonlarda beyaz metinle) geçirildi. Koyu tema değişmedi.</p>
 <h3 class="dl-cl-ver">0.31.1 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li>NAT &gt; Port Yönlendirme: <strong>Tümü / Varsayılan / Özel</strong> görünümleri eklendi. Varsayılan kayıtlar Stratum'un kendi</li>
+<li>NAT &gt; Port Yönlendirme: <strong>Tümü / Varsayılan / Özel</strong> görünümleri eklendi. Varsayılan kayıtlar Stratum'un kendi oluşturduğu yönlendirmeleri (istisnalarıyla birlikte Zorunlu DNS), özel kayıtlar ise tanımladığınız port yönlendirmelerini gösterir.</li>
+<li>NAT &gt; Port Yönlendirme ve NAT &gt; Giden (manuel kurallar): Güvenlik Duvarı &gt; Kurallar sayfasındaki gibi **ayırıcı başlıklar (separators)<strong> ve </strong>yukarı / aşağı taşıma** okları eklendi.</li>
 </ul>
-<p class="dl-cl-p">oluşturduğu yönlendirmeleri (istisnalarıyla birlikte Zorunlu DNS), özel kayıtlar ise tanımladığınız port</p>
-<p class="dl-cl-p">yönlendirmelerini gösterir.</p>
-<ul class="dl-cl-list">
-<li>NAT &gt; Port Yönlendirme ve NAT &gt; Giden (manuel kurallar): Güvenlik Duvarı &gt; Kurallar sayfasındaki gibi **ayırıcı</li>
-</ul>
-<p class="dl-cl-p">başlıklar (separators)<strong> ve </strong>yukarı / aşağı taşıma** okları eklendi.</p>
 <h4 class="dl-cl-sub">Değiştirildi</h4>
 <ul class="dl-cl-list">
 <li>NAT &gt; Giden: bölüm başlıkları "Özel kurallar (manuel)" ve "Varsayılan kurallar (otomatik)" olarak adlandırıldı.</li>
-<li>Güvenlik Duvarı &gt; Kurallar ve NAT: uzun açıklamalar alt satıra sarılarak işlem sütununun her zaman görünür kalması</li>
+<li>Güvenlik Duvarı &gt; Kurallar ve NAT: uzun açıklamalar alt satıra sarılarak işlem sütununun her zaman görünür kalması sağlandı.</li>
 </ul>
-<p class="dl-cl-p">sağlandı.</p>
 <h3 class="dl-cl-ver">0.31.0 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li>Güvenlik Duvarı &gt; Kurallar: <strong>Tüm kurallar / Varsayılan / Özel</strong> görünümleri eklendi. Varsayılan kurallar Stratum'un</li>
+<li>Güvenlik Duvarı &gt; Kurallar: <strong>Tüm kurallar / Varsayılan / Özel</strong> görünümleri eklendi. Varsayılan kurallar Stratum'un diğer ayarlardan otomatik ürettiği kuralları (kilitlenme koruması, DHCP, yönetim erişimi, varsayılan engelleme), özel kurallar ise kendi kurallarınızı gösterir. Son seçilen görünüm tarayıcıda hatırlanır.</li>
+<li>Güvenlik Duvarı &gt; Kurallar: pfSense'teki gibi kuralları gruplamak için isimlendirilebilir ve renklendirilebilir <strong>ayırıcı başlıklar (separators)</strong> eklendi ("QR yazıcı", "Elka otomasyon" vb.). Liste içinde eklenebilir, yeniden adlandırılabilir, rengi değiştirilebilir, taşınabilir ve silinebilir; yalnızca görsel listeyi düzenler, <code>pf.conf</code> dosyasını değiştirmez.</li>
+<li>Güvenlik Duvarı &gt; Kurallar: sürükleme tutamacının yanına her kural ve ayırıcı için <strong>yukarı / aşağı taşıma</strong> okları eklendi. Bir ayırıcının üzerinden taşınan kural üstteki veya alttaki gruba katılır.</li>
 </ul>
-<p class="dl-cl-p">diğer ayarlardan otomatik ürettiği kuralları (kilitlenme koruması, DHCP, yönetim erişimi, varsayılan engelleme), özel</p>
-<p class="dl-cl-p">kurallar ise kendi kurallarınızı gösterir. Son seçilen görünüm tarayıcıda hatırlanır.</p>
-<ul class="dl-cl-list">
-<li>Güvenlik Duvarı &gt; Kurallar: pfSense'teki gibi kuralları gruplamak için isimlendirilebilir ve renklendirilebilir</li>
-</ul>
-<p class="dl-cl-p"><strong>ayırıcı başlıklar (separators)</strong> eklendi ("QR yazıcı", "Elka otomasyon" vb.). Liste içinde eklenebilir, yeniden</p>
-<p class="dl-cl-p">adlandırılabilir, rengi değiştirilebilir, taşınabilir ve silinebilir; yalnızca görsel listeyi düzenler, <code>pf.conf</code></p>
-<p class="dl-cl-p">dosyasını değiştirmez.</p>
-<ul class="dl-cl-list">
-<li>Güvenlik Duvarı &gt; Kurallar: sürükleme tutamacının yanına her kural ve ayırıcı için <strong>yukarı / aşağı taşıma</strong> okları</li>
-</ul>
-<p class="dl-cl-p">eklendi. Bir ayırıcının üzerinden taşınan kural üstteki veya alttaki gruba katılır.</p>
 <h4 class="dl-cl-sub">Değiştirildi</h4>
 <ul class="dl-cl-list">
-<li>Bir kural silindiğinde altındaki ayırıcılar aynı kuralların üzerinde kalacak şekilde korunur. Bir arayüz grubunun adı</li>
+<li>Bir kural silindiğinde altındaki ayırıcılar aynı kuralların üzerinde kalacak şekilde korunur. Bir arayüz grubunun adı değiştirildiğinde ayırıcıları taşınır; grup silindiğinde kaldırılır. OPNsense üzerinden geçiş işlemi ayırıcısız başlar.</li>
 </ul>
-<p class="dl-cl-p">değiştirildiğinde ayırıcıları taşınır; grup silindiğinde kaldırılır. OPNsense üzerinden geçiş işlemi ayırıcısız başlar.</p>
 <h3 class="dl-cl-ver">0.30.5 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
-<li>OpenVPN: birden fazla dış adres ("a, b") tanımlıyken indirilen istemci profilinde tüm adreslerin tek bir <code>remote</code></li>
+<li>OpenVPN: birden fazla dış adres ("a, b") tanımlıyken indirilen istemci profilinde tüm adreslerin tek bir <code>remote</code> satırına yazılması ve istemcilerin bunu çözümleyemeyip bağlanamaması düzeltildi. Artık her adres sırayla denenmek üzere kendi ayrı <code>remote</code> satırına yazılır.</li>
 </ul>
-<p class="dl-cl-p">satırına yazılması ve istemcilerin bunu çözümleyemeyip bağlanamaması düzeltildi. Artık her adres sırayla denenmek</p>
-<p class="dl-cl-p">üzere kendi ayrı <code>remote</code> satırına yazılır.</p>
 <h3 class="dl-cl-ver">0.30.4 - 2026-11-12</h3>
 <h4 class="dl-cl-sub">Güvenlik</h4>
 <ul class="dl-cl-list">
-<li>Yönetim paneli oturum çerezi (cookie) artık <code>Secure</code> olarak işaretleniyor; tarayıcılar çerezi yalnızca HTTPS</li>
+<li>Yönetim paneli oturum çerezi (cookie) artık <code>Secure</code> olarak işaretleniyor; tarayıcılar çerezi yalnızca HTTPS üzerinden gönderiyor. Öncesinde panele <code>http://</code> ile girildiğinde HTTPS yönlendirmesinden önce çerez port 80 üzerinden şifresiz iletilebiliyor ve aynı ağdaki biri tarafından okunabiliyordu.</li>
 </ul>
-<p class="dl-cl-p">üzerinden gönderiyor. Öncesinde panele <code>http://</code> ile girildiğinde HTTPS yönlendirmesinden önce çerez port 80</p>
-<p class="dl-cl-p">üzerinden şifresiz iletilebiliyor ve aynı ağdaki biri tarafından okunabiliyordu.</p>
 <h3 class="dl-cl-ver">0.30.3 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
@@ -1530,58 +1420,25 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.24.2 - 2026-11-06</h3>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
-<li>Saldırı Tespiti, engelleme modu (IPS): Suricata, başlangıcını görmediği her bağlantıyı düşürüyordu. Bunlar,</li>
+<li>Saldırı Tespiti, engelleme modu (IPS): Suricata, başlangıcını görmediği her bağlantıyı düşürüyordu. Bunlar, kendisi başlamadan önce açılmış bağlantılar ve telefonların açık tuttuğu anlık bildirim kanalları gibi akış zaman aşımından daha uzun süre boşta kalan uzun ömürlü bağlantılardı. Engelleme ağındaki telefonlar bağlantılarını kaybetti ve Wi-Fi'den düştü. Suricata artık bu tür bağlantıları (akış ortasında) yakalıyor ve herhangi bir istisnada (<code>exception-policy: ignore</code>) akışı düşürmek yerine trafiğin geçmesine izin veriyor. Yalnızca engelleme kurallarıyla eşleşenler düşürülür.</li>
 </ul>
-<p class="dl-cl-p">kendisi başlamadan önce açılmış bağlantılar ve telefonların açık tuttuğu anlık bildirim kanalları gibi akış</p>
-<p class="dl-cl-p">zaman aşımından daha uzun süre boşta kalan uzun ömürlü bağlantılardı. Engelleme ağındaki telefonlar</p>
-<p class="dl-cl-p">bağlantılarını kaybetti ve Wi-Fi'den düştü. Suricata artık bu tür bağlantıları (akış ortasında) yakalıyor</p>
-<p class="dl-cl-p">ve herhangi bir istisnada (<code>exception-policy: ignore</code>) akışı düşürmek yerine trafiğin geçmesine izin</p>
-<p class="dl-cl-p">veriyor. Yalnızca engelleme kurallarıyla eşleşenler düşürülür.</p>
 <h3 class="dl-cl-ver">0.24.1 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
-<li>Web Filtresi: kategori listeleri ilk Apply'dan sonra indirilmiyordu, bu yüzden politikalar bir sonraki</li>
+<li>Web Filtresi: kategori listeleri ilk Apply'dan sonra indirilmiyordu, bu yüzden politikalar bir sonraki zamanlanmış güncellemeye kadar hiçbir şeyi engellemiyordu. İndirme artık DNS engelleme listelerinde olduğu gibi kaydedilen yapılandırmayı takip ediyor ve Unbound yalnızca yüklediği bölgeleri yeniden yüklüyor.</li>
 </ul>
-<p class="dl-cl-p">zamanlanmış güncellemeye kadar hiçbir şeyi engellemiyordu. İndirme artık DNS engelleme listelerinde olduğu</p>
-<p class="dl-cl-p">gibi kaydedilen yapılandırmayı takip ediyor ve Unbound yalnızca yüklediği bölgeleri yeniden yüklüyor.</p>
 <h3 class="dl-cl-ver">0.24.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li><strong>Web Filtresi</strong> (Firewall &gt; Web Filter), güvenlik duvarının DNS çözümleyicisi (Unbound RPZ) üzerinden site</li>
+<li><strong>Web Filtresi</strong> (Firewall &gt; Web Filter), güvenlik duvarının DNS çözümleyicisi (Unbound RPZ) üzerinden site kategorilerini engeller ve ağ başına farklı kurallar uygular.</li>
+<li><strong>Politikalar:</strong> Bir politika, bir veya daha fazla ağa engellenen kategorilerden oluşan bir set atar. VPN istemci ağları da politika ağı olabilir ve her ağ yalnızca bir politikaya bağlıdır.</li>
+<li><strong>Kategoriler:</strong> Université Toulouse Capitole'ün UT1 kara listelerinden (CC BY-SA 4.0, günlük güncellenir) ve Block List Project'ten alınan gruplar halinde 55 kategori (yetişkin içerik, güvenlik tehditleri, filtreyi atlatma yolları, sosyal ağlar, eğlence, alışveriş ve para, indirmeler ve daha fazlası). Yetişkin içerik kompakt ve çok büyük tam liste olarak gelir; politika sayfası seçilen kategorilerin çözümleyici belleğinde ne kadar yer kaplayacağını tahmin eder.</li>
+<li><strong>Güvenli Arama (Safe Search):</strong> Her politika, Google (google.com.tr ve diğer ülke alan adları dahil), Bing ve DuckDuckGo üzerinde güvenli sonuçları ve YouTube'da kısıtlı modu zorunlu kılabilir.</li>
+<li><strong>İstisnalar:</strong> Listelenen siteler web filtresi tarafından asla engellenmez ve Apply gerektirmeden anında etkili olur. DNS kara listeleri onlar için hâlâ geçerlidir.</li>
+<li><strong>Bir siteyi kontrol et:</strong> Bir adın hangi kategorilerde olduğunu ve hangi politikaların onu engellediğini gösterir.</li>
+<li><strong>Engelleme raporu:</strong> Bugün, 7 veya 30 gün için kategori, site ve cihaz başına engellemeler. Web Etkinliği gerektirir; toplayıcısı artık web filtresi ve DNS kara liste engellemelerini de sayar. Raporu yalnızca yöneticiler görür ve görüntüleme günlüğe kaydedilir.</li>
+<li><strong>Güncellemeler:</strong> Kategori listeleri zamanlamaya göre (varsayılan olarak günlük) ve talep üzerine güncellenir; başarısız bir indirme önceki listeyi korur.</li>
 </ul>
-<p class="dl-cl-p">kategorilerini engeller ve ağ başına farklı kurallar uygular.</p>
-<ul class="dl-cl-list">
-<li><strong>Politikalar:</strong> Bir politika, bir veya daha fazla ağa engellenen kategorilerden oluşan bir set atar. VPN</li>
-</ul>
-<p class="dl-cl-p">istemci ağları da politika ağı olabilir ve her ağ yalnızca bir politikaya bağlıdır.</p>
-<ul class="dl-cl-list">
-<li><strong>Kategoriler:</strong> Université Toulouse Capitole'ün UT1 kara listelerinden (CC BY-SA 4.0, günlük güncellenir)</li>
-</ul>
-<p class="dl-cl-p">ve Block List Project'ten alınan gruplar halinde 55 kategori (yetişkin içerik, güvenlik tehditleri,</p>
-<p class="dl-cl-p">filtreyi atlatma yolları, sosyal ağlar, eğlence, alışveriş ve para, indirmeler ve daha fazlası).</p>
-<p class="dl-cl-p">Yetişkin içerik kompakt ve çok büyük tam liste olarak gelir; politika sayfası seçilen kategorilerin</p>
-<p class="dl-cl-p">çözümleyici belleğinde ne kadar yer kaplayacağını tahmin eder.</p>
-<ul class="dl-cl-list">
-<li><strong>Güvenli Arama (Safe Search):</strong> Her politika, Google (google.com.tr ve diğer ülke alan adları dahil),</li>
-</ul>
-<p class="dl-cl-p">Bing ve DuckDuckGo üzerinde güvenli sonuçları ve YouTube'da kısıtlı modu zorunlu kılabilir.</p>
-<ul class="dl-cl-list">
-<li><strong>İstisnalar:</strong> Listelenen siteler web filtresi tarafından asla engellenmez ve Apply gerektirmeden anında</li>
-</ul>
-<p class="dl-cl-p">etkili olur. DNS kara listeleri onlar için hâlâ geçerlidir.</p>
-<ul class="dl-cl-list">
-<li><strong>Bir siteyi kontrol et:</strong> Bir adın hangi kategorilerde olduğunu ve hangi politikaların onu engellediğini</li>
-</ul>
-<p class="dl-cl-p">gösterir.</p>
-<ul class="dl-cl-list">
-<li><strong>Engelleme raporu:</strong> Bugün, 7 veya 30 gün için kategori, site ve cihaz başına engellemeler. Web Etkinliği</li>
-</ul>
-<p class="dl-cl-p">gerektirir; toplayıcısı artık web filtresi ve DNS kara liste engellemelerini de sayar. Raporu yalnızca</p>
-<p class="dl-cl-p">yöneticiler görür ve görüntüleme günlüğe kaydedilir.</p>
-<ul class="dl-cl-list">
-<li><strong>Güncellemeler:</strong> Kategori listeleri zamanlamaya göre (varsayılan olarak günlük) ve talep üzerine</li>
-</ul>
-<p class="dl-cl-p">güncellenir; başarısız bir indirme önceki listeyi korur.</p>
 <h3 class="dl-cl-ver">0.23.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Değiştirildi</h4>
 <ul class="dl-cl-list">
@@ -1685,83 +1542,41 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.16.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li><strong>Ağ geçitleri</strong> (Interfaces &gt; Gateways): her WAN tipi arayüzün canlı durumu (çevrimiçi, uyarı, kapalı),</li>
-</ul>
-<p class="dl-cl-p">gecikme, paket kaybı ve son bir saati küçük bir grafik olarak gösteren bir ağ geçidi vardır.</p>
-<ul class="dl-cl-list">
-<li>Yeni bir ağ geçidi izleme servisi, kimse paneli açık tutmasa bile her ağ geçidini WAN'ın kendi adresinden</li>
-</ul>
-<p class="dl-cl-p">saniyede bir yoklar. Son 30 saniyedeki paket kaybı veya gecikme sınırlarına ulaştığında (varsayılan olarak</p>
-<p class="dl-cl-p">%20 ve 500 ms, ağ geçidi başına ayarlanır) ya da arayüzünde bağlantı veya adres olmadığında bir ağ geçidi</p>
-<p class="dl-cl-p">kapalı sayılır; sınırın yarısı uyarı gösterir.</p>
-<ul class="dl-cl-list">
-<li>Ağ geçidi başına: bir açıklama, bir izleme adresi (ağ geçidi ping'lere yanıt vermeyen sağlayıcılar için;</li>
-</ul>
-<p class="dl-cl-p">her zaman o ağ geçidi üzerinden erişilir), sınırlar ve 0.16.1'de gelecek WAN yedeklemesi için bir öncelik.</p>
-<ul class="dl-cl-list">
+<li><strong>Ağ geçitleri</strong> (Interfaces &gt; Gateways): her WAN tipi arayüzün canlı durumu (çevrimiçi, uyarı, kapalı), gecikme, paket kaybı ve son bir saati küçük bir grafik olarak gösteren bir ağ geçidi vardır.</li>
+<li>Yeni bir ağ geçidi izleme servisi, kimse paneli açık tutmasa bile her ağ geçidini WAN'ın kendi adresinden saniyede bir yoklar. Son 30 saniyedeki paket kaybı veya gecikme sınırlarına ulaştığında (varsayılan olarak %20 ve 500 ms, ağ geçidi başına ayarlanır) ya da arayüzünde bağlantı veya adres olmadığında bir ağ geçidi kapalı sayılır; sınırın yarısı uyarı gösterir.</li>
+<li>Ağ geçidi başına: bir açıklama, bir izleme adresi (ağ geçidi ping'lere yanıt vermeyen sağlayıcılar için; her zaman o ağ geçidi üzerinden erişilir), sınırlar ve 0.16.1'de gelecek WAN yedeklemesi için bir öncelik.</li>
 <li>Bağlantısı açıkken kapanan bir ağ geçidi ve geri dönüşü bildirimlerle raporlanır.</li>
 </ul>
 <h4 class="dl-cl-sub">Değiştirildi</h4>
 <ul class="dl-cl-list">
-<li>Kontrol panelinin WAN paneli ve MCP aracı wan_status artık ağ geçidi izleyicisini kullanır (panelden her 30</li>
+<li>Kontrol panelinin WAN paneli ve MCP aracı wan_status artık ağ geçidi izleyicisini kullanır (panelden her 30 saniyede üç kez yerine saniyede bir yoklama).</li>
 </ul>
-<p class="dl-cl-p">saniyede üç kez yerine saniyede bir yoklama).</p>
 <h3 class="dl-cl-ver">0.15.3 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
-<li>Bir WAN arayüzünde saldırı tespiti neredeyse hiç uyarı vermiyordu: güvenlik duvarının genel adresi korunan</li>
+<li>Bir WAN arayüzünde saldırı tespiti neredeyse hiç uyarı vermiyordu: güvenlik duvarının genel adresi korunan ağların (HOME_NET) bir parçası değildi, bu yüzden internetten ona gelen trafik çoğu kuralla eşleşmiyordu. WAN adresleri artık dahil edildi. Bir PPPoE veya DHCP adresi değiştiğinde, yeni adres beş dakika içinde devralınır ve Suricata yeniden başlar; bir WAN yeniden bağlanırken hiçbir şey değişmez.</li>
 </ul>
-<p class="dl-cl-p">ağların (HOME_NET) bir parçası değildi, bu yüzden internetten ona gelen trafik çoğu kuralla eşleşmiyordu.</p>
-<p class="dl-cl-p">WAN adresleri artık dahil edildi. Bir PPPoE veya DHCP adresi değiştiğinde, yeni adres beş dakika içinde</p>
-<p class="dl-cl-p">devralınır ve Suricata yeniden başlar; bir WAN yeniden bağlanırken hiçbir şey değişmez.</p>
 <h3 class="dl-cl-ver">0.15.2 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li>Kontrol paneli: Koruma kartı son 24 saatteki saldırı uyarılarını (yüksek önem dereceliler kırmızı) ve en sık</li>
+<li>Kontrol paneli: Koruma kartı son 24 saatteki saldırı uyarılarını (yüksek önem dereceliler kırmızı) ve en sık görülen üç kuralı gösterir, Uyarılar sayfasına bağlantı verir.</li>
+<li>Bildirimler: yüksek önem dereceli saldırı uyarıları için e-posta veya Telegram ile yeni bir olay. Her kural en fazla 6 saatte bir raporlanır, devre dışı kurallar asla. Diğer olaylar gibi System &gt; Settings &gt; Notifications'tan kapatılabilir ve uyarılar kontrol panelinin Uyarılar kartında görünür.</li>
+<li>MCP: yeni bir araç olan ids_alerts, yapay zeka asistanlarına saldırı tespiti durumunu, son 24 saati sayılarla, en sık görülen kuralları ve en son uyarıları önem derecesine veya metne göre filtreleyerek sunar.</li>
 </ul>
-<p class="dl-cl-p">görülen üç kuralı gösterir, Uyarılar sayfasına bağlantı verir.</p>
-<ul class="dl-cl-list">
-<li>Bildirimler: yüksek önem dereceli saldırı uyarıları için e-posta veya Telegram ile yeni bir olay. Her kural</li>
-</ul>
-<p class="dl-cl-p">en fazla 6 saatte bir raporlanır, devre dışı kurallar asla. Diğer olaylar gibi System &gt; Settings &gt;</p>
-<p class="dl-cl-p">Notifications'tan kapatılabilir ve uyarılar kontrol panelinin Uyarılar kartında görünür.</p>
-<ul class="dl-cl-list">
-<li>MCP: yeni bir araç olan ids_alerts, yapay zeka asistanlarına saldırı tespiti durumunu, son 24 saati sayılarla,</li>
-</ul>
-<p class="dl-cl-p">en sık görülen kuralları ve en son uyarıları önem derecesine veya metne göre filtreleyerek sunar.</p>
 <h3 class="dl-cl-ver">0.15.1 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Düzeltildi</h4>
 <ul class="dl-cl-list">
-<li>Saldırı tespiti, imajdan kurulan sistemlerde başlatılamıyordu: Suricata, minimal temel sistemde bulunmayan</li>
+<li>Saldırı tespiti, imajdan kurulan sistemlerde başlatılamıyordu: Suricata, minimal temel sistemde bulunmayan netmap kütüphanesine ihtiyaç duyar. Paket artık buna (FreeBSD-netmap) bağımlıdır, böylece güncelleme onu kurar ve yeni kurulumlar onu içerir. Ön kontrol Apply'ı durdurmuştu, bu yüzden hiçbir sistem değiştirilmedi.</li>
 </ul>
-<p class="dl-cl-p">netmap kütüphanesine ihtiyaç duyar. Paket artık buna (FreeBSD-netmap) bağımlıdır, böylece güncelleme onu</p>
-<p class="dl-cl-p">kurar ve yeni kurulumlar onu içerir. Ön kontrol Apply'ı durdurmuştu, bu yüzden hiçbir sistem değiştirilmedi.</p>
 <h3 class="dl-cl-ver">0.15.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Eklendi</h4>
 <ul class="dl-cl-list">
-<li><strong>Saldırı tespiti</strong> (Services &gt; Intrusion Detection) IDS modunda Suricata 8 ile: seçilen arayüzlerin trafiği</li>
+<li><strong>Saldırı tespiti</strong> (Services &gt; Intrusion Detection) IDS modunda Suricata 8 ile: seçilen arayüzlerin trafiği ET Open kurallarıyla karşılaştırılır ve eve bağlanan kötü amaçlı yazılımlar, istismarlar, taramalar, kimlik avı, kripto madencileri ve daha fazlası için uyarılar oluşturulur. Henüz hiçbir şey engellenmez; engelleme (IPS), uyarılar ağa hangi kuralların uyduğunu gösterdikten sonra gelir.</li>
+<li>Üç grupta kural kategorileri, önerilen bir seçimle (tehditler açık, gürültülü politika ve bilgi kuralları kapalı) ve her kategorideki kural sayısı.</li>
+<li>Engelleme listeleri gibi, zamanlamaya göre otomatik kural güncellemeleri (varsayılan olarak günlük). Yeni bir kural kümesi yalnızca değiştiğinde indirilir ve kullanılmadan önce Suricata ile test edilir. Başarısız bir indirme veya test önceki kuralları korur.</li>
+<li>Uyarılar sayfası: en yeniden eskiye, önem derecesi, kural, kaynak, hedef ve arayüz ile, bir arama ve bir önem filtresiyle. Normal trafikte uyarı veren bir kural tek tıkla devre dışı bırakılabilir ve Ayarlar sekmesinde yeniden etkinleştirilebilir; değişiklik hemen, Apply olmadan ve tespitte bir boşluk olmadan yürürlüğe girer.</li>
+<li>Suricata denetimli çalışır ve durursa yeniden başlatılır. Bellek sınırları kurulu belleği izler. Günlükleri diğer günlüklerle birlikte döndürülür ve başarısız kural indirmeleri bildirimlerle raporlanır.</li>
 </ul>
-<p class="dl-cl-p">ET Open kurallarıyla karşılaştırılır ve eve bağlanan kötü amaçlı yazılımlar, istismarlar, taramalar, kimlik</p>
-<p class="dl-cl-p">avı, kripto madencileri ve daha fazlası için uyarılar oluşturulur. Henüz hiçbir şey engellenmez; engelleme</p>
-<p class="dl-cl-p">(IPS), uyarılar ağa hangi kuralların uyduğunu gösterdikten sonra gelir.</p>
-<ul class="dl-cl-list">
-<li>Üç grupta kural kategorileri, önerilen bir seçimle (tehditler açık, gürültülü politika ve bilgi kuralları</li>
-</ul>
-<p class="dl-cl-p">kapalı) ve her kategorideki kural sayısı.</p>
-<ul class="dl-cl-list">
-<li>Engelleme listeleri gibi, zamanlamaya göre otomatik kural güncellemeleri (varsayılan olarak günlük). Yeni bir</li>
-</ul>
-<p class="dl-cl-p">kural kümesi yalnızca değiştiğinde indirilir ve kullanılmadan önce Suricata ile test edilir. Başarısız bir</p>
-<p class="dl-cl-p">indirme veya test önceki kuralları korur.</p>
-<ul class="dl-cl-list">
-<li>Uyarılar sayfası: en yeniden eskiye, önem derecesi, kural, kaynak, hedef ve arayüz ile, bir arama ve bir önem</li>
-</ul>
-<p class="dl-cl-p">filtresiyle. Normal trafikte uyarı veren bir kural tek tıkla devre dışı bırakılabilir ve Ayarlar sekmesinde</p>
-<p class="dl-cl-p">yeniden etkinleştirilebilir; değişiklik hemen, Apply olmadan ve tespitte bir boşluk olmadan yürürlüğe girer.</p>
-<ul class="dl-cl-list">
-<li>Suricata denetimli çalışır ve durursa yeniden başlatılır. Bellek sınırları kurulu belleği izler. Günlükleri</li>
-</ul>
-<p class="dl-cl-p">diğer günlüklerle birlikte döndürülür ve başarısız kural indirmeleri bildirimlerle raporlanır.</p>
 <h4 class="dl-cl-sub">Değiştirildi</h4>
 <ul class="dl-cl-list">
 <li>MCP adresini bir web tarayıcısında açmak artık boş bir hata sayfası yerine kısa bir açıklama gösterir.</li>

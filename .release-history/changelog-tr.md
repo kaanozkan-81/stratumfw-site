@@ -6,6 +6,17 @@ description: "Stratum Firewall v0.40.0 sürümüne kadar tüm yenilikler ve düz
 
 Stratum FW üzerindeki tüm önemli değişiklikler en yeniden eskiye doğru burada listelenir. Stratum FW kendisini imzalı güncelleme sunucusundan (**System > Update**) veya çevrimdışı güncelleme dosyasından (`.sfu`) günceller; her güncelleme yeni bir ZFS önyükleme ortamı (Boot Environment) oluşturur, böylece önceki sürüme istenildiği zaman geri dönülebilir.
 
+## 0.40.1 - 2026-11-26
+
+### Düzeltildi
+- **Download Control: Google'ın kendi verilerinin program sanılması.** Google web servisleri bazı verilerini (JSON)
+  `response.bin` adlı bir ek olarak gönderiyor; **Block** modunda bu veri program sayılarak engelleniyor ve Google
+  sayfalarının bazı bölümleri çalışmıyordu. Artık bir dosyanın adı program, arşiv veya disk kalıbı gibi görünse bile
+  içeriği açıkça düz metinse **içerik esas alınır**. Tek başına `.bin` uzantısı artık program anlamına gelmez; gerçek bir
+  program yine ilk baytlarından tanınır.
+- **Download Control: sıkıştırılmış aktarımlar.** `gzip` veya `deflate` ile sıkıştırılmış olarak gönderilen bir dosya
+  artık ilk baytları görülecek kadar açılır; böylece sıkıştırılmış bir program da program olarak tanınır.
+
 ## 0.40.0 - 2026-11-26
 
 ### Eklendi

@@ -18,7 +18,10 @@ translationKey: "manual-06-09-firewall-download-control"
 
 1. **Explicit web proxy on port 3128:** Stratum FW runs **Squid** on the firewall's own address (`<interface IP>:3128`) in the internal networks you tick. Devices use it once configured - for example across a Windows domain with an Active Directory **Group Policy** (the panel lists the exact steps). Devices that are not configured to use the proxy are not checked.
 2. **HTTPS inspection with Inspection CA:** To inspect HTTPS downloads, the proxy uses its own dedicated certificate authority under [**System > Certificates > Inspection CA**](/manual/system-certificates/#inspection-ca) - separate from the **Block Page CA**. Download it as `.cer` (Windows / Group Policy) or `.crt` (PEM) and install it on the devices that use the proxy.
-3. **True file type from content, not just the name:** Decisions combine three signals - the **file name**, the **MIME type** the server claims, and the **first bytes** of the file itself. Parts of normal web pages (page scripts, inline pictures, compressed web pages) do not count as downloads.
+3. **True file type from content, not just the name:** Decisions combine three signals - the **file name**, the **MIME type** the server claims, and the **first bytes** of the file itself:
+   - **Plain-text content wins over a misleading name:** When a file's name looks like a program, archive or disk image (for example `response.bin` attachments sent as plain JSON by Google's web services) but its content is plainly text, the content wins and it is not treated as a program. `.bin` alone no longer means a program; a real program is still recognised by its first bytes.
+   - **Compressed transfers (`gzip`, `deflate`):** A file sent `gzip`- or `deflate`-compressed is opened far enough to see its first bytes, so a compressed program is recognised as a program too.
+   - **Web page assets ignored:** Parts of normal web pages (page scripts, inline pictures, compressed web pages) do not count as downloads.
 4. **Fail-open safety:** If the file checker stops for any reason, downloads go through uninterrupted while endpoint antivirus software on the PCs keeps doing its own checks.
 
 ## File types and disguised programs

@@ -1,7 +1,7 @@
 ---
 title: "Download"
-seo_title: "Download Stratum Firewall — Free FreeBSD 15.1 amd64 VGA ISO & Serial IMG (v0.40.0)"
-description: "Download verified Stratum Firewall FreeBSD 15.1 amd64 installer images (.iso for VGA displays/VMs and .img for headless serial consoles) with SHA-256 checksums and 1-click upgrades to v0.40.0."
+seo_title: "Download Stratum Firewall — Free FreeBSD 15.1 amd64 VGA ISO & Serial IMG (v0.40.1)"
+description: "Download verified Stratum Firewall FreeBSD 15.1 amd64 installer images (.iso for VGA displays/VMs and .img for headless serial consoles) with SHA-256 checksums and 1-click upgrades to v0.40.1."
 lead: "Download verified FreeBSD 15.1 amd64 installers (.iso for VGA displays & VMs, .img for headless serial consoles) with SHA-256 verification — $0/year, zero user or tunnel limits."
 url: "/download/"
 translationKey: "download"
@@ -671,23 +671,23 @@ body .dl-layout a.dl-link-btn-light:hover {
 </style>
 
 <div class="dl-layout">
-<div id="v0400-online-upgrade-note" class="dl-upgrade-banner">
+<div id="v0401-online-upgrade-note" class="dl-upgrade-banner">
   <div class="dl-upgrade-top">
-    <span class="dl-upgrade-pill"><span class="dl-upgrade-dot"></span>LATEST SIGNED RELEASE: v0.40.0 • NOVEMBER 26, 2026</span>
-    <a href="#changelog" class="dl-upgrade-link">Read v0.40.0 Release Notes &rarr;</a>
+    <span class="dl-upgrade-pill"><span class="dl-upgrade-dot"></span>LATEST SIGNED RELEASE: v0.40.1 • NOVEMBER 26, 2026</span>
+    <a href="#changelog" class="dl-upgrade-link">Read v0.40.1 Release Notes &rarr;</a>
   </div>
-  <h2>Install Verified v0.39.5 Media, Upgrade in One Click to v0.40.0</h2>
-  <p>Deploy using the verified <code>v0.39.5</code> installer below, then upgrade in one click via <strong>System &gt; Update</strong> (<code>stratum-update run</code>) with <strong>OpenZFS Boot Environment</strong> rollback safety directly to signed <strong>v0.40.0</strong> — unlocking <strong>HTTP/HTTPS Download Control &amp; Disguised Executable Detection</strong> (<code>Inspection CA</code>), <strong>Closed-by-Default Interfaces</strong> (<code>Allow internet access</code>), <strong>Web Filter Keywords</strong>, <strong>Capsicum Application Control</strong>, and the <strong>16-Tool Read-Only AI Assistant</strong>.</p>
+  <h2>Install Verified v0.39.5 Media, Upgrade in One Click to v0.40.1</h2>
+  <p>Deploy using the verified <code>v0.39.5</code> installer below, then upgrade in one click via <strong>System &gt; Update</strong> (<code>stratum-update run</code>) with <strong>OpenZFS Boot Environment</strong> rollback safety directly to signed <strong>v0.40.1</strong> — unlocking <strong>HTTP/HTTPS Download Control &amp; Disguised Executable Detection</strong> (<code>Inspection CA</code>), <strong>Closed-by-Default Interfaces</strong> (<code>Allow internet access</code>), <strong>Web Filter Keywords</strong>, <strong>Capsicum Application Control</strong>, and the <strong>16-Tool Read-Only AI Assistant</strong>.</p>
 </div>
 
 <div class="dl-meta-bar">
   <div class="dl-meta-cell">
     <span class="dl-meta-label">INSTALLER MEDIA</span>
-    <span class="dl-meta-val">v0.39.5 · 2026-11-24</span>
+    <span class="dl-meta-val">v0.40.1 · 2026-11-26</span>
   </div>
   <div class="dl-meta-cell">
     <span class="dl-meta-label">LATEST SIGNED RELEASE</span>
-    <span class="dl-meta-val">v0.40.0 · 2026-11-26</span>
+    <span class="dl-meta-val">v0.40.1 · 2026-11-26</span>
   </div>
   <div class="dl-meta-cell">
     <span class="dl-meta-label">IMAGE SIZES (.iso / .img)</span>
@@ -812,9 +812,9 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 
 <div class="dl-news-grid">
   <div class="dl-news-item">
-    <span class="dl-news-ver">v0.39.6 – v0.40.0 • NEW</span>
+    <span class="dl-news-ver">v0.39.6 – v0.40.1 • NEW</span>
     <h3>Download Control, Disguised File Inspection &amp; Closed Interfaces</h3>
-    <p>Inspects HTTP/HTTPS downloads by their first bytes to catch <code>.exe</code> programs disguised as <code>.pdf</code>/<code>.jpg</code> (Squid <code>:3128</code> + dedicated <code>Inspection CA</code>, <em>Monitor</em>/<em>Block</em> &amp; 1-click <em>Bypass</em> list), while starting every new interface closed with 1-click <code>Allow internet access</code> (<code>Internet (not private networks)</code>). <a href="/manual/firewall-download-control/">Chapter 06.9 &rarr;</a></p>
+    <p>Inspects HTTP/HTTPS downloads (including <code>gzip</code>/<code>deflate</code> streams) by their first bytes to catch <code>.exe</code> programs disguised as <code>.pdf</code>/<code>.jpg</code> while letting plain-text payloads (such as Google <code>response.bin</code> JSON) pass cleanly, alongside 1-click <code>Allow internet access</code> on closed-by-default interfaces. <a href="/manual/firewall-download-control/">Chapter 06.9 &rarr;</a></p>
   </div>
   <div class="dl-news-item">
     <span class="dl-news-ver">v0.38.0 – v0.39.5</span>
@@ -854,39 +854,24 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <p class="dl-cl-p">All notable changes to Stratum FW are listed here, newest first. Stratum FW updates itself from the signed</p>
 <p class="dl-cl-p">update server (System &gt; Update) or from an offline update file (<code>.sfu</code>); every update creates a ZFS boot</p>
 <p class="dl-cl-p">environment, so the previous version can be booted again at any time.</p>
+<h3 class="dl-cl-ver">0.40.1 - 2026-11-26</h3>
+<h4 class="dl-cl-sub">Fixed</h4>
+<ul class="dl-cl-list">
+<li><strong>Download Control: Google's own data was taken for a program.</strong> Google's web services send some of their data (JSON) as an attachment named <code>response.bin</code>, and in Block mode this was blocked. Parts of Google pages stopped working as a result. Now, when a file's name says program, archive or disk image but its content is plainly text, the content wins. <code>.bin</code> alone no longer means a program; a real program is still recognised by its first bytes.</li>
+<li><strong>Download Control: compressed transfers.</strong> A file sent gzip- or deflate-compressed is now opened far enough to see its first bytes, so a compressed program is recognised as a program as well.</li>
+</ul>
 <h3 class="dl-cl-ver">0.40.0 - 2026-11-26</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Firewall &gt; Download Control - check the files the devices download.</strong> Programs, scripts and other file types</li>
-</ul>
-<p class="dl-cl-p">can be recorded or blocked as they are downloaded, over HTTP and HTTPS.</p>
-<ul class="dl-cl-list">
-<li><strong>Web proxy:</strong> the firewall runs a web proxy on its own address in the internal networks you choose (port</li>
-</ul>
-<p class="dl-cl-p">3128). Devices use it once they are set to, for example on a Windows domain with a Group Policy. The panel</p>
-<p class="dl-cl-p">lists the steps. Devices that are not set to use it are not checked.</p>
-<ul class="dl-cl-list">
-<li><strong>What the file really is:</strong> the decision uses the file's name, the type the site claims, and the first bytes</li>
-</ul>
-<p class="dl-cl-p">of the file itself. Recognised: Windows, Linux and macOS programs, MSI, APK, JAR, MSIX, ZIP, RAR, 7z, CAB, PDF</p>
-<p class="dl-cl-p">and Office files. The parts of a web page (scripts, pictures, compressed pages) do not count as downloads.</p>
-<ul class="dl-cl-list">
-<li><strong>Disguised programs</strong>, for example an .exe named .jpg or .pdf, are recognised by their content. They can be</li>
-</ul>
-<p class="dl-cl-p">blocked whatever file types are chosen.</p>
-<ul class="dl-cl-list">
-<li><strong>File types:</strong> programs and installers, scripts and shortcuts, archives, disk images, documents, video and</li>
-</ul>
-<p class="dl-cl-p">audio. Programs and scripts are chosen by default.</p>
-<ul class="dl-cl-list">
+<li><strong>Firewall &gt; Download Control - check the files the devices download.</strong> Programs, scripts and other file types can be recorded or blocked as they are downloaded, over HTTP and HTTPS.</li>
+<li><strong>Web proxy:</strong> the firewall runs a web proxy on its own address in the internal networks you choose (port 3128). Devices use it once they are set to, for example on a Windows domain with a Group Policy. The panel lists the steps. Devices that are not set to use it are not checked.</li>
+<li><strong>What the file really is:</strong> the decision uses the file's name, the type the site claims, and the first bytes of the file itself. Recognised: Windows, Linux and macOS programs, MSI, APK, JAR, MSIX, ZIP, RAR, 7z, CAB, PDF and Office files. The parts of a web page (scripts, pictures, compressed pages) do not count as downloads.</li>
+<li><strong>Disguised programs</strong>, for example an .exe named .jpg or .pdf, are recognised by their content. They can be blocked whatever file types are chosen.</li>
+<li><strong>File types:</strong> programs and installers, scripts and shortcuts, archives, disk images, documents, video and audio. Programs and scripts are chosen by default.</li>
 <li><strong>Monitor or Block:</strong></li>
 <li><strong>Monitor</strong> records what would be blocked and blocks nothing. Start with Monitor for a few days.</li>
 <li><strong>Block</strong> replaces the file with a page saying the download is blocked. The page has the block page's design.</li>
-<li><strong>Bypass list:</strong> these sites are never opened and their files are not checked. Use it for banks, government</li>
-</ul>
-<p class="dl-cl-p">(gov.tr), operating system updates, security software, and apps that accept only their own certificate. A</p>
-<p class="dl-cl-p">default list can be added with one click.</p>
-<ul class="dl-cl-list">
+<li><strong>Bypass list:</strong> these sites are never opened and their files are not checked. Use it for banks, government (gov.tr), operating system updates, security software, and apps that accept only their own certificate. A default list can be added with one click.</li>
 <li><strong>Always allowed:</strong> these sites are checked and recorded but never blocked.</li>
 <li><strong>Downloads tab:</strong></li>
 <li>shows the time, device, site, file, type, size and result;</li>
@@ -894,124 +879,58 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <li>keeps the records for 1 to 365 days (30 by default).</li>
 <li>Administrators only, and every look at the records is logged.</li>
 <li><strong>If the checker stops, downloads go through.</strong> Antivirus software on the PCs keeps doing its own checks.</li>
-<li><strong>System &gt; Certificates &gt; Inspection CA.</strong> A certificate authority of its own for Download Control, separate from</li>
-</ul>
-<p class="dl-cl-p">the Block Page CA. The proxy uses it to open HTTPS.</p>
-<ul class="dl-cl-list">
-<li>Install it on the devices that use the proxy: download it as <strong>.cer</strong> for Windows and Group Policy, or as</li>
-</ul>
-<p class="dl-cl-p"><strong>.crt</strong> (PEM).</p>
-<ul class="dl-cl-list">
+<li><strong>System &gt; Certificates &gt; Inspection CA.</strong> A certificate authority of its own for Download Control, separate from the Block Page CA. The proxy uses it to open HTTPS.</li>
+<li>Install it on the devices that use the proxy: download it as <strong>.cer</strong> for Windows and Group Policy, or as <strong>.crt</strong> (PEM).</li>
 <li>The SHA-256 fingerprint is shown so you can compare it on the devices.</li>
 <li>Its key never leaves the firewall.</li>
 </ul>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li><strong>An Apply that fails half way is undone at once.</strong> If an unexpected error stops an Apply after the current</li>
-</ul>
-<p class="dl-cl-p">state has been saved, the firewall goes back to it right away instead of waiting for a confirmation. The message</p>
-<p class="dl-cl-p">says so. If going back fails too, the message says what to run. The log now shows where the error happened.</p>
-<ul class="dl-cl-list">
+<li><strong>An Apply that fails half way is undone at once.</strong> If an unexpected error stops an Apply after the current state has been saved, the firewall goes back to it right away instead of waiting for a confirmation. The message says so. If going back fails too, the message says what to run. The log now shows where the error happened.</li>
 <li><strong>Squid</strong> (the web proxy) is now part of the installation.</li>
 </ul>
 <h3 class="dl-cl-ver">0.39.6 - 2026-11-25</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li><strong>Every interface starts closed.</strong> A new installation (and a factory reset) no longer lets LAN and the VLANs reach</li>
+<li><strong>Every interface starts closed.</strong> A new installation (and a factory reset) no longer lets LAN and the VLANs reach everything - including each other. Like zone-based firewalls, nothing passes until a rule allows it; the web panel stays reachable from LAN (anti-lockout) and DHCP keeps working. Existing installations keep their rules.</li>
 </ul>
-<p class="dl-cl-p">everything - including each other. Like zone-based firewalls, nothing passes until a rule allows it; the web panel</p>
-<p class="dl-cl-p">stays reachable from LAN (anti-lockout) and DHCP keeps working. Existing installations keep their rules.</p>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Destination "Internet (not private networks)"</strong> in firewall rules: anything except 10.0.0.0/8, 172.16.0.0/12,</li>
+<li><strong>Destination "Internet (not private networks)"</strong> in firewall rules: anything except 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 and 100.64.0.0/10. ("WAN net" is only the WAN link's own subnet, not the internet.)</li>
+<li><strong>Allow internet access</strong>: an interface without rules shows a note and a button that adds two rules - this firewall (DNS, NTP, ping) and the internet, not the other networks.</li>
 </ul>
-<p class="dl-cl-p">192.168.0.0/16 and 100.64.0.0/10. ("WAN net" is only the WAN link's own subnet, not the internet.)</p>
-<ul class="dl-cl-list">
-<li><strong>Allow internet access</strong>: an interface without rules shows a note and a button that adds two rules - this firewall</li>
-</ul>
-<p class="dl-cl-p">(DNS, NTP, ping) and the internet, not the other networks.</p>
 <h3 class="dl-cl-ver">0.39.5 - 2026-11-24</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Firewall &gt; Web Filter &gt; Keywords - new sites by their name.</strong> Sites that keep coming back under new names</li>
-</ul>
-<p class="dl-cl-p">(betting sites: site1234.com, site1235.com ...) are found by a word in their name - a brand name or a word such</p>
-<p class="dl-cl-p">as *bahis* or *casino* - as soon as a device asks the firewall's DNS for them.</p>
-<ul class="dl-cl-list">
-<li><strong>List them only</strong> (the default): the sites found are listed with the keyword, the time and the first device;</li>
-</ul>
-<p class="dl-cl-p">one click blocks one, ignores it or makes it an exception.</p>
-<ul class="dl-cl-list">
-<li><strong>Block them at once</strong>: they go straight into <strong>Your own list</strong> and are blocked within seconds by the</li>
-</ul>
-<p class="dl-cl-p">policies that choose that category, with the block page where the policy shows it.</p>
-<ul class="dl-cl-list">
+<li><strong>Firewall &gt; Web Filter &gt; Keywords - new sites by their name.</strong> Sites that keep coming back under new names (betting sites: site1234.com, site1235.com ...) are found by a word in their name - a brand name or a word such as <em>bahis</em> or <em>casino</em> - as soon as a device asks the firewall's DNS for them.</li>
+<li><strong>List them only</strong> (the default): the sites found are listed with the keyword, the time and the first device; one click blocks one, ignores it or makes it an exception.</li>
+<li><strong>Block them at once</strong>: they go straight into <strong>Your own list</strong> and are blocked within seconds by the policies that choose that category, with the block page where the policy shows it.</li>
 <li>Only the site's own name counts (not its subdomains or top-level domain); exceptions still win.</li>
-<li>Works without Web Activity: the collector then only watches the DNS queries for the keywords and records</li>
+<li>Works without Web Activity: the collector then only watches the DNS queries for the keywords and records nothing.</li>
 </ul>
-<p class="dl-cl-p">nothing.</p>
 <h3 class="dl-cl-ver">0.39.0 - 2026-11-23</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Firewall &gt; Application Control &gt; Rules: block applications.</strong> A rule covers interfaces, Stratum categories</li>
-</ul>
-<p class="dl-cl-p">(VPN and proxies, Social media, Games ...), applications by name (also custom ones), and optionally *encrypted</p>
-<p class="dl-cl-p">connections without a server name* - typical of VPN and tunnel apps - with devices as exceptions. The first</p>
-<p class="dl-cl-p">matching rule decides.</p>
-<ul class="dl-cl-list">
+<li><strong>Firewall &gt; Application Control &gt; Rules: block applications.</strong> A rule covers interfaces, Stratum categories (VPN and proxies, Social media, Games ...), applications by name (also custom ones), and optionally *encrypted connections without a server name* - typical of VPN and tunnel apps - with devices as exceptions. The first matching rule decides.</li>
 <li><strong>Monitor only</strong> (the default for every new rule) blocks nothing and records what would have been blocked.</li>
-<li><strong>Block</strong>: applications named by their server name are cut one connection at a time, during the TLS / QUIC</li>
-</ul>
-<p class="dl-cl-p">handshake, and every new try again - nothing else on the same server address is touched. QUIC to that server is</p>
-<p class="dl-cl-p">refused for 10 minutes, so browsers fall back to TCP, where every connection is checked by name. Connections</p>
-<p class="dl-cl-p">without a server name (VPN tunnels) also block that device from that server for 10 minutes. The device sees</p>
-<p class="dl-cl-p">"connection reset" at once.</p>
-<ul class="dl-cl-list">
-<li>Only names the engine is sure of are acted upon - never a guess from a port or an address. Network services</li>
-</ul>
-<p class="dl-cl-p">(DNS, DHCP, NTP), private addresses and connections already open when the engine started are never touched.</p>
-<p class="dl-cl-p">Every block is lifted when the collector stops or the rule is switched off.</p>
-<ul class="dl-cl-list">
+<li><strong>Block</strong>: applications named by their server name are cut one connection at a time, during the TLS / QUIC handshake, and every new try again - nothing else on the same server address is touched. QUIC to that server is refused for 10 minutes, so browsers fall back to TCP, where every connection is checked by name. Connections without a server name (VPN tunnels) also block that device from that server for 10 minutes. The device sees "connection reset" at once.</li>
+<li>Only names the engine is sure of are acted upon - never a guess from a port or an address. Network services (DNS, DHCP, NTP), private addresses and connections already open when the engine started are never touched. Every block is lifted when the collector stops or the rule is switched off.</li>
 <li><strong>Blocked</strong> tab: per device, application and rule, what was blocked or would have been, with counts and times.</li>
 <li>The status line shows the active rules, connections cut and devices blocked; pf errors are shown too.</li>
 <li>AI Assistant: the tool <em>Application usage</em> also lists the rules and what they blocked (read-only).</li>
-<li><strong>Application Control: block page.</strong> A rule in Block mode can show a page saying the site is blocked, instead of a</li>
-</ul>
-<p class="dl-cl-p">connection error. It names the site, the application, the rule, the device and the time.</p>
-<ul class="dl-cl-list">
-<li>The firewall's DNS (Unbound) answers the names of what the rule blocks with <code>198.18.0.1</code> for the rule's networks</li>
-</ul>
-<p class="dl-cl-p">(not for its exceptions); the firewall sends web traffic for that address to the block page. QUIC to it is</p>
-<p class="dl-cl-p">refused, so browsers use HTTPS over TCP at once.</p>
-<ul class="dl-cl-list">
-<li>HTTPS: the page gets a certificate for the requested name on the spot, signed by the new <strong>Block Page CA</strong>.</li>
-</ul>
-<p class="dl-cl-p">Devices that trust the CA show the page; the others a certificate warning - blocked either way.</p>
-<ul class="dl-cl-list">
-<li>The names come from nDPI's own domain list for each application (about 1 000 domains) and the custom</li>
-</ul>
-<p class="dl-cl-p">applications.</p>
-<ul class="dl-cl-list">
+<li><strong>Application Control: block page.</strong> A rule in Block mode can show a page saying the site is blocked, instead of a connection error. It names the site, the application, the rule, the device and the time.</li>
+<li>The firewall's DNS (Unbound) answers the names of what the rule blocks with <code>198.18.0.1</code> for the rule's networks (not for its exceptions); the firewall sends web traffic for that address to the block page. QUIC to it is refused, so browsers use HTTPS over TCP at once.</li>
+<li>HTTPS: the page gets a certificate for the requested name on the spot, signed by the new <strong>Block Page CA</strong>. Devices that trust the CA show the page; the others a certificate warning - blocked either way.</li>
+<li>The names come from nDPI's own domain list for each application (about 1 000 domains) and the custom applications.</li>
 <li>Devices that use another DNS server are still blocked by cutting their connections, as before.</li>
 <li>Pages shown are counted on the Blocked tab.</li>
-<li><strong>Application Control &gt; Block page</strong>: your own logo and a wide picture across the top (PNG / JPEG / WebP), organisation name, title, texts, contact</li>
-</ul>
-<p class="dl-cl-p">line, colour, which details are shown and their labels - in any language, with a live preview. Saved changes are in</p>
-<p class="dl-cl-p">use at once, without Apply.</p>
-<ul class="dl-cl-list">
-<li><strong>System &gt; Certificates &gt; Block Page CA</strong>: create, replace, delete; download as <code>.cer</code> (Windows / Group Policy) or</li>
-</ul>
-<p class="dl-cl-p"><code>.crt</code> (PEM), with Group Policy steps. The CA key stays on the firewall; a CA in use cannot be deleted.</p>
-<ul class="dl-cl-list">
+<li><strong>Application Control &gt; Block page</strong>: your own logo and a wide picture across the top (PNG / JPEG / WebP), organisation name, title, texts, contact line, colour, which details are shown and their labels - in any language, with a live preview. Saved changes are in use at once, without Apply.</li>
+<li><strong>System &gt; Certificates &gt; Block Page CA</strong>: create, replace, delete; download as <code>.cer</code> (Windows / Group Policy) or <code>.crt</code> (PEM), with Group Policy steps. The CA key stays on the firewall; a CA in use cannot be deleted.</li>
 <li><strong>System &gt; Certificates</strong>: download the web panel certificate.</li>
 </ul>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Engine stratum-dpi 1.2: says how far each name can be trusted (server name / payload, partial, port or address</li>
-</ul>
-<p class="dl-cl-p">guess), what the device sent first (TLS ClientHello, QUIC Initial, other, nothing), and hands every new connection</p>
-<p class="dl-cl-p">over at once (it waited in a buffer before).</p>
-<ul class="dl-cl-list">
+<li>Engine stratum-dpi 1.2: says how far each name can be trusted (server name / payload, partial, port or address guess), what the device sent first (TLS ClientHello, QUIC Initial, other, nothing), and hands every new connection over at once (it waited in a buffer before).</li>
 <li>A connection whose server name is known is named at once instead of after nDPI's packet limit.</li>
 <li>When nDPI only guessed a name from the port or address, the server name wins.</li>
 <li>Apply reloads the collector's blocks after a pf reload.</li>
@@ -1020,42 +939,22 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 </ul>
 <h4 class="dl-cl-sub">Security</h4>
 <ul class="dl-cl-list">
-<li>The block page server runs as its own unprivileged user (<code>_stratumbp</code>), only it and root can read the CA key, and</li>
+<li>The block page server runs as its own unprivileged user (<code>_stratumbp</code>), only it and root can read the CA key, and its ports cannot be reached directly from any network.</li>
 </ul>
-<p class="dl-cl-p">its ports cannot be reached directly from any network.</p>
 <h3 class="dl-cl-ver">0.38.0 - 2026-11-23</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Firewall &gt; Application Control &gt; Rules: block applications.</strong> A rule covers interfaces, Stratum categories</li>
-</ul>
-<p class="dl-cl-p">(VPN and proxies, Social media, Games ...), applications by name (also custom ones), and optionally *encrypted</p>
-<p class="dl-cl-p">connections without a server name* - typical of VPN and tunnel apps - with devices as exceptions. The first</p>
-<p class="dl-cl-p">matching rule decides.</p>
-<ul class="dl-cl-list">
+<li><strong>Firewall &gt; Application Control &gt; Rules: block applications.</strong> A rule covers interfaces, Stratum categories (VPN and proxies, Social media, Games ...), applications by name (also custom ones), and optionally *encrypted connections without a server name* - typical of VPN and tunnel apps - with devices as exceptions. The first matching rule decides.</li>
 <li><strong>Monitor only</strong> (the default for every new rule) blocks nothing and records what would have been blocked.</li>
-<li><strong>Block</strong>: applications named by their server name are cut one connection at a time, during the TLS / QUIC</li>
-</ul>
-<p class="dl-cl-p">handshake, and every new try again - nothing else on the same server address is touched. QUIC to that server is</p>
-<p class="dl-cl-p">refused for 10 minutes, so browsers fall back to TCP, where every connection is checked by name. Connections</p>
-<p class="dl-cl-p">without a server name (VPN tunnels) also block that device from that server for 10 minutes. The device sees</p>
-<p class="dl-cl-p">"connection reset" at once.</p>
-<ul class="dl-cl-list">
-<li>Only names the engine is sure of are acted upon - never a guess from a port or an address. Network services</li>
-</ul>
-<p class="dl-cl-p">(DNS, DHCP, NTP), private addresses and connections already open when the engine started are never touched.</p>
-<p class="dl-cl-p">Every block is lifted when the collector stops or the rule is switched off.</p>
-<ul class="dl-cl-list">
+<li><strong>Block</strong>: applications named by their server name are cut one connection at a time, during the TLS / QUIC handshake, and every new try again - nothing else on the same server address is touched. QUIC to that server is refused for 10 minutes, so browsers fall back to TCP, where every connection is checked by name. Connections without a server name (VPN tunnels) also block that device from that server for 10 minutes. The device sees "connection reset" at once.</li>
+<li>Only names the engine is sure of are acted upon - never a guess from a port or an address. Network services (DNS, DHCP, NTP), private addresses and connections already open when the engine started are never touched. Every block is lifted when the collector stops or the rule is switched off.</li>
 <li><strong>Blocked</strong> tab: per device, application and rule, what was blocked or would have been, with counts and times.</li>
 <li>The status line shows the active rules, connections cut and devices blocked; pf errors are shown too.</li>
 <li>AI Assistant: the tool <em>Application usage</em> also lists the rules and what they blocked (read-only).</li>
 </ul>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Engine stratum-dpi 1.2: says how far each name can be trusted (server name / payload, partial, port or address</li>
-</ul>
-<p class="dl-cl-p">guess), what the device sent first (TLS ClientHello, QUIC Initial, other, nothing), and hands every new connection</p>
-<p class="dl-cl-p">over at once (it waited in a buffer before).</p>
-<ul class="dl-cl-list">
+<li>Engine stratum-dpi 1.2: says how far each name can be trusted (server name / payload, partial, port or address guess), what the device sent first (TLS ClientHello, QUIC Initial, other, nothing), and hands every new connection over at once (it waited in a buffer before).</li>
 <li>A connection whose server name is known is named at once instead of after nDPI's packet limit.</li>
 <li>When nDPI only guessed a name from the port or address, the server name wins.</li>
 <li>Apply reloads the collector's blocks after a pf reload.</li>
@@ -1063,67 +962,30 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.37.2 - 2026-11-22</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li><strong>System &gt; Backup &gt; Automatic backup:</strong> <em>Test connection</em> answered "Request failed (422)" in 0.37.1, so an SMB or</li>
+<li><strong>System &gt; Backup &gt; Automatic backup:</strong> <em>Test connection</em> answered "Request failed (422)" in 0.37.1, so an SMB or SFTP server could not be tested from the page. <em>Browse</em>, <em>Back up now</em> and the scheduled backups were not affected.</li>
 </ul>
-<p class="dl-cl-p">SFTP server could not be tested from the page. *Browse*, *Back up now* and the scheduled backups were not affected.</p>
 <h3 class="dl-cl-ver">0.36.1 - 2026-11-19</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Captive portal: sign-in with a RADIUS server</strong> (FreeRADIUS and others). PAP with Message-Authenticator on every</li>
-</ul>
-<p class="dl-cl-p">request; every answer is checked against the shared secret before it is believed. A second server is used when</p>
-<p class="dl-cl-p">the first does not answer. The shared secret is kept in a root-only file and never shown again.</p>
-<ul class="dl-cl-list">
-<li><strong>Accounting</strong>: Start, periodic updates and Stop with session time, traffic and the reason (signed out, idle,</li>
-</ul>
-<p class="dl-cl-p">time limit, administrator...), so the RADIUS server's session records - and logs built on them - cover devices</p>
-<p class="dl-cl-p">behind Stratum FW as they do for any other NAS. The server's Class is sent back.</p>
-<ul class="dl-cl-list">
-<li>The server's <strong>Session-Timeout</strong>, <strong>Idle-Timeout</strong>, <strong>Acct-Interim-Interval</strong> and bandwidth</li>
-</ul>
-<p class="dl-cl-p">(<strong>WISPr-Bandwidth-Max-Up/Down</strong> or <strong>Mikrotik-Rate-Limit</strong>, so an existing MikroTik setup works unchanged) are</p>
-<p class="dl-cl-p">applied to the device.</p>
-<ul class="dl-cl-list">
-<li><strong>Per-device bandwidth limits</strong> for every zone (download / upload in Mbit/s), with any sign-in method. Each device</li>
-</ul>
-<p class="dl-cl-p">gets its own dummynet queue; a RADIUS server's values win over the zone's.</p>
-<ul class="dl-cl-list">
+<li><strong>Captive portal: sign-in with a RADIUS server</strong> (FreeRADIUS and others). PAP with Message-Authenticator on every request; every answer is checked against the shared secret before it is believed. A second server is used when the first does not answer. The shared secret is kept in a root-only file and never shown again.</li>
+<li><strong>Accounting</strong>: Start, periodic updates and Stop with session time, traffic and the reason (signed out, idle, time limit, administrator...), so the RADIUS server's session records - and logs built on them - cover devices behind Stratum FW as they do for any other NAS. The server's Class is sent back.</li>
+<li>The server's <strong>Session-Timeout</strong>, <strong>Idle-Timeout</strong>, <strong>Acct-Interim-Interval</strong> and bandwidth (<strong>WISPr-Bandwidth-Max-Up/Down</strong> or <strong>Mikrotik-Rate-Limit</strong>, so an existing MikroTik setup works unchanged) are applied to the device.</li>
+<li><strong>Per-device bandwidth limits</strong> for every zone (download / upload in Mbit/s), with any sign-in method. Each device gets its own dummynet queue; a RADIUS server's values win over the zone's.</li>
 <li>Signed-in devices show their traffic and limits.</li>
-<li><strong>Dashboard: Captive portal panel</strong> - devices signed in per zone, the latest sign-ins, the service state and a</li>
+<li><strong>Dashboard: Captive portal panel</strong> - devices signed in per zone, the latest sign-ins, the service state and a warning when the RADIUS server does not confirm accounting.</li>
 </ul>
-<p class="dl-cl-p">warning when the RADIUS server does not confirm accounting.</p>
 <h3 class="dl-cl-ver">0.36.0 - 2026-11-19</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
 <li><strong>Captive portal</strong> (Services &gt; Captive Portal): a sign-in page for guest networks, in the manner of pfSense.</li>
-<li>Zones: one or more internal interfaces per zone. A device that has not signed in reaches only DNS on the</li>
-</ul>
-<p class="dl-cl-p">firewall, the sign-in page and the zone's allowed destinations; its http:// requests are sent to the page, and</p>
-<p class="dl-cl-p">phones and laptops open it by themselves through their own connectivity checks. After sign-in the interface's</p>
-<p class="dl-cl-p">own firewall rules apply, as for any other device.</p>
-<ul class="dl-cl-list">
-<li>Sign-in without a password (accept the terms and connect) or with local user accounts: optional expiry date,</li>
-</ul>
-<p class="dl-cl-p">a limit on devices per user, wrong passwords lock the address out for a few minutes.</p>
-<ul class="dl-cl-list">
-<li>Time limit, idle time (no new traffic) and sign-out when another device takes the address (MAC check);</li>
-</ul>
-<p class="dl-cl-p">when a zone's sign-in method changes, its devices sign in again the new way.</p>
-<ul class="dl-cl-list">
-<li>The page: title, message, terms of use, button text, colour, logo, English or Turkish; it adapts to phones and</li>
-</ul>
-<p class="dl-cl-p">to dark mode.</p>
-<ul class="dl-cl-list">
+<li>Zones: one or more internal interfaces per zone. A device that has not signed in reaches only DNS on the firewall, the sign-in page and the zone's allowed destinations; its http:// requests are sent to the page, and phones and laptops open it by themselves through their own connectivity checks. After sign-in the interface's own firewall rules apply, as for any other device.</li>
+<li>Sign-in without a password (accept the terms and connect) or with local user accounts: optional expiry date, a limit on devices per user, wrong passwords lock the address out for a few minutes.</li>
+<li>Time limit, idle time (no new traffic) and sign-out when another device takes the address (MAC check); when a zone's sign-in method changes, its devices sign in again the new way.</li>
+<li>The page: title, message, terms of use, button text, colour, logo, English or Turkish; it adapts to phones and to dark mode.</li>
 <li>Exceptions: devices that never sign in (printers, TV boxes) and destinations allowed before sign-in.</li>
-<li>Signed-in devices are listed live and can be disconnected; operators can manage the user accounts and</li>
+<li>Signed-in devices are listed live and can be disconnected; operators can manage the user accounts and disconnect devices, zones are for administrators. Every sign-in and sign-out goes to the system log.</li>
+<li>Built to keep the guest side small: the page runs as an unprivileged user and knows nothing secret; sign-ins are checked by a separate root service over a local socket. Passwords are stored as bcrypt hashes in a root-only file and never sent to the browser. Signed-in devices stay connected across pf reloads, Apply and a restart of the service.</li>
 </ul>
-<p class="dl-cl-p">disconnect devices, zones are for administrators. Every sign-in and sign-out goes to the system log.</p>
-<ul class="dl-cl-list">
-<li>Built to keep the guest side small: the page runs as an unprivileged user and knows nothing secret; sign-ins are</li>
-</ul>
-<p class="dl-cl-p">checked by a separate root service over a local socket. Passwords are stored as bcrypt hashes in a root-only</p>
-<p class="dl-cl-p">file and never sent to the browser. Signed-in devices stay connected across pf reloads, Apply and a restart of</p>
-<p class="dl-cl-p">the service.</p>
 <h3 class="dl-cl-ver">v0.35.2 — 2026-11-19</h3>
 <ul class="dl-cl-list">
 <li><strong>Notifications Only for Reachable Intrusion Alerts:</strong> Suricata watches a WAN before <code>pf</code> filters it, so an attack aimed at a port the firewall does not open (for example the Realtek SDK exploit on UDP <code>9034</code>, CVE-2021-35394) raised a high-severity alert and a Telegram / e-mail message although <code>pf</code> dropped the packets. Stratum FW now works out what is really open on its WAN addresses — port forwards with their source addresses and port aliases, WAN pass rules (interface groups included), management from WAN, OpenVPN, WireGuard and IPsec — and notifies only alerts from inside, to inside hosts, or to a port that is open for that source. Anything it cannot work out (a GeoIP source, a protocol without ports) is still notified.</li>
@@ -1146,10 +1008,8 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.34.1 - 2026-11-17</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>WireGuard S2S: removing a tunnel's preshared key now also removes it from the running interface. The tunnels are</li>
+<li>WireGuard S2S: removing a tunnel's preshared key now also removes it from the running interface. The tunnels are updated with "wg syncconf" (unchanged tunnels stay up), which keeps a key it is not given; the configuration now always names the key, the all-zero key meaning "none". Before, the old key stayed active and the handshake failed.</li>
 </ul>
-<p class="dl-cl-p">updated with "wg syncconf" (unchanged tunnels stay up), which keeps a key it is not given; the configuration now</p>
-<p class="dl-cl-p">always names the key, the all-zero key meaning "none". Before, the old key stayed active and the handshake failed.</p>
 <h4 class="dl-cl-sub">Notes</h4>
 <ul class="dl-cl-list">
 <li>WireGuard S2S tested against a MikroTik RouterOS 7 (RB4011), the Stratum FW behind NAT connecting.</li>
@@ -1157,94 +1017,47 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.34.0 - 2026-11-16</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>VPN &gt; <strong>WireGuard S2S</strong>: site-to-site WireGuard tunnels to another Stratum FW, OPNsense, pfSense, MikroTik</li>
-</ul>
-<p class="dl-cl-p">RouterOS 7 or Linux. Each tunnel is its own interface (wg1, wg2 ...) with its own keys and port; the remote</p>
-<p class="dl-cl-p">networks are routed into it, and WireGuard accepts from the other side only addresses in those networks.</p>
-<ul class="dl-cl-list">
-<li>This side's key pair is made when the tunnel is added; only its public key is shown, to give to the other side.</li>
-</ul>
-<p class="dl-cl-p">An optional preshared key ("Generate" makes one in the browser) is kept in a root-only file, never returned.</p>
-<ul class="dl-cl-list">
-<li>Either side can connect: enter the other side's address where it is reachable; a side behind NAT keeps the</li>
-</ul>
-<p class="dl-cl-p">keepalive on. An optional tunnel address (e.g. 10.203.0.1/30) makes the tunnel itself pingable.</p>
-<ul class="dl-cl-list">
-<li>Firewall: the tunnel's UDP port is open on the WAN (only from the other side when its address is known); traffic</li>
-</ul>
-<p class="dl-cl-p">from the remote networks to the local networks passes when "allow" is on, otherwise only replies; TCP MSS is</p>
-<p class="dl-cl-p">clamped to the tunnel MTU; policy-routed rules keep the remote networks local.</p>
-<ul class="dl-cl-list">
+<li>VPN &gt; <strong>WireGuard S2S</strong>: site-to-site WireGuard tunnels to another Stratum FW, OPNsense, pfSense, MikroTik RouterOS 7 or Linux. Each tunnel is its own interface (wg1, wg2 ...) with its own keys and port; the remote networks are routed into it, and WireGuard accepts from the other side only addresses in those networks.</li>
+<li>This side's key pair is made when the tunnel is added; only its public key is shown, to give to the other side. An optional preshared key ("Generate" makes one in the browser) is kept in a root-only file, never returned.</li>
+<li>Either side can connect: enter the other side's address where it is reachable; a side behind NAT keeps the keepalive on. An optional tunnel address (e.g. 10.203.0.1/30) makes the tunnel itself pingable.</li>
+<li>Firewall: the tunnel's UDP port is open on the WAN (only from the other side when its address is known); traffic from the remote networks to the local networks passes when "allow" is on, otherwise only replies; TCP MSS is clamped to the tunnel MTU; policy-routed rules keep the remote networks local.</li>
 <li>Status per tunnel (connected, last handshake, traffic) on the page and in the dashboard's VPN panel.</li>
-<li>Remote networks are checked against the local, OpenVPN, WireGuard and IPsec networks (and IPsec's against these</li>
-</ul>
-<p class="dl-cl-p">tunnels), and show up in Firewall Log &gt; Between networks as "WireGuard S2S".</p>
-<ul class="dl-cl-list">
+<li>Remote networks are checked against the local, OpenVPN, WireGuard and IPsec networks (and IPsec's against these tunnels), and show up in Firewall Log &gt; Between networks as "WireGuard S2S".</li>
 <li>A tunnel can be saved disabled before the other side's public key is known, to get this side's key first.</li>
 <li>The road-warrior server (wg0, VPN &gt; WireGuard) is unchanged.</li>
 </ul>
 <h3 class="dl-cl-ver">0.33.2 - 2026-11-16</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Dashboard: IPsec tunnels in the VPN connections panel (state, remote gateway and networks, how long up, traffic)</li>
+<li>Dashboard: IPsec tunnels in the VPN connections panel (state, remote gateway and networks, how long up, traffic) and "IPsec tunnels up: n of m" in the security list - red when a tunnel is down.</li>
 </ul>
-<p class="dl-cl-p">and "IPsec tunnels up: n of m" in the security list - red when a tunnel is down.</p>
 <h4 class="dl-cl-sub">Notes</h4>
 <ul class="dl-cl-list">
-<li>Tested with a laptop behind a Stratum FW reaching file shares and web pages behind another Stratum FW through an</li>
+<li>Tested with a laptop behind a Stratum FW reaching file shares and web pages behind another Stratum FW through an IKEv2 tunnel.</li>
 </ul>
-<p class="dl-cl-p">IKEv2 tunnel.</p>
 <h3 class="dl-cl-ver">0.33.1 - 2026-11-16</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>VPN &gt; IPsec: <strong>IKEv1</strong> next to IKEv2, for devices that do not speak IKEv2 or are set up with it (the FortiGate</li>
+<li>VPN &gt; IPsec: <strong>IKEv1</strong> next to IKEv2, for devices that do not speak IKEv2 or are set up with it (the FortiGate IPsec wizard's default, older Cisco/ASA and many routers). Main mode by default; aggressive mode only when the other side requires it (needed for an IKEv1 peer with a changing address). With IKEv1 every local/remote network pair is its own phase 2 entry, and phase 1 is renewed by authenticating again, as IKEv1 requires.</li>
 </ul>
-<p class="dl-cl-p">IPsec wizard's default, older Cisco/ASA and many routers). Main mode by default; aggressive mode only when the</p>
-<p class="dl-cl-p">other side requires it (needed for an IKEv1 peer with a changing address). With IKEv1 every local/remote network</p>
-<p class="dl-cl-p">pair is its own phase 2 entry, and phase 1 is renewed by authenticating again, as IKEv1 requires.</p>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>IPsec: a tunnel's remote network may no longer overlap the OpenVPN or WireGuard tunnel network or a routed internal</li>
+<li>IPsec: a tunnel's remote network may no longer overlap the OpenVPN or WireGuard tunnel network or a routed internal network. Traffic to a remote network is encrypted by the kernel, so the replies to VPN clients in such a network went into the IPsec tunnel instead of back to the clients.</li>
 </ul>
-<p class="dl-cl-p">network. Traffic to a remote network is encrypted by the kernel, so the replies to VPN clients in such a network</p>
-<p class="dl-cl-p">went into the IPsec tunnel instead of back to the clients.</p>
 <h4 class="dl-cl-sub">Notes</h4>
 <ul class="dl-cl-list">
-<li>0.33.0 was tested between two Stratum FW firewalls - one behind NAT, one on PPPoE: IKEv2 with NAT traversal,</li>
+<li>0.33.0 was tested between two Stratum FW firewalls - one behind NAT, one on PPPoE: IKEv2 with NAT traversal, traffic through the tunnel, and the reverse direction blocked and logged on enc0 when "allow" is off.</li>
 </ul>
-<p class="dl-cl-p">traffic through the tunnel, and the reverse direction blocked and logged on enc0 when "allow" is off.</p>
 <h3 class="dl-cl-ver">0.33.0 - 2026-11-16</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>VPN &gt; <strong>IPsec</strong>: site-to-site tunnels to other firewalls and routers - FortiGate, MikroTik, pfSense/OPNsense,</li>
-</ul>
-<p class="dl-cl-p">Cisco, cloud VPN gateways. IKEv2 with a preshared key, policy based: a tunnel joins chosen local networks</p>
-<p class="dl-cl-p">(interfaces and/or networks entered by hand) with the networks behind the other side. strongSwan does the key</p>
-<p class="dl-cl-p">exchange; the kernel encrypts.</p>
-<ul class="dl-cl-list">
-<li>Phase 1 and phase 2 settings per tunnel: AES-GCM or AES-CBC, SHA-2 (SHA-1 for old devices), DH groups 14-21 and</li>
-</ul>
-<p class="dl-cl-p">Curve25519 (2 and 5 marked weak), PFS, lifetimes, dead peer detection. The proposals sent are shown as you choose.</p>
-<ul class="dl-cl-list">
+<li>VPN &gt; <strong>IPsec</strong>: site-to-site tunnels to other firewalls and routers - FortiGate, MikroTik, pfSense/OPNsense, Cisco, cloud VPN gateways. IKEv2 with a preshared key, policy based: a tunnel joins chosen local networks (interfaces and/or networks entered by hand) with the networks behind the other side. strongSwan does the key exchange; the kernel encrypts.</li>
+<li>Phase 1 and phase 2 settings per tunnel: AES-GCM or AES-CBC, SHA-2 (SHA-1 for old devices), DH groups 14-21 and Curve25519 (2 and 5 marked weak), PFS, lifetimes, dead peer detection. The proposals sent are shown as you choose.</li>
 <li>"One phase 2 entry per network pair" for devices that keep one selector per subnet (FortiGate, Cisco).</li>
-<li>Connect at start and keep the tunnel up, or wait for the other side (also for peers with a changing address).</li>
-</ul>
-<p class="dl-cl-p">NAT traversal is automatic.</p>
-<ul class="dl-cl-list">
-<li>Status per tunnel (connected, phase 1 only, connecting, not connected), how long it is up, NAT-T, traffic;</li>
-</ul>
-<p class="dl-cl-p">Connect / Disconnect buttons; the IPsec log on the same page for administrators.</p>
-<ul class="dl-cl-list">
-<li>Firewall: IKE and ESP are allowed from the peer only; decrypted traffic appears on its own interface (enc0) and</li>
-</ul>
-<p class="dl-cl-p">a tunnel's "allow" option passes traffic from its remote networks to its local networks - everything else from</p>
-<p class="dl-cl-p">the tunnel is blocked and logged like any unknown traffic. Tunnel traffic is never translated (NAT exemption),</p>
-<p class="dl-cl-p">TCP MSS is clamped in the tunnel (default 1350) and policy-routed rules keep tunnel traffic local.</p>
-<ul class="dl-cl-list">
-<li>The preshared key is kept in a root-only file, never in config.json, never shown again and never returned by</li>
-</ul>
-<p class="dl-cl-p">the API; "Generate" makes a strong key in the browser to copy to the other side. Keys go into encrypted backups.</p>
-<ul class="dl-cl-list">
+<li>Connect at start and keep the tunnel up, or wait for the other side (also for peers with a changing address). NAT traversal is automatic.</li>
+<li>Status per tunnel (connected, phase 1 only, connecting, not connected), how long it is up, NAT-T, traffic; Connect / Disconnect buttons; the IPsec log on the same page for administrators.</li>
+<li>Firewall: IKE and ESP are allowed from the peer only; decrypted traffic appears on its own interface (enc0) and a tunnel's "allow" option passes traffic from its remote networks to its local networks - everything else from the tunnel is blocked and logged like any unknown traffic. Tunnel traffic is never translated (NAT exemption), TCP MSS is clamped in the tunnel (default 1350) and policy-routed rules keep tunnel traffic local.</li>
+<li>The preshared key is kept in a root-only file, never in config.json, never shown again and never returned by the API; "Generate" makes a strong key in the browser to copy to the other side. Keys go into encrypted backups.</li>
 <li>The tunnels' remote networks appear in Firewall Log &gt; Between networks as "IPsec".</li>
 <li>New package dependency: strongSwan.</li>
 </ul>
@@ -1255,68 +1068,40 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.32.0 - 2026-11-14</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Diagnostics &gt; Firewall Log &gt; <strong>Between networks</strong>: the traffic between the internal networks that the firewall</li>
+<li>Diagnostics &gt; Firewall Log &gt; <strong>Between networks</strong>: the traffic between the internal networks that the firewall logs - which network reaches which (passed and blocked), and for each destination address and port how many connections from how many devices, first and last seen. Kept for 30 days after it was last seen, whatever the firewall log's rotation keeps; updated every minute with the blocklist report. The firewall's own addresses are a destination of their own. It is the data for segmenting the VLANs: log what a network sends to the others, allow what is really used, block the rest - and see afterwards what the blocking rules stop.</li>
 </ul>
-<p class="dl-cl-p">logs - which network reaches which (passed and blocked), and for each destination address and port how many</p>
-<p class="dl-cl-p">connections from how many devices, first and last seen. Kept for 30 days after it was last seen, whatever the</p>
-<p class="dl-cl-p">firewall log's rotation keeps; updated every minute with the blocklist report. The firewall's own addresses are a</p>
-<p class="dl-cl-p">destination of their own. It is the data for segmenting the VLANs: log what a network sends to the others, allow</p>
-<p class="dl-cl-p">what is really used, block the rest - and see afterwards what the blocking rules stop.</p>
 <h3 class="dl-cl-ver">0.31.6 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Updates no longer restart intrusion detection unless Suricata, a library it uses or its start script was</li>
+<li>Updates no longer restart intrusion detection unless Suricata, a library it uses or its start script was updated. Suricata runs no Stratum code: its settings change with Apply and its rules reload without a restart. An inline (Block, netmap) engine resets its ports whenever it starts or stops, so every update used to take a blocking WAN down for a few seconds.</li>
 </ul>
-<p class="dl-cl-p">updated. Suricata runs no Stratum code: its settings change with Apply and its rules reload without a restart.</p>
-<p class="dl-cl-p">An inline (Block, netmap) engine resets its ports whenever it starts or stops, so every update used to take a</p>
-<p class="dl-cl-p">blocking WAN down for a few seconds.</p>
 <h3 class="dl-cl-ver">0.31.5 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Updates: when the new version writes some settings files differently (a Suricata, pf or service setting), the</li>
+<li>Updates: when the new version writes some settings files differently (a Suricata, pf or service setting), the update now says so when it finishes - in the update log, under Alerts on the dashboard and as a notification ("Apply to activate the update's changes", with the files concerned). Before, such changes waited silently for the next Apply.</li>
 </ul>
-<p class="dl-cl-p">update now says so when it finishes - in the update log, under Alerts on the dashboard and as a notification</p>
-<p class="dl-cl-p">("Apply to activate the update's changes", with the files concerned). Before, such changes waited silently for</p>
-<p class="dl-cl-p">the next Apply.</p>
 <h3 class="dl-cl-ver">0.31.4 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Intrusion detection: Suricata switched the hardware offloading (checksums, TSO, LRO) of the ports it watches off</li>
+<li>Intrusion detection: Suricata switched the hardware offloading (checksums, TSO, LRO) of the ports it watches off when it started and back on when it stopped. On igb ports every such change resets the port, so each Suricata restart - an update, an Apply of IDS settings, a new DHCP address on a WAN - took the watched WAN lines down twice for a few seconds, and the gateway monitor switched the default route. Suricata now leaves the ports alone (<code>capture.disable-offloading: false</code>); offloading is set by Stratum only (System &gt; Settings &gt; Tunables, and for Block ports, which need it off).</li>
+<li>Upgrading: the new Suricata setting takes effect with the next Apply (<code>stratum-config apply</code>). That Apply resets the watched ports one last time, as the old engine restores their flags when it stops; afterwards Suricata restarts without touching them.</li>
 </ul>
-<p class="dl-cl-p">when it started and back on when it stopped. On igb ports every such change resets the port, so each Suricata</p>
-<p class="dl-cl-p">restart - an update, an Apply of IDS settings, a new DHCP address on a WAN - took the watched WAN lines down twice</p>
-<p class="dl-cl-p">for a few seconds, and the gateway monitor switched the default route. Suricata now leaves the ports alone</p>
-<p class="dl-cl-p">(<code>capture.disable-offloading: false</code>); offloading is set by Stratum only (System &gt; Settings &gt; Tunables, and</p>
-<p class="dl-cl-p">for Block ports, which need it off).</p>
-<ul class="dl-cl-list">
-<li>Upgrading: the new Suricata setting takes effect with the next Apply (<code>stratum-config apply</code>). That Apply resets the</li>
-</ul>
-<p class="dl-cl-p">watched ports one last time, as the old engine restores their flags when it stops; afterwards Suricata restarts</p>
-<p class="dl-cl-p">without touching them.</p>
 <h3 class="dl-cl-ver">0.31.3 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Configuration backups: a change that only adds, renames or moves separators no longer takes one of the 30 kept</li>
+<li>Configuration backups: a change that only adds, renames or moves separators no longer takes one of the 30 kept backups, so arranging the rule lists cannot push the backups of real changes out. Moving a rule still makes a backup, as it changes the order pf uses.</li>
 </ul>
-<p class="dl-cl-p">backups, so arranging the rule lists cannot push the backups of real changes out. Moving a rule still makes a</p>
-<p class="dl-cl-p">backup, as it changes the order pf uses.</p>
 <h3 class="dl-cl-ver">0.31.2 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Light theme, easier on the eyes: no pure white any more - an off-white panel on a light grey background, a soft</li>
+<li>Light theme, easier on the eyes: no pure white any more - an off-white panel on a light grey background, a soft grey sidebar and stronger lines. The accent is an orange close to OPNsense's instead of the yellow-brown, with white text on the buttons. The dark theme is unchanged.</li>
 </ul>
-<p class="dl-cl-p">grey sidebar and stronger lines. The accent is an orange close to OPNsense's instead of the yellow-brown, with</p>
-<p class="dl-cl-p">white text on the buttons. The dark theme is unchanged.</p>
 <h3 class="dl-cl-ver">0.31.1 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>NAT &gt; Port Forward: <strong>All / Default / Custom</strong> views. Default entries are the redirects Stratum writes itself</li>
+<li>NAT &gt; Port Forward: <strong>All / Default / Custom</strong> views. Default entries are the redirects Stratum writes itself (Force DNS, with its exception); custom entries are your port forwards.</li>
+<li>NAT &gt; Port Forward and NAT &gt; Outbound (the manual rules): <strong>separators</strong> and <strong>move up / move down</strong> arrows, as on Firewall &gt; Rules.</li>
 </ul>
-<p class="dl-cl-p">(Force DNS, with its exception); custom entries are your port forwards.</p>
-<ul class="dl-cl-list">
-<li>NAT &gt; Port Forward and NAT &gt; Outbound (the manual rules): <strong>separators</strong> and <strong>move up / move down</strong> arrows, as on</li>
-</ul>
-<p class="dl-cl-p">Firewall &gt; Rules.</p>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
 <li>NAT &gt; Outbound: the sections are named "Custom rules (manual)" and "Default rules (automatic)".</li>
@@ -1325,61 +1110,35 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.31.0 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Firewall &gt; Rules: <strong>All rules / Default / Custom</strong> views. Default rules are the ones Stratum generates from other</li>
+<li>Firewall &gt; Rules: <strong>All rules / Default / Custom</strong> views. Default rules are the ones Stratum generates from other settings (anti-lockout, DHCP, management access, the default deny); custom rules are your own. The last view chosen is remembered in the browser.</li>
+<li>Firewall &gt; Rules: <strong>separators</strong>, as in pfSense - named, coloured dividers to group rules ("QR print", "Elka automation"). Add, rename, recolour, move and delete them in the list. They only arrange the list: pf.conf stays the same.</li>
+<li>Firewall &gt; Rules: <strong>move up / move down</strong> arrows on every rule and separator, next to the existing drag handle. A rule moved past a separator joins the group above or below it.</li>
 </ul>
-<p class="dl-cl-p">settings (anti-lockout, DHCP, management access, the default deny); custom rules are your own. The last view</p>
-<p class="dl-cl-p">chosen is remembered in the browser.</p>
-<ul class="dl-cl-list">
-<li>Firewall &gt; Rules: <strong>separators</strong>, as in pfSense - named, coloured dividers to group rules ("QR print",</li>
-</ul>
-<p class="dl-cl-p">"Elka automation"). Add, rename, recolour, move and delete them in the list. They only arrange the list: pf.conf</p>
-<p class="dl-cl-p">stays the same.</p>
-<ul class="dl-cl-list">
-<li>Firewall &gt; Rules: <strong>move up / move down</strong> arrows on every rule and separator, next to the existing drag handle.</li>
-</ul>
-<p class="dl-cl-p">A rule moved past a separator joins the group above or below it.</p>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Deleting a rule keeps the separators below it above the same rules. Renaming an interface group carries its</li>
+<li>Deleting a rule keeps the separators below it above the same rules. Renaming an interface group carries its separators; deleting the group removes them. An OPNsense import starts with no separators.</li>
 </ul>
-<p class="dl-cl-p">separators; deleting the group removes them. An OPNsense import starts with no separators.</p>
 <h3 class="dl-cl-ver">0.30.5 - 2026-11-13</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>OpenVPN: a profile downloaded while several external addresses were set ("a, b") had them all on one <code>remote</code></li>
+<li>OpenVPN: a profile downloaded while several external addresses were set ("a, b") had them all on one <code>remote</code> line, which clients cannot resolve, so the profile did not connect. Each address now gets its own <code>remote</code> line, tried in order.</li>
 </ul>
-<p class="dl-cl-p">line, which clients cannot resolve, so the profile did not connect. Each address now gets its own <code>remote</code> line,</p>
-<p class="dl-cl-p">tried in order.</p>
 <h3 class="dl-cl-ver">0.30.4 - 2026-11-12</h3>
 <h4 class="dl-cl-sub">Security</h4>
 <ul class="dl-cl-list">
-<li>The panel's session cookie is now marked <code>Secure</code>: browsers send it over HTTPS only. Before, opening the panel</li>
+<li>The panel's session cookie is now marked <code>Secure</code>: browsers send it over HTTPS only. Before, opening the panel with <code>http://</code> sent the cookie unencrypted to port 80 before the redirect to HTTPS, where someone on the same network could read it.</li>
 </ul>
-<p class="dl-cl-p">with <code>http://</code> sent the cookie unencrypted to port 80 before the redirect to HTTPS, where someone on the same</p>
-<p class="dl-cl-p">network could read it.</p>
 <h3 class="dl-cl-ver">0.30.3 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Bandwidth limits (Firewall &gt; Shaper) on systems installed from the image: <code>dnctl</code> and the dummynet start-up</li>
+<li>Bandwidth limits (Firewall &gt; Shaper) on systems installed from the image: <code>dnctl</code> and the dummynet start-up scripts (FreeBSD-ipfw) were missing. pf still sent the limited networks' traffic to dummynet, and that traffic was dropped - only DHCP still worked on those networks. FreeBSD-ipfw is now part of the image and a dependency of the package, so an update installs it.</li>
+<li>An apply with bandwidth limits is refused, with the reason, when <code>dnctl</code> or the dummynet module is missing, instead of loading pf rules that drop the traffic.</li>
 </ul>
-<p class="dl-cl-p">scripts (FreeBSD-ipfw) were missing. pf still sent the limited networks' traffic to dummynet, and that traffic was</p>
-<p class="dl-cl-p">dropped - only DHCP still worked on those networks. FreeBSD-ipfw is now part of the image and a dependency of the</p>
-<p class="dl-cl-p">package, so an update installs it.</p>
-<ul class="dl-cl-list">
-<li>An apply with bandwidth limits is refused, with the reason, when <code>dnctl</code> or the dummynet module is missing, instead</li>
-</ul>
-<p class="dl-cl-p">of loading pf rules that drop the traffic.</p>
 <h3 class="dl-cl-ver">0.30.2 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Import from OPNsense: the Unbound DNS blocklists are carried over (the older format and the newer one with several</li>
-</ul>
-<p class="dl-cl-p">blocklists). They replace the DNS blocklist settings of this firewall.</p>
-<ul class="dl-cl-list">
-<li>Lists with the same source in the catalogue are switched on (by URL, and Steven Black and AdGuard by their</li>
-</ul>
-<p class="dl-cl-p">OPNsense code); other https:// lists become custom lists.</p>
-<ul class="dl-cl-list">
+<li>Import from OPNsense: the Unbound DNS blocklists are carried over (the older format and the newer one with several blocklists). They replace the DNS blocklist settings of this firewall.</li>
+<li>Lists with the same source in the catalogue are switched on (by URL, and Steven Black and AdGuard by their OPNsense code); other https:// lists become custom lists.</li>
 <li>The allow list, the block list and the wildcard domains are carried over.</li>
 <li>OPNsense list codes without the same source here, plain http lists and patterns are listed in the report.</li>
 <li>A blocklist that OPNsense used only for some networks is noted: Stratum's DNS blocklists apply to every network.</li>
@@ -1391,30 +1150,16 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.30.1 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>DHCP: a range may now contain the interface address (and the gateway given to the clients), as in OPNsense; those</li>
+<li>DHCP: a range may now contain the interface address (and the gateway given to the clients), as in OPNsense; those addresses are never handed out. The range is written as two pools around them, so no part of it is lost. The dashboard counts the pool size without them.</li>
+<li>Import from OPNsense: such a range is kept whole instead of being cut to its larger part; a range that starts on the network address (or ends on the broadcast address) is moved off it.</li>
 </ul>
-<p class="dl-cl-p">addresses are never handed out. The range is written as two pools around them, so no part of it is lost. The</p>
-<p class="dl-cl-p">dashboard counts the pool size without them.</p>
-<ul class="dl-cl-list">
-<li>Import from OPNsense: such a range is kept whole instead of being cut to its larger part; a range that starts on</li>
-</ul>
-<p class="dl-cl-p">the network address (or ends on the broadcast address) is moved off it.</p>
 <h3 class="dl-cl-ver">0.30.0 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Two-factor sign-in (TOTP) under My Account: after the password, the panel asks for the 6-digit code of an</li>
-</ul>
-<p class="dl-cl-p">authenticator app (Google Authenticator, Microsoft Authenticator, 1Password, Bitwarden, ...).</p>
-<ul class="dl-cl-list">
-<li>Set up with a QR code or by typing the key. The QR code is drawn in the browser from a bundled library;</li>
-</ul>
-<p class="dl-cl-p">the key never leaves the firewall, and it is not shown again after the setup.</p>
-<ul class="dl-cl-list">
+<li>Two-factor sign-in (TOTP) under My Account: after the password, the panel asks for the 6-digit code of an authenticator app (Google Authenticator, Microsoft Authenticator, 1Password, Bitwarden, ...).</li>
+<li>Set up with a QR code or by typing the key. The QR code is drawn in the browser from a bundled library; the key never leaves the firewall, and it is not shown again after the setup.</li>
 <li>Each code works only once; a clock difference of 30 seconds either way is accepted.</li>
-<li>10 one-time recovery codes for a lost phone, shown once; new ones can be created at any time.</li>
-</ul>
-<p class="dl-cl-p">Signing in with a recovery code raises a notification.</p>
-<ul class="dl-cl-list">
+<li>10 one-time recovery codes for a lost phone, shown once; new ones can be created at any time. Signing in with a recovery code raises a notification.</li>
 <li>Switching two-factor sign-in on ends the user's other sessions.</li>
 <li>Wrong codes count towards the sign-in protection; the code page expires after 5 minutes.</li>
 <li>Users: a 2FA badge in the list, and administrators can switch off a user's two-factor sign-in (lost phone).</li>
@@ -1423,91 +1168,43 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.29.2 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Services &gt; DNS Resolver &gt; Force DNS through the firewall: the DNS queries of chosen internal networks reach the</li>
-</ul>
-<p class="dl-cl-p">firewall's resolver whatever DNS server a device asks, so the DNS blocklists and the Web Filter cannot be</p>
-<p class="dl-cl-p">bypassed. DNS over TLS is blocked on those networks.</p>
-<ul class="dl-cl-list">
-<li>An exception alias leaves some servers reachable directly, for example the domain controllers of an</li>
-</ul>
-<p class="dl-cl-p">Active Directory domain.</p>
-<ul class="dl-cl-list">
+<li>Services &gt; DNS Resolver &gt; Force DNS through the firewall: the DNS queries of chosen internal networks reach the firewall's resolver whatever DNS server a device asks, so the DNS blocklists and the Web Filter cannot be bypassed. DNS over TLS is blocked on those networks.</li>
+<li>An exception alias leaves some servers reachable directly, for example the domain controllers of an Active Directory domain.</li>
 <li>Independent of Web Activity: nothing is recorded.</li>
 <li>Import from OPNsense:</li>
-<li>A port forward that sends the DNS of internal networks to the firewall becomes Force DNS on those networks,</li>
+<li>A port forward that sends the DNS of internal networks to the firewall becomes Force DNS on those networks, with its negated destination alias as the exception.</li>
+<li>URL table aliases that download a list of the IP blocklist catalogue (for example CINS Army or blocklist.de, also under an older host name) switch that IP blocklist on, inbound and outbound, instead of being imported empty.</li>
 </ul>
-<p class="dl-cl-p">with its negated destination alias as the exception.</p>
-<ul class="dl-cl-list">
-<li>URL table aliases that download a list of the IP blocklist catalogue (for example CINS Army or</li>
-</ul>
-<p class="dl-cl-p">blocklist.de, also under an older host name) switch that IP blocklist on, inbound and outbound, instead of</p>
-<p class="dl-cl-p">being imported empty.</p>
 <h3 class="dl-cl-ver">0.29.1 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>DHCP on an additional WAN: a second (or third) internet connection can now get its address by DHCP, for example</li>
-</ul>
-<p class="dl-cl-p">from a cable or 4G/5G modem.</p>
-<ul class="dl-cl-list">
-<li>An additional DHCP WAN never takes the default route or the DNS servers by itself; which WAN carries the</li>
-</ul>
-<p class="dl-cl-p">default route stays the gateway monitor's decision (failover, Interfaces &gt; Gateways).</p>
-<ul class="dl-cl-list">
-<li>The gateway of its lease is used for failover, for answers to connections that come in on it (reply-to) and</li>
-</ul>
-<p class="dl-cl-p">for policy routing. When the provider hands out another gateway, the firewall rules follow within seconds,</p>
-<p class="dl-cl-p">without an Apply.</p>
-<ul class="dl-cl-list">
-<li>Policy routing: a DHCP WAN can be chosen as the gateway of a rule. Until it has a lease, the rule uses the</li>
-</ul>
-<p class="dl-cl-p">normal routing.</p>
-<ul class="dl-cl-list">
+<li>DHCP on an additional WAN: a second (or third) internet connection can now get its address by DHCP, for example from a cable or 4G/5G modem.</li>
+<li>An additional DHCP WAN never takes the default route or the DNS servers by itself; which WAN carries the default route stays the gateway monitor's decision (failover, Interfaces &gt; Gateways).</li>
+<li>The gateway of its lease is used for failover, for answers to connections that come in on it (reply-to) and for policy routing. When the provider hands out another gateway, the firewall rules follow within seconds, without an Apply.</li>
+<li>Policy routing: a DHCP WAN can be chosen as the gateway of a rule. Until it has a lease, the rule uses the normal routing.</li>
 <li>Import from OPNsense: a DHCP WAN2 is imported without a warning.</li>
 </ul>
 <h3 class="dl-cl-ver">0.29.0 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Firewall &gt; Schedules: named time ranges, such as "Mon-Fri 08:00-18:00; Sat 09:00-13:00", that a firewall rule</li>
-</ul>
-<p class="dl-cl-p">can use. As in pfSense, a rule with a schedule only exists during its times.</p>
-<ul class="dl-cl-list">
-<li>Outside its times, a pass rule no longer allows its traffic and a block rule no longer blocks it; the rules</li>
-</ul>
-<p class="dl-cl-p">below decide.</p>
-<ul class="dl-cl-list">
+<li>Firewall &gt; Schedules: named time ranges, such as "Mon-Fri 08:00-18:00; Sat 09:00-13:00", that a firewall rule can use. As in pfSense, a rule with a schedule only exists during its times.</li>
+<li>Outside its times, a pass rule no longer allows its traffic and a block rule no longer blocks it; the rules below decide.</li>
 <li>When a schedule ends, the open connections its pass rules allowed are closed.</li>
-<li>Rules follow the clock within a minute, without an Apply. Times use the firewall's time zone; a range over</li>
-</ul>
-<p class="dl-cl-p">midnight is written as two ranges.</p>
-<ul class="dl-cl-list">
-<li>The list shows whether each schedule is active now, when it next starts or ends, and how many rules use it.</li>
-</ul>
-<p class="dl-cl-p">Renaming a schedule keeps its rules; a schedule in use cannot be deleted.</p>
-<ul class="dl-cl-list">
+<li>Rules follow the clock within a minute, without an Apply. Times use the firewall's time zone; a range over midnight is written as two ranges.</li>
+<li>The list shows whether each schedule is active now, when it next starts or ends, and how many rules use it. Renaming a schedule keeps its rules; a schedule in use cannot be deleted.</li>
 <li>Rule pages: a Schedule choice for every rule, and a badge in the rule list (green while active).</li>
 <li>Import from OPNsense: rules with a schedule are imported switched off and reported, so they never apply all day.</li>
 </ul>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Policy routing and schedules share one mechanism that rewrites pf.conf without an Apply, only when the running</li>
+<li>Policy routing and schedules share one mechanism that rewrites pf.conf without an Apply, only when the running pf.conf is exactly what the configuration renders (stratum-pfrefresh, every minute; the gateway monitor still runs it at once when a gateway goes down).</li>
 </ul>
-<p class="dl-cl-p">pf.conf is exactly what the configuration renders (stratum-pfrefresh, every minute; the gateway monitor still</p>
-<p class="dl-cl-p">runs it at once when a gateway goes down).</p>
 <h3 class="dl-cl-ver">0.28.9 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Firewall &gt; NAT &gt; 1:1: an internal host (or network) gets its own public address (or network of the same size),</li>
-</ul>
-<p class="dl-cl-p">both ways. The host goes out with the public address, and traffic to the public address reaches it.</p>
-<ul class="dl-cl-list">
-<li>A single public address must be a virtual IP on the WAN; a network must be routed to the firewall by the</li>
-</ul>
-<p class="dl-cl-p">provider. The WAN's own address is refused, so access to the firewall itself is never lost.</p>
-<ul class="dl-cl-list">
-<li>As in pfSense, 1:1 NAT opens nothing by itself: incoming traffic needs a pass rule on the WAN to the</li>
-</ul>
-<p class="dl-cl-p">internal address. The list shows how many WAN rules allow traffic to each host ("closed" when none).</p>
-<ul class="dl-cl-list">
+<li>Firewall &gt; NAT &gt; 1:1: an internal host (or network) gets its own public address (or network of the same size), both ways. The host goes out with the public address, and traffic to the public address reaches it.</li>
+<li>A single public address must be a virtual IP on the WAN; a network must be routed to the firewall by the provider. The WAN's own address is refused, so access to the firewall itself is never lost.</li>
+<li>As in pfSense, 1:1 NAT opens nothing by itself: incoming traffic needs a pass rule on the WAN to the internal address. The list shows how many WAN rules allow traffic to each host ("closed" when none).</li>
 <li>Port forwards take precedence for their ports. 1:1 NAT takes precedence over outbound NAT.</li>
 <li>Import from OPNsense: 1:1 NAT entries are listed in the report (not carried over).</li>
 </ul>
@@ -1515,72 +1212,45 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
 <li>Diagnostics &gt; Firewall Log &gt; Summary: a new tab next to the live log.</li>
-<li>It covers the last hour or 24 hours and shows the top sources (with their country), the top destination</li>
-</ul>
-<p class="dl-cl-p">ports (with the service name, such as SSH or RDP), the top countries, the top rules, the top destinations</p>
-<p class="dl-cl-p">and the counts per interface, with a chart per hour or per 5 minutes.</p>
-<ul class="dl-cl-list">
-<li>It can show blocked or passed (logged) packets and can be filtered by interface. A click on an address or a</li>
-</ul>
-<p class="dl-cl-p">port opens the live log filtered to it.</p>
-<ul class="dl-cl-list">
-<li>The rotated copies of the log are read when the period needs them. The page says when the log does not reach</li>
-</ul>
-<p class="dl-cl-p">back far enough.</p>
-<ul class="dl-cl-list">
+<li>It covers the last hour or 24 hours and shows the top sources (with their country), the top destination ports (with the service name, such as SSH or RDP), the top countries, the top rules, the top destinations and the counts per interface, with a chart per hour or per 5 minutes.</li>
+<li>It can show blocked or passed (logged) packets and can be filtered by interface. A click on an address or a port opens the live log filtered to it.</li>
+<li>The rotated copies of the log are read when the period needs them. The page says when the log does not reach back far enough.</li>
 <li>Countries use the GeoIP data of country aliases; without that data the summary still works, without countries.</li>
 </ul>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Firewall Log: the firewall's own rules are named ("IP blocklist: inbound (WAN)", "Block bogon networks",</li>
+<li>Firewall Log: the firewall's own rules are named ("IP blocklist: inbound (WAN)", "Block bogon networks", "Broadcast and multicast") instead of their internal labels.</li>
 </ul>
-<p class="dl-cl-p">"Broadcast and multicast") instead of their internal labels.</p>
 <h3 class="dl-cl-ver">0.28.7 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Apply: "rc.conf remove dummynet_enable", "dnctl_<em>" and "bsnmpd_</em>" no longer appear on every apply. These</li>
+<li>Apply: "rc.conf remove dummynet_enable", "dnctl_<em>" and "bsnmpd_</em>" no longer appear on every apply. These variables have a default value in FreeBSD's /etc/defaults/rc.conf, and apply took that for a setting to remove. Now only variables really set in rc.conf are removed.</li>
 </ul>
-<p class="dl-cl-p">variables have a default value in FreeBSD's /etc/defaults/rc.conf, and apply took that for a setting to remove.</p>
-<p class="dl-cl-p">Now only variables really set in rc.conf are removed.</p>
 <h3 class="dl-cl-ver">0.28.6 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Start-up and shutdown tune: a choice of tunes on System &gt; Settings &gt; General, each with its own closing version</li>
+<li>Start-up and shutdown tune: a choice of tunes on System &gt; Settings &gt; General, each with its own closing version for shutdown: Stratum (default), Classic beep, Chime (Westminster), Ode to Joy and Für Elise (Beethoven), and Arcade. Test plays the chosen tune on the firewall before it is saved.</li>
 </ul>
-<p class="dl-cl-p">for shutdown: Stratum (default), Classic beep, Chime (Westminster), Ode to Joy and Für Elise (Beethoven),</p>
-<p class="dl-cl-p">and Arcade. Test plays the chosen tune on the firewall before it is saved.</p>
 <h3 class="dl-cl-ver">0.28.5 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Start-up and shutdown tune, as in pfSense and OPNsense: a short rising tune on the PC speaker when the firewall</li>
-</ul>
-<p class="dl-cl-p">has started, and a falling one when it shuts down or restarts (also from System &gt; Power).</p>
-<ul class="dl-cl-list">
+<li>Start-up and shutdown tune, as in pfSense and OPNsense: a short rising tune on the PC speaker when the firewall has started, and a falling one when it shuts down or restarts (also from System &gt; Power).</li>
 <li>System &gt; Settings &gt; General: "Play a sound at start-up and shutdown" (on by default) and a Test button.</li>
 <li>Machines without a PC speaker, such as most virtual machines, stay silent.</li>
 </ul>
 <h3 class="dl-cl-ver">0.28.4 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>System &gt; Settings &gt; Firewall &amp; NAT: "Also on the WAN" under the option that logs the default block. Switched off,</li>
+<li>System &gt; Settings &gt; Firewall &amp; NAT: "Also on the WAN" under the option that logs the default block. Switched off, packets blocked by the default rule on a WAN are no longer logged: internet scans and late replies of closed connections. Blocks on internal interfaces and VPNs are still logged. On by default, so nothing changes until it is switched off.</li>
 </ul>
-<p class="dl-cl-p">packets blocked by the default rule on a WAN are no longer logged: internet scans and late replies of closed</p>
-<p class="dl-cl-p">connections. Blocks on internal interfaces and VPNs are still logged. On by default, so nothing changes until</p>
-<p class="dl-cl-p">it is switched off.</p>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Blocklist report: blocks by an address that is no longer in any list are now shown as "No longer in a list".</li>
+<li>Blocklist report: blocks by an address that is no longer in any list are now shown as "No longer in a list". This happens when a list was updated after the block.</li>
 </ul>
-<p class="dl-cl-p">This happens when a list was updated after the block.</p>
 <h3 class="dl-cl-ver">0.28.3 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Blocklist report: blocked DNS queries were not counted with Unbound 1.26, which logs the matching rule</li>
-</ul>
-<p class="dl-cl-p">(<code>*.example.com.</code>) and the action <code>rpz-nxdomain</code> before the queried name. The queried name is now read</p>
-<p class="dl-cl-p">correctly. After the update, the DNS log is read once more from the start, so the blocks of the last days</p>
-<p class="dl-cl-p">appear; IP blocks are not counted twice.</p>
-<ul class="dl-cl-list">
+<li>Blocklist report: blocked DNS queries were not counted with Unbound 1.26, which logs the matching rule (<code>*.example.com.</code>) and the action <code>rpz-nxdomain</code> before the queried name. The queried name is now read correctly. After the update, the DNS log is read once more from the start, so the blocks of the last days appear; IP blocks are not counted twice.</li>
 <li>Web Activity: the blocked lookups per device were not counted for the same reason.</li>
 <li>Only blocking actions count as blocks; an allowed name (<code>rpz-passthru</code>) is not a block.</li>
 </ul>
@@ -1589,205 +1259,101 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <ul class="dl-cl-list">
 <li>Firewall &gt; Blocklists &gt; Blocked: a report of what the blocklists blocked, similar to pfBlockerNG's reports.</li>
 <li>It covers the DNS blocklists, the Web Filter and the IP blocklists.</li>
-<li>It shows how many DNS queries and IP packets were blocked (inbound and outbound) and a chart of blocks per</li>
-</ul>
-<p class="dl-cl-p">hour or day.</p>
-<ul class="dl-cl-list">
-<li>It shows which list did the blocking, the most blocked domains and addresses, and the devices with the most</li>
-</ul>
-<p class="dl-cl-p">blocks.</p>
-<ul class="dl-cl-list">
+<li>It shows how many DNS queries and IP packets were blocked (inbound and outbound) and a chart of blocks per hour or day.</li>
+<li>It shows which list did the blocking, the most blocked domains and addresses, and the devices with the most blocks.</li>
 <li>Every blocked query and packet can be searched and filtered by type, list, domain, address or device.</li>
 <li>Periods: the last hour, 24 hours or 7 days. Events are kept for 7 days.</li>
 <li>Administrators only; every view is logged, as with Web Activity. The report can be cleared.</li>
-<li>Dashboard panel "Blocklists": DNS and IP blocks of the last 24 hours and the counts per list. Administrators</li>
+<li>Dashboard panel "Blocklists": DNS and IP blocks of the last 24 hours and the counts per list. Administrators also see the most blocked domains and addresses. Add it from Dashboard &gt; Panels.</li>
+<li>The report is collected every minute from Unbound's log and the firewall log. Each block is matched to the list that contains the domain or address, starting with your own block list.</li>
 </ul>
-<p class="dl-cl-p">also see the most blocked domains and addresses. Add it from Dashboard &gt; Panels.</p>
-<ul class="dl-cl-list">
-<li>The report is collected every minute from Unbound's log and the firewall log. Each block is matched to the</li>
-</ul>
-<p class="dl-cl-p">list that contains the domain or address, starting with your own block list.</p>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Unbound now logs blocked queries to its own file whenever a DNS blocklist or the Web Filter is on, not only</li>
-</ul>
-<p class="dl-cl-p">with Web Activity. Without Web Activity, only the blocked queries are written there. After updating, this takes</p>
-<p class="dl-cl-p">effect with the next Apply.</p>
-<ul class="dl-cl-list">
+<li>Unbound now logs blocked queries to its own file whenever a DNS blocklist or the Web Filter is on, not only with Web Activity. Without Web Activity, only the blocked queries are written there. After updating, this takes effect with the next Apply.</li>
 <li>IP blocks are counted only while "Log blocked packets" is on for the IP blocklists (the default).</li>
 </ul>
 <h3 class="dl-cl-ver">0.28.1 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Services &gt; Service Status: every service of the firewall in one list, with its status (running, stopped, switched</li>
-</ul>
-<p class="dl-cl-p">off), how long it has been running, memory use and process ID. Administrators can start, stop and restart</p>
-<p class="dl-cl-p">services from here.</p>
-<ul class="dl-cl-list">
-<li>Stopping asks for a second click. A stopped service stays stopped until it is started again, the next Apply</li>
-</ul>
-<p class="dl-cl-p">that changes it, or a reboot.</p>
-<ul class="dl-cl-list">
+<li>Services &gt; Service Status: every service of the firewall in one list, with its status (running, stopped, switched off), how long it has been running, memory use and process ID. Administrators can start, stop and restart services from here.</li>
+<li>Stopping asks for a second click. A stopped service stays stopped until it is started again, the next Apply that changes it, or a reboot.</li>
 <li>A service switched off in its settings cannot be started here; its settings page is linked instead.</li>
-<li>The packet filter, web server, web panel, SSH, system log and scheduler can only be restarted. For the packet</li>
-</ul>
-<p class="dl-cl-p">filter, a restart reloads the rules and fills the IP blocklist table again.</p>
-<ul class="dl-cl-list">
+<li>The packet filter, web server, web panel, SSH, system log and scheduler can only be restarted. For the packet filter, a restart reloads the rules and fills the IP blocklist table again.</li>
 <li>Other users can see the list but cannot change anything.</li>
 </ul>
 <h3 class="dl-cl-ver">0.28.0 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Notifications (the bell at the top right): each user can mark one notification or all of them as read, remove</li>
+<li>Notifications (the bell at the top right): each user can mark one notification or all of them as read, remove one, or clear the list. These are personal: other users' lists and the event history stay as they are. A newer event appears again after clearing.</li>
+<li>After a change is saved, an "Apply changes" button appears next to the page's Save button, as in OPNsense and pfSense. It only appears when the configuration really changed, not after actions such as Wake-on-LAN or a packet capture.</li>
 </ul>
-<p class="dl-cl-p">one, or clear the list. These are personal: other users' lists and the event history stay as they are. A newer</p>
-<p class="dl-cl-p">event appears again after clearing.</p>
-<ul class="dl-cl-list">
-<li>After a change is saved, an "Apply changes" button appears next to the page's Save button, as in OPNsense and</li>
-</ul>
-<p class="dl-cl-p">pfSense. It only appears when the configuration really changed, not after actions such as Wake-on-LAN or a</p>
-<p class="dl-cl-p">packet capture.</p>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>The bar with Apply changes / Keep changes stays visible under the top bar while the page scrolls, and lights up</li>
-</ul>
-<p class="dl-cl-p">briefly after a save. On narrow screens it stays at the top of the page.</p>
-<ul class="dl-cl-list">
+<li>The bar with Apply changes / Keep changes stays visible under the top bar while the page scrolls, and lights up briefly after a save. On narrow screens it stays at the top of the page.</li>
 <li>Opening the notification list no longer marks everything as read; use "Mark all read" or click a notification.</li>
 </ul>
 <h3 class="dl-cl-ver">0.27.2 - 2026-11-11</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Firewall rules, policy routing: a pass rule on an internal interface (or a group of internal interfaces) can</li>
-</ul>
-<p class="dl-cl-p">send its traffic through a chosen WAN, for example a guest network over the second provider.</p>
-<ul class="dl-cl-list">
+<li>Firewall rules, policy routing: a pass rule on an internal interface (or a group of internal interfaces) can send its traffic through a chosen WAN, for example a guest network over the second provider.</li>
 <li>Works with WANs that have a static gateway or PPPoE.</li>
-<li>Traffic of the rule to your own networks (internal and VPN networks, routed networks) and to the firewall</li>
-</ul>
-<p class="dl-cl-p">itself keeps the normal routing, so local access is not sent to the internet provider.</p>
-<ul class="dl-cl-list">
-<li>If the gateway is down: the traffic uses the default route (failover included) until the gateway is back,</li>
-</ul>
-<p class="dl-cl-p">or, if chosen, stays on that gateway. The gateway monitor switches the rules within seconds; open</p>
-<p class="dl-cl-p">connections stay.</p>
-<ul class="dl-cl-list">
+<li>Traffic of the rule to your own networks (internal and VPN networks, routed networks) and to the firewall itself keeps the normal routing, so local access is not sent to the internet provider.</li>
+<li>If the gateway is down: the traffic uses the default route (failover included) until the gateway is back, or, if chosen, stays on that gateway. The gateway monitor switches the rules within seconds; open connections stay.</li>
 <li>The rule list shows the gateway of each rule.</li>
-<li>Import from OPNsense: rule gateways are carried over to the matching WAN. Gateway groups and gateways on WAN</li>
+<li>Import from OPNsense: rule gateways are carried over to the matching WAN. Gateway groups and gateways on WAN rules are reported and use the default route.</li>
 </ul>
-<p class="dl-cl-p">rules are reported and use the default route.</p>
 <h3 class="dl-cl-ver">0.27.1 - 2026-11-07</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Import from OPNsense, "Also import OpenVPN": the OpenVPN server is taken over completely, so the profiles</li>
-</ul>
-<p class="dl-cl-p">already on the users' computers connect unchanged. Tested with a real connection using an OPNsense-style</p>
-<p class="dl-cl-p">profile.</p>
-<ul class="dl-cl-list">
-<li>What is taken over: the certificate authority with its key, the server certificate, the tls-crypt or</li>
-</ul>
-<p class="dl-cl-p">tls-auth key, every user's certificate, and the VPN users with their OPNsense passwords.</p>
-<ul class="dl-cl-list">
+<li>Import from OPNsense, "Also import OpenVPN": the OpenVPN server is taken over completely, so the profiles already on the users' computers connect unchanged. Tested with a real connection using an OPNsense-style profile.</li>
+<li>What is taken over: the certificate authority with its key, the server certificate, the tls-crypt or tls-auth key, every user's certificate, and the VPN users with their OPNsense passwords.</li>
 <li>VPN users become VPN-only accounts.</li>
-<li>The settings are carried over too: port, protocol, tunnel network, ciphers, digest, DNS, full tunnel and</li>
-</ul>
-<p class="dl-cl-p">block-outside-dns.</p>
-<ul class="dl-cl-list">
+<li>The settings are carried over too: port, protocol, tunnel network, ciphers, digest, DNS, full tunnel and block-outside-dns.</li>
 <li>The earlier OpenVPN certificates of this firewall are kept in a separate folder.</li>
 <li>A user who already exists here keeps the password set here.</li>
-<li>OpenVPN users can sign in with password hashes from other systems: bcrypt as PHP writes it (<code>$2y$</code>) and</li>
-</ul>
-<p class="dl-cl-p">argon2id. An argon2id password is stored as bcrypt at the first sign-in.</p>
-<ul class="dl-cl-list">
+<li>OpenVPN users can sign in with password hashes from other systems: bcrypt as PHP writes it (<code>$2y$</code>) and argon2id. An argon2id password is stored as bcrypt at the first sign-in.</li>
 <li>OpenVPN, several addresses for clients: new profiles get one <code>remote</code> line per address, tried in order.</li>
 <li>OpenVPN, Windows clients can be limited to the VPN's DNS servers (<code>block-outside-dns</code>).</li>
-<li>OpenVPN, the "TLS client" check of user certificates can be switched off for certificates made by other</li>
+<li>OpenVPN, the "TLS client" check of user certificates can be switched off for certificates made by other systems.</li>
 </ul>
-<p class="dl-cl-p">systems.</p>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>OpenVPN with two WANs: a client connecting to the second WAN's address got its answers from the first WAN and</li>
+<li>OpenVPN with two WANs: a client connecting to the second WAN's address got its answers from the first WAN and could not connect. The server now answers from the address the client used (<code>multihome</code>), and pf sends the answers back through the WAN they came in on.</li>
+<li>OpenVPN profiles check the server's real certificate name instead of a fixed one, which matters with a server certificate taken over from another system.</li>
 </ul>
-<p class="dl-cl-p">could not connect. The server now answers from the address the client used (<code>multihome</code>), and pf sends the</p>
-<p class="dl-cl-p">answers back through the WAN they came in on.</p>
-<ul class="dl-cl-list">
-<li>OpenVPN profiles check the server's real certificate name instead of a fixed one, which matters with a server</li>
-</ul>
-<p class="dl-cl-p">certificate taken over from another system.</p>
 <h3 class="dl-cl-ver">0.27.0 - 2026-11-07</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Interfaces &gt; Virtual IPs: extra addresses on an interface, for example more public addresses of a WAN block</li>
-</ul>
-<p class="dl-cl-p">(/29).</p>
-<ul class="dl-cl-list">
-<li>A port forward can choose a virtual IP as its destination address, so each public address can forward to</li>
-</ul>
-<p class="dl-cl-p">a different server. NAT reflection follows it.</p>
-<ul class="dl-cl-list">
+<li>Interfaces &gt; Virtual IPs: extra addresses on an interface, for example more public addresses of a WAN block (/29).</li>
+<li>A port forward can choose a virtual IP as its destination address, so each public address can forward to a different server. NAT reflection follows it.</li>
 <li>Outbound NAT can translate to a virtual IP.</li>
 <li>Inside the interface's own network an address is added as /32, as FreeBSD needs.</li>
-<li>Interfaces &gt; Routes: static routes to networks behind another router, through a gateway on a directly</li>
-</ul>
-<p class="dl-cl-p">connected network.</p>
-<ul class="dl-cl-list">
-<li>Networks reached through a router on an internal interface are NATed to the internet automatically, like</li>
-</ul>
-<p class="dl-cl-p">the interface networks.</p>
-<ul class="dl-cl-list">
-<li>Virtual IPs and routes are not written to rc.conf. <code>stratum-netextra</code> keeps the system in line with the</li>
-</ul>
-<p class="dl-cl-p">applied list: it adds what is missing and removes only what it added itself.</p>
-<ul class="dl-cl-list">
-<li>It runs at boot and after every Apply and rollback, also after interface and routing restarts, which drop</li>
-</ul>
-<p class="dl-cl-p">aliases and routes.</p>
-<ul class="dl-cl-list">
+<li>Interfaces &gt; Routes: static routes to networks behind another router, through a gateway on a directly connected network.</li>
+<li>Networks reached through a router on an internal interface are NATed to the internet automatically, like the interface networks.</li>
+<li>Virtual IPs and routes are not written to rc.conf. <code>stratum-netextra</code> keeps the system in line with the applied list: it adds what is missing and removes only what it added itself.</li>
+<li>It runs at boot and after every Apply and rollback, also after interface and routing restarts, which drop aliases and routes.</li>
 <li>Each entry shows whether it is active on the firewall.</li>
-<li>Import from OPNsense: IP alias virtual IPs, static routes (gateways resolved by name) and port forwards to a</li>
+<li>Import from OPNsense: IP alias virtual IPs, static routes (gateways resolved by name) and port forwards to a virtual IP are carried over. CARP virtual IPs are listed as not supported.</li>
 </ul>
-<p class="dl-cl-p">virtual IP are carried over. CARP virtual IPs are listed as not supported.</p>
 <h3 class="dl-cl-ver">0.26.1 - 2026-11-07</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Host name and country aliases: the update started by Apply or "Update now" could be skipped without a trace</li>
+<li>Host name and country aliases: the update started by Apply or "Update now" could be skipped without a trace when the 5-minute host name update was running at that moment, so a new country alias stayed empty until the next daily run. Those updates now wait for the running one to finish. Only the 5-minute run still skips when another update is busy.</li>
 </ul>
-<p class="dl-cl-p">when the 5-minute host name update was running at that moment, so a new country alias stayed empty until the</p>
-<p class="dl-cl-p">next daily run. Those updates now wait for the running one to finish. Only the 5-minute run still skips when</p>
-<p class="dl-cl-p">another update is busy.</p>
 <h3 class="dl-cl-ver">0.26.0 - 2026-11-07</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Firewall &gt; Aliases, Host names: an alias of host names such as <code>update.example.com</code>, which may also hold</li>
-</ul>
-<p class="dl-cl-p">addresses and networks.</p>
-<ul class="dl-cl-list">
-<li>The firewall resolves the names every 5 minutes through its own DNS, so it sees the same addresses as the</li>
-</ul>
-<p class="dl-cl-p">clients.</p>
-<ul class="dl-cl-list">
+<li>Firewall &gt; Aliases, Host names: an alias of host names such as <code>update.example.com</code>, which may also hold addresses and networks.</li>
+<li>The firewall resolves the names every 5 minutes through its own DNS, so it sees the same addresses as the clients.</li>
 <li>An address stays in the alias for an hour after it was last seen, because CDNs rotate their addresses.</li>
 <li>A name that cannot be resolved keeps its last addresses, and the page shows it.</li>
-<li>Firewall &gt; Aliases, Countries: all address blocks of the chosen countries, picked from a searchable list.</li>
-</ul>
-<p class="dl-cl-p">Typical use: "only Türkiye may reach this port forward" or "block these countries".</p>
-<ul class="dl-cl-list">
-<li>The data comes from the five regional internet registries (ARIN, RIPE NCC, APNIC, LACNIC, AFRINIC). It is</li>
-</ul>
-<p class="dl-cl-p">free and needs no licence key.</p>
-<ul class="dl-cl-list">
+<li>Firewall &gt; Aliases, Countries: all address blocks of the chosen countries, picked from a searchable list. Typical use: "only Türkiye may reach this port forward" or "block these countries".</li>
+<li>The data comes from the five regional internet registries (ARIN, RIPE NCC, APNIC, LACNIC, AFRINIC). It is free and needs no licence key.</li>
 <li>It is downloaded weekly. A failed download keeps the previous data.</li>
-<li>Both alias types are pf tables loaded from a file. Every pf reload reads the last addresses, and updates</li>
+<li>Both alias types are pf tables loaded from a file. Every pf reload reads the last addresses, and updates replace the table while pf runs, without Apply.</li>
+<li>The alias list shows how many addresses each of these aliases holds and when it was last updated. The "Update now" button refreshes them at once.</li>
+<li>Import from OPNsense: aliases that contain host names become host name aliases, and GeoIP aliases become country aliases. They are no longer imported empty.</li>
 </ul>
-<p class="dl-cl-p">replace the table while pf runs, without Apply.</p>
-<ul class="dl-cl-list">
-<li>The alias list shows how many addresses each of these aliases holds and when it was last updated. The</li>
-</ul>
-<p class="dl-cl-p">"Update now" button refreshes them at once.</p>
-<ul class="dl-cl-list">
-<li>Import from OPNsense: aliases that contain host names become host name aliases, and GeoIP aliases become</li>
-</ul>
-<p class="dl-cl-p">country aliases. They are no longer imported empty.</p>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
 <li>The alias page tabs no longer overflow on phones.</li>
@@ -1797,30 +1363,15 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <ul class="dl-cl-list">
 <li>System &gt; Power:</li>
 <li>Restart and power off, with a confirmation. After a restart the page reconnects by itself.</li>
-<li>Reset to factory defaults. The reset uses the ports in use now, so a firewall far away comes back</li>
-</ul>
-<p class="dl-cl-p">reachable: WAN by DHCP, LAN 192.168.1.1/24 with DHCP, panel only from the internal networks.</p>
-<ul class="dl-cl-list">
-<li>Reset options: keep the panel users or start over with a new "admin" password; erase certificates, keys</li>
-</ul>
-<p class="dl-cl-p">and secrets; erase logs and statistics.</p>
-<ul class="dl-cl-list">
-<li>The reset is confirmed by typing the host name. It is applied without the rollback timer and the firewall</li>
-</ul>
-<p class="dl-cl-p">restarts.</p>
-<ul class="dl-cl-list">
+<li>Reset to factory defaults. The reset uses the ports in use now, so a firewall far away comes back reachable: WAN by DHCP, LAN 192.168.1.1/24 with DHCP, panel only from the internal networks.</li>
+<li>Reset options: keep the panel users or start over with a new "admin" password; erase certificates, keys and secrets; erase logs and statistics.</li>
+<li>The reset is confirmed by typing the host name. It is applied without the rollback timer and the firewall restarts.</li>
 <li>Administrators only; every action is logged.</li>
 <li>Diagnostics &gt; ARP Table:</li>
-<li>Every address the firewall knows, with MAC, interface, expiry and name (from DHCP reservations, leases and</li>
-</ul>
-<p class="dl-cl-p">DNS overrides).</p>
-<ul class="dl-cl-list">
+<li>Every address the firewall knows, with MAC, interface, expiry and name (from DHCP reservations, leases and DNS overrides).</li>
 <li>Private (random) MAC addresses of phones and laptops are marked.</li>
 <li>An entry can be deleted.</li>
-<li>Wake-on-LAN, on the ARP Table page: wake a device by MAC address, or with one click from the devices that have</li>
-</ul>
-<p class="dl-cl-p">a DHCP reservation. Operators may use it.</p>
-<ul class="dl-cl-list">
+<li>Wake-on-LAN, on the ARP Table page: wake a device by MAC address, or with one click from the devices that have a DHCP reservation. Operators may use it.</li>
 <li>Diagnostics &gt; Packet Capture: capture one interface into a <code>.pcap</code> file for Wireshark.</li>
 <li>The filter is built from fields (protocol, host or network, port), never free text.</li>
 <li>Limits on duration, size and packets; one capture at a time.</li>
@@ -1835,34 +1386,15 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.25.0 - 2026-11-07</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>System &gt; Backup &gt; Import from OPNsense: an OPNsense <code>config.xml</code> becomes the pending configuration. The import</li>
-</ul>
-<p class="dl-cl-p">carries over interfaces, VLANs, gateways and the default gateway, interface groups, aliases (nested aliases</p>
-<p class="dl-cl-p">resolved), firewall rules (current and older rule format), port forwards, outbound NAT, DHCP ranges and</p>
-<p class="dl-cl-p">reservations (dnsmasq and ISC dhcpd), DNS host and domain overrides, bandwidth limits, host name, domain,</p>
-<p class="dl-cl-p">time zone and DNS and time servers.</p>
-<ul class="dl-cl-list">
+<li>System &gt; Backup &gt; Import from OPNsense: an OPNsense <code>config.xml</code> becomes the pending configuration. The import carries over interfaces, VLANs, gateways and the default gateway, interface groups, aliases (nested aliases resolved), firewall rules (current and older rule format), port forwards, outbound NAT, DHCP ranges and reservations (dnsmasq and ISC dhcpd), DNS host and domain overrides, bandwidth limits, host name, domain, time zone and DNS and time servers.</li>
 <li>Before anything is saved, the import shows a preview:</li>
 <li>the network ports of the OPNsense box are assigned to this system's ports, and any port can be left out;</li>
 <li>a report lists what was imported, what changed on the way and what could not be imported, with the reason.</li>
-<li>Port forwards keep their access limits. In OPNsense a port forward is often allowed by separate WAN rules. In</li>
+<li>Port forwards keep their access limits. In OPNsense a port forward is often allowed by separate WAN rules. In Stratum a port forward passes its own traffic, so its source is taken from those WAN rules, and a combined alias is created when several rules allow it. A forward that no rule allowed is imported switched off and never opened to everyone.</li>
+<li>Aliases that cannot be carried over (URL tables, host names) are imported empty, so block rules that use them block nothing and pass rules that use them allow nothing. They are listed in the report.</li>
+<li>The import warns when the LAN address changes, and when an imported network contains this firewall's current WAN address (applying would cut the firewall off).</li>
+<li>The file is only read. It is never stored, and nothing secret appears in the report. Users, certificates, OpenVPN, IPsec, WireGuard and plugins are listed as not imported. The import is administrator-only and logged.</li>
 </ul>
-<p class="dl-cl-p">Stratum a port forward passes its own traffic, so its source is taken from those WAN rules, and a combined</p>
-<p class="dl-cl-p">alias is created when several rules allow it. A forward that no rule allowed is imported switched off and</p>
-<p class="dl-cl-p">never opened to everyone.</p>
-<ul class="dl-cl-list">
-<li>Aliases that cannot be carried over (URL tables, host names) are imported empty, so block rules that use them</li>
-</ul>
-<p class="dl-cl-p">block nothing and pass rules that use them allow nothing. They are listed in the report.</p>
-<ul class="dl-cl-list">
-<li>The import warns when the LAN address changes, and when an imported network contains this firewall's current</li>
-</ul>
-<p class="dl-cl-p">WAN address (applying would cut the firewall off).</p>
-<ul class="dl-cl-list">
-<li>The file is only read. It is never stored, and nothing secret appears in the report. Users, certificates,</li>
-</ul>
-<p class="dl-cl-p">OpenVPN, IPsec, WireGuard and plugins are listed as not imported. The import is administrator-only and</p>
-<p class="dl-cl-p">logged.</p>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
 <li>Form pages with wide tables no longer scroll sideways on phones.</li>
@@ -1870,144 +1402,67 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.24.4 - 2026-11-07</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Intrusion Detection: Watch and Block can now be set per interface, as in pfSense. For example, the WAN can</li>
+<li>Intrusion Detection: Watch and Block can now be set per interface, as in pfSense. For example, the WAN can only be watched while the local networks block. Mixing the two runs two Suricata engines: one on netmap for the blocking interfaces and one reading copies (pcap) for the watch-only interfaces. Suricata allows one capture method per process. Both engines load the same rules, and each is supervised and restarted on its own. Alerts and statistics of both are shown together, and log rotation and the WAN address update cover both.</li>
+<li>With two engines the rules are loaded twice, so memory use is about twice as high. Each engine gets smaller memory limits, and the settings page says so. Apply checks both configurations with Suricata before using them.</li>
 </ul>
-<p class="dl-cl-p">only be watched while the local networks block. Mixing the two runs two Suricata engines: one on netmap for</p>
-<p class="dl-cl-p">the blocking interfaces and one reading copies (pcap) for the watch-only interfaces. Suricata allows one</p>
-<p class="dl-cl-p">capture method per process. Both engines load the same rules, and each is supervised and restarted on its</p>
-<p class="dl-cl-p">own. Alerts and statistics of both are shown together, and log rotation and the WAN address update cover</p>
-<p class="dl-cl-p">both.</p>
-<ul class="dl-cl-list">
-<li>With two engines the rules are loaded twice, so memory use is about twice as high. Each engine gets smaller</li>
-</ul>
-<p class="dl-cl-p">memory limits, and the settings page says so. Apply checks both configurations with Suricata before using</p>
-<p class="dl-cl-p">them.</p>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>AI assistant (MCP): the intrusion detection tool always reported "detection only". It now names the</li>
+<li>AI assistant (MCP): the intrusion detection tool always reported "detection only". It now names the blocking interfaces and categories.</li>
 </ul>
-<p class="dl-cl-p">blocking interfaces and categories.</p>
 <h3 class="dl-cl-ver">0.24.3 - 2026-11-07</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Intrusion Detection: changes to the rule categories (on, off, Block) did not reach a running Suricata</li>
-</ul>
-<p class="dl-cl-p">until it restarted. The live rule reload sent signal 12, which is SIGUSR2 on Linux but SIGSYS on FreeBSD.</p>
-<p class="dl-cl-p">It now uses SIGUSR2.</p>
-<ul class="dl-cl-list">
-<li>Intrusion Detection: Block on some interfaces together with Watch on others is refused with a clear</li>
-</ul>
-<p class="dl-cl-p">message. Suricata does not allow blocking and watch-only ports in one netmap process, so it failed to</p>
-<p class="dl-cl-p">start and nothing was inspected while the traffic went on.</p>
-<ul class="dl-cl-list">
+<li>Intrusion Detection: changes to the rule categories (on, off, Block) did not reach a running Suricata until it restarted. The live rule reload sent signal 12, which is SIGUSR2 on Linux but SIGSYS on FreeBSD. It now uses SIGUSR2.</li>
+<li>Intrusion Detection: Block on some interfaces together with Watch on others is refused with a clear message. Suricata does not allow blocking and watch-only ports in one netmap process, so it failed to start and nothing was inspected while the traffic went on.</li>
 <li>Dashboard: an interface without a cable showed as Up; it now shows No cable.</li>
 </ul>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Intrusion Detection: the ET Open "Policy" category (software, tools and services a network may not</li>
+<li>Intrusion Detection: the ET Open "Policy" category (software, tools and services a network may not allow), off by default.</li>
 </ul>
-<p class="dl-cl-p">allow), off by default.</p>
 <h3 class="dl-cl-ver">0.24.2 - 2026-11-06</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Intrusion Detection, blocking mode (IPS): Suricata dropped every connection it had not seen start. These</li>
+<li>Intrusion Detection, blocking mode (IPS): Suricata dropped every connection it had not seen start. These are connections open before it started, and long-lived connections that sat idle longer than its flow timeout, such as the push channels phones keep open. Phones on a blocking network lost their connection and dropped off Wi-Fi. Suricata now picks such connections up (midstream), and on any exception (<code>exception-policy: ignore</code>) it lets the traffic through instead of dropping the flow. Only matches of blocking rules are dropped.</li>
 </ul>
-<p class="dl-cl-p">are connections open before it started, and long-lived connections that sat idle longer than its flow</p>
-<p class="dl-cl-p">timeout, such as the push channels phones keep open. Phones on a blocking network lost their connection</p>
-<p class="dl-cl-p">and dropped off Wi-Fi. Suricata now picks such connections up (midstream), and on any exception</p>
-<p class="dl-cl-p">(<code>exception-policy: ignore</code>) it lets the traffic through instead of dropping the flow. Only matches of</p>
-<p class="dl-cl-p">blocking rules are dropped.</p>
 <h3 class="dl-cl-ver">0.24.1 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Web Filter: the category lists were not downloaded after the first Apply, so the policies blocked nothing</li>
+<li>Web Filter: the category lists were not downloaded after the first Apply, so the policies blocked nothing until the next scheduled update. The download now follows the saved configuration, as the DNS blocklists do, and Unbound only reloads the zones it has loaded.</li>
 </ul>
-<p class="dl-cl-p">until the next scheduled update. The download now follows the saved configuration, as the DNS blocklists</p>
-<p class="dl-cl-p">do, and Unbound only reloads the zones it has loaded.</p>
 <h3 class="dl-cl-ver">0.24.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Web Filter</strong> (Firewall &gt; Web Filter) blocks site categories through the firewall's DNS resolver (Unbound</li>
-</ul>
-<p class="dl-cl-p">RPZ), with different rules per network.</p>
-<ul class="dl-cl-list">
-<li><strong>Policies:</strong> a policy gives one or more networks a set of blocked categories. VPN client networks can be</li>
-</ul>
-<p class="dl-cl-p">policy networks too, and each network belongs to one policy.</p>
-<ul class="dl-cl-list">
-<li><strong>Categories:</strong> 55 categories in groups (adult content, security threats, ways around the filter, social</li>
-</ul>
-<p class="dl-cl-p">networks, entertainment, shopping and money, downloads and more), from the UT1 blacklists of Université</p>
-<p class="dl-cl-p">Toulouse Capitole (CC BY-SA 4.0, updated daily) and the Block List Project. Adult content comes as a</p>
-<p class="dl-cl-p">compact list and a very large full list, and the policy page estimates the resolver memory the chosen</p>
-<p class="dl-cl-p">categories need.</p>
-<ul class="dl-cl-list">
-<li><strong>Safe Search:</strong> each policy can force safe results on Google (also google.com.tr and other country</li>
-</ul>
-<p class="dl-cl-p">domains), Bing and DuckDuckGo, and restricted mode on YouTube.</p>
-<ul class="dl-cl-list">
-<li><strong>Exceptions:</strong> listed sites are never blocked by the web filter and take effect at once, with no</li>
-</ul>
-<p class="dl-cl-p">Apply. The DNS blocklists still apply to them.</p>
-<ul class="dl-cl-list">
+<li><strong>Web Filter</strong> (Firewall &gt; Web Filter) blocks site categories through the firewall's DNS resolver (Unbound RPZ), with different rules per network.</li>
+<li><strong>Policies:</strong> a policy gives one or more networks a set of blocked categories. VPN client networks can be policy networks too, and each network belongs to one policy.</li>
+<li><strong>Categories:</strong> 55 categories in groups (adult content, security threats, ways around the filter, social networks, entertainment, shopping and money, downloads and more), from the UT1 blacklists of Université Toulouse Capitole (CC BY-SA 4.0, updated daily) and the Block List Project. Adult content comes as a compact list and a very large full list, and the policy page estimates the resolver memory the chosen categories need.</li>
+<li><strong>Safe Search:</strong> each policy can force safe results on Google (also google.com.tr and other country domains), Bing and DuckDuckGo, and restricted mode on YouTube.</li>
+<li><strong>Exceptions:</strong> listed sites are never blocked by the web filter and take effect at once, with no Apply. The DNS blocklists still apply to them.</li>
 <li><strong>Check a site:</strong> shows which categories contain a name and which policies block it.</li>
-<li><strong>Blocked report:</strong> blocks per category, site and device for today, 7 or 30 days. It needs Web Activity,</li>
+<li><strong>Blocked report:</strong> blocks per category, site and device for today, 7 or 30 days. It needs Web Activity, whose collector now also counts web filter and DNS blocklist blocks. Only administrators see the report, and viewing it is logged.</li>
+<li><strong>Updates:</strong> category lists update on a schedule (daily by default) and on demand, and a failed download keeps the previous list.</li>
 </ul>
-<p class="dl-cl-p">whose collector now also counts web filter and DNS blocklist blocks. Only administrators see the report,</p>
-<p class="dl-cl-p">and viewing it is logged.</p>
-<ul class="dl-cl-list">
-<li><strong>Updates:</strong> category lists update on a schedule (daily by default) and on demand, and a failed download</li>
-</ul>
-<p class="dl-cl-p">keeps the previous list.</p>
 <h3 class="dl-cl-ver">0.23.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li><strong>New dashboard:</strong> every panel can be moved and resized. Customize lets you drag a panel by its title and</li>
-</ul>
-<p class="dl-cl-p">resize it from its edges or corner on a 12-column grid. Each user has their own layout, saved at once with</p>
-<p class="dl-cl-p">no Apply, and Reset layout brings back the default.</p>
-<ul class="dl-cl-list">
+<li><strong>New dashboard:</strong> every panel can be moved and resized. Customize lets you drag a panel by its title and resize it from its edges or corner on a 12-column grid. Each user has their own layout, saved at once with no Apply, and Reset layout brings back the default.</li>
 <li><strong>Dashboard &gt; Add panels</strong> (a full page) lists every panel, to add or remove. Panels:</li>
 <li>System, WAN, CPU, Memory, Disk, Temperature, Connections, Blocked</li>
 <li>Traffic, Protection, Interfaces, Services, DHCP, VPN connections</li>
 <li>Top blocked sources, Top blocked ports, Recent changes</li>
-<li>New: Intrusion detection, Gateways (latency, loss, failover), Bandwidth limits (limit and current rate),</li>
-</ul>
-<p class="dl-cl-p">Backup and Web Activity. Backup and Web Activity are for administrators only, and viewing Web Activity</p>
-<p class="dl-cl-p">on the dashboard is logged.</p>
-<ul class="dl-cl-list">
-<li>Panel contents adapt to the panel size: long lists such as VPN connections scroll inside their panel, and</li>
-</ul>
-<p class="dl-cl-p">the traffic graph fills its panel.</p>
-<ul class="dl-cl-list">
-<li><strong>Notifications at the top right of every page:</strong> a bell with the unread count, the latest events in a</li>
-</ul>
-<p class="dl-cl-p">drop-down, and a short pop-up when a new event arrives. They replace the Alerts panel.</p>
-<ul class="dl-cl-list">
-<li><strong>Update check icon</strong> on the dashboard: it spins while checking, a click checks now, and it shows the</li>
-</ul>
-<p class="dl-cl-p">result.</p>
-<ul class="dl-cl-list">
+<li>New: Intrusion detection, Gateways (latency, loss, failover), Bandwidth limits (limit and current rate), Backup and Web Activity. Backup and Web Activity are for administrators only, and viewing Web Activity on the dashboard is logged.</li>
+<li>Panel contents adapt to the panel size: long lists such as VPN connections scroll inside their panel, and the traffic graph fills its panel.</li>
+<li><strong>Notifications at the top right of every page:</strong> a bell with the unread count, the latest events in a drop-down, and a short pop-up when a new event arrives. They replace the Alerts panel.</li>
+<li><strong>Update check icon</strong> on the dashboard: it spins while checking, a click checks now, and it shows the result.</li>
 <li>The DHCP and VPN panels are separate. On phones the dashboard shows one column.</li>
 <li>gridstack 12.6.0 (MIT) ships with the panel. Nothing is loaded from the internet.</li>
 </ul>
 <h3 class="dl-cl-ver">0.22.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Encrypted backups:</strong> System &gt; Backup can encrypt the downloaded backup with a password (AES-256-GCM, key</li>
-</ul>
-<p class="dl-cl-p">from scrypt). An encrypted backup (.stbk) can also carry the <strong>certificates and secrets</strong> kept outside the</p>
-<p class="dl-cl-p">configuration: OpenVPN CA and user certificates, WireGuard keys, notification secrets, the SNMP community,</p>
-<p class="dl-cl-p">MCP tokens and the panel certificate. Restoring it on a new firewall brings back working VPN profiles.</p>
-<ul class="dl-cl-list">
-<li>Restore asks for the password of an encrypted file and can put the certificates and secrets back. Files</li>
-</ul>
-<p class="dl-cl-p">are only written to their known places.</p>
-<ul class="dl-cl-list">
-<li><strong>Automatic backup to a server:</strong> an encrypted backup is uploaded on a schedule over SFTP (NAS, Linux or</li>
-</ul>
-<p class="dl-cl-p">Windows OpenSSH server).</p>
-<ul class="dl-cl-list">
+<li><strong>Encrypted backups:</strong> System &gt; Backup can encrypt the downloaded backup with a password (AES-256-GCM, key from scrypt). An encrypted backup (.stbk) can also carry the <strong>certificates and secrets</strong> kept outside the configuration: OpenVPN CA and user certificates, WireGuard keys, notification secrets, the SNMP community, MCP tokens and the panel certificate. Restoring it on a new firewall brings back working VPN profiles.</li>
+<li>Restore asks for the password of an encrypted file and can put the certificates and secrets back. Files are only written to their known places.</li>
+<li><strong>Automatic backup to a server:</strong> an encrypted backup is uploaded on a schedule over SFTP (NAS, Linux or Windows OpenSSH server).</li>
 <li>The firewall uses its own SSH key, and the server's host key is recorded at the first connection.</li>
 <li>Only the newest N backups of this firewall are kept on the server.</li>
 <li>Test connection and Back up now buttons, and a last-backup status.</li>
@@ -2018,235 +1473,113 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.21.1 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Intrusion Detection: each interface is now <strong>Off</strong>, <strong>Watch</strong> or <strong>Block</strong> on its own, as in pfSense. For</li>
-</ul>
-<p class="dl-cl-p">example, the WAN can only raise alerts while the local networks block.</p>
-<ul class="dl-cl-list">
-<li>With at least one blocking interface, one Suricata process inspects all watched ports through netmap, so the</li>
-</ul>
-<p class="dl-cl-p">rules are loaded only once: blocking ports in IPS mode, watch-only ports in tap mode (every packet passes).</p>
-<p class="dl-cl-p">VLANs on the same port share its mode.</p>
-<ul class="dl-cl-list">
-<li>The alert list marks a packet as Blocked only on a blocking interface, and names netmap ports after their</li>
-</ul>
-<p class="dl-cl-p">interfaces.</p>
-<ul class="dl-cl-list">
+<li>Intrusion Detection: each interface is now <strong>Off</strong>, <strong>Watch</strong> or <strong>Block</strong> on its own, as in pfSense. For example, the WAN can only raise alerts while the local networks block.</li>
+<li>With at least one blocking interface, one Suricata process inspects all watched ports through netmap, so the rules are loaded only once: blocking ports in IPS mode, watch-only ports in tap mode (every packet passes). VLANs on the same port share its mode.</li>
+<li>The alert list marks a packet as Blocked only on a blocking interface, and names netmap ports after their interfaces.</li>
 <li>Settings saved with 0.21.0 carry over: "Detect and block" becomes Block on every watched interface.</li>
 </ul>
 <h3 class="dl-cl-ver">0.21.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Inline blocking (IPS)</strong> in Services &gt; Intrusion Detection: the mode "Detect and block" puts Suricata in the</li>
-</ul>
-<p class="dl-cl-p">path of the packets (netmap with the host stack, as in OPNsense). The rules of the categories marked</p>
-<p class="dl-cl-p"><strong>Block</strong> drop what they match; all other categories still only alert. Blocked packets show a "Blocked"</p>
-<p class="dl-cl-p">badge in the alert list.</p>
-<ul class="dl-cl-list">
-<li>Blocking categories take effect at once without a restart. Switching the mode needs Apply, with the usual</li>
-</ul>
-<p class="dl-cl-p">automatic rollback if the firewall becomes unreachable.</p>
-<ul class="dl-cl-list">
-<li>In blocking mode, VLAN and PPPoE interfaces are inspected on their physical port, and hardware offloading</li>
-</ul>
-<p class="dl-cl-p">(TSO, LRO, checksums) is switched off. If Suricata stops, the ports fall back to normal forwarding (fail</p>
-<p class="dl-cl-p">open).</p>
-<ul class="dl-cl-list">
+<li><strong>Inline blocking (IPS)</strong> in Services &gt; Intrusion Detection: the mode "Detect and block" puts Suricata in the path of the packets (netmap with the host stack, as in OPNsense). The rules of the categories marked <strong>Block</strong> drop what they match; all other categories still only alert. Blocked packets show a "Blocked" badge in the alert list.</li>
+<li>Blocking categories take effect at once without a restart. Switching the mode needs Apply, with the usual automatic rollback if the firewall becomes unreachable.</li>
+<li>In blocking mode, VLAN and PPPoE interfaces are inspected on their physical port, and hardware offloading (TSO, LRO, checksums) is switched off. If Suricata stops, the ports fall back to normal forwarding (fail open).</li>
 <li>Apply checks that netmap is available before anything changes.</li>
 </ul>
 <h3 class="dl-cl-ver">0.20.3 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Web Activity: a click anywhere on a device row opens the sites that device used, and a click on a site row</li>
+<li>Web Activity: a click anywhere on a device row opens the sites that device used, and a click on a site row opens the devices that used it. Ctrl / Cmd + click opens the page in a new tab.</li>
 </ul>
-<p class="dl-cl-p">opens the devices that used it. Ctrl / Cmd + click opens the page in a new tab.</p>
 <h3 class="dl-cl-ver">0.20.2 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Web Activity names VPN clients: an OpenVPN address shows the user ("OpenVPN: name") and a WireGuard address</li>
-</ul>
-<p class="dl-cl-p">the peer ("WireGuard: name"). Both are kept in the DHCP history too, so a VPN address used by different users</p>
-<p class="dl-cl-p">over time stays apart.</p>
-<ul class="dl-cl-list">
+<li>Web Activity names VPN clients: an OpenVPN address shows the user ("OpenVPN: name") and a WireGuard address the peer ("WireGuard: name"). Both are kept in the DHCP history too, so a VPN address used by different users over time stays apart.</li>
 <li>The device count sits next to the title.</li>
 </ul>
 <h3 class="dl-cl-ver">0.20.1 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Web Activity recorded nothing: syslogd writes only to log files that already exist, so the DNS query log</li>
+<li>Web Activity recorded nothing: syslogd writes only to log files that already exist, so the DNS query log was never started. Apply and the collector now create the file (root only) before syslogd reloads.</li>
 </ul>
-<p class="dl-cl-p">was never started. Apply and the collector now create the file (root only) before syslogd reloads.</p>
 <h3 class="dl-cl-ver">0.20.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Web Activity</strong> (Diagnostics &gt; Web Activity) shows which device looked up which sites, from the DNS</li>
-</ul>
-<p class="dl-cl-p">queries the firewall's Unbound resolver answers. Each device, day and name is kept with a count and the</p>
-<p class="dl-cl-p">first and last time.</p>
-<ul class="dl-cl-list">
-<li>The Devices tab lists each address with its host name and MAC address, and opens a device page with the</li>
-</ul>
-<p class="dl-cl-p">sites it used. The Sites tab lists each site with the devices that used it. Both tabs filter by period</p>
-<p class="dl-cl-p">(today up to a year), network and search text.</p>
-<ul class="dl-cl-list">
-<li><strong>DHCP history</strong> records which device (MAC address, host name) held each address and when. It reads the</li>
-</ul>
-<p class="dl-cl-p">DHCP leases and the ARP table, so devices with a fixed address are included. The history can be exported</p>
-<p class="dl-cl-p">as CSV.</p>
-<ul class="dl-cl-list">
-<li><strong>Send all DNS to the firewall</strong> (optional): pf redirects DNS from the internal networks to the firewall,</li>
-</ul>
-<p class="dl-cl-p">including queries aimed at 8.8.8.8 and the like. It also blocks DNS over TLS (port 853) and tells Firefox</p>
-<p class="dl-cl-p">not to use its own DNS over HTTPS.</p>
-<ul class="dl-cl-list">
-<li>Records are kept for 1 to 730 days (30 by default), in a root-only database on the firewall. The pages</li>
-</ul>
-<p class="dl-cl-p">are open to administrators only, and every look at the data is written to the system log.</p>
-<ul class="dl-cl-list">
+<li><strong>Web Activity</strong> (Diagnostics &gt; Web Activity) shows which device looked up which sites, from the DNS queries the firewall's Unbound resolver answers. Each device, day and name is kept with a count and the first and last time.</li>
+<li>The Devices tab lists each address with its host name and MAC address, and opens a device page with the sites it used. The Sites tab lists each site with the devices that used it. Both tabs filter by period (today up to a year), network and search text.</li>
+<li><strong>DHCP history</strong> records which device (MAC address, host name) held each address and when. It reads the DHCP leases and the ARP table, so devices with a fixed address are included. The history can be exported as CSV.</li>
+<li><strong>Send all DNS to the firewall</strong> (optional): pf redirects DNS from the internal networks to the firewall, including queries aimed at 8.8.8.8 and the like. It also blocks DNS over TLS (port 853) and tells Firefox not to use its own DNS over HTTPS.</li>
+<li>Records are kept for 1 to 730 days (30 by default), in a root-only database on the firewall. The pages are open to administrators only, and every look at the data is written to the system log.</li>
 <li>The stratum-fw package now depends on py312-sqlite3.</li>
 </ul>
 <h3 class="dl-cl-ver">0.19.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>SNMP agent</strong> (System &gt; Settings &gt; SNMP) for monitoring systems such as LibreNMS, Zabbix, PRTG, Observium or</li>
-</ul>
-<p class="dl-cl-p">Cacti: SNMP v1 / v2c, read-only, with the interfaces and their 64-bit traffic counters (IF-MIB), CPU, memory,</p>
-<p class="dl-cl-p">disks and processes (HOST-RESOURCES) and pf statistics. It uses FreeBSD's own bsnmpd.</p>
-<ul class="dl-cl-list">
-<li>It answers only on the addresses of the chosen internal interfaces, never on a WAN, and pf lets queries in</li>
-</ul>
-<p class="dl-cl-p">only from the allowed addresses. The community is stored root-only and never shown again; nothing can be</p>
-<p class="dl-cl-p">changed over SNMP.</p>
-<ul class="dl-cl-list">
+<li><strong>SNMP agent</strong> (System &gt; Settings &gt; SNMP) for monitoring systems such as LibreNMS, Zabbix, PRTG, Observium or Cacti: SNMP v1 / v2c, read-only, with the interfaces and their 64-bit traffic counters (IF-MIB), CPU, memory, disks and processes (HOST-RESOURCES) and pf statistics. It uses FreeBSD's own bsnmpd.</li>
+<li>It answers only on the addresses of the chosen internal interfaces, never on a WAN, and pf lets queries in only from the allowed addresses. The community is stored root-only and never shown again; nothing can be changed over SNMP.</li>
 <li>The stratum-fw package now depends on FreeBSD-bsnmp, so updating installs the agent.</li>
 </ul>
 <h3 class="dl-cl-ver">0.18.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Bandwidth limits</strong> (Firewall &gt; Shaper): a download and an upload limit for each internal network, shared</li>
+<li><strong>Bandwidth limits</strong> (Firewall &gt; Shaper): a download and an upload limit for each internal network, shared by the whole network (for example 255 Mbit/s for the office VLAN) or for each device on its own (for example 20 Mbit/s per guest phone). Decimal values are allowed; an empty field means no limit in that direction.</li>
+<li>The limits use FreeBSD's dummynet directly from pf (no second firewall). The pipes are loaded before pf at every Apply and by FreeBSD at boot; an Apply that is not kept removes them again.</li>
 </ul>
-<p class="dl-cl-p">by the whole network (for example 255 Mbit/s for the office VLAN) or for each device on its own (for</p>
-<p class="dl-cl-p">example 20 Mbit/s per guest phone). Decimal values are allowed; an empty field means no limit in that</p>
-<p class="dl-cl-p">direction.</p>
-<ul class="dl-cl-list">
-<li>The limits use FreeBSD's dummynet directly from pf (no second firewall). The pipes are loaded before pf</li>
-</ul>
-<p class="dl-cl-p">at every Apply and by FreeBSD at boot; an Apply that is not kept removes them again.</p>
 <h3 class="dl-cl-ver">0.17.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Interface groups</strong> (Interfaces &gt; Groups): a group of interfaces, for example all VLANs or all WANs, gets</li>
-</ul>
-<p class="dl-cl-p">its own tab on Firewall &gt; Rules. Its rules apply to every member interface and are evaluated before each</p>
-<p class="dl-cl-p">interface's own rules, as in pfSense and OPNsense. WAN members keep their reply-to.</p>
-<ul class="dl-cl-list">
-<li>Groups can be renamed (their rules move with them) and deleted once they have no rules. When an interface is</li>
-</ul>
-<p class="dl-cl-p">removed, it simply leaves its groups.</p>
-<ul class="dl-cl-list">
+<li><strong>Interface groups</strong> (Interfaces &gt; Groups): a group of interfaces, for example all VLANs or all WANs, gets its own tab on Firewall &gt; Rules. Its rules apply to every member interface and are evaluated before each interface's own rules, as in pfSense and OPNsense. WAN members keep their reply-to.</li>
+<li>Groups can be renamed (their rules move with them) and deleted once they have no rules. When an interface is removed, it simply leaves its groups.</li>
 <li>The MCP tool firewall_rules lists group rules and the interfaces they apply to.</li>
 </ul>
 <h3 class="dl-cl-ver">0.16.1 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>WAN failover</strong> (Interfaces &gt; Gateways, shown with two or more WANs): when the gateway that carries the</li>
+<li><strong>WAN failover</strong> (Interfaces &gt; Gateways, shown with two or more WANs): when the gateway that carries the default route goes down, the default route moves at once to the best gateway that is up (lowest priority number). The preferred gateway takes over again only after it has been online for a set time (60 s by default), so a flapping line does not switch back and forth. The connections of the failed gateway can be closed so they reopen through the new one at once. Every switch is logged and reported.</li>
+<li>With two or more WANs, answers to connections that come in on a WAN (port forwards, management, pass rules) leave through that same WAN (reply-to), whatever the default route is. Static WANs use their gateway, PPPoE WANs their link. Systems with one WAN keep exactly the same firewall rules.</li>
 </ul>
-<p class="dl-cl-p">default route goes down, the default route moves at once to the best gateway that is up (lowest priority</p>
-<p class="dl-cl-p">number). The preferred gateway takes over again only after it has been online for a set time (60 s by</p>
-<p class="dl-cl-p">default), so a flapping line does not switch back and forth. The connections of the failed gateway can be</p>
-<p class="dl-cl-p">closed so they reopen through the new one at once. Every switch is logged and reported.</p>
-<ul class="dl-cl-list">
-<li>With two or more WANs, answers to connections that come in on a WAN (port forwards, management, pass rules)</li>
-</ul>
-<p class="dl-cl-p">leave through that same WAN (reply-to), whatever the default route is. Static WANs use their gateway, PPPoE</p>
-<p class="dl-cl-p">WANs their link. Systems with one WAN keep exactly the same firewall rules.</p>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>After the update to 0.16.0 the gateway monitor started only with the next Apply or reboot, because the</li>
+<li>After the update to 0.16.0 the gateway monitor started only with the next Apply or reboot, because the update tool of the previous version did not know it. The panel now starts it when it is enabled but not running.</li>
 </ul>
-<p class="dl-cl-p">update tool of the previous version did not know it. The panel now starts it when it is enabled but not</p>
-<p class="dl-cl-p">running.</p>
 <h3 class="dl-cl-ver">0.16.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Gateways</strong> (Interfaces &gt; Gateways): every WAN-type interface has a gateway with live status (online,</li>
-</ul>
-<p class="dl-cl-p">warning, down), latency, packet loss and the last hour as a small graph.</p>
-<ul class="dl-cl-list">
-<li>A new gateway monitor service probes each gateway once per second from the WAN's own address, also when</li>
-</ul>
-<p class="dl-cl-p">nobody has the panel open. A gateway is down when the packet loss or latency over the last 30 seconds</p>
-<p class="dl-cl-p">reaches its limits (20 % and 500 ms by default, set per gateway), or when its interface has no link or</p>
-<p class="dl-cl-p">address; half of a limit shows a warning.</p>
-<ul class="dl-cl-list">
-<li>Per gateway: a description, a monitor address (for providers whose gateway does not answer pings; it is</li>
-</ul>
-<p class="dl-cl-p">always reached through that gateway), the limits, and a priority for the WAN failover that follows in</p>
-<p class="dl-cl-p">0.16.1.</p>
-<ul class="dl-cl-list">
+<li><strong>Gateways</strong> (Interfaces &gt; Gateways): every WAN-type interface has a gateway with live status (online, warning, down), latency, packet loss and the last hour as a small graph.</li>
+<li>A new gateway monitor service probes each gateway once per second from the WAN's own address, also when nobody has the panel open. A gateway is down when the packet loss or latency over the last 30 seconds reaches its limits (20 % and 500 ms by default, set per gateway), or when its interface has no link or address; half of a limit shows a warning.</li>
+<li>Per gateway: a description, a monitor address (for providers whose gateway does not answer pings; it is always reached through that gateway), the limits, and a priority for the WAN failover that follows in 0.16.1.</li>
 <li>A gateway that goes down while its link is up, and its recovery, are reported by the notifications.</li>
 </ul>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>The dashboard's WAN panel and the MCP tool wan_status now use the gateway monitor (one probe per second</li>
+<li>The dashboard's WAN panel and the MCP tool wan_status now use the gateway monitor (one probe per second instead of three every 30 seconds from the panel).</li>
 </ul>
-<p class="dl-cl-p">instead of three every 30 seconds from the panel).</p>
 <h3 class="dl-cl-ver">0.15.3 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Intrusion detection on a WAN interface raised almost no alerts: the firewall's public address was not part</li>
+<li>Intrusion detection on a WAN interface raised almost no alerts: the firewall's public address was not part of the protected networks (HOME_NET), so traffic from the internet to it did not match most rules. The WAN addresses are now included. When a PPPoE or DHCP address changes, the new address is taken over within five minutes and Suricata restarts; while a WAN is reconnecting, nothing changes.</li>
 </ul>
-<p class="dl-cl-p">of the protected networks (HOME_NET), so traffic from the internet to it did not match most rules. The WAN</p>
-<p class="dl-cl-p">addresses are now included. When a PPPoE or DHCP address changes, the new address is taken over within</p>
-<p class="dl-cl-p">five minutes and Suricata restarts; while a WAN is reconnecting, nothing changes.</p>
 <h3 class="dl-cl-ver">0.15.2 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Dashboard: the Protection card shows the intrusion alerts of the last 24 hours (high-severity ones in red)</li>
+<li>Dashboard: the Protection card shows the intrusion alerts of the last 24 hours (high-severity ones in red) and the three most frequent rules, linked to the Alerts page.</li>
+<li>Notifications: a new event for high-severity intrusion alerts, by e-mail or Telegram. Each rule is reported at most once every 6 hours, disabled rules never. It can be switched off on System &gt; Settings &gt; Notifications like the other events, and the alerts appear in the dashboard's Alerts card.</li>
+<li>MCP: a new tool, ids_alerts, gives AI assistants the intrusion detection state, the last 24 hours in numbers, the most frequent rules and the latest alerts, filtered by severity or text.</li>
 </ul>
-<p class="dl-cl-p">and the three most frequent rules, linked to the Alerts page.</p>
-<ul class="dl-cl-list">
-<li>Notifications: a new event for high-severity intrusion alerts, by e-mail or Telegram. Each rule is reported</li>
-</ul>
-<p class="dl-cl-p">at most once every 6 hours, disabled rules never. It can be switched off on System &gt; Settings &gt;</p>
-<p class="dl-cl-p">Notifications like the other events, and the alerts appear in the dashboard's Alerts card.</p>
-<ul class="dl-cl-list">
-<li>MCP: a new tool, ids_alerts, gives AI assistants the intrusion detection state, the last 24 hours in</li>
-</ul>
-<p class="dl-cl-p">numbers, the most frequent rules and the latest alerts, filtered by severity or text.</p>
 <h3 class="dl-cl-ver">0.15.1 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Intrusion detection could not start on systems installed from the image: Suricata needs the netmap</li>
+<li>Intrusion detection could not start on systems installed from the image: Suricata needs the netmap library, which the minimal base system did not include. The package now depends on it (FreeBSD-netmap), so updating installs it, and new installations include it. The pre-check had stopped the Apply, so no system was changed.</li>
 </ul>
-<p class="dl-cl-p">library, which the minimal base system did not include. The package now depends on it (FreeBSD-netmap),</p>
-<p class="dl-cl-p">so updating installs it, and new installations include it. The pre-check had stopped the Apply, so no</p>
-<p class="dl-cl-p">system was changed.</p>
 <h3 class="dl-cl-ver">0.15.0 - 2026-11-05</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Intrusion detection</strong> (Services &gt; Intrusion Detection) with Suricata 8 in IDS mode: the traffic of the</li>
+<li><strong>Intrusion detection</strong> (Services &gt; Intrusion Detection) with Suricata 8 in IDS mode: the traffic of the chosen interfaces is compared with the ET Open rules and alerts are raised for malware calling home, exploits, scans, phishing, coin miners and more. Nothing is blocked yet; blocking (IPS) follows once the alerts have shown which rules fit the network.</li>
+<li>Rule categories in three groups, with a recommended selection (threats on, noisy policy and information rules off) and the number of rules in each category.</li>
+<li>Automatic rule updates on a schedule (daily by default), like the blocklists. A new rule set is downloaded only when it changed, and it is tested with Suricata before it is used. A failed download or test keeps the previous rules.</li>
+<li>Alerts page: newest first, with severity, rule, source, destination and interface, a search and a severity filter. A rule that alerts on normal traffic can be disabled with one click and enabled again on the Settings tab; the change takes effect at once, without Apply and without a gap in detection.</li>
+<li>Suricata runs supervised and is started again if it stops. Memory limits follow the installed memory. Its logs are rotated with the other logs, and failed rule downloads are reported by the notifications.</li>
 </ul>
-<p class="dl-cl-p">chosen interfaces is compared with the ET Open rules and alerts are raised for malware calling home,</p>
-<p class="dl-cl-p">exploits, scans, phishing, coin miners and more. Nothing is blocked yet; blocking (IPS) follows once the</p>
-<p class="dl-cl-p">alerts have shown which rules fit the network.</p>
-<ul class="dl-cl-list">
-<li>Rule categories in three groups, with a recommended selection (threats on, noisy policy and information</li>
-</ul>
-<p class="dl-cl-p">rules off) and the number of rules in each category.</p>
-<ul class="dl-cl-list">
-<li>Automatic rule updates on a schedule (daily by default), like the blocklists. A new rule set is downloaded</li>
-</ul>
-<p class="dl-cl-p">only when it changed, and it is tested with Suricata before it is used. A failed download or test keeps</p>
-<p class="dl-cl-p">the previous rules.</p>
-<ul class="dl-cl-list">
-<li>Alerts page: newest first, with severity, rule, source, destination and interface, a search and a</li>
-</ul>
-<p class="dl-cl-p">severity filter. A rule that alerts on normal traffic can be disabled with one click and enabled again</p>
-<p class="dl-cl-p">on the Settings tab; the change takes effect at once, without Apply and without a gap in detection.</p>
-<ul class="dl-cl-list">
-<li>Suricata runs supervised and is started again if it stops. Memory limits follow the installed memory.</li>
-</ul>
-<p class="dl-cl-p">Its logs are rotated with the other logs, and failed rule downloads are reported by the notifications.</p>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
 <li>Opening the MCP address in a web browser now shows a short explanation instead of an empty error page.</li>
@@ -2255,157 +1588,75 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.14.0 - 2026-11-04</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>MCP server</strong> (Model Context Protocol, System &gt; Settings &gt; MCP): AI assistants such as Claude, ChatGPT,</li>
-</ul>
-<p class="dl-cl-p">Gemini or DeepSeek (through an MCP client) can read the firewall's live state and answer questions like</p>
-<p class="dl-cl-p">"what was blocked in the last hour?" or "which devices are on the guest network?". 14 read-only tools:</p>
-<p class="dl-cl-p">system status, interfaces, WAN status, services, firewall log, blocked-traffic summary, firewall rules,</p>
-<p class="dl-cl-p">NAT rules, DHCP leases, VPN sessions, alerts, configuration changes, blocklists and traffic statistics.</p>
-<p class="dl-cl-p">Nothing can be changed through MCP.</p>
-<ul class="dl-cl-list">
-<li>Access tokens for MCP, one per assistant or computer, optionally limited to given addresses. A token is</li>
-</ul>
-<p class="dl-cl-p">shown once and stored only as a hash; last use, address and number of calls are shown, and a token can be</p>
-<p class="dl-cl-p">revoked at any time. Wrong tokens count as failed sign-ins and block the address.</p>
-<ul class="dl-cl-list">
-<li>Each tool can be switched off, so its data is never sent to an AI provider. Passwords, keys, tokens and</li>
-</ul>
-<p class="dl-cl-p">VPN configurations are never returned.</p>
-<ul class="dl-cl-list">
+<li><strong>MCP server</strong> (Model Context Protocol, System &gt; Settings &gt; MCP): AI assistants such as Claude, ChatGPT, Gemini or DeepSeek (through an MCP client) can read the firewall's live state and answer questions like "what was blocked in the last hour?" or "which devices are on the guest network?". 14 read-only tools: system status, interfaces, WAN status, services, firewall log, blocked-traffic summary, firewall rules, NAT rules, DHCP leases, VPN sessions, alerts, configuration changes, blocklists and traffic statistics. Nothing can be changed through MCP.</li>
+<li>Access tokens for MCP, one per assistant or computer, optionally limited to given addresses. A token is shown once and stored only as a hash; last use, address and number of calls are shown, and a token can be revoked at any time. Wrong tokens count as failed sign-ins and block the address.</li>
+<li>Each tool can be switched off, so its data is never sent to an AI provider. Passwords, keys, tokens and VPN configurations are never returned.</li>
 <li>The panel certificate can be downloaded for MCP clients that must trust it.</li>
 </ul>
 <h3 class="dl-cl-ver">0.13.2 - 2026-11-04</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Dashboard <strong>Alerts</strong>: the latest events (WAN down or up again, new WAN address, blocked sign-ins, failed</li>
+<li>Dashboard <strong>Alerts</strong>: the latest events (WAN down or up again, new WAN address, blocked sign-ins, failed applies, automatic rollbacks, available updates, full disk, high temperature, certificate and blocklist problems) with the time and whether each was sent by e-mail or Telegram. Events are now recorded even when no notification channel is set up; the last 100 are kept.</li>
+<li>Dashboard <strong>DHCP</strong>: per network, the devices with an active lease, how much of the address pool is in use (amber from 75 %, red from 90 %) and the number of static mappings.</li>
 </ul>
-<p class="dl-cl-p">applies, automatic rollbacks, available updates, full disk, high temperature, certificate and blocklist</p>
-<p class="dl-cl-p">problems) with the time and whether each was sent by e-mail or Telegram. Events are now recorded even when</p>
-<p class="dl-cl-p">no notification channel is set up; the last 100 are kept.</p>
-<ul class="dl-cl-list">
-<li>Dashboard <strong>DHCP</strong>: per network, the devices with an active lease, how much of the address pool is in use</li>
-</ul>
-<p class="dl-cl-p">(amber from 75 %, red from 90 %) and the number of static mappings.</p>
 <h3 class="dl-cl-ver">0.13.1 - 2026-11-04</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Dashboard <strong>WAN panel</strong>: connection type, gateway, latency and packet loss to the gateway (measured every 30</li>
+<li>Dashboard <strong>WAN panel</strong>: connection type, gateway, latency and packet loss to the gateway (measured every 30 seconds, with a curve), how long the connection has been up, today's download and upload, and the live rate; latency to the internet (1.1.1.1) in the status strip.</li>
+<li>Dashboard <strong>VPN connections</strong>: every connected OpenVPN user and active WireGuard peer with the address it connects from, its VPN address, connection time or last handshake, and the data received and sent.</li>
+<li>Opening the dashboard checks for software updates (at most every 5 minutes), like pfSense, and shows the result as soon as it is there.</li>
 </ul>
-<p class="dl-cl-p">seconds, with a curve), how long the connection has been up, today's download and upload, and the live rate;</p>
-<p class="dl-cl-p">latency to the internet (1.1.1.1) in the status strip.</p>
-<ul class="dl-cl-list">
-<li>Dashboard <strong>VPN connections</strong>: every connected OpenVPN user and active WireGuard peer with the address it</li>
-</ul>
-<p class="dl-cl-p">connects from, its VPN address, connection time or last handshake, and the data received and sent.</p>
-<ul class="dl-cl-list">
-<li>Opening the dashboard checks for software updates (at most every 5 minutes), like pfSense, and shows the</li>
-</ul>
-<p class="dl-cl-p">result as soon as it is there.</p>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Firewall log: on FreeBSD 15 every logged packet was given the name of the wrong rule (often "ipv6-off"),</li>
+<li>Firewall log: on FreeBSD 15 every logged packet was given the name of the wrong rule (often "ipv6-off"), because pf now writes rule numbers as "3..1/0". The Firewall Log page, the dashboard and remote syslog show the right rule again; entries logged before the update keep their old names.</li>
+<li>Dashboard: the CPU tile no longer opens the traffic graphs; the live traffic under the chart uses the same measurement as the interface list.</li>
 </ul>
-<p class="dl-cl-p">because pf now writes rule numbers as "3..1/0". The Firewall Log page, the dashboard and remote syslog</p>
-<p class="dl-cl-p">show the right rule again; entries logged before the update keep their old names.</p>
-<ul class="dl-cl-list">
-<li>Dashboard: the CPU tile no longer opens the traffic graphs; the live traffic under the chart uses the same</li>
-</ul>
-<p class="dl-cl-p">measurement as the interface list.</p>
 <h3 class="dl-cl-ver">0.13.0 - 2026-11-04</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
 <li><strong>New dashboard</strong>:</li>
-<li>Status strip: host name, version and update state, every WAN connection with its address and live</li>
-</ul>
-<p class="dl-cl-p">download / upload, uptime, time of the last configuration change, firewall state.</p>
-<ul class="dl-cl-list">
-<li>Key figures: CPU with a 5-minute curve, memory, disk, temperature, connections against the state table</li>
-</ul>
-<p class="dl-cl-p">limit, and packets blocked in the last hour with a curve; colours change at warning levels.</p>
-<ul class="dl-cl-list">
+<li>Status strip: host name, version and update state, every WAN connection with its address and live download / upload, uptime, time of the last configuration change, firewall state.</li>
+<li>Key figures: CPU with a 5-minute curve, memory, disk, temperature, connections against the state table limit, and packets blocked in the last hour with a curve; colours change at warning levels.</li>
 <li>Traffic of the last hour per interface with average and peak.</li>
-<li>Protection: IP and DNS blocklists, packets stopped by the IP blocklists, addresses blocked after failed</li>
-</ul>
-<p class="dl-cl-p">sign-ins, OpenVPN users and WireGuard peers online, the rules that blocked most in the last hour.</p>
-<ul class="dl-cl-list">
-<li>Interfaces with their description as the name, status, link speed, address and live traffic; services</li>
-</ul>
-<p class="dl-cl-p">with a running / stopped summary.</p>
-<ul class="dl-cl-list">
-<li>Top blocked sources and ports of the last hour, and the latest configuration changes (applied, kept,</li>
-</ul>
-<p class="dl-cl-p">reverted, failed).</p>
-<ul class="dl-cl-list">
+<li>Protection: IP and DNS blocklists, packets stopped by the IP blocklists, addresses blocked after failed sign-ins, OpenVPN users and WireGuard peers online, the rules that blocked most in the last hour.</li>
+<li>Interfaces with their description as the name, status, link speed, address and live traffic; services with a running / stopped summary.</li>
+<li>Top blocked sources and ports of the last hour, and the latest configuration changes (applied, kept, reverted, failed).</li>
 <li>Works in the dark and light themes and on phones.</li>
 </ul>
 <h3 class="dl-cl-ver">0.12.6 - 2026-11-04</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>System &gt; Settings &gt; Networking</strong>: switch off hardware offload (LRO, TSO, checksum) on every physical port -</li>
-</ul>
-<p class="dl-cl-p">set live without restarting the ports and kept after a reboot - with the current state per port; CPU power</p>
-<p class="dl-cl-p">management (adaptive, maximum performance, economy); ARP logging and ARP entry lifetime; IPv6 status.</p>
-<ul class="dl-cl-list">
-<li><strong>System &gt; Settings &gt; Tunables</strong>: run-time system values (sysctl) that matter on a firewall, with the values</li>
-</ul>
-<p class="dl-cl-p">pfSense uses as a recommendation and the current value of each, plus own run-time tunables. Values are set</p>
-<p class="dl-cl-p">with Apply and kept after a reboot (/etc/sysctl.conf.local); a value set back to default gets the value it</p>
-<p class="dl-cl-p">had before. Values Stratum FW manages itself cannot be changed here.</p>
-<ul class="dl-cl-list">
+<li><strong>System &gt; Settings &gt; Networking</strong>: switch off hardware offload (LRO, TSO, checksum) on every physical port - set live without restarting the ports and kept after a reboot - with the current state per port; CPU power management (adaptive, maximum performance, economy); ARP logging and ARP entry lifetime; IPv6 status.</li>
+<li><strong>System &gt; Settings &gt; Tunables</strong>: run-time system values (sysctl) that matter on a firewall, with the values pfSense uses as a recommendation and the current value of each, plus own run-time tunables. Values are set with Apply and kept after a reboot (/etc/sysctl.conf.local); a value set back to default gets the value it had before. Values Stratum FW manages itself cannot be changed here.</li>
 <li>All System &gt; Settings tabs are now available.</li>
 </ul>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>An existing /etc/sysctl.conf.local is kept as /etc/sysctl.conf.local.stratum-orig; the file is now written</li>
+<li>An existing /etc/sysctl.conf.local is kept as /etc/sysctl.conf.local.stratum-orig; the file is now written from Settings &gt; Tunables.</li>
 </ul>
-<p class="dl-cl-p">from Settings &gt; Tunables.</p>
 <h3 class="dl-cl-ver">0.12.5 - 2026-11-04</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Automatic blocklist updates on a schedule</strong> (Firewall &gt; Blocklists, IP and DNSBL): every hour, every 6 or</li>
+<li><strong>Automatic blocklist updates on a schedule</strong> (Firewall &gt; Blocklists, IP and DNSBL): every hour, every 6 or 12 hours, daily at a chosen hour, weekly on a chosen day, or off. The page shows the next automatic update. A missed update (firewall switched off) runs at the next hour, and after a failed update the next hour tries again. Schedule changes take effect at once, without Apply. Defaults keep the earlier rhythm (IP lists hourly, DNS lists daily at 03:00).</li>
 </ul>
-<p class="dl-cl-p">12 hours, daily at a chosen hour, weekly on a chosen day, or off. The page shows the next automatic update. A</p>
-<p class="dl-cl-p">missed update (firewall switched off) runs at the next hour, and after a failed update the next hour tries</p>
-<p class="dl-cl-p">again. Schedule changes take effect at once, without Apply. Defaults keep the earlier rhythm (IP lists hourly,</p>
-<p class="dl-cl-p">DNS lists daily at 03:00).</p>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>The update log of the IP blocklists stayed hidden while an update ran (two elements on the page shared the</li>
+<li>The update log of the IP blocklists stayed hidden while an update ran (two elements on the page shared the same id).</li>
 </ul>
-<p class="dl-cl-p">same id).</p>
 <h3 class="dl-cl-ver">0.12.4 - 2026-11-04</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>System &gt; Settings &gt; Notifications</strong>: messages from the firewall by <strong>Telegram</strong> (bot) and <strong>e-mail</strong></li>
+<li><strong>System &gt; Settings &gt; Notifications</strong>: messages from the firewall by <strong>Telegram</strong> (bot) and <strong>e-mail</strong> (SMTP with STARTTLS or TLS), each with a test button that uses the values on the page.</li>
+<li>Events, each can be switched off: software update available, applying the configuration failed, changes reverted automatically because they were not kept in time, WAN connection down / up again / new address, an address blocked after failed sign-ins, panel certificate expiring, IP or DNS blocklist downloads failing, disk almost full and CPU temperature high (adjustable thresholds).</li>
+<li>Failed applies, automatic rollbacks and blocked sign-ins are reported at once; the rest is checked every 5 minutes. The same problem is repeated only after a pause.</li>
+<li>The bot token and the mail password are stored on the firewall only (root-only files) and never shown again. Notification settings take effect at once, without Apply.</li>
 </ul>
-<p class="dl-cl-p">(SMTP with STARTTLS or TLS), each with a test button that uses the values on the page.</p>
-<ul class="dl-cl-list">
-<li>Events, each can be switched off: software update available, applying the configuration failed, changes</li>
-</ul>
-<p class="dl-cl-p">reverted automatically because they were not kept in time, WAN connection down / up again / new address,</p>
-<p class="dl-cl-p">an address blocked after failed sign-ins, panel certificate expiring, IP or DNS blocklist downloads failing,</p>
-<p class="dl-cl-p">disk almost full and CPU temperature high (adjustable thresholds).</p>
-<ul class="dl-cl-list">
-<li>Failed applies, automatic rollbacks and blocked sign-ins are reported at once; the rest is checked every 5</li>
-</ul>
-<p class="dl-cl-p">minutes. The same problem is repeated only after a pause.</p>
-<ul class="dl-cl-list">
-<li>The bot token and the mail password are stored on the firewall only (root-only files) and never shown</li>
-</ul>
-<p class="dl-cl-p">again. Notification settings take effect at once, without Apply.</p>
 <h3 class="dl-cl-ver">0.12.3 - 2026-11-04</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
 <li><strong>System &gt; Settings &gt; Logging</strong>:</li>
-<li>Firewall log rotation: file size and number of old files kept; current size of the firewall, system, DHCP/DNS</li>
-</ul>
-<p class="dl-cl-p">and sign-in logs and the free space for logs.</p>
-<ul class="dl-cl-list">
-<li><strong>Remote syslog</strong>: up to two servers (for example a NAS), each with its own choice of logs: system, sign-ins</li>
-</ul>
-<p class="dl-cl-p">(panel, SSH, VPN), the firewall log (one readable line per packet, tag <code>filterlog</code>) and DHCP/DNS. Sent over</p>
-<p class="dl-cl-p">UDP by the system's syslogd; the local logs stay as they are.</p>
-<ul class="dl-cl-list">
+<li>Firewall log rotation: file size and number of old files kept; current size of the firewall, system, DHCP/DNS and sign-in logs and the free space for logs.</li>
+<li><strong>Remote syslog</strong>: up to two servers (for example a NAS), each with its own choice of logs: system, sign-ins (panel, SSH, VPN), the firewall log (one readable line per packet, tag <code>filterlog</code>) and DHCP/DNS. Sent over UDP by the system's syslogd; the local logs stay as they are.</li>
 <li><strong>Send test message</strong> checks that a server receives syslog before anything is applied.</li>
 </ul>
 <h4 class="dl-cl-sub">Changed</h4>
@@ -2419,67 +1670,36 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <li><strong>System &gt; Settings &gt; Firewall &amp; NAT</strong>:</li>
 <li>Blocked connections dropped silently or rejected; logging of the default block and of broadcast noise.</li>
 <li>Bogon and private network blocking and ping on the WAN address (until now only in the configuration file).</li>
-<li>State table size with a suggestion for the installed memory and the current usage, idle-connection timeouts</li>
-</ul>
-<p class="dl-cl-p">(normal, high latency, conservative, aggressive), SYN flood protection.</p>
-<ul class="dl-cl-list">
+<li>State table size with a suggestion for the installed memory and the current usage, idle-connection timeouts (normal, high latency, conservative, aggressive), SYN flood protection.</li>
 <li>Packet normalisation: random IP ID, clearing the don't-fragment bit.</li>
-<li><strong>NAT reflection</strong>: local devices reach a port forward through the public address. The redirected traffic</li>
-</ul>
-<p class="dl-cl-p">is still filtered by the rules of the device's own interface.</p>
-<ul class="dl-cl-list">
+<li><strong>NAT reflection</strong>: local devices reach a port forward through the public address. The redirected traffic is still filtered by the rules of the device's own interface.</li>
 <li>Static source ports for automatic outbound NAT.</li>
 <li>The defaults keep the generated pf configuration of earlier versions unchanged.</li>
 </ul>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>Settings the panel uses on its own (session timeout, sign-in notice, sign-in protection) no longer show the</li>
+<li>Settings the panel uses on its own (session timeout, sign-in notice, sign-in protection) no longer show the "Apply changes" bar, and Discard keeps them.</li>
 </ul>
-<p class="dl-cl-p">"Apply changes" bar, and Discard keeps them.</p>
 <h3 class="dl-cl-ver">0.12.1 - 2026-11-03</h3>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Clicking Apply could start the same apply twice: the apply bar's periodic refresh redrew an active Apply</li>
+<li>Clicking Apply could start the same apply twice: the apply bar's periodic refresh redrew an active Apply button while the first apply was still running, and the second one ran again right after Keep, asking to keep the same changes a second time. The bar now stays busy until the action has finished, and only one apply, confirm or rollback can run at a time (panel, console and rollback timer).</li>
+<li>A WAN port forward on a management port (for example 443) no longer blocks saving any configuration. The forwarded port is left out of the WAN management rule (pf sends it to the forwarded host anyway) and Admin Access shows a notice.</li>
 </ul>
-<p class="dl-cl-p">button while the first apply was still running, and the second one ran again right after Keep, asking to keep</p>
-<p class="dl-cl-p">the same changes a second time. The bar now stays busy until the action has finished, and only one apply,</p>
-<p class="dl-cl-p">confirm or rollback can run at a time (panel, console and rollback timer).</p>
-<ul class="dl-cl-list">
-<li>A WAN port forward on a management port (for example 443) no longer blocks saving any configuration. The</li>
-</ul>
-<p class="dl-cl-p">forwarded port is left out of the WAN management rule (pf sends it to the forwarded host anyway) and Admin</p>
-<p class="dl-cl-p">Access shows a notice.</p>
 <h3 class="dl-cl-ver">0.12.0 - 2026-11-03</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>System &gt; Settings</strong> with tabs, replacing System &gt; General. More tabs (Firewall &amp; NAT, Logging,</li>
-</ul>
-<p class="dl-cl-p">Notifications, Networking, Tunables) follow in the next releases.</p>
-<ul class="dl-cl-list">
-<li><strong>General</strong>: hostname, local domain, time zone, and a sign-in notice shown on the sign-in page (for example a</li>
-</ul>
-<p class="dl-cl-p">legal notice).</p>
-<ul class="dl-cl-list">
+<li><strong>System &gt; Settings</strong> with tabs, replacing System &gt; General. More tabs (Firewall &amp; NAT, Logging, Notifications, Networking, Tunables) follow in the next releases.</li>
+<li><strong>General</strong>: hostname, local domain, time zone, and a sign-in notice shown on the sign-in page (for example a legal notice).</li>
 <li><strong>Admin Access</strong>:</li>
 <li>Web panel port and the HTTP-to-HTTPS redirect, session timeout.</li>
-<li>Who may manage the firewall: all internal networks (firewall rules decide) or only selected interfaces;</li>
-</ul>
-<p class="dl-cl-p">anti-lockout rule on LAN.</p>
-<ul class="dl-cl-list">
+<li>Who may manage the firewall: all internal networks (firewall rules decide) or only selected interfaces; anti-lockout rule on LAN.</li>
 <li>Access from WAN (until now only in the console menu), with a list of allowed source addresses.</li>
-<li>Sign-in protection with adjustable attempts, period and block time, a list of blocked addresses and an</li>
-</ul>
-<p class="dl-cl-p">Unblock button.</p>
-<ul class="dl-cl-list">
+<li>Sign-in protection with adjustable attempts, period and block time, a list of blocked addresses and an Unblock button.</li>
 <li>SSH: on or off, port, password or key-only sign-in, root's authorised public keys.</li>
-<li>Saving is refused when the new settings would lock out the address you are connected from. nginx and sshd</li>
+<li>Saving is refused when the new settings would lock out the address you are connected from. nginx and sshd check the new settings before Apply; when the panel moves to another port, the apply bar links to the new address.</li>
+<li>Console menu 6) <strong>Management access</strong>: shows the current settings, opens or closes WAN access, and resets management access to the defaults.</li>
 </ul>
-<p class="dl-cl-p">check the new settings before Apply; when the panel moves to another port, the apply bar links to the new</p>
-<p class="dl-cl-p">address.</p>
-<ul class="dl-cl-list">
-<li>Console menu 6) <strong>Management access</strong>: shows the current settings, opens or closes WAN access, and resets</li>
-</ul>
-<p class="dl-cl-p">management access to the defaults.</p>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
 <li>The anti-lockout and WAN management rules follow the configured panel and SSH ports.</li>
@@ -2489,98 +1709,54 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
 <li><strong>Certificates</strong> (System &gt; Certificates): manage the TLS certificate of the web panel.</li>
-<li>See the active certificate: names, issuer, expiry date with days left, key type and the SHA-256</li>
-</ul>
-<p class="dl-cl-p">fingerprint to compare with the browser.</p>
-<ul class="dl-cl-list">
-<li>Install your own certificate (for example from a company CA), with intermediate certificates in the same</li>
-</ul>
-<p class="dl-cl-p">file. It is checked before use: the key must match and have no passphrase, the certificate must be valid</p>
-<p class="dl-cl-p">now, and nginx must accept it.</p>
-<ul class="dl-cl-list">
+<li>See the active certificate: names, issuer, expiry date with days left, key type and the SHA-256 fingerprint to compare with the browser.</li>
+<li>Install your own certificate (for example from a company CA), with intermediate certificates in the same file. It is checked before use: the key must match and have no passphrase, the certificate must be valid now, and nginx must accept it.</li>
 <li>Create a new self-signed certificate for the host names and addresses the panel is opened with.</li>
-<li>The previous certificate is kept and can be restored from the page or with <code>stratum-cert restore</code> on the</li>
-</ul>
-<p class="dl-cl-p">console. A new certificate takes effect at once, without Apply and without dropping open connections.</p>
-<ul class="dl-cl-list">
+<li>The previous certificate is kept and can be restored from the page or with <code>stratum-cert restore</code> on the console. A new certificate takes effect at once, without Apply and without dropping open connections.</li>
 <li>Alert for administrators when a CA-issued panel certificate expires within 21 days.</li>
 <li><code>stratum-cert</code> command: <code>show</code>, <code>selfsigned</code>, <code>install</code>, <code>restore</code>.</li>
 </ul>
 <h3 class="dl-cl-ver">0.10.0 - 2026-11-03</h3>
 <h4 class="dl-cl-sub">Security</h4>
 <ul class="dl-cl-list">
-<li><strong>IPv6 safety baseline</strong>: IPv6 is not supported yet, and now it is guaranteed to stay off - every IPv6 packet</li>
+<li><strong>IPv6 safety baseline</strong>: IPv6 is not supported yet, and now it is guaranteed to stay off - every IPv6 packet is dropped before any pass rule (in and out, not logged), IPv6 stays disabled on all interfaces and is never forwarded. An ISP that starts offering IPv6 can no longer open a path around the IPv4 rules.</li>
 </ul>
-<p class="dl-cl-p">is dropped before any pass rule (in and out, not logged), IPv6 stays disabled on all interfaces and is never</p>
-<p class="dl-cl-p">forwarded. An ISP that starts offering IPv6 can no longer open a path around the IPv4 rules.</p>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>IPv6 design and release plan (<code>docs/ipv6.md</code>): WAN IPv6 with DHCPv6 prefix delegation first, then IPv6 for</li>
+<li>IPv6 design and release plan (<code>docs/ipv6.md</code>): WAN IPv6 with DHCPv6 prefix delegation first, then IPv6 for internal networks and firewall rules, services, and VPNs.</li>
 </ul>
-<p class="dl-cl-p">internal networks and firewall rules, services, and VPNs.</p>
 <h3 class="dl-cl-ver">0.9.1 - 2026-11-03</h3>
 <h4 class="dl-cl-sub">Changed</h4>
 <ul class="dl-cl-list">
-<li>When an Apply fails, the apply bar now says why: each failed check with its message (for example a pf syntax</li>
-</ul>
-<p class="dl-cl-p">error), with a link to the full output under System Logs &gt; Configuration. Failures are also written to the</p>
-<p class="dl-cl-p">system log.</p>
-<ul class="dl-cl-list">
+<li>When an Apply fails, the apply bar now says why: each failed check with its message (for example a pf syntax error), with a link to the full output under System Logs &gt; Configuration. Failures are also written to the system log.</li>
 <li><code>stratum-update run</code> on an up-to-date system reports "nothing to install" instead of an error.</li>
 </ul>
 <h3 class="dl-cl-ver">0.9.0 - 2026-11-03</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
 <li><strong>IP blocklists</strong> (Firewall &gt; Blocklists &gt; IP): block known-bad addresses with pf.</li>
-<li>Catalogue of 63 maintained IPv4 feeds derived from pfBlockerNG (PRI1-PRI5, Scanners, TOR, Mail, DoH, VPN,</li>
-</ul>
-<p class="dl-cl-p">Proxy and more); Spamhaus DROP, Abuse.ch Feodo Tracker and Emerging Threats are recommended and preselected.</p>
-<ul class="dl-cl-list">
-<li>Direction: incoming from the internet, outgoing from local networks, or both. Incoming connections are</li>
-</ul>
-<p class="dl-cl-p">dropped; outgoing ones are rejected so devices fail fast.</p>
-<ul class="dl-cl-list">
+<li>Catalogue of 63 maintained IPv4 feeds derived from pfBlockerNG (PRI1-PRI5, Scanners, TOR, Mail, DoH, VPN, Proxy and more); Spamhaus DROP, Abuse.ch Feodo Tracker and Emerging Threats are recommended and preselected.</li>
+<li>Direction: incoming from the internet, outgoing from local networks, or both. Incoming connections are dropped; outgoing ones are rejected so devices fail fast.</li>
 <li>Own allow and block lists and custom list URLs. An allowed address inside a blocked network stays reachable.</li>
-<li>Hourly updates without Apply (the pf table is replaced live), live progress bar and update log, blocked packet</li>
+<li>Hourly updates without Apply (the pf table is replaced live), live progress bar and update log, blocked packet counters, and "Check an address" to see which list contains an IP.</li>
+<li>Safety: private and reserved ranges and networks larger than /8 are never blocked, whatever a list contains; the firewall's DNS, update and package servers are always allowed.</li>
+<li><strong>Installation media in two variants</strong>: <code>stratum-fw-v0.9.0-vga.iso</code> (monitor and keyboard) and <code>stratum-fw-v0.9.0-serial.iso</code> (serial console, 115200 8N1). Both are hybrid images for CD and USB sticks, and the installed system keeps the console of the media it was installed from.</li>
 </ul>
-<p class="dl-cl-p">counters, and "Check an address" to see which list contains an IP.</p>
-<ul class="dl-cl-list">
-<li>Safety: private and reserved ranges and networks larger than /8 are never blocked, whatever a list contains;</li>
-</ul>
-<p class="dl-cl-p">the firewall's DNS, update and package servers are always allowed.</p>
-<ul class="dl-cl-list">
-<li><strong>Installation media in two variants</strong>: <code>stratum-fw-v0.9.0-vga.iso</code> (monitor and keyboard) and</li>
-</ul>
-<p class="dl-cl-p"><code>stratum-fw-v0.9.0-serial.iso</code> (serial console, 115200 8N1). Both are hybrid images for CD and USB sticks, and</p>
-<p class="dl-cl-p">the installed system keeps the console of the media it was installed from.</p>
 <h3 class="dl-cl-ver">0.8.0 - 2026-11-03</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
 <li><strong>WireGuard</strong> (VPN &gt; WireGuard): remote access with WireGuard, built into FreeBSD - no extra packages.</li>
 <li>Server settings: port, listening WAN, tunnel network, MTU, external address (detected automatically).</li>
-<li>Choose exactly which LANs and VLANs peers may reach, plus extra networks; optional full tunnel and</li>
-</ul>
-<p class="dl-cl-p">peer-to-peer traffic.</p>
-<ul class="dl-cl-list">
-<li>Peers (one per device) with key pairs generated on the firewall and preshared keys: the configuration is</li>
-</ul>
-<p class="dl-cl-p">shown as a QR code for the WireGuard app or downloaded as a <code>.conf</code> file. Devices with their own keys are</p>
-<p class="dl-cl-p">supported too.</p>
-<ul class="dl-cl-list">
+<li>Choose exactly which LANs and VLANs peers may reach, plus extra networks; optional full tunnel and peer-to-peer traffic.</li>
+<li>Peers (one per device) with key pairs generated on the firewall and preshared keys: the configuration is shown as a QR code for the WireGuard app or downloaded as a <code>.conf</code> file. Devices with their own keys are supported too.</li>
 <li>Live status per peer: connected, endpoint, last handshake, received and sent data.</li>
 <li>Adding or removing a peer does not disconnect the others.</li>
-<li>Private keys are kept outside the configuration file (root-only files); peer configurations are shown to</li>
+<li>Private keys are kept outside the configuration file (root-only files); peer configurations are shown to administrators only.</li>
 </ul>
-<p class="dl-cl-p">administrators only.</p>
 <h3 class="dl-cl-ver">0.7.3 - 2026-11-02</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>OpenVPN advanced settings</strong>: UDP or TCP, listening WAN, which LANs and VLANs VPN clients may reach (per</li>
-</ul>
-<p class="dl-cl-p">interface) and extra networks, client-to-client traffic, several devices per user, maximum connections, DNS</p>
-<p class="dl-cl-p">servers and domains for clients, data ciphers, authentication digest, minimum TLS version, key renegotiation,</p>
-<p class="dl-cl-p">keepalive, MTU/MSS, log level, and certificate-only login.</p>
-<ul class="dl-cl-list">
+<li><strong>OpenVPN advanced settings</strong>: UDP or TCP, listening WAN, which LANs and VLANs VPN clients may reach (per interface) and extra networks, client-to-client traffic, several devices per user, maximum connections, DNS servers and domains for clients, data ciphers, authentication digest, minimum TLS version, key renegotiation, keepalive, MTU/MSS, log level, and certificate-only login.</li>
 <li><strong>Fixed VPN address per user</strong> (System &gt; Users).</li>
 <li>The panel tells you when connection settings change and the users' profiles must be downloaded again.</li>
 </ul>
@@ -2610,63 +1786,38 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <li><strong>OpenVPN remote access</strong> (VPN &gt; OpenVPN).</li>
 <li>Built-in certificate authority (elliptic-curve keys, revocation list, tls-crypt).</li>
 <li>Login with the user's certificate and password; the certificate must belong to the same user.</li>
-<li>Per-user <code>.ovpn</code> profiles with everything embedded (administrators only), certificate revocation, list of</li>
-</ul>
-<p class="dl-cl-p">connected clients.</p>
-<ul class="dl-cl-list">
+<li>Per-user <code>.ovpn</code> profiles with everything embedded (administrators only), certificate revocation, list of connected clients.</li>
 <li>Firewall and NAT rules and DNS for VPN clients are created automatically.</li>
 </ul>
 <h3 class="dl-cl-ver">0.6.13 - 0.6.19 - 2026-10-31</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Unbound DNS resolver</strong> (Services &gt; DNS): validating resolver with DNSSEC, forwarder or full-recursion mode;</li>
+<li><strong>Unbound DNS resolver</strong> (Services &gt; DNS): validating resolver with DNSSEC, forwarder or full-recursion mode; DHCP client names keep resolving. dnsmasq stays available and the switch between them is safe in both directions.</li>
+<li><strong>DNS blocklists</strong> (Firewall &gt; Blocklists &gt; DNSBL), pfBlockerNG-style: catalogue derived from pfBlockerNG plus the HaGeZi lists, recommended defaults, own allow and block lists, custom lists, "Check a domain", nightly updates, and an update screen with a percentage bar, current step and live log.</li>
+<li><strong>Dashboard</strong>: update badge next to the version, live uptime, CPU temperature, PPPoE session address and a traffic chart for the last hour.</li>
 </ul>
-<p class="dl-cl-p">DHCP client names keep resolving. dnsmasq stays available and the switch between them is safe in both</p>
-<p class="dl-cl-p">directions.</p>
-<ul class="dl-cl-list">
-<li><strong>DNS blocklists</strong> (Firewall &gt; Blocklists &gt; DNSBL), pfBlockerNG-style: catalogue derived from pfBlockerNG plus</li>
-</ul>
-<p class="dl-cl-p">the HaGeZi lists, recommended defaults, own allow and block lists, custom lists, "Check a domain", nightly</p>
-<p class="dl-cl-p">updates, and an update screen with a percentage bar, current step and live log.</p>
-<ul class="dl-cl-list">
-<li><strong>Dashboard</strong>: update badge next to the version, live uptime, CPU temperature, PPPoE session address and a</li>
-</ul>
-<p class="dl-cl-p">traffic chart for the last hour.</p>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>DNS blocklists: links in list comments are no longer treated as entries (popular sites such as github.com</li>
-</ul>
-<p class="dl-cl-p">were blocked by some lists); list sources, the update server and shared hosting platforms are never blocked.</p>
-<ul class="dl-cl-list">
+<li>DNS blocklists: links in list comments are no longer treated as entries (popular sites such as github.com were blocked by some lists); list sources, the update server and shared hosting platforms are never blocked.</li>
 <li>Applying the configuration with DNS blocklists enabled failed on 0.6.15.</li>
 <li>The DNSSEC root trust anchor is created before the Unbound configuration is checked.</li>
 </ul>
 <h3 class="dl-cl-ver">0.6.6 - 0.6.12 - 2026-10-31</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Offline updates</strong>: download a signed update file (<code>.sfu</code>) and upload it on System &gt; Update - signature and</li>
-</ul>
-<p class="dl-cl-p">checksum verification with a progress bar, then the same installation steps as an online update.</p>
-<ul class="dl-cl-list">
+<li><strong>Offline updates</strong>: download a signed update file (<code>.sfu</code>) and upload it on System &gt; Update - signature and checksum verification with a progress bar, then the same installation steps as an online update.</li>
 <li>The newest 5 boot environments are kept after every update; older ones are removed automatically.</li>
 </ul>
 <h4 class="dl-cl-sub">Fixed</h4>
 <ul class="dl-cl-list">
-<li>Booting an earlier boot environment works (installer and updater set the correct ZFS properties; existing</li>
-</ul>
-<p class="dl-cl-p">installations are repaired automatically).</p>
-<ul class="dl-cl-list">
+<li>Booting an earlier boot environment works (installer and updater set the correct ZFS properties; existing installations are repaired automatically).</li>
 <li>Fresh installations report their version correctly (package database schema), so updates are offered.</li>
-<li>The online check fails fast without internet, and an interrupted package download can no longer hang the</li>
+<li>The online check fails fast without internet, and an interrupted package download can no longer hang the update.</li>
 </ul>
-<p class="dl-cl-p">update.</p>
 <h3 class="dl-cl-ver">0.6.1 - 0.6.5 - 2026-10-31</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li>Update progress: percentage bar, step checklist with times, in-progress banner, and a "restarting" page while</li>
-</ul>
-<p class="dl-cl-p">the panel restarts.</p>
-<ul class="dl-cl-list">
+<li>Update progress: percentage bar, step checklist with times, in-progress banner, and a "restarting" page while the panel restarts.</li>
 <li>System alerts (IP forwarding off, update available) and an own account page with password change.</li>
 </ul>
 <h4 class="dl-cl-sub">Fixed</h4>
@@ -2677,21 +1828,11 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.6.0 - 2026-10-31</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Users and roles</strong> (System &gt; Users): several accounts, administrator / operator / read-only roles, enable and</li>
-</ul>
-<p class="dl-cl-p">disable, last login and failed attempts; sessions end when a password changes or an account is disabled.</p>
-<ul class="dl-cl-list">
+<li><strong>Users and roles</strong> (System &gt; Users): several accounts, administrator / operator / read-only roles, enable and disable, last login and failed attempts; sessions end when a password changes or an account is disabled.</li>
 <li><strong>General settings</strong> (System &gt; General): hostname, local domain, idle session timeout.</li>
 <li><strong>Light theme</strong> and follow-the-system mode, chosen per user.</li>
-<li><strong>Backup and restore</strong> (System &gt; Backup): download the configuration (optionally with users), verified restore</li>
-</ul>
-<p class="dl-cl-p">as pending changes, configuration history with differences.</p>
-<ul class="dl-cl-list">
-<li><strong>Signed software updates</strong> (System &gt; Update) from update.stratumfw.com: signature-checked repository, a backup</li>
-</ul>
-<p class="dl-cl-p">and a new ZFS boot environment before every update, live progress, rollback to the previous boot environment,</p>
-<p class="dl-cl-p">daily update check.</p>
-<ul class="dl-cl-list">
+<li><strong>Backup and restore</strong> (System &gt; Backup): download the configuration (optionally with users), verified restore as pending changes, configuration history with differences.</li>
+<li><strong>Signed software updates</strong> (System &gt; Update) from update.stratumfw.com: signature-checked repository, a backup and a new ZFS boot environment before every update, live progress, rollback to the previous boot environment, daily update check.</li>
 <li>Branded boot menu.</li>
 </ul>
 <h3 class="dl-cl-ver">0.5.0 - 2026-10-30</h3>
@@ -2717,10 +1858,7 @@ shasum -a 256 -c <span class="hl">SHA256SUMS-0.39.5</span>      <span class="cm"
 <h3 class="dl-cl-ver">0.3.0 - 2026-10-30</h3>
 <h4 class="dl-cl-sub">Added</h4>
 <ul class="dl-cl-list">
-<li><strong>Interface assignments</strong>: map ports to WAN, LAN and additional (OPT) interfaces; OPT interfaces can be WAN or</li>
-</ul>
-<p class="dl-cl-p">LAN type.</p>
-<ul class="dl-cl-list">
+<li><strong>Interface assignments</strong>: map ports to WAN, LAN and additional (OPT) interfaces; OPT interfaces can be WAN or LAN type.</li>
 <li>Interface settings: static, DHCP or none, gateway, MTU.</li>
 <li><strong>PPPoE</strong> on every WAN-type interface (the password is never shown again).</li>
 <li><strong>VLANs</strong> (802.1Q), assignable as WAN or LAN.</li>

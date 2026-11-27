@@ -117,3 +117,9 @@ When you report a problem (on GitHub or to a colleague), include:
 
 **Mask public IP addresses, host names and user names before you post.** Never post passwords, keys, tokens, an
 OPNsense `config.xml` or a backup file.
+
+### A website or file download fails when Download Control is enabled
+
+- **HTTPS certificate errors on proxied computers:** Devices configured to use the proxy on port `3128` must trust the [**Inspection CA**](/manual/system-certificates/#inspection-ca) (`System > Certificates > Inspection CA`, separate from the Block Page CA).
+- **Banking, government (`gov.tr`) or certificate-pinned apps fail to connect:** Add the domain to the **Bypass list** under [**Firewall > Download Control**](/manual/firewall-download-control/) (or click the 1-click default bypass list) so the proxy never opens its TLS connection.
+- **Legitimate installer or script from a trusted vendor is blocked:** Add the vendor's domain to **Always allowed** so downloads remain checked and recorded in the **Downloads** tab without being blocked. Plain-text data attachments with binary-looking names (such as `response.bin` JSON payloads from Google web services) automatically pass as text.
